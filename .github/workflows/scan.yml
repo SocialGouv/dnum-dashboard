@@ -111,7 +111,7 @@ jobs:
       - name: Nuclei scan
         uses: "./.github/actions/nuclei"
         with:
-          urls: "urls.txt"
+          urls: ${{ matrix.url }}
           output: "scans/nuclei.log"
 
       - uses: actions/upload-artifact@v2
