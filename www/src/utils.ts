@@ -1,7 +1,7 @@
 export const smallUrl = (url: string) =>
   url
     .toLowerCase()
-    .replace(/^https?:\/\/(www\.)?/, "")
+    .replace(/^https?:\/\//, "")
     .replace(/\/$/, "");
 
 export const getHostName = (url: string) =>
@@ -9,3 +9,12 @@ export const getHostName = (url: string) =>
     .replace(/^https?:\/\//, "")
     .replace(/\/$/, "")
     .replace(/^([^/]+)\/.+$/, "$1");
+
+export const sortByKey = (key: string) => (a: any, b: any) => {
+  if (a[key] > b[key]) {
+    return 1;
+  } else if (a[key] < b[key]) {
+    return -1;
+  }
+  return 0;
+};

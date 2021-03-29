@@ -11,7 +11,7 @@ const requireJson = (resultsPath, filename) => {
     return require(path.join("..", "..", resultsPath, filename));
   } catch (e) {
     console.error("e", e);
-    return [];
+    return null;
   }
 };
 
@@ -52,39 +52,52 @@ const cleanups = {
 };
 
 const generateReport = () => {
-  const urls = getUrls().map((url) => {
-    const urlb64 = Buffer.from(url).toString("base64");
-    const urlPath = path.join("results", urlb64);
-    const scans = fs.readdirSync(urlPath);
-    scans.sort().reverse();
-    const lastScan = scans.length && scans[0];
-    if (!lastScan) {
-      return null;
-    }
-    const latestFilesPath = path.join(urlPath, lastScan);
-    const latestFiles = fs.readdirSync(latestFilesPath);
-    const urlData = {
-      url,
-      http: requireJson(latestFilesPath, "http.json"),
-      ssl: requireJson(latestFilesPath, "ssl.json"),
-      thirdparties: requireJson(latestFilesPath, "thirdparties.json"),
-      zap: cleanups.zap(requireJson(latestFilesPath, "zap.json")),
-      nuclei: cleanups.nuclei(requireJson(latestFilesPath, "nuclei.json")),
-      lhr: cleanups.lhr(requireJson(latestFilesPath, "lhr.json")),
-    };
+  const urls = getUrls()
+    .map((url) => {
+      const urlb64 = Buffer.from(url).toString("base64");
+      const urlPath = path.join("results", urlb64);
+      if (fs.existsSync(urlPath)) {
+        const scans = fs.readdirSync(urlPath);
+        scans.sort().reverse();
+        const lastScan = scans.length && scans[0];
+        if (!lastScan) {
+          return null;
+        }
+        const latestFilesPath = path.join(urlPath, lastScan);
+        const latestFiles = fs.readdirSync(latestFilesPath);
+        const urlData = {
+          url,
+          http: requireJson(latestFilesPath, "http.json"),
+          ssl: requireJson(latestFilesPath, "ssl.json"),
+          thirdparties: requireJson(latestFilesPath, "thirdparties.json"),
+          zap: cleanups.zap(requireJson(latestFilesPath, "zap.json")),
+          nuclei: cleanups
+            .nuclei(requireJson(latestFilesPath, "nuclei.json"))
+            .filter((entry) => entry.host === url),
+          lhr: cleanups.lhr(requireJson(latestFilesPath, "lhr.json")),
+        };
 
-    // copy lhr and zap html reports
-    const publicReportsUrlPath = path.join("www", "public", "report", urlb64);
-    fs.mkdirSync(publicReportsUrlPath, { recursive: true });
-    fs.createReadStream(path.join(latestFilesPath, "lhr.html")).pipe(
-      fs.createWriteStream(path.join(publicReportsUrlPath, "lhr.html"))
-    );
-    fs.createReadStream(path.join(latestFilesPath, "zap.html")).pipe(
-      fs.createWriteStream(path.join(publicReportsUrlPath, "zap.html"))
-    );
-
-    return urlData;
-  });
+        // copy lhr and zap html reports
+        const publicReportsUrlPath = path.join(
+          "www",
+          "public",
+          "report",
+          urlb64
+        );
+        fs.mkdirSync(publicReportsUrlPath, { recursive: true });
+        fs.createReadStream(path.join(latestFilesPath, "lhr.html")).pipe(
+          fs.createWriteStream(path.join(publicReportsUrlPath, "lhr.html"))
+        );
+        fs.createReadStream(path.join(latestFilesPath, "zap.html")).pipe(
+          fs.createWriteStream(path.join(publicReportsUrlPath, "zap.html"))
+        );
+        return urlData;
+      } else {
+        console.error(`Cannot find folder for ${url}`);
+        return null;
+      }
+    })
+    .filter(Boolean);
   return urls;
 };
 
