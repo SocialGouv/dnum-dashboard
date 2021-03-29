@@ -13,12 +13,7 @@ The `www` folder contains the restitution website source code and its built for 
 This generates a full report based on the `661381287` dataset
 
 ```sh
-node src/report/index.js ./results/661381287/ > www/src/report.json`
+node src/report/index.js > www/src/report.json`
 cd www
 yarn start
 ```
-
-## Todo
-
-- async automation
-- better handle multiple urls and same host
