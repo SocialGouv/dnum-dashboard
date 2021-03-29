@@ -1,18 +1,8 @@
-const trackers = require("./trackers");
+const { trackers, find: findTracker } = require("@socialgouv/thirdparties");
 const { rootDomain, toHostname } = require("../utils");
 
 // expected response timeout in seconds
 const TIMEOUT = 120;
-
-/**
- * check if some url is known
- *
- * @param {string} url The full URL
- *
- * @returns {ThirdParty|undefined}
- */
-const getKnownThirdParty = (url) =>
-  trackers.find((tracker) => tracker.check(url));
 
 const legitDomains = [
   ".aphp.fr",
@@ -85,7 +75,7 @@ const analyzeUrl = async (browser, url) => {
       !belongsToSameDomain(url, requestUrl) &&
       !isLegit(requestUrl)
     ) {
-      const res = getKnownThirdParty(requestUrl);
+      const res = findTracker(requestUrl);
       if (res) {
         trackers.push({ type: res.id, url: requestUrl, details: res });
       } else {
