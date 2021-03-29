@@ -17,6 +17,8 @@ jobs:
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
 
       - name: Build
+        env:
+          SKIP_PREFLIGHT_CHECK: "true"
         run: |
           LATEST=$(find ./results/* -type d -prune | tail -n 1)
           yarn
