@@ -1,36 +1,99 @@
+const dns = require("dns");
 const fs = require("fs");
 const path = require("path");
 const puppeteer = require("puppeteer");
 const pAll = require("p-all");
 
-const analyze = require("./analyze");
-const { getUrls } = require("../utils");
+const { analyzeUrl } = require("./analyze");
+const { rootDomain, toHostname, uniqify } = require("../utils");
+const { getGeoIP } = require("./geoip");
 
-const scan = () =>
+/**
+ * Run a hostname to IP lookup
+ *
+ * @param {string} url The full URL
+ *
+ * @returns {Promise<DnsScanResult>}
+ */
+const dnsLookup = (url) =>
+  new Promise((resolve, reject) => {
+    dns.lookup(url, (err, result) => {
+      if (err) {
+        return reject(err);
+      } else {
+        return resolve(result);
+      }
+    });
+  });
+
+/**
+ * Run a third-parties lookup on some URL with puppeteer
+ *
+ * @param {string} url The full URL
+ *
+ * @returns {Promise<ThirdPartiesScanResult>}
+ */
+const scan = (url) =>
   puppeteer
     .launch({
       ignoreHTTPSErrors: true,
     })
-    .then(async (browser) => {
-      const hosts = getUrls();
-      const results = await pAll(
-        hosts.map((url) => async () => {
-          console.warn(`Fetching ${url}`);
+    .then((browser) =>
+      analyzeUrl(browser, url)
+        .then((result) => {
+          browser.close();
+          return result;
+        })
+        .catch((e) => {
+          browser.close();
+          throw e;
+        })
+    )
+    .then(async (results) => {
+      if (!results.trackers) {
+        return results;
+      }
+      const hostnames = uniqify([
+        toHostname(url),
+        ...results.trackers.map((tracker) => toHostname(tracker.url)),
+      ]);
+
+      const endpoints = await pAll(
+        hostnames.map((hostname) => async () => {
+          const ip = await dnsLookup(hostname);
           return {
-            url,
-            ...(await analyze(browser, url)),
+            hostname,
+            ip,
+            // add geolite2 data
+            geoip: await getGeoIP(ip),
+            // todo: add hosting info
           };
         }),
-        { concurrency: 2, stopOnError: false }
+        { concurrency: 1 }
       );
-      browser.close();
-      return results;
+
+      return {
+        ...results,
+        endpoints,
+      };
+    })
+    .catch((e) => {
+      console.log("e", e);
+      return {
+        trackers: null,
+        cookies: null,
+        headers: null,
+        endpoints: null,
+      };
     });
 
 if (require.main === module) {
-  scan().then((results) => {
-    console.log(JSON.stringify(results, null, 2));
-  });
+  const url = process.argv[process.argv.length - 1];
+  scan(url)
+    .then((results) => {
+      console.log(JSON.stringify(results, null, 2));
+    })
+    .catch(console.log);
 }
 
 module.exports = scan;
