@@ -33,23 +33,54 @@ export const Url: React.FC<UrlDetailProps> = ({ report, ...props }) => {
           </a>
         </h3>
       </Jumbotron>
-      <LightHouse
-        data={urlData.lhr}
-        url={`/dnum-dashboard/report/${window.btoa(url)}/lhr.html`}
-      />
-      <br />
-      <SSL data={urlData.ssl} />
-      <br />
-      <HTTP data={urlData.http} />
-      <br />
-      <Nuclei data={urlData.nuclei} />
-      <br />
-      <Trackers data={urlData.thirdparties} />
-      <br />
-      <Owasp
-        data={urlData.zap}
-        url={`/dnum-dashboard/report/${window.btoa(url)}/zap.html`}
-      />
+      {(urlData.lhr && (
+        <React.Fragment>
+          <LightHouse
+            data={urlData.lhr}
+            url={`/dnum-dashboard/report/${window.btoa(url)}/lhr.html`}
+          />
+          <br />
+        </React.Fragment>
+      )) ||
+        null}
+      {(urlData.ssl && (
+        <React.Fragment>
+          <SSL data={urlData.ssl} />
+          <br />
+        </React.Fragment>
+      )) ||
+        null}
+      {(urlData.http && (
+        <React.Fragment>
+          <HTTP data={urlData.http} />
+          <br />
+        </React.Fragment>
+      )) ||
+        null}
+      {(urlData.nuclei && (
+        <React.Fragment>
+          <Nuclei data={urlData.nuclei} />
+          <br />
+        </React.Fragment>
+      )) ||
+        null}
+      {(urlData.thirdparties && (
+        <React.Fragment>
+          <Trackers data={urlData.thirdparties} />
+          <br />
+        </React.Fragment>
+      )) ||
+        null}
+      {(urlData.zap && (
+        <React.Fragment>
+          <Owasp
+            data={urlData.zap}
+            url={`/dnum-dashboard/report/${window.btoa(url)}/zap.html`}
+          />
+          <br />
+        </React.Fragment>
+      )) ||
+        null}
     </div>
   );
 };

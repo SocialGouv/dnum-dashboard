@@ -10,40 +10,39 @@ type TrackersProps = { data: any };
 
 type CookiesTableProps = { cookies: any[] };
 
-const CookiesTable: React.FC<CookiesTableProps> = ({ cookies }) => (cookies && cookies.length && (
-  <Table striped bordered hover style={{ marginBottom: 10 }}>
-    <thead>
-      <tr>
-        <th className="bg-dark text-white" colSpan={4}>
-          Cookies
+const CookiesTable: React.FC<CookiesTableProps> = ({ cookies }) =>
+  (cookies && cookies.length && (
+    <Table striped bordered hover style={{ marginBottom: 10 }}>
+      <thead>
+        <tr>
+          <th className="bg-dark text-white" colSpan={4}>
+            Cookies
           </th>
-      </tr>
-      <tr>
-        <th>name</th>
-        <th>domain</th>
-        <th className="text-center">httpOnly</th>
-        <th className="text-center">secure</th>
-      </tr>
-    </thead>
-    <tbody>
-      {cookies.map((cookie: any, i: number) => (
-        <tr key={cookie.templateID + "" + i}>
-          <td>{cookie.name}</td>
-          <td>{cookie.domain}</td>
-          <td className="text-center">
-            {cookie.httpOnly ? "✔️" : "❌"}
-          </td>
-          <td className="text-center">
-            {cookie.secure ? "✔️" : "❌"}
-          </td>
         </tr>
-      ))}
-    </tbody>
-  </Table>
-)) ||
-  null
+        <tr>
+          <th>name</th>
+          <th>domain</th>
+          <th className="text-center">httpOnly</th>
+          <th className="text-center">secure</th>
+        </tr>
+      </thead>
+      <tbody>
+        {cookies.map((cookie: any, i: number) => (
+          <tr key={cookie.templateID + "" + i}>
+            <td>{cookie.name}</td>
+            <td>{cookie.domain}</td>
+            <td className="text-center">{cookie.httpOnly ? "✔️" : "❌"}</td>
+            <td className="text-center">{cookie.secure ? "✔️" : "❌"}</td>
+          </tr>
+        ))}
+      </tbody>
+    </Table>
+  )) ||
+  null;
 
-const smallLinkify = (url: string) => <a href={url}>{smallUrl(url).substring(0, 25) + "..."}</a>
+const smallLinkify = (url: string) => (
+  <a href={url}>{smallUrl(url).substring(0, 25) + "..."}</a>
+);
 
 type TrackersTableProps = { trackers: any[] };
 
@@ -54,7 +53,7 @@ const TrackersTable: React.FC<TrackersTableProps> = ({ trackers }) =>
         <tr>
           <th className="bg-dark text-white" colSpan={3}>
             Third-parties ressources
-            </th>
+          </th>
         </tr>
         <tr>
           <th>type</th>
@@ -75,65 +74,79 @@ const TrackersTable: React.FC<TrackersTableProps> = ({ trackers }) =>
       </tbody>
     </Table>
   )) ||
-  null
+  null;
 
 type EndPointsTableProps = { endpoints: any[] };
 
-const EndPointsTable: React.FC<EndPointsTableProps> = ({ endpoints }) => <Table striped bordered hover style={{ marginBottom: 10 }}>
-  <thead>
-    <tr>
-      <th>Flag</th>
-      <th>Hostname</th>
-      <th>IP</th>
-      <th>City</th>
-      <th>Country</th>
-    </tr>
-  </thead>
-  <tbody>
-    {endpoints.map(
-      (endpoint: any, i: number) => {
-        const Flag =
-          (endpoint.geoip.country &&
-            Flags[endpoint.geoip.country.iso_code]) ||
-          null;
-        return (
-          <tr key={endpoint.hostname + "-" + endpoint.ip}>
-            <td className="text-center">
-              {Flag && (
-                <Flag
-                  style={{ width: 60 }}
-                  title={endpoint.geoip.country.names.fr}
-                />
-              )}
-            </td>
-            <td>{endpoint.hostname}</td>
-            <td>{endpoint.ip}</td>
-            <td>
-              {(endpoint.geoip.city && endpoint.geoip.city.names.fr) || "?"}
-            </td>
+const EndPointsTable: React.FC<EndPointsTableProps> = ({ endpoints }) =>
+  (endpoints && endpoints.length && (
+    <Table striped bordered hover style={{ marginBottom: 10 }}>
+      <thead>
+        <tr>
+          <th>Flag</th>
+          <th>Hostname</th>
+          <th>IP</th>
+          <th>City</th>
+          <th>Country</th>
+        </tr>
+      </thead>
+      <tbody>
+        {endpoints.map((endpoint: any, i: number) => {
+          const Flag =
+            (endpoint.geoip.country &&
+              Flags[endpoint.geoip.country.iso_code]) ||
+            null;
+          return (
+            <tr key={endpoint.hostname + "-" + endpoint.ip}>
+              <td className="text-center">
+                {Flag && (
+                  <Flag
+                    style={{ width: 60 }}
+                    title={endpoint.geoip.country.names.fr}
+                  />
+                )}
+              </td>
+              <td>{endpoint.hostname}</td>
+              <td>{endpoint.ip}</td>
+              <td>
+                {(endpoint.geoip.city && endpoint.geoip.city.names.fr) || "?"}
+              </td>
 
-            <td>
-              {(endpoint.geoip.country && endpoint.geoip.country.names.fr) ||
-                "?"}
-            </td>
-          </tr>
-        );
-      })}
-  </tbody>
-</Table>
-
+              <td>
+                {(endpoint.geoip.country && endpoint.geoip.country.names.fr) ||
+                  "?"}
+              </td>
+            </tr>
+          );
+        })}
+      </tbody>
+    </Table>
+  )) ||
+  null;
 
 export const Trackers: React.FC<TrackersProps> = ({ data }) => {
-  const hasIssues = [...data.cookies, ...data.trackers].length > 0;
+  const hasIssues = [];
+  if (data.cookies && data.cookies.length) {
+    hasIssues.push(...data.cookies);
+  }
+  if (data.trackers && data.trackers.length) {
+    hasIssues.push(...data.trackers);
+  }
   return (
-    (hasIssues && (
-      <Panel title="Third parties" info="Scripts tiers embarqués dans la page web">
+    (hasIssues.length && (
+      <Panel
+        title="Third parties"
+        info="Scripts tiers embarqués dans la page web"
+      >
         <CookiesTable cookies={data.cookies} />
         <TrackersTable trackers={data.trackers} />
         <EndPointsTable endpoints={data.endpoints} />
       </Panel>
     )) || (
-      <Panel title="Third parties" info="Scripts tiers embarqués dans la page web">
+      <Panel
+        title="Third parties"
+        info="Scripts tiers embarqués dans la page web"
+      >
         <Alert variant="success">Aucun script third-party detecté</Alert>
       </Panel>
     )

@@ -4,13 +4,14 @@ import { Nav } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import { Home, BarChart, Search } from "react-feather";
 
-import { smallUrl } from "../utils";
+import { smallUrl, sortByKey } from "../utils";
 
 type SidebarProps = {
   report: any;
 };
 
 export const Sidebar: React.FC<SidebarProps> = ({ report }) => {
+  const sortedReport = report.sort(sortByKey("url"));
   return (
     <Nav className="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
       <div className="sidebar-sticky pt-3">
@@ -42,7 +43,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ report }) => {
         </h6>
 
         <ul className="nav flex-column">
-          {report.map((url: any) => (
+          {sortedReport.map((url: any) => (
             <li
               className="nav-item"
               key={url.url}

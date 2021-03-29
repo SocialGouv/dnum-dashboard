@@ -6,10 +6,9 @@ import { Link } from "react-router-dom";
 import Tooltip from "rc-tooltip";
 
 import { Grade } from "./Grade";
+import { sortByKey, smallUrl } from "../utils";
 
 import "rc-tooltip/assets/bootstrap.css";
-
-const stripUrl = (url: string) => url.replace(/^(https?:\/\/)?(www\.)?/, "")
 
 type DashboardProps = { report: any };
 
@@ -37,12 +36,12 @@ const getGradeCookies = (count: number) => {
   return count > 10
     ? "F"
     : count > 5
-      ? "E"
-      : count > 2
-        ? "C"
-        : count > 0
-          ? "B"
-          : "A";
+    ? "E"
+    : count > 2
+    ? "C"
+    : count > 0
+    ? "B"
+    : "A";
 };
 
 const getNucleiGrade = (events: any) => {
@@ -51,8 +50,8 @@ const getNucleiGrade = (events: any) => {
   ).length
     ? "F"
     : events.length
-      ? "B"
-      : "A";
+    ? "B"
+    : "A";
 };
 
 const getOwaspGrade = (owaspAlerts: any) => {
@@ -63,12 +62,12 @@ const getOwaspGrade = (owaspAlerts: any) => {
   return maxSeverity > 3
     ? "F"
     : maxSeverity > 2
-      ? "D"
-      : maxSeverity > 1
-        ? "C"
-        : maxSeverity > 0
-          ? "B"
-          : "A";
+    ? "D"
+    : maxSeverity > 1
+    ? "C"
+    : maxSeverity > 0
+    ? "B"
+    : "A";
 };
 
 type ColumnHeaderProps = {
@@ -91,7 +90,7 @@ const ColumnHeader: React.FC<ColumnHeaderProps> = ({ title, info }) => (
 );
 
 export const Dashboard: React.FC<DashboardProps> = ({ report }) => {
-  //console.log('report', report)
+  const sortedReport = report.sort(sortByKey("url"));
   return (
     <div>
       <br />
@@ -146,12 +145,11 @@ export const Dashboard: React.FC<DashboardProps> = ({ report }) => {
           </tr>
         </thead>
         <tbody>
-          {report.map((urlReport: any) => {
+          {sortedReport.map((urlReport: any) => {
             // compute values
 
             // LightHouse
-            const lhrCategories =
-              urlReport.lhr && urlReport.lhr.categories;
+            const lhrCategories = urlReport.lhr && urlReport.lhr.categories;
             const a11y =
               lhrCategories && (lhrCategories.accessibility.score as number);
             const webPerf =
@@ -181,7 +179,8 @@ export const Dashboard: React.FC<DashboardProps> = ({ report }) => {
             // TRACKERS
             const trackersCount =
               (urlReport.thirdparties &&
-                urlReport.thirdparties.trackers && urlReport.thirdparties.trackers.length) ||
+                urlReport.thirdparties.trackers &&
+                urlReport.thirdparties.trackers.length) ||
               0;
             const trackersGrade = getGradeTrackers(trackersCount);
 
@@ -201,7 +200,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ report }) => {
               <tr key={urlReport.url}>
                 <td>
                   <Link to={`/url/${encodeURIComponent(urlReport.url)}`}>
-                    <Search size={16} /> {stripUrl(urlReport.url)}
+                    <Search size={16} /> {smallUrl(urlReport.url)}
                   </Link>
                 </td>
                 <td className="text-center">
@@ -251,10 +250,18 @@ export const Dashboard: React.FC<DashboardProps> = ({ report }) => {
                   )}
                 </td>
                 <td className="text-center">
-                  <Grade small grade={trackersGrade} label={trackersCount} />
+                  {urlReport.thirdparties ? (
+                    <Grade small grade={trackersGrade} label={trackersCount} />
+                  ) : (
+                    <IconUnknown />
+                  )}
                 </td>
                 <td className="text-center">
-                  <Grade small grade={cookiesGrade} label={cookiesCount} />
+                  {urlReport.thirdparties ? (
+                    <Grade small grade={cookiesGrade} label={cookiesCount} />
+                  ) : (
+                    <IconUnknown />
+                  )}
                 </td>
                 <td className="text-center">
                   <Grade small grade={nucleiGrade} label={nucleiCount} />

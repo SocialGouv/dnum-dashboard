@@ -33,11 +33,7 @@ export const Intro: React.FC = () => {
         <br />
         <br />
         <Link to="/dashboard">
-          <Button
-            variant="dark"
-          >
-            Accéder au tableau de bord
-          </Button>
+          <Button variant="dark">Accéder au tableau de bord</Button>
         </Link>
       </Jumbotron>
 
@@ -171,7 +167,7 @@ export const Intro: React.FC = () => {
         </Alert>
         <Button
           variant="dark"
-          href="https://github.com/SocialGouv/dnum-dashboard/blob/master/src/thirdparties/trackers.js"
+          href="https://github.com/SocialGouv/thirdparties"
         >
           Code source
         </Button>
