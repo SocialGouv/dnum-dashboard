@@ -93,7 +93,8 @@ const EndPointsTable: React.FC<EndPointsTableProps> = ({ endpoints }) =>
       <tbody>
         {endpoints.map((endpoint: any, i: number) => {
           const Flag =
-            (endpoint.geoip.country &&
+            (endpoint.geoip &&
+              endpoint.geoip.country &&
               Flags[endpoint.geoip.country.iso_code]) ||
             null;
           return (
@@ -109,11 +110,16 @@ const EndPointsTable: React.FC<EndPointsTableProps> = ({ endpoints }) =>
               <td>{endpoint.hostname}</td>
               <td>{endpoint.ip}</td>
               <td>
-                {(endpoint.geoip.city && endpoint.geoip.city.names.fr) || "?"}
+                {(endpoint.geoip &&
+                  endpoint.geoip.city &&
+                  endpoint.geoip.city.names.fr) ||
+                  "?"}
               </td>
 
               <td>
-                {(endpoint.geoip.country && endpoint.geoip.country.names.fr) ||
+                {(endpoint.geoip &&
+                  endpoint.geoip.country &&
+                  endpoint.geoip.country.names.fr) ||
                   "?"}
               </td>
             </tr>

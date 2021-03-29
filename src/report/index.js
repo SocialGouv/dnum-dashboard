@@ -4,7 +4,6 @@ const pick = require("lodash.pick");
 const omit = require("lodash.omit");
 
 const { getUrls, toHostname } = require("../utils");
-const { copyWithin } = require("../thirdparties/trackers");
 
 const requireJson = (resultsPath, filename) => {
   try {
