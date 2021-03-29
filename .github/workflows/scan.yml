@@ -109,6 +109,7 @@ jobs:
           node src/thirdparties/scan.js ${{ matrix.url }} > $SCAN_OUTPUT
 
       - name: Nuclei scan
+        continue-on-error: true
         uses: "./.github/actions/nuclei"
         with:
           urls: ${{ matrix.url }}

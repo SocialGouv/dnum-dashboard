@@ -83,7 +83,7 @@ const scan = (url) =>
       };
     })
     .catch((e) => {
-      console.log("e", e);
+      console.error("e", e);
       return {
         trackers: null,
         cookies: null,
