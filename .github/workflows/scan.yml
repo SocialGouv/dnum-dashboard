@@ -136,7 +136,7 @@ jobs:
           mkdir -p $OUT_PATH || true
 
           # filter and jsonify nuclei logs
-          cat scans/nuclei.log | jq -s "[.[] | select( .host == \"${{ matrix.url }}\" )]" > scans/nuclei.json
+          cat scans/nuclei.log | jq -s > scans/nuclei.json
           rm scans/nuclei.log
 
           # archive results in dedicated folder
