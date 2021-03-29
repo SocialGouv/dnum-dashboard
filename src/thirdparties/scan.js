@@ -60,12 +60,17 @@ const scan = (url) =>
 
       const endpoints = await pAll(
         hostnames.map((hostname) => async () => {
-          const ip = await dnsLookup(hostname);
+          let ip = null;
+          try {
+            ip = await dnsLookup(hostname);
+          } catch (e) {
+            console.error("dnsLookup.error", e);
+          }
           return {
             hostname,
             ip,
             // add geolite2 data
-            geoip: await getGeoIP(ip),
+            geoip: ip && (await getGeoIP(ip)),
             // todo: add hosting info
           };
         }),
