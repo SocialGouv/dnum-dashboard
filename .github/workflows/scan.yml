@@ -88,6 +88,7 @@ jobs:
           urls: "${{ matrix.url }}"
           uploadArtifacts: true
           temporaryPublicStorage: false
+          configPath: "./lighthouserc.json"
 
       - name: SSL Labs scan
         shell: bash
@@ -158,7 +159,6 @@ jobs:
       - uses: EndBug/add-and-commit@v7
         with:
           add: '["results"]'
-          # author_name: ${{ secrets.SOCIALGROOVYBOT_NAME }}
-          #author_email: ${{ secrets.SOCIALGROOVYBOT_EMAIL }}
+          author_name: ${{ secrets.SOCIALGROOVYBOT_NAME }}
+          author_email: ${{ secrets.SOCIALGROOVYBOT_EMAIL }}
           message: "update: ${{ matrix.url }}"
-#          pull_strategy: "--no-ff"
