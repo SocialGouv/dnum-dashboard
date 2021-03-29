@@ -137,8 +137,8 @@ jobs:
           mkdir -p $OUT_PATH || true
 
           # filter and jsonify nuclei logs
-          cat scans/nuclei.log | jq -s > scans/nuclei.json
-          rm scans/nuclei.log
+          cat scans/nuclei.log | jq -s > scans/nuclei.json || true
+          rm scans/nuclei.log || true
 
           # archive results in dedicated folder
           mv scans/* $OUT_PATH/
