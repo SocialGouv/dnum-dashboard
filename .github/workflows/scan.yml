@@ -76,6 +76,7 @@ jobs:
 
       - name: ZAP Scan
         uses: zaproxy/action-baseline@v0.4.0
+        continue-on-error: true
         with:
           # token: "${{ secrets.GITHUB_TOKEN }}"
           docker_name: "owasp/zap2docker-stable"
@@ -83,6 +84,7 @@ jobs:
           cmd_options: "-a"
 
       - name: Lighthouse scan
+        continue-on-error: true
         uses: treosh/lighthouse-ci-action@v7
         with:
           urls: "${{ matrix.url }}"
@@ -91,18 +93,21 @@ jobs:
           configPath: "./lighthouserc.json"
 
       - name: SSL Labs scan
+        continue-on-error: true
         shell: bash
         run: |
           SCAN_OUTPUT=scans/ssl.json
           node src/ssl/scan.js ${{ matrix.url }} > $SCAN_OUTPUT
 
       - name: Mozilla HTTP scan
+        continue-on-error: true
         shell: bash
         run: |
           SCAN_OUTPUT=scans/http.json
           node src/http/scan.js ${{ matrix.url }} > $SCAN_OUTPUT
 
       - name: Third parties scan
+        continue-on-error: true
         shell: bash
         run: |
           SCAN_OUTPUT=scans/thirdparties.json

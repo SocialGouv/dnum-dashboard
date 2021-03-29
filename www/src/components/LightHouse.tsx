@@ -10,7 +10,7 @@ type Category = {
   [any: string]: any;
 };
 
-type LightHouseProps = { data: any, url:string };
+type LightHouseProps = { data: any, url: string };
 
 const toTime = (ms: number) => {
   let minutes = 0,
@@ -51,6 +51,9 @@ const toSize = (bytes: number) => {
 
 export const LightHouse: React.FC<LightHouseProps> = ({ data, url }) => {
 
+  if (!data.audits.metrics.details) {
+    return null
+  }
   const highlights = {
     "First contentful Paint": toTime(
       data.audits.metrics.details.items[0].firstContentfulPaint
@@ -67,7 +70,7 @@ export const LightHouse: React.FC<LightHouseProps> = ({ data, url }) => {
     // ),
   } as object;
 
-    const order = ["accessibility", "performance", "seo", "best-practices"];
+  const order = ["accessibility", "performance", "seo", "best-practices"];
 
   return (
     <Panel
