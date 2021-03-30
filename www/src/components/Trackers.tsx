@@ -83,7 +83,7 @@ const EndPointsTable: React.FC<EndPointsTableProps> = ({ endpoints }) =>
     <Table striped bordered hover style={{ marginBottom: 10 }}>
       <thead>
         <tr>
-          <th>Flag</th>
+          <th style={{ width: 100 }}>Flag</th>
           <th>Hostname</th>
           <th>IP</th>
           <th>City</th>

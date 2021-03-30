@@ -9,7 +9,8 @@ type SSLProps = { data: any };
 
 export const SSL: React.FC<SSLProps> = ({ data }) => {
   const url =
-    (data && data.endpoints &&
+    (data &&
+      data.endpoints &&
       `https://www.ssllabs.com/ssltest/analyze.html?d=${data.host}`) ||
     null;
   return (
@@ -17,50 +18,46 @@ export const SSL: React.FC<SSLProps> = ({ data }) => {
       <Panel title="SSL" info="Informations collectées via SSLlabs" url={url}>
         <Row>
           <Col>
-           <Table striped bordered hover>
-        <thead>
-          <tr>
-            <th className="bg-dark text-white" colSpan={4}>
-              SSL endpoints
-            </th>
-          </tr>
-          <tr>
-            <th>IP</th>
-            <th>Grade</th>
-          </tr>
-        </thead>
-        <tbody>
-
-            {data.endpoints.map((endpoint: any, i: number) => {
-              return (
-                <tr key={endpoint.ipAddress}>
-                 <td> {endpoint.ipAddress}</td>
-                 <td>
-                  
-                    {(endpoint.statusMessage === "Ready" && (
-                      <div>
-                        <Grade grade={endpoint.grade} />
-                        <br />
-                        <br />
-                        {endpoint.hasWarnings && (
-                          <div>Certificate has WARNINGS</div>
-                        )}
-                      </div>
-                    )) || (
-                      <Alert variant="danger">
-                        {endpoint.statusMessage}
-                      </Alert>
-                    )}
-                  
-                </td>
+            <Table striped bordered hover>
+              <thead>
+                <tr>
+                  <th className="bg-dark text-white" colSpan={4}>
+                    SSL endpoints
+                  </th>
                 </tr>
-              );
-            })}
-            </tbody>
+                <tr>
+                  <th style={{ width: 100 }}>Grade</th>
+                  <th>IP</th>
+                </tr>
+              </thead>
+              <tbody>
+                {data.endpoints.map((endpoint: any, i: number) => {
+                  return (
+                    <tr key={endpoint.ipAddress}>
+                      <td className="text-center">
+                        {(endpoint.statusMessage === "Ready" && (
+                          <div>
+                            <Grade grade={endpoint.grade} />
+                            <br />
+                            <br />
+                            {endpoint.hasWarnings && (
+                              <div>Certificate has WARNINGS</div>
+                            )}
+                          </div>
+                        )) || (
+                          <Alert variant="danger">
+                            {endpoint.statusMessage}
+                          </Alert>
+                        )}
+                      </td>
+                      <td> {endpoint.ipAddress}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
             </Table>
           </Col>
         </Row>
-    
       </Panel>
     )
   );

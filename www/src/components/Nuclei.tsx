@@ -46,8 +46,8 @@ export const Nuclei: React.FC<NucleiProps> = ({ data }) => {
         <Table striped bordered hover>
           <thead>
             <tr>
+              <th style={{ width: 100 }}>severity</th>
               <th>id</th>
-              <th>severity</th>
               <th>name</th>
               <th>matcher</th>
             </tr>
@@ -56,10 +56,10 @@ export const Nuclei: React.FC<NucleiProps> = ({ data }) => {
             {rows.map((failure: any, i: number) => {
               return (
                 <tr key={failure.templateID + i}>
-                  <td>{failure.templateID}</td>
                   <td>
                     <NucleiBadge {...failure} />
                   </td>
+                  <td>{failure.templateID}</td>
                   <td>{failure.info.name}</td>
                   <td>{failure.matcher_name}</td>
                 </tr>
