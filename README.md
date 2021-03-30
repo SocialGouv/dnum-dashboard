@@ -1,6 +1,6 @@
-# web-dashboard
+# apps-dashboard
 
-see https://socialgouv.github.io/web-dashboard
+Tableau de bord des applications : https://socialgouv.github.io/dnum-dashboard
 
 ## Dev
 
@@ -17,3 +17,7 @@ node src/report/index.js > www/src/report.json`
 cd www
 yarn start
 ```
+
+## Related
+
+- https://github.com/SocialGouv/thirdparties

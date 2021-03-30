@@ -54,18 +54,19 @@ export const HTTP: React.FC<HTTPProps> = ({ data }) => {
         <Table striped bordered hover>
           <thead>
             <tr>
+              <th style={{ width: 100 }}>impact</th>
               <th>id</th>
-              <th>impact</th>
               <th>description</th>
             </tr>
           </thead>
           <tbody>
             {failures.map((failure, i) => (
               <tr key={failure.name + i}>
-                <td>{failure.name}</td>
                 <td>
                   <HttpRowBadge {...failure} />
                 </td>
+                <td>{failure.name}</td>
+
                 <td>{failure.score_description}</td>
               </tr>
             ))}

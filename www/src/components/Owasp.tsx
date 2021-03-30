@@ -33,10 +33,11 @@ const OwaspBadge = (row: any) => {
   );
 };
 
-type OwaspProps = { data: any, url:string };
+type OwaspProps = { data: any; url: string };
 
 export const Owasp: React.FC<OwaspProps> = ({ data, url }) => {
-  const alerts = data && data.site && data.site.flatMap((site: any) => site.alerts)
+  const alerts =
+    data && data.site && data.site.flatMap((site: any) => site.alerts);
   alerts.sort(orderBySeverity);
   return (
     (alerts.length && (
@@ -48,18 +49,20 @@ export const Owasp: React.FC<OwaspProps> = ({ data, url }) => {
         <Table striped bordered hover>
           <thead>
             <tr>
+              <th style={{ width: 100 }} className="text-center">
+                risk/confidence
+              </th>
               <th>name</th>
-              <th className="text-center">risk/confidence</th>
             </tr>
           </thead>
           <tbody>
             {alerts.map((alert: any, i: number) => {
               return (
                 <tr key={alert.name + i}>
-                  <td>{alert.name}</td>
                   <td className="text-center">
                     <OwaspBadge {...alert} />
                   </td>
+                  <td>{alert.name}</td>
                 </tr>
               );
             })}
