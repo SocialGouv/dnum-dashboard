@@ -18,6 +18,10 @@ export const Intro: React.FC = () => {
         outils qui évaluent chaque URL automatiquement et indépendamment.
         <br />
         <br />
+        L'évaluation des outils ne remplace en aucun cas une expertise manuelle,
+        et seule la page d'accueil du site est ici évaluée.
+        <br />
+        <br />
         Vous pouvez soumettre de nouvelles URLs, proposer des corrections ou
         consulter la roadmap en{" "}
         <a
@@ -28,8 +32,6 @@ export const Intro: React.FC = () => {
           cliquant ici
         </a>
         .
-        <br />
-        <br />
         <br />
         <br />
         <Link to="/dashboard">
