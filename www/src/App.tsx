@@ -2,7 +2,7 @@ import * as React from "react";
 
 import { Container, Row } from "react-bootstrap";
 
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { HashRouter as Router, Switch, Route } from "react-router-dom";
 
 import report from "./report.json";
 
@@ -14,7 +14,7 @@ import { Intro } from "./components/Intro";
 
 const App = () => {
   return (
-    <Router basename={process.env.PUBLIC_URL}>
+    <Router>
       <div>
         <Topbar />
         <Container fluid>
