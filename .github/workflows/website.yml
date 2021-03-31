@@ -16,19 +16,8 @@ jobs:
           path: '**/node_modules'
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
 
-      - name: Build
-        env:
-          SKIP_PREFLIGHT_CHECK: "true"
-        run: |
-          LATEST=$(find ./results/* -type d -prune | tail -n 1)
-          yarn
-          # this create a report.json to build the website
-          # also copies html reports to www/public
-          node src/report > www/src/report.json
-          cd www
-          yarn
-          CI=false yarn build
-          touch build/.nojekyll
+      - id: dashlord-report
+        uses: SocialGouv/dashlord-report-action@master
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.0
