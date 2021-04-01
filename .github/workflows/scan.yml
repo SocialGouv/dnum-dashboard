@@ -69,6 +69,11 @@ jobs:
           path: "**/node_modules"
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
 
+      - uses: actions/cache@v2
+        with:
+          path: /home/runner/go/bin/nuclei
+          key: ${{ runner.os }}-${{ hashFiles('/home/runner/go/bin/nuclei') }}
+
       - name: Install packages
         run: |
           mkdir -p scans || true
@@ -113,11 +118,13 @@ jobs:
           SCAN_OUTPUT=scans/thirdparties.json
           node src/thirdparties/scan.js ${{ matrix.url }} > $SCAN_OUTPUT
 
-      - name: Nuclei scan
+      - uses: projectdiscovery/nuclei-action@main
         continue-on-error: true
-        uses: "./.github/actions/nuclei"
         with:
+          user-agent: true
           urls: ${{ matrix.url }}
+          templates: "./"
+          nuclei-ignore: false
           output: "scans/nuclei.log"
 
       - uses: actions/upload-artifact@v2
