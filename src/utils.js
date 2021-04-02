@@ -31,7 +31,27 @@ const getUrls = () =>
     .toString()
     .split("\n")
     .filter((r) => !r.match(/^\s*#/))
-    .filter(Boolean);
+    .filter(Boolean).
+    map((item) => {return item.indexOf(';') > 0 ? item.substring(0, item.indexOf(';') - 1) : item;});
+
+    /**
+     * Get incubator related to an url from urls.txt text file
+     *
+     * @param {string} url The full URL
+     *
+     * @returns {string} an incubator
+     */
+    const getIncubator = (url) => 
+    fs
+      .readFileSync(path.join(__dirname, "..", "urls.txt"))
+      .toString()
+      .split("\n")
+      .filter((r) => !r.match(/^\s*#/))
+      .filter(Boolean)
+      .filter((r) => r.includes(url))
+      .filter(item => {return item.indexOf(';') > 0;})
+      .map((item) => {return item.substring(item.indexOf(';') + 1);})
+      .toString();
 
 /**
  * uniquify some array
@@ -54,4 +74,4 @@ const rootDomain = (url) =>
     .replace(/(?:https?:\/\/)?(?:[^/])*?([^./]+\.[^./]+)(?:\/.*)?$/i, "$1")
     .toLowerCase();
 
-module.exports = { toHostname, getUrls, uniqify, rootDomain };
+module.exports = { toHostname, getUrls, uniqify, rootDomain, getIncubator };

@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { Jumbotron } from "react-bootstrap";
 
 import { HTTP } from "./HTTP";
+import { UpdownIo } from "./UpdownIo";
 import { LightHouse } from "./LightHouse";
 import { Nuclei } from "./Nuclei";
 import { Owasp } from "./Owasp";
@@ -57,6 +58,13 @@ export const Url: React.FC<UrlDetailProps> = ({ report, ...props }) => {
         </React.Fragment>
       )) ||
         null}
+        {(urlData.updownio && (
+          <React.Fragment>
+            <UpdownIo data={urlData.updownio} url={url} />
+            <br />
+          </React.Fragment>
+        )) ||
+          null}
       {(urlData.nuclei && (
         <React.Fragment>
           <Nuclei data={urlData.nuclei} />

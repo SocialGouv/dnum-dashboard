@@ -74,6 +74,7 @@ const generateReport = () => {
             .nuclei(requireJson(latestFilesPath, "nuclei.json"))
             .filter((entry) => entry.host === url),
           lhr: cleanups.lhr(requireJson(latestFilesPath, "lhr.json")),
+          updownio: requireJson(latestFilesPath, "updownio.json"),
         };
 
         // copy lhr and zap html reports

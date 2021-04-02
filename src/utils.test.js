@@ -1,5 +1,5 @@
 const fs = require("fs");
-const { toHostname, getUrls, rootDomain } = require("./utils");
+const { toHostname, getUrls, rootDomain, getIncubator } = require("./utils");
 
 jest.mock("fs");
 
@@ -33,6 +33,45 @@ url3
 `);
 
     expect(getUrls()).toEqual(["url1", "url2", "url3"]);
+  });
+});
+
+describe("getIncubator", () => {
+  test("url1 should return MTE", () => {
+    //@ts-expect-error
+    fs.readFileSync.mockReturnValue(`
+  
+  url1;MTE
+  url2
+  # comment
+  url3;BETA
+  
+  `);
+    expect(getIncubator("url1")).toEqual("MTE");
+  });
+  test("url2 should return empty string", () => {
+    //@ts-expect-error
+    fs.readFileSync.mockReturnValue(`
+  
+  url1;MTE
+  url2
+  # comment
+  url3;BETA
+  
+  `);
+    expect(getIncubator("url2")).toEqual("");
+  });
+  test("url3 should return BETA", () => {
+    //@ts-expect-error
+    fs.readFileSync.mockReturnValue(`
+  
+  url1;MTE
+  url2
+  # comment
+  url3;BETA
+  
+  `);
+    expect(getIncubator("url3")).toEqual("BETA");
   });
 });
 

@@ -133,6 +133,10 @@ export const Dashboard: React.FC<DashboardProps> = ({ report }) => {
               info="Bonnes pratiques de configuration HTTP"
             />
             <ColumnHeader
+              title="Updown.io"
+              info="Temps de réponses HTTP"
+            />
+            <ColumnHeader
               title="OWASP"
               info="Bonnes pratiques de sécurité OWASP"
             />
@@ -165,6 +169,9 @@ export const Dashboard: React.FC<DashboardProps> = ({ report }) => {
 
             // HTTP
             const http = urlReport.http && urlReport.http.grade;
+
+            // Updown.io
+            const updownio = urlReport.updownio && urlReport.updownio.uptime;
 
             // OWASP
             const owaspAlerts =
@@ -238,6 +245,9 @@ export const Dashboard: React.FC<DashboardProps> = ({ report }) => {
                 </td>
                 <td className="text-center">
                   {ssl ? <Grade small grade={ssl} /> : <IconUnknown />}
+                </td>
+                <td className="text-center">
+                  {updownio ? <Grade small grade={updownio} /> : <IconUnknown />}
                 </td>
                 <td className="text-center">
                   {http ? <Grade small grade={http} /> : <IconUnknown />}

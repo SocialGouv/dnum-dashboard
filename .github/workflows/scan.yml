@@ -106,6 +106,15 @@ jobs:
           SCAN_OUTPUT=scans/http.json
           node src/http/scan.js ${{ matrix.url }} > $SCAN_OUTPUT
 
+      - name: Updown.io checks
+        continue-on-error: true
+        shell: bash
+        env:
+          REACT_APP_UPDOWNIO_MTE_API_KEY: ${{ secrets.UPDOWNIO_MTE_API_KEY }}
+        run: |
+          SCAN_OUTPUT=scans/updownio.json
+          node src/updownio/checks.js ${{ matrix.url }} > $SCAN_OUTPUT
+
       - name: Third parties scan
         continue-on-error: true
         shell: bash
