@@ -1,9 +1,12 @@
+name: Build Website
+
 on:
   workflow_dispatch:
-  # push:
-  #   branches:
-  #     - master
-name: Website
+  workflow_run:
+    workflows: ["DashLord scans"]
+    branches: [main]
+    types: 
+      - completed
 jobs:
   website:
     runs-on: ubuntu-latest
@@ -19,8 +22,16 @@ jobs:
       - id: dashlord-report
         uses: SocialGouv/dashlord-report-action@master
 
+      # to save the generated report.json as artifact
+      - uses: actions/upload-artifact@v2
+        with:
+          path: report.json
+          name: report
+          if-no-files-found: error
+          
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.0
         with:
           branch: gh-pages
           folder: build
+
