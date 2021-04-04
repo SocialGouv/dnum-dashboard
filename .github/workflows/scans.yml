@@ -67,14 +67,14 @@ jobs:
 
       - name: Mozilla HTTP Observatory
         continue-on-error: true
-        uses: SocialGouv/dashlord-httpobs-action@master
+        uses: SocialGouv/httpobs-action@master
         with:
           url: "${{ matrix.url }}"
           output: "scans/http.json"
 
       - name: Third-party scripts scan
         continue-on-error: true
-        uses: SocialGouv/dashlord-thirdparties-action@master
+        uses: SocialGouv/thirdparties-action@master
         with:
           url: "${{ matrix.url }}"
           output: "scans/thirdparties.json"
