@@ -41,11 +41,12 @@ jobs:
           path: "**/node_modules"
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
 
-      - uses: "socialgouv/wappalyser-action@master"
+      - name: Wappalyzer scan
+        uses: "socialgouv/wappalyzer-action@master"
         continue-on-error: true
         with:
           url: "${{ matrix.url }}"
-          output: scans/wappalyser.json
+          output: scans/wappalyzer.json
 
       - name: ZAP Scan
         uses: zaproxy/action-baseline@v0.4.0
