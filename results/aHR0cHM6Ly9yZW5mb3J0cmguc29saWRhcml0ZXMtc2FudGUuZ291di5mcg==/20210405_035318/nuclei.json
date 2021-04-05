@@ -1,0 +1,18 @@
+[
+  {
+    "templateID": "waf-detect",
+    "info": {
+      "severity": "info",
+      "name": "WAF Detection",
+      "author": "dwisiswant0"
+    },
+    "matcher_name": "bigip",
+    "type": "http",
+    "host": "https://renfortrh.solidarites-sante.gouv.fr",
+    "matched": "https://renfortrh.solidarites-sante.gouv.fr/",
+    "request": "POST / HTTP/1.1\r\nHost: renfortrh.solidarites-sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nContent-Length: 27\r\nContent-Type: application/x-www-form-urlencoded\r\nAccept-Encoding: gzip\r\n\r\n_=<script>alert(1)</script>",
+    "response": "HTTP/1.1 405 Method Not Allowed\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAllow: GET, HEAD\r\nCache-Control: no-cache, no-store, max-age=0, must-revalidate\r\nContent-Security-Policy: default-src 'self'; frame-src 'self' https://2953234.fls.doubleclick.net/ data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://storage.googleapis.com; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; img-src 'self' https://*.basemaps.cartocdn.com data:; font-src 'self' https://fonts.gstatic.com https://netdna.bootstrapcdn.com data:\r\nContent-Type: application/json\r\nDate: Mon, 05 Apr 2021 03:52:00 GMT\r\nExpires: 0\r\nFeature-Policy: geolocation 'none'; midi 'none'; sync-xhr 'none'; microphone 'none'; camera 'none'; magnetometer 'none'; gyroscope 'none'; speaker 'none'; fullscreen 'self'; payment 'none'\r\nPragma: no-cache\r\nReferrer-Policy: strict-origin\r\nSet-Cookie: BIGipServerpool-dgs-rrh.cegedim.cloud-HTTP=!5gYXw5eJlLVW29EqJlLL3fNyljz02RZkFWE8ChoMjiVqM8l1NHuGSG1zmms2iEgyamJwzoTd5nVbUoYQOXNvpbJ5/C0=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Origin,Access-Control-Request-Method,Access-Control-Request-Headers\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n{\"timestamp\":\"2021-04-05T03:52:00.936+0000\",\"status\":405,\"error\":\"Method Not Allowed\",\"message\":\"Request method 'POST' not supported\",\"path\":\"/\"}",
+    "ip": "185.194.82.20",
+    "timestamp": "2021-04-05T03:52:00.99231947Z"
+  }
+]
