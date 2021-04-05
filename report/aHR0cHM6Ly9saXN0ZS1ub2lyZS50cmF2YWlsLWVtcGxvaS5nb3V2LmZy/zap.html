@@ -81,7 +81,7 @@ ZAP Scanning Report
         <p>
 </p>
         <h3 class="left-header">Summary of Alerts</h3>
-        <h3 class="time-stamp">Generated on Sat, 3 Apr 2021 20:54:27</h3>
+        <h3 class="time-stamp">Generated on Mon, 5 Apr 2021 03:12:18</h3>
         <table width="45%" class="summary">
             <tr bgcolor="#666666">
                 <th width="45%" height="24">Risk 
@@ -89,7 +89,7 @@ ZAP Scanning Report
       of Alerts</th>
             </tr>
             <tr bgcolor="#e8e8e8">
-                <td><a href="#high">High</a></td><td align="center">0</td>
+                <td><a href="#high">High</a></td><td align="center">1</td>
             </tr>
             <tr bgcolor="#e8e8e8">
                 <td><a href="#medium">Medium</a></td><td align="center">1</td>
@@ -108,6 +108,9 @@ ZAP Scanning Report
                 <th width="60%" height="24">Name</th><th width="20%" align="center">Risk Level</th><th width="20%" align="center">Number of Instances</th>
             </tr>
             <tr bgcolor="#e8e8e8">
+                <td>PII Disclosure</td><td align="center">High</td><td align="center">1</td>
+            </tr>
+            <tr bgcolor="#e8e8e8">
                 <td>Content Security Policy (CSP) Header Not Set</td><td align="center">Medium</td><td align="center">8</td>
             </tr>
             <tr bgcolor="#e8e8e8">
@@ -123,7 +126,7 @@ ZAP Scanning Report
                 <td>Strict-Transport-Security Header Not Set</td><td align="center">Low</td><td align="center">1</td>
             </tr>
             <tr bgcolor="#e8e8e8">
-                <td>Base64 Disclosure</td><td align="center">Informational</td><td align="center">2</td>
+                <td>Base64 Disclosure</td><td align="center">Informational</td><td align="center">3</td>
             </tr>
             <tr bgcolor="#e8e8e8">
                 <td>Content-Type Header Missing</td><td align="center">Informational</td><td align="center">1</td>
@@ -143,6 +146,74 @@ ZAP Scanning Report
         </table>
         <div class="spacer-lg"></div>
         <h3>Alert Detail</h3>
+        <div class="spacer"></div>
+        <table width="100%" class="results">
+              
+  
+  
+  
+            <tr height="24" class="risk-high">
+                <th width="20%"><a name="high"></a>High (High)</th><th width="80%">PII Disclosure</th>
+            </tr>
+              
+  
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%">Description</td><td width="80%"><p>The response contains Personally Identifiable Information, such as CC number, SSN and similar sensitive data.</p></td>
+            </tr>
+            <TR vAlign="top">
+                <TD colspan="2"></TD>
+            </TR>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://liste-noire.travail-emploi.gouv.fr/condamnations/condamnations-personnes-morales.pdf</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">4243867146757</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%">Instances</td><td width="80%">1</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%">Solution</td><td width="80%"><p></p></td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%">Other information</td><td width="80%"><p>Credit Card Type detected: Visa</p><p>Bank Identification Number: 424386</p><p>Brand: VISA</p><p>Category: ELECTRON</p><p>Issuer: ECOPROMBANK JSCB</p></td>
+            </tr>
+            <TR vAlign="top">
+                <TD colspan="2"></TD>
+            </TR>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%">Reference</td><td width="80%"><p></p></td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%">CWE Id</td><td width="80%">359</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%">WASC Id</td><td width="80%">13</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%">Source ID</td><td width="80%">3</td>
+            </tr>
+            
+        </table>
         <div class="spacer"></div>
         <table width="100%" class="results">
               
@@ -771,7 +842,21 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%">Instances</td><td width="80%">2</td>
+                <td width="20%" class="indent1">URL</td><td width="80%">https://liste-noire.travail-emploi.gouv.fr/condamnations/condamnations-personnes-morales.pdf</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">/Type/OutputIntent/S/GTS_PDFA1/OutputConditionIdentifier</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%">Instances</td><td width="80%">3</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -1040,6 +1125,20 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://liste-noire.travail-emploi.gouv.fr/</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">Age: 0</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
                 <td width="20%" class="indent1">URL</td><td width="80%">https://liste-noire.travail-emploi.gouv.fr/robots.txt</td>
             </tr>
               
@@ -1048,35 +1147,7 @@ ZAP Scanning Report
             </tr>
               
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">Age: 63</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://liste-noire.travail-emploi.gouv.fr/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">Age: 191</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://liste-noire.travail-emploi.gouv.fr/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">Age: 189</td>
+                <td width="20%" class="indent2">Evidence</td><td width="80%">Age: 58</td>
             </tr>
               
   
@@ -1090,7 +1161,21 @@ ZAP Scanning Report
             </tr>
               
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">Age: 191</td>
+                <td width="20%" class="indent2">Evidence</td><td width="80%">Age: 3</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://liste-noire.travail-emploi.gouv.fr/</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">Age: 3</td>
             </tr>
               
   
