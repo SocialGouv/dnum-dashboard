@@ -81,7 +81,7 @@ ZAP Scanning Report
         <p>
 </p>
         <h3 class="left-header">Summary of Alerts</h3>
-        <h3 class="time-stamp">Generated on Mon, 5 Apr 2021 01:47:04</h3>
+        <h3 class="time-stamp">Generated on Thu, 6 May 2021 00:58:15</h3>
         <table width="45%" class="summary">
             <tr bgcolor="#666666">
                 <th width="45%" height="24">Risk 
@@ -92,7 +92,7 @@ ZAP Scanning Report
                 <td><a href="#high">High</a></td><td align="center">0</td>
             </tr>
             <tr bgcolor="#e8e8e8">
-                <td><a href="#medium">Medium</a></td><td align="center">3</td>
+                <td><a href="#medium">Medium</a></td><td align="center">5</td>
             </tr>
             <tr bgcolor="#e8e8e8">
                 <td><a href="#low">Low</a></td><td align="center">9</td>
@@ -114,13 +114,19 @@ ZAP Scanning Report
                 <td>Reverse Tabnabbing</td><td align="center">Medium</td><td align="center">11</td>
             </tr>
             <tr bgcolor="#e8e8e8">
+                <td>Source Code Disclosure - Perl</td><td align="center">Medium</td><td align="center">1</td>
+            </tr>
+            <tr bgcolor="#e8e8e8">
                 <td>Sub Resource Integrity Attribute Missing</td><td align="center">Medium</td><td align="center">10</td>
             </tr>
             <tr bgcolor="#e8e8e8">
-                <td>Absence of Anti-CSRF Tokens</td><td align="center">Low</td><td align="center">8</td>
+                <td>Vulnerable JS Library</td><td align="center">Medium</td><td align="center">1</td>
             </tr>
             <tr bgcolor="#e8e8e8">
-                <td>Big Redirect Detected (Potential Sensitive Information Leak)</td><td align="center">Low</td><td align="center">1</td>
+                <td>Absence of Anti-CSRF Tokens</td><td align="center">Low</td><td align="center">10</td>
+            </tr>
+            <tr bgcolor="#e8e8e8">
+                <td>Big Redirect Detected (Potential Sensitive Information Leak)</td><td align="center">Low</td><td align="center">12</td>
             </tr>
             <tr bgcolor="#e8e8e8">
                 <td>Cookie Without SameSite Attribute</td><td align="center">Low</td><td align="center">3</td>
@@ -129,7 +135,7 @@ ZAP Scanning Report
                 <td>Cross-Domain JavaScript Source File Inclusion</td><td align="center">Low</td><td align="center">10</td>
             </tr>
             <tr bgcolor="#e8e8e8">
-                <td>Dangerous JS Functions</td><td align="center">Low</td><td align="center">3</td>
+                <td>Dangerous JS Functions</td><td align="center">Low</td><td align="center">4</td>
             </tr>
             <tr bgcolor="#e8e8e8">
                 <td>Feature Policy Header Not Set</td><td align="center">Low</td><td align="center">11</td>
@@ -153,16 +159,16 @@ ZAP Scanning Report
                 <td>Modern Web Application</td><td align="center">Informational</td><td align="center">11</td>
             </tr>
             <tr bgcolor="#e8e8e8">
-                <td>Non-Storable Content</td><td align="center">Informational</td><td align="center">5</td>
+                <td>Non-Storable Content</td><td align="center">Informational</td><td align="center">10</td>
             </tr>
             <tr bgcolor="#e8e8e8">
-                <td>Storable and Cacheable Content</td><td align="center">Informational</td><td align="center">6</td>
+                <td>Storable and Cacheable Content</td><td align="center">Informational</td><td align="center">1</td>
             </tr>
             <tr bgcolor="#e8e8e8">
-                <td>Timestamp Disclosure - Unix</td><td align="center">Informational</td><td align="center">2</td>
+                <td>Timestamp Disclosure - Unix</td><td align="center">Informational</td><td align="center">3</td>
             </tr>
             <tr bgcolor="#e8e8e8">
-                <td>User Controllable HTML Element Attribute (Potential XSS)</td><td align="center">Informational</td><td align="center">2</td>
+                <td>User Controllable HTML Element Attribute (Potential XSS)</td><td align="center">Informational</td><td align="center">5</td>
             </tr>
         </table>
         <div class="spacer-lg"></div>
@@ -524,6 +530,74 @@ ZAP Scanning Report
   
   
             <tr height="24" class="risk-medium">
+                <th width="20%"><a name="medium"></a>Medium (Medium)</th><th width="80%">Source Code Disclosure - Perl</th>
+            </tr>
+              
+  
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%">Description</td><td width="80%"><p>Application Source Code was disclosed by the web server - Perl</p></td>
+            </tr>
+            <TR vAlign="top">
+                <TD colspan="2"></TD>
+            </TR>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/sites/default/files/ce4b16a6ad3469697795b8207425b570/appel_a_contributions_genre_et_informalite.pdf</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">$#21292</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%">Instances</td><td width="80%">1</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%">Solution</td><td width="80%"><p>Ensure that application Source Code is not available with alternative extensions, and ensure that source code is not present within other files or data deployed to the web server, or served by the web server. </p></td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%">Other information</td><td width="80%"><p>$#21292</p></td>
+            </tr>
+            <TR vAlign="top">
+                <TD colspan="2"></TD>
+            </TR>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%">Reference</td><td width="80%"><p>http://blogs.wsj.com/cio/2013/10/08/adobe-source-code-leak-is-bad-news-for-u-s-government/</p></td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%">CWE Id</td><td width="80%">540</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%">WASC Id</td><td width="80%">13</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%">Source ID</td><td width="80%">3</td>
+            </tr>
+            
+        </table>
+        <div class="spacer"></div>
+        <table width="100%" class="results">
+              
+  
+  
+  
+            <tr height="24" class="risk-medium">
                 <th width="20%"><a name="medium"></a>Medium (High)</th><th width="80%">Sub Resource Integrity Attribute Missing</th>
             </tr>
               
@@ -536,6 +610,20 @@ ZAP Scanning Report
             <TR vAlign="top">
                 <TD colspan="2"></TD>
             </TR>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">&lt;script id="infogram_0_ffcdb04e-6f53-4cd9-bdda-f81d7145893d" title="Zoom sur : Itv DSN" src="https://e.infogram.com/js/dist/embed.js?CK0" type="text/javascript"&gt;&lt;/script&gt;</td>
+            </tr>
               
   
   
@@ -563,20 +651,6 @@ ZAP Scanning Report
               
             <tr bgcolor="#e8e8e8">
                 <td width="20%" class="indent2">Evidence</td><td width="80%">&lt;script src="https://tag.aticdn.net/615552/smarttag.js"&gt;&lt;/script&gt;</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">&lt;script id="infogram_0_9f247f0a-ba4c-4038-9d37-b25fd9c66084" title="Zoom sur : Acemo flash f&eacute;vrier 2021" src="https://e.infogram.com/js/dist/embed.js?nh2" type="text/javascript"&gt;&lt;/script&gt;</td>
             </tr>
               
   
@@ -624,6 +698,20 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">&lt;script id="infogram_0_ffcdb04e-6f53-4cd9-bdda-f81d7145893d" title="Zoom sur : Itv DSN" src="https://e.infogram.com/js/dist/embed.js?CK0" type="text/javascript"&gt;&lt;/script&gt;</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
                 <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/core/*.css$</td>
             </tr>
               
@@ -647,20 +735,6 @@ ZAP Scanning Report
               
             <tr bgcolor="#e8e8e8">
                 <td width="20%" class="indent2">Evidence</td><td width="80%">&lt;script src="https://tag.aticdn.net/615552/smarttag.js"&gt;&lt;/script&gt;</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">&lt;script id="infogram_0_9f247f0a-ba4c-4038-9d37-b25fd9c66084" title="Zoom sur : Acemo flash f&eacute;vrier 2021" src="https://e.infogram.com/js/dist/embed.js?nh2" type="text/javascript"&gt;&lt;/script&gt;</td>
             </tr>
               
   
@@ -710,6 +784,70 @@ ZAP Scanning Report
   
   
   
+            <tr height="24" class="risk-medium">
+                <th width="20%"><a name="medium"></a>Medium (Medium)</th><th width="80%">Vulnerable JS Library</th>
+            </tr>
+              
+  
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%">Description</td><td width="80%"><p>The identified library jquery, version 1-7-min is vulnerable.</p></td>
+            </tr>
+            <TR vAlign="top">
+                <TD colspan="2"></TD>
+            </TR>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/core/assets/vendor/jquery.ui/ui/jquery-1-7-min.js?v=1.12.1</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">jquery-1-7-min.js</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%">Instances</td><td width="80%">1</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%">Solution</td><td width="80%"><p>Please upgrade to the latest version of jquery.</p></td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%">Other information</td><td width="80%"><p>CVE-2020-11023</p><p>CVE-2020-11022</p><p>CVE-2015-9251</p><p>CVE-2019-11358</p><p>CVE-2012-6708</p><p></p></td>
+            </tr>
+            <TR vAlign="top">
+                <TD colspan="2"></TD>
+            </TR>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%">Reference</td><td width="80%"><p>https://nvd.nist.gov/vuln/detail/CVE-2012-6708</p><p>https://github.com/jquery/jquery/issues/2432</p><p>http://research.insecurelabs.org/jquery/test/</p><p>http://blog.jquery.com/2016/01/08/jquery-2-2-and-1-12-released/</p><p>http://bugs.jquery.com/ticket/11290</p><p>https://blog.jquery.com/2019/04/10/jquery-3-4-0-released/</p><p>https://nvd.nist.gov/vuln/detail/CVE-2019-11358</p><p>https://nvd.nist.gov/vuln/detail/CVE-2015-9251</p><p>https://github.com/jquery/jquery/commit/753d591aea698e57d6db58c9f722cd0808619b1b</p><p>https://blog.jquery.com/2020/04/10/jquery-3-5-0-released/</p><p></p></td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%">CWE Id</td><td width="80%">829</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%">Source ID</td><td width="80%">3</td>
+            </tr>
+            
+        </table>
+        <div class="spacer"></div>
+        <table width="100%" class="results">
+              
+  
+  
+  
             <tr height="24" class="risk-low">
                 <a name="low"></a><th width="20%">Low (Medium)</th><th width="80%">Absence of Anti-CSRF Tokens</th>
             </tr>
@@ -727,6 +865,20 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/sitemap.xml</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">&lt;form action="/recherche" method="get" id="views-exposed-form-dares-search-module-global-search-block" accept-charset="UTF-8" role="search"&gt;</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
                 <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/</td>
             </tr>
               
@@ -825,6 +977,20 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/sitemap.xml</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">&lt;form action="/recherche" method="get" id="views-exposed-form-dares-search-module-global-search-block" accept-charset="UTF-8" role="search"&gt;</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
                 <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/</td>
             </tr>
               
@@ -839,7 +1005,7 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%">Instances</td><td width="80%">8</td>
+                <td width="20%">Instances</td><td width="80%">10</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -893,6 +1059,16 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/node/8</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
                 <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/</td>
             </tr>
               
@@ -903,7 +1079,107 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%">Instances</td><td width="80%">1</td>
+                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/node/2133</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/user/login/</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/index.php/filter/tips</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/user/password/</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/node/32</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/index.php/user/register/</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/index.php/user/login/</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/index.php/user/password/</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/index.php/</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/user/register/</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%">Instances</td><td width="80%">12</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -911,7 +1187,7 @@ ZAP Scanning Report
             </tr>
               
             <tr bgcolor="#e8e8e8">
-                <td width="20%">Other information</td><td width="80%"><p>Location header URI length: 108 [https://dares.travail-emploi.gouv.fr/abonnement-newsletter?newsletter_subscriber_email=foo-bar%40example.com].</p><p>Predicted response size: 408.</p><p>Response Body Length: 678.</p></td>
+                <td width="20%">Other information</td><td width="80%"><p>Location header URI length: 47 [https://dares.travail-emploi.gouv.fr/actualites].</p><p>Predicted response size: 347.</p><p>Response Body Length: 434.</p></td>
             </tr>
             <TR vAlign="top">
                 <TD colspan="2"></TD>
@@ -1094,6 +1370,24 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Parameter</td><td width="80%">https://e.infogram.com/js/dist/embed.js?CK0</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">&lt;script id="infogram_0_ffcdb04e-6f53-4cd9-bdda-f81d7145893d" title="Zoom sur : Itv DSN" src="https://e.infogram.com/js/dist/embed.js?CK0" type="text/javascript"&gt;&lt;/script&gt;</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
                 <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/profiles/*.js$</td>
             </tr>
               
@@ -1156,29 +1450,11 @@ ZAP Scanning Report
             </tr>
               
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Parameter</td><td width="80%">https://e.infogram.com/js/dist/embed.js?nh2</td>
+                <td width="20%" class="indent2">Parameter</td><td width="80%">https://e.infogram.com/js/dist/embed.js?CK0</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">&lt;script id="infogram_0_9f247f0a-ba4c-4038-9d37-b25fd9c66084" title="Zoom sur : Acemo flash f&eacute;vrier 2021" src="https://e.infogram.com/js/dist/embed.js?nh2" type="text/javascript"&gt;&lt;/script&gt;</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Parameter</td><td width="80%">https://e.infogram.com/js/dist/embed.js?nh2</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">&lt;script id="infogram_0_9f247f0a-ba4c-4038-9d37-b25fd9c66084" title="Zoom sur : Acemo flash f&eacute;vrier 2021" src="https://e.infogram.com/js/dist/embed.js?nh2" type="text/javascript"&gt;&lt;/script&gt;</td>
+                <td width="20%" class="indent2">Evidence</td><td width="80%">&lt;script id="infogram_0_ffcdb04e-6f53-4cd9-bdda-f81d7145893d" title="Zoom sur : Itv DSN" src="https://e.infogram.com/js/dist/embed.js?CK0" type="text/javascript"&gt;&lt;/script&gt;</td>
             </tr>
               
   
@@ -1285,7 +1561,49 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/sites/default/files/js/js_UjLqboMLs9X4YspuzBNGeDwOH7pdzMlU5F0dsmLNKRo.js</td>
+                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/libraries/bootstrap/dist/js/bootstrap.min.js?qsn5yu</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">eVal</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/modules/contrib/tacjs/assets/vendor/tarteaucitron.js/tarteaucitron.js?v=1.4</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">eval</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/core/assets/vendor/jquery.ui/ui/widgets/menu-min.js?v=1.12.1</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">evAl</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/core/assets/vendor/jquery/jquery.min.js?v=3.5.1</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -1299,35 +1617,7 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/sites/default/files/js/js_WuTKtE4PrcGTvllQJSYD03ZKR1gdsuGUFp6mxJRuxhQ.js</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">eVal</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/sites/default/files/js/js_urnE2jg2-RKnQrIH_ssO_sn6Mp4_t20aW_jGTyMJS-I.js</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">eVal</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Instances</td><td width="80%">3</td>
+                <td width="20%">Instances</td><td width="80%">4</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -1527,60 +1817,6 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/user/login/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Parameter</td><td width="80%">Cache-Control</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">max-age=21600, public</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/index.php/user/password/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Parameter</td><td width="80%">Cache-Control</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">max-age=21600, public</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Parameter</td><td width="80%">Cache-Control</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">max-age=21600, public</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
                 <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/</td>
             </tr>
               
@@ -1593,61 +1829,7 @@ ZAP Scanning Report
             </tr>
               
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">max-age=21600, public</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/user/password/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Parameter</td><td width="80%">Cache-Control</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">max-age=21600, public</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/filter/tips</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Parameter</td><td width="80%">Cache-Control</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">max-age=21600, public</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/index.php/filter/tips</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Parameter</td><td width="80%">Cache-Control</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">max-age=21600, public</td>
+                <td width="20%" class="indent2">Evidence</td><td width="80%">must-revalidate, no-cache, private</td>
             </tr>
               
   
@@ -1665,13 +1847,13 @@ ZAP Scanning Report
             </tr>
               
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">max-age=21600, public</td>
+                <td width="20%" class="indent2">Evidence</td><td width="80%">must-revalidate, no-cache, private</td>
             </tr>
               
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/index.php/user/login/</td>
+                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/emploi-chomage/emploi</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -1683,7 +1865,79 @@ ZAP Scanning Report
             </tr>
               
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">max-age=21600, public</td>
+                <td width="20%" class="indent2">Evidence</td><td width="80%">must-revalidate, no-cache, private</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/emploi-chomage/chomage-et-demandeurs-demploi</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Parameter</td><td width="80%">Cache-Control</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">must-revalidate, no-cache, private</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/actualites</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Parameter</td><td width="80%">Cache-Control</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">must-revalidate, no-cache, private</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/enquetes</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Parameter</td><td width="80%">Cache-Control</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">must-revalidate, no-cache, private</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Parameter</td><td width="80%">Cache-Control</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">must-revalidate, no-cache, private</td>
             </tr>
               
   
@@ -1698,6 +1952,42 @@ ZAP Scanning Report
               
             <tr bgcolor="#e8e8e8">
                 <td width="20%" class="indent2">Parameter</td><td width="80%">Cache-Control</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/filter/tips</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Parameter</td><td width="80%">Cache-Control</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">must-revalidate, no-cache, private</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/revue-travail-et-emploi</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Parameter</td><td width="80%">Cache-Control</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">must-revalidate, no-cache, private</td>
             </tr>
               
   
@@ -1821,7 +2111,7 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/sites/default/files/js/js_VtafjXmRvoUgAzqzYTA3Wrjkx9wcWhjP0G4ZnnqRamA.js</td>
+                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/core/modules/system/css/components/align.module.css?qsn5yu</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -1835,7 +2125,7 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/sites/default/files/css/css_HWZgEeDskjP5eZtPwBIHWTxtvZVsVGUKJGJzfI4fu3U.css</td>
+                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/core/modules/system/css/components/ajax-progress.module.css?qsn5yu</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -1849,7 +2139,7 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/sites/default/files/js/js_UjLqboMLs9X4YspuzBNGeDwOH7pdzMlU5F0dsmLNKRo.js</td>
+                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/core/modules/system/css/components/clearfix.module.css?qsn5yu</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -1863,7 +2153,7 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/sites/default/files/css/css_7jw5TmCLPyoKGgzu3onOcvzzwA4RRQV5WkvzDYqJePU.css</td>
+                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/core/modules/system/css/components/details.module.css?qsn5yu</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -1877,7 +2167,35 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/sites/default/files/2020-11/Vectordonnees.svg</td>
+                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/sites/default/files/styles/image_100/public/2021-01/Dares_neutre3.png?itok=Q1NDw6V1</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Parameter</td><td width="80%">X-Content-Type-Options</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/core/modules/system/css/components/autocomplete-loading.module.css?qsn5yu</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Parameter</td><td width="80%">X-Content-Type-Options</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/core/modules/system/css/components/fieldgroup.module.css?qsn5yu</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -1905,7 +2223,7 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/sites/default/files/css/css_Y4H_4BqmgyCtG7E7YdseTs2qvy9C34c51kBamDdgark.css</td>
+                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/core/modules/system/css/components/hidden.module.css?qsn5yu</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -1919,21 +2237,7 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/modules/custom/dares_core/images/Logo_DARES.png</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Parameter</td><td width="80%">X-Content-Type-Options</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/sites/default/files/2020-11/Vector_publication_0.svg</td>
+                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/core/modules/system/css/components/container-inline.module.css?qsn5yu</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -1948,20 +2252,6 @@ ZAP Scanning Report
   
             <tr bgcolor="#e8e8e8">
                 <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/robots.txt</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Parameter</td><td width="80%">X-Content-Type-Options</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/sites/default/files/css/css_XTkC6oplZ7Eewk_0x8qvH-hhWdvYSTHfksTfR_xhZZU.css</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -2043,7 +2333,7 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/profiles/*.js$</td>
+                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/core/*.svg</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -2051,35 +2341,7 @@ ZAP Scanning Report
             </tr>
               
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">/sites/default/files/css/css_iKjzhJzexxc_pdk2ViaDA5NUf0AcShlNvwwSfB49fGM</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/sitemap.xml</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">/sites/default/files/css/css_iKjzhJzexxc_pdk2ViaDA5NUf0AcShlNvwwSfB49fGM</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/core/*.css$</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">/sites/default/files/css/css_iKjzhJzexxc_pdk2ViaDA5NUf0AcShlNvwwSfB49fGM</td>
+                <td width="20%" class="indent2">Evidence</td><td width="80%">/sites/default/files/2020-11/Vectordonnees</td>
             </tr>
               
   
@@ -2093,13 +2355,13 @@ ZAP Scanning Report
             </tr>
               
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">HBNzF/NCjvzV88QqJlLL3fNyljz02WkbL78kYL31QZ6dl3AB7UWx6QAhpslo3nqhqQCibo6rEI52YJANHyxHoKeW/qoL</td>
+                <td width="20%" class="indent2">Evidence</td><td width="80%">Zk1vqxahGMgOZyAqJlLL3fNyljz02WlSgOVyL5ZaE8IQQqYQ4pPiTk9MRlYtbsu0Vg9myoCBkxV0JrkErfyKR/dXZBnO</td>
             </tr>
               
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/profiles/*.css$</td>
+                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -2107,35 +2369,7 @@ ZAP Scanning Report
             </tr>
               
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">/sites/default/files/css/css_iKjzhJzexxc_pdk2ViaDA5NUf0AcShlNvwwSfB49fGM</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/profiles/*.svg</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">/sites/default/files/css/css_iKjzhJzexxc_pdk2ViaDA5NUf0AcShlNvwwSfB49fGM</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/admin/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">/sites/default/files/css/css_iKjzhJzexxc_pdk2ViaDA5NUf0AcShlNvwwSfB49fGM</td>
+                <td width="20%" class="indent2">Evidence</td><td width="80%">fr/sites/default/files/styles/image_100/public/2021-01/Dares_neutre3</td>
             </tr>
               
   
@@ -2149,13 +2383,13 @@ ZAP Scanning Report
             </tr>
               
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">/sites/default/files/css/css_iKjzhJzexxc_pdk2ViaDA5NUf0AcShlNvwwSfB49fGM</td>
+                <td width="20%" class="indent2">Evidence</td><td width="80%">/sites/default/files/2020-11/Vectordonnees</td>
             </tr>
               
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/</td>
+                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/profiles/*.js$</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -2163,35 +2397,7 @@ ZAP Scanning Report
             </tr>
               
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">/sites/default/files/css/css_7jw5TmCLPyoKGgzu3onOcvzzwA4RRQV5WkvzDYqJePU</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">bPWQXtMQ1NnnD4MqJlLL3fNyljz02curBvFqJbLAnp8KZtA1oGXwRWYQ0EcJJBeE484pmOxTFg1b6URJUkcrC+WXFgWE</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/core/*.svg</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">/sites/default/files/css/css_iKjzhJzexxc_pdk2ViaDA5NUf0AcShlNvwwSfB49fGM</td>
+                <td width="20%" class="indent2">Evidence</td><td width="80%">/sites/default/files/2020-11/Vectordonnees</td>
             </tr>
               
   
@@ -2205,7 +2411,91 @@ ZAP Scanning Report
             </tr>
               
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">3YXQEqBdOTElskQqJlLL3fNyljz02ZLcf3hltq25mH3OP0FRltaw/Ddy6GiNi1EbEOIhvESxb0TiqvcCfsZsR8nw4mjO</td>
+                <td width="20%" class="indent2">Evidence</td><td width="80%">k57f89KArkGL5dMqJlLL3fNyljz02UZtljOQoHLc932yXo7FLIRk0ukW+A0RKjE46YRUaLR7bud0LWlHEb60a35txcnj</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/admin/</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">/sites/default/files/2020-11/Vectordonnees</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">f7yqafC7Wy17p0kqJlLL3fNyljz02d+v7aC7sGcgmNkokUlAIIU97vt/nuG7CpfGfG8rDKCDbjqIAPOTU3XSBVcclRyw</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/profiles/*.svg</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">/sites/default/files/2020-11/Vectordonnees</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/profiles/*.css$</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">/sites/default/files/2020-11/Vectordonnees</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/sitemap.xml</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">/sites/default/files/2020-11/Vectordonnees</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/core/*.css$</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">/sites/default/files/2020-11/Vectordonnees</td>
             </tr>
               
   
@@ -2219,7 +2509,7 @@ ZAP Scanning Report
             </tr>
               
             <tr bgcolor="#e8e8e8">
-                <td width="20%">Other information</td><td width="80%"><p>�ȭz��y����ߊW���,��,�"��\x0012s{\x001c\��d�X�\x000c\x000eMQ�\x0000q(e6�0I�x��</p></td>
+                <td width="20%">Other information</td><td width="80%"><p>�ȭz��y����ߊW��m6��u�W���ݢy�z</p></td>
             </tr>
             <TR vAlign="top">
                 <TD colspan="2"></TD>
@@ -2687,7 +2977,77 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">private</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/core/*.css$</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">private</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/sitemap.xml</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">private</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">private</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
                 <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/core/*.css</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">private</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/core/*.js$</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -2743,7 +3103,7 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%">Instances</td><td width="80%">5</td>
+                <td width="20%">Instances</td><td width="80%">10</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -2800,77 +3160,7 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/core/*.js$</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">max-age=21600</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">max-age=21600</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/core/*.css$</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">max-age=21600</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/sitemap.xml</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">max-age=21600</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">max-age=21600</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Instances</td><td width="80%">6</td>
+                <td width="20%">Instances</td><td width="80%">1</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -2932,7 +3222,21 @@ ZAP Scanning Report
             </tr>
               
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">291550492</td>
+                <td width="20%" class="indent2">Evidence</td><td width="80%">1787281443</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/sitemap.xml</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">1032982852</td>
             </tr>
               
   
@@ -2946,13 +3250,13 @@ ZAP Scanning Report
             </tr>
               
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">291550492</td>
+                <td width="20%" class="indent2">Evidence</td><td width="80%">1787281443</td>
             </tr>
               
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%">Instances</td><td width="80%">2</td>
+                <td width="20%">Instances</td><td width="80%">3</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -2960,7 +3264,7 @@ ZAP Scanning Report
             </tr>
               
             <tr bgcolor="#e8e8e8">
-                <td width="20%">Other information</td><td width="80%"><p>291550492, which evaluates to: 1979-03-29 10:14:52</p></td>
+                <td width="20%">Other information</td><td width="80%"><p>1787281443, which evaluates to: 2026-08-21 03:04:03</p></td>
             </tr>
             <TR vAlign="top">
                 <TD colspan="2"></TD>
@@ -3006,6 +3310,34 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/enquetes?page=1&amp;search_api_fulltext</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Parameter</td><td width="80%">page</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/actualites?op=Appliquer</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Parameter</td><td width="80%">op</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
                 <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/recherche?search_api_fulltext=ZAP</td>
             </tr>
               
@@ -3020,7 +3352,7 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/erreur-404?search_api_fulltext=ZAP</td>
+                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/enquetes?search_api_fulltext=ZAP</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -3034,7 +3366,21 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%">Instances</td><td width="80%">2</td>
+                <td width="20%" class="indent1">URL</td><td width="80%">https://dares.travail-emploi.gouv.fr/actualites?search_api_fulltext=ZAP</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Parameter</td><td width="80%">search_api_fulltext</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%">Instances</td><td width="80%">5</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -3042,7 +3388,7 @@ ZAP Scanning Report
             </tr>
               
             <tr bgcolor="#e8e8e8">
-                <td width="20%">Other information</td><td width="80%"><p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://dares.travail-emploi.gouv.fr/recherche?search_api_fulltext=ZAP</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [input] tag [value] attribute </p><p></p><p>The user input found was:</p><p>search_api_fulltext=ZAP</p><p></p><p>The user-controlled value was:</p><p>zap</p></td>
+                <td width="20%">Other information</td><td width="80%"><p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://dares.travail-emploi.gouv.fr/enquetes?page=1&amp;search_api_fulltext</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [meta] tag [content] attribute </p><p></p><p>The user input found was:</p><p>page=1</p><p></p><p>The user-controlled value was:</p><p>width=device-width, initial-scale=1, shrink-to-fit=no</p></td>
             </tr>
             <TR vAlign="top">
                 <TD colspan="2"></TD>

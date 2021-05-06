@@ -81,7 +81,7 @@ ZAP Scanning Report
         <p>
 </p>
         <h3 class="left-header">Summary of Alerts</h3>
-        <h3 class="time-stamp">Generated on Mon, 5 Apr 2021 02:50:30</h3>
+        <h3 class="time-stamp">Generated on Thu, 6 May 2021 02:07:29</h3>
         <table width="45%" class="summary">
             <tr bgcolor="#666666">
                 <th width="45%" height="24">Risk 
@@ -95,7 +95,7 @@ ZAP Scanning Report
                 <td><a href="#medium">Medium</a></td><td align="center">0</td>
             </tr>
             <tr bgcolor="#e8e8e8">
-                <td><a href="#low">Low</a></td><td align="center">5</td>
+                <td><a href="#low">Low</a></td><td align="center">4</td>
             </tr>
             <tr bgcolor="#e8e8e8">
                 <td><a href="#info">Informational</a></td><td align="center">5</td>
@@ -108,28 +108,25 @@ ZAP Scanning Report
                 <th width="60%" height="24">Name</th><th width="20%" align="center">Risk Level</th><th width="20%" align="center">Number of Instances</th>
             </tr>
             <tr bgcolor="#e8e8e8">
-                <td>Application Error Disclosure</td><td align="center">Low</td><td align="center">2</td>
-            </tr>
-            <tr bgcolor="#e8e8e8">
-                <td>Cookie Without SameSite Attribute</td><td align="center">Low</td><td align="center">5</td>
+                <td>Cookie Without SameSite Attribute</td><td align="center">Low</td><td align="center">3</td>
             </tr>
             <tr bgcolor="#e8e8e8">
                 <td>Incomplete or No Cache-control and Pragma HTTP Header Set</td><td align="center">Low</td><td align="center">1</td>
             </tr>
             <tr bgcolor="#e8e8e8">
-                <td>Strict-Transport-Security Header Not Set</td><td align="center">Low</td><td align="center">5</td>
+                <td>Strict-Transport-Security Header Not Set</td><td align="center">Low</td><td align="center">1</td>
             </tr>
             <tr bgcolor="#e8e8e8">
                 <td>X-Content-Type-Options Header Missing</td><td align="center">Low</td><td align="center">1</td>
             </tr>
             <tr bgcolor="#e8e8e8">
-                <td>Base64 Disclosure</td><td align="center">Informational</td><td align="center">3</td>
+                <td>Base64 Disclosure</td><td align="center">Informational</td><td align="center">2</td>
             </tr>
             <tr bgcolor="#e8e8e8">
-                <td>Content-Type Header Missing</td><td align="center">Informational</td><td align="center">5</td>
+                <td>Content-Type Header Missing</td><td align="center">Informational</td><td align="center">1</td>
             </tr>
             <tr bgcolor="#e8e8e8">
-                <td>Non-Storable Content</td><td align="center">Informational</td><td align="center">9</td>
+                <td>Non-Storable Content</td><td align="center">Informational</td><td align="center">4</td>
             </tr>
             <tr bgcolor="#e8e8e8">
                 <td>Storable and Cacheable Content</td><td align="center">Informational</td><td align="center">2</td>
@@ -137,81 +134,6 @@ ZAP Scanning Report
         </table>
         <div class="spacer-lg"></div>
         <h3>Alert Detail</h3>
-        <div class="spacer"></div>
-        <table width="100%" class="results">
-              
-  
-  
-  
-            <tr height="24" class="risk-low">
-                <a name="low"></a><th width="20%">Low (Medium)</th><th width="80%">Application Error Disclosure</th>
-            </tr>
-              
-  
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Description</td><td width="80%"><p>This page contains an error/warning message that may disclose sensitive information like the location of the file that produced the unhandled exception. This information can be used to launch further attacks against the web application. The alert could be a false positive if the error message is found inside a documentation page.</p></td>
-            </tr>
-            <TR vAlign="top">
-                <TD colspan="2"></TD>
-            </TR>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://idee.emploi.gouv.fr/PortailIDEE/jsp/site/Portal.jsp?page=mylutece&amp;action=login</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">HTTP/1.0 500 Internal Server Error</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://idee.emploi.gouv.fr/PortailIDEE/jsp/site/Portal.jsp?action=login&amp;page=mylutece</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">HTTP/1.0 500 Internal Server Error</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Instances</td><td width="80%">2</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Solution</td><td width="80%"><p>Review the source code of this page. Implement custom error pages. Consider implementing a mechanism to provide a unique error reference/identifier to the client (browser) while logging the details on the server side and not exposing them to the user.</p></td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Reference</td><td width="80%"><p></p></td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">CWE Id</td><td width="80%">200</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">WASC Id</td><td width="80%">13</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Source ID</td><td width="80%">3</td>
-            </tr>
-            
-        </table>
         <div class="spacer"></div>
         <table width="100%" class="results">
               
@@ -235,24 +157,6 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://idee.emploi.gouv.fr</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Parameter</td><td width="80%">BIGipServerpool-dgefp-simuap.cegedim.cloud-HTTP</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">Set-Cookie: BIGipServerpool-dgefp-simuap.cegedim.cloud-HTTP</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
                 <td width="20%" class="indent1">URL</td><td width="80%">https://idee.emploi.gouv.fr/</td>
             </tr>
               
@@ -266,42 +170,6 @@ ZAP Scanning Report
               
             <tr bgcolor="#e8e8e8">
                 <td width="20%" class="indent2">Evidence</td><td width="80%">Set-Cookie: BIGipServerpool-dgefp-simuap.cegedim.cloud-HTTP</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://idee.emploi.gouv.fr/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Parameter</td><td width="80%">JSESSIONID</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">Set-Cookie: JSESSIONID</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://idee.emploi.gouv.fr</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Parameter</td><td width="80%">JSESSIONID</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">Set-Cookie: JSESSIONID</td>
             </tr>
               
   
@@ -325,7 +193,25 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%">Instances</td><td width="80%">5</td>
+                <td width="20%" class="indent1">URL</td><td width="80%">https://idee.emploi.gouv.fr/</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Parameter</td><td width="80%">JSESSIONID</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">Set-Cookie: JSESSIONID</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%">Instances</td><td width="80%">3</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -433,46 +319,6 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://idee.emploi.gouv.fr/PortailIDEE/jsp/site/Portal.jsp?action=login&amp;page=mylutece</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://idee.emploi.gouv.fr/PortailIDEE/jsp/site/Portal.jsp?page=mylutece&amp;action=login</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://idee.emploi.gouv.fr/PortailIDEE/jsp/site/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://idee.emploi.gouv.fr/PortailIDEE/jsp/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
                 <td width="20%" class="indent1">URL</td><td width="80%">https://idee.emploi.gouv.fr/sitemap.xml</td>
             </tr>
               
@@ -483,7 +329,7 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%">Instances</td><td width="80%">5</td>
+                <td width="20%">Instances</td><td width="80%">1</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -598,20 +444,6 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://idee.emploi.gouv.fr</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">2ZZZpH1X6c0qVlEqJlLL3fNyljz02b38TAxFm6r6c15tCAz7tJsB/k8P3Sh8d2E2vUGlqxdpkWD+8x+v+RkH0cqYgRE=</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
                 <td width="20%" class="indent1">URL</td><td width="80%">https://idee.emploi.gouv.fr/robots.txt</td>
             </tr>
               
@@ -620,7 +452,7 @@ ZAP Scanning Report
             </tr>
               
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">7+C+1vciHw/Xy60qJlLL3fNyljz02QtydnV75r75XoHh5mgaEEf3RahKSRhnZpAYn6mHHSQ5U2jnIH9Qc03xViuRUpU=</td>
+                <td width="20%" class="indent2">Evidence</td><td width="80%">brByj3UeNCuYHLAqJlLL3fNyljz02Yr04UptfOzpFY57ABYQAxpOIsf7/6Fhl11jb/+zP/VtttETV3IDAjF9MS0j47s=</td>
             </tr>
               
   
@@ -634,13 +466,13 @@ ZAP Scanning Report
             </tr>
               
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">52DLhnzCIOl3/Y0qJlLL3fNyljz02SBKKSA68g4KrZWreLfuLwUb3UIvESa/gX4MSQ6NByGEyFm0lo+/hpJ5PqES1gg=</td>
+                <td width="20%" class="indent2">Evidence</td><td width="80%">sxowZFcRb/vCBNIqJlLL3fNyljz02diERe8rrRs+dsoQb32Ae/Nz3RIoiNZuBfoxjPfJcJ/HaJDmep5aZk7TTmLoqXw=</td>
             </tr>
               
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%">Instances</td><td width="80%">3</td>
+                <td width="20%">Instances</td><td width="80%">2</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -648,7 +480,7 @@ ZAP Scanning Report
             </tr>
               
             <tr bgcolor="#e8e8e8">
-                <td width="20%">Other information</td><td width="80%"><p>ٖY�}W��*VQ*&amp;R���r�&lt;�ٽ�L\x000cE���s^m\x0008\x000c���\x0001�O\x000f�(|wa6�A��\x0017i�`��\x001f��\x0019\x0007�ʘ�\x0011</p></td>
+                <td width="20%">Other information</td><td width="80%"><p>n�r�u\x001e4+�\x001c�*&amp;R���r�&lt;�ي��Jm|��\x0015�{\x0000\x0016\x0010\x0003\x001aN"����a�]co��?�m��\x0013Wr\x0003\x00021}1-#�</p></td>
             </tr>
             <TR vAlign="top">
                 <TD colspan="2"></TD>
@@ -694,46 +526,6 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://idee.emploi.gouv.fr/PortailIDEE/jsp/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://idee.emploi.gouv.fr/PortailIDEE/jsp/site/Portal.jsp?action=login&amp;page=mylutece</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://idee.emploi.gouv.fr/PortailIDEE/jsp/site/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://idee.emploi.gouv.fr/PortailIDEE/jsp/site/Portal.jsp?page=mylutece&amp;action=login</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
                 <td width="20%" class="indent1">URL</td><td width="80%">https://idee.emploi.gouv.fr/sitemap.xml</td>
             </tr>
               
@@ -744,7 +536,7 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%">Instances</td><td width="80%">5</td>
+                <td width="20%">Instances</td><td width="80%">1</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -880,48 +672,6 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://idee.emploi.gouv.fr/PortailIDEE/jsp/site</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">302</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://idee.emploi.gouv.fr/PortailIDEE/jsp</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">302</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://idee.emploi.gouv.fr</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">302</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
                 <td width="20%" class="indent1">URL</td><td width="80%">https://idee.emploi.gouv.fr/PortailIDEE/jsp/site/Portal.jsp</td>
             </tr>
               
@@ -936,35 +686,7 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://idee.emploi.gouv.fr/PortailIDEE/jsp/site/Portal.jsp?page=mylutece&amp;action=login</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">500</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://idee.emploi.gouv.fr/PortailIDEE</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">302</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Instances</td><td width="80%">7</td>
+                <td width="20%">Instances</td><td width="80%">2</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -1011,7 +733,7 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://idee.emploi.gouv.fr/robots.txt</td>
+                <td width="20%" class="indent1">URL</td><td width="80%">https://idee.emploi.gouv.fr/sitemap.xml</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -1021,7 +743,7 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://idee.emploi.gouv.fr/sitemap.xml</td>
+                <td width="20%" class="indent1">URL</td><td width="80%">https://idee.emploi.gouv.fr/robots.txt</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
