@@ -1,0 +1,37 @@
+name: Build Website
+
+on:
+  workflow_dispatch:
+  workflow_run:
+   workflows: ["DashLord scans"]
+   branches: [main]
+   types: 
+     - completed
+jobs:
+  website:
+    runs-on: ubuntu-latest
+    name: Website
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+
+      - id: dashlord-report
+        uses: SocialGouv/dashlord-report-action@master
+
+      # to save the generated report.json as artifact
+      - uses: actions/upload-artifact@v2
+        with:
+          path: report.json
+          name: report
+          if-no-files-found: error
+            
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.0
+        with:
+          branch: gh-pages
+          folder: build
+

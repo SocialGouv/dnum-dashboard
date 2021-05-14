@@ -1,0 +1,18 @@
+[
+  {
+    "templateID": "waf-detect",
+    "info": {
+      "name": "WAF Detection",
+      "author": "dwisiswant0",
+      "severity": "info"
+    },
+    "matcher_name": "bigip",
+    "type": "http",
+    "host": "https://idee.emploi.gouv.fr",
+    "matched": "https://idee.emploi.gouv.fr/",
+    "request": "POST / HTTP/1.1\r\nHost: idee.emploi.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nContent-Length: 27\r\nContent-Type: application/x-www-form-urlencoded\r\nAccept-Encoding: gzip\r\n\r\n_=<script>alert(1)</script>",
+    "response": "HTTP/1.1 302 Moved Temporarily\r\nConnection: close\r\nContent-Type: text/html;charset=UTF-8\r\nDate: Sun, 04 Apr 2021 02:08:24 GMT\r\nLocation: http://idee.emploi.gouv.fr/PortailIDEE/jsp/site/Portal.jsp?page=mylutece&action=login\r\nSet-Cookie: JSESSIONID=5A645D9D9528871AC819B7B3C35EA3E2.srv_portail0; HttpOnly; Path=/PortailIDEE;Secure\r\nSet-Cookie: BIGipServerpool-dgefp-simuap.cegedim.cloud-HTTP=!zq+1ZBNEOk2flIEqJlLL3fNyljz02XBuJlyEOLYEv3vqIQI7t036B6KXGV67kIKtgz+cI0AM7Yz3OzrYEyJYaIwhWqE=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nContent-Length: 0\r\n\r\n",
+    "ip": "185.194.82.153",
+    "timestamp": "2021-04-04T02:08:24.850918631Z"
+  }
+]
