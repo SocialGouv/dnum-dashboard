@@ -108,7 +108,7 @@ jobs:
           echo "::set-output name=value::$HOSTNAME"
 
       - name: testssl.sh scan
-        if: ${{ matrix.sites.tools.teslssl }}
+        if: ${{ matrix.sites.tools.testssl }}
         continue-on-error: true
         uses: "mbogh/test-ssl-action@v1.1"
         with:
