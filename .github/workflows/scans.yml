@@ -7,18 +7,22 @@ on:
         description: "Single url to scan or scan all urls"
         required: false
         default: ""
+  # schedule:
+  #   - cron: "0 0 * * *"
+
 jobs:
   init:
     runs-on: ubuntu-latest
     name: Prepare
     outputs:
-      urls: ${{ steps.init.outputs.urls }}
-      urls_json: ${{ steps.init.outputs.urls_json }}
-      json: ${{ steps.init.outputs.json }}
+      sites: ${{ steps.init.outputs.sites }}
+      config: ${{ steps.init.outputs.config }}
     steps:
       - uses: actions/checkout@v2
       - id: init
-        uses: "SocialGouv/dashlord-init-action@master"
+        uses: "SocialGouv/dashlord-actions/init@main"
+        with:
+          url: ${{ github.event.inputs.url }}
 
   scans:
     runs-on: ubuntu-latest
@@ -29,7 +33,7 @@ jobs:
       fail-fast: false
       max-parallel: 3
       matrix:
-        urls: ${{ fromJson(needs.init.outputs.urls_json) }}
+        sites: ${{ fromJson(needs.init.outputs.sites) }}
     steps:
       - uses: actions/checkout@v2
 
@@ -41,54 +45,70 @@ jobs:
           path: "**/node_modules"
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
 
+      - name: Screenshot Website
+        if: ${{ matrix.sites.tools.screenshot }}
+        uses: swinton/screenshot-website@v1.x
+        with:
+          source: "${{ matrix.sites.url }}"
+          type: jpeg
+          destination: screenshot.jpeg
+          width: 1280
+          scaleFactor: 0.5
+
       - name: Wappalyzer scan
+        if: ${{ matrix.sites.tools.wappalyzer }}
         uses: "socialgouv/wappalyzer-action@master"
         continue-on-error: true
         with:
-          url: "${{ matrix.urls.url }}"
+          url: "${{ matrix.sites.url }}"
           output: scans/wappalyzer.json
 
       - name: ZAP Scan
+        if: ${{ matrix.sites.tools.zap }}
         uses: zaproxy/action-baseline@v0.4.0
         continue-on-error: true
         with:
           token: "" # disable issue creation
           rules_file_name: "zap-rules.tsv"
           docker_name: "owasp/zap2docker-stable"
-          target: "${{ matrix.urls.url }}"
+          target: "${{ matrix.sites.url }}"
           cmd_options: "-a"
 
       - name: Lighthouse scan
+        if: ${{ matrix.sites.tools.lighthouse }}
         continue-on-error: true
         uses: treosh/lighthouse-ci-action@v7
         with:
-          urls: "${{ matrix.urls.url }}"
+          urls: "${{ matrix.sites.url }}"
           uploadArtifacts: false
           temporaryPublicStorage: false
           configPath: "./lighthouserc.json"
 
       - name: Mozilla HTTP Observatory
+        if: ${{ matrix.sites.tools.http }}
         continue-on-error: true
         uses: SocialGouv/httpobs-action@master
         with:
-          url: "${{ matrix.urls.url }}"
+          url: "${{ matrix.sites.url }}"
           output: "scans/http.json"
 
       - name: Third-party scripts scan
+        if: ${{ matrix.sites.tools.thirdparties }}
         continue-on-error: true
         uses: SocialGouv/thirdparties-action@master
         with:
-          url: "${{ matrix.urls.url }}"
+          url: "${{ matrix.sites.url }}"
           output: "scans/thirdparties.json"
 
       # testssl.sh action needs an hostname to save its output so we build it here
       - name: Extract hostname
         id: hostname
         run: |
-          HOSTNAME=$(echo "${{ matrix.urls.url }}" | sed -e 's/[^/]*\/\/\([^@]*@\)\?\([^:/]*\).*/\2/')
+          HOSTNAME=$(echo "${{ matrix.sites.url }}" | sed -e 's/[^/]*\/\/\([^@]*@\)\?\([^:/]*\).*/\2/')
           echo "::set-output name=value::$HOSTNAME"
 
       - name: testssl.sh scan
+        if: ${{ matrix.sites.tools.teslssl }}
         continue-on-error: true
         uses: "mbogh/test-ssl-action@v1.1"
         with:
@@ -96,46 +116,60 @@ jobs:
           output: scans
           grade: "F"
           options: "--fast"
-          
+
+      - name: nmap vulnerabilities scan
+        if: ${{ matrix.sites.tools.nmap }}
+        continue-on-error: true
+        uses: "MTES-MCT/nmap-action@main"
+        with:
+          host: ${{ steps.hostname.outputs.value }}
+          outputDir: "scans"
+          outputFile: "nmapvuln.json"
+          withVulnerabilities: true
+          raw: false
+
       - name: Nuclei scan
+        if: ${{ matrix.sites.tools.nuclei }}
         continue-on-error: true
         uses: "SocialGouv/dashlord-nuclei-action@master"
         with:
-          url: ${{ matrix.urls.url }}
+          url: ${{ matrix.sites.url }}
           output: "scans/nuclei.log"
 
       - name: Updown.io checks
+        if: ${{ matrix.sites.tools.updownio }}
         continue-on-error: true
         uses: "MTES-MCT/updownio-action@main"
         with:
           apiKey: ${{ secrets.UPDOWNIO_API_KEY }}
-          url: ${{ matrix.urls.url }}
+          url: ${{ matrix.sites.url }}
           output: scans/updownio.json
-
-      - name: Extract repositories
-        id: repositories
-        env:
-          json: ${{ needs.init.outputs.json }}
-        run: |
-          REPOS=$( echo $json | jq -r '.urls[] | select( .url == "${{ matrix.urls.url }}" ) | .repositories // [] | join(",")' )
-          echo "::set-output name=REPOS::$REPOS"
 
       - name: Dependabot vulnerabilities alerts
         continue-on-error: true
-        if: ${{ steps.repositories.outputs.REPOS != '' }}
+        if: ${{ matrix.sites.tools.dependabot && matrix.sites.repositories }}
         uses: "MTES-MCT/dependabotalerts-action@main"
         with:
           token: ${{ secrets.DEPENDABOTALERTS_TOKEN }}
-          repositories: ${{ steps.repositories.outputs.REPOS }}
+          repositories: ${{ join(matrix.sites.repositories) }}
           output: scans/dependabotalerts.json
-          
-      - uses: SocialGouv/dashlord-save-action@master
+
+      - name: Code quality alerts
+        if: ${{ matrix.sites.tools.codescan && matrix.sites.repositories }}
+        continue-on-error: true
+        uses: "MTES-MCT/codescanalerts-action@main"
         with:
-          url: ${{ matrix.urls.url }}
+          token: ${{ secrets.CODESCANALERTS_TOKEN }}
+          repositories: ${{ join(matrix.sites.repositories) }}
+          output: scans/codescanalerts.json
+
+      - uses: SocialGouv/dashlord-actions/save@main
+        with:
+          url: ${{ matrix.sites.url }}
 
       - uses: EndBug/add-and-commit@v7
         with:
           add: '["results"]'
           author_name: ${{ secrets.SOCIALGROOVYBOT_NAME }}
           author_email: ${{ secrets.SOCIALGROOVYBOT_EMAIL }}
-          message: "update: ${{ matrix.urls.url }}"
+          message: "update: ${{ matrix.sites.url }}"
