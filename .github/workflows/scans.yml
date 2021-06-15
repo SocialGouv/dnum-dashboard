@@ -48,6 +48,7 @@ jobs:
       - name: Screenshot Website
         if: ${{ matrix.sites.tools.screenshot }}
         uses: swinton/screenshot-website@v1.x
+        timeout-minutes: 10
         with:
           source: "${{ matrix.sites.url }}"
           type: jpeg
@@ -58,6 +59,7 @@ jobs:
       - name: Wappalyzer scan
         if: ${{ matrix.sites.tools.wappalyzer }}
         uses: "socialgouv/wappalyzer-action@master"
+        timeout-minutes: 10
         continue-on-error: true
         with:
           url: "${{ matrix.sites.url }}"
@@ -65,6 +67,7 @@ jobs:
 
       - name: ZAP Scan
         if: ${{ matrix.sites.tools.zap }}
+        timeout-minutes: 10
         uses: zaproxy/action-baseline@v0.4.0
         continue-on-error: true
         with:
@@ -76,6 +79,7 @@ jobs:
 
       - name: Lighthouse scan
         if: ${{ matrix.sites.tools.lighthouse }}
+        timeout-minutes: 10
         continue-on-error: true
         uses: treosh/lighthouse-ci-action@v7
         with:
@@ -87,6 +91,7 @@ jobs:
       - name: Mozilla HTTP Observatory
         if: ${{ matrix.sites.tools.http }}
         continue-on-error: true
+        timeout-minutes: 10
         uses: SocialGouv/httpobs-action@master
         with:
           url: "${{ matrix.sites.url }}"
@@ -94,6 +99,7 @@ jobs:
 
       - name: Third-party scripts scan
         if: ${{ matrix.sites.tools.thirdparties }}
+        timeout-minutes: 10
         continue-on-error: true
         uses: SocialGouv/thirdparties-action@master
         with:
@@ -109,6 +115,7 @@ jobs:
 
       - name: testssl.sh scan
         if: ${{ matrix.sites.tools.testssl }}
+        timeout-minutes: 10
         continue-on-error: true
         uses: "mbogh/test-ssl-action@v1.1"
         with:
@@ -119,6 +126,7 @@ jobs:
 
       - name: nmap vulnerabilities scan
         if: ${{ matrix.sites.tools.nmap }}
+        timeout-minutes: 10
         continue-on-error: true
         uses: "MTES-MCT/nmap-action@main"
         with:
@@ -130,6 +138,7 @@ jobs:
 
       - name: Nuclei scan
         if: ${{ matrix.sites.tools.nuclei }}
+        timeout-minutes: 10
         continue-on-error: true
         uses: "SocialGouv/dashlord-nuclei-action@master"
         with:
@@ -138,6 +147,7 @@ jobs:
 
       - name: Updown.io checks
         if: ${{ matrix.sites.tools.updownio }}
+        timeout-minutes: 10
         continue-on-error: true
         uses: "MTES-MCT/updownio-action@main"
         with:
@@ -147,6 +157,7 @@ jobs:
 
       - name: Dependabot vulnerabilities alerts
         continue-on-error: true
+        timeout-minutes: 10
         if: ${{ matrix.sites.tools.dependabot && matrix.sites.repositories }}
         uses: "MTES-MCT/dependabotalerts-action@main"
         with:
@@ -156,6 +167,7 @@ jobs:
 
       - name: Code quality alerts
         if: ${{ matrix.sites.tools.codescan && matrix.sites.repositories }}
+        timeout-minutes: 10
         continue-on-error: true
         uses: "MTES-MCT/codescanalerts-action@main"
         with:
