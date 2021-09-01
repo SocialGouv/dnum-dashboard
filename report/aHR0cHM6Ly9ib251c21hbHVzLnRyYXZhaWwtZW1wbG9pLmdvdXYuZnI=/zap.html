@@ -81,7 +81,7 @@ ZAP Scanning Report
         <p>
 </p>
         <h3 class="left-header">Summary of Alerts</h3>
-        <h3 class="time-stamp">Generated on Mon, 14 Jun 2021 22:00:15</h3>
+        <h3 class="time-stamp">Generated on Tue, 31 Aug 2021 19:52:15</h3>
         <table width="45%" class="summary">
             <tr bgcolor="#666666">
                 <th width="45%" height="24">Risk 
@@ -92,7 +92,7 @@ ZAP Scanning Report
                 <td><a href="#high">High</a></td><td align="center">0</td>
             </tr>
             <tr bgcolor="#e8e8e8">
-                <td><a href="#medium">Medium</a></td><td align="center">3</td>
+                <td><a href="#medium">Medium</a></td><td align="center">4</td>
             </tr>
             <tr bgcolor="#e8e8e8">
                 <td><a href="#low">Low</a></td><td align="center">5</td>
@@ -117,16 +117,19 @@ ZAP Scanning Report
                 <td>Vulnerable JS Library</td><td align="center">Medium</td><td align="center">1</td>
             </tr>
             <tr bgcolor="#e8e8e8">
-                <td>Cookie Without SameSite Attribute</td><td align="center">Low</td><td align="center">2</td>
+                <td>X-Frame-Options Header Not Set</td><td align="center">Medium</td><td align="center">2</td>
             </tr>
             <tr bgcolor="#e8e8e8">
-                <td>Dangerous JS Functions</td><td align="center">Low</td><td align="center">2</td>
+                <td>Cookie without SameSite Attribute</td><td align="center">Low</td><td align="center">2</td>
             </tr>
             <tr bgcolor="#e8e8e8">
-                <td>Feature Policy Header Not Set</td><td align="center">Low</td><td align="center">7</td>
+                <td>Dangerous JS Functions</td><td align="center">Low</td><td align="center">1</td>
             </tr>
             <tr bgcolor="#e8e8e8">
-                <td>Incomplete or No Cache-control and Pragma HTTP Header Set</td><td align="center">Low</td><td align="center">6</td>
+                <td>Incomplete or No Cache-control Header Set</td><td align="center">Low</td><td align="center">2</td>
+            </tr>
+            <tr bgcolor="#e8e8e8">
+                <td>Permissions Policy Header Not Set</td><td align="center">Low</td><td align="center">7</td>
             </tr>
             <tr bgcolor="#e8e8e8">
                 <td>Strict-Transport-Security Header Not Set</td><td align="center">Low</td><td align="center">2</td>
@@ -138,10 +141,10 @@ ZAP Scanning Report
                 <td>Content-Type Header Missing</td><td align="center">Informational</td><td align="center">2</td>
             </tr>
             <tr bgcolor="#e8e8e8">
-                <td>Information Disclosure - Suspicious Comments</td><td align="center">Informational</td><td align="center">2</td>
+                <td>Information Disclosure - Suspicious Comments</td><td align="center">Informational</td><td align="center">3</td>
             </tr>
             <tr bgcolor="#e8e8e8">
-                <td>Modern Web Application</td><td align="center">Informational</td><td align="center">1</td>
+                <td>Modern Web Application</td><td align="center">Informational</td><td align="center">2</td>
             </tr>
             <tr bgcolor="#e8e8e8">
                 <td>Storable and Cacheable Content</td><td align="center">Informational</td><td align="center">11</td>
@@ -207,7 +210,7 @@ ZAP Scanning Report
             </tr>
               
             <tr bgcolor="#e8e8e8">
-                <td width="20%">CWE Id</td><td width="80%">16</td>
+                <td width="20%">CWE Id</td><td width="80%">693</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -282,7 +285,7 @@ ZAP Scanning Report
             </tr>
               
             <tr bgcolor="#e8e8e8">
-                <td width="20%">CWE Id</td><td width="80%">16</td>
+                <td width="20%">CWE Id</td><td width="80%">345</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -364,8 +367,83 @@ ZAP Scanning Report
   
   
   
+            <tr height="24" class="risk-medium">
+                <th width="20%"><a name="medium"></a>Medium (Medium)</th><th width="80%">X-Frame-Options Header Not Set</th>
+            </tr>
+              
+  
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%">Description</td><td width="80%"><p>X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks.</p></td>
+            </tr>
+            <TR vAlign="top">
+                <TD colspan="2"></TD>
+            </TR>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Parameter</td><td width="80%">X-Frame-Options</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr/</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Parameter</td><td width="80%">X-Frame-Options</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%">Instances</td><td width="80%">2</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%">Solution</td><td width="80%"><p>Most modern Web browsers support the X-Frame-Options HTTP header. Ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY. Alternatively consider implementing Content Security Policy's "frame-ancestors" directive. </p></td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%">Reference</td><td width="80%"><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options</p></td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%">CWE Id</td><td width="80%">1021</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%">WASC Id</td><td width="80%">15</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%">Source ID</td><td width="80%">3</td>
+            </tr>
+            
+        </table>
+        <div class="spacer"></div>
+        <table width="100%" class="results">
+              
+  
+  
+  
             <tr height="24" class="risk-low">
-                <a name="low"></a><th width="20%">Low (Medium)</th><th width="80%">Cookie Without SameSite Attribute</th>
+                <a name="low"></a><th width="20%">Low (Medium)</th><th width="80%">Cookie without SameSite Attribute</th>
             </tr>
               
   
@@ -381,7 +459,7 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr</td>
+                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr/</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -399,7 +477,7 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr/</td>
+                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -429,7 +507,7 @@ ZAP Scanning Report
             </tr>
               
             <tr bgcolor="#e8e8e8">
-                <td width="20%">CWE Id</td><td width="80%">16</td>
+                <td width="20%">CWE Id</td><td width="80%">1275</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -478,21 +556,7 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr/js/vendor/modernizr-3.7.1.min.js</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">eVal</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Instances</td><td width="80%">2</td>
+                <td width="20%">Instances</td><td width="80%">1</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -519,14 +583,14 @@ ZAP Scanning Report
   
   
             <tr height="24" class="risk-low">
-                <a name="low"></a><th width="20%">Low (Medium)</th><th width="80%">Feature Policy Header Not Set</th>
+                <a name="low"></a><th width="20%">Low (Medium)</th><th width="80%">Incomplete or No Cache-control Header Set</th>
             </tr>
               
   
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%">Description</td><td width="80%"><p>Feature Policy Header is an added layer of security that helps to restrict from unauthorized access or usage of browser/client features by web resources. This policy ensures the user privacy by limiting or specifying the features of the browsers can be used by the web resources. Feature Policy provides a set of standard HTTP headers that allow website owners to limit which features of browsers can be used by the page such as camera, microphone, location, full screen etc.</p></td>
+                <td width="20%">Description</td><td width="80%"><p>The cache-control header has not been set properly or is missing, allowing the browser and proxies to cache content.</p></td>
             </tr>
             <TR vAlign="top">
                 <TD colspan="2"></TD>
@@ -535,41 +599,15 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr/js/vendor/jquery.ba-throttle-debounce.min.js</td>
+                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr/</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
                 <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
             </tr>
               
-  
-  
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr/js/vendor/modernizr-3.7.1.min.js</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr/js/main.js</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr/js/plugins.js</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+                <td width="20%" class="indent2">Parameter</td><td width="80%">Cache-Control</td>
             </tr>
               
   
@@ -582,10 +620,61 @@ ZAP Scanning Report
                 <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
             </tr>
               
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Parameter</td><td width="80%">Cache-Control</td>
+            </tr>
+              
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr/</td>
+                <td width="20%">Instances</td><td width="80%">2</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%">Solution</td><td width="80%"><p>Whenever possible ensure the cache-control HTTP header is set with no-cache, no-store, must-revalidate.</p></td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%">Reference</td><td width="80%"><p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p></td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%">CWE Id</td><td width="80%">525</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%">WASC Id</td><td width="80%">13</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%">Source ID</td><td width="80%">3</td>
+            </tr>
+            
+        </table>
+        <div class="spacer"></div>
+        <table width="100%" class="results">
+              
+  
+  
+  
+            <tr height="24" class="risk-low">
+                <a name="low"></a><th width="20%">Low (Medium)</th><th width="80%">Permissions Policy Header Not Set</th>
+            </tr>
+              
+  
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%">Description</td><td width="80%"><p>Permissions Policy Header is an added layer of security that helps to restrict from unauthorized access or usage of browser/client features by web resources. This policy ensures the user privacy by limiting or specifying the features of the browsers can be used by the web resources. Permissions Policy provides a set of standard HTTP headers that allow website owners to limit which features of browsers can be used by the page such as camera, microphone, location, full screen etc.</p></td>
+            </tr>
+            <TR vAlign="top">
+                <TD colspan="2"></TD>
+            </TR>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr/js/main.js</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -605,118 +694,21 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%">Instances</td><td width="80%">7</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Solution</td><td width="80%"><p>Ensure that your web server, application server, load balancer, etc. is configured to set the Feature-Policy header.</p></td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Reference</td><td width="80%"><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy</p><p>https://developers.google.com/web/updates/2018/06/feature-policy</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p></td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">CWE Id</td><td width="80%">16</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">WASC Id</td><td width="80%">15</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Source ID</td><td width="80%">3</td>
-            </tr>
-            
-        </table>
-        <div class="spacer"></div>
-        <table width="100%" class="results">
-              
-  
-  
-  
-            <tr height="24" class="risk-low">
-                <a name="low"></a><th width="20%">Low (Medium)</th><th width="80%">Incomplete or No Cache-control and Pragma HTTP Header Set</th>
-            </tr>
-              
-  
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Description</td><td width="80%"><p>The cache-control and pragma HTTP header have not been set properly or are missing allowing the browser and proxies to cache content.</p></td>
-            </tr>
-            <TR vAlign="top">
-                <TD colspan="2"></TD>
-            </TR>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr/css/ie9.css</td>
+                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr/js/plugins.js</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
                 <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
             </tr>
               
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Parameter</td><td width="80%">Cache-Control</td>
-            </tr>
-              
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr/css/boilerplate.css</td>
+                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr/js/vendor/modernizr-3.7.1.min.js</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
                 <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Parameter</td><td width="80%">Cache-Control</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr/css/normalize.css</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Parameter</td><td width="80%">Cache-Control</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Parameter</td><td width="80%">Cache-Control</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr/css/main.css</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Parameter</td><td width="80%">Cache-Control</td>
             </tr>
               
   
@@ -729,30 +721,46 @@ ZAP Scanning Report
                 <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
             </tr>
               
+  
+  
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Parameter</td><td width="80%">Cache-Control</td>
+                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr/js/vendor/jquery.ba-throttle-debounce.min.js</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
             </tr>
               
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%">Instances</td><td width="80%">6</td>
+                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr/</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
-                <td width="20%">Solution</td><td width="80%"><p>Whenever possible ensure the cache-control HTTP header is set with no-cache, no-store, must-revalidate; and that the pragma HTTP header is set with no-cache.</p></td>
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%">Instances</td><td width="80%">7</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
-                <td width="20%">Reference</td><td width="80%"><p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p></td>
+                <td width="20%">Solution</td><td width="80%"><p>Ensure that your web server, application server, load balancer, etc. is configured to set the Permissions-Policy header.</p></td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
-                <td width="20%">CWE Id</td><td width="80%">525</td>
+                <td width="20%">Reference</td><td width="80%"><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy</p><p>https://developers.google.com/web/updates/2018/06/feature-policy</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p></td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
-                <td width="20%">WASC Id</td><td width="80%">13</td>
+                <td width="20%">CWE Id</td><td width="80%">693</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%">WASC Id</td><td width="80%">15</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -815,7 +823,7 @@ ZAP Scanning Report
             </tr>
               
             <tr bgcolor="#e8e8e8">
-                <td width="20%">CWE Id</td><td width="80%">16</td>
+                <td width="20%">CWE Id</td><td width="80%">319</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -858,7 +866,7 @@ ZAP Scanning Report
             </tr>
               
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">FeuaddduckO/rMAqJlLL3fNyljz02SHnglC8B4L7YPAJXNoq2OD0tfuShhCVwoMEpKFLh+zOwVR9iG+YEjDtmuo6wUc=</td>
+                <td width="20%" class="indent2">Evidence</td><td width="80%">i+6OjRFnOp6aAYIqJlLL3fNyljz02aezrof2D2rXvhktgLABQTHLzjsVnDu0kdVd+sL774aHOePzFsyRZpHBynFfb9A=</td>
             </tr>
               
   
@@ -872,7 +880,7 @@ ZAP Scanning Report
             </tr>
               
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">8p6CB3bQKIhv9uQqJlLL3fNyljz02eW2l30gNqzippQdwRVN23+GZLepE6paZQdBgplBE3dU0/5az0PrAVb6EW68r+g=</td>
+                <td width="20%" class="indent2">Evidence</td><td width="80%">lz2rJ1z1dExnq/8qJlLL3fNyljz02aRlCH73cpPZpBuZn5cWRKGrDnb5wV3JB3NqUoe6FjI6YSH38w0F8mm9AgsQN9Q=</td>
             </tr>
               
   
@@ -914,7 +922,7 @@ ZAP Scanning Report
             </tr>
               
             <tr bgcolor="#e8e8e8">
-                <td width="20%">Other information</td><td width="80%"><p>\x0015�u�nrC���*&amp;R���r�&lt;��!�P�\x0007��`�	\�*�������\x0010�&#131;\x0004��K����T}�o�\x00120��:�G</p></td>
+                <td width="20%">Other information</td><td width="80%"><p>�\x0011g:��\x0001�*&amp;R���r�&lt;�٧����\x000fj׾\x0019-��\x0001A1��;\x0015�;���]���9��\x0016̑f���q_o�</p></td>
             </tr>
             <TR vAlign="top">
                 <TD colspan="2"></TD>
@@ -1055,7 +1063,21 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%">Instances</td><td width="80%">2</td>
+                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr/js/main.js</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">user</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%">Instances</td><td width="80%">3</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -1124,7 +1146,21 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%">Instances</td><td width="80%">1</td>
+                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr/js/main.js</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">&lt;a onclick='ouvrirLienFAQ()'&gt;questions &ndash; r&eacute;ponses bonus-malus&lt;/a&gt;</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%">Instances</td><td width="80%">2</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">

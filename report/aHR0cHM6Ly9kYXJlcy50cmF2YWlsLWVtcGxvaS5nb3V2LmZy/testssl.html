@@ -21,11 +21,11 @@
 ###########################################################</span>
 
  Using &quot;OpenSSL 1.0.2-chacha (1.0.2k-dev)&quot; [~183 ciphers]
- on fv-az201-724:/home/testssl/bin/openssl.Linux.x86_64
+ on fv-az290-505:/home/testssl/bin/openssl.Linux.x86_64
  (built: &quot;Jan 18 17:12:17 2019&quot;, platform: &quot;linux-x86_64&quot;)
 
 
-<span style="color:white;background-color:black;"> Start 2021-06-14 22:24:58        --&gt;&gt; 185.194.82.70:443 (dares.travail-emploi.gouv.fr) &lt;&lt;--</span>
+<span style="color:white;background-color:black;"> Start 2021-08-31 20:21:21        --&gt;&gt; 185.194.82.70:443 (dares.travail-emploi.gouv.fr) &lt;&lt;--</span>
 
  rDNS (185.194.82.70):   --
  Service detected:       HTTP
@@ -48,8 +48,8 @@
 <span style="font-weight:bold;"> Export ciphers (w/o ADH+NULL)                     </span><span style="color:#008817;font-weight:bold;">not offered (OK)</span>
 <span style="font-weight:bold;"> LOW: 64 Bit + DES, RC[2,4], MD5 (w/o export)      </span><span style="color:#008817;">not offered (OK)</span>
 <span style="font-weight:bold;"> Triple DES Ciphers / IDEA                         </span>not offered
-<span style="font-weight:bold;"> Obsoleted CBC ciphers (AES, ARIA etc.)            </span><span style="color:#a86437;">offered</span>
-<span style="font-weight:bold;"> Strong encryption (AEAD ciphers) with no FS       </span><span style="color:#008817;">offered (OK)</span>
+<span style="font-weight:bold;"> Obsoleted CBC ciphers (AES, ARIA etc.)            </span>not offered
+<span style="font-weight:bold;"> Strong encryption (AEAD ciphers) with no FS       </span>not offered
 <span style="font-weight:bold;"> Forward Secrecy strong encryption (AEAD ciphers)  </span><span style="color:#008817;font-weight:bold;">offered (OK)</span>
 
 
@@ -57,7 +57,7 @@
 
 <span style="font-weight:bold;"> Has server cipher order?     </span><span style="color:#008817;font-weight:bold;">yes (OK)</span>
 <span style="font-weight:bold;"> Negotiated protocol          </span><span style="color:#008817;font-weight:bold;">TLSv1.2</span>
-<span style="font-weight:bold;"> Negotiated cipher            </span><span style="color:#008817;font-weight:bold;">ECDHE-RSA-AES128-GCM-SHA256</span>, <span style="color:#008817;">256 bit ECDH (P-256)</span>
+<span style="font-weight:bold;"> Negotiated cipher            </span><span style="color:#008817;font-weight:bold;">ECDHE-RSA-AES256-GCM-SHA384</span>, <span style="color:#008817;">256 bit ECDH (P-256)</span>
 <span style="font-weight:bold;"> Cipher per protocol</span>
 
 Hexcode  Cipher Suite Name (OpenSSL)       KeyExch.   Encryption  Bits     Cipher Suite Name (IANA/RFC)
@@ -79,9 +79,7 @@ Hexcode  Cipher Suite Name (OpenSSL)       KeyExch.   Encryption  Bits     Ciphe
 
 
 <span style="color:#008817;"> FS is offered (OK) </span>          ECDHE-RSA-AES128-GCM-SHA256
-                              ECDHE-RSA-AES128-SHA256 ECDHE-RSA-AES128-SHA
-                              ECDHE-RSA-AES256-GCM-SHA384
-                              ECDHE-RSA-AES256-SHA384 ECDHE-RSA-AES256-SHA 
+                              ECDHE-RSA-AES256-GCM-SHA384 
 <span style="font-weight:bold;"> Elliptic curves offered:     </span><span style="color:#008817;">prime256v1</span> <span style="color:#008817;">secp384r1</span> 
 
 
@@ -99,37 +97,35 @@ Hexcode  Cipher Suite Name (OpenSSL)       KeyExch.   Encryption  Bits     Ciphe
 <span style="font-weight:bold;"> Server key size              </span>RSA 2048 bits (exponent is 65537)
 <span style="font-weight:bold;"> Server key usage             </span>Digital Signature, Key Encipherment
 <span style="font-weight:bold;"> Server extended key usage    </span>TLS Web Server Authentication
-<span style="font-weight:bold;"> Serial / Fingerprints        </span>D270A0758E7DEA851C3C09884687AFC2 / SHA1 690D339CB3A935AE9DE0A6E99EC5C4BAC707FDB3
-                              SHA256 BDB102CE3C7038A22B86CC2339DA03B5CF3534FABA67B62F53DC2F7D8EF4216F
-<span style="font-weight:bold;"> Common Name (CN)             </span><i>dares.travail-emploi.gouv.fr </i> (CN in response to request w/o SNI: <i>*.cegedim.cloud </i>)
-<span style="font-weight:bold;"> subjectAltName (SAN)         </span><i>dares.travail-emploi.gouv.fr
-                              www.dares.travail-emploi.gouv.fr </i>
-<span style="font-weight:bold;"> Trust (hostname)             </span><span style="color:#008817;">Ok via SAN and CN</span> (SNI mandatory)
-<span style="font-weight:bold;"> Chain of trust</span>               <span style="color:#e52207;font-weight:bold;">NOT ok</span><span style="color:#e52207;font-weight:bold;">:</span><span style="color:#e52207;"> Java </span>(self signed CA in chain)
+<span style="font-weight:bold;"> Serial / Fingerprints        </span>34EB3D5A4E3C10B77ECBD1463BA46A99 / SHA1 73D1755ECAD41FA6477CF267D67491AA713C22C9
+                              SHA256 0D00710392D88CD71B775A47FDB12108E79882149185B07891F666F7BFF45715
+<span style="font-weight:bold;"> Common Name (CN)             </span><i>dares.travail-emploi.gouv.fr </i>
+<span style="font-weight:bold;"> subjectAltName (SAN)         </span><i>www.dares.travail-emploi.gouv.fr
+                              dares.travail-emploi.gouv.fr </i>
+<span style="font-weight:bold;"> Trust (hostname)             </span><span style="color:#008817;">Ok via SAN and CN</span> (same w/o SNI)
+<span style="font-weight:bold;"> Chain of trust</span>               <span style="color:#e52207;font-weight:bold;">NOT ok</span><span style="color:#e52207;font-weight:bold;">:</span><span style="color:#e52207;"> Java </span>(chain incomplete)
 <span style="color:#008817;">OK: Mozilla Microsoft Linux Apple </span>
 <span style="font-weight:bold;"> EV cert</span> (experimental)       no 
-<span style="font-weight:bold;"> Certificate Validity (UTC)   </span><span style="color:#008817;">72 &gt;= 60 days</span> (2019-08-27 07:18 --&gt; 2021-08-26 07:18)
-                              &gt;= 398 days certificate life time but issued before 2020/09/01
+<span style="font-weight:bold;"> Certificate Validity (UTC)   </span><span style="color:#008817;">338 &gt;= 60 days</span> (2021-08-04 22:00 --&gt; 2022-08-04 21:59)
 <span style="font-weight:bold;"> ETS/&quot;eTLS&quot;</span>, visibility info  not present
 <span style="font-weight:bold;"> Certificate Revocation List  </span>http://crl.certigna.fr/servicesca.crl
                               http://crl.dhimyotis.com/servicesca.crl
-<span style="font-weight:bold;"> OCSP URI                     </span>http://servicesca.ocsp.certigna.fr
-                              http://servicesca.ocsp.dhimyotis.com
+<span style="font-weight:bold;"> OCSP URI                     </span>http://servicesca.ocsp.dhimyotis.com
+                              http://servicesca.ocsp.certigna.fr
 <span style="font-weight:bold;"> OCSP stapling                </span><span style="color:#a86437;">not offered</span>
 <span style="font-weight:bold;"> OCSP must staple extension   </span>--
 <span style="font-weight:bold;"> DNS CAA RR</span> (experimental)    <span style="color:#a86437;">not offered</span>
 <span style="font-weight:bold;"> Certificate Transparency     </span><span style="color:#008817;">yes</span> (certificate extension)
-<span style="font-weight:bold;"> Certificates provided</span>        3
+<span style="font-weight:bold;"> Certificates provided</span>        2
 <span style="font-weight:bold;"> Issuer                       </span><i>Certigna Services CA</i> (<i>DHIMYOTIS</i> from <i>FR</i>)
 <span style="font-weight:bold;"> Intermediate cert validity   </span>#1: <span style="color:#008817;">ok &gt; 40 days</span> (2025-11-22 11:33). <i>Certigna Services CA</i> &lt;-- <i>Certigna</i>
-                              #2: <span style="color:#008817;">ok &gt; 40 days</span> (2027-06-29 15:13). <i>Certigna</i> &lt;-- <i>Certigna</i>
 <span style="font-weight:bold;"> Intermediate Bad OCSP</span> (exp.) <span style="color:#008817;">Ok</span>
 
 
 <span style="text-decoration:underline;font-weight:bold;"> Testing HTTP header response @ &quot;/&quot; </span>
 
 <span style="font-weight:bold;"> HTTP Status Code           </span>  200 OK
-<span style="font-weight:bold;"> HTTP clock skew              </span>-1 sec from localtime
+<span style="font-weight:bold;"> HTTP clock skew              </span>0 sec from localtime
 <span style="font-weight:bold;"> Strict Transport Security    </span><span style="color:#008817;">365 days</span>=31536000 s<span style="color:#008817;">, includeSubDomains</span>
 <span style="font-weight:bold;"> Public Key Pinning           </span>--
 <span style="font-weight:bold;"> Server banner                </span>(no &quot;Server&quot; line in header, interesting!)
@@ -147,9 +143,9 @@ Hexcode  Cipher Suite Name (OpenSSL)       KeyExch.   Encryption  Bits     Ciphe
 <span style="font-weight:bold;"> Heartbleed</span> (CVE-2014-0160)                <span style="color:#008817;font-weight:bold;">not vulnerable (OK)</span>, no heartbeat extension
 <span style="font-weight:bold;"> CCS</span> (CVE-2014-0224)                       <span style="color:#008817;font-weight:bold;">not vulnerable (OK)</span>
 <span style="font-weight:bold;"> Ticketbleed</span> (CVE-2016-9244), experiment.  <span style="color:#008817;font-weight:bold;">not vulnerable (OK)</span>, no session ticket extension
-<span style="font-weight:bold;"> ROBOT                                     </span><span style="color:#008817;font-weight:bold;">not vulnerable (OK)</span>
+<span style="font-weight:bold;"> ROBOT                                     </span><span style="color:#008817;font-weight:bold;">Server does not support any cipher suites that use RSA key transport</span>
 <span style="font-weight:bold;"> Secure Renegotiation (RFC 5746)           </span><span style="color:#008817;font-weight:bold;">supported (OK)</span>
-<span style="font-weight:bold;"> Secure Client-Initiated Renegotiation     </span><span style="color:#008817;">not vulnerable (OK)</span>
+<span style="font-weight:bold;"> Secure Client-Initiated Renegotiation     </span><span style="color:#008817;">not vulnerable (OK)</span> -- mitigated (disconnect within 6)
 <span style="font-weight:bold;"> CRIME, TLS </span>(CVE-2012-4929)                <span style="color:#008817;">not vulnerable (OK)</span>
 <span style="font-weight:bold;"> BREACH</span> (CVE-2013-3587)                    <span style="color:#c05600;">potentially NOT ok, &quot;gzip&quot; HTTP compression detected.</span> - only supplied &quot;/&quot; tested
                                            Can be ignored for static pages or if no secrets in the page
@@ -159,10 +155,10 @@ Hexcode  Cipher Suite Name (OpenSSL)       KeyExch.   Encryption  Bits     Ciphe
 <span style="font-weight:bold;"> FREAK</span> (CVE-2015-0204)                     <span style="color:#008817;font-weight:bold;">not vulnerable (OK)</span>
 <span style="font-weight:bold;"> DROWN</span> (CVE-2016-0800, CVE-2016-0703)      <span style="color:#008817;font-weight:bold;">not vulnerable on this host and port (OK)</span>
                                            make sure you don&apos;t use this certificate elsewhere with SSLv2 enabled services
-                                           <a href="https://censys.io/ipv4?q=BDB102CE3C7038A22B86CC2339DA03B5CF3534FABA67B62F53DC2F7D8EF4216F" style="color:black;text-decoration:none;">https://censys.io/ipv4?q=BDB102CE3C7038A22B86CC2339DA03B5CF3534FABA67B62F53DC2F7D8EF4216F</a> could help you to find out
+                                           <a href="https://censys.io/ipv4?q=0D00710392D88CD71B775A47FDB12108E79882149185B07891F666F7BFF45715" style="color:black;text-decoration:none;">https://censys.io/ipv4?q=0D00710392D88CD71B775A47FDB12108E79882149185B07891F666F7BFF45715</a> could help you to find out
 <span style="font-weight:bold;"> LOGJAM</span> (CVE-2015-4000), experimental      <span style="color:#008817;">not vulnerable (OK):</span> no DH EXPORT ciphers, no DH key detected with &lt;= TLS 1.2
 <span style="font-weight:bold;"> BEAST</span> (CVE-2011-3389)                     <span style="color:#008817;">not vulnerable (OK)</span>, no SSL3 or TLS1
-<span style="font-weight:bold;"> LUCKY13</span> (CVE-2013-0169), experimental     potentially <span style="color:#a86437;">VULNERABLE</span>, uses cipher block chaining (CBC) ciphers with TLS. Check patches
+<span style="font-weight:bold;"> LUCKY13</span> (CVE-2013-0169), experimental     <span style="color:#008817;font-weight:bold;">not vulnerable (OK)</span>
 <span style="font-weight:bold;"> Winshock</span> (CVE-2014-6321), experimental    <span style="color:#008817;font-weight:bold;">not vulnerable (OK)</span> - CAMELLIA or ECDHE_RSA GCM ciphers found
 <span style="font-weight:bold;"> RC4</span> (CVE-2013-2566, CVE-2015-2808)        <span style="color:#008817;">no RC4 ciphers detected (OK)</span>
 
@@ -171,42 +167,42 @@ Hexcode  Cipher Suite Name (OpenSSL)       KeyExch.   Encryption  Bits     Ciphe
 
  Browser                      Protocol  Cipher Suite Name (OpenSSL)       Forward Secrecy
 ------------------------------------------------------------------------------------------------
- Android 4.4.2                TLSv1.2   ECDHE-RSA-AES128-GCM-SHA256       <span style="color:#008817;">256 bit ECDH (P-256)</span>
+ Android 4.4.2                TLSv1.2   ECDHE-RSA-AES256-GCM-SHA384       <span style="color:#008817;">256 bit ECDH (P-256)</span>
  Android 5.0.0                TLSv1.2   ECDHE-RSA-AES128-GCM-SHA256       <span style="color:#008817;">256 bit ECDH (P-256)</span>
  Android 6.0                  TLSv1.2   ECDHE-RSA-AES128-GCM-SHA256       <span style="color:#008817;">256 bit ECDH (P-256)</span>
- Android 7.0 (native)         TLSv1.2   ECDHE-RSA-AES128-GCM-SHA256       <span style="color:#008817;">256 bit ECDH (P-256)</span>
- Android 8.1 (native)         TLSv1.2   ECDHE-RSA-AES128-GCM-SHA256       <span style="color:#008817;">256 bit ECDH (P-256)</span>
- Android 9.0 (native)         TLSv1.2   ECDHE-RSA-AES128-GCM-SHA256       <span style="color:#008817;">256 bit ECDH (P-256)</span>
- Android 10.0 (native)        TLSv1.2   ECDHE-RSA-AES128-GCM-SHA256       <span style="color:#008817;">256 bit ECDH (P-256)</span>
- Chrome 74 (Win 10)           TLSv1.2   ECDHE-RSA-AES128-GCM-SHA256       <span style="color:#008817;">256 bit ECDH (P-256)</span>
- Chrome 79 (Win 10)           TLSv1.2   ECDHE-RSA-AES128-GCM-SHA256       <span style="color:#008817;">256 bit ECDH (P-256)</span>
- Firefox 66 (Win 8.1/10)      TLSv1.2   ECDHE-RSA-AES128-GCM-SHA256       <span style="color:#008817;">256 bit ECDH (P-256)</span>
- Firefox 71 (Win 10)          TLSv1.2   ECDHE-RSA-AES128-GCM-SHA256       <span style="color:#008817;">256 bit ECDH (P-256)</span>
+ Android 7.0 (native)         TLSv1.2   ECDHE-RSA-AES256-GCM-SHA384       <span style="color:#008817;">256 bit ECDH (P-256)</span>
+ Android 8.1 (native)         TLSv1.2   ECDHE-RSA-AES256-GCM-SHA384       <span style="color:#008817;">256 bit ECDH (P-256)</span>
+ Android 9.0 (native)         TLSv1.2   ECDHE-RSA-AES256-GCM-SHA384       <span style="color:#008817;">256 bit ECDH (P-256)</span>
+ Android 10.0 (native)        TLSv1.2   ECDHE-RSA-AES256-GCM-SHA384       <span style="color:#008817;">256 bit ECDH (P-256)</span>
+ Chrome 74 (Win 10)           TLSv1.2   ECDHE-RSA-AES256-GCM-SHA384       <span style="color:#008817;">256 bit ECDH (P-256)</span>
+ Chrome 79 (Win 10)           TLSv1.2   ECDHE-RSA-AES256-GCM-SHA384       <span style="color:#008817;">256 bit ECDH (P-256)</span>
+ Firefox 66 (Win 8.1/10)      TLSv1.2   ECDHE-RSA-AES256-GCM-SHA384       <span style="color:#008817;">256 bit ECDH (P-256)</span>
+ Firefox 71 (Win 10)          TLSv1.2   ECDHE-RSA-AES256-GCM-SHA384       <span style="color:#008817;">256 bit ECDH (P-256)</span>
  IE 6 XP                      No connection
  IE 8 Win 7                   No connection
  IE 8 XP                      No connection
- IE 11 Win 7                  TLSv1.2   ECDHE-RSA-AES128-SHA              <span style="color:#008817;">256 bit ECDH (P-256)</span>
- IE 11 Win 8.1                TLSv1.2   ECDHE-RSA-AES128-SHA              <span style="color:#008817;">256 bit ECDH (P-256)</span>
- IE 11 Win Phone 8.1          TLSv1.2   ECDHE-RSA-AES128-SHA              <span style="color:#008817;">256 bit ECDH (P-256)</span>
- IE 11 Win 10                 TLSv1.2   ECDHE-RSA-AES128-GCM-SHA256       <span style="color:#008817;">256 bit ECDH (P-256)</span>
- Edge 15 Win 10               TLSv1.2   ECDHE-RSA-AES128-GCM-SHA256       <span style="color:#008817;">256 bit ECDH (P-256)</span>
- Edge 17 (Win 10)             TLSv1.2   ECDHE-RSA-AES128-GCM-SHA256       <span style="color:#008817;">256 bit ECDH (P-256)</span>
- Opera 66 (Win 10)            TLSv1.2   ECDHE-RSA-AES128-GCM-SHA256       <span style="color:#008817;">256 bit ECDH (P-256)</span>
- Safari 9 iOS 9               TLSv1.2   ECDHE-RSA-AES128-GCM-SHA256       <span style="color:#008817;">256 bit ECDH (P-256)</span>
- Safari 9 OS X 10.11          TLSv1.2   ECDHE-RSA-AES128-GCM-SHA256       <span style="color:#008817;">256 bit ECDH (P-256)</span>
- Safari 10 OS X 10.12         TLSv1.2   ECDHE-RSA-AES128-GCM-SHA256       <span style="color:#008817;">256 bit ECDH (P-256)</span>
- Safari 12.1 (iOS 12.2)       TLSv1.2   ECDHE-RSA-AES128-GCM-SHA256       <span style="color:#008817;">256 bit ECDH (P-256)</span>
- Safari 13.0 (macOS 10.14.6)  TLSv1.2   ECDHE-RSA-AES128-GCM-SHA256       <span style="color:#008817;">256 bit ECDH (P-256)</span>
- Apple ATS 9 iOS 9            TLSv1.2   ECDHE-RSA-AES128-GCM-SHA256       <span style="color:#008817;">256 bit ECDH (P-256)</span>
+ IE 11 Win 7                  No connection
+ IE 11 Win 8.1                No connection
+ IE 11 Win Phone 8.1          No connection
+ IE 11 Win 10                 TLSv1.2   ECDHE-RSA-AES256-GCM-SHA384       <span style="color:#008817;">256 bit ECDH (P-256)</span>
+ Edge 15 Win 10               TLSv1.2   ECDHE-RSA-AES256-GCM-SHA384       <span style="color:#008817;">256 bit ECDH (P-256)</span>
+ Edge 17 (Win 10)             TLSv1.2   ECDHE-RSA-AES256-GCM-SHA384       <span style="color:#008817;">256 bit ECDH (P-256)</span>
+ Opera 66 (Win 10)            TLSv1.2   ECDHE-RSA-AES256-GCM-SHA384       <span style="color:#008817;">256 bit ECDH (P-256)</span>
+ Safari 9 iOS 9               TLSv1.2   ECDHE-RSA-AES256-GCM-SHA384       <span style="color:#008817;">256 bit ECDH (P-256)</span>
+ Safari 9 OS X 10.11          TLSv1.2   ECDHE-RSA-AES256-GCM-SHA384       <span style="color:#008817;">256 bit ECDH (P-256)</span>
+ Safari 10 OS X 10.12         TLSv1.2   ECDHE-RSA-AES256-GCM-SHA384       <span style="color:#008817;">256 bit ECDH (P-256)</span>
+ Safari 12.1 (iOS 12.2)       TLSv1.2   ECDHE-RSA-AES256-GCM-SHA384       <span style="color:#008817;">256 bit ECDH (P-256)</span>
+ Safari 13.0 (macOS 10.14.6)  TLSv1.2   ECDHE-RSA-AES256-GCM-SHA384       <span style="color:#008817;">256 bit ECDH (P-256)</span>
+ Apple ATS 9 iOS 9            TLSv1.2   ECDHE-RSA-AES256-GCM-SHA384       <span style="color:#008817;">256 bit ECDH (P-256)</span>
  Java 6u45                    No connection
  Java 7u25                    No connection
- Java 8u161                   TLSv1.2   ECDHE-RSA-AES128-GCM-SHA256       <span style="color:#008817;">256 bit ECDH (P-256)</span>
- Java 11.0.2 (OpenJDK)        TLSv1.2   ECDHE-RSA-AES128-GCM-SHA256       <span style="color:#008817;">256 bit ECDH (P-256)</span>
- Java 12.0.1 (OpenJDK)        TLSv1.2   ECDHE-RSA-AES128-GCM-SHA256       <span style="color:#008817;">256 bit ECDH (P-256)</span>
- OpenSSL 1.0.2e               TLSv1.2   ECDHE-RSA-AES128-GCM-SHA256       <span style="color:#008817;">256 bit ECDH (P-256)</span>
- OpenSSL 1.1.0l (Debian)      TLSv1.2   ECDHE-RSA-AES128-GCM-SHA256       <span style="color:#008817;">256 bit ECDH (P-256)</span>
- OpenSSL 1.1.1d (Debian)      TLSv1.2   ECDHE-RSA-AES128-GCM-SHA256       <span style="color:#008817;">256 bit ECDH (P-256)</span>
- Thunderbird (68.3)           TLSv1.2   ECDHE-RSA-AES128-GCM-SHA256       <span style="color:#008817;">256 bit ECDH (P-256)</span>
+ Java 8u161                   TLSv1.2   ECDHE-RSA-AES256-GCM-SHA384       <span style="color:#008817;">256 bit ECDH (P-256)</span>
+ Java 11.0.2 (OpenJDK)        TLSv1.2   ECDHE-RSA-AES256-GCM-SHA384       <span style="color:#008817;">256 bit ECDH (P-256)</span>
+ Java 12.0.1 (OpenJDK)        TLSv1.2   ECDHE-RSA-AES256-GCM-SHA384       <span style="color:#008817;">256 bit ECDH (P-256)</span>
+ OpenSSL 1.0.2e               TLSv1.2   ECDHE-RSA-AES256-GCM-SHA384       <span style="color:#008817;">256 bit ECDH (P-256)</span>
+ OpenSSL 1.1.0l (Debian)      TLSv1.2   ECDHE-RSA-AES256-GCM-SHA384       <span style="color:#008817;">256 bit ECDH (P-256)</span>
+ OpenSSL 1.1.1d (Debian)      TLSv1.2   ECDHE-RSA-AES256-GCM-SHA384       <span style="color:#008817;">256 bit ECDH (P-256)</span>
+ Thunderbird (68.3)           TLSv1.2   ECDHE-RSA-AES256-GCM-SHA384       <span style="color:#008817;">256 bit ECDH (P-256)</span>
 
 
 <span style="text-decoration:underline;font-weight:bold;"> Rating (experimental) </span>
@@ -219,7 +215,7 @@ Hexcode  Cipher Suite Name (OpenSSL)       KeyExch.   Encryption  Bits     Ciphe
 <span style="font-weight:bold;"> Final Score                  </span>81
 <span style="font-weight:bold;"> Overall Grade                </span><span style="color:#008817;font-weight:bold;">A+</span>
 
-<span style="color:white;background-color:black;"> Done 2021-06-14 22:26:33 [  97s] --&gt;&gt; 185.194.82.70:443 (dares.travail-emploi.gouv.fr) &lt;&lt;--</span>
+<span style="color:white;background-color:black;"> Done 2021-08-31 20:23:32 [ 133s] --&gt;&gt; 185.194.82.70:443 (dares.travail-emploi.gouv.fr) &lt;&lt;--</span>
 
 
 </pre>
