@@ -81,7 +81,7 @@ ZAP Scanning Report
         <p>
 </p>
         <h3 class="left-header">Summary of Alerts</h3>
-        <h3 class="time-stamp">Generated on Wed, 1 Sep 2021 00:25:23</h3>
+        <h3 class="time-stamp">Generated on Sun, 26 Sep 2021 23:37:41</h3>
         <table width="45%" class="summary">
             <tr bgcolor="#666666">
                 <th width="45%" height="24">Risk 
@@ -89,16 +89,16 @@ ZAP Scanning Report
       of Alerts</th>
             </tr>
             <tr bgcolor="#e8e8e8">
-                <td><a href="#high">High</a></td><td align="center">0</td>
+                <td><a href="#high">High</a></td><td align="center">1</td>
             </tr>
             <tr bgcolor="#e8e8e8">
-                <td><a href="#medium">Medium</a></td><td align="center">6</td>
+                <td><a href="#medium">Medium</a></td><td align="center">5</td>
             </tr>
             <tr bgcolor="#e8e8e8">
                 <td><a href="#low">Low</a></td><td align="center">9</td>
             </tr>
             <tr bgcolor="#e8e8e8">
-                <td><a href="#info">Informational</a></td><td align="center">8</td>
+                <td><a href="#info">Informational</a></td><td align="center">9</td>
             </tr>
         </table>
         <div class="spacer-lg"></div>
@@ -108,16 +108,16 @@ ZAP Scanning Report
                 <th width="60%" height="24">Name</th><th width="20%" align="center">Risk Level</th><th width="20%" align="center">Number of Instances</th>
             </tr>
             <tr bgcolor="#e8e8e8">
+                <td>PII Disclosure</td><td align="center">High</td><td align="center">1</td>
+            </tr>
+            <tr bgcolor="#e8e8e8">
                 <td>Content Security Policy (CSP) Header Not Set</td><td align="center">Medium</td><td align="center">11</td>
             </tr>
             <tr bgcolor="#e8e8e8">
                 <td>Reverse Tabnabbing</td><td align="center">Medium</td><td align="center">11</td>
             </tr>
             <tr bgcolor="#e8e8e8">
-                <td>Source Code Disclosure - Java</td><td align="center">Medium</td><td align="center">1</td>
-            </tr>
-            <tr bgcolor="#e8e8e8">
-                <td>Source Code Disclosure - Perl</td><td align="center">Medium</td><td align="center">3</td>
+                <td>Source Code Disclosure - Perl</td><td align="center">Medium</td><td align="center">1</td>
             </tr>
             <tr bgcolor="#e8e8e8">
                 <td>Sub Resource Integrity Attribute Missing</td><td align="center">Medium</td><td align="center">11</td>
@@ -129,10 +129,10 @@ ZAP Scanning Report
                 <td>Absence of Anti-CSRF Tokens</td><td align="center">Low</td><td align="center">11</td>
             </tr>
             <tr bgcolor="#e8e8e8">
-                <td>Cookie No HttpOnly Flag</td><td align="center">Low</td><td align="center">3</td>
+                <td>Cookie No HttpOnly Flag</td><td align="center">Low</td><td align="center">1</td>
             </tr>
             <tr bgcolor="#e8e8e8">
-                <td>Cookie without SameSite Attribute</td><td align="center">Low</td><td align="center">3</td>
+                <td>Cookie without SameSite Attribute</td><td align="center">Low</td><td align="center">1</td>
             </tr>
             <tr bgcolor="#e8e8e8">
                 <td>Dangerous JS Functions</td><td align="center">Low</td><td align="center">2</td>
@@ -156,6 +156,9 @@ ZAP Scanning Report
                 <td>Base64 Disclosure</td><td align="center">Informational</td><td align="center">11</td>
             </tr>
             <tr bgcolor="#e8e8e8">
+                <td>Charset Mismatch </td><td align="center">Informational</td><td align="center">12</td>
+            </tr>
+            <tr bgcolor="#e8e8e8">
                 <td>Information Disclosure - Suspicious Comments</td><td align="center">Informational</td><td align="center">11</td>
             </tr>
             <tr bgcolor="#e8e8e8">
@@ -171,14 +174,82 @@ ZAP Scanning Report
                 <td>Storable but Non-Cacheable Content</td><td align="center">Informational</td><td align="center">2</td>
             </tr>
             <tr bgcolor="#e8e8e8">
-                <td>Timestamp Disclosure - Unix</td><td align="center">Informational</td><td align="center">10</td>
+                <td>Timestamp Disclosure - Unix</td><td align="center">Informational</td><td align="center">8</td>
             </tr>
             <tr bgcolor="#e8e8e8">
-                <td>User Controllable HTML Element Attribute (Potential XSS)</td><td align="center">Informational</td><td align="center">18</td>
+                <td>User Controllable HTML Element Attribute (Potential XSS)</td><td align="center">Informational</td><td align="center">7</td>
             </tr>
         </table>
         <div class="spacer-lg"></div>
         <h3>Alert Detail</h3>
+        <div class="spacer"></div>
+        <table width="100%" class="results">
+              
+  
+  
+  
+            <tr height="24" class="risk-high">
+                <th width="20%"><a name="high"></a>High (High)</th><th width="80%">PII Disclosure</th>
+            </tr>
+              
+  
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%">Description</td><td width="80%"><p>The response contains Personally Identifiable Information, such as CC number, SSN and similar sensitive data.</p></td>
+            </tr>
+            <TR vAlign="top">
+                <TD colspan="2"></TD>
+            </TR>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/wp-content/plugins/elementor-pro/assets/js/preloaded-elements-handlers.min.js?ver=3.4.1</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">500408258167</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%">Instances</td><td width="80%">1</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%">Solution</td><td width="80%"><p></p></td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%">Other information</td><td width="80%"><p>Credit Card Type detected: Maestro</p><p>Bank Identification Number: 500408</p><p>Brand: MAESTRO</p><p>Category: </p><p>Issuer: </p></td>
+            </tr>
+            <TR vAlign="top">
+                <TD colspan="2"></TD>
+            </TR>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%">Reference</td><td width="80%"><p></p></td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%">CWE Id</td><td width="80%">359</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%">WASC Id</td><td width="80%">13</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%">Source ID</td><td width="80%">3</td>
+            </tr>
+            
+        </table>
         <div class="spacer"></div>
         <table width="100%" class="results">
               
@@ -202,6 +273,26 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/comment-gerer-mon-association/</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
                 <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/comment-se-creer-un-compte/</td>
             </tr>
               
@@ -213,6 +304,26 @@ ZAP Scanning Report
   
             <tr bgcolor="#e8e8e8">
                 <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/declarer-un-changement-de-situation-de-mon-association/</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/demander-une-subvention/</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/faq/</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -272,46 +383,6 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/comment-gerer-mon-association/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/faq/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/saisir-les-comptes-rendus-financiers/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
                 <td width="20%">Instances</td><td width="80%">11</td>
             </tr>
               
@@ -359,7 +430,7 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/declarer-un-changement-de-situation-de-mon-association/</td>
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/faq/</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -399,7 +470,7 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/actualites/</td>
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/demander-lattribution-dun-n-siren-siret/</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -407,13 +478,7 @@ ZAP Scanning Report
             </tr>
               
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">&lt;a href="https://lecompteasso.associations.gouv.fr/login" target="_blank" class="elementor-button-link elementor-button elementor-size-xs" role="button"&gt;
-						&lt;span class="elementor-button-content-wrapper"&gt;
-						&lt;span class="elementor-button-icon elementor-align-icon-right"&gt;
-				&lt;i aria-hidden="true" class="far fa-user"&gt;&lt;/i&gt;			&lt;/span&gt;
-						&lt;span class="elementor-button-text"&gt;&lt;/span&gt;
-		&lt;/span&gt;
-					&lt;/a&gt;</td>
+                <td width="20%" class="indent2">Evidence</td><td width="80%">&lt;a href="https://lecompteasso.associations.gouv.fr/login" target="_blank" class="elementor-button-link elementor-button elementor-size-xs" role="button"&gt; &lt;span class="elementor-button-content-wrapper"&gt; &lt;span class="elementor-button-icon elementor-align-icon-right"&gt; &lt;i aria-hidden="true" class="far fa-user"&gt;&lt;/i&gt; &lt;/span&gt; &lt;span class="elementor-button-text"&gt;&lt;/span&gt; &lt;/span&gt; &lt;/a&gt;</td>
             </tr>
               
   
@@ -427,99 +492,13 @@ ZAP Scanning Report
             </tr>
               
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">&lt;a href="https://lecompteasso.associations.gouv.fr/login" target="_blank" class="elementor-button-link elementor-button elementor-size-xs" role="button"&gt;
-						&lt;span class="elementor-button-content-wrapper"&gt;
-						&lt;span class="elementor-button-icon elementor-align-icon-right"&gt;
-				&lt;i aria-hidden="true" class="far fa-user"&gt;&lt;/i&gt;			&lt;/span&gt;
-						&lt;span class="elementor-button-text"&gt;&lt;/span&gt;
-		&lt;/span&gt;
-					&lt;/a&gt;</td>
+                <td width="20%" class="indent2">Evidence</td><td width="80%">&lt;a href="https://lecompteasso.associations.gouv.fr/login" target="_blank" class="elementor-button-link elementor-button elementor-size-xs" role="button"&gt; &lt;span class="elementor-button-content-wrapper"&gt; &lt;span class="elementor-button-icon elementor-align-icon-right"&gt; &lt;i aria-hidden="true" class="far fa-user"&gt;&lt;/i&gt; &lt;/span&gt; &lt;span class="elementor-button-text"&gt;&lt;/span&gt; &lt;/span&gt; &lt;/a&gt;</td>
             </tr>
               
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/comment-gerer-mon-association/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">&lt;a href="https://lecompteasso.associations.gouv.fr/login" target="_blank" class="elementor-button-link elementor-button elementor-size-xs" role="button"&gt;
-						&lt;span class="elementor-button-content-wrapper"&gt;
-						&lt;span class="elementor-button-icon elementor-align-icon-right"&gt;
-				&lt;i aria-hidden="true" class="far fa-user"&gt;&lt;/i&gt;			&lt;/span&gt;
-						&lt;span class="elementor-button-text"&gt;&lt;/span&gt;
-		&lt;/span&gt;
-					&lt;/a&gt;</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/saisir-les-comptes-rendus-financiers/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">&lt;a href="https://lecompteasso.associations.gouv.fr/login" target="_blank" class="elementor-button-link elementor-button elementor-size-xs" role="button"&gt;
-						&lt;span class="elementor-button-content-wrapper"&gt;
-						&lt;span class="elementor-button-icon elementor-align-icon-right"&gt;
-				&lt;i aria-hidden="true" class="far fa-user"&gt;&lt;/i&gt;			&lt;/span&gt;
-						&lt;span class="elementor-button-text"&gt;&lt;/span&gt;
-		&lt;/span&gt;
-					&lt;/a&gt;</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/faq/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">&lt;a href="https://lecompteasso.associations.gouv.fr/login" target="_blank" class="elementor-button-link elementor-button elementor-size-xs" role="button"&gt;
-						&lt;span class="elementor-button-content-wrapper"&gt;
-						&lt;span class="elementor-button-icon elementor-align-icon-right"&gt;
-				&lt;i aria-hidden="true" class="far fa-user"&gt;&lt;/i&gt;			&lt;/span&gt;
-						&lt;span class="elementor-button-text"&gt;&lt;/span&gt;
-		&lt;/span&gt;
-					&lt;/a&gt;</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/demander-lattribution-dun-n-siren-siret/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">&lt;a href="https://lecompteasso.associations.gouv.fr/login" target="_blank" class="elementor-button-link elementor-button elementor-size-xs" role="button"&gt;
-						&lt;span class="elementor-button-content-wrapper"&gt;
-						&lt;span class="elementor-button-icon elementor-align-icon-right"&gt;
-				&lt;i aria-hidden="true" class="far fa-user"&gt;&lt;/i&gt;			&lt;/span&gt;
-						&lt;span class="elementor-button-text"&gt;&lt;/span&gt;
-		&lt;/span&gt;
-					&lt;/a&gt;</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/demander-une-subvention/</td>
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/actualites/</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -547,6 +526,54 @@ ZAP Scanning Report
             </tr>
               
             <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">&lt;a href="https://lecompteasso.associations.gouv.fr/login" target="_blank" class="elementor-button-link elementor-button elementor-size-xs" role="button"&gt; &lt;span class="elementor-button-content-wrapper"&gt; &lt;span class="elementor-button-icon elementor-align-icon-right"&gt; &lt;i aria-hidden="true" class="far fa-user"&gt;&lt;/i&gt; &lt;/span&gt; &lt;span class="elementor-button-text"&gt;&lt;/span&gt; &lt;/span&gt; &lt;/a&gt;</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/demander-une-subvention/</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">&lt;a href="https://lecompteasso.associations.gouv.fr/login" target="_blank" class="elementor-button-link elementor-button elementor-size-xs" role="button"&gt;
+						&lt;span class="elementor-button-content-wrapper"&gt;
+						&lt;span class="elementor-button-icon elementor-align-icon-right"&gt;
+				&lt;i aria-hidden="true" class="far fa-user"&gt;&lt;/i&gt;			&lt;/span&gt;
+						&lt;span class="elementor-button-text"&gt;&lt;/span&gt;
+		&lt;/span&gt;
+					&lt;/a&gt;</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/declarer-un-changement-de-situation-de-mon-association/</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">&lt;a href="https://lecompteasso.associations.gouv.fr/login" target="_blank" class="elementor-button-link elementor-button elementor-size-xs" role="button"&gt; &lt;span class="elementor-button-content-wrapper"&gt; &lt;span class="elementor-button-icon elementor-align-icon-right"&gt; &lt;i aria-hidden="true" class="far fa-user"&gt;&lt;/i&gt; &lt;/span&gt; &lt;span class="elementor-button-text"&gt;&lt;/span&gt; &lt;/span&gt; &lt;/a&gt;</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/comment-gerer-mon-association/</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
                 <td width="20%" class="indent2">Evidence</td><td width="80%">&lt;a href="https://lecompteasso.associations.gouv.fr/login" target="_blank" class="elementor-button-link elementor-button elementor-size-xs" role="button"&gt;
 						&lt;span class="elementor-button-content-wrapper"&gt;
 						&lt;span class="elementor-button-icon elementor-align-icon-right"&gt;
@@ -560,6 +587,26 @@ ZAP Scanning Report
   
             <tr bgcolor="#e8e8e8">
                 <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/category/demarches-administratives/</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">&lt;a href="https://lecompteasso.associations.gouv.fr/login" target="_blank" class="elementor-button-link elementor-button elementor-size-xs" role="button"&gt;
+						&lt;span class="elementor-button-content-wrapper"&gt;
+						&lt;span class="elementor-button-icon elementor-align-icon-right"&gt;
+				&lt;i aria-hidden="true" class="far fa-user"&gt;&lt;/i&gt;			&lt;/span&gt;
+						&lt;span class="elementor-button-text"&gt;&lt;/span&gt;
+		&lt;/span&gt;
+					&lt;/a&gt;</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/saisir-les-comptes-rendus-financiers/</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -602,74 +649,6 @@ ZAP Scanning Report
   
   
             <tr height="24" class="risk-medium">
-                <th width="20%"><a name="medium"></a>Medium (Medium)</th><th width="80%">Source Code Disclosure - Java</th>
-            </tr>
-              
-  
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Description</td><td width="80%"><p>Application Source Code was disclosed by the web server - Java</p></td>
-            </tr>
-            <TR vAlign="top">
-                <TD colspan="2"></TD>
-            </TR>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/wp-includes/js/dist/hooks.min.js?ver=a7edae857aab69d69fa10d5aef23a5de</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">class f{constructor(){this.actions=Object.create(null),this.actions.__current=[],this.filters=Object.create(null),this.filters.__current=[],this.addAction=i(this,"actions"),this.addFilter=i(this,"filters"),this.removeAction=c(this,"actions"),this.removeFilter=c(this,"filters"),this.hasAction=s(this,"actions"),this.hasFilter=s(this,"filters"),this.removeAllActions=c(this,"actions",!0),this.removeAllFilters=c(this,"filters",!0),this.doAction=u(this,"actions"),this.applyFilters=u(this,"filters",!0),this.currentAction=l(this,"actions"),this.currentFilter=l(this,"filters"),this.doingAction=a(this,"actions"),this.doingFilter=a(this,"filters"),this.didAction=d(this,"actions"),this.didFilter=d(this,"filters")}}var h=function(){return new f};const p=h(),{addAction:m,addFilter:v,removeAction:A,removeFilter:_,hasAction:b,hasFilter:y,removeAllActions:g,removeAllFilters:F,doAction:k,applyFilters:x,currentAction:j,currentFilter:O,doingAction:I,doingFilter:T,didAction:w,didFilter:P,actions:S,filters:z}=p}}</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Instances</td><td width="80%">1</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Solution</td><td width="80%"><p>Ensure that application Source Code is not available with alternative extensions, and ensure that source code is not present within other files or data deployed to the web server, or served by the web server. </p></td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Other information</td><td width="80%"><p>class f{constructor(){this.actions=Object.create(null),this.actions.__current=[],this.filters=Object.create(null),this.filters.__current=[],this.addAction=i(this,"actions"),this.addFilter=i(this,"filters"),this.removeAction=c(this,"actions"),this.removeFilter=c(this,"filters"),this.hasAction=s(this,"actions"),this.hasFilter=s(this,"filters"),this.removeAllActions=c(this,"actions",!0),this.removeAllFilters=c(this,"filters",!0),this.doAction=u(this,"actions"),this.applyFilters=u(this,"filters",!0),this.currentAction=l(this,"actions"),this.currentFilter=l(this,"filters"),this.doingAction=a(this,"actions"),this.doingFilter=a(this,"filters"),this.didAction=d(this,"actions"),this.didFilter=d(this,"filters")}}var h=function(){return new f};const p=h(),{addAction:m,addFilter:v,removeAction:A,removeFilter:_,hasAction:b,hasFilter:y,removeAllActions:g,removeAllFilters:F,doAction:k,applyFilters:x,currentAction:j,currentFilter:O,doingAction:I,doingFilter:T,didAction:w,didFilter:P,actions:S,filters:z}=p}}</p></td>
-            </tr>
-            <TR vAlign="top">
-                <TD colspan="2"></TD>
-            </TR>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Reference</td><td width="80%"><p>http://blogs.wsj.com/cio/2013/10/08/adobe-source-code-leak-is-bad-news-for-u-s-government/</p></td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">CWE Id</td><td width="80%">540</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">WASC Id</td><td width="80%">13</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Source ID</td><td width="80%">3</td>
-            </tr>
-            
-        </table>
-        <div class="spacer"></div>
-        <table width="100%" class="results">
-              
-  
-  
-  
-            <tr height="24" class="risk-medium">
                 <th width="20%"><a name="medium"></a>Medium (Medium)</th><th width="80%">Source Code Disclosure - Perl</th>
             </tr>
               
@@ -682,20 +661,6 @@ ZAP Scanning Report
             <TR vAlign="top">
                 <TD colspan="2"></TD>
             </TR>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/wp-content/uploads/2021/07/Marianne-BoldItalic.ttf</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">$#EOPp</td>
-            </tr>
               
   
   
@@ -714,21 +679,7 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/wp-content/uploads/2021/07/Marianne-BoldItalic.eot</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">$#EOPp</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Instances</td><td width="80%">3</td>
+                <td width="20%">Instances</td><td width="80%">1</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -736,7 +687,7 @@ ZAP Scanning Report
             </tr>
               
             <tr bgcolor="#e8e8e8">
-                <td width="20%">Other information</td><td width="80%"><p>$#EOPp</p></td>
+                <td width="20%">Other information</td><td width="80%"><p>$#T0SB</p></td>
             </tr>
             <TR vAlign="top">
                 <TD colspan="2"></TD>
@@ -796,6 +747,20 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/category/demarches-administratives/</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">&lt;link rel="profile" href="http://gmpg.org/xfn/11"&gt;</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
                 <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app</td>
             </tr>
               
@@ -804,7 +769,21 @@ ZAP Scanning Report
             </tr>
               
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">&lt;link rel='stylesheet' id='google-fonts-1-css'  href='https://fonts.googleapis.com/css?family=Spectral%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;#038;display=optional&amp;#038;ver=5.8' type='text/css' media='all' /&gt;</td>
+                <td width="20%" class="indent2">Evidence</td><td width="80%">&lt;link rel='stylesheet' id='google-fonts-1-css' href='https://fonts.googleapis.com/css?family=Spectral%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;#038;display=optional&amp;#038;ver=5.8.1' type='text/css' media='all' /&gt;</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/category/demarches-administratives/</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">&lt;link rel='stylesheet' id='google-fonts-1-css'  href='https://fonts.googleapis.com/css?family=Spectral%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;#038;display=optional&amp;#038;ver=5.8.1' type='text/css' media='all' /&gt;</td>
             </tr>
               
   
@@ -818,7 +797,21 @@ ZAP Scanning Report
             </tr>
               
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">&lt;link rel='stylesheet' id='epkb-font-spectral-css'  href='https://fonts.googleapis.com/css?family=Spectral%3A200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic&amp;#038;ver=5.8' type='text/css' media='all' /&gt;</td>
+                <td width="20%" class="indent2">Evidence</td><td width="80%">&lt;link rel='stylesheet' id='epkb-font-spectral-css'  href='https://fonts.googleapis.com/css?family=Spectral%3A200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic&amp;#038;ver=5.8.1' type='text/css' media='all' /&gt;</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">&lt;link rel='stylesheet' id='google-fonts-1-css' href='https://fonts.googleapis.com/css?family=Spectral%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;#038;display=optional&amp;#038;ver=5.8.1' type='text/css' media='all' /&gt;</td>
             </tr>
               
   
@@ -852,7 +845,7 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/category/demarches-administratives/</td>
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/faq/</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -866,20 +859,6 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">&lt;link rel='stylesheet' id='google-fonts-1-css'  href='https://fonts.googleapis.com/css?family=Spectral%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;#038;display=optional&amp;#038;ver=5.8' type='text/css' media='all' /&gt;</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
                 <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/faq/</td>
             </tr>
               
@@ -888,21 +867,7 @@ ZAP Scanning Report
             </tr>
               
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">&lt;link rel='stylesheet' id='google-fonts-1-css'  href='https://fonts.googleapis.com/css?family=Spectral%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;#038;display=optional&amp;#038;ver=5.8' type='text/css' media='all' /&gt;</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/category/demarches-administratives/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">&lt;link rel='stylesheet' id='google-fonts-1-css'  href='https://fonts.googleapis.com/css?family=Spectral%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;#038;display=optional&amp;#038;ver=5.8' type='text/css' media='all' /&gt;</td>
+                <td width="20%" class="indent2">Evidence</td><td width="80%">&lt;link rel='stylesheet' id='google-fonts-1-css'  href='https://fonts.googleapis.com/css?family=Spectral%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;#038;display=optional&amp;#038;ver=5.8.1' type='text/css' media='all' /&gt;</td>
             </tr>
               
   
@@ -916,21 +881,7 @@ ZAP Scanning Report
             </tr>
               
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">&lt;link rel='stylesheet' id='google-fonts-1-css'  href='https://fonts.googleapis.com/css?family=Spectral%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;#038;display=optional&amp;#038;ver=5.8' type='text/css' media='all' /&gt;</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/faq/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">&lt;link rel="profile" href="http://gmpg.org/xfn/11"&gt;</td>
+                <td width="20%" class="indent2">Evidence</td><td width="80%">&lt;link rel='stylesheet' id='google-fonts-1-css'  href='https://fonts.googleapis.com/css?family=Spectral%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;#038;display=optional&amp;#038;ver=5.8.1' type='text/css' media='all' /&gt;</td>
             </tr>
               
   
@@ -1011,6 +962,34 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/faq/</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Parameter</td><td width="80%">X-Frame-Options</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/demander-lattribution-dun-n-siren-siret/</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Parameter</td><td width="80%">X-Frame-Options</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
                 <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/demander-une-subvention/</td>
             </tr>
               
@@ -1053,62 +1032,6 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Parameter</td><td width="80%">X-Frame-Options</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/category/demarches-administratives/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Parameter</td><td width="80%">X-Frame-Options</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/faq/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Parameter</td><td width="80%">X-Frame-Options</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/demander-lattribution-dun-n-siren-siret/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Parameter</td><td width="80%">X-Frame-Options</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
                 <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/saisir-les-comptes-rendus-financiers/</td>
             </tr>
               
@@ -1124,6 +1047,34 @@ ZAP Scanning Report
   
             <tr bgcolor="#e8e8e8">
                 <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/comment-gerer-mon-association/</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Parameter</td><td width="80%">X-Frame-Options</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Parameter</td><td width="80%">X-Frame-Options</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/category/demarches-administratives/</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -1212,34 +1163,6 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/comment-gerer-mon-association/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">&lt;form class="elementor-search-form" role="search" action="https://lca-wp.sbx.synaltic.app" method="get"&gt;</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/saisir-les-comptes-rendus-financiers/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">&lt;form class="elementor-search-form" role="search" action="https://lca-wp.sbx.synaltic.app" method="get"&gt;</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
                 <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/declarer-un-changement-de-situation-de-mon-association/</td>
             </tr>
               
@@ -1282,6 +1205,20 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/demander-une-subvention/</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">&lt;form class="elementor-search-form" role="search" action="https://lca-wp.sbx.synaltic.app" method="get"&gt;</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
                 <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/category/demarches-administratives/</td>
             </tr>
               
@@ -1297,6 +1234,20 @@ ZAP Scanning Report
   
             <tr bgcolor="#e8e8e8">
                 <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/actualites/</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">&lt;form class="elementor-search-form" role="search" action="https://lca-wp.sbx.synaltic.app" method="get"&gt;</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/comment-gerer-mon-association/</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -1392,42 +1343,6 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/wp-login.php?action=lostpassword</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Parameter</td><td width="80%">wordpress_test_cookie</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">Set-Cookie: wordpress_test_cookie</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/wp-login.php</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">POST</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Parameter</td><td width="80%">wordpress_test_cookie</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">Set-Cookie: wordpress_test_cookie</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
                 <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/wp-login.php?reauth=1&amp;redirect_to=https%3A%2F%2Flca-wp.sbx.synaltic.app%2Fwp-admin%2F</td>
             </tr>
               
@@ -1446,7 +1361,7 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%">Instances</td><td width="80%">3</td>
+                <td width="20%">Instances</td><td width="80%">1</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -1493,24 +1408,6 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/wp-login.php</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">POST</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Parameter</td><td width="80%">wordpress_test_cookie</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">Set-Cookie: wordpress_test_cookie</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
                 <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/wp-login.php?reauth=1&amp;redirect_to=https%3A%2F%2Flca-wp.sbx.synaltic.app%2Fwp-admin%2F</td>
             </tr>
               
@@ -1529,25 +1426,7 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/wp-login.php?action=lostpassword</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Parameter</td><td width="80%">wordpress_test_cookie</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">Set-Cookie: wordpress_test_cookie</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Instances</td><td width="80%">3</td>
+                <td width="20%">Instances</td><td width="80%">1</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -1594,20 +1473,6 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/wp-content/plugins/elementor-pro/assets/lib/smartmenus/jquery.smartmenus.min.js?ver=1.0.1</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">eval</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
                 <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/wp-includes/js/jquery/jquery.min.js?ver=3.6.0</td>
             </tr>
               
@@ -1617,6 +1482,20 @@ ZAP Scanning Report
               
             <tr bgcolor="#e8e8e8">
                 <td width="20%" class="indent2">Evidence</td><td width="80%">Eval</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/wp-content/plugins/elementor-pro/assets/lib/smartmenus/jquery.smartmenus.min.js?ver=1.0.1</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">eval</td>
             </tr>
               
   
@@ -1707,48 +1586,6 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/faq/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Parameter</td><td width="80%">Cache-Control</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/wp-sitemap.xml</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Parameter</td><td width="80%">Cache-Control</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/demander-lattribution-dun-n-siren-siret/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Parameter</td><td width="80%">Cache-Control</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
                 <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/category/demarches-administratives/</td>
             </tr>
               
@@ -1805,7 +1642,49 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/faq/</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Parameter</td><td width="80%">Cache-Control</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/demander-une-subvention/</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Parameter</td><td width="80%">Cache-Control</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
                 <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Parameter</td><td width="80%">Cache-Control</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/demander-lattribution-dun-n-siren-siret/</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -1886,36 +1765,6 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/saisir-les-comptes-rendus-financiers/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/wp-admin/admin-ajax.php</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/demander-lattribution-dun-n-siren-siret/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
                 <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/faq/</td>
             </tr>
               
@@ -1966,7 +1815,37 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/wp-admin/admin-ajax.php</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/demander-une-subvention/</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
                 <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/demander-lattribution-dun-n-siren-siret/</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -2023,6 +1902,20 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/demander-lattribution-dun-n-siren-siret/</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">10.2.9.0</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
                 <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/declarer-ses-activites-de-benevolat-via-le-compte-benevole/</td>
             </tr>
               
@@ -2031,13 +1924,13 @@ ZAP Scanning Report
             </tr>
               
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">10.2.9.0</td>
+                <td width="20%" class="indent2">Evidence</td><td width="80%">10.2.5.0</td>
             </tr>
               
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/comment-se-creer-un-compte/</td>
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/category/dispositifs-subvention/</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -2045,13 +1938,13 @@ ZAP Scanning Report
             </tr>
               
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">10.2.12.0</td>
+                <td width="20%" class="indent2">Evidence</td><td width="80%">10.2.5.0</td>
             </tr>
               
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/declarer-un-changement-de-situation-de-mon-association/</td>
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/faq/declarer-les-comptes-au-jo/</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -2059,7 +1952,7 @@ ZAP Scanning Report
             </tr>
               
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">10.2.9.0</td>
+                <td width="20%" class="indent2">Evidence</td><td width="80%">10.2.5.0</td>
             </tr>
               
   
@@ -2073,13 +1966,13 @@ ZAP Scanning Report
             </tr>
               
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">10.2.9.0</td>
+                <td width="20%" class="indent2">Evidence</td><td width="80%">10.2.5.0</td>
             </tr>
               
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/demander-lattribution-dun-n-siren-siret/</td>
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/faq/demander-une-subvention/</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -2087,77 +1980,7 @@ ZAP Scanning Report
             </tr>
               
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">10.2.12.0</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/demander-une-subvention/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">10.2.12.0</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/traiter-les-declarations-des-activites-de-benevolat/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">10.2.12.0</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/actualites/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">10.2.9.0</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/actualites/le-compte-asso-fait-peau-neuve/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">10.2.9.0</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/saisir-les-comptes-rendus-financiers/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">10.2.9.0</td>
+                <td width="20%" class="indent2">Evidence</td><td width="80%">10.2.5.0</td>
             </tr>
               
   
@@ -2171,13 +1994,13 @@ ZAP Scanning Report
             </tr>
               
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">10.2.12.0</td>
+                <td width="20%" class="indent2">Evidence</td><td width="80%">10.2.5.0</td>
             </tr>
               
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/comment-gerer-mon-association/</td>
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/faq/le-tutoriel-creation-compte/</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -2185,7 +2008,63 @@ ZAP Scanning Report
             </tr>
               
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">10.2.9.0</td>
+                <td width="20%" class="indent2">Evidence</td><td width="80%">10.2.5.0</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/comment-se-creer-un-compte/</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">10.2.5.0</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/demander-une-subvention/</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">10.2.5.0</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/declarer-un-changement-de-situation-de-mon-association/</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">10.2.5.0</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/faq/consulter-les-informations-administratives/</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">10.2.5.0</td>
             </tr>
               
   
@@ -2273,76 +2152,6 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/wp-sitemap.xml</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">X-Powered-By: PHP/7.3.16</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/robots.txt</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">X-Powered-By: PHP/7.3.16</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/sitemap.xml</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">X-Powered-By: PHP/7.3.16</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/faq/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">X-Powered-By: PHP/7.3.16</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/decouvrir-le-compte-asso</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">X-Powered-By: PHP/7.3.16</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
                 <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app</td>
             </tr>
               
@@ -2371,6 +2180,20 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/robots.txt</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">X-Powered-By: PHP/7.3.16</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
                 <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/wp-admin/</td>
             </tr>
               
@@ -2385,7 +2208,63 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/comment-se-creer-un-compte/</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">X-Powered-By: PHP/7.3.16</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/sitemap.xml</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">X-Powered-By: PHP/7.3.16</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
                 <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">X-Powered-By: PHP/7.3.16</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/faq/</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">X-Powered-By: PHP/7.3.16</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/decouvrir-le-compte-asso</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -2488,48 +2367,6 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/faq/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Parameter</td><td width="80%">X-Content-Type-Options</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/wp-sitemap.xml</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Parameter</td><td width="80%">X-Content-Type-Options</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/demander-lattribution-dun-n-siren-siret/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Parameter</td><td width="80%">X-Content-Type-Options</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
                 <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/category/demarches-administratives/</td>
             </tr>
               
@@ -2572,6 +2409,20 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/faq/</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Parameter</td><td width="80%">X-Content-Type-Options</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
                 <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/robots.txt</td>
             </tr>
               
@@ -2586,7 +2437,35 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/demander-une-subvention/</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Parameter</td><td width="80%">X-Content-Type-Options</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
                 <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Parameter</td><td width="80%">X-Content-Type-Options</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/demander-lattribution-dun-n-siren-siret/</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -2654,6 +2533,20 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">app/wp-content/uploads/2021/07/1200px-Republique-francaise-logo</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
                 <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/demander-une-subvention/</td>
             </tr>
               
@@ -2690,41 +2583,13 @@ ZAP Scanning Report
             </tr>
               
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">app/wp-content/uploads/2021/07/1200px-Republique-francaise-logo</td>
+                <td width="20%" class="indent2">Evidence</td><td width="80%">2Fdeclarer-un-changement-de-situation-de-mon-association</td>
             </tr>
               
   
   
             <tr bgcolor="#e8e8e8">
                 <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/faq/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">app/wp-content/uploads/2021/07/1200px-Republique-francaise-logo</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/saisir-les-comptes-rendus-financiers/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">app/wp-content/uploads/2021/07/1200px-Republique-francaise-logo</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/demander-lattribution-dun-n-siren-siret/</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -2746,13 +2611,13 @@ ZAP Scanning Report
             </tr>
               
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">app/wp-content/uploads/2021/07/1200px-Republique-francaise-logo</td>
+                <td width="20%" class="indent2">Evidence</td><td width="80%">2Fcomment-gerer-mon-association</td>
             </tr>
               
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/</td>
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/category/demarches-administratives/</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -2766,7 +2631,21 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/category/demarches-administratives/</td>
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/saisir-les-comptes-rendus-financiers/</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">2Fsaisir-les-comptes-rendus-financiers</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/demander-lattribution-dun-n-siren-siret/</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -2846,6 +2725,180 @@ ZAP Scanning Report
   
   
             <tr height="24" class="risk-info">
+                <th width="20%"><a name="info"></a>Informational (Low)</th><th width="80%">Charset Mismatch </th>
+            </tr>
+              
+  
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%">Description</td><td width="80%"><p>This check identifies responses where the HTTP Content-Type header declares a charset different from the charset defined by the body of the HTML or XML. When there's a charset mismatch between the HTTP header and content body Web browsers can be forced into an undesirable content-sniffing mode to determine the content's correct character set.</p><p></p><p>An attacker could manipulate content on the page to be interpreted in an encoding of their choice. For example, if an attacker can control content at the beginning of the page, they could inject script using UTF-7 encoded text and manipulate some browsers into interpreting that text.</p></td>
+            </tr>
+            <TR vAlign="top">
+                <TD colspan="2"></TD>
+            </TR>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/wp-json/oembed/1.0/embed?format=xml&amp;url=https%3A%2F%2Flca-wp.sbx.synaltic.app%2Fdeclarer-un-changement-de-situation-de-mon-association%2F</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/wp-json/oembed/1.0/embed?format=xml&amp;url=https%3A%2F%2Flca-wp.sbx.synaltic.app%2Fdeclarer-ses-activites-de-benevolat-via-le-compte-benevole%2F</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/wp-json/oembed/1.0/embed?format=xml&amp;url=https%3A%2F%2Flca-wp.sbx.synaltic.app%2Fdemander-lattribution-dun-n-siren-siret%2F</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/wp-json/oembed/1.0/embed?format=xml&amp;url=https%3A%2F%2Flca-wp.sbx.synaltic.app%2Fcomment-se-creer-un-compte%2F</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/wp-json/oembed/1.0/embed?format=xml&amp;url=https%3A%2F%2Flca-wp.sbx.synaltic.app%2F</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/wp-json/oembed/1.0/embed?format=xml&amp;url=https%3A%2F%2Flca-wp.sbx.synaltic.app%2Ffaq%2F</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/wp-json/oembed/1.0/embed?format=xml&amp;url=https%3A%2F%2Flca-wp.sbx.synaltic.app%2Fcomment-gerer-mon-association%2F</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/wp-json/oembed/1.0/embed?format=xml&amp;url=https%3A%2F%2Flca-wp.sbx.synaltic.app%2Ftraiter-les-declarations-des-activites-de-benevolat%2F</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/wp-json/oembed/1.0/embed?format=xml&amp;url=https%3A%2F%2Flca-wp.sbx.synaltic.app%2Fsaisir-les-comptes-rendus-financiers%2F</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/wp-json/oembed/1.0/embed?format=xml&amp;url=https%3A%2F%2Flca-wp.sbx.synaltic.app%2Factualites%2Fle-compte-asso-fait-peau-neuve%2F</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/wp-json/oembed/1.0/embed?format=xml&amp;url=https%3A%2F%2Flca-wp.sbx.synaltic.app%2Fdemander-une-subvention%2F</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/wp-json/oembed/1.0/embed?format=xml&amp;url=https%3A%2F%2Flca-wp.sbx.synaltic.app%2Factualites%2Flancement-du-passsport-dans-le-compte-asso-pour-permettre-aux-structures-de-se-faire-rembourser%2F</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%">Instances</td><td width="80%">12</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%">Solution</td><td width="80%"><p>Force UTF-8 for all text content in both the HTTP header and meta tags in HTML or encoding declarations in XML.</p></td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%">Other information</td><td width="80%"><p>There was a charset mismatch between the HTTP Header and the XML encoding declaration: [UTF-8] and [null] do not match.</p></td>
+            </tr>
+            <TR vAlign="top">
+                <TD colspan="2"></TD>
+            </TR>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%">Reference</td><td width="80%"><p>http://code.google.com/p/browsersec/wiki/Part2#Character_set_handling_and_detection</p></td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%">CWE Id</td><td width="80%">436</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%">WASC Id</td><td width="80%">15</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%">Source ID</td><td width="80%">3</td>
+            </tr>
+            
+        </table>
+        <div class="spacer"></div>
+        <table width="100%" class="results">
+              
+  
+  
+  
+            <tr height="24" class="risk-info">
                 <th width="20%"><a name="info"></a>Informational (Low)</th><th width="80%">Information Disclosure - Suspicious Comments</th>
             </tr>
               
@@ -2863,20 +2916,6 @@ ZAP Scanning Report
   
             <tr bgcolor="#e8e8e8">
                 <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/comment-se-creer-un-compte/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">admin</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/comment-gerer-mon-association/</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -2918,7 +2957,7 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/comment-gerer-mon-association/</td>
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/demander-lattribution-dun-n-siren-siret/</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -2927,48 +2966,6 @@ ZAP Scanning Report
               
             <tr bgcolor="#e8e8e8">
                 <td width="20%" class="indent2">Evidence</td><td width="80%">admin</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/category/demarches-administratives/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">where</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/faq/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">admin</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/comment-se-creer-un-compte/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">where</td>
             </tr>
               
   
@@ -3016,6 +3013,62 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/category/demarches-administratives/</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">where</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/demander-lattribution-dun-n-siren-siret/</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">where</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/faq/</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">admin</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/comment-se-creer-un-compte/</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">admin</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
                 <td width="20%">Instances</td><td width="80%">11</td>
             </tr>
               
@@ -3024,7 +3077,7 @@ ZAP Scanning Report
             </tr>
               
             <tr bgcolor="#e8e8e8">
-                <td width="20%">Other information</td><td width="80%"><p>The following pattern was used: \bADMIN\b and was detected 6 times, the first in the element starting with: "&lt;script type='text/javascript' id='jquery-core-js-extra'&gt;</p><p>/* &lt;![CDATA[ */</p><p>var pp = {"ajax_url":"https:\/\/lca-wp.sbx.synaltic.ap", see evidence field for the suspicious comment/snippet.</p></td>
+                <td width="20%">Other information</td><td width="80%"><p>The following pattern was used: \bWHERE\b and was detected in the element starting with: "&lt;script type="text/javascript"&gt;jQuery("document").ready(function(){ var tt_store_content = "Instaur&eacute; par la loi de 1901, le gref", see evidence field for the suspicious comment/snippet.</p></td>
             </tr>
             <TR vAlign="top">
                 <TD colspan="2"></TD>
@@ -3070,6 +3123,36 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/declarer-un-changement-de-situation-de-mon-association/</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">&lt;a class="elementor-icon elementor-social-icon elementor-social-icon-linkedin elementor-repeater-item-dc10550" target="_blank"&gt; &lt;span class="elementor-screen-only"&gt;Linkedin&lt;/span&gt; &lt;i class="fab fa-linkedin"&gt;&lt;/i&gt; &lt;/a&gt;</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/comment-se-creer-un-compte/</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">&lt;a class="elementor-icon elementor-social-icon elementor-social-icon-linkedin elementor-repeater-item-dc10550" target="_blank"&gt;
+						&lt;span class="elementor-screen-only"&gt;Linkedin&lt;/span&gt;
+						&lt;i class="fab fa-linkedin"&gt;&lt;/i&gt;					&lt;/a&gt;</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
                 <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/faq/</td>
             </tr>
               
@@ -3110,77 +3193,7 @@ ZAP Scanning Report
             </tr>
               
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">&lt;a href="#" class="elementor-button-link elementor-button elementor-size-lg" role="button" id="gestion_association_fonctionnalites"&gt;
-						&lt;span class="elementor-button-content-wrapper"&gt;
-						&lt;span class="elementor-button-text"&gt;En savoir plus sur les fonctionnalit&eacute;s&lt;/span&gt;
-		&lt;/span&gt;
-					&lt;/a&gt;</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">&lt;a href="#" class="elementor-button-link elementor-button elementor-size-lg" role="button" id="gestion_association_fonctionnalites"&gt;
-						&lt;span class="elementor-button-content-wrapper"&gt;
-						&lt;span class="elementor-button-text"&gt;En savoir plus sur les fonctionnalit&eacute;s&lt;/span&gt;
-		&lt;/span&gt;
-					&lt;/a&gt;</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/saisir-les-comptes-rendus-financiers/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">&lt;a class="elementor-icon elementor-social-icon elementor-social-icon-linkedin elementor-repeater-item-dc10550" target="_blank"&gt;
-						&lt;span class="elementor-screen-only"&gt;Linkedin&lt;/span&gt;
-						&lt;i class="fab fa-linkedin"&gt;&lt;/i&gt;					&lt;/a&gt;</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/declarer-un-changement-de-situation-de-mon-association/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">&lt;a class="elementor-icon elementor-social-icon elementor-social-icon-linkedin elementor-repeater-item-dc10550" target="_blank"&gt;
-						&lt;span class="elementor-screen-only"&gt;Linkedin&lt;/span&gt;
-						&lt;i class="fab fa-linkedin"&gt;&lt;/i&gt;					&lt;/a&gt;</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/comment-se-creer-un-compte/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">&lt;a class="elementor-icon elementor-social-icon elementor-social-icon-linkedin elementor-repeater-item-dc10550" target="_blank"&gt;
-						&lt;span class="elementor-screen-only"&gt;Linkedin&lt;/span&gt;
-						&lt;i class="fab fa-linkedin"&gt;&lt;/i&gt;					&lt;/a&gt;</td>
+                <td width="20%" class="indent2">Evidence</td><td width="80%">&lt;a href="#" class="elementor-button-link elementor-button elementor-size-lg" role="button" id="gestion_association_fonctionnalites"&gt; &lt;span class="elementor-button-content-wrapper"&gt; &lt;span class="elementor-button-text"&gt;En savoir plus sur les fonctionnalit&eacute;s&lt;/span&gt; &lt;/span&gt; &lt;/a&gt;</td>
             </tr>
               
   
@@ -3234,7 +3247,35 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">&lt;a href="#" class="elementor-button-link elementor-button elementor-size-lg" role="button" id="gestion_association_fonctionnalites"&gt; &lt;span class="elementor-button-content-wrapper"&gt; &lt;span class="elementor-button-text"&gt;En savoir plus sur les fonctionnalit&eacute;s&lt;/span&gt; &lt;/span&gt; &lt;/a&gt;</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
                 <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/demander-lattribution-dun-n-siren-siret/</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">&lt;a class="elementor-icon elementor-social-icon elementor-social-icon-linkedin elementor-repeater-item-dc10550" target="_blank"&gt; &lt;span class="elementor-screen-only"&gt;Linkedin&lt;/span&gt; &lt;i class="fab fa-linkedin"&gt;&lt;/i&gt; &lt;/a&gt;</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/saisir-les-comptes-rendus-financiers/</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -3387,26 +3428,6 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/wp-sitemap.xml</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/decouvrir-le-compte-asso</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
                 <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app</td>
             </tr>
               
@@ -3428,6 +3449,26 @@ ZAP Scanning Report
   
             <tr bgcolor="#e8e8e8">
                 <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/actualites/</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/comment-se-creer-un-compte/</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/decouvrir-le-compte-asso</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -3491,7 +3532,7 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/wp-admin/admin-ajax.php</td>
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/wp-admin/</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -3505,7 +3546,7 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/wp-admin/</td>
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/wp-admin/admin-ajax.php</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -3566,7 +3607,7 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/</td>
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -3574,7 +3615,7 @@ ZAP Scanning Report
             </tr>
               
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">1629812242</td>
+                <td width="20%" class="indent2">Evidence</td><td width="80%">1631791222</td>
             </tr>
               
   
@@ -3588,21 +3629,7 @@ ZAP Scanning Report
             </tr>
               
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">1629812241</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">1630050378</td>
+                <td width="20%" class="indent2">Evidence</td><td width="80%">1631790789</td>
             </tr>
               
   
@@ -3616,21 +3643,7 @@ ZAP Scanning Report
             </tr>
               
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">1629474274</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">1630140888</td>
+                <td width="20%" class="indent2">Evidence</td><td width="80%">1631789707</td>
             </tr>
               
   
@@ -3644,21 +3657,7 @@ ZAP Scanning Report
             </tr>
               
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">1629474274</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">1629812242</td>
+                <td width="20%" class="indent2">Evidence</td><td width="80%">1631789772</td>
             </tr>
               
   
@@ -3672,21 +3671,7 @@ ZAP Scanning Report
             </tr>
               
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">1629812241</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">1630140888</td>
+                <td width="20%" class="indent2">Evidence</td><td width="80%">1631790789</td>
             </tr>
               
   
@@ -3700,13 +3685,41 @@ ZAP Scanning Report
             </tr>
               
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">1630050378</td>
+                <td width="20%" class="indent2">Evidence</td><td width="80%">1631789772</td>
             </tr>
               
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%">Instances</td><td width="80%">10</td>
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">1631789707</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
+            </tr>
+              
+            <tr bgcolor="#e8e8e8">
+                <td width="20%" class="indent2">Evidence</td><td width="80%">1631791222</td>
+            </tr>
+              
+  
+  
+            <tr bgcolor="#e8e8e8">
+                <td width="20%">Instances</td><td width="80%">8</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -3714,7 +3727,7 @@ ZAP Scanning Report
             </tr>
               
             <tr bgcolor="#e8e8e8">
-                <td width="20%">Other information</td><td width="80%"><p>1629812242, which evaluates to: 2021-08-24 13:37:22</p></td>
+                <td width="20%">Other information</td><td width="80%"><p>1631791222, which evaluates to: 2021-09-16 11:20:22</p></td>
             </tr>
             <TR vAlign="top">
                 <TD colspan="2"></TD>
@@ -3760,7 +3773,7 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/wp-login.php?action=lostpassword</td>
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/wp-login.php?reauth=1&amp;redirect_to=https%3A%2F%2Flca-wp.sbx.synaltic.app%2Fwp-admin%2F</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -3768,59 +3781,17 @@ ZAP Scanning Report
             </tr>
               
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Parameter</td><td width="80%">action</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/wp-login.php</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">POST</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Parameter</td><td width="80%">wp-submit</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/wp-login.php</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">POST</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
                 <td width="20%" class="indent2">Parameter</td><td width="80%">redirect_to</td>
             </tr>
               
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/wp-login.php</td>
+                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/wp-login.php?reauth=1&amp;redirect_to=https%3A%2F%2Flca-wp.sbx.synaltic.app%2Fwp-admin%2F</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">POST</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Parameter</td><td width="80%">redirect_to</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/wp-login.php</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">POST</td>
+                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -3858,20 +3829,6 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/wp-login.php</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">POST</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Parameter</td><td width="80%">redirect_to</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
                 <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/wp-login.php?reauth=1&amp;redirect_to=https%3A%2F%2Flca-wp.sbx.synaltic.app%2Fwp-admin%2F</td>
             </tr>
               
@@ -3900,20 +3857,6 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/wp-login.php</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">POST</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Parameter</td><td width="80%">redirect_to</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
                 <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/wp-login.php?reauth=1&amp;redirect_to=https%3A%2F%2Flca-wp.sbx.synaltic.app%2Fwp-admin%2F</td>
             </tr>
               
@@ -3928,91 +3871,7 @@ ZAP Scanning Report
   
   
             <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/wp-login.php</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">POST</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Parameter</td><td width="80%">rememberme</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/wp-login.php?reauth=1&amp;redirect_to=https%3A%2F%2Flca-wp.sbx.synaltic.app%2Fwp-admin%2F</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Parameter</td><td width="80%">redirect_to</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/wp-login.php</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">POST</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Parameter</td><td width="80%">redirect_to</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/wp-login.php?action=lostpassword</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Parameter</td><td width="80%">action</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/wp-login.php?reauth=1&amp;redirect_to=https%3A%2F%2Flca-wp.sbx.synaltic.app%2Fwp-admin%2F</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Parameter</td><td width="80%">redirect_to</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://lca-wp.sbx.synaltic.app/wp-login.php</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">POST</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Parameter</td><td width="80%">redirect_to</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Instances</td><td width="80%">18</td>
+                <td width="20%">Instances</td><td width="80%">7</td>
             </tr>
               
             <tr bgcolor="#e8e8e8">
@@ -4020,7 +3879,7 @@ ZAP Scanning Report
             </tr>
               
             <tr bgcolor="#e8e8e8">
-                <td width="20%">Other information</td><td width="80%"><p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://lca-wp.sbx.synaltic.app/wp-login.php?action=lostpassword</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [form] tag [id] attribute </p><p></p><p>The user input found was:</p><p>action=lostpassword</p><p></p><p>The user-controlled value was:</p><p>lostpasswordform</p></td>
+                <td width="20%">Other information</td><td width="80%"><p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://lca-wp.sbx.synaltic.app/wp-login.php?reauth=1&amp;redirect_to=https%3A%2F%2Flca-wp.sbx.synaltic.app%2Fwp-admin%2F</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [link] tag [href] attribute </p><p></p><p>The user input found was:</p><p>redirect_to=https://lca-wp.sbx.synaltic.app/wp-admin/</p><p></p><p>The user-controlled value was:</p><p>https://lca-wp.sbx.synaltic.app/wp-admin/css/l10n.min.css?ver=5.8.1</p></td>
             </tr>
             <TR vAlign="top">
                 <TD colspan="2"></TD>
