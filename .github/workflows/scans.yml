@@ -45,7 +45,16 @@ jobs:
           path: "**/node_modules"
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
 
+      - name: Detect 404s
+        continue-on-error: true
+        uses: "socialgouv/detect-404-action@master"
+        if: ${{ matrix.sites.tools['404'] }}
+        with:
+          url: ${{ matrix.sites.url }}
+          output: scans/404.json
+
       - name: Screenshot Website
+        continue-on-error: true
         if: ${{ matrix.sites.tools.screenshot }}
         uses: swinton/screenshot-website@v1.x
         timeout-minutes: 10
