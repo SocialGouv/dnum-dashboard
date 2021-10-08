@@ -1,0 +1,74 @@
+[
+  {
+    "templateID": "request-based-interaction",
+    "info": {
+      "name": "OOB Request Based Interaction",
+      "author": [
+        "pdteam"
+      ],
+      "tags": [
+        "oob",
+        "ssrf",
+        "generic"
+      ],
+      "description": "The remote server fetched a spoofed DNS Name from the request.",
+      "reference": [
+        "https://portswigger.net/research/cracking-the-lens-targeting-https-hidden-attack-surface"
+      ],
+      "severity": "info"
+    },
+    "matcher_name": "dns",
+    "type": "http",
+    "host": "https://demat.social.gouv.fr",
+    "matched": "https://demat.social.gouv.fr/",
+    "request": "GET / HTTP/1.1\r\nHost: c5g4qv3nmkkvh7ucvn0gcfor5bayyyyy6.interact.sh\r\nCache-Control: no-transform\r\nAccept: */*\r\n\r\n",
+    "response": "HTTP/1.1 403 DefaultErrorTemplate\r\nContent-Length: 2578\r\nCache-Control: no-cache\r\nContent-Type: text/html\r\nX-Frame-Options: deny\r\n\r\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n<html>\n<!-- FileName: index.html\n     Language: [en]\n-->\n<!--Head-->\n<head>\n  <meta content=\"text/html; charset=UTF-8\" http-equiv=\"Content-Type\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=7\" />\n  <title>McAfee Web Gateway - Notification</title>\n  <script src=\"/mwg-internal/de5fs23hu73ds/files/javascript/sw.js\" type=\"text/javascript\" ></script>\n  <link rel=\"stylesheet\" href=\"/mwg-internal/de5fs23hu73ds/files/default/stylesheet.css\" />\n</head>\n<!--/Head-->\n<!--Body-->\n<body onload=\"swOnLoad();\">\n  <table class='bodyTable'>\n    <tr>\n      <td class='bodyData' background='/mwg-internal/de5fs23hu73ds/files/default/img/bg_body.gif'>\n<!--Logo-->\n<table class='logoTable'>\n  <tr>\n    <td class='logoData'>\n      <a href='http://www.mcafee.com'>\n        <img src='/mwg-internal/de5fs23hu73ds/files/default/img/logo_mwg.png'></a>\n    </td>\n  </tr>\n</table>\n<!--/Logo-->\n<!--Contents-->\n<!-- FileName: DefaultErrorTemplate.html\n     Language: [en]\n-->\n<!--Title-->\n<table class='titleTable' background='/mwg-internal/de5fs23hu73ds/files/default/img/bg_navbar.jpg'>\n  <tr>\n    <td class='titleData'>\n      Default Block Template\n    </td>\n  </tr>\n</table>\n<!--/Title-->\n\n<!--Content-->\n<table class=\"contentTable\">\n  <tr>\n    <td class=\"contentData\">\n      This is a default error message. Please make sure to configure an appropriate error template for rule 'DENY ALL'.\n    </td>\n  </tr>\n</table>\n<!--/Content-->\n\n<!--/Contents-->\n<!--Policy-->\n<table class='policyTable'>\n  <tr>\n    <td class='policyHeading'>\n      <hr>\n      Company Acceptable Use Policy\n    </td>\n  </tr>\n  <tr>\n    <td class='policyData'>\n      This is an optional acceptable use disclaimer that appears on every page. You may change the wording or remove this section entirely in index.html.\n    </td>\n  </tr>\n</table>\n<!--/Policy-->\n<!--Foot-->\n<table class='footTable'>\n  <tr>\n    <td class='helpDeskData' background='/mwg-internal/de5fs23hu73ds/files/default/img/bg_navbar.jpg'>\n      For assistance, please contact your system administrator.\n    </td>\n  </tr>\n  <tr>\n    <td class='footData'>\n      generated <span id=\"time\">2021-10-08 15:54:15</span> by McAfee Web Gateway\n      <br />\nPROXY NAME : PEBPROXYSRVHDS02\n<br/>\nIP CLIENT : 20.112.76.39\n<br/>\nRule set : DENY ALL\n<br/>\nRule : DENY ALL\n<br/>\nURL.Hosts : c5g4qv3nmkkvh7ucvn0gcfor5bayyyyy6.interact.sh\n<br/>\n      \n    </td>\n  </tr>\n</table>\n<!--/Foot-->\n      </td>\n    </tr>\n  </table>\n</body>\n<!--/Body-->\n</html>\n",
+    "timestamp": "2021-10-08T13:54:21.244425777Z",
+    "interaction": {
+      "protocol": "dns",
+      "unique-id": "c5g4qv3nmkkvh7ucvn0gcfor5bayyyyy6",
+      "full-id": "c5g4qv3nmkkvh7ucvn0gcfor5bayyyyy6",
+      "q-type": "A",
+      "raw-request": ";; opcode: QUERY, status: NOERROR, id: 56907\n;; flags:; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; QUESTION SECTION:\n;c5g4qv3nmkkvh7ucvn0gcfor5bayyyyy6.interact.sh.\tIN\t A\n\n;; ADDITIONAL SECTION:\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags: do; udp: 512\n; COOKIE: 7a750d47080057d1\n",
+      "raw-response": ";; opcode: QUERY, status: NOERROR, id: 56907\n;; flags: qr aa; QUERY: 1, ANSWER: 1, AUTHORITY: 2, ADDITIONAL: 2\n\n;; QUESTION SECTION:\n;c5g4qv3nmkkvh7ucvn0gcfor5bayyyyy6.interact.sh.\tIN\t A\n\n;; ANSWER SECTION:\nc5g4qv3nmkkvh7ucvn0gcfor5bayyyyy6.interact.sh.\t3600\tIN\tA\t46.101.25.250\n\n;; AUTHORITY SECTION:\nc5g4qv3nmkkvh7ucvn0gcfor5bayyyyy6.interact.sh.\t3600\tIN\tNS\tns1.interact.sh.\nc5g4qv3nmkkvh7ucvn0gcfor5bayyyyy6.interact.sh.\t3600\tIN\tNS\tns2.interact.sh.\n\n;; ADDITIONAL SECTION:\nns1.interact.sh.\t3600\tIN\tA\t46.101.25.250\nns2.interact.sh.\t3600\tIN\tA\t46.101.25.250\n",
+      "remote-address": "80.94.182.152",
+      "timestamp": "2021-10-08T13:54:16.291611368Z"
+    }
+  },
+  {
+    "templateID": "request-based-interaction",
+    "info": {
+      "name": "OOB Request Based Interaction",
+      "author": [
+        "pdteam"
+      ],
+      "tags": [
+        "oob",
+        "ssrf",
+        "generic"
+      ],
+      "description": "The remote server fetched a spoofed DNS Name from the request.",
+      "reference": [
+        "https://portswigger.net/research/cracking-the-lens-targeting-https-hidden-attack-surface"
+      ],
+      "severity": "info"
+    },
+    "matcher_name": "dns",
+    "type": "http",
+    "host": "https://demat.social.gouv.fr",
+    "matched": "https://demat.social.gouv.frhttp://c5g4qv3nmkkvh7ucvn0gcfor5nyyyyybg.interact.sh/",
+    "request": "GET http://c5g4qv3nmkkvh7ucvn0gcfor5nyyyyybg.interact.sh/ HTTP/1.1\r\nHost: demat.social.gouv.fr\r\nCache-Control: no-transform\r\nAccept: */*\r\n\r\n",
+    "response": "HTTP/1.1 403 DefaultErrorTemplate\r\nContent-Length: 2578\r\nCache-Control: no-cache\r\nContent-Type: text/html\r\nX-Frame-Options: deny\r\n\r\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n<html>\n<!-- FileName: index.html\n     Language: [en]\n-->\n<!--Head-->\n<head>\n  <meta content=\"text/html; charset=UTF-8\" http-equiv=\"Content-Type\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=7\" />\n  <title>McAfee Web Gateway - Notification</title>\n  <script src=\"/mwg-internal/de5fs23hu73ds/files/javascript/sw.js\" type=\"text/javascript\" ></script>\n  <link rel=\"stylesheet\" href=\"/mwg-internal/de5fs23hu73ds/files/default/stylesheet.css\" />\n</head>\n<!--/Head-->\n<!--Body-->\n<body onload=\"swOnLoad();\">\n  <table class='bodyTable'>\n    <tr>\n      <td class='bodyData' background='/mwg-internal/de5fs23hu73ds/files/default/img/bg_body.gif'>\n<!--Logo-->\n<table class='logoTable'>\n  <tr>\n    <td class='logoData'>\n      <a href='http://www.mcafee.com'>\n        <img src='/mwg-internal/de5fs23hu73ds/files/default/img/logo_mwg.png'></a>\n    </td>\n  </tr>\n</table>\n<!--/Logo-->\n<!--Contents-->\n<!-- FileName: DefaultErrorTemplate.html\n     Language: [en]\n-->\n<!--Title-->\n<table class='titleTable' background='/mwg-internal/de5fs23hu73ds/files/default/img/bg_navbar.jpg'>\n  <tr>\n    <td class='titleData'>\n      Default Block Template\n    </td>\n  </tr>\n</table>\n<!--/Title-->\n\n<!--Content-->\n<table class=\"contentTable\">\n  <tr>\n    <td class=\"contentData\">\n      This is a default error message. Please make sure to configure an appropriate error template for rule 'DENY ALL'.\n    </td>\n  </tr>\n</table>\n<!--/Content-->\n\n<!--/Contents-->\n<!--Policy-->\n<table class='policyTable'>\n  <tr>\n    <td class='policyHeading'>\n      <hr>\n      Company Acceptable Use Policy\n    </td>\n  </tr>\n  <tr>\n    <td class='policyData'>\n      This is an optional acceptable use disclaimer that appears on every page. You may change the wording or remove this section entirely in index.html.\n    </td>\n  </tr>\n</table>\n<!--/Policy-->\n<!--Foot-->\n<table class='footTable'>\n  <tr>\n    <td class='helpDeskData' background='/mwg-internal/de5fs23hu73ds/files/default/img/bg_navbar.jpg'>\n      For assistance, please contact your system administrator.\n    </td>\n  </tr>\n  <tr>\n    <td class='footData'>\n      generated <span id=\"time\">2021-10-08 15:54:17</span> by McAfee Web Gateway\n      <br />\nPROXY NAME : PEBPROXYSRVHDS02\n<br/>\nIP CLIENT : 20.112.76.39\n<br/>\nRule set : DENY ALL\n<br/>\nRule : DENY ALL\n<br/>\nURL.Hosts : c5g4qv3nmkkvh7ucvn0gcfor5nyyyyybg.interact.sh\n<br/>\n      \n    </td>\n  </tr>\n</table>\n<!--/Foot-->\n      </td>\n    </tr>\n  </table>\n</body>\n<!--/Body-->\n</html>\n",
+    "timestamp": "2021-10-08T13:54:21.255305954Z",
+    "interaction": {
+      "protocol": "dns",
+      "unique-id": "c5g4qv3nmkkvh7ucvn0gcfor5nyyyyybg",
+      "full-id": "c5g4qv3nmkkvh7ucvn0gcfor5nyyyyybg",
+      "q-type": "A",
+      "raw-request": ";; opcode: QUERY, status: NOERROR, id: 40850\n;; flags:; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 0\n\n;; QUESTION SECTION:\n;c5g4qv3nmkkvh7ucvn0gcfor5nyyyyybg.interact.sh.\tIN\t A\n",
+      "raw-response": ";; opcode: QUERY, status: NOERROR, id: 40850\n;; flags: qr aa; QUERY: 1, ANSWER: 1, AUTHORITY: 2, ADDITIONAL: 2\n\n;; QUESTION SECTION:\n;c5g4qv3nmkkvh7ucvn0gcfor5nyyyyybg.interact.sh.\tIN\t A\n\n;; ANSWER SECTION:\nc5g4qv3nmkkvh7ucvn0gcfor5nyyyyybg.interact.sh.\t3600\tIN\tA\t46.101.25.250\n\n;; AUTHORITY SECTION:\nc5g4qv3nmkkvh7ucvn0gcfor5nyyyyybg.interact.sh.\t3600\tIN\tNS\tns1.interact.sh.\nc5g4qv3nmkkvh7ucvn0gcfor5nyyyyybg.interact.sh.\t3600\tIN\tNS\tns2.interact.sh.\n\n;; ADDITIONAL SECTION:\nns1.interact.sh.\t3600\tIN\tA\t46.101.25.250\nns2.interact.sh.\t3600\tIN\tA\t46.101.25.250\n",
+      "remote-address": "80.94.182.152",
+      "timestamp": "2021-10-08T13:54:17.030497329Z"
+    }
+  }
+]
