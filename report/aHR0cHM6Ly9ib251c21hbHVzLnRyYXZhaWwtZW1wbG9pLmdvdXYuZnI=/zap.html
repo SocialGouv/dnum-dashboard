@@ -1,1419 +1,2120 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>ZAP Scanning Report</title>
-        <style>
-body{
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-  color: #000;
-  font-size: 13px;
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>ZAP Scanning Report</title>
+<style type="text/css">
+body {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #000;
+	font-size: 13px;
 }
-h1{
-  text-align: center;
-  font-weight: bold;
-  font-size: 32px
+
+h1 {
+	text-align: center;
+	font-weight: bold;
+	font-size: 32px
 }
-h3{
-  font-size: 16px;
+
+h3 {
+	font-size: 16px;
 }
-table{
-  border: none;
-  font-size: 13px;
+
+table {
+	border: none;
+	font-size: 13px;
 }
+
 td, th {
-  padding: 3px 4px;
-  word-break: break-word;
+	padding: 3px 4px;
+	word-break: break-word;
 }
-th{
-  font-weight: bold;
+
+th {
+	font-weight: bold;
+	background-color: #666666;
 }
-.results th{
-  text-align: left;
+
+td {
+	background-color: #e8e8e8;
 }
-.spacer{
-  margin: 10px;
+
+.spacer {
+	margin: 10px;
 }
-.spacer-lg{
-  margin: 40px;
+
+.spacer-lg {
+	margin: 40px;
 }
-.indent1{
-  padding: 4px 20px;
+
+.indent1 {
+	padding: 4px 20px;
 }
-.indent2{
-  padding: 4px 40px;
+
+.indent2 {
+	padding: 4px 40px;
 }
-.risk-high{
-  background-color: red;
-  color: #FFF;
+
+.risk-3 {
+	background-color: red;
+	color: #FFF;
 }
-.risk-medium{
-  background-color: orange;
-  color: #FFF;
+
+.risk-2 {
+	background-color: orange;
+	color: #FFF;
 }
-.risk-low{
-  background-color: yellow;
-  color: #000;
+
+.risk-1 {
+	background-color: yellow;
+	color: #000;
 }
-.risk-info{
-  background-color: blue;
-  color: #FFF;
+
+.risk-0 {
+	background-color: blue;
+	color: #FFF;
 }
-.summary th{
-  color: #FFF;
+
+.risk--1 {
+	background-color: green;
+	color: #FFF;
 }
-.alerts th{
-  color: #FFF;
+
+.summary {
+	width: 45%;
 }
-.left-header{
-  display: inline-block;
+
+.summary th {
+	color: #FFF;
 }
-.time-stamp{
-  float: right;
+
+.alerts {
+	width: 75%;
+}
+
+.alerts th {
+	color: #FFF;
+}
+
+.results {
+	width: 100%;
+}
+
+.results th {
+	text-align: left;
+}
+
+.left-header {
+	display: inline-block;
 }
 </style>
-    </head>
-    <body>
-        <h1>
-            <img src="data:image/png;base64,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">
-ZAP Scanning Report
+</head>
+<body>
+	<h1>
+		<!-- The ZAP Logo -->
+		<img
+			src="data:image/png;base64,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"
+			alt="" />
+		ZAP Scanning Report
+	</h1>
+	<p />
+	
 
-        </h1>
-        <p>
-</p>
-        <h3 class="left-header">Summary of Alerts</h3>
-        <h3 class="time-stamp">Generated on Thu, 7 Oct 2021 09:46:05</h3>
-        <table width="45%" class="summary">
-            <tr bgcolor="#666666">
-                <th width="45%" height="24">Risk 
-      Level</th><th width="55%" align="center">Number 
-      of Alerts</th>
-            </tr>
-            <tr bgcolor="#e8e8e8">
-                <td><a href="#high">High</a></td><td align="center">0</td>
-            </tr>
-            <tr bgcolor="#e8e8e8">
-                <td><a href="#medium">Medium</a></td><td align="center">4</td>
-            </tr>
-            <tr bgcolor="#e8e8e8">
-                <td><a href="#low">Low</a></td><td align="center">5</td>
-            </tr>
-            <tr bgcolor="#e8e8e8">
-                <td><a href="#info">Informational</a></td><td align="center">6</td>
-            </tr>
-        </table>
-        <div class="spacer-lg"></div>
-        <h3>Alerts</h3>
-        <table width="75%" class="alerts">
-            <tr bgcolor="#666666">
-                <th width="60%" height="24">Name</th><th width="20%" align="center">Risk Level</th><th width="20%" align="center">Number of Instances</th>
-            </tr>
-            <tr bgcolor="#e8e8e8">
-                <td>Content Security Policy (CSP) Header Not Set</td><td align="center">Medium</td><td align="center">2</td>
-            </tr>
-            <tr bgcolor="#e8e8e8">
-                <td>Sub Resource Integrity Attribute Missing</td><td align="center">Medium</td><td align="center">2</td>
-            </tr>
-            <tr bgcolor="#e8e8e8">
-                <td>Vulnerable JS Library</td><td align="center">Medium</td><td align="center">1</td>
-            </tr>
-            <tr bgcolor="#e8e8e8">
-                <td>X-Frame-Options Header Not Set</td><td align="center">Medium</td><td align="center">2</td>
-            </tr>
-            <tr bgcolor="#e8e8e8">
-                <td>Cookie without SameSite Attribute</td><td align="center">Low</td><td align="center">2</td>
-            </tr>
-            <tr bgcolor="#e8e8e8">
-                <td>Dangerous JS Functions</td><td align="center">Low</td><td align="center">1</td>
-            </tr>
-            <tr bgcolor="#e8e8e8">
-                <td>Incomplete or No Cache-control Header Set</td><td align="center">Low</td><td align="center">2</td>
-            </tr>
-            <tr bgcolor="#e8e8e8">
-                <td>Permissions Policy Header Not Set</td><td align="center">Low</td><td align="center">7</td>
-            </tr>
-            <tr bgcolor="#e8e8e8">
-                <td>Strict-Transport-Security Header Not Set</td><td align="center">Low</td><td align="center">2</td>
-            </tr>
-            <tr bgcolor="#e8e8e8">
-                <td>Base64 Disclosure</td><td align="center">Informational</td><td align="center">4</td>
-            </tr>
-            <tr bgcolor="#e8e8e8">
-                <td>Content-Type Header Missing</td><td align="center">Informational</td><td align="center">2</td>
-            </tr>
-            <tr bgcolor="#e8e8e8">
-                <td>Information Disclosure - Suspicious Comments</td><td align="center">Informational</td><td align="center">3</td>
-            </tr>
-            <tr bgcolor="#e8e8e8">
-                <td>Modern Web Application</td><td align="center">Informational</td><td align="center">2</td>
-            </tr>
-            <tr bgcolor="#e8e8e8">
-                <td>Storable and Cacheable Content</td><td align="center">Informational</td><td align="center">11</td>
-            </tr>
-            <tr bgcolor="#e8e8e8">
-                <td>Timestamp Disclosure - Unix</td><td align="center">Informational</td><td align="center">1</td>
-            </tr>
-        </table>
-        <div class="spacer-lg"></div>
-        <h3>Alert Detail</h3>
-        <div class="spacer"></div>
-        <table width="100%" class="results">
-              
-  
-  
-  
-            <tr height="24" class="risk-medium">
-                <th width="20%"><a name="medium"></a>Medium (High)</th><th width="80%">Content Security Policy (CSP) Header Not Set</th>
-            </tr>
-              
-  
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Description</td><td width="80%"><p>Content Security Policy (CSP) is an added layer of security that helps to detect and mitigate certain types of attacks, including Cross Site Scripting (XSS) and data injection attacks. These attacks are used for everything from data theft to site defacement or distribution of malware. CSP provides a set of standard HTTP headers that allow website owners to declare approved sources of content that browsers should be allowed to load on that page &mdash; covered types are JavaScript, CSS, HTML frames, fonts, images and embeddable objects such as Java applets, ActiveX, audio and video files.</p></td>
-            </tr>
-            <TR vAlign="top">
-                <TD colspan="2"></TD>
-            </TR>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Instances</td><td width="80%">2</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Solution</td><td width="80%"><p>Ensure that your web server, application server, load balancer, etc. is configured to set the Content-Security-Policy header, to achieve optimal browser support: "Content-Security-Policy" for Chrome 25+, Firefox 23+ and Safari 7+, "X-Content-Security-Policy" for Firefox 4.0+ and Internet Explorer 10+, and "X-WebKit-CSP" for Chrome 14+ and Safari 6+.</p></td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Reference</td><td width="80%"><p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>http://www.w3.org/TR/CSP/</p><p>http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html</p><p>http://www.html5rocks.com/en/tutorials/security/content-security-policy/</p><p>http://caniuse.com/#feat=contentsecuritypolicy</p><p>http://content-security-policy.com/</p></td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">CWE Id</td><td width="80%">693</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">WASC Id</td><td width="80%">15</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Source ID</td><td width="80%">3</td>
-            </tr>
-            
-        </table>
-        <div class="spacer"></div>
-        <table width="100%" class="results">
-              
-  
-  
-  
-            <tr height="24" class="risk-medium">
-                <th width="20%"><a name="medium"></a>Medium (High)</th><th width="80%">Sub Resource Integrity Attribute Missing</th>
-            </tr>
-              
-  
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Description</td><td width="80%"><p>The integrity attribute is missing on a script or link tag served by an external server. The integrity tag prevents an attacker who have gained access to this server from injecting a malicious content. </p></td>
-            </tr>
-            <TR vAlign="top">
-                <TD colspan="2"></TD>
-            </TR>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">&lt;link href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap" rel="stylesheet"&gt;</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">&lt;link href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap" rel="stylesheet"&gt;</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Instances</td><td width="80%">2</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Solution</td><td width="80%"><p>Provide a valid integrity attribute to the tag.</p></td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Reference</td><td width="80%"><p>https://developer.mozilla.org/en/docs/Web/Security/Subresource_Integrity</p></td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">CWE Id</td><td width="80%">345</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">WASC Id</td><td width="80%">15</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Source ID</td><td width="80%">3</td>
-            </tr>
-            
-        </table>
-        <div class="spacer"></div>
-        <table width="100%" class="results">
-              
-  
-  
-  
-            <tr height="24" class="risk-medium">
-                <th width="20%"><a name="medium"></a>Medium (Medium)</th><th width="80%">Vulnerable JS Library</th>
-            </tr>
-              
-  
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Description</td><td width="80%"><p>The identified library jquery, version 3.4.1.min is vulnerable.</p></td>
-            </tr>
-            <TR vAlign="top">
-                <TD colspan="2"></TD>
-            </TR>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr/js/vendor/jquery-3.4.1.min.js</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">jquery-3.4.1.min.js</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Instances</td><td width="80%">1</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Solution</td><td width="80%"><p>Please upgrade to the latest version of jquery.</p></td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Other information</td><td width="80%"><p>CVE-2020-11023</p><p>CVE-2020-11022</p><p></p></td>
-            </tr>
-            <TR vAlign="top">
-                <TD colspan="2"></TD>
-            </TR>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Reference</td><td width="80%"><p>https://blog.jquery.com/2020/04/10/jquery-3-5-0-released/</p><p></p></td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">CWE Id</td><td width="80%">829</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Source ID</td><td width="80%">3</td>
-            </tr>
-            
-        </table>
-        <div class="spacer"></div>
-        <table width="100%" class="results">
-              
-  
-  
-  
-            <tr height="24" class="risk-medium">
-                <th width="20%"><a name="medium"></a>Medium (Medium)</th><th width="80%">X-Frame-Options Header Not Set</th>
-            </tr>
-              
-  
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Description</td><td width="80%"><p>X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks.</p></td>
-            </tr>
-            <TR vAlign="top">
-                <TD colspan="2"></TD>
-            </TR>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Parameter</td><td width="80%">X-Frame-Options</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Parameter</td><td width="80%">X-Frame-Options</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Instances</td><td width="80%">2</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Solution</td><td width="80%"><p>Most modern Web browsers support the X-Frame-Options HTTP header. Ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY. Alternatively consider implementing Content Security Policy's "frame-ancestors" directive. </p></td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Reference</td><td width="80%"><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options</p></td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">CWE Id</td><td width="80%">1021</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">WASC Id</td><td width="80%">15</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Source ID</td><td width="80%">3</td>
-            </tr>
-            
-        </table>
-        <div class="spacer"></div>
-        <table width="100%" class="results">
-              
-  
-  
-  
-            <tr height="24" class="risk-low">
-                <a name="low"></a><th width="20%">Low (Medium)</th><th width="80%">Cookie without SameSite Attribute</th>
-            </tr>
-              
-  
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Description</td><td width="80%"><p>A cookie has been set without the SameSite attribute, which means that the cookie can be sent as a result of a 'cross-site' request. The SameSite attribute is an effective counter measure to cross-site request forgery, cross-site script inclusion, and timing attacks.</p></td>
-            </tr>
-            <TR vAlign="top">
-                <TD colspan="2"></TD>
-            </TR>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Parameter</td><td width="80%">BIGipServerpool-dgefp-aspe.cegedim.cloud-HTTP</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">Set-Cookie: BIGipServerpool-dgefp-aspe.cegedim.cloud-HTTP</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Parameter</td><td width="80%">BIGipServerpool-dgefp-aspe.cegedim.cloud-HTTP</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">Set-Cookie: BIGipServerpool-dgefp-aspe.cegedim.cloud-HTTP</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Instances</td><td width="80%">2</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Solution</td><td width="80%"><p>Ensure that the SameSite attribute is set to either 'lax' or ideally 'strict' for all cookies.</p></td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Reference</td><td width="80%"><p>https://tools.ietf.org/html/draft-ietf-httpbis-cookie-same-site</p></td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">CWE Id</td><td width="80%">1275</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">WASC Id</td><td width="80%">13</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Source ID</td><td width="80%">3</td>
-            </tr>
-            
-        </table>
-        <div class="spacer"></div>
-        <table width="100%" class="results">
-              
-  
-  
-  
-            <tr height="24" class="risk-low">
-                <a name="low"></a><th width="20%">Low (Low)</th><th width="80%">Dangerous JS Functions</th>
-            </tr>
-              
-  
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Description</td><td width="80%"><p>A dangerous JS function seems to be in use that would leave the site vulnerable.</p></td>
-            </tr>
-            <TR vAlign="top">
-                <TD colspan="2"></TD>
-            </TR>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr/js/vendor/jquery-3.4.1.min.js</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">Eval</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Instances</td><td width="80%">1</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Solution</td><td width="80%"><p>See the references for security advice on the use of these functions.</p></td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Reference</td><td width="80%"><p>https://angular.io/guide/security</p></td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">CWE Id</td><td width="80%">749</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Source ID</td><td width="80%">3</td>
-            </tr>
-            
-        </table>
-        <div class="spacer"></div>
-        <table width="100%" class="results">
-              
-  
-  
-  
-            <tr height="24" class="risk-low">
-                <a name="low"></a><th width="20%">Low (Medium)</th><th width="80%">Incomplete or No Cache-control Header Set</th>
-            </tr>
-              
-  
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Description</td><td width="80%"><p>The cache-control header has not been set properly or is missing, allowing the browser and proxies to cache content.</p></td>
-            </tr>
-            <TR vAlign="top">
-                <TD colspan="2"></TD>
-            </TR>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Parameter</td><td width="80%">Cache-Control</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Parameter</td><td width="80%">Cache-Control</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Instances</td><td width="80%">2</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Solution</td><td width="80%"><p>Whenever possible ensure the cache-control HTTP header is set with no-cache, no-store, must-revalidate.</p></td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Reference</td><td width="80%"><p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p></td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">CWE Id</td><td width="80%">525</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">WASC Id</td><td width="80%">13</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Source ID</td><td width="80%">3</td>
-            </tr>
-            
-        </table>
-        <div class="spacer"></div>
-        <table width="100%" class="results">
-              
-  
-  
-  
-            <tr height="24" class="risk-low">
-                <a name="low"></a><th width="20%">Low (Medium)</th><th width="80%">Permissions Policy Header Not Set</th>
-            </tr>
-              
-  
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Description</td><td width="80%"><p>Permissions Policy Header is an added layer of security that helps to restrict from unauthorized access or usage of browser/client features by web resources. This policy ensures the user privacy by limiting or specifying the features of the browsers can be used by the web resources. Permissions Policy provides a set of standard HTTP headers that allow website owners to limit which features of browsers can be used by the page such as camera, microphone, location, full screen etc.</p></td>
-            </tr>
-            <TR vAlign="top">
-                <TD colspan="2"></TD>
-            </TR>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr/js/main.js</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr/js/vendor/jquery-3.4.1.min.js</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr/js/plugins.js</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr/js/vendor/modernizr-3.7.1.min.js</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr/js/vendor/jquery.ba-throttle-debounce.min.js</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Instances</td><td width="80%">7</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Solution</td><td width="80%"><p>Ensure that your web server, application server, load balancer, etc. is configured to set the Permissions-Policy header.</p></td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Reference</td><td width="80%"><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy</p><p>https://developers.google.com/web/updates/2018/06/feature-policy</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p></td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">CWE Id</td><td width="80%">693</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">WASC Id</td><td width="80%">15</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Source ID</td><td width="80%">3</td>
-            </tr>
-            
-        </table>
-        <div class="spacer"></div>
-        <table width="100%" class="results">
-              
-  
-  
-  
-            <tr height="24" class="risk-low">
-                <a name="low"></a><th width="20%">Low (High)</th><th width="80%">Strict-Transport-Security Header Not Set</th>
-            </tr>
-              
-  
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Description</td><td width="80%"><p>HTTP Strict Transport Security (HSTS) is a web security policy mechanism whereby a web server declares that complying user agents (such as a web browser) are to interact with it using only secure HTTPS connections (i.e. HTTP layered over TLS/SSL). HSTS is an IETF standards track protocol and is specified in RFC 6797.</p></td>
-            </tr>
-            <TR vAlign="top">
-                <TD colspan="2"></TD>
-            </TR>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr/robots.txt</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr/sitemap.xml</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Instances</td><td width="80%">2</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Solution</td><td width="80%"><p>Ensure that your web server, application server, load balancer, etc. is configured to enforce Strict-Transport-Security.</p></td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Reference</td><td width="80%"><p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>http://caniuse.com/stricttransportsecurity</p><p>http://tools.ietf.org/html/rfc6797</p></td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">CWE Id</td><td width="80%">319</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">WASC Id</td><td width="80%">15</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Source ID</td><td width="80%">3</td>
-            </tr>
-            
-        </table>
-        <div class="spacer"></div>
-        <table width="100%" class="results">
-              
-  
-  
-  
-            <tr height="24" class="risk-info">
-                <th width="20%"><a name="info"></a>Informational (Medium)</th><th width="80%">Base64 Disclosure</th>
-            </tr>
-              
-  
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Description</td><td width="80%"><p>Base64 encoded data was disclosed by the application/web server. Note: in the interests of performance not all base64 strings in the response were analyzed individually, the entire response should be looked at by the analyst/security team/developer(s).</p></td>
-            </tr>
-            <TR vAlign="top">
-                <TD colspan="2"></TD>
-            </TR>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">gEjKOwXp5HNpZ+t7bLUtGytATXjoYGLZmOYc8hkGE3dyJ1LrRcLEnO+UjOXipkJDQqVZt0rk1C37Uk4TCtnd8en7qVg=</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr/css/ie9.css</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjZmRlOGY0IiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr/js/vendor/modernizr-3.7.1.min.js</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">R0lGODlhAgABAPAAAP///wAAACH5BAAAAAAALAAAAAACAAEAAAICBAoAOw==</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">Hxh4Bb5pSSXV3W97bLUtGytATXjoYByB28QhdCQc6PR5NlMjuJ8MbHQBIAqHFWiPZLaQOyV/rD+3Qke7O21TQvEH5UM=</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Instances</td><td width="80%">4</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Solution</td><td width="80%"><p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p></td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Other information</td><td width="80%"><p>�H�;\x0005��sig�{l�-\x001b+@Mx�`b٘�\x001c�\x0019\x0006\x0013wr'R�E�Ĝ��BCB�Y�J��-�RN\x0013</p><p>������X</p></td>
-            </tr>
-            <TR vAlign="top">
-                <TD colspan="2"></TD>
-            </TR>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Reference</td><td width="80%"><p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p></td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">CWE Id</td><td width="80%">200</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">WASC Id</td><td width="80%">13</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Source ID</td><td width="80%">3</td>
-            </tr>
-            
-        </table>
-        <div class="spacer"></div>
-        <table width="100%" class="results">
-              
-  
-  
-  
-            <tr height="24" class="risk-info">
-                <th width="20%"><a name="info"></a>Informational (Medium)</th><th width="80%">Content-Type Header Missing</th>
-            </tr>
-              
-  
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Description</td><td width="80%"><p>The Content-Type header was either missing or empty.</p></td>
-            </tr>
-            <TR vAlign="top">
-                <TD colspan="2"></TD>
-            </TR>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr/robots.txt</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr/sitemap.xml</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Instances</td><td width="80%">2</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Solution</td><td width="80%"><p>Ensure each page is setting the specific and appropriate content-type value for the content being delivered.</p></td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Reference</td><td width="80%"><p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p></td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">CWE Id</td><td width="80%">345</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">WASC Id</td><td width="80%">12</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Source ID</td><td width="80%">3</td>
-            </tr>
-            
-        </table>
-        <div class="spacer"></div>
-        <table width="100%" class="results">
-              
-  
-  
-  
-            <tr height="24" class="risk-info">
-                <th width="20%"><a name="info"></a>Informational (Low)</th><th width="80%">Information Disclosure - Suspicious Comments</th>
-            </tr>
-              
-  
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Description</td><td width="80%"><p>The response appears to contain suspicious comments which may help an attacker. Note: Matches made within script blocks or files are against the entire content not only comments.</p></td>
-            </tr>
-            <TR vAlign="top">
-                <TD colspan="2"></TD>
-            </TR>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr/js/main.js</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">select</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr/js/vendor/jquery-3.4.1.min.js</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">username</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr/js/main.js</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">user</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Instances</td><td width="80%">3</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Solution</td><td width="80%"><p>Remove all comments that return information that may help an attacker and fix any underlying problems they refer to.</p></td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Other information</td><td width="80%"><p>The following pattern was used: \bSELECT\b and was detected 3 times, the first in the element starting with: "// Ajoute les options dans le select-box
-", see evidence field for the suspicious comment/snippet.</p></td>
-            </tr>
-            <TR vAlign="top">
-                <TD colspan="2"></TD>
-            </TR>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Reference</td><td width="80%"><p></p></td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">CWE Id</td><td width="80%">200</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">WASC Id</td><td width="80%">13</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Source ID</td><td width="80%">3</td>
-            </tr>
-            
-        </table>
-        <div class="spacer"></div>
-        <table width="100%" class="results">
-              
-  
-  
-  
-            <tr height="24" class="risk-info">
-                <th width="20%"><a name="info"></a>Informational (Medium)</th><th width="80%">Modern Web Application</th>
-            </tr>
-              
-  
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Description</td><td width="80%"><p>The application appears to be a modern web application. If you need to explore it automatically then the Ajax Spider may well be more effective than the standard one.</p></td>
-            </tr>
-            <TR vAlign="top">
-                <TD colspan="2"></TD>
-            </TR>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr/js/vendor/jquery-3.4.1.min.js</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">&lt;a id='"+k+"'&gt;&lt;/a&gt;</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr/js/main.js</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">&lt;a onclick='ouvrirLienFAQ()'&gt;questions &ndash; r&eacute;ponses bonus-malus&lt;/a&gt;</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Instances</td><td width="80%">2</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Solution</td><td width="80%"><p>This is an informational alert and so no changes are required.</p></td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Other information</td><td width="80%"><p>Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application.</p></td>
-            </tr>
-            <TR vAlign="top">
-                <TD colspan="2"></TD>
-            </TR>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Reference</td><td width="80%"><p></p></td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Source ID</td><td width="80%">3</td>
-            </tr>
-            
-        </table>
-        <div class="spacer"></div>
-        <table width="100%" class="results">
-              
-  
-  
-  
-            <tr height="24" class="risk-info">
-                <th width="20%"><a name="info"></a>Informational (Medium)</th><th width="80%">Storable and Cacheable Content</th>
-            </tr>
-              
-  
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Description</td><td width="80%"><p>The response contents are storable by caching components such as proxy servers, and may be retrieved directly from the cache, rather than from the origin server by the caching servers, in response to similar requests from other users.  If the response data is sensitive, personal or user-specific, this may result in sensitive information being leaked. In some cases, this may even result in a user gaining complete control of the session of another user, depending on the configuration of the caching components in use in their environment. This is primarily an issue where "shared" caching servers such as "proxy" caches are configured on the local network. This configuration is typically found in corporate or educational environments, for instance.</p></td>
-            </tr>
-            <TR vAlign="top">
-                <TD colspan="2"></TD>
-            </TR>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr/js/vendor/jquery.ba-throttle-debounce.min.js</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr/sitemap.xml</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr/css/normalize.css</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr/css/main.css</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr/robots.txt</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr/js/vendor/modernizr-3.7.1.min.js</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr/css/boilerplate.css</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr/css/ie9.css</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr/js/plugins.js</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Instances</td><td width="80%">11</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Solution</td><td width="80%"><p>Validate that the response does not contain sensitive, personal or user-specific information.  If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:</p><p>Cache-Control: no-cache, no-store, must-revalidate, private</p><p>Pragma: no-cache</p><p>Expires: 0</p><p>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request. </p></td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Other information</td><td width="80%"><p>In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234.</p></td>
-            </tr>
-            <TR vAlign="top">
-                <TD colspan="2"></TD>
-            </TR>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Reference</td><td width="80%"><p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p></td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">CWE Id</td><td width="80%">524</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">WASC Id</td><td width="80%">13</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Source ID</td><td width="80%">3</td>
-            </tr>
-            
-        </table>
-        <div class="spacer"></div>
-        <table width="100%" class="results">
-              
-  
-  
-  
-            <tr height="24" class="risk-info">
-                <th width="20%"><a name="info"></a>Informational (Low)</th><th width="80%">Timestamp Disclosure - Unix</th>
-            </tr>
-              
-  
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Description</td><td width="80%"><p>A timestamp was disclosed by the application/web server - Unix</p></td>
-            </tr>
-            <TR vAlign="top">
-                <TD colspan="2"></TD>
-            </TR>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://bonusmalus.travail-emploi.gouv.fr/css/boilerplate.css</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">16982510</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Instances</td><td width="80%">1</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Solution</td><td width="80%"><p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p></td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Other information</td><td width="80%"><p>16982510, which evaluates to: 1970-07-16 13:21:50</p></td>
-            </tr>
-            <TR vAlign="top">
-                <TD colspan="2"></TD>
-            </TR>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Reference</td><td width="80%"><p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p></td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">CWE Id</td><td width="80%">200</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">WASC Id</td><td width="80%">13</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Source ID</td><td width="80%">3</td>
-            </tr>
-            
-        </table>
-    </body>
+	<h2>
+		
+		Site: https://bonusmalus.travail-emploi.gouv.fr
+		
+	</h2>
+
+	<h3>
+		Generated on Sun, 10 Oct 2021 01:07:04
+	</h3>
+
+	
+		<h3 class="left-header">Summary of Alerts</h3>
+		<table class="summary">
+			<tr>
+				<th width="45%"
+					height="24">Risk Level</th>
+				<th width="55%"
+					align="center">Number of Alerts</th>
+			</tr>
+			<tr>
+				<td class="risk-3">
+					<div>High</div>
+				</td>
+				<td align="center">
+					<div>0</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="risk-2">
+					<div>Medium</div>
+				</td>
+				<td align="center">
+					<div>4</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="risk-1">
+					<div>Low</div>
+				</td>
+				<td align="center">
+					<div>6</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="risk-0">
+					<div>Informational</div>
+				</td>
+				<td align="center">
+					<div>5</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="risk--1">
+					<div>				False Positives:</div>
+				</td>
+				<td align="center">
+					<div>0</div>
+				</td>
+			</tr>
+		</table>
+		<div class="spacer-lg"></div>
+	
+
+	
+		<h3>Alerts</h3>
+		<table class="alerts">
+			<tr>
+				<th width="60%" height="24">Name</th>
+				<th width="20%"
+					align="center">Risk Level</th>
+				<th width="20%"
+					align="center">Number of Instances</th>
+			</tr>
+			<tr>
+				<td><a href="#10038">Content Security Policy (CSP) Header Not Set</a></td>
+				<td align="center" class="risk-2">Medium</td>
+				<td align="center">1</td>
+			</tr>
+			<tr>
+				<td><a href="#90003">Sub Resource Integrity Attribute Missing</a></td>
+				<td align="center" class="risk-2">Medium</td>
+				<td align="center">1</td>
+			</tr>
+			<tr>
+				<td><a href="#10003">Vulnerable JS Library</a></td>
+				<td align="center" class="risk-2">Medium</td>
+				<td align="center">1</td>
+			</tr>
+			<tr>
+				<td><a href="#10020">X-Frame-Options Header Not Set</a></td>
+				<td align="center" class="risk-2">Medium</td>
+				<td align="center">1</td>
+			</tr>
+			<tr>
+				<td><a href="#10054">Cookie without SameSite Attribute</a></td>
+				<td align="center" class="risk-1">Low</td>
+				<td align="center">1</td>
+			</tr>
+			<tr>
+				<td><a href="#10110">Dangerous JS Functions</a></td>
+				<td align="center" class="risk-1">Low</td>
+				<td align="center">1</td>
+			</tr>
+			<tr>
+				<td><a href="#10015">Incomplete or No Cache-control Header Set</a></td>
+				<td align="center" class="risk-1">Low</td>
+				<td align="center">1</td>
+			</tr>
+			<tr>
+				<td><a href="#10063">Permissions Policy Header Not Set</a></td>
+				<td align="center" class="risk-1">Low</td>
+				<td align="center">6</td>
+			</tr>
+			<tr>
+				<td><a href="#10035">Strict-Transport-Security Header Not Set</a></td>
+				<td align="center" class="risk-1">Low</td>
+				<td align="center">2</td>
+			</tr>
+			<tr>
+				<td><a href="#10096">Timestamp Disclosure - Unix</a></td>
+				<td align="center" class="risk-1">Low</td>
+				<td align="center">1</td>
+			</tr>
+			<tr>
+				<td><a href="#10094">Base64 Disclosure</a></td>
+				<td align="center" class="risk-0">Informational</td>
+				<td align="center">4</td>
+			</tr>
+			<tr>
+				<td><a href="#10019">Content-Type Header Missing</a></td>
+				<td align="center" class="risk-0">Informational</td>
+				<td align="center">2</td>
+			</tr>
+			<tr>
+				<td><a href="#10027">Information Disclosure - Suspicious Comments</a></td>
+				<td align="center" class="risk-0">Informational</td>
+				<td align="center">3</td>
+			</tr>
+			<tr>
+				<td><a href="#10109">Modern Web Application</a></td>
+				<td align="center" class="risk-0">Informational</td>
+				<td align="center">2</td>
+			</tr>
+			<tr>
+				<td><a href="#10049">Storable and Cacheable Content</a></td>
+				<td align="center" class="risk-0">Informational</td>
+				<td align="center">11</td>
+			</tr>
+		</table>
+		<div class="spacer-lg"></div>
+	
+
+	
+		<h3>Alert Detail</h3>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-2"><a
+						id="10038"></a>
+						<div>Medium</div></th>
+					<th class="risk-2">Content Security Policy (CSP) Header Not Set</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>Content Security Policy (CSP) is an added layer of security that helps to detect and mitigate certain types of attacks, including Cross Site Scripting (XSS) and data injection attacks. These attacks are used for everything from data theft to site defacement or distribution of malware. CSP provides a set of standard HTTP headers that allow website owners to declare approved sources of content that browsers should be allowed to load on that page — covered types are JavaScript, CSS, HTML frames, fonts, images and embeddable objects such as Java applets, ActiveX, audio and video files.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bonusmalus.travail-emploi.gouv.fr">https://bonusmalus.travail-emploi.gouv.fr</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">1</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Ensure that your web server, application server, load balancer, etc. is configured to set the Content-Security-Policy header, to achieve optimal browser support: &quot;Content-Security-Policy&quot; for Chrome 25+, Firefox 23+ and Safari 7+, &quot;X-Content-Security-Policy&quot; for Firefox 4.0+ and Internet Explorer 10+, and &quot;X-WebKit-CSP&quot; for Chrome 14+ and Safari 6+.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%">
+							<a href="https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy">https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</a>
+							<br />
+						
+							<a href="https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html">https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</a>
+							<br />
+						
+							<a href="http://www.w3.org/TR/CSP/">http://www.w3.org/TR/CSP/</a>
+							<br />
+						
+							<a href="http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html">http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html</a>
+							<br />
+						
+							<a href="http://www.html5rocks.com/en/tutorials/security/content-security-policy/">http://www.html5rocks.com/en/tutorials/security/content-security-policy/</a>
+							<br />
+						
+							<a href="http://caniuse.com/#feat=contentsecuritypolicy">http://caniuse.com/#feat=contentsecuritypolicy</a>
+							<br />
+						
+							<a href="http://content-security-policy.com/">http://content-security-policy.com/</a>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/693.html">693</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">15</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10038/">10038</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-2"><a
+						id="90003"></a>
+						<div>Medium</div></th>
+					<th class="risk-2">Sub Resource Integrity Attribute Missing</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>The integrity attribute is missing on a script or link tag served by an external server. The integrity tag prevents an attacker who have gained access to this server from injecting a malicious content. </div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bonusmalus.travail-emploi.gouv.fr">https://bonusmalus.travail-emploi.gouv.fr</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;link href=&quot;https://fonts.googleapis.com/css?family=Roboto&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;</td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">1</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Provide a valid integrity attribute to the tag.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%">
+							<a href="https://developer.mozilla.org/en/docs/Web/Security/Subresource_Integrity">https://developer.mozilla.org/en/docs/Web/Security/Subresource_Integrity</a>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/345.html">345</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">15</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/90003/">90003</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-2"><a
+						id="10003"></a>
+						<div>Medium</div></th>
+					<th class="risk-2">Vulnerable JS Library</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>The identified library jquery, version 3.4.1 is vulnerable.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bonusmalus.travail-emploi.gouv.fr/js/vendor/jquery-3.4.1.min.js">https://bonusmalus.travail-emploi.gouv.fr/js/vendor/jquery-3.4.1.min.js</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">jquery-3.4.1.min.js</td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">1</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Please upgrade to the latest version of jquery.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%">
+							<a href="https://blog.jquery.com/2020/04/10/jquery-3-5-0-released/">https://blog.jquery.com/2020/04/10/jquery-3-5-0-released/</a>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/829.html">829</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%"></td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10003/">10003</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-2"><a
+						id="10020"></a>
+						<div>Medium</div></th>
+					<th class="risk-2">X-Frame-Options Header Not Set</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>X-Frame-Options header is not included in the HTTP response to protect against &#39;ClickJacking&#39; attacks.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bonusmalus.travail-emploi.gouv.fr">https://bonusmalus.travail-emploi.gouv.fr</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">X-Frame-Options</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">1</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Most modern Web browsers support the X-Frame-Options HTTP header. Ensure it&#39;s set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it&#39;s part of a FRAMESET) then you&#39;ll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY. Alternatively consider implementing Content Security Policy&#39;s &quot;frame-ancestors&quot; directive. </div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%">
+							<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options">https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options</a>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/1021.html">1021</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">15</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10020/">10020</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-1"><a
+						id="10054"></a>
+						<div>Low</div></th>
+					<th class="risk-1">Cookie without SameSite Attribute</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>A cookie has been set without the SameSite attribute, which means that the cookie can be sent as a result of a &#39;cross-site&#39; request. The SameSite attribute is an effective counter measure to cross-site request forgery, cross-site script inclusion, and timing attacks.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bonusmalus.travail-emploi.gouv.fr">https://bonusmalus.travail-emploi.gouv.fr</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">BIGipServerpool-dgefp-aspe.cegedim.cloud-HTTP</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">Set-Cookie: BIGipServerpool-dgefp-aspe.cegedim.cloud-HTTP</td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">1</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Ensure that the SameSite attribute is set to either &#39;lax&#39; or ideally &#39;strict&#39; for all cookies.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%">
+							<a href="https://tools.ietf.org/html/draft-ietf-httpbis-cookie-same-site">https://tools.ietf.org/html/draft-ietf-httpbis-cookie-same-site</a>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/1275.html">1275</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">13</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10054/">10054</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-1"><a
+						id="10110"></a>
+						<div>Low</div></th>
+					<th class="risk-1">Dangerous JS Functions</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>A dangerous JS function seems to be in use that would leave the site vulnerable.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bonusmalus.travail-emploi.gouv.fr/js/vendor/jquery-3.4.1.min.js">https://bonusmalus.travail-emploi.gouv.fr/js/vendor/jquery-3.4.1.min.js</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">Eval</td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">1</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>See the references for security advice on the use of these functions.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%">
+							<a href="https://angular.io/guide/security">https://angular.io/guide/security</a>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/749.html">749</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%"></td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10110/">10110</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-1"><a
+						id="10015"></a>
+						<div>Low</div></th>
+					<th class="risk-1">Incomplete or No Cache-control Header Set</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>The cache-control header has not been set properly or is missing, allowing the browser and proxies to cache content.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bonusmalus.travail-emploi.gouv.fr">https://bonusmalus.travail-emploi.gouv.fr</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">Cache-Control</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">1</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Whenever possible ensure the cache-control HTTP header is set with no-cache, no-store, must-revalidate.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%">
+							<a href="https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching">https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</a>
+							<br />
+						
+							<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control">https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</a>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/525.html">525</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">13</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10015/">10015</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-1"><a
+						id="10063"></a>
+						<div>Low</div></th>
+					<th class="risk-1">Permissions Policy Header Not Set</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>Permissions Policy Header is an added layer of security that helps to restrict from unauthorized access or usage of browser/client features by web resources. This policy ensures the user privacy by limiting or specifying the features of the browsers can be used by the web resources. Permissions Policy provides a set of standard HTTP headers that allow website owners to limit which features of browsers can be used by the page such as camera, microphone, location, full screen etc.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bonusmalus.travail-emploi.gouv.fr">https://bonusmalus.travail-emploi.gouv.fr</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bonusmalus.travail-emploi.gouv.fr/js/main.js">https://bonusmalus.travail-emploi.gouv.fr/js/main.js</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bonusmalus.travail-emploi.gouv.fr/js/plugins.js">https://bonusmalus.travail-emploi.gouv.fr/js/plugins.js</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bonusmalus.travail-emploi.gouv.fr/js/vendor/jquery-3.4.1.min.js">https://bonusmalus.travail-emploi.gouv.fr/js/vendor/jquery-3.4.1.min.js</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bonusmalus.travail-emploi.gouv.fr/js/vendor/jquery.ba-throttle-debounce.min.js">https://bonusmalus.travail-emploi.gouv.fr/js/vendor/jquery.ba-throttle-debounce.min.js</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bonusmalus.travail-emploi.gouv.fr/js/vendor/modernizr-3.7.1.min.js">https://bonusmalus.travail-emploi.gouv.fr/js/vendor/modernizr-3.7.1.min.js</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">6</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Ensure that your web server, application server, load balancer, etc. is configured to set the Permissions-Policy header.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%">
+							<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy">https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy</a>
+							<br />
+						
+							<a href="https://developers.google.com/web/updates/2018/06/feature-policy">https://developers.google.com/web/updates/2018/06/feature-policy</a>
+							<br />
+						
+							<a href="https://scotthelme.co.uk/a-new-security-header-feature-policy/">https://scotthelme.co.uk/a-new-security-header-feature-policy/</a>
+							<br />
+						
+							<a href="https://w3c.github.io/webappsec-feature-policy/">https://w3c.github.io/webappsec-feature-policy/</a>
+							<br />
+						
+							<a href="https://www.smashingmagazine.com/2018/12/feature-policy/">https://www.smashingmagazine.com/2018/12/feature-policy/</a>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/693.html">693</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">15</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10063/">10063</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-1"><a
+						id="10035"></a>
+						<div>Low</div></th>
+					<th class="risk-1">Strict-Transport-Security Header Not Set</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>HTTP Strict Transport Security (HSTS) is a web security policy mechanism whereby a web server declares that complying user agents (such as a web browser) are to interact with it using only secure HTTPS connections (i.e. HTTP layered over TLS/SSL). HSTS is an IETF standards track protocol and is specified in RFC 6797.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bonusmalus.travail-emploi.gouv.fr/robots.txt">https://bonusmalus.travail-emploi.gouv.fr/robots.txt</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bonusmalus.travail-emploi.gouv.fr/sitemap.xml">https://bonusmalus.travail-emploi.gouv.fr/sitemap.xml</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">2</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Ensure that your web server, application server, load balancer, etc. is configured to enforce Strict-Transport-Security.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%">
+							<a href="https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html">https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</a>
+							<br />
+						
+							<a href="https://owasp.org/www-community/Security_Headers">https://owasp.org/www-community/Security_Headers</a>
+							<br />
+						
+							<a href="http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security">http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</a>
+							<br />
+						
+							<a href="http://caniuse.com/stricttransportsecurity">http://caniuse.com/stricttransportsecurity</a>
+							<br />
+						
+							<a href="http://tools.ietf.org/html/rfc6797">http://tools.ietf.org/html/rfc6797</a>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/319.html">319</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">15</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10035/">10035</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-1"><a
+						id="10096"></a>
+						<div>Low</div></th>
+					<th class="risk-1">Timestamp Disclosure - Unix</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>A timestamp was disclosed by the application/web server - Unix</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bonusmalus.travail-emploi.gouv.fr/css/boilerplate.css">https://bonusmalus.travail-emploi.gouv.fr/css/boilerplate.css</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">16982510</td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">1</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%">
+							<a href="http://projects.webappsec.org/w/page/13246936/Information%20Leakage">http://projects.webappsec.org/w/page/13246936/Information%20Leakage</a>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/200.html">200</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">13</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10096/">10096</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-0"><a
+						id="10094"></a>
+						<div>Informational</div></th>
+					<th class="risk-0">Base64 Disclosure</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>Base64 encoded data was disclosed by the application/web server. Note: in the interests of performance not all base64 strings in the response were analyzed individually, the entire response should be looked at by the analyst/security team/developer(s).</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bonusmalus.travail-emploi.gouv.fr">https://bonusmalus.travail-emploi.gouv.fr</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">ukLEuqVMFfEUfnN7bLUtGytATXjoYJX4bbucA09JDjI6UwEX9fxAGEIzFnAWLitoXYkphNkKGxKds+wuf92SZfQjIF8=</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bonusmalus.travail-emploi.gouv.fr">https://bonusmalus.travail-emploi.gouv.fr</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">p4jMpv//ktvOHc17bLUtGytATXjoYAX/bYwQ9N/TZUQkFYS9U/oqNY2Y6pcf/iecvHogA7vV1E9oMeRy0iiSg+nux4U=</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bonusmalus.travail-emploi.gouv.fr/css/ie9.css">https://bonusmalus.travail-emploi.gouv.fr/css/ie9.css</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjZmRlOGY0IiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bonusmalus.travail-emploi.gouv.fr/js/vendor/modernizr-3.7.1.min.js">https://bonusmalus.travail-emploi.gouv.fr/js/vendor/modernizr-3.7.1.min.js</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">R0lGODlhAgABAPAAAP///wAAACH5BAAAAAAALAAAAAACAAEAAAICBAoAOw==</td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">4</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%">
+							<a href="http://projects.webappsec.org/w/page/13246936/Information%20Leakage">http://projects.webappsec.org/w/page/13246936/Information%20Leakage</a>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/200.html">200</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">13</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10094/">10094</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-0"><a
+						id="10019"></a>
+						<div>Informational</div></th>
+					<th class="risk-0">Content-Type Header Missing</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>The Content-Type header was either missing or empty.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bonusmalus.travail-emploi.gouv.fr/robots.txt">https://bonusmalus.travail-emploi.gouv.fr/robots.txt</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bonusmalus.travail-emploi.gouv.fr/sitemap.xml">https://bonusmalus.travail-emploi.gouv.fr/sitemap.xml</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">2</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Ensure each page is setting the specific and appropriate content-type value for the content being delivered.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%">
+							<a href="http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx">http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</a>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/345.html">345</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">12</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10019/">10019</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-0"><a
+						id="10027"></a>
+						<div>Informational</div></th>
+					<th class="risk-0">Information Disclosure - Suspicious Comments</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>The response appears to contain suspicious comments which may help an attacker. Note: Matches made within script blocks or files are against the entire content not only comments.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bonusmalus.travail-emploi.gouv.fr/js/main.js">https://bonusmalus.travail-emploi.gouv.fr/js/main.js</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">select</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bonusmalus.travail-emploi.gouv.fr/js/main.js">https://bonusmalus.travail-emploi.gouv.fr/js/main.js</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">user</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bonusmalus.travail-emploi.gouv.fr/js/vendor/jquery-3.4.1.min.js">https://bonusmalus.travail-emploi.gouv.fr/js/vendor/jquery-3.4.1.min.js</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">username</td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">3</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Remove all comments that return information that may help an attacker and fix any underlying problems they refer to.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%"></td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/200.html">200</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">13</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10027/">10027</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-0"><a
+						id="10109"></a>
+						<div>Informational</div></th>
+					<th class="risk-0">Modern Web Application</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>The application appears to be a modern web application. If you need to explore it automatically then the Ajax Spider may well be more effective than the standard one.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bonusmalus.travail-emploi.gouv.fr/js/main.js">https://bonusmalus.travail-emploi.gouv.fr/js/main.js</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;a onclick=&#39;ouvrirLienFAQ()&#39;&gt;questions – réponses bonus-malus&lt;/a&gt;</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bonusmalus.travail-emploi.gouv.fr/js/vendor/jquery-3.4.1.min.js">https://bonusmalus.travail-emploi.gouv.fr/js/vendor/jquery-3.4.1.min.js</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;a id=&#39;&quot;+k+&quot;&#39;&gt;&lt;/a&gt;</td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">2</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>This is an informational alert and so no changes are required.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%"></td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%"></td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10109/">10109</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-0"><a
+						id="10049"></a>
+						<div>Informational</div></th>
+					<th class="risk-0">Storable and Cacheable Content</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>The response contents are storable by caching components such as proxy servers, and may be retrieved directly from the cache, rather than from the origin server by the caching servers, in response to similar requests from other users.  If the response data is sensitive, personal or user-specific, this may result in sensitive information being leaked. In some cases, this may even result in a user gaining complete control of the session of another user, depending on the configuration of the caching components in use in their environment. This is primarily an issue where &quot;shared&quot; caching servers such as &quot;proxy&quot; caches are configured on the local network. This configuration is typically found in corporate or educational environments, for instance.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bonusmalus.travail-emploi.gouv.fr">https://bonusmalus.travail-emploi.gouv.fr</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bonusmalus.travail-emploi.gouv.fr/css/boilerplate.css">https://bonusmalus.travail-emploi.gouv.fr/css/boilerplate.css</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bonusmalus.travail-emploi.gouv.fr/css/ie9.css">https://bonusmalus.travail-emploi.gouv.fr/css/ie9.css</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bonusmalus.travail-emploi.gouv.fr/css/main.css">https://bonusmalus.travail-emploi.gouv.fr/css/main.css</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bonusmalus.travail-emploi.gouv.fr/css/normalize.css">https://bonusmalus.travail-emploi.gouv.fr/css/normalize.css</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bonusmalus.travail-emploi.gouv.fr/js/main.js">https://bonusmalus.travail-emploi.gouv.fr/js/main.js</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bonusmalus.travail-emploi.gouv.fr/js/plugins.js">https://bonusmalus.travail-emploi.gouv.fr/js/plugins.js</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bonusmalus.travail-emploi.gouv.fr/js/vendor/jquery.ba-throttle-debounce.min.js">https://bonusmalus.travail-emploi.gouv.fr/js/vendor/jquery.ba-throttle-debounce.min.js</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bonusmalus.travail-emploi.gouv.fr/js/vendor/modernizr-3.7.1.min.js">https://bonusmalus.travail-emploi.gouv.fr/js/vendor/modernizr-3.7.1.min.js</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bonusmalus.travail-emploi.gouv.fr/robots.txt">https://bonusmalus.travail-emploi.gouv.fr/robots.txt</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bonusmalus.travail-emploi.gouv.fr/sitemap.xml">https://bonusmalus.travail-emploi.gouv.fr/sitemap.xml</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">11</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Validate that the response does not contain sensitive, personal or user-specific information.  If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:</div>
+							<br />
+						
+							<div>Cache-Control: no-cache, no-store, must-revalidate, private</div>
+							<br />
+						
+							<div>Pragma: no-cache</div>
+							<br />
+						
+							<div>Expires: 0</div>
+							<br />
+						
+							<div>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request. </div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%">
+							<a href="https://tools.ietf.org/html/rfc7234">https://tools.ietf.org/html/rfc7234</a>
+							<br />
+						
+							<a href="https://tools.ietf.org/html/rfc7231">https://tools.ietf.org/html/rfc7231</a>
+							<br />
+						
+							<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)">http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</a>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/524.html">524</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">13</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10049/">10049</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+	
+</body>
 </html>
+
