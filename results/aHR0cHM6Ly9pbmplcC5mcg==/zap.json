@@ -1,1 +1,1343 @@
-{"@version":"2.10.0","@generated":"Sun, 26 Sep 2021 21:19:10","site":[{"@name":"https://injep.fr","@host":"injep.fr","@port":"443","@ssl":"true","alerts":[{"pluginid":"10040","alertRef":"10040","alert":"Secure Pages Include Mixed Content","name":"Secure Pages Include Mixed Content","riskcode":"1","confidence":"2","riskdesc":"Low (Medium)","desc":"<p>The page includes mixed content, that is content accessed via HTTP instead of HTTPS.<\/p>","instances":[{"uri":"https://injep.fr/evenement/jeunes-sans-diplomes-quels-rapports-au-travail-et-a-lemploi/","method":"GET","evidence":"http://www.injep.fr/sites/default/files/styles/body/public/images/conf31mai-3.jpg?itok=V3tIXpGx"},{"uri":"https://injep.fr/evenement/bande-dessinee-jeunesses-et-activites-corporelles/","method":"GET","evidence":"http://www.injep.fr/sites/default/files/styles/body/public/images/conf-angouleme.jpg?itok=xvKs7t_1"},{"uri":"https://injep.fr/donnee/accueils-collectifs-de-mineurs-2009-2010-a-2017-2018/","method":"GET","evidence":"http://mtsfp-vm-injep-preprod.accelance.net/wp-content/uploads/2018/12/1_0.jpg"},{"uri":"https://injep.fr/evenement/les-groupements-demployeurs-une-solution-pour-lavenir-du-secteur-associatif/","method":"GET","evidence":"http://www.injep.fr/sites/default/files/styles/body/public/images/img_3453.jpg?itok=4RqvwgH1"},{"uri":"https://injep.fr/injep_veille_actus/465-1er-septembre-2021/","method":"GET","evidence":"http://newsmailer.fr/templates/124/images/ministere-en-2018.gif"},{"uri":"https://injep.fr/injep_veille_actus/467-15-septembre-2021/","method":"GET","evidence":"http://newsmailer.fr/templates/124/images/ministere-en-2018.gif"},{"uri":"https://injep.fr/evenement/les-rencontres-2017-les-nouvelles-jeunesses-de-la-democratie-une-revitalisation-de-la-participation-citoyenne/","method":"GET","evidence":"http://mtsfp-vm-injep-preprod.accelance.net/wp-content/uploads/2018/12/retour-renc2017-diapo.jpg"},{"uri":"https://injep.fr/donnee/accueils-collectifs-de-mineurs-2007-2008-a-2016-2017/","method":"GET","evidence":"http://mtsfp-vm-injep-preprod.accelance.net/wp-content/uploads/2018/09/graphique-accueil-loisirs2_0-1-1024x623.png"}],"count":"8","solution":"<p>A page that is available over SSL/TLS must be comprised completely of content which is transmitted over SSL/TLS.<\/p><p>The page must not contain any content that is transmitted over unencrypted HTTP.<\/p><p> This includes content from third party sites.<\/p>","otherinfo":"<p>tag=img src=http://www.injep.fr/sites/default/files/styles/body/public/images/conf31mai-3.jpg?itok=V3tIXpGx<\/p><p>tag=img src=http://www.injep.fr/sites/default/files/styles/body_small/public/images/conf31mai-2.jpg?itok=BKSUlzx2<\/p><p>tag=img src=http://www.injep.fr/sites/default/files/styles/body/public/images/conf31mai-1.jpg?itok=8kS_Kii4<\/p><p><\/p>","reference":"<p>https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Protection_Cheat_Sheet.html<\/p>","cweid":"311","wascid":"4","sourceid":"3"},{"pluginid":"10062","alertRef":"10062","alert":"PII Disclosure","name":"PII Disclosure","riskcode":"3","confidence":"2","riskdesc":"High (Medium)","desc":"<p>The response contains Personally Identifiable Information, such as CC number, SSN and similar sensitive data.<\/p>","instances":[{"uri":"https://injep.fr/wp-content/uploads/2021/06/3-Fiche-jeunesse-BRETAGNE-2020.pdf","method":"GET","evidence":"348735578607485"},{"uri":"https://injep.fr/wp-content/uploads/2021/06/4-Fiche-jeunesse-CENTRE-VAL-DE-LOIRE-2020.pdf","method":"GET","evidence":"348735578607485"},{"uri":"https://injep.fr/wp-content/uploads/2021/06/13-Fiche-jeunesse-LA-REUNION-2020.pdf","method":"GET","evidence":"348735578607485"},{"uri":"https://injep.fr/wp-content/uploads/2021/06/8-Fiche-jeunesse-NORMANDIE-2020.pdf","method":"GET","evidence":"348735578607485"},{"uri":"https://injep.fr/wp-content/uploads/2021/06/5-Fiche-jeunesse-GRAND-EST-2020.pdf","method":"GET","evidence":"348735578607485"},{"uri":"https://injep.fr/wp-content/uploads/2021/06/6-Fiche-jeunesse-HAUT-DE-FRANCE-2020.pdf","method":"GET","evidence":"348735578607485"},{"uri":"https://injep.fr/wp-content/uploads/2021/06/1-Fiche-jeunesse-AUVERGNE-RH-ALPES-2020.pdf","method":"GET","evidence":"348735578607485"},{"uri":"https://injep.fr/wp-content/uploads/2021/06/2-Fiche-jeunesse-BOURGOGNE-FRANCHE-COMTE-2020.pdf","method":"GET","evidence":"348735578607485"},{"uri":"https://injep.fr/wp-content/uploads/2021/06/7-Fiche-jeunesse-ILE-DE-FRANCE-2020.pdf","method":"GET","evidence":"348735578607485"}],"count":"9","solution":"<p><\/p>","otherinfo":"<p>Credit Card Type detected: American Express<\/p>","reference":"<p><\/p>","cweid":"359","wascid":"13","sourceid":"3"},{"pluginid":"10049","alertRef":"10049","alert":"Storable and Cacheable Content","name":"Storable and Cacheable Content","riskcode":"0","confidence":"2","riskdesc":"Informational (Medium)","desc":"<p>The response contents are storable by caching components such as proxy servers, and may be retrieved directly from the cache, rather than from the origin server by the caching servers, in response to similar requests from other users.  If the response data is sensitive, personal or user-specific, this may result in sensitive information being leaked. In some cases, this may even result in a user gaining complete control of the session of another user, depending on the configuration of the caching components in use in their environment. This is primarily an issue where \"shared\" caching servers such as \"proxy\" caches are configured on the local network. This configuration is typically found in corporate or educational environments, for instance.<\/p>","instances":[{"uri":"https://injep.fr/centre-de-ressources/","method":"GET"},{"uri":"https://injep.fr/publications/","method":"GET"},{"uri":"https://injep.fr/analyser/","method":"GET"},{"uri":"https://injep.fr/linstitut/","method":"GET"},{"uri":"https://injep.fr","method":"GET"},{"uri":"https://injep.fr/evenements/","method":"GET"},{"uri":"https://injep.fr/experimenter/","method":"GET"},{"uri":"https://injep.fr/mesurer/","method":"GET"},{"uri":"https://injep.fr/robots.txt","method":"GET"},{"uri":"https://injep.fr/","method":"GET"},{"uri":"https://injep.fr/sitemap.xml","method":"GET"}],"count":"11","solution":"<p>Validate that the response does not contain sensitive, personal or user-specific information.  If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:<\/p><p>Cache-Control: no-cache, no-store, must-revalidate, private<\/p><p>Pragma: no-cache<\/p><p>Expires: 0<\/p><p>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request. <\/p>","otherinfo":"<p>In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234.<\/p>","reference":"<p>https://tools.ietf.org/html/rfc7234<\/p><p>https://tools.ietf.org/html/rfc7231<\/p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)<\/p>","cweid":"524","wascid":"13","sourceid":"3"},{"pluginid":"10109","alertRef":"10109","alert":"Modern Web Application","name":"Modern Web Application","riskcode":"0","confidence":"2","riskdesc":"Informational (Medium)","desc":"<p>The application appears to be a modern web application. If you need to explore it automatically then the Ajax Spider may well be more effective than the standard one.<\/p>","instances":[{"uri":"https://injep.fr/","method":"GET","evidence":"<noscript><link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Roboto%3A400%2C500%2C700%7CMerriweather%3A400%2C700%2C900%2C400italic%2C700italic%2C900italic%7CMontserrat%3A400%2C700%7CInconsolata%3A400&#038;subset=latin%2Clatin-ext&#038;display=swap\" /><\/noscript>"},{"uri":"https://injep.fr/linstitut/","method":"GET","evidence":"<noscript><link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Roboto%3A400%2C500%2C700%7CMerriweather%3A400%2C700%2C900%2C400italic%2C700italic%2C900italic%7CMontserrat%3A400%2C700%7CInconsolata%3A400&#038;subset=latin%2Clatin-ext&#038;display=swap\" /><\/noscript>"},{"uri":"https://injep.fr/thematique/education-populaire/","method":"GET","evidence":"<noscript><link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Roboto%3A400%2C500%2C700%7CMerriweather%3A400%2C700%2C900%2C400italic%2C700italic%2C900italic%7CMontserrat%3A400%2C700%7CInconsolata%3A400&#038;subset=latin%2Clatin-ext&#038;display=swap\" /><\/noscript>"},{"uri":"https://injep.fr/publications/","method":"GET","evidence":"<noscript><link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Roboto%3A400%2C500%2C700%7CMerriweather%3A400%2C700%2C900%2C400italic%2C700italic%2C900italic%7CMontserrat%3A400%2C700%7CInconsolata%3A400&#038;subset=latin%2Clatin-ext&#038;display=swap\" /><\/noscript>"},{"uri":"https://injep.fr/analyser/","method":"GET","evidence":"<noscript><link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Roboto%3A400%2C500%2C700%7CMerriweather%3A400%2C700%2C900%2C400italic%2C700italic%2C900italic%7CMontserrat%3A400%2C700%7CInconsolata%3A400&#038;subset=latin%2Clatin-ext&#038;display=swap\" /><\/noscript>"},{"uri":"https://injep.fr/mesurer/","method":"GET","evidence":"<noscript><link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Roboto%3A400%2C500%2C700%7CMerriweather%3A400%2C700%2C900%2C400italic%2C700italic%2C900italic%7CMontserrat%3A400%2C700%7CInconsolata%3A400&#038;subset=latin%2Clatin-ext&#038;display=swap\" /><\/noscript>"},{"uri":"https://injep.fr/centre-de-ressources/","method":"GET","evidence":"<noscript><link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Roboto%3A400%2C500%2C700%7CMerriweather%3A400%2C700%2C900%2C400italic%2C700italic%2C900italic%7CMontserrat%3A400%2C700%7CInconsolata%3A400&#038;subset=latin%2Clatin-ext&#038;display=swap\" /><\/noscript>"},{"uri":"https://injep.fr/thematique/jeunesse/","method":"GET","evidence":"<noscript><link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Roboto%3A400%2C500%2C700%7CMerriweather%3A400%2C700%2C900%2C400italic%2C700italic%2C900italic%7CMontserrat%3A400%2C700%7CInconsolata%3A400&#038;subset=latin%2Clatin-ext&#038;display=swap\" /><\/noscript>"},{"uri":"https://injep.fr","method":"GET","evidence":"<noscript><link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Roboto%3A400%2C500%2C700%7CMerriweather%3A400%2C700%2C900%2C400italic%2C700italic%2C900italic%7CMontserrat%3A400%2C700%7CInconsolata%3A400&#038;subset=latin%2Clatin-ext&#038;display=swap\" /><\/noscript>"},{"uri":"https://injep.fr/evenements/","method":"GET","evidence":"<noscript><link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Roboto%3A400%2C500%2C700%7CMerriweather%3A400%2C700%2C900%2C400italic%2C700italic%2C900italic%7CMontserrat%3A400%2C700%7CInconsolata%3A400&#038;subset=latin%2Clatin-ext&#038;display=swap\" /><\/noscript>"},{"uri":"https://injep.fr/experimenter/","method":"GET","evidence":"<noscript><link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Roboto%3A400%2C500%2C700%7CMerriweather%3A400%2C700%2C900%2C400italic%2C700italic%2C900italic%7CMontserrat%3A400%2C700%7CInconsolata%3A400&#038;subset=latin%2Clatin-ext&#038;display=swap\" /><\/noscript>"}],"count":"11","solution":"<p>This is an informational alert and so no changes are required.<\/p>","otherinfo":"<p>A noScript tag has been found, which is an indication that the application works differently with JavaScript enabled compared to when it is not.<\/p>","reference":"<p><\/p>","sourceid":"3"},{"pluginid":"90003","alertRef":"90003","alert":"Sub Resource Integrity Attribute Missing","name":"Sub Resource Integrity Attribute Missing","riskcode":"2","confidence":"3","riskdesc":"Medium (High)","desc":"<p>The integrity attribute is missing on a script or link tag served by an external server. The integrity tag prevents an attacker who have gained access to this server from injecting a malicious content. <\/p>","instances":[{"uri":"https://injep.fr/","method":"GET","evidence":"<script src='https://stats.wp.com/e-202138.js' defer><\/script>"},{"uri":"https://injep.fr","method":"GET","evidence":"<link href='https://fonts.gstatic.com' crossorigin rel='preconnect' />"},{"uri":"https://injep.fr/","method":"GET","evidence":"<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"><\/script>"},{"uri":"https://injep.fr","method":"GET","evidence":"<link rel='shortlink' href='https://wp.me/bAmw6' />"},{"uri":"https://injep.fr/","method":"GET","evidence":"<script src=\"https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js\"><\/script>"},{"uri":"https://injep.fr","method":"GET","evidence":"<link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Roboto%3A400%2C500%2C700%7CMerriweather%3A400%2C700%2C900%2C400italic%2C700italic%2C900italic%7CMontserrat%3A400%2C700%7CInconsolata%3A400&#038;subset=latin%2Clatin-ext&#038;display=swap\" media=\"print\" onload=\"this.media='all'\" />"},{"uri":"https://injep.fr/","method":"GET","evidence":"<link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Roboto%3A400%2C500%2C700%7CMerriweather%3A400%2C700%2C900%2C400italic%2C700italic%2C900italic%7CMontserrat%3A400%2C700%7CInconsolata%3A400&#038;subset=latin%2Clatin-ext&#038;display=swap\" media=\"print\" onload=\"this.media='all'\" />"},{"uri":"https://injep.fr","method":"GET","evidence":"<script src='https://stats.wp.com/e-202138.js' defer><\/script>"},{"uri":"https://injep.fr/","method":"GET","evidence":"<link rel='shortlink' href='https://wp.me/bAmw6' />"},{"uri":"https://injep.fr","method":"GET","evidence":"<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"><\/script>"},{"uri":"https://injep.fr","method":"GET","evidence":"<script src=\"https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js\"><\/script>"},{"uri":"https://injep.fr/","method":"GET","evidence":"<link href='https://fonts.gstatic.com' crossorigin rel='preconnect' />"},{"uri":"https://injep.fr/","method":"GET","evidence":"<script type=\"text/javascript\" src=\"https://code.jquery.com/jquery-1.11.3.min.js\"><\/script>"},{"uri":"https://injep.fr","method":"GET","evidence":"<link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Roboto%3A400%2C500%2C700%7CMerriweather%3A400%2C700%2C900%2C400italic%2C700italic%2C900italic%7CMontserrat%3A400%2C700%7CInconsolata%3A400&#038;subset=latin%2Clatin-ext&#038;display=swap\" />"},{"uri":"https://injep.fr","method":"GET","evidence":"<script type=\"text/javascript\" src=\"https://code.jquery.com/jquery-1.11.3.min.js\"><\/script>"},{"uri":"https://injep.fr/","method":"GET","evidence":"<link rel=\"preload\" as=\"style\" href=\"https://fonts.googleapis.com/css?family=Roboto%3A400%2C500%2C700%7CMerriweather%3A400%2C700%2C900%2C400italic%2C700italic%2C900italic%7CMontserrat%3A400%2C700%7CInconsolata%3A400&#038;subset=latin%2Clatin-ext&#038;display=swap\" />"},{"uri":"https://injep.fr/","method":"GET","evidence":"<link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Roboto%3A400%2C500%2C700%7CMerriweather%3A400%2C700%2C900%2C400italic%2C700italic%2C900italic%7CMontserrat%3A400%2C700%7CInconsolata%3A400&#038;subset=latin%2Clatin-ext&#038;display=swap\" />"},{"uri":"https://injep.fr","method":"GET","evidence":"<link rel=\"preload\" as=\"style\" href=\"https://fonts.googleapis.com/css?family=Roboto%3A400%2C500%2C700%7CMerriweather%3A400%2C700%2C900%2C400italic%2C700italic%2C900italic%7CMontserrat%3A400%2C700%7CInconsolata%3A400&#038;subset=latin%2Clatin-ext&#038;display=swap\" />"}],"count":"18","solution":"<p>Provide a valid integrity attribute to the tag.<\/p>","reference":"<p>https://developer.mozilla.org/en/docs/Web/Security/Subresource_Integrity<\/p>","cweid":"345","wascid":"15","sourceid":"3"},{"pluginid":"10027","alertRef":"10027","alert":"Information Disclosure - Suspicious Comments","name":"Information Disclosure - Suspicious Comments","riskcode":"0","confidence":"1","riskdesc":"Informational (Low)","desc":"<p>The response appears to contain suspicious comments which may help an attacker. Note: Matches made within script blocks or files are against the entire content not only comments.<\/p>","instances":[{"uri":"https://injep.fr/linstitut/","method":"GET","evidence":"user"},{"uri":"https://injep.fr/","method":"GET","evidence":"user"},{"uri":"https://injep.fr","method":"GET","evidence":"query"},{"uri":"https://injep.fr/analyser/","method":"GET","evidence":"user"},{"uri":"https://injep.fr/mesurer/","method":"GET","evidence":"user"},{"uri":"https://injep.fr/mesurer/","method":"GET","evidence":"query"},{"uri":"https://injep.fr","method":"GET","evidence":"user"},{"uri":"https://injep.fr/","method":"GET","evidence":"query"},{"uri":"https://injep.fr/linstitut/","method":"GET","evidence":"query"},{"uri":"https://injep.fr/analyser/","method":"GET","evidence":"query"}],"count":"10","solution":"<p>Remove all comments that return information that may help an attacker and fix any underlying problems they refer to.<\/p>","otherinfo":"<p>The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script type=\"text/javascript\"><\/p><p>    tarteaucitron.user.gtagUa = 'UA-65679656-1';<\/p><p>    tarteaucitron.user.gtagMore = function () {\", see evidence field for the suspicious comment/snippet.<\/p>","reference":"<p><\/p>","cweid":"200","wascid":"13","sourceid":"3"},{"pluginid":"10096","alertRef":"10096","alert":"Timestamp Disclosure - Unix","name":"Timestamp Disclosure - Unix","riskcode":"0","confidence":"1","riskdesc":"Informational (Low)","desc":"<p>A timestamp was disclosed by the application/web server - Unix<\/p>","instances":[{"uri":"https://injep.fr/","method":"GET","evidence":"1631006186"},{"uri":"https://injep.fr/","method":"GET","evidence":"1632497140"},{"uri":"https://injep.fr/","method":"GET","evidence":"171206062"},{"uri":"https://injep.fr/","method":"GET","evidence":"65679656"},{"uri":"https://injep.fr/","method":"GET","evidence":"20160816"}],"count":"5","solution":"<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.<\/p>","otherinfo":"<p>1631006186, which evaluates to: 2021-09-07 09:16:26<\/p>","reference":"<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage<\/p>","cweid":"200","wascid":"13","sourceid":"3"},{"pluginid":"10015","alertRef":"10015","alert":"Incomplete or No Cache-control Header Set","name":"Incomplete or No Cache-control Header Set","riskcode":"1","confidence":"2","riskdesc":"Low (Medium)","desc":"<p>The cache-control header has not been set properly or is missing, allowing the browser and proxies to cache content.<\/p>","instances":[{"uri":"https://injep.fr","method":"GET","param":"Cache-Control","evidence":"public"},{"uri":"https://injep.fr/centre-de-ressources/","method":"GET","param":"Cache-Control","evidence":"public"},{"uri":"https://injep.fr/evenements/","method":"GET","param":"Cache-Control","evidence":"public"},{"uri":"https://injep.fr/analyser/","method":"GET","param":"Cache-Control","evidence":"public"},{"uri":"https://injep.fr/robots.txt","method":"GET","param":"Cache-Control"},{"uri":"https://injep.fr/linstitut/","method":"GET","param":"Cache-Control","evidence":"public"},{"uri":"https://injep.fr/experimenter/","method":"GET","param":"Cache-Control","evidence":"public"},{"uri":"https://injep.fr/sitemap.xml","method":"GET","param":"Cache-Control"},{"uri":"https://injep.fr/publications/","method":"GET","param":"Cache-Control","evidence":"public"},{"uri":"https://injep.fr/","method":"GET","param":"Cache-Control","evidence":"public"},{"uri":"https://injep.fr/mesurer/","method":"GET","param":"Cache-Control","evidence":"public"}],"count":"11","solution":"<p>Whenever possible ensure the cache-control HTTP header is set with no-cache, no-store, must-revalidate.<\/p>","reference":"<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching<\/p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control<\/p>","cweid":"525","wascid":"13","sourceid":"3"},{"pluginid":"10063","alertRef":"10063","alert":"Permissions Policy Header Not Set","name":"Permissions Policy Header Not Set","riskcode":"1","confidence":"2","riskdesc":"Low (Medium)","desc":"<p>Permissions Policy Header is an added layer of security that helps to restrict from unauthorized access or usage of browser/client features by web resources. This policy ensures the user privacy by limiting or specifying the features of the browsers can be used by the web resources. Permissions Policy provides a set of standard HTTP headers that allow website owners to limit which features of browsers can be used by the page such as camera, microphone, location, full screen etc.<\/p>","instances":[{"uri":"https://injep.fr","method":"GET"},{"uri":"https://injep.fr/centre-de-ressources/","method":"GET"},{"uri":"https://injep.fr/secupress-8d6739e9/","method":"GET"},{"uri":"https://injep.fr/","method":"GET"},{"uri":"https://injep.fr/experimenter/","method":"GET"},{"uri":"https://injep.fr/thematique/jeunesse/","method":"GET"},{"uri":"https://injep.fr/linstitut/","method":"GET"},{"uri":"https://injep.fr/publications/","method":"GET"},{"uri":"https://injep.fr/evenements/","method":"GET"},{"uri":"https://injep.fr/analyser/","method":"GET"},{"uri":"https://injep.fr/mesurer/","method":"GET"}],"count":"11","solution":"<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Permissions-Policy header.<\/p>","reference":"<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy<\/p><p>https://developers.google.com/web/updates/2018/06/feature-policy<\/p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/<\/p><p>https://w3c.github.io/webappsec-feature-policy/<\/p><p>https://www.smashingmagazine.com/2018/12/feature-policy/<\/p>","cweid":"693","wascid":"15","sourceid":"3"},{"pluginid":"10202","alertRef":"10202","alert":"Absence of Anti-CSRF Tokens","name":"Absence of Anti-CSRF Tokens","riskcode":"1","confidence":"2","riskdesc":"Low (Medium)","desc":"<p>No Anti-CSRF tokens were found in a HTML submission form.<\/p><p>A cross-site request forgery is an attack that involves forcing a victim to send an HTTP request to a target destination without their knowledge or intent in order to perform an action as the victim. The underlying cause is application functionality using predictable URL/form actions in a repeatable way. The nature of the attack is that CSRF exploits the trust that a web site has for a user. By contrast, cross-site scripting (XSS) exploits the trust that a user has for a web site. Like XSS, CSRF attacks are not necessarily cross-site, but they can be. Cross-site request forgery is also known as CSRF, XSRF, one-click attack, session riding, confused deputy, and sea surf.<\/p><p><\/p><p>CSRF attacks are effective in a number of situations, including:<\/p><p>    * The victim has an active session on the target site.<\/p><p>    * The victim is authenticated via HTTP auth on the target site.<\/p><p>    * The victim is on the same local network as the target site.<\/p><p><\/p><p>CSRF has primarily been used to perform an action against a target site using the victim's privileges, but recent techniques have been discovered to disclose information by gaining access to the response. The risk of information disclosure is dramatically increased when the target site is vulnerable to XSS, because XSS can be used as a platform for CSRF, allowing the attack to operate within the bounds of the same-origin policy.<\/p>","instances":[{"uri":"https://injep.fr/evenements/","method":"GET","evidence":"<form role=\"search\" method=\"get\" class=\"search\" action=\"https://injep.fr/\">"},{"uri":"https://injep.fr/analyser/","method":"GET","evidence":"<form role=\"search\" method=\"get\" class=\"search\" action=\"https://injep.fr/\">"},{"uri":"https://injep.fr/linstitut/","method":"GET","evidence":"<form role=\"search\" method=\"get\" class=\"search\" action=\"https://injep.fr/\">"},{"uri":"https://injep.fr","method":"GET","evidence":"<form role=\"search\" method=\"get\" class=\"search\" action=\"https://injep.fr/\">"},{"uri":"https://injep.fr/","method":"GET","evidence":"<form role=\"search\" method=\"get\" class=\"search\" action=\"https://injep.fr/\">"},{"uri":"https://injep.fr/mesurer/","method":"GET","evidence":"<form role=\"search\" method=\"get\" class=\"search\" action=\"https://injep.fr/\">"},{"uri":"https://injep.fr/experimenter/","method":"GET","evidence":"<form role=\"search\" method=\"get\" class=\"search\" action=\"https://injep.fr/\">"},{"uri":"https://injep.fr/thematique/education-populaire/","method":"GET","evidence":"<form role=\"search\" method=\"get\" class=\"search\" action=\"https://injep.fr/\">"},{"uri":"https://injep.fr/publications/","method":"GET","evidence":"<form role=\"search\" method=\"get\" class=\"search\" action=\"https://injep.fr/\">"},{"uri":"https://injep.fr/thematique/jeunesse/","method":"GET","evidence":"<form role=\"search\" method=\"get\" class=\"search\" action=\"https://injep.fr/\">"},{"uri":"https://injep.fr/centre-de-ressources/","method":"GET","evidence":"<form role=\"search\" method=\"get\" class=\"search\" action=\"https://injep.fr/\">"}],"count":"11","solution":"<p>Phase: Architecture and Design<\/p><p>Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.<\/p><p>For example, use anti-CSRF packages such as the OWASP CSRFGuard.<\/p><p><\/p><p>Phase: Implementation<\/p><p>Ensure that your application is free of cross-site scripting issues, because most CSRF defenses can be bypassed using attacker-controlled script.<\/p><p><\/p><p>Phase: Architecture and Design<\/p><p>Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Be sure that the nonce is not predictable (CWE-330).<\/p><p>Note that this can be bypassed using XSS.<\/p><p><\/p><p>Identify especially dangerous operations. When the user performs a dangerous operation, send a separate confirmation request to ensure that the user intended to perform that operation.<\/p><p>Note that this can be bypassed using XSS.<\/p><p><\/p><p>Use the ESAPI Session Management control.<\/p><p>This control includes a component for CSRF.<\/p><p><\/p><p>Do not use the GET method for any request that triggers a state change.<\/p><p><\/p><p>Phase: Implementation<\/p><p>Check the HTTP Referer header to see if the request originated from an expected page. This could break legitimate functionality, because users or proxies may have disabled sending the Referer for privacy reasons.<\/p>","otherinfo":"<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF] was found in the following HTML form: [Form 1: \"s\" ].<\/p>","reference":"<p>http://projects.webappsec.org/Cross-Site-Request-Forgery<\/p><p>http://cwe.mitre.org/data/definitions/352.html<\/p>","cweid":"352","wascid":"9","sourceid":"3"},{"pluginid":"10094","alertRef":"10094","alert":"Base64 Disclosure","name":"Base64 Disclosure","riskcode":"0","confidence":"2","riskdesc":"Informational (Medium)","desc":"<p>Base64 encoded data was disclosed by the application/web server. Note: in the interests of performance not all base64 strings in the response were analyzed individually, the entire response should be looked at by the analyst/security team/developer(s).<\/p>","instances":[{"uri":"https://injep.fr/analyser/","method":"GET","evidence":"com/channel/UCShs01H7M6fMT_pX0B7NojA"},{"uri":"https://injep.fr/linstitut/","method":"GET","evidence":"com/channel/UCShs01H7M6fMT_pX0B7NojA"},{"uri":"https://injep.fr/centre-de-ressources/","method":"GET","evidence":"com/channel/UCShs01H7M6fMT_pX0B7NojA"},{"uri":"https://injep.fr/","method":"GET","evidence":"com/channel/UCShs01H7M6fMT_pX0B7NojA"},{"uri":"https://injep.fr/publications/","method":"GET","evidence":"com/channel/UCShs01H7M6fMT_pX0B7NojA"},{"uri":"https://injep.fr/experimenter/","method":"GET","evidence":"com/channel/UCShs01H7M6fMT_pX0B7NojA"},{"uri":"https://injep.fr/robots.txt","method":"GET","evidence":"FJDLljctwxCcrRcqJlLL3fNyljz02ZDVaM6F6sZ117U60EYxsXhfG6zJbjMc5XS1oVR3rUPOD2sKdTiFm2StZgLgkxM="},{"uri":"https://injep.fr/evenements/","method":"GET","evidence":"com/channel/UCShs01H7M6fMT_pX0B7NojA"},{"uri":"https://injep.fr/","method":"GET","evidence":"j/s88X+5gb9M2A0qJlLL3fNyljz02S45HaPxnXbeYGma57LE6iajzxTBWfOcgdPhhcDiGPQdbtHX512A4TWmfcKyUls="},{"uri":"https://injep.fr","method":"GET","evidence":"U8sql7ElXKncABcqJlLL3fNyljz02fsi8MUG78ZbSaxnfWbPWzsPQoQam+Tw2qUkOsAIpOENpSbFBFqo0poZFlakHC8="},{"uri":"https://injep.fr/mesurer/","method":"GET","evidence":"com/channel/UCShs01H7M6fMT_pX0B7NojA"},{"uri":"https://injep.fr/thematique/jeunesse/","method":"GET","evidence":"com/channel/UCShs01H7M6fMT_pX0B7NojA"}],"count":"12","solution":"<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.<\/p>","otherinfo":"<p>r��r\\x0016���P$��MG�Ο1?�_@{6��<\/p>","reference":"<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage<\/p>","cweid":"200","wascid":"13","sourceid":"3"},{"pluginid":"10017","alertRef":"10017","alert":"Cross-Domain JavaScript Source File Inclusion","name":"Cross-Domain JavaScript Source File Inclusion","riskcode":"1","confidence":"2","riskdesc":"Low (Medium)","desc":"<p>The page includes one or more script files from a third-party domain.<\/p>","instances":[{"uri":"https://injep.fr/linstitut/","method":"GET","param":"https://stats.wp.com/e-202138.js","evidence":"<script src='https://stats.wp.com/e-202138.js' defer><\/script>"},{"uri":"https://injep.fr/","method":"GET","param":"https://stats.wp.com/e-202138.js","evidence":"<script src='https://stats.wp.com/e-202138.js' defer><\/script>"},{"uri":"https://injep.fr","method":"GET","param":"https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js","evidence":"<script src=\"https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js\"><\/script>"},{"uri":"https://injep.fr","method":"GET","param":"https://code.jquery.com/jquery-1.11.3.min.js","evidence":"<script type=\"text/javascript\" src=\"https://code.jquery.com/jquery-1.11.3.min.js\"><\/script>"},{"uri":"https://injep.fr","method":"GET","param":"https://platform.twitter.com/widgets.js","evidence":"<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"><\/script>"},{"uri":"https://injep.fr/","method":"GET","param":"https://code.jquery.com/jquery-1.11.3.min.js","evidence":"<script type=\"text/javascript\" src=\"https://code.jquery.com/jquery-1.11.3.min.js\"><\/script>"},{"uri":"https://injep.fr/","method":"GET","param":"https://platform.twitter.com/widgets.js","evidence":"<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"><\/script>"},{"uri":"https://injep.fr","method":"GET","param":"https://stats.wp.com/e-202138.js","evidence":"<script src='https://stats.wp.com/e-202138.js' defer><\/script>"},{"uri":"https://injep.fr/","method":"GET","param":"https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js","evidence":"<script src=\"https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js\"><\/script>"},{"uri":"https://injep.fr/linstitut/","method":"GET","param":"https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js","evidence":"<script src=\"https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js\"><\/script>"},{"uri":"https://injep.fr/linstitut/","method":"GET","param":"https://code.jquery.com/jquery-1.11.3.min.js","evidence":"<script type=\"text/javascript\" src=\"https://code.jquery.com/jquery-1.11.3.min.js\"><\/script>"}],"count":"11","solution":"<p>Ensure JavaScript source files are loaded from only trusted sources, and the sources can't be controlled by end users of the application.<\/p>","reference":"<p><\/p>","cweid":"829","wascid":"15","sourceid":"3"},{"pluginid":"10035","alertRef":"10035","alert":"Strict-Transport-Security Header Not Set","name":"Strict-Transport-Security Header Not Set","riskcode":"1","confidence":"3","riskdesc":"Low (High)","desc":"<p>HTTP Strict Transport Security (HSTS) is a web security policy mechanism whereby a web server declares that complying user agents (such as a web browser) are to interact with it using only secure HTTPS connections (i.e. HTTP layered over TLS/SSL). HSTS is an IETF standards track protocol and is specified in RFC 6797.<\/p>","instances":[{"uri":"https://injep.fr/wp-admin/admin-post.php?_wpnonce=9109e5b71a&action=secupress_unlock_admin","method":"POST"}],"count":"1","solution":"<p>Ensure that your web server, application server, load balancer, etc. is configured to enforce Strict-Transport-Security.<\/p>","reference":"<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html<\/p><p>https://owasp.org/www-community/Security_Headers<\/p><p>http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security<\/p><p>http://caniuse.com/stricttransportsecurity<\/p><p>http://tools.ietf.org/html/rfc6797<\/p>","cweid":"319","wascid":"15","sourceid":"3"},{"pluginid":"10054","alertRef":"10054","alert":"Cookie without SameSite Attribute","name":"Cookie without SameSite Attribute","riskcode":"1","confidence":"2","riskdesc":"Low (Medium)","desc":"<p>A cookie has been set without the SameSite attribute, which means that the cookie can be sent as a result of a 'cross-site' request. The SameSite attribute is an effective counter measure to cross-site request forgery, cross-site script inclusion, and timing attacks.<\/p>","instances":[{"uri":"https://injep.fr","method":"GET","param":"BIGipServerpool-djepva-injep-portail.cegedim.cloud-HTTP","evidence":"Set-Cookie: BIGipServerpool-djepva-injep-portail.cegedim.cloud-HTTP"},{"uri":"https://injep.fr/robots.txt","method":"GET","param":"BIGipServerpool-djepva-injep-portail.cegedim.cloud-HTTP","evidence":"Set-Cookie: BIGipServerpool-djepva-injep-portail.cegedim.cloud-HTTP"},{"uri":"https://injep.fr/","method":"GET","param":"BIGipServerpool-djepva-injep-portail.cegedim.cloud-HTTP","evidence":"Set-Cookie: BIGipServerpool-djepva-injep-portail.cegedim.cloud-HTTP"},{"uri":"https://injep.fr/injep-adm-login","method":"GET","param":"wordpress_test_cookie","evidence":"Set-Cookie: wordpress_test_cookie"}],"count":"4","solution":"<p>Ensure that the SameSite attribute is set to either 'lax' or ideally 'strict' for all cookies.<\/p>","reference":"<p>https://tools.ietf.org/html/draft-ietf-httpbis-cookie-same-site<\/p>","cweid":"1275","wascid":"13","sourceid":"3"},{"pluginid":"10038","alertRef":"10038","alert":"Content Security Policy (CSP) Header Not Set","name":"Content Security Policy (CSP) Header Not Set","riskcode":"2","confidence":"3","riskdesc":"Medium (High)","desc":"<p>Content Security Policy (CSP) is an added layer of security that helps to detect and mitigate certain types of attacks, including Cross Site Scripting (XSS) and data injection attacks. These attacks are used for everything from data theft to site defacement or distribution of malware. CSP provides a set of standard HTTP headers that allow website owners to declare approved sources of content that browsers should be allowed to load on that page — covered types are JavaScript, CSS, HTML frames, fonts, images and embeddable objects such as Java applets, ActiveX, audio and video files.<\/p>","instances":[{"uri":"https://injep.fr/mesurer/","method":"GET"},{"uri":"https://injep.fr/experimenter/","method":"GET"},{"uri":"https://injep.fr/thematique/jeunesse/","method":"GET"},{"uri":"https://injep.fr/centre-de-ressources/","method":"GET"},{"uri":"https://injep.fr/publications/","method":"GET"},{"uri":"https://injep.fr/analyser/","method":"GET"},{"uri":"https://injep.fr/evenements/","method":"GET"},{"uri":"https://injep.fr/","method":"GET"},{"uri":"https://injep.fr","method":"GET"},{"uri":"https://injep.fr/secupress-8d6739e9/","method":"GET"},{"uri":"https://injep.fr/linstitut/","method":"GET"}],"count":"11","solution":"<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Content-Security-Policy header, to achieve optimal browser support: \"Content-Security-Policy\" for Chrome 25+, Firefox 23+ and Safari 7+, \"X-Content-Security-Policy\" for Firefox 4.0+ and Internet Explorer 10+, and \"X-WebKit-CSP\" for Chrome 14+ and Safari 6+.<\/p>","reference":"<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy<\/p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html<\/p><p>http://www.w3.org/TR/CSP/<\/p><p>http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html<\/p><p>http://www.html5rocks.com/en/tutorials/security/content-security-policy/<\/p><p>http://caniuse.com/#feat=contentsecuritypolicy<\/p><p>http://content-security-policy.com/<\/p>","cweid":"693","wascid":"15","sourceid":"3"},{"pluginid":"90011","alertRef":"90011","alert":"Charset Mismatch ","name":"Charset Mismatch ","riskcode":"0","confidence":"1","riskdesc":"Informational (Low)","desc":"<p>This check identifies responses where the HTTP Content-Type header declares a charset different from the charset defined by the body of the HTML or XML. When there's a charset mismatch between the HTTP header and content body Web browsers can be forced into an undesirable content-sniffing mode to determine the content's correct character set.<\/p><p><\/p><p>An attacker could manipulate content on the page to be interpreted in an encoding of their choice. For example, if an attacker can control content at the beginning of the page, they could inject script using UTF-7 encoded text and manipulate some browsers into interpreting that text.<\/p>","instances":[{"uri":"https://injep.fr/wp-json/oembed/1.0/embed?format=xml&url=https%3A%2F%2Finjep.fr%2Fpublication%2Fdegradation-des-conditions-de-vie-et-de-logement-des-18-24-ans%2F","method":"GET"},{"uri":"https://injep.fr/wp-json/oembed/1.0/embed?format=xml&url=https%3A%2F%2Finjep.fr%2Fmesurer%2Fmise-a-disposition-des-donnees-communales-sur-les-licences-et-clubs-sportifs-en-2018%2F","method":"GET"},{"uri":"https://injep.fr/wp-json/oembed/1.0/embed?format=xml&url=https%3A%2F%2Finjep.fr%2Fcentre-de-ressources%2F","method":"GET"},{"uri":"https://injep.fr/wp-json/oembed/1.0/embed?format=xml&url=https%3A%2F%2Finjep.fr%2Flinstitut%2F","method":"GET"},{"uri":"https://injep.fr/wp-json/oembed/1.0/embed?format=xml&url=https%3A%2F%2Finjep.fr%2Fmesurer%2Flinjep-met-en-ligne-un-observatoire-territorial-du-sport%2F","method":"GET"},{"uri":"https://injep.fr/wp-json/oembed/1.0/embed?format=xml&url=https%3A%2F%2Finjep.fr%2Fpublication%2Fla-participation-associative-des-jeunes%2F","method":"GET"},{"uri":"https://injep.fr/wp-json/oembed/1.0/embed?format=xml&url=https%3A%2F%2Finjep.fr%2Ffocus%2Fdossier-jeunes-vulnerables%2F","method":"GET"},{"uri":"https://injep.fr/wp-json/oembed/1.0/embed?format=xml&url=https%3A%2F%2Finjep.fr%2Fpublication%2Fevaluation-du-service-civique-resultats-de-lenquete-sur-les-parcours-et-les-missions-des-volontaires%2F","method":"GET"},{"uri":"https://injep.fr/wp-json/oembed/1.0/embed?format=xml&url=https%3A%2F%2Finjep.fr%2Fdonnees%2Flancement-de-la-bibliotheque-numerique-de-la-statistique-publique%2F","method":"GET"},{"uri":"https://injep.fr/wp-json/oembed/1.0/embed?format=xml&url=https%3A%2F%2Finjep.fr%2Fanalyser%2Fappel-a-projets-de-recherche-sur-la-jeunesse-avec-le-defenseur-des-droits%2F","method":"GET"},{"uri":"https://injep.fr/wp-json/oembed/1.0/embed?format=xml&url=https%3A%2F%2Finjep.fr%2Fveille-documentaire%2Freouverture-du-centre-de-ressources%2F","method":"GET"},{"uri":"https://injep.fr/wp-json/oembed/1.0/embed?format=xml&url=https%3A%2F%2Finjep.fr%2Ffocus%2Fles-evolutions-des-modeles-socio-economiques-associatifs%2F","method":"GET"}],"count":"12","solution":"<p>Force UTF-8 for all text content in both the HTTP header and meta tags in HTML or encoding declarations in XML.<\/p>","otherinfo":"<p>There was a charset mismatch between the HTTP Header and the XML encoding declaration: [UTF-8] and [null] do not match.<\/p>","reference":"<p>http://code.google.com/p/browsersec/wiki/Part2#Character_set_handling_and_detection<\/p>","cweid":"436","wascid":"15","sourceid":"3"},{"pluginid":"10019","alertRef":"10019","alert":"Content-Type Header Missing","name":"Content-Type Header Missing","riskcode":"0","confidence":"2","riskdesc":"Informational (Medium)","desc":"<p>The Content-Type header was either missing or empty.<\/p>","instances":[{"uri":"https://injep.fr/wp-admin/admin-post.php?_wpnonce=9109e5b71a&action=secupress_unlock_admin","method":"POST"}],"count":"1","solution":"<p>Ensure each page is setting the specific and appropriate content-type value for the content being delivered.<\/p>","reference":"<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx<\/p>","cweid":"345","wascid":"12","sourceid":"3"},{"pluginid":"10108","alertRef":"10108","alert":"Reverse Tabnabbing","name":"Reverse Tabnabbing","riskcode":"2","confidence":"2","riskdesc":"Medium (Medium)","desc":"<p>At least one link on this page is vulnerable to Reverse tabnabbing as it uses a target attribute without using both of the \"noopener\" and \"noreferrer\" keywords in the \"rel\" attribute, which allows the target page to take control of this page.<\/p>","instances":[{"uri":"https://injep.fr/centre-de-ressources/","method":"GET","evidence":"<a href=\"https://www.facebook.com/injep/\" target=\"_blank\"><i class=\"fa fa-facebook fa-2x\" ><\/i><\/a>"},{"uri":"https://injep.fr/thematique/jeunesse/","method":"GET","evidence":"<a href=\"https://www.facebook.com/injep/\" target=\"_blank\"><i class=\"fa fa-facebook fa-2x\" ><\/i><\/a>"},{"uri":"https://injep.fr/mesurer/","method":"GET","evidence":"<a href=\"https://www.facebook.com/injep/\" target=\"_blank\"><i class=\"fa fa-facebook fa-2x\" ><\/i><\/a>"},{"uri":"https://injep.fr/thematique/education-populaire/","method":"GET","evidence":"<a href=\"https://www.facebook.com/injep/\" target=\"_blank\"><i class=\"fa fa-facebook fa-2x\" ><\/i><\/a>"},{"uri":"https://injep.fr/linstitut/","method":"GET","evidence":"<a href=\"https://www.facebook.com/injep/\" target=\"_blank\"><i class=\"fa fa-facebook fa-2x\" ><\/i><\/a>"},{"uri":"https://injep.fr/analyser/","method":"GET","evidence":"<a href=\"https://www.facebook.com/injep/\" target=\"_blank\"><i class=\"fa fa-facebook fa-2x\" ><\/i><\/a>"},{"uri":"https://injep.fr/","method":"GET","evidence":"<a href=\"https://www.facebook.com/injep/\" target=\"_blank\"><i class=\"fa fa-facebook fa-2x\" ><\/i><\/a>"},{"uri":"https://injep.fr/publications/","method":"GET","evidence":"<a href=\"https://www.facebook.com/injep/\" target=\"_blank\"><i class=\"fa fa-facebook fa-2x\" ><\/i><\/a>"},{"uri":"https://injep.fr/experimenter/","method":"GET","evidence":"<a href=\"https://www.facebook.com/injep/\" target=\"_blank\"><i class=\"fa fa-facebook fa-2x\" ><\/i><\/a>"},{"uri":"https://injep.fr","method":"GET","evidence":"<a href=\"https://www.facebook.com/injep/\" target=\"_blank\"><i class=\"fa fa-facebook fa-2x\" ><\/i><\/a>"},{"uri":"https://injep.fr/evenements/","method":"GET","evidence":"<a href=\"https://www.facebook.com/injep/\" target=\"_blank\"><i class=\"fa fa-facebook fa-2x\" ><\/i><\/a>"}],"count":"11","solution":"<p>Do not use a target attribute, or if you have to then also add the attribute: rel=\"noopener noreferrer\".<\/p>","reference":"<p>https://owasp.org/www-community/attacks/Reverse_Tabnabbing<\/p><p>https://dev.to/ben/the-targetblank-vulnerability-by-example<\/p><p>https://mathiasbynens.github.io/rel-noopener/<\/p><p>https://medium.com/@jitbit/target-blank-the-most-underestimated-vulnerability-ever-96e328301f4c<\/p>","sourceid":"3"},{"pluginid":"10062","alertRef":"10062","alert":"PII Disclosure","name":"PII Disclosure","riskcode":"3","confidence":"3","riskdesc":"High (High)","desc":"<p>The response contains Personally Identifiable Information, such as CC number, SSN and similar sensitive data.<\/p>","instances":[{"uri":"https://injep.fr/wp-content/uploads/2021/09/INJEP_Liste-des-acquisitions-n-101-septembre-2021.pdf","method":"GET","evidence":"586333461306562"},{"uri":"https://injep.fr/wp-content/uploads/2021/07/FR57_participation_asso.pdf","method":"GET","evidence":"674615620748673"},{"uri":"https://injep.fr/wp-content/uploads/2021/06/Biblio_Injep_2021_Evaluation-du-Service_civique-Resultats-de-lenquete-sur-les-parcours-et-les-missions-des-volontaires.pdf","method":"GET","evidence":"503503503503"}],"count":"3","solution":"<p><\/p>","otherinfo":"<p>Credit Card Type detected: Maestro<\/p><p>Bank Identification Number: 586333<\/p><p>Brand: MAESTRO<\/p><p>Category: STANDARD<\/p><p>Issuer: <\/p>","reference":"<p><\/p>","cweid":"359","wascid":"13","sourceid":"3"},{"pluginid":"10110","alertRef":"10110","alert":"Dangerous JS Functions","name":"Dangerous JS Functions","riskcode":"1","confidence":"1","riskdesc":"Low (Low)","desc":"<p>A dangerous JS function seems to be in use that would leave the site vulnerable.<\/p>","instances":[{"uri":"https://injep.fr/wp-includes/js/jquery/jquery.min.js?ver=3.6.0","method":"GET","evidence":"Eval"},{"uri":"https://injep.fr/wp-content/themes/injep-theme/js/tarteaucitron/tarteaucitron.js","method":"GET","evidence":"eval"}],"count":"2","solution":"<p>See the references for security advice on the use of these functions.<\/p>","reference":"<p>https://angular.io/guide/security<\/p>","cweid":"749","sourceid":"3"},{"pluginid":"10010","alertRef":"10010","alert":"Cookie No HttpOnly Flag","name":"Cookie No HttpOnly Flag","riskcode":"1","confidence":"2","riskdesc":"Low (Medium)","desc":"<p>A cookie has been set without the HttpOnly flag, which means that the cookie can be accessed by JavaScript. If a malicious script can be run on this page then the cookie will be accessible and can be transmitted to another site. If this is a session cookie then session hijacking may be possible.<\/p>","instances":[{"uri":"https://injep.fr/injep-adm-login","method":"GET","param":"wordpress_test_cookie","evidence":"Set-Cookie: wordpress_test_cookie"}],"count":"1","solution":"<p>Ensure that the HttpOnly flag is set for all cookies.<\/p>","reference":"<p>https://owasp.org/www-community/HttpOnly<\/p>","cweid":"1004","wascid":"13","sourceid":"3"},{"pluginid":"90022","alertRef":"90022","alert":"Application Error Disclosure","name":"Application Error Disclosure","riskcode":"1","confidence":"2","riskdesc":"Low (Medium)","desc":"<p>This page contains an error/warning message that may disclose sensitive information like the location of the file that produced the unhandled exception. This information can be used to launch further attacks against the web application. The alert could be a false positive if the error message is found inside a documentation page.<\/p>","instances":[{"uri":"https://injep.fr/wp-admin/admin-post.php?_wpnonce=9109e5b71a&action=secupress_unlock_admin","method":"POST","evidence":"HTTP/1.0 500 Internal Server Error"}],"count":"1","solution":"<p>Review the source code of this page. Implement custom error pages. Consider implementing a mechanism to provide a unique error reference/identifier to the client (browser) while logging the details on the server side and not exposing them to the user.<\/p>","reference":"<p><\/p>","cweid":"200","wascid":"13","sourceid":"3"},{"pluginid":"10099","alertRef":"10099","alert":"Source Code Disclosure - Perl","name":"Source Code Disclosure - Perl","riskcode":"2","confidence":"2","riskdesc":"Medium (Medium)","desc":"<p>Application Source Code was disclosed by the web server - Perl<\/p>","instances":[{"uri":"https://injep.fr/wp-content/uploads/2021/09/IAS50_epicov.pdf","method":"GET","evidence":"$#Q167"}],"count":"1","solution":"<p>Ensure that application Source Code is not available with alternative extensions, and ensure that source code is not present within other files or data deployed to the web server, or served by the web server. <\/p>","otherinfo":"<p>$#Q167<\/p>","reference":"<p>http://blogs.wsj.com/cio/2013/10/08/adobe-source-code-leak-is-bad-news-for-u-s-government/<\/p>","cweid":"540","wascid":"13","sourceid":"3"},{"pluginid":"10099","alertRef":"10099","alert":"Source Code Disclosure - PHP","name":"Source Code Disclosure - PHP","riskcode":"2","confidence":"2","riskdesc":"Medium (Medium)","desc":"<p>Application Source Code was disclosed by the web server - PHP<\/p>","instances":[{"uri":"https://injep.fr/wp-content/uploads/2021/06/14-Fiche-jeunesse-GUAD-MARTI-GUYANE-2020.pdf","method":"GET","evidence":"<?=É\\x001b\\x0005 \\x001cm¨\\x0007t\\x001bXÕdÅk,ë\"\\x0010yßt¾mÞ0´Õ/\\x0003Þ{ÜÍ¶»E>zU\\x000cûX]\nQ¢bÏí£>Â\\x00088©\\x0000c\\x000cù8×/0&RhòW¾-ZâÌÉ^Uu_\\x000fìÑv¡\\x000bVg¥W\\x0003Ãü#=Ñíg@Ù\\x001e¨Cjx_OæéºØ(OÀÀQ¡9¢ty'ÐP*:IE\\x001abö0Ztm.®­Ç\\Ê§ÈÊ\\x0012{¡ÅÞuM¹í¦\\x000bþ>\\x0003§üÛ]\\x0000vâ\\x0014¨²|\n\\x0005Æãàu\\x0014/0ñIL¼\\x0016s$ôÈ>\\x0003¨px&\\x001d­Ü`I\"\\x0004½xÚóØ;}\\x0000m\n¡}hj4óiìwÊPÞ\\x001büã9õv¨¤\\x001eÈÒÌÊ\\x001ae§\\x001aªR×>Èxû\\x001fÙé-å\\x0017D\\õ¢å¢Ô ,ß\\x0012¹\\x000bABZî»®¹áö\\x0019ø{\\x0006:5&)Ùv^\\x000e\"S¦Àb\\x0014Öáö\\x0018º\\x0018èfúEQ½\\x001cBGÃeO6ºÓ­d\\x001f$86¥\\x0006\t®i¢û\\x001dn\nÙÊF®c£ÁZÒ½3ó÷Ú`ÀÝóùÅíÑlÅ)Ýah±þýÀeÊ\\x0010Ë¿UY®çèºF?/jE+\\x0008\\x001c©£kQ&rsæá\\x000f¥Ú¿Ù¨\\x0012äÝ]ä<ÏKi}SÏÙW\nÒzÚÕ@£&Õ¤y0K5  TÁó6;¸ê¸P¶j`m\\x0014¶\\x000ej¿O+c²º\\x0005Xy\\x0008QÖÔ*J×\\x000b\\x000cå\\x0018!bªU¢Þ%¼(.©Q\\ÂvÁåÜ³ôñxÃÉ\\x0015§­úâÒ\\x0008¤«³ä,×àÔ\\x0008\\x0006óÝù\\x000bíßÇ#ÆÍ\\x000b\\x0018_\\x0013¸àxÙ1\\©a­uê-ºr°5`;Ä\\x0017»®'ÖÖ`\\»\\x00197xÕÅ;*êïK<p+T±wRs«-£ÝçaaÀ®\\x0014]rfäÞÏ;t@\\x001dë\\x0002\\x001d4\\x0004gÜû»\\x001c¤ú´&{ÈBo\\x001as·kréÅ\\x0018ª|.«¯\t\\x000f×1ÆíÍm9y­ÌÜ\\x0008çÖòÛï§³_ ÉmËÊænnba½jrï\\x001dgUñÇ>¡Tý®\tLKM`å\\x0003UÊÉ~\\x000b_( ÔÏÊÞÝ¼AöL\\x0014P\\x001c g|,ï¯j\\x0015®½\\x000b\\x0007DeÏÖ.¦¥µ­vôµMËßêâ{E»Û;ÚNSß\\x0011B\njÛ\\x000eÐÜAMtQ«gÐywSKþîð4}æYLì»mQzlú.îC\\x0019/_¶^¤2íRÒ®+X\\x0013dÜôÆÒõê¸ßþ`$-L(ðòcSBV=ö õqíÑ>küÉ/\\x0007øñY\\x0005ÈDxæò\\x0004;ý4µÜÆð\\x0002<\\Ä¥Ç4B\\x001bÀ\\x0006ÇÚ?¬äÊ®]ùuã\\x001a©ê!]Ój©ì(ûÓÚ¤:´YZQÎx5oZn\\x0006ËM\\x001cSÕbðGµÓ¢²%5\"ªSï\\x0015\\x0010I°øùäîwÏµzýNE¼f\\x001dºÈ¦À\\x000c\\x0004¡\\x0016àd¡\\x0005\\x0004ª\\x0011\\x001aÃ\\x0004_CóîóëWß|s÷Áù¯ï_nÏ6\\x001fýæÉã'O´Öéþýûêá·\\x0014H,EOnÄ\t¼èñ3¼=ûôÁYzÄ·\\x000fdÛnÒø¼JqOÍ;ÿ0ëØ\\x0016É±zPläþaFhÂ&wÔTuçý_-Í\\x001dþ#·x©Ï¼E\\x0006Ù\\x001b,ÍBÉÒ¿é(^wÍÄÔçÁÔ4Î¬\\Ê\\x001a ­ÈhÑO?Ë\\x001dúdn­Zuàlì<\/jó\\x00110-õÔ±w\\x0011\\x001bñÂêp{.0ÉJ¤~^B¶\\x001aý¥2¢Lj¡ÌH«»Àn¡É{æÄWÉn\\x001c×\\x0015Ý÷WÔ&@\\x001aPµëÍUÚ)1\\x0011(0\\x0014;¢E\\x000c\\x0004\\x0012)J´EAVü÷9wxC\nMQlØ|Ýo¸Ã¹çk¿¸ÑL÷4ÇÝeS8W¢oJ?³s½ÛVOª\\x0002*Êº¦Ûh\\x001fM½5\\x0017\\x0013rs\t\\x001b\\x0015p+³\\x0019|4VäÞ½S¦½e\\x001f(7JâÞ\\[\\x0014Jöúå~â·E¦AÁ^¶kõ-\\x001c¢}·DãÊ\\x000bûÃ;éä%¼f\\x0006³ìÞ\\x0017U«±m7Dxá>µß£\\x001cd2Ü\\x0006)\\x0017\\x0004²j¯\\x0005wÄ:Ä?öËñ9â¶\\x0004J8-O\\x0000ÓÊ=£[ÈGfª4Ó®\\x0018\\x0008¶\\x0019Á¼P|\\x0019(t+A«\\x0002Ô¹F0ô{b{BMæÂZÄ`úÂ\\x0018lÎuåèI8|!\\x0008¼û L\\x0019BR¬Ï«W¶uCdVösµ%÷#O\\x0018ÍÚ^3¼×\"\\x0017çÁäð8RzUÿo^^Ñq¯\nåò%XD\\x0015<ÖmeªÉÍ]ÆÂ\\x001eÿ¤\\x0019ðÊXa2zÓjHÝ3Ç?:±¦ýºf~[PºÌtµ7¨Laoú\\x001f\\x001fZ#£\\x000caó½*)ßº:nÍmïª¤Ë¹ù%\\x0017f`\\x0011ÌP8îÕ®\t\\x0012ãÃúùÿ\\x0013Ñ¥wßh^_5\\x00026Vw*2#ÃÛ´cÛÆH\\x000cÛÿË¬äª\\x001aª¬s§z]:çÃ® ±MöüìmZ­èG\\x0002ýñuéÿ÷^M.Áç$<[c:hLÚÉjÿv }S,ý\\x001eQì³`Ri(Á\\x0006§[+ÖI³ñî´ñªâ¹¿\\7È^(k¸4d\\x001f¿Dx~©Ü´YnÚ?çJQÂÓ>\\x000böZ\nV\n-Ð\\x001eó\\x0014ûãTV÷¸Ë4Pµ-ýü\\x0018\t9?Çt^'\\3\\x001f¼ªâ-C#Àî\\x001f@ïói¬N\\x000e¡µá*\\x0017Û½\\x0012\\x0010^åVV§f²ãkfL[ëônQ\"[Õÿ{òñjÅ\\x0010·59øá¬ár+8m¦a«Ä4âÏ&hTl·\\x0014%\\x000c>ëÃá\\x001eé¶8©ðÚ\\x0006®ÆöçT¦[pS3ÙjöÖðù(\\x000f\\x001dï±®v¦:6¶ÝÔÄ¶óMË`L\\x0010rlÎúå®ùhcí\\x0006=Vo~\\x001c\\¤[CEõÛ<§mzÌ\\x0006¼\\x0001tÇ-*ïÚ»ßï½J\\x000b¶æÏuèòD¶¡\\x001c\\x0010l®.EÃQº\\x0014Ú½\\x0016õê4ä\\x0005FU3S\\x0008æ83Ç´Åw_Ý\\x0015S4û¿¨'9J¡¥ÞLÍu°Û\\x001c­1'Q·\\x0003á\\x0003\\x001bÿÍ¹ù\\x0003á_Q\\x0005\\x000ec)ÁQ½Âf\\x001fê5ÃSâS¡¦g\\x0012×çD1°íü©ûüÅ¹´{ödï\\x0018çOE#ÿcÏùìÉw{ØÔ}+±9ã\\x0005©\\x0019\\x000eÑ\\x0013^þ}Ï%p\\x0006¿±|!çá¼¥/{~éù~¢Û\\x000bäL+µ}\n\\x0015âÎyqêã\\x001bÏ÷\\x000c9ãïö!TWðáãêo÷ÌB/þ\nCÙnxÇ9×NýÌb/{îûÏøÒï)V¿Å¯ß¿ mø\\x0019\\x000e»A\\x001cnÎã¡$\\x0019I\\x0012¹áíñYÝÙfHîAë¶\\x0011æ\\x0002ÅT¥SGÓî\\x000ceAæ¨,Øý´7óBRò¯ò¤tJ©çFò=Ûz¬e³ÒØ\ttÔë\\x0018À_T/ä[i»\\x000c\\x0004Y\\¹\\x00191ú\nø´ýâ¸vâtWUx¹[xÜ1\\x0014~%ç]ëô¥IY\\x001a\\x0014U-\\x0005Wi0+UÙ?ë\n÷ôÉEoñ\\x001cñ\n\\x001dÂ6óTc%Êt¥ÚY1O\\x0003-\\x000cÀ1ohH§Ä©¾ñë ç~Ñ<ßzÁsdî&*§¡²að¨õ4Å/¿\\x0017¦ý8ïlcÓÙè`hÖ\\x001f4.ÅæÜÂ.\\x0017¸§®¿\\x0019ÎÉ}Ô¹I\\x001cà2\\x0016æg@v'TâC.þ¾¢ÓÎî¤èÆ2ÉédJPIðÂ%¬Xy²üª:{ÛeW®ê.Ïbü`m¶ò°Y5KP¯Æô9\\x0007Ê\\x001b\\x0012¹\\x001b¢tÏÖ°¿\\x001f>\\k\\x001bx§·èúiÉ÷h¯A'¨ÿùqW©¯1vÍ\\x0002Y2¼Ò\\x001c(gÜé%,úÅ6\\x001d@o8í^èQ\\x0000^Â¡å>»¡$êU|iÛ**§ä,*ù2e\\x0014ÓK/ñ/[2\\x0008Ì\\x001a×,aenµ\\x0008¯´Y\\x0014Zy³\\x000fË>°ìXiWtWñ\tê)J\\x0019«þä½@h^\"\\x0004ºLX[cIîá¤nËö\\x0010\\x0010\\x001cÃn\\x001dý£N¼¿á!XÒLðð\\x001fÀ\\x001cÒfÚ¾·íÒ÷ÜVß+1b«A«Q¸`=nö1×\\x000e\\x0002XÍ¨mØÇu\\x001a~ØdÆ_[Ü\\x0016FOôqJ.ñþM\\x0012\\x0019RAï&p¦ÞÝR\\x0013%\\x0016$Ä²À{¥Ê÷Z5)\\x0011\\x0015g\\x0010NáÛ-ùXh\\x000bðÂá0LSf\\x0018PPØ[\\x0006ÚcÂ½8y¥Ì9~\\²orr\\x001bu¢\\x0001äv^Æ«îB9ða\\x000cáZÐ\\x000bx¹OÂëÜ@¤a]tYDåÞÃÅÒjÅìÖK\\x0008Z`¿,/å\\x001aÖùÐ®çÃ\n¦m¡ñ\\x001e©Q+|r¹qþZÓ.ÕöÙÒXÁUÚ®\\x0002ÉòqPgé°A®Þ}ó·çC÷æÃbþ³eT²¬uÁ\\x0017Ól¼øôéÓÞ³:\\x0010L\\x0012\\x0019h­HQ¿?í­'æÃ@µéôOËÐ¹Ú$X\"ÎÎwïÉªÎ\tx\n¦\\x001b½¡'ï^ïþÕÝîÞ³±ø¹\\x001báÞ0]D:âèLwqÃ\\x0007o\\x0008Ñ.Ú\\x000eÏ¦hºã\\x000eXJ#î1è3&uxÓGÏ\\x001fïê.vowW»\\x001fø\\x001aA9üÜ<\\x0010ÿiô]\\x0004Ó\\x0014l}r~Ïqg¢Ø!Ð¡'\\x00103s0qÊ{z=r±]½\\x001cÉ»úrJ¶õÅÄ²QÉ¾|L·Ëß=~pÆQ\\x001fô\\x0013\\x0019\\x0014)³0eßØýå\\\\x0003`\\x0004\\x0014@Á,auÊ4\\x0004üå]¶s¨q=ØqÄ¯7\\x0000¡\"\\x0000,Â#¦e`nÜ}ÔFþô do¡³fÃD\\x0010að\\x0001\\x0008p\\x0014&»\\x0000§\\x0008À\\x0008pÀ\nÈq¤ÜÈY±û,\\x0002L¸÷\\\\x0005\\x0016\\x0012°ÐB ¹H `\\x0019\\x0003#\\x0002ÄÙ\\x0005ntS¯g\\x0018\\x0003\\x0011=·õåìëu§\\x001eùî+×\\x0013\n\\`\\x00148Ï(å\\x00040[À /õ_Ê¿&Ý ØÍ`¦uÖ\n§Ý¶,·ì\\x0004rf\\x0012zpÖØ¯ónÁ6¨¾Ë0\\x000eÆÕ\\x001cÀ\t:{\\x0018#g\\x0000XÃíÔøG\\x0000Ì5\\x0014s¦ð¦^N B²©ÏgtWOÉ¾^NQüeÒ]ùì*Wc«,=å\\x0012õ:0 BÍòÙÀ®\\x0000¾q8NÝ`\\x0019èu±:/8îPa>X]ÂÉ\\x0004Bº5Ùlú\"¿~Ôüúq_\\x000bô\\x0004Ï<¿\\x0016eCV=IC\\x0015æ«¤ÖDªBqúà\\x000fCDky¯\\x0002=À_¢!M±4H­\\x000cèI=\\x001eº³2ÚÏé¾r·é!JZám\\x0004VÒ7ù(\\x0019£îO\\x0019ñÄ0 \\x0013kGÊ\nÈ\\x0019d[\\x001cóZ?æ_\\x000exHÿeV\\x0018U<NjÊp\\x0016\\x0005gÞV-ô-Ðà¡Û¦HsR=34v|83ß_£\\x00189áü÷Ñ6Ý\\x0019æ\\x000fÜ© ç\nEÁJÀhvD¥Mâ,²e}ÞF\\x0005cÉ*õÙ\\x0014¹Êø\\x001cm´\\x001d\\x001dd\\x001b5Y¹\\ê\\x001aB\\x000eÄ{#M\\x0011\\x001cò?+?\\x0008ª)/ø'áEù¹ ¹tùêÀ\\x001fsé¼É+Í%ýK\\x0002R8×du$þ ãú¼Q«NKÕ-+\\x0015Æ¢ÿÍê2\\x0013O4¾\\x0019ú/¢f·_<\\x0005ÅñT\\x00136\\x0003T\\x001c)ªH*À¶\\x0006ý{ÚçF\"%\\x0013S^ñ\\x00071®#æ\nÔ¡\\x0019©\\x0005\\x001cÕ(ëí\\x000f½ÖCyYîÌ_è}¶dà\\x001cHLß2\\x0013q²ébÂÀ\\x0006Ü4_\\x0005ò\\x00067\\x000ccbeE\nßù);lË\\x0017hÞË¯\\x0008\n\\x0016ÿë1ÈÔ\t9*\\x0017/ôqºgñÕ±ùjÀ\\x001e)\\x0007½8\\x0001,ckOþ¢±'EÝAÝ(Ç£ùâe0.ÚBßÎý*÷a 3¸Ý·,Çs¬á¹\\x0001\\x0000¡\\x0016\\x000bCià1\\x0013\\x000b\\x0006\\x000bÍ\\x0018\\x001eu#PÃ\"&\\x0005E®'fs¼1\\x0010Ó\t/@­p¹ã;×I²±\\x0018å\t\\x0006m¶\\x0010\\x000bïéåÛ³³ÜÄs\\x00079øÄÙ²ð¦\\x0010Ö·W1ÊÞèg\\x000fb,i%þQ\\x000c´¬\nÂ¨×\\x000c!ù¼7^\\x001b¬ü¦m\\x0006QG¥W±p0VZÒ\\x0018i\\x0015½1Z\\x000e\\x0003íòå[\nÆT,&\\x0011ýú\nTg\\x000b\\x0012¹\t\"6\\x0011?ñ*NV¬å\\x0003ft\\x0005RDo\\x0002£FVd]8°2äx9Zj¬ç­\\x0013\\x0006)Rä4äñ\\x0010d¯OÖ^L°§U\\x0015C«É\\x0008\\x0002\\x000c¥\\x0008\\x0010J#C×\\x0018GÃÿØ.äÈb\\x001c^Å\\x0017¨\nÍÃêþëÆ\\x0003¶»£7\\x0019\t_\\x0003E cCÑ¼ßþ\nK\\x0000qÔGÕþ\\CÉ\\x0011K\\x0005ÍªØIÿw±¸\"Ñàãq®<»Ùmyî4G)E¶æs[ÖiLcõ3{Êù|H}þ´%\\x001e°ÛÖoû¿höN\\x0010|{uü/×Ú\\x001b\t`5/tW\\x0002û¤ÆQM^Ð+}åÊ¡X~GØ¸ØZ\\x0004Ù%³«;³çË[ã¾\"ZÁ\\x000b-ÿ¯\\x0013G\\x0014Zõó\\x0002s{àö$ô\\x001e¿¥PK\\x0018j£Ñ=ÐóDË.$\\x0010D3\n{Íb·dµsw\\x0012\\x0007_L¥H2§\\x0006d¤¼Ý3°³¿;ë¥oÇA¯RZºÍ[¢¬ÒÀ!\\x001b´j¦Õ\n%Ö0­¡\\x001e¸Îí{bÞOMîÔéâÅû{)õîùî£\\x0011á÷ë{6\\x0011\\x001es{\\x0016ÔyÛøJÐ\\x001c£Ù\\x001aóã\\x0010aà6÷$µÙÜn>ró\\x0004¹\\x00039û[úô/\\x0003w¡>3=¶\t!\\x001dP\\x0008\\x0005Ûà5|ÌÓ³ð\\x000e¸µ\\x0014<÷¼cs%*N|Bî\\x00084=Ó\\x0011xÕ\\x0003=\\x0017>Y^\\x001d\n½Àf_#[{û¼&ùë^ÅgÚ®pÞbó\\x0013xÇ(Æ\\x0016\\x0015Ü\n\\x0019¸:MÃF¿\\x0006þ üî¢Ñ\\x001eö*cìT­´\\x0016s%ù+yÐª]R\\x0012,-!¦-óåi\\x0010îOÁJ\n-P\\x001fPÉW >äú#üZÎDUö£Ôì\\x00036%ã³êÔÓÈÕûVÎÓ³|Ã3u\\x001f\\x0004ÉC\nÐGÿ´\\x0002\\x0004\\x0010eFÒKe,¦S·W\\x0005° /.\\x001fnë/i\\x0002Â©!º¯f½\\x0008\\x0002\\x0010à\\x0008\\Ñíàõµô.ÙH[æ8\\x000bøÎ­v\\x0018¼¡\"¤hþÎ¥+Bù1Mðómªûè\\'©/ÔU,\\x0008Ã`-è­nx0l\\x001bNO#\\x0019?M«®Ë*ðÑA]Y¢!E¦ÙII\\x0001ã\tïÍ×lä\\x0001%£Oh\\x0012n7¹'|iLo\" ZV_\\x0001jb\\x0012+\\x0000\n#YÔqvun¸Æ½ª5 ~´õÜ\\x0019XÕæÓ!$HÔ\\x0000ïûCc\\x000c\\x001co\\x001e\\x0011#x·!¼\"¸ë[ýo]z½NúRûü¸ì£2ßÁåðncWzAy\\x0006ä´\\x0010Õ´\\x0018/ë\\x001cÉ\\x001cLow­ò<F³ëÕ¥\\x0015¸²Ea@\\x0007¦RÍyÓÎ,Væ\\x0004ÐzËy~9Îy\tÜý\\x0007Úük¾çMÀÂ×¢Ì£ºèº\\x001dãÍ\\x000b©z=? )Vf&8¢§úSFÌ\\x0017ï­Ø2\\x001d\\x001fê5Ú[lÆ|Ì\\x001fn:_öBº6¶Ôñ\neXß¿ç\\x0013ß|ÝýælÛ¹®ÇìÎ4GòÑänªÓ{À5\\x001d-ªOõsKsjýÉâ\\x0015tLAò)\\x000cãQ»»³\\x0003¨«Þwòkr¹Ìà·\\x001eM'óK wBvùk,xM\n.B:KGÊ2½](«Õ\\x0012Ð¥¯¾rM\\x0005:ÍÛ>$3p\\x001f(~-k­å8¬þt8²3o5×Â/8Ìh¿\\x0007®oZ \\x001cÁ9bµæ9Ï\\x001a5Ôi$ìÅ\\x00006\\x001f­×ïú\\x0016?h3\n\\x001cÅ0nâ\nº<`cpÖ\\x0013\\x0017Ss75WÖEp!}´Ôm-æ«gï£\\x0007ÿç]¼Ù~g\\x001f\\x0004àsºÌ|Oæã¸îéïHt\\x0015!\\x001a¸¼0}j\\x0014Åy¾èÛÌÏ\\x001d2ª¢2*µ+¾\"øY/GzBü\\x0007Fr^/?ÃÜU*Ã: ÆÎçV.\\x0001Ýg3atEÈLù\\x0018/úÌæ¢ùüÖ\\x0002/6P¢Y_¬¶TÙí&\\x0003±Ì8¿P\\x001d=Æ\\x000fCì Ú\\x0002¢¥(±õ-]\nc[û}²Â¯]gàØïÐug )\\x0017êõUµä\\x0012t\\x000eòÄ'ÁN\\x0004ÔQTâè£­¨Â}£}Ã¼Õø·÷Ï\\x0013d[çgq\\x001el_V\\x001ac¾\\x0010)1?×æãÆ\\x001cÝÂì\\x0013s×ã\n°pg¯¶\\x001f.cé\\x0000ì¬]ß×cÄzí\\x001cæi¿©Ç\\x0015ì#G\\x0019®5¸ë<m¹l^oÎÞ®¡µV^\\x001dó²]+ÓÝ³z½óí]ÏÛöðrhÜ\\x001dáéÊCÂä¥|2÷' oOÂHh\\x000376ÛËîÝ¢¸×yéº\"\\x001f\tSÖï\\x0017rÍzNVVÖÆ}Á¨ûòB =Ô>ÙzÞoý=mh\\x0000ó+{\\x0015SLù>¦#AÞývvvv¿\\x0007ÄÀóV?»½ÕÝ>1@4ÂÛÓ¯;b+¥p©¿º!\\x000fü´Gÿ203°×ÿ\\x001d\\x0018æy\\x0006È{È×~UÃõfµ\\x001f%[>w|\tÞ4g:4*3'ÝåÆx·\\x001c¶\\x0007x²ôYg¿³¾¥­±±V¾@n%çZªÛèÐóNb/J\\x001bÔ\\x001cv\\x0012¦ã\\x0004K3´F¢ç´ðÕÀØ¯+U\\x0019³ÂLO;¥g%³Ý¢\t\"Î\\x0014:²WOÏJ\\x0016H\\x0000æ'ßu}<°IXq´ãc&#¥jÜÀN%·\\x0019ó©[p÷Àá{7ÛûÇ-dM´\\x0016s\\x001b~aV÷s\n§W~Îá³\\x0005ù¹f\\x001atÚÇ'Ó}»Î¸\\x0000«\\x0004\\x0019nqöPÏJ#Ì×ËÕá9!=\\x000c[¹m&Aoµé÷ÞÀ?»ÞL\\x0003\\x001cÌÏ½Ù±ßÅVJ/{­ù,Õ¥\\x001aÎýBïRäéÍqz¼8Õh\\x0004ñì¶~³øÞH;Qñó)ïC\\x001d|ïq<Y8\\x00061«ÉÉów<¿Â$\\x0002ÍÑ¿þÐ¦\nÇ\\x0002¬ó,7uNé¶=i¹½­\\x0007íP£jùL\\x0018\\x000e/TÃbZJU tÜróº²±¬\\x0006ygÄï\"]Ý¦]Àxñè^ãõ¬Ù®OÓå\\x0012ÈíÞ\\x0003Eeõqò\\x0002<ïrpÇ\\x00038\\x0010\täC< \nêÙ2GBó:¤$Ú`ù\\x0004C\\\"DïÆ¹\\x000b\\x001d\\x0001R¡ùVsÙ¶\\x001cÛ¢TP\nÛ±­Î ãcÖÎì2ßïå-\\x001f«)\\x0010N®r_íéL\")há~OþpkEA\\x0004Ìáÿð¾x»>Ý\n\t÷\\x001avUÃ¤û\\x0008_åå!$¢\\x001b.\\x0019pZéA\\x0016É¥añë¾etÛ\\x000eº\\ÜVÜQYÔÏ¯²\\x0001WæôàI{¶¯â[Èç\t\\x0005\\x0014\t;Ñ\\x0015vWª{ÈM4u\\x0007{F\\x0007\\x0014F×³Vé¨JéVFøºQnUéÞ\\x0014Q.÷ÛÖ\\gk1EÝþ¡¡õdª¤uiz¯©Õb\\¸x\"ßC1\\x0016\\x001a< mc\\x0001a[«N=«\\x0017³:ÍP{úF^:\\x001fÓoüÏØä¬ó·õ/\\x0002Íà;Ôz'²(Ðmrz[¶fg\\x0016sn4)>B\\x001fv/DÉUúì¿3=¨²\\x0001¶Q´6ÏMÛÁ\\x0002°¢\\ð\\x0007oªkôv\\x0007\\x0001dy)><zs±bµ/ª»\\x001aDáen)ÒubNTªXÛ1D1Q#9µ\\x0003àÃ¼\\x0004­4\n\\x0001È·ú\\x001bYk{Ú0?¸ìDÄõz¯Ëj6}ÿ\\x0013ÕnwlVyP)ÃÔ@¬i\\x0006Ø:\\x001fÅ\"vZ*âöhªäeß·\\x0014'®½@O9¤ ñ\\x001cóå¹¶\\x0002üÙÑô©jfqºô¨½ó5\\x001d6\\z4\\x0011ãµÏDoÓÌÓÇHÙ\\x001a_¨*^á\\x0017OuÝCäã\\x001b\t<\\x0017Ö\\x0007\"ñâHØ9RHÐ¾\\x0002ó×\\x000ft`^\\x0005· §ô-ë\\x0003b­cwÍõ@E\\x0018\\x0005²Wô$ª.Ó i)1OhNÙ1\\Éhz¿Ã¬\\x0005ºþ·$Ó°LèÖoÜ\\x000cØy¸å\\x0010íÍ\\x0019Ã)\\x001fòc\\x001e\\x000c'3-@UBo\neõÍ\\x001c÷Ïä1\\x0001ø\noN\\x001bÖY&5\\x001aÃÅ\\«¿\\x001eå:LmØäãëN\\x0002Ew\nÌ·ýë2É±3Gbð>OQ\\x0017HCóp>Z¹\\x0016}ÿMó#õ\\x0012\\x0001ç£¤_\nb \\x001dJµ\\x001c½ÆMmfÑ·%O\\x001b6\ncpÏ~©Ó¯ï:[Öv£Ö=Wû+x\\x001fv\\x0011gÎqÎ5\n ¶W\\x001c»\\x001eK\\x001d¦äA®~Óêy)\\x0001¹!±9ä1j(å\n?¯\\x0014\\x000f\n?¨%:ïÄ}½9\\x001boc®¼Õ¾ßîtÉJ(ìv¶P8¾ñØ\\x0004B3½¼\\x000eF\\x000c¦Á¼¶³öúþùÍ¢²?HM°ñywÐ\\x000c>¨\\x0003ÛdòWy0¾\\x0015Go±}\\x000c\\x0018®À¦.T}ª³k+ÄäJÍclÇøD\\x001fmßYa\"h8X`Ñ&çöøLpÄçéÚ®\\x001cb\\x000cÍ\t4æÏïõªevïá;ÛìEÄ×ï¯i%p¨ÝUÓãcºblxð)æSyR9|ë÷Âë0C×«ÆÁ;¯þ\\x001f®YÛ\\x0002¦¾/!`aýí¯|­Ù5½j\næëáûÍQµ°\\x0014\n£Hu÷Ê¢î·Ë!Zm\"ãºãUU.§1³\\x000bB¿\\x0007ÛN¹ø\\x000e¤2o\\x001b|²äR \\x0001- X£\t¨<åø¢¸ôâ.ÍÐ`ÿþý¥c\\x0011Ho¦Ì\" CIW÷Fq93ý\\x001aõª\"B£*H\\x0004º´F4¢\tb\\x001bäbõQÝÑËSj\tþÂH\\x001búÍ\\x0013UÒy¹\\x0014(`ÝÏ²Ô7zðê\\x0008\\x0011Ê²p5·y§­ü\\x0019\\x000eà\nç0­h!\\x0004ò©Äp\\x0007FÆøQéeÛãªçMÏu[^,h-®±86ÂÂ\\x0019Ú0\n×YÝ`r\\x0005j\\x001bÖ_èvº L¾Ð\t¹\\x0015Ò¿ß_ýçë¿U#\\x001dXR\nò´\\x000eb:òÏ\\x0017sÿ|ñY6¦`³á|ýÂ¡æ\\x0012C¶*6\\x000cÿYÅ_,t(4Ý×Í\\x000b­\\x0016âTÃ|BÁj\\x0007ô\\x000fõ£Æ§ãdÑôì,Yä©éúüpªòI¾w§r?Ë®·]ÕýÐ_î0¹íÿOì¹\\x0008<ý9¡ãÇ6'=ts 6þ\\x0010ßbí\n¾¡º4ï\\x0008W@$E±Äø~PÉ§.\\x0001Ã-¥u8p\\x001fzía£\\x0019ÿë°eDæ(N¤ÛÚ\\x0002e;ÃhH3ðó¤Ü\\x000eë·ÎëNJ`9\\x0011s^j\\x0007\t\\x0015oDy\nÑkÛÌFÝ÷+\" ¸qz¢÷»OÖ6»\n-fu9ÃÝGlØÏaÃ³Ã\\x001bõáfÜWóá®ï­ï¶Ò»Ã\\x000fI|Óªüª\\SÇåÔyf|g<ÉqÌ°?A§æ\\x0002Môñè'Ò\\x00076êÙ¿øíº;éÞÂ§èÒ\tj\\x0012µ8Cì Q#¬\\x0012$\\x000c\\x0001¶~à\\x000fYéÅÎ\\x0019hYð¿\\x0006\\x001cÊ-Ø9F\\x00124ÃO¹¡VAÅ×û¼:ä_8\\x001aÁè:¬ËÎÇ¡6Mõ·$\\x001b½y%©FÕoìK/üÎ(\t0xÇòr\\x0018×·IxÏòÏg\n@{»9¤s\n\\x00182Lí¸Æ\\x0014Ä?Ô»ÆWªüÁý \\x0018¥ÖÖ ³Sãý\nÍø:C±_«¥f:byßÈ?º\\x0008Êv¸[ö\\x0016+;á®¹ïqR«Wîxëº·w¨»øqYon.,½7æ[X<ó\\x0016`jÖ;\\x0014c\\x001bNKf§¨6\\\\x0008É¢æBEÍ3Dfê2î\\x0007TÈ5(z\\x001b\\x0005µ0¥\\x001ahþÆvþP\\x001c$v\\x001d×ì¬»â\nsã2mÔà´ÏÕ\"ÐÊ¹\\x0019(ÕêÍ®ë.õóF{?=gº+î\\x0003½Üu\tøTl\\x001ach\\x00045`X\\x000c®ûl~kÏ|×ë}wÇPëÑfÁ\\x0006<.C\\x000cìØÍ£8°[\\íX\\x0019^·\\x00154ËÛ|g\\x001aúÅÙ'ÓÐV®¢\\x001aÞPM\\x0012¾'Ý\\x0016·¡eè´ZÄJ\\bÆ°Ü\\x0014Üy[Ú\\x0002ý¤â¶ýfùé×\\x0003\\x0007­WLÜ¿«\\x0008µÍF\\x0018¼½³TD³r¹%¬úôÑt×Ãp´\\x0006®¤\\x0005¶\\x0012Ù\\x0003k:}¾{\\x000ej¥\\x0006ÆðÅÌF\\x0004çÞñQ¾ÞnÜÿ\\x001aøc\\x0011C{lxÄOä\\x0010ì~NÅmÕ¹é\\x0007\\x001b¸±åá×Ë\\x0010O\\x0005Z\t®\\x0017\n\"×h\\x000e\\x001dwP ®)#h¿O¢V\\x0003g'ÐJæé\\x0010¸\\x0005¯5¥g{ÑPD\nÔÞòÀÕ°\\x0015{µÐWxp¨5\nI¼Þóu`sß\\x0006~qò5lÜZóõXë=sØÏ­(-\\x0006ÝVÍ\\x0018$\\8ð4l.îx±dÂ,ÙÅµå»7w]P îÑ\\x00110µ¹ä\\x0001aïT+úD[¾U®_l¹w\"s)mE{öçD5èµ³ºCl\\x0014èdzUI\\x0000êÈ\nÝhóÜ¬Þæ\\x0000ªaÓßy\\x00151J\\x0000ì¯\\x001d_^«UÔ(;\\x001ahÇóãf¾s\\x000ftÓ1\\x001c»eù\\x001eÛ\\x0003H0 µ\\x0000ØAn\\x0006 á÷\\x0011ñÚù|a\nÅ;gÁ:©\\x0002ÙÚ.A4ö¬KFYÚ,ç\ncCÓ5p>f­¸ê}\\x001b\\x0004÷à¤\\x0006(Ø¡&j\\x0018tgVgï;®\\x0017&G2êz~3ÕJµ|;\\x0005\n\\x0013â\\x001aú2 ¤\\x0016l=¶Ð+¯TjÏçQjï~1ª{hZð>÷c½t~R\\x00148T.ÑÇ{\\x000eð*Q»(§ÄVÃ®\\x000c`WB&\\x000eÀJ6´òìæBR%\\x001a Ô¶\\x0008\" \\x000b\\x001ex¿E\nRÖ*\\x0014ºíîµ\\x000côD<=\\x00138\\x0002qÎ«Îåô{å\\x000bj2\t9\\x0010¤$5Ê@²iÄ\\x0018å=Ô©M\\x0007oC;Ö@¯N\\x0001¶X«a.Ù¼Ê\\x0008Ê`6+*\"B\\x0003²£L>.\\x0012í\\x0011i\nl=\\x0014«}ÑáR\\x000c¤\\x0011\\x0000kÍòö£\\x001b8kÝ\\x0007½¼8¨oy¢G\\x0003Ç'c\\x0015xF\\x000b\\'\\x0017Ýë\nÈ:*üzÓFs½ÍãÅúBOÆ\\x0015{ùö\\x0014©Ýý¢g¾\\x0002gÙ^?Ô\\x00005\\x001aXR=Ïöíb$r3J8åíÒhe5-iÝå\\x0016>XÙ\\x0013^ô[\\x0014\\x0014SÑÐ®\\x0003ÎºÝò`iÎân#d²ï ì\ttÓ¾kÖ)tOzµ«íÍQlyjön¦C×Ä¼hûÁfø¾Ih\nÜú3ðñYQýý²\\x001aÉ\\x0018qÆ;ýX3Çíøµ­sý:{®Vúþ<ÃyÜáðª°bMèh¾u¿Ø·t²C\\x001d¿-@¹þ:¼áI´­±ß\\x0019jCuüxõ5Y³\\x000cSy½tör\\x000eö_+ïU\\x0010\\x0001j*ç½Y\\x0007ú\\x001bX¿ èDb¨~¾Îêó\\x001e\\x0010Ðú\\x000b{B20Vîh\nhk,D\"t>ó<\\x0014áÚ^0$ìÇË9ø5Ó\\x0016©03¼?\\òíýÙ²:´úºòºJ¼×Ó!s=xüó×çqu\\x0001ê×¤¥H\\x00124\np¤±X]i@£²¾¸\\x0019ÚöÝbÙÈó¨7<VÉCPµwâ\\x0012QJÿ~×R³üX0*\\x001b·£\t@X¯Ö¹e\\x0018YÓµ'S\\x0004ÙK\\x0011B)¸ÕÚÜ\\x0018³x§è\\x001d#\\x000fP*N\\x000fX\n)bt\\x0017ç[ßÈ\\x0000auS_+»Nà¤°zµR\\x0003º¡ÛßÌ;pnä-\\x001cÝÊ¯áÚæ\\x0001\\x001cNR\\x0005½½WËêþ1eÞ\\x000cÀ5 \\x001c[\\x0006k¦÷ÕíéS¼:ªgÔ\\x0005Ü±³|¤â0\n\\x0014BeÛÑV6×þ\\x0001\\x0003ßE5Ð3ÐÞü\\ÑI5_?Yuû[~o´â>~\"Ù*¬\\x001b¶\\x001eÑ5Í\\x001bxBûU\\x000cmÙX·PK<¿¾\\x0015\\x0007lð>Ûû\\x001cÃ/P\\x0013·lþz8Ìá¡o÷éË4X¢Q5BËñþä:$×\\x0014\\x0013ÇYÚ¢\nüþ¶¬\\x001bâäw]/\\x0000lªêrKY\\x0006NÚÈÃ Scá\\x000b;~Ëð®,¯P;ÁÞ\\x001e´8eÀoÌ§GB\\x0001g6o÷¾Õ7×$ë{\t9{z\nøöªN\"\\x0006f.N4Ìv4-/-e~÷7?öÿ¸.Ü¼v\\x001c\\x0008Ï½\noÀ¨·Ñk\\x0008Ð£xp÷?¹üªtÓ\\x0000ùOYÔ\"E{uºZm6/k^Çû?>"}],"count":"1","solution":"<p>Ensure that application Source Code is not available with alternative extensions, and ensure that source code is not present within other files or data deployed to the web server, or served by the web server. <\/p>","otherinfo":"<p><?=É\\x001b\\x0005 \\x001cm¨\\x0007t\\x001bXÕdÅk,ë\"\\x0010yßt¾mÞ0´Õ/\\x0003Þ{ÜÍ¶»E>zU\\x000cûX]\nQ¢bÏí£>Â\\x00088©\\x0000c\\x000cù8×/0&RhòW¾-ZâÌÉ^Uu_\\x000fìÑv¡\\x000bVg¥W\\x0003Ãü#=Ñíg@Ù\\x001e¨Cjx_OæéºØ(OÀÀQ¡9¢ty'ÐP*:IE\\x001abö0Ztm.®­Ç\\Ê§ÈÊ\\x0012{¡ÅÞuM¹í¦\\x000bþ>\\x0003§üÛ]\\x0000vâ\\x0014¨²|<\/p><p>\\x0005Æãàu\\x0014/0ñIL¼\\x0016s$ôÈ>\\x0003¨px&\\x001d­Ü`I\"\\x0004½xÚóØ;}\\x0000m<\/p><p>¡}hj4óiìwÊPÞ\\x001büã9õv¨¤\\x001eÈÒÌÊ\\x001ae§\\x001aªR×>Èxû\\x001fÙé-å\\x0017D\\õ¢å¢Ô ,ß\\x0012¹\\x000bABZî»®¹áö\\x0019ø{\\x0006:5&)Ùv^\\x000e\"S¦Àb\\x0014Öáö\\x0018º\\x0018èfúEQ½\\x001cBGÃeO6ºÓ­d\\x001f$86¥\\x0006\t®i¢û\\x001dn\nÙÊF®c£ÁZÒ½3ó÷Ú`ÀÝóùÅíÑlÅ)Ýah±þýÀeÊ\\x0010Ë¿UY®çèºF?/jE+\\x0008\\x001c©£kQ&rsæá\\x000f¥Ú¿Ù¨\\x0012äÝ]ä<ÏKi}SÏÙW<\/p><p>ÒzÚÕ@£&Õ¤y0K5  TÁó6;¸ê¸P¶j`m\\x0014¶\\x000ej¿O+c²º\\x0005Xy\\x0008QÖÔ*J×\\x000b\\x000cå\\x0018!bªU¢Þ%¼(.©Q\\ÂvÁåÜ³ôñxÃÉ\\x0015§­úâÒ\\x0008¤«³ä,×àÔ\\x0008\\x0006óÝù\\x000bíßÇ#ÆÍ\\x000b\\x0018_\\x0013¸àxÙ1\\©a­uê-ºr°5`;Ä\\x0017»®'ÖÖ`\\»\\x00197xÕÅ;*êïK<p+T±wRs«-£ÝçaaÀ®\\x0014]rfäÞÏ;t@\\x001dë\\x0002\\x001d4\\x0004gÜû»\\x001c¤ú´&{ÈBo\\x001as·kréÅ\\x0018ª|.«¯\t\\x000f×1ÆíÍm9y­ÌÜ\\x0008çÖòÛï§³_ ÉmËÊænnba½jrï\\x001dgUñÇ>¡Tý®\tLKM`å\\x0003UÊÉ~\\x000b_( ÔÏÊÞÝ¼AöL\\x0014P\\x001c g|,ï¯j\\x0015®½\\x000b\\x0007DeÏÖ.¦¥µ­vôµMËßêâ{E»Û;ÚNSß\\x0011B\njÛ\\x000eÐÜAMtQ«gÐywSKþîð4}æYLì»mQzlú.îC\\x0019/_¶^¤2íRÒ®+X\\x0013dÜôÆÒõê¸ßþ`$-L(ðòcSBV=ö õqíÑ>küÉ/\\x0007øñY\\x0005ÈDxæò\\x0004;ý4µÜÆð\\x0002<\\Ä¥Ç4B\\x001bÀ\\x0006ÇÚ?¬äÊ®]ùuã\\x001a©ê!]Ój©ì(ûÓÚ¤:´YZQÎx5oZn\\x0006ËM\\x001cSÕbðGµÓ¢²%5\"ªSï\\x0015\\x0010I°øùäîwÏµzýNE¼f\\x001dºÈ¦À\\x000c\\x0004¡\\x0016àd¡\\x0005\\x0004ª\\x0011\\x001aÃ\\x0004_CóîóëWß|s÷Áù¯ï_nÏ6\\x001fýæÉã'O´Öéþýûêá·\\x0014H,EOnÄ\t¼èñ3¼=ûôÁYzÄ·\\x000fdÛnÒø¼JqOÍ;ÿ0ëØ\\x0016É±zPläþaFhÂ&wÔTuçý_-Í\\x001dþ#·x©Ï¼E\\x0006Ù\\x001b,ÍBÉÒ¿é(^wÍÄÔçÁÔ4Î¬\\Ê\\x001a ­ÈhÑO?Ë\\x001dúdn­Zuàlì<\/jó\\x00110-õÔ±w\\x0011\\x001bñÂêp{.0ÉJ¤~^B¶\\x001aý¥2¢Lj¡ÌH«»Àn¡É{æÄWÉn\\x001c×\\x0015Ý÷WÔ&@\\x001aPµëÍUÚ)1\\x0011(0\\x0014;¢E\\x000c\\x0004\\x0012)J´EAVü÷9wxC\nMQlØ|Ýo¸Ã¹çk¿¸ÑL÷4ÇÝeS8W¢oJ?³s½ÛVOª\\x0002*Êº¦Ûh\\x001fM½5\\x0017\\x0013rs\t\\x001b\\x0015p+³\\x0019|4VäÞ½S¦½e\\x001f(7JâÞ\\[\\x0014Jöúå~â·E¦AÁ^¶kõ-\\x001c¢}·DãÊ\\x000bûÃ;éä%¼f\\x0006³ìÞ\\x0017U«±m7Dxá>µß£\\x001cd2Ü\\x0006)\\x0017\\x0004²j¯\\x0005wÄ:Ä?öËñ9â¶\\x0004J8-O\\x0000ÓÊ=£[ÈGfª4Ó®\\x0018\\x0008¶\\x0019Á¼P|\\x0019(t+A«\\x0002Ô¹F0ô{b{BMæÂZÄ`úÂ\\x0018lÎuåèI8|!\\x0008¼û L\\x0019BR¬Ï«W¶uCdVösµ%÷#O\\x0018ÍÚ^3¼×\"\\x0017çÁäð8RzUÿo^^Ñq¯\nåò%XD\\x0015<ÖmeªÉÍ]ÆÂ\\x001eÿ¤\\x0019ðÊXa2zÓjHÝ3Ç?:±¦ýºf~[PºÌtµ7¨Laoú\\x001f\\x001fZ#£\\x000caó½*)ßº:nÍmïª¤Ë¹ù%\\x0017f`\\x0011ÌP8îÕ®\t\\x0012ãÃúùÿ\\x0013Ñ¥wßh^_5\\x00026Vw*2#ÃÛ´cÛÆH\\x000cÛÿË¬äª\\x001aª¬s§z]:çÃ® ±MöüìmZ­èG\\x0002ýñuéÿ÷^M.Áç$<[c:hLÚÉjÿv }S,ý\\x001eQì³`Ri(Á\\x0006§[+ÖI³ñî´ñªâ¹¿\\7È^(k¸4d\\x001f¿Dx~©Ü´YnÚ?çJQÂÓ>\\x000böZ\nV<\/p><p>-Ð\\x001eó\\x0014ûãTV÷¸Ë4Pµ-ýü\\x0018\t9?Çt^'\\3\\x001f¼ªâ-C#Àî\\x001f@ïói¬N\\x000e¡µá*\\x0017Û½\\x0012\\x0010^åVV§f²ãkfL[ëônQ\"[Õÿ{òñjÅ\\x0010·59øá¬ár+8m¦a«Ä4âÏ&hTl·\\x0014%\\x000c>ëÃá\\x001eé¶8©ðÚ\\x0006®ÆöçT¦[pS3ÙjöÖðù(\\x000f\\x001dï±®v¦:6¶ÝÔÄ¶óMË`L\\x0010rlÎúå®ùhcí\\x0006=Vo~\\x001c\\¤[CEõÛ<§mzÌ\\x0006¼\\x0001tÇ-*ïÚ»ßï½J\\x000b¶æÏuèòD¶¡\\x001c\\x0010l®.EÃQº\\x0014Ú½\\x0016õê4ä\\x0005FU3S\\x0008æ83Ç´Åw_Ý\\x0015S4û¿¨'9J¡¥ÞLÍu°Û\\x001c­1'Q·\\x0003á\\x0003\\x001bÿÍ¹ù\\x0003á_Q\\x0005\\x000ec)ÁQ½Âf\\x001fê5ÃSâS¡¦g\\x0012×çD1°íü©ûüÅ¹´{ödï\\x0018çOE#ÿcÏùìÉw{ØÔ}+±9ã\\x0005©\\x0019\\x000eÑ\\x0013^þ}Ï%p\\x0006¿±|!çá¼¥/{~éù~¢Û\\x000bäL+µ}\n\\x0015âÎyqêã\\x001bÏ÷\\x000c9ãïö!TWðáãêo÷ÌB/þ<\/p><p>CÙnxÇ9×NýÌb/{îûÏøÒï)V¿Å¯ß¿ mø\\x0019\\x000e»A\\x001cnÎã¡$\\x0019I\\x0012¹áíñYÝÙfHîAë¶\\x0011æ\\x0002ÅT¥SGÓî\\x000ceAæ¨,Øý´7óBRò¯ò¤tJ©çFò=Ûz¬e³ÒØ\ttÔë\\x0018À_T/ä[i»\\x000c\\x0004Y\\¹\\x00191ú\nø´ýâ¸vâtWUx¹[xÜ1\\x0014~%ç]ëô¥IY\\x001a\\x0014U-\\x0005Wi0+UÙ?ë<\/p><p>÷ôÉEoñ\\x001cñ\n\\x001dÂ6óTc%Êt¥ÚY1O\\x0003-\\x000cÀ1ohH§Ä©¾ñë ç~Ñ<ßzÁsdî&*§¡²að¨õ4Å/¿\\x0017¦ý8ïlcÓÙè`hÖ\\x001f4.ÅæÜÂ.\\x0017¸§®¿\\x0019ÎÉ}Ô¹I\\x001cà2\\x0016æg@v'TâC.þ¾¢ÓÎî¤èÆ2ÉédJPIðÂ%¬Xy²üª:{ÛeW®ê.Ïbü`m¶ò°Y5KP¯Æô9\\x0007Ê\\x001b\\x0012¹\\x001b¢tÏÖ°¿\\x001f>\\k\\x001bx§·èúiÉ÷h¯A'¨ÿùqW©¯1vÍ\\x0002Y2¼Ò\\x001c(gÜé%,úÅ6\\x001d@o8í^èQ\\x0000^Â¡å>»¡$êU|iÛ**§ä,*ù2e\\x0014ÓK/ñ/[2\\x0008Ì\\x001a×,aenµ\\x0008¯´Y\\x0014Zy³\\x000fË>°ìXiWtWñ\tê)J\\x0019«þä½@h^\"\\x0004ºLX[cIîá¤nËö\\x0010\\x0010\\x001cÃn\\x001dý£N¼¿á!XÒLðð\\x001fÀ\\x001cÒfÚ¾·íÒ÷ÜVß+1b«A«Q¸`=nö1×\\x000e\\x0002XÍ¨mØÇu\\x001a~ØdÆ_[Ü\\x0016FOôqJ.ñþM\\x0012\\x0019RAï&p¦ÞÝR\\x0013%\\x0016$Ä²À{¥Ê÷Z5)\\x0011\\x0015g\\x0010NáÛ-ùXh\\x000bðÂá0LSf\\x0018PPØ[\\x0006ÚcÂ½8y¥Ì9~\\²orr\\x001bu¢\\x0001äv^Æ«îB9ða\\x000cáZÐ\\x000bx¹OÂëÜ@¤a]tYDåÞÃÅÒjÅìÖK\\x0008Z`¿,/å\\x001aÖùÐ®çÃ<\/p><p>¦m¡ñ\\x001e©Q+|r¹qþZÓ.ÕöÙÒXÁUÚ®\\x0002ÉòqPgé°A®Þ}ó·çC÷æÃbþ³eT²¬uÁ\\x0017Ól¼øôéÓÞ³:\\x0010L\\x0012\\x0019h­HQ¿?í­'æÃ@µéôOËÐ¹Ú$X\"ÎÎwïÉªÎ\tx\n¦\\x001b½¡'ï^ïþÕÝîÞ³±ø¹\\x001báÞ0]D:âèLwqÃ\\x0007o\\x0008Ñ.Ú\\x000eÏ¦hºã\\x000eXJ#î1è3&uxÓGÏ\\x001fïê.vowW»\\x001fø\\x001aA9üÜ<\\x0010ÿiô]\\x0004Ó\\x0014l}r~Ïqg¢Ø!Ð¡'\\x00103s0qÊ{z=r±]½\\x001cÉ»úrJ¶õÅÄ²QÉ¾|L·Ëß=~pÆQ\\x001fô\\x0013\\x0019\\x0014)³0eßØýå\\\\x0003`\\x0004\\x0014@Á,auÊ4\\x0004üå]¶s¨q=ØqÄ¯7\\x0000¡\"\\x0000,Â#¦e`nÜ}ÔFþô do¡³fÃD\\x0010að\\x0001\\x0008p\\x0014&»\\x0000§\\x0008À\\x0008pÀ\nÈq¤ÜÈY±û,\\x0002L¸÷\\\\x0005\\x0016\\x0012°ÐB ¹H `\\x0019\\x0003#\\x0002ÄÙ\\x0005ntS¯g\\x0018\\x0003\\x0011=·õåìëu§\\x001eùî+×\\x0013<\/p><p>\\`\\x00148Ï(å\\x00040[À /õ_Ê¿&Ý ØÍ`¦uÖ\n§Ý¶,·ì\\x0004rf\\x0012zpÖØ¯ónÁ6¨¾Ë0\\x000eÆÕ\\x001cÀ\t:{\\x0018#g\\x0000XÃíÔøG\\x0000Ì5\\x0014s¦ð¦^N B²©ÏgtWOÉ¾^NQüeÒ]ùì*Wc«,=å\\x0012õ:0 BÍòÙÀ®\\x0000¾q8NÝ`\\x0019èu±:/8îPa>X]ÂÉ\\x0004Bº5Ùlú\"¿~Ôüúq_\\x000bô\\x0004Ï<¿\\x0016eCV=IC\\x0015æ«¤ÖDªBqúà\\x000fCDky¯\\x0002=À_¢!M±4H­\\x000cèI=\\x001eº³2ÚÏé¾r·é!JZám\\x0004VÒ7ù(\\x0019£îO\\x0019ñÄ0 \\x0013kGÊ\nÈ\\x0019d[\\x001cóZ?æ_\\x000exHÿeV\\x0018U<NjÊp\\x0016\\x0005gÞV-ô-Ðà¡Û¦HsR=34v|83ß_£\\x00189áü÷Ñ6Ý\\x0019æ\\x000fÜ© ç\nEÁJÀhvD¥Mâ,²e}ÞF\\x0005cÉ*õÙ\\x0014¹Êø\\x001cm´\\x001d\\x001dd\\x001b5Y¹\\ê\\x001aB\\x000eÄ{#M\\x0011\\x001cò?+?\\x0008ª)/ø'áEù¹ ¹tùêÀ\\x001fsé¼É+Í%ýK\\x0002R8×du$þ ãú¼Q«NKÕ-+\\x0015Æ¢ÿÍê2\\x0013O4¾\\x0019ú/¢f·_<\\x0005ÅñT\\x00136\\x0003T\\x001c)ªH*À¶\\x0006ý{ÚçF\"%\\x0013S^ñ\\x00071®#æ<\/p><p>Ô¡\\x0019©\\x0005\\x001cÕ(ëí\\x000f½ÖCyYîÌ_è}¶dà\\x001cHLß2\\x0013q²ébÂÀ\\x0006Ü4_\\x0005ò\\x00067\\x000ccbeE\nßù);lË\\x0017hÞË¯\\x0008\n\\x0016ÿë1ÈÔ\t9*\\x0017/ôqºgñÕ±ùjÀ\\x001e)\\x0007½8\\x0001,ckOþ¢±'EÝAÝ(Ç£ùâe0.ÚBßÎý*÷a 3¸Ý·,Çs¬á¹\\x0001\\x0000¡\\x0016\\x000bCià1\\x0013\\x000b\\x0006\\x000bÍ\\x0018\\x001eu#PÃ\"&\\x0005E®'fs¼1\\x0010Ó\t/@­p¹ã;×I²±\\x0018å\t\\x0006m¶\\x0010\\x000bïéåÛ³³ÜÄs\\x00079øÄÙ²ð¦\\x0010Ö·W1ÊÞèg\\x000fb,i%þQ\\x000c´¬\nÂ¨×\\x000c!ù¼7^\\x001b¬ü¦m\\x0006QG¥W±p0VZÒ\\x0018i\\x0015½1Z\\x000e\\x0003íòå[\nÆT,&\\x0011ýú<\/p><p>Tg\\x000b\\x0012¹\t\"6\\x0011?ñ*NV¬å\\x0003ft\\x0005RDo\\x0002£FVd]8°2äx9Zj¬ç­\\x0013\\x0006)Rä4äñ\\x0010d¯OÖ^L°§U\\x0015C«É\\x0008\\x0002\\x000c¥\\x0008\\x0010J#C×\\x0018GÃÿØ.äÈb\\x001c^Å\\x0017¨<\/p><p>ÍÃêþëÆ\\x0003¶»£7\\x0019\t_\\x0003E cCÑ¼ßþ<\/p><p>K\\x0000qÔGÕþ\\CÉ\\x0011K\\x0005ÍªØIÿw±¸\"Ñàãq®<»Ùmyî4G)E¶æs[ÖiLcõ3{Êù|H}þ´%\\x001e°ÛÖoû¿höN\\x0010|{uü/×Ú\\x001b\t`5/tW\\x0002û¤ÆQM^Ð+}åÊ¡X~GØ¸ØZ\\x0004Ù%³«;³çË[ã¾\"ZÁ\\x000b-ÿ¯\\x0013G\\x0014Zõó\\x0002s{àö$ô\\x001e¿¥PK\\x0018j£Ñ=ÐóDË.$\\x0010D3<\/p><p>{Íb·dµsw\\x0012\\x0007_L¥H2§\\x0006d¤¼Ý3°³¿;ë¥oÇA¯RZºÍ[¢¬ÒÀ!\\x001b´j¦Õ<\/p><p>%Ö0­¡\\x001e¸Îí{bÞOMîÔéâÅû{)õîùî£\\x0011á÷ë{6\\x0011\\x001es{\\x0016ÔyÛøJÐ\\x001c£Ù\\x001aóã\\x0010aà6÷$µÙÜn>ró\\x0004¹\\x00039û[úô/\\x0003w¡>3=¶\t!\\x001dP\\x0008\\x0005Ûà5|ÌÓ³ð\\x000e¸µ\\x0014<÷¼cs%*N|Bî\\x00084=Ó\\x0011xÕ\\x0003=\\x0017>Y^\\x001d<\/p><p>½Àf_#[{û¼&ùë^ÅgÚ®pÞbó\\x0013xÇ(Æ\\x0016\\x0015Ü\n\\x0019¸:MÃF¿\\x0006þ üî¢Ñ\\x001eö*cìT­´\\x0016s%ù+yÐª]R\\x0012,-!¦-óåi\\x0010îOÁJ\n-P\\x001fPÉW >äú#üZÎDUö£Ôì\\x00036%ã³êÔÓÈÕûVÎÓ³|Ã3u\\x001f\\x0004ÉC\nÐGÿ´\\x0002\\x0004\\x0010eFÒKe,¦S·W\\x0005° /.\\x001fnë/i\\x0002Â©!º¯f½\\x0008\\x0002\\x0010à\\x0008\\Ñíàõµô.ÙH[æ8\\x000bøÎ­v\\x0018¼¡\"¤hþÎ¥+Bù1Mðómªûè\\'©/ÔU,\\x0008Ã`-è­nx0l\\x001bNO#\\x0019?M«®Ë*ðÑA]Y¢!E¦ÙII\\x0001ã\tïÍ×lä\\x0001%£Oh\\x0012n7¹'|iLo\" ZV_\\x0001jb\\x0012+\\x0000<\/p><p>#YÔqvun¸Æ½ª5 ~´õÜ\\x0019XÕæÓ!$HÔ\\x0000ïûCc\\x000c\\x001co\\x001e\\x0011#x·!¼\"¸ë[ýo]z½NúRûü¸ì£2ßÁåðncWzAy\\x0006ä´\\x0010Õ´\\x0018/ë\\x001cÉ\\x001cLow­ò<F³ëÕ¥\\x0015¸²Ea@\\x0007¦RÍyÓÎ,Væ\\x0004ÐzËy~9Îy\tÜý\\x0007Úük¾çMÀÂ×¢Ì£ºèº\\x001dãÍ\\x000b©z=? )Vf&8¢§úSFÌ\\x0017ï­Ø2\\x001d\\x001fê5Ú[lÆ|Ì\\x001fn:_öBº6¶Ôñ\neXß¿ç\\x0013ß|ÝýælÛ¹®ÇìÎ4GòÑänªÓ{À5\\x001d-ªOõsKsjýÉâ\\x0015tLAò)\\x000cãQ»»³\\x0003¨«Þwòkr¹Ìà·\\x001eM'óK wBvùk,xM\n.B:KGÊ2½](«Õ\\x0012Ð¥¯¾rM\\x0005:ÍÛ>$3p\\x001f(~-k­å8¬þt8²3o5×Â/8Ìh¿\\x0007®oZ \\x001cÁ9bµæ9Ï\\x001a5Ôi$ìÅ\\x00006\\x001f­×ïú\\x0016?h3\n\\x001cÅ0nâ\nº<`cpÖ\\x0013\\x0017Ss75WÖEp!}´Ôm-æ«gï£\\x0007ÿç]¼Ù~g\\x001f\\x0004àsºÌ|Oæã¸îéïHt\\x0015!\\x001a¸¼0}j\\x0014Åy¾èÛÌÏ\\x001d2ª¢2*µ+¾\"øY/GzBü\\x0007Fr^/?ÃÜU*Ã: ÆÎçV.\\x0001Ýg3atEÈLù\\x0018/úÌæ¢ùüÖ\\x0002/6P¢Y_¬¶TÙí&\\x0003±Ì8¿P\\x001d=Æ\\x000fCì Ú\\x0002¢¥(±õ-]\nc[û}²Â¯]gàØïÐug )\\x0017êõUµä\\x0012t\\x000eòÄ'ÁN\\x0004ÔQTâè£­¨Â}£}Ã¼Õø·÷Ï\\x0013d[çgq\\x001el_V\\x001ac¾\\x0010)1?×æãÆ\\x001cÝÂì\\x0013s×ã\n°pg¯¶\\x001f.cé\\x0000ì¬]ß×cÄzí\\x001cæi¿©Ç\\x0015ì#G\\x0019®5¸ë<m¹l^oÎÞ®¡µV^\\x001dó²]+ÓÝ³z½óí]ÏÛöðrhÜ\\x001dáéÊCÂä¥|2÷' oOÂHh\\x000376ÛËîÝ¢¸×yéº\"\\x001f\tSÖï\\x0017rÍzNVVÖÆ}Á¨ûòB =Ô>ÙzÞoý=mh\\x0000ó+{\\x0015SLù>¦#AÞývvvv¿\\x0007ÄÀóV?»½ÕÝ>1@4ÂÛÓ¯;b+¥p©¿º!\\x000fü´Gÿ203°×ÿ\\x001d\\x0018æy\\x0006È{È×~UÃõfµ\\x001f%[>w|\tÞ4g:4*3'ÝåÆx·\\x001c¶\\x0007x²ôYg¿³¾¥­±±V¾@n%çZªÛèÐóNb/J\\x001bÔ\\x001cv\\x0012¦ã\\x0004K3´F¢ç´ðÕÀØ¯+U\\x0019³ÂLO;¥g%³Ý¢\t\"Î\\x0014:²WOÏJ\\x0016H\\x0000æ'ßu}<°IXq´ãc&#¥jÜÀN%·\\x0019ó©[p÷Àá{7ÛûÇ-dM´\\x0016s\\x001b~aV÷s\n§W~Îá³\\x0005ù¹f\\x001atÚÇ'Ó}»Î¸\\x0000«\\x0004\\x0019nqöPÏJ#Ì×ËÕá9!=\\x000c[¹m&Aoµé÷ÞÀ?»ÞL\\x0003\\x001cÌÏ½Ù±ßÅVJ/{­ù,Õ¥\\x001aÎýBïRäéÍqz¼8Õh\\x0004ñì¶~³øÞH;Qñó)ïC\\x001d|ïq<Y8\\x00061«ÉÉów<¿Â$\\x0002ÍÑ¿þÐ¦\nÇ\\x0002¬ó,7uNé¶=i¹½­\\x0007íP£jùL\\x0018\\x000e/TÃbZJU tÜróº²±¬\\x0006ygÄï\"]Ý¦]Àxñè^ãõ¬Ù®OÓå\\x0012ÈíÞ\\x0003Eeõqò\\x0002<ïrpÇ\\x00038\\x0010\täC< <\/p><p>êÙ2GBó:¤$Ú`ù\\x0004C\\\"DïÆ¹\\x000b\\x001d\\x0001R¡ùVsÙ¶\\x001cÛ¢TP<\/p><p>Û±­Î ãcÖÎì2ßïå-\\x001f«)\\x0010N®r_íéL\")há~OþpkEA\\x0004Ìáÿð¾x»>Ý\n\t÷\\x001avUÃ¤û\\x0008_åå!$¢\\x001b.\\x0019pZéA\\x0016É¥añë¾etÛ\\x000eº\\ÜVÜQYÔÏ¯²\\x0001WæôàI{¶¯â[Èç\t\\x0005\\x0014\t;Ñ\\x0015vWª{ÈM4u\\x0007{F\\x0007\\x0014F×³Vé¨JéVFøºQnUéÞ\\x0014Q.÷ÛÖ\\gk1EÝþ¡¡õdª¤uiz¯©Õb\\¸x\"ßC1\\x0016\\x001a< mc\\x0001a[«N=«\\x0017³:ÍP{úF^:\\x001fÓoüÏØä¬ó·õ/\\x0002Íà;Ôz'²(Ðmrz[¶fg\\x0016sn4)>B\\x001fv/DÉUúì¿3=¨²\\x0001¶Q´6ÏMÛÁ\\x0002°¢\\ð\\x0007oªkôv\\x0007\\x0001dy)><zs±bµ/ª»\\x001aDáen)ÒubNTªXÛ1D1Q#9µ\\x0003àÃ¼\\x0004­4<\/p><p>\\x0001È·ú\\x001bYk{Ú0?¸ìDÄõz¯Ëj6}ÿ\\x0013ÕnwlVyP)ÃÔ@¬i\\x0006Ø:\\x001fÅ\"vZ*âöhªäeß·\\x0014'®½@O9¤ ñ\\x001cóå¹¶\\x0002üÙÑô©jfqºô¨½ó5\\x001d6\\z4\\x0011ãµÏDoÓÌÓÇHÙ\\x001a_¨*^á\\x0017OuÝCäã\\x001b\t<\\x0017Ö\\x0007\"ñâHØ9RHÐ¾\\x0002ó×\\x000ft`^\\x0005· §ô-ë\\x0003b­cwÍõ@E\\x0018\\x0005²Wô$ª.Ó i)1OhNÙ1\\Éhz¿Ã¬\\x0005ºþ·$Ó°LèÖoÜ\\x000cØy¸å\\x0010íÍ\\x0019Ã)\\x001fòc\\x001e\\x000c'3-@UBo\neõÍ\\x001c÷Ïä1\\x0001ø<\/p><p>oN\\x001bÖY&5\\x001aÃÅ\\«¿\\x001eå:LmØäãëN\\x0002Ew\nÌ·ýë2É±3Gbð>OQ\\x0017HCóp>Z¹\\x0016}ÿMó#õ\\x0012\\x0001ç£¤_<\/p><p>b \\x001dJµ\\x001c½ÆMmfÑ·%O\\x001b6<\/p><p>cpÏ~©Ó¯ï:[Öv£Ö=Wû+x\\x001fv\\x0011gÎqÎ5<\/p><p> ¶W\\x001c»\\x001eK\\x001d¦äA®~Óêy)\\x0001¹!±9ä1j(å\n?¯\\x0014\\x000f<\/p><p>?¨%:ïÄ}½9\\x001boc®¼Õ¾ßîtÉJ(ìv¶P8¾ñØ\\x0004B3½¼\\x000eF\\x000c¦Á¼¶³öúþùÍ¢²?HM°ñywÐ\\x000c>¨\\x0003ÛdòWy0¾\\x0015Go±}\\x000c\\x0018®À¦.T}ª³k+ÄäJÍclÇøD\\x001fmßYa\"h8X`Ñ&çöøLpÄçéÚ®\\x001cb\\x000cÍ\t4æÏïõªevïá;ÛìEÄ×ï¯i%p¨ÝUÓãcºblxð)æSyR9|ë÷Âë0C×«ÆÁ;¯þ\\x001f®YÛ\\x0002¦¾/!`aýí¯|­Ù5½j\næëáûÍQµ°\\x0014\n£Hu÷Ê¢î·Ë!Zm\"ãºãUU.§1³\\x000bB¿\\x0007ÛN¹ø\\x000e¤2o\\x001b|²äR \\x0001- X£\t¨<åø¢¸ôâ.ÍÐ`ÿþý¥c\\x0011Ho¦Ì\" CIW÷Fq93ý\\x001aõª\"B£*H\\x0004º´F4¢\tb\\x001bäbõQÝÑËSj\tþÂH\\x001búÍ\\x0013UÒy¹\\x0014(`ÝÏ²Ô7zðê\\x0008\\x0011Ê²p5·y§­ü\\x0019\\x000eà\nç0­h!\\x0004ò©Äp\\x0007FÆøQéeÛãªçMÏu[^,h-®±86ÂÂ\\x0019Ú0<\/p><p>×YÝ`r\\x0005j\\x001bÖ_èvº L¾Ð\t¹\\x0015Ò¿ß_ýçë¿U#\\x001dXR<\/p><p>ò´\\x000eb:òÏ\\x0017sÿ|ñY6¦`³á|ýÂ¡æ\\x0012C¶*6\\x000cÿYÅ_,t(4Ý×Í\\x000b­\\x0016âTÃ|BÁj\\x0007ô\\x000fõ£Æ§ãdÑôì,Yä©éúüpªòI¾w§r?Ë®·]ÕýÐ_î0¹íÿOì¹\\x0008<ý9¡ãÇ6'=ts 6þ\\x0010ßbí<\/p><p>¾¡º4ï\\x0008W@$E±Äø~PÉ§.\\x0001Ã-¥u8p\\x001fzía£\\x0019ÿë°eDæ(N¤ÛÚ\\x0002e;ÃhH3ðó¤Ü\\x000eë·ÎëNJ`9\\x0011s^j\\x0007\t\\x0015oDy<\/p><p>ÑkÛÌFÝ÷+\" ¸qz¢÷»OÖ6»\n-fu9ÃÝGlØÏaÃ³Ã\\x001bõáfÜWóá®ï­ï¶Ò»Ã\\x000fI|Óªüª\\SÇåÔyf|g<ÉqÌ°?A§æ\\x0002Môñè'Ò\\x00076êÙ¿øíº;éÞÂ§èÒ\tj\\x0012µ8Cì Q#¬\\x0012$\\x000c\\x0001¶~à\\x000fYéÅÎ\\x0019hYð¿\\x0006\\x001cÊ-Ø9F\\x00124ÃO¹¡VAÅ×û¼:ä_8\\x001aÁè:¬ËÎÇ¡6Mõ·$\\x001b½y%©FÕoìK/üÎ(\t0xÇòr\\x0018×·IxÏòÏg<\/p><p>@{»9¤s<\/p><p>\\x00182Lí¸Æ\\x0014Ä?Ô»ÆWªüÁý \\x0018¥ÖÖ ³Sãý<\/p><p>Íø:C±_«¥f:byßÈ?º\\x0008Êv¸[ö\\x0016+;á®¹ïqR«Wîxëº·w¨»øqYon.,½7æ[X<ó\\x0016`jÖ;\\x0014c\\x001bNKf§¨6\\\\x0008É¢æBEÍ3Dfê2î\\x0007TÈ5(z\\x001b\\x0005µ0¥\\x001ahþÆvþP\\x001c$v\\x001d×ì¬»â\nsã2mÔà´ÏÕ\"ÐÊ¹\\x0019(ÕêÍ®ë.õóF{?=gº+î\\x0003½Üu\tøTl\\x001ach\\x00045`X\\x000c®ûl~kÏ|×ë}wÇPëÑfÁ\\x0006<.C\\x000cìØÍ£8°[\\íX\\x0019^·\\x00154ËÛ|g\\x001aúÅÙ'ÓÐV®¢\\x001aÞPM\\x0012¾'Ý\\x0016·¡eè´ZÄJ\\bÆ°Ü\\x0014Üy[Ú\\x0002ý¤â¶ýfùé×\\x0003\\x0007­WLÜ¿«\\x0008µÍF\\x0018¼½³TD³r¹%¬úôÑt×Ãp´\\x0006®¤\\x0005¶\\x0012Ù\\x0003k:}¾{\\x000ej¥\\x0006ÆðÅÌF\\x0004çÞñQ¾ÞnÜÿ\\x001aøc\\x0011C{lxÄOä\\x0010ì~NÅmÕ¹é\\x0007\\x001b¸±åá×Ë\\x0010O\\x0005Z\t®\\x0017\n\"×h\\x000e\\x001dwP ®)#h¿O¢V\\x0003g'ÐJæé\\x0010¸\\x0005¯5¥g{ÑPD\nÔÞòÀÕ°\\x0015{µÐWxp¨5<\/p><p>I¼Þóu`sß\\x0006~qò5lÜZóõXë=sØÏ­(-\\x0006ÝVÍ\\x0018$\\8ð4l.îx±dÂ,ÙÅµå»7w]P îÑ\\x00110µ¹ä\\x0001aïT+úD[¾U®_l¹w\"s)mE{öçD5èµ³ºCl\\x0014èdzUI\\x0000êÈ<\/p><p>ÝhóÜ¬Þæ\\x0000ªaÓßy\\x00151J\\x0000ì¯\\x001d_^«UÔ(;\\x001ahÇóãf¾s\\x000ftÓ1\\x001c»eù\\x001eÛ\\x0003H0 µ\\x0000ØAn\\x0006 á÷\\x0011ñÚù|a<\/p><p>Å;gÁ:©\\x0002ÙÚ.A4ö¬KFYÚ,ç<\/p><p>cCÓ5p>f­¸ê}\\x001b\\x0004÷à¤\\x0006(Ø¡&j\\x0018tgVgï;®\\x0017&G2êz~3ÕJµ|;\\x0005\n\\x0013â\\x001aú2 ¤\\x0016l=¶Ð+¯TjÏçQjï~1ª{hZð>÷c½t~R\\x00148T.ÑÇ{\\x000eð*Q»(§ÄVÃ®\\x000c`WB&\\x000eÀJ6´òìæBR%\\x001a Ô¶\\x0008\" \\x000b\\x001ex¿E<\/p><p>RÖ*\\x0014ºíîµ\\x000côD<=\\x00138\\x0002qÎ«Îåô{å\\x000bj2\t9\\x0010¤$5Ê@²iÄ\\x0018å=Ô©M\\x0007oC;Ö@¯N\\x0001¶X«a.Ù¼Ê\\x0008Ê`6+*\"B\\x0003²£L>.\\x0012í\\x0011i\nl=\\x0014«}ÑáR\\x000c¤\\x0011\\x0000kÍòö£\\x001b8kÝ\\x0007½¼8¨oy¢G\\x0003Ç'c\\x0015xF\\x000b\\'\\x0017Ýë\nÈ:*üzÓFs½ÍãÅúBOÆ\\x0015{ùö\\x0014©Ýý¢g¾\\x0002gÙ^?Ô\\x00005\\x001aXR=Ïöíb$r3J8åíÒhe5-iÝå\\x0016>XÙ\\x0013^ô[\\x0014\\x0014SÑÐ®\\x0003ÎºÝò`iÎân#d²ï ì\ttÓ¾kÖ)tOzµ«íÍQlyjön¦C×Ä¼hûÁfø¾Ih\nÜú3ðñYQýý²\\x001aÉ\\x0018qÆ;ýX3Çíøµ­sý:{®Vúþ<ÃyÜáðª°bMèh¾u¿Ø·t²C\\x001d¿-@¹þ:¼áI´­±ß\\x0019jCuüxõ5Y³\\x000cSy½tör\\x000eö_+ïU\\x0010\\x0001j*ç½Y\\x0007ú\\x001bX¿ èDb¨~¾Îêó\\x001e\\x0010Ðú\\x000b{B20Vîh<\/p><p>hk,D\"t>ó<\\x0014áÚ^0$ìÇË9ø5Ó\\x0016©03¼?\\òíýÙ²:´úºòºJ¼×Ó!s=xüó×çqu\\x0001ê×¤¥H\\x00124\np¤±X]i@£²¾¸\\x0019ÚöÝbÙÈó¨7<VÉCPµwâ\\x0012QJÿ~×R³üX0*\\x001b·£\t@X¯Ö¹e\\x0018YÓµ'S\\x0004ÙK\\x0011B)¸ÕÚÜ\\x0018³x§è\\x001d#\\x000fP*N\\x000fX\n)bt\\x0017ç[ßÈ\\x0000auS_+»Nà¤°zµR\\x0003º¡ÛßÌ;pnä-\\x001cÝÊ¯áÚæ\\x0001\\x001cNR\\x0005½½WËêþ1eÞ\\x000cÀ5 \\x001c[\\x0006k¦÷ÕíéS¼:ªgÔ\\x0005Ü±³|¤â0\n\\x0014BeÛÑV6×þ\\x0001\\x0003ßE5Ð3ÐÞü\\ÑI5_?Yuû[~o´â>~\"Ù*¬\\x001b¶\\x001eÑ5Í\\x001bxBûU\\x000cmÙX·PK<¿¾\\x0015\\x0007lð>Ûû\\x001cÃ/P\\x0013·lþz8Ìá¡o÷éË4X¢Q5BËñþä:$×\\x0014\\x0013ÇYÚ¢<\/p><p>üþ¶¬\\x001bâäw]/\\x0000lªêrKY\\x0006NÚÈÃ Scá\\x000b;~Ëð®,¯P;ÁÞ\\x001e´8eÀoÌ§GB\\x0001g6o÷¾Õ7×$ë{\t9{z<\/p><p>øöªN\"\\x0006f.N4Ìv4-/-e~÷7?öÿ¸.Ü¼v\\x001c\\x0008Ï½<\/p><p>oÀ¨·Ñk\\x0008Ð£xp÷?¹üªtÓ\\x0000ùOYÔ\"E{uºZm6/k^Çû?><\/p>","reference":"<p>http://blogs.wsj.com/cio/2013/10/08/adobe-source-code-leak-is-bad-news-for-u-s-government/<\/p>","cweid":"540","wascid":"13","sourceid":"3"}]}]}
+{
+	"@version": "2.11.0",
+	"@generated": "Sun, 10 Oct 2021 03:08:26",
+	"site":[ 
+		{
+			"@name": "https://injep.fr",
+			"@host": "injep.fr",
+			"@port": "443",
+			"@ssl": "true",
+			"alerts": [ 
+				{
+					"pluginid": "10062",
+					"alertRef": "10062",
+					"alert": "PII Disclosure",
+					"name": "PII Disclosure",
+					"riskcode": "3",
+					"confidence": "3",
+					"riskdesc": "High (High)",
+					"desc": "<p>The response contains Personally Identifiable Information, such as CC number, SSN and similar sensitive data.</p>",
+					"instances":[ 
+						{
+							"uri": "https://injep.fr/wp-content/uploads/2021/09/INJEP_Liste-des-acquisitions-n-101-septembre-2021.pdf",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "586333461306562"
+						}
+					],
+					"count": "1",
+					"solution": "",
+					"otherinfo": "<p>Credit Card Type detected: Maestro</p><p>Bank Identification Number: 586333</p><p>Brand: MAESTRO</p><p>Category: STANDARD</p><p>Issuer: </p>",
+					"reference": "",
+					"cweid": "359",
+					"wascid": "13",
+					"sourceid": "2620"
+				},
+				{
+					"pluginid": "10038",
+					"alertRef": "10038",
+					"alert": "Content Security Policy (CSP) Header Not Set",
+					"name": "Content Security Policy (CSP) Header Not Set",
+					"riskcode": "2",
+					"confidence": "3",
+					"riskdesc": "Medium (High)",
+					"desc": "<p>Content Security Policy (CSP) is an added layer of security that helps to detect and mitigate certain types of attacks, including Cross Site Scripting (XSS) and data injection attacks. These attacks are used for everything from data theft to site defacement or distribution of malware. CSP provides a set of standard HTTP headers that allow website owners to declare approved sources of content that browsers should be allowed to load on that page \u2014 covered types are JavaScript, CSS, HTML frames, fonts, images and embeddable objects such as Java applets, ActiveX, audio and video files.</p>",
+					"instances":[ 
+						{
+							"uri": "https://injep.fr",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://injep.fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://injep.fr/analyser/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://injep.fr/centre-de-ressources/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://injep.fr/evenements/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://injep.fr/experimenter/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://injep.fr/linstitut/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://injep.fr/mesurer/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://injep.fr/publications/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://injep.fr/secupress-8d6739e9/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://injep.fr/wp-admin/admin-ajax.php",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						}
+					],
+					"count": "11",
+					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Content-Security-Policy header, to achieve optimal browser support: \"Content-Security-Policy\" for Chrome 25+, Firefox 23+ and Safari 7+, \"X-Content-Security-Policy\" for Firefox 4.0+ and Internet Explorer 10+, and \"X-WebKit-CSP\" for Chrome 14+ and Safari 6+.</p>",
+					"otherinfo": "",
+					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>http://www.w3.org/TR/CSP/</p><p>http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html</p><p>http://www.html5rocks.com/en/tutorials/security/content-security-policy/</p><p>http://caniuse.com/#feat=contentsecuritypolicy</p><p>http://content-security-policy.com/</p>",
+					"cweid": "693",
+					"wascid": "15",
+					"sourceid": "1"
+				},
+				{
+					"pluginid": "10108",
+					"alertRef": "10108",
+					"alert": "Reverse Tabnabbing",
+					"name": "Reverse Tabnabbing",
+					"riskcode": "2",
+					"confidence": "2",
+					"riskdesc": "Medium (Medium)",
+					"desc": "<p>At least one link on this page is vulnerable to Reverse tabnabbing as it uses a target attribute without using both of the \"noopener\" and \"noreferrer\" keywords in the \"rel\" attribute, which allows the target page to take control of this page.</p>",
+					"instances":[ 
+						{
+							"uri": "https://injep.fr",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a href=\"https://www.facebook.com/injep/\" target=\"_blank\"><i class=\"fa fa-facebook fa-2x\" ></i></a>"
+						},
+						{
+							"uri": "https://injep.fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a href=\"https://www.facebook.com/injep/\" target=\"_blank\"><i class=\"fa fa-facebook fa-2x\" ></i></a>"
+						},
+						{
+							"uri": "https://injep.fr/analyser/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a href=\"https://www.facebook.com/injep/\" target=\"_blank\"><i class=\"fa fa-facebook fa-2x\" ></i></a>"
+						},
+						{
+							"uri": "https://injep.fr/centre-de-ressources/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a href=\"https://www.facebook.com/injep/\" target=\"_blank\"><i class=\"fa fa-facebook fa-2x\" ></i></a>"
+						},
+						{
+							"uri": "https://injep.fr/evenements/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a href=\"https://www.facebook.com/injep/\" target=\"_blank\"><i class=\"fa fa-facebook fa-2x\" ></i></a>"
+						},
+						{
+							"uri": "https://injep.fr/experimenter/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a href=\"https://www.facebook.com/injep/\" target=\"_blank\"><i class=\"fa fa-facebook fa-2x\" ></i></a>"
+						},
+						{
+							"uri": "https://injep.fr/linstitut/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a href=\"https://www.facebook.com/injep/\" target=\"_blank\"><i class=\"fa fa-facebook fa-2x\" ></i></a>"
+						},
+						{
+							"uri": "https://injep.fr/mesurer/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a href=\"https://www.facebook.com/injep/\" target=\"_blank\"><i class=\"fa fa-facebook fa-2x\" ></i></a>"
+						},
+						{
+							"uri": "https://injep.fr/publications/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a href=\"https://www.facebook.com/injep/\" target=\"_blank\"><i class=\"fa fa-facebook fa-2x\" ></i></a>"
+						},
+						{
+							"uri": "https://injep.fr/thematique/education-populaire/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a href=\"https://www.facebook.com/injep/\" target=\"_blank\"><i class=\"fa fa-facebook fa-2x\" ></i></a>"
+						},
+						{
+							"uri": "https://injep.fr/thematique/jeunesse/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a href=\"https://www.facebook.com/injep/\" target=\"_blank\"><i class=\"fa fa-facebook fa-2x\" ></i></a>"
+						}
+					],
+					"count": "11",
+					"solution": "<p>Do not use a target attribute, or if you have to then also add the attribute: rel=\"noopener noreferrer\".</p>",
+					"otherinfo": "",
+					"reference": "<p>https://owasp.org/www-community/attacks/Reverse_Tabnabbing</p><p>https://dev.to/ben/the-targetblank-vulnerability-by-example</p><p>https://mathiasbynens.github.io/rel-noopener/</p><p>https://medium.com/@jitbit/target-blank-the-most-underestimated-vulnerability-ever-96e328301f4c</p>",
+					"cweid": "-1",
+					"wascid": "-1",
+					"sourceid": "1"
+				},
+				{
+					"pluginid": "90003",
+					"alertRef": "90003",
+					"alert": "Sub Resource Integrity Attribute Missing",
+					"name": "Sub Resource Integrity Attribute Missing",
+					"riskcode": "2",
+					"confidence": "3",
+					"riskdesc": "Medium (High)",
+					"desc": "<p>The integrity attribute is missing on a script or link tag served by an external server. The integrity tag prevents an attacker who have gained access to this server from injecting a malicious content. </p>",
+					"instances":[ 
+						{
+							"uri": "https://injep.fr",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<link href='https://fonts.gstatic.com' crossorigin rel='preconnect' />"
+						},
+						{
+							"uri": "https://injep.fr",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<link rel=\"preload\" as=\"style\" href=\"https://fonts.googleapis.com/css?family=Roboto%3A400%2C500%2C700%7CMerriweather%3A400%2C700%2C900%2C400italic%2C700italic%2C900italic%7CMontserrat%3A400%2C700%7CInconsolata%3A400&#038;subset=latin%2Clatin-ext&#038;display=swap\" />"
+						},
+						{
+							"uri": "https://injep.fr",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Roboto%3A400%2C500%2C700%7CMerriweather%3A400%2C700%2C900%2C400italic%2C700italic%2C900italic%7CMontserrat%3A400%2C700%7CInconsolata%3A400&#038;subset=latin%2Clatin-ext&#038;display=swap\" />"
+						},
+						{
+							"uri": "https://injep.fr",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Roboto%3A400%2C500%2C700%7CMerriweather%3A400%2C700%2C900%2C400italic%2C700italic%2C900italic%7CMontserrat%3A400%2C700%7CInconsolata%3A400&#038;subset=latin%2Clatin-ext&#038;display=swap\" media=\"print\" onload=\"this.media='all'\" />"
+						},
+						{
+							"uri": "https://injep.fr",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<link rel='shortlink' href='https://wp.me/bAmw6' />"
+						},
+						{
+							"uri": "https://injep.fr",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>"
+						},
+						{
+							"uri": "https://injep.fr",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script src=\"https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js\"></script>"
+						},
+						{
+							"uri": "https://injep.fr",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script src='https://stats.wp.com/e-202140.js' defer></script>"
+						},
+						{
+							"uri": "https://injep.fr",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script type=\"text/javascript\" src=\"https://code.jquery.com/jquery-1.11.3.min.js\"></script>"
+						}
+					],
+					"count": "9",
+					"solution": "<p>Provide a valid integrity attribute to the tag.</p>",
+					"otherinfo": "",
+					"reference": "<p>https://developer.mozilla.org/en/docs/Web/Security/Subresource_Integrity</p>",
+					"cweid": "345",
+					"wascid": "15",
+					"sourceid": "1"
+				},
+				{
+					"pluginid": "10202",
+					"alertRef": "10202",
+					"alert": "Absence of Anti-CSRF Tokens",
+					"name": "Absence of Anti-CSRF Tokens",
+					"riskcode": "1",
+					"confidence": "2",
+					"riskdesc": "Low (Medium)",
+					"desc": "<p>No Anti-CSRF tokens were found in a HTML submission form.</p><p>A cross-site request forgery is an attack that involves forcing a victim to send an HTTP request to a target destination without their knowledge or intent in order to perform an action as the victim. The underlying cause is application functionality using predictable URL/form actions in a repeatable way. The nature of the attack is that CSRF exploits the trust that a web site has for a user. By contrast, cross-site scripting (XSS) exploits the trust that a user has for a web site. Like XSS, CSRF attacks are not necessarily cross-site, but they can be. Cross-site request forgery is also known as CSRF, XSRF, one-click attack, session riding, confused deputy, and sea surf.</p><p></p><p>CSRF attacks are effective in a number of situations, including:</p><p>    * The victim has an active session on the target site.</p><p>    * The victim is authenticated via HTTP auth on the target site.</p><p>    * The victim is on the same local network as the target site.</p><p></p><p>CSRF has primarily been used to perform an action against a target site using the victim's privileges, but recent techniques have been discovered to disclose information by gaining access to the response. The risk of information disclosure is dramatically increased when the target site is vulnerable to XSS, because XSS can be used as a platform for CSRF, allowing the attack to operate within the bounds of the same-origin policy.</p>",
+					"instances":[ 
+						{
+							"uri": "https://injep.fr",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form role=\"search\" method=\"get\" class=\"search\" action=\"https://injep.fr/\">"
+						},
+						{
+							"uri": "https://injep.fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form role=\"search\" method=\"get\" class=\"search\" action=\"https://injep.fr/\">"
+						},
+						{
+							"uri": "https://injep.fr/analyser/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form role=\"search\" method=\"get\" class=\"search\" action=\"https://injep.fr/\">"
+						},
+						{
+							"uri": "https://injep.fr/centre-de-ressources/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form role=\"search\" method=\"get\" class=\"search\" action=\"https://injep.fr/\">"
+						},
+						{
+							"uri": "https://injep.fr/evenements/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form role=\"search\" method=\"get\" class=\"search\" action=\"https://injep.fr/\">"
+						},
+						{
+							"uri": "https://injep.fr/experimenter/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form role=\"search\" method=\"get\" class=\"search\" action=\"https://injep.fr/\">"
+						},
+						{
+							"uri": "https://injep.fr/linstitut/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form role=\"search\" method=\"get\" class=\"search\" action=\"https://injep.fr/\">"
+						},
+						{
+							"uri": "https://injep.fr/mesurer/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form role=\"search\" method=\"get\" class=\"search\" action=\"https://injep.fr/\">"
+						},
+						{
+							"uri": "https://injep.fr/publications/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form role=\"search\" method=\"get\" class=\"search\" action=\"https://injep.fr/\">"
+						},
+						{
+							"uri": "https://injep.fr/thematique/education-populaire/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form role=\"search\" method=\"get\" class=\"search\" action=\"https://injep.fr/\">"
+						},
+						{
+							"uri": "https://injep.fr/thematique/jeunesse/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form role=\"search\" method=\"get\" class=\"search\" action=\"https://injep.fr/\">"
+						}
+					],
+					"count": "11",
+					"solution": "<p>Phase: Architecture and Design</p><p>Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.</p><p>For example, use anti-CSRF packages such as the OWASP CSRFGuard.</p><p></p><p>Phase: Implementation</p><p>Ensure that your application is free of cross-site scripting issues, because most CSRF defenses can be bypassed using attacker-controlled script.</p><p></p><p>Phase: Architecture and Design</p><p>Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Be sure that the nonce is not predictable (CWE-330).</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Identify especially dangerous operations. When the user performs a dangerous operation, send a separate confirmation request to ensure that the user intended to perform that operation.</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Use the ESAPI Session Management control.</p><p>This control includes a component for CSRF.</p><p></p><p>Do not use the GET method for any request that triggers a state change.</p><p></p><p>Phase: Implementation</p><p>Check the HTTP Referer header to see if the request originated from an expected page. This could break legitimate functionality, because users or proxies may have disabled sending the Referer for privacy reasons.</p>",
+					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"s\" ].</p>",
+					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>http://cwe.mitre.org/data/definitions/352.html</p>",
+					"cweid": "352",
+					"wascid": "9",
+					"sourceid": "1"
+				},
+				{
+					"pluginid": "10054",
+					"alertRef": "10054",
+					"alert": "Cookie without SameSite Attribute",
+					"name": "Cookie without SameSite Attribute",
+					"riskcode": "1",
+					"confidence": "2",
+					"riskdesc": "Low (Medium)",
+					"desc": "<p>A cookie has been set without the SameSite attribute, which means that the cookie can be sent as a result of a 'cross-site' request. The SameSite attribute is an effective counter measure to cross-site request forgery, cross-site script inclusion, and timing attacks.</p>",
+					"instances":[ 
+						{
+							"uri": "https://injep.fr",
+							"method": "GET",
+							"param": "BIGipServerpool-djepva-injep-portail.cegedim.cloud-HTTP",
+							"attack": "",
+							"evidence": "Set-Cookie: BIGipServerpool-djepva-injep-portail.cegedim.cloud-HTTP"
+						},
+						{
+							"uri": "https://injep.fr/robots.txt",
+							"method": "GET",
+							"param": "BIGipServerpool-djepva-injep-portail.cegedim.cloud-HTTP",
+							"attack": "",
+							"evidence": "Set-Cookie: BIGipServerpool-djepva-injep-portail.cegedim.cloud-HTTP"
+						}
+					],
+					"count": "2",
+					"solution": "<p>Ensure that the SameSite attribute is set to either 'lax' or ideally 'strict' for all cookies.</p>",
+					"otherinfo": "",
+					"reference": "<p>https://tools.ietf.org/html/draft-ietf-httpbis-cookie-same-site</p>",
+					"cweid": "1275",
+					"wascid": "13",
+					"sourceid": "1"
+				},
+				{
+					"pluginid": "10017",
+					"alertRef": "10017",
+					"alert": "Cross-Domain JavaScript Source File Inclusion",
+					"name": "Cross-Domain JavaScript Source File Inclusion",
+					"riskcode": "1",
+					"confidence": "2",
+					"riskdesc": "Low (Medium)",
+					"desc": "<p>The page includes one or more script files from a third-party domain.</p>",
+					"instances":[ 
+						{
+							"uri": "https://injep.fr",
+							"method": "GET",
+							"param": "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js",
+							"attack": "",
+							"evidence": "<script src=\"https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js\"></script>"
+						},
+						{
+							"uri": "https://injep.fr",
+							"method": "GET",
+							"param": "https://code.jquery.com/jquery-1.11.3.min.js",
+							"attack": "",
+							"evidence": "<script type=\"text/javascript\" src=\"https://code.jquery.com/jquery-1.11.3.min.js\"></script>"
+						},
+						{
+							"uri": "https://injep.fr",
+							"method": "GET",
+							"param": "https://platform.twitter.com/widgets.js",
+							"attack": "",
+							"evidence": "<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>"
+						},
+						{
+							"uri": "https://injep.fr",
+							"method": "GET",
+							"param": "https://stats.wp.com/e-202140.js",
+							"attack": "",
+							"evidence": "<script src='https://stats.wp.com/e-202140.js' defer></script>"
+						},
+						{
+							"uri": "https://injep.fr/",
+							"method": "GET",
+							"param": "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js",
+							"attack": "",
+							"evidence": "<script src=\"https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js\"></script>"
+						},
+						{
+							"uri": "https://injep.fr/",
+							"method": "GET",
+							"param": "https://code.jquery.com/jquery-1.11.3.min.js",
+							"attack": "",
+							"evidence": "<script type=\"text/javascript\" src=\"https://code.jquery.com/jquery-1.11.3.min.js\"></script>"
+						},
+						{
+							"uri": "https://injep.fr/",
+							"method": "GET",
+							"param": "https://platform.twitter.com/widgets.js",
+							"attack": "",
+							"evidence": "<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>"
+						},
+						{
+							"uri": "https://injep.fr/",
+							"method": "GET",
+							"param": "https://stats.wp.com/e-202140.js",
+							"attack": "",
+							"evidence": "<script src='https://stats.wp.com/e-202140.js' defer></script>"
+						}
+					],
+					"count": "8",
+					"solution": "<p>Ensure JavaScript source files are loaded from only trusted sources, and the sources can't be controlled by end users of the application.</p>",
+					"otherinfo": "",
+					"reference": "",
+					"cweid": "829",
+					"wascid": "15",
+					"sourceid": "1"
+				},
+				{
+					"pluginid": "10110",
+					"alertRef": "10110",
+					"alert": "Dangerous JS Functions",
+					"name": "Dangerous JS Functions",
+					"riskcode": "1",
+					"confidence": "1",
+					"riskdesc": "Low (Low)",
+					"desc": "<p>A dangerous JS function seems to be in use that would leave the site vulnerable.</p>",
+					"instances":[ 
+						{
+							"uri": "https://injep.fr/wp-content/themes/injep-theme/js/tarteaucitron/tarteaucitron.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "eval"
+						},
+						{
+							"uri": "https://injep.fr/wp-includes/js/jquery/jquery.min.js?ver=3.6.0",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Eval"
+						}
+					],
+					"count": "2",
+					"solution": "<p>See the references for security advice on the use of these functions.</p>",
+					"otherinfo": "",
+					"reference": "<p>https://angular.io/guide/security</p>",
+					"cweid": "749",
+					"wascid": "-1",
+					"sourceid": "1272"
+				},
+				{
+					"pluginid": "10015",
+					"alertRef": "10015",
+					"alert": "Incomplete or No Cache-control Header Set",
+					"name": "Incomplete or No Cache-control Header Set",
+					"riskcode": "1",
+					"confidence": "2",
+					"riskdesc": "Low (Medium)",
+					"desc": "<p>The cache-control header has not been set properly or is missing, allowing the browser and proxies to cache content.</p>",
+					"instances":[ 
+						{
+							"uri": "https://injep.fr",
+							"method": "GET",
+							"param": "Cache-Control",
+							"attack": "",
+							"evidence": "public"
+						},
+						{
+							"uri": "https://injep.fr/",
+							"method": "GET",
+							"param": "Cache-Control",
+							"attack": "",
+							"evidence": "public"
+						},
+						{
+							"uri": "https://injep.fr/analyser/",
+							"method": "GET",
+							"param": "Cache-Control",
+							"attack": "",
+							"evidence": "public"
+						},
+						{
+							"uri": "https://injep.fr/centre-de-ressources/",
+							"method": "GET",
+							"param": "Cache-Control",
+							"attack": "",
+							"evidence": "public"
+						},
+						{
+							"uri": "https://injep.fr/evenements/",
+							"method": "GET",
+							"param": "Cache-Control",
+							"attack": "",
+							"evidence": "public"
+						},
+						{
+							"uri": "https://injep.fr/experimenter/",
+							"method": "GET",
+							"param": "Cache-Control",
+							"attack": "",
+							"evidence": "public"
+						},
+						{
+							"uri": "https://injep.fr/linstitut/",
+							"method": "GET",
+							"param": "Cache-Control",
+							"attack": "",
+							"evidence": "public"
+						},
+						{
+							"uri": "https://injep.fr/mesurer/",
+							"method": "GET",
+							"param": "Cache-Control",
+							"attack": "",
+							"evidence": "public"
+						},
+						{
+							"uri": "https://injep.fr/publications/",
+							"method": "GET",
+							"param": "Cache-Control",
+							"attack": "",
+							"evidence": "public"
+						},
+						{
+							"uri": "https://injep.fr/robots.txt",
+							"method": "GET",
+							"param": "Cache-Control",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://injep.fr/sitemap.xml",
+							"method": "GET",
+							"param": "Cache-Control",
+							"attack": "",
+							"evidence": ""
+						}
+					],
+					"count": "11",
+					"solution": "<p>Whenever possible ensure the cache-control HTTP header is set with no-cache, no-store, must-revalidate.</p>",
+					"otherinfo": "",
+					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p>",
+					"cweid": "525",
+					"wascid": "13",
+					"sourceid": "1"
+				},
+				{
+					"pluginid": "10063",
+					"alertRef": "10063",
+					"alert": "Permissions Policy Header Not Set",
+					"name": "Permissions Policy Header Not Set",
+					"riskcode": "1",
+					"confidence": "2",
+					"riskdesc": "Low (Medium)",
+					"desc": "<p>Permissions Policy Header is an added layer of security that helps to restrict from unauthorized access or usage of browser/client features by web resources. This policy ensures the user privacy by limiting or specifying the features of the browsers can be used by the web resources. Permissions Policy provides a set of standard HTTP headers that allow website owners to limit which features of browsers can be used by the page such as camera, microphone, location, full screen etc.</p>",
+					"instances":[ 
+						{
+							"uri": "https://injep.fr",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://injep.fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://injep.fr/analyser/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://injep.fr/centre-de-ressources/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://injep.fr/evenements/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://injep.fr/experimenter/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://injep.fr/linstitut/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://injep.fr/mesurer/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://injep.fr/publications/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://injep.fr/secupress-8d6739e9/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://injep.fr/wp-admin/admin-ajax.php",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						}
+					],
+					"count": "11",
+					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Permissions-Policy header.</p>",
+					"otherinfo": "",
+					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy</p><p>https://developers.google.com/web/updates/2018/06/feature-policy</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
+					"cweid": "693",
+					"wascid": "15",
+					"sourceid": "1"
+				},
+				{
+					"pluginid": "10040",
+					"alertRef": "10040",
+					"alert": "Secure Pages Include Mixed Content",
+					"name": "Secure Pages Include Mixed Content",
+					"riskcode": "1",
+					"confidence": "2",
+					"riskdesc": "Low (Medium)",
+					"desc": "<p>The page includes mixed content, that is content accessed via HTTP instead of HTTPS.</p>",
+					"instances":[ 
+						{
+							"uri": "https://injep.fr/donnee/accueils-collectifs-de-mineurs-2009-2010-a-2017-2018/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "http://mtsfp-vm-injep-preprod.accelance.net/wp-content/uploads/2018/12/1_0.jpg"
+						},
+						{
+							"uri": "https://injep.fr/evenement/bande-dessinee-jeunesses-et-activites-corporelles/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "http://www.injep.fr/sites/default/files/styles/body/public/images/conf-angouleme.jpg?itok=xvKs7t_1"
+						},
+						{
+							"uri": "https://injep.fr/evenement/jeunes-sans-diplomes-quels-rapports-au-travail-et-a-lemploi/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "http://www.injep.fr/sites/default/files/styles/body/public/images/conf31mai-3.jpg?itok=V3tIXpGx"
+						},
+						{
+							"uri": "https://injep.fr/evenement/les-groupements-demployeurs-une-solution-pour-lavenir-du-secteur-associatif/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "http://www.injep.fr/sites/default/files/styles/body/public/images/img_3453.jpg?itok=4RqvwgH1"
+						},
+						{
+							"uri": "https://injep.fr/evenement/les-rencontres-2017-les-nouvelles-jeunesses-de-la-democratie-une-revitalisation-de-la-participation-citoyenne/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "http://mtsfp-vm-injep-preprod.accelance.net/wp-content/uploads/2018/12/retour-renc2017-diapo.jpg"
+						},
+						{
+							"uri": "https://injep.fr/injep_veille_actus/468-29-septembre-2021/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "http://newsmailer.fr/templates/124/images/ministere-en-2018.gif"
+						}
+					],
+					"count": "6",
+					"solution": "<p>A page that is available over SSL/TLS must be comprised completely of content which is transmitted over SSL/TLS.</p><p>The page must not contain any content that is transmitted over unencrypted HTTP.</p><p> This includes content from third party sites.</p>",
+					"otherinfo": "<p>tag=img src=http://mtsfp-vm-injep-preprod.accelance.net/wp-content/uploads/2018/12/1_0.jpg</p><p>tag=img src=http://mtsfp-vm-injep-preprod.accelance.net/wp-content/uploads/2018/12/2.jpg</p><p>tag=img src=http://mtsfp-vm-injep-preprod.accelance.net/wp-content/uploads/2018/12/3.jpg</p><p></p>",
+					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Protection_Cheat_Sheet.html</p>",
+					"cweid": "311",
+					"wascid": "4",
+					"sourceid": "3878"
+				},
+				{
+					"pluginid": "10096",
+					"alertRef": "10096",
+					"alert": "Timestamp Disclosure - Unix",
+					"name": "Timestamp Disclosure - Unix",
+					"riskcode": "1",
+					"confidence": "1",
+					"riskdesc": "Low (Low)",
+					"desc": "<p>A timestamp was disclosed by the application/web server - Unix</p>",
+					"instances":[ 
+						{
+							"uri": "https://injep.fr",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1632749313"
+						},
+						{
+							"uri": "https://injep.fr",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1633700973"
+						},
+						{
+							"uri": "https://injep.fr",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "171206062"
+						},
+						{
+							"uri": "https://injep.fr",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "20160816"
+						},
+						{
+							"uri": "https://injep.fr",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "65679656"
+						}
+					],
+					"count": "5",
+					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
+					"otherinfo": "<p>1632749313, which evaluates to: 2021-09-27 13:28:33</p>",
+					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
+					"cweid": "200",
+					"wascid": "13",
+					"sourceid": "1"
+				},
+				{
+					"pluginid": "10094",
+					"alertRef": "10094",
+					"alert": "Base64 Disclosure",
+					"name": "Base64 Disclosure",
+					"riskcode": "0",
+					"confidence": "2",
+					"riskdesc": "Informational (Medium)",
+					"desc": "<p>Base64 encoded data was disclosed by the application/web server. Note: in the interests of performance not all base64 strings in the response were analyzed individually, the entire response should be looked at by the analyst/security team/developer(s).</p>",
+					"instances":[ 
+						{
+							"uri": "https://injep.fr",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "9Hj1tHwWcL886OR7bLUtGytATXjoYPhJJTLNsjBzi1AJ0oCrY20sA5x4O1I9nW+cnHbK/PfGM+l5+91nFxZw9dmYQAM="
+						},
+						{
+							"uri": "https://injep.fr",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "gs99kIePA4PDuXh7bLUtGytATXjoYA/vpU6bMMUsSx8EdvVlZGOLJgUy3MTiRuor5rsx+8Cz1jhJ5LvNYBYBSaNnMjI="
+						},
+						{
+							"uri": "https://injep.fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "com/channel/UCShs01H7M6fMT_pX0B7NojA"
+						},
+						{
+							"uri": "https://injep.fr/analyser/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "com/channel/UCShs01H7M6fMT_pX0B7NojA"
+						},
+						{
+							"uri": "https://injep.fr/centre-de-ressources/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "com/channel/UCShs01H7M6fMT_pX0B7NojA"
+						},
+						{
+							"uri": "https://injep.fr/evenements/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "com/channel/UCShs01H7M6fMT_pX0B7NojA"
+						},
+						{
+							"uri": "https://injep.fr/experimenter/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "com/channel/UCShs01H7M6fMT_pX0B7NojA"
+						},
+						{
+							"uri": "https://injep.fr/linstitut/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "fr/wp-content/cache/min/1/wp-content/themes/injep-theme/IE/ie11"
+						},
+						{
+							"uri": "https://injep.fr/mesurer/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "com/channel/UCShs01H7M6fMT_pX0B7NojA"
+						},
+						{
+							"uri": "https://injep.fr/publications/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "com/channel/UCShs01H7M6fMT_pX0B7NojA"
+						},
+						{
+							"uri": "https://injep.fr/robots.txt",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "AL9/JM8M11CuBiV7bLUtGytATXjoYO3ZAaEg5WTwJlIr2tNxGrm5u3z6sbluIlpGPjUZre0UdCgG2lOG+DCU6f33d48="
+						},
+						{
+							"uri": "https://injep.fr/thematique/jeunesse/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "com/channel/UCShs01H7M6fMT_pX0B7NojA"
+						}
+					],
+					"count": "12",
+					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
+					"otherinfo": "<p>\uFFFDx\uFFFD\uFFFD|\\x0016p\uFFFD<\uFFFD\uFFFD{l\uFFFD-\\x001b+@Mx\uFFFD`\uFFFDI%2\u03720s\uFFFDP\t\u0480\uFFFDcm,\\x0003\uFFFDx;R=\uFFFDo\uFFFD\uFFFDv\uFFFD\uFFFD\uFFFD\uFFFD3\uFFFDy\uFFFD\uFFFDg\\x0017\\x0016p\uFFFD\u0658@\\x0003</p>",
+					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
+					"cweid": "200",
+					"wascid": "13",
+					"sourceid": "1"
+				},
+				{
+					"pluginid": "90011",
+					"alertRef": "90011",
+					"alert": "Charset Mismatch ",
+					"name": "Charset Mismatch ",
+					"riskcode": "0",
+					"confidence": "1",
+					"riskdesc": "Informational (Low)",
+					"desc": "<p>This check identifies responses where the HTTP Content-Type header declares a charset different from the charset defined by the body of the HTML or XML. When there's a charset mismatch between the HTTP header and content body Web browsers can be forced into an undesirable content-sniffing mode to determine the content's correct character set.</p><p></p><p>An attacker could manipulate content on the page to be interpreted in an encoding of their choice. For example, if an attacker can control content at the beginning of the page, they could inject script using UTF-7 encoded text and manipulate some browsers into interpreting that text.</p>",
+					"instances":[ 
+						{
+							"uri": "https://injep.fr/wp-json/oembed/1.0/embed?format=xml&url=https%3A%2F%2Finjep.fr%2Fcentre-de-ressources%2F",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://injep.fr/wp-json/oembed/1.0/embed?format=xml&url=https%3A%2F%2Finjep.fr%2Flinstitut%2F",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						}
+					],
+					"count": "2",
+					"solution": "<p>Force UTF-8 for all text content in both the HTTP header and meta tags in HTML or encoding declarations in XML.</p>",
+					"otherinfo": "<p>There was a charset mismatch between the HTTP Header and the XML encoding declaration: [UTF-8] and [null] do not match.</p>",
+					"reference": "<p>http://code.google.com/p/browsersec/wiki/Part2#Character_set_handling_and_detection</p>",
+					"cweid": "436",
+					"wascid": "15",
+					"sourceid": "2610"
+				},
+				{
+					"pluginid": "10027",
+					"alertRef": "10027",
+					"alert": "Information Disclosure - Suspicious Comments",
+					"name": "Information Disclosure - Suspicious Comments",
+					"riskcode": "0",
+					"confidence": "1",
+					"riskdesc": "Informational (Low)",
+					"desc": "<p>The response appears to contain suspicious comments which may help an attacker. Note: Matches made within script blocks or files are against the entire content not only comments.</p>",
+					"instances":[ 
+						{
+							"uri": "https://injep.fr",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "query"
+						},
+						{
+							"uri": "https://injep.fr",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "user"
+						},
+						{
+							"uri": "https://injep.fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "query"
+						},
+						{
+							"uri": "https://injep.fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "user"
+						},
+						{
+							"uri": "https://injep.fr/analyser/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "query"
+						},
+						{
+							"uri": "https://injep.fr/analyser/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "user"
+						},
+						{
+							"uri": "https://injep.fr/linstitut/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "query"
+						},
+						{
+							"uri": "https://injep.fr/linstitut/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "user"
+						},
+						{
+							"uri": "https://injep.fr/mesurer/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "query"
+						},
+						{
+							"uri": "https://injep.fr/mesurer/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "user"
+						}
+					],
+					"count": "10",
+					"solution": "<p>Remove all comments that return information that may help an attacker and fix any underlying problems they refer to.</p>",
+					"otherinfo": "<p>The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Organization\"\", see evidence field for the suspicious comment/snippet.</p>",
+					"reference": "",
+					"cweid": "200",
+					"wascid": "13",
+					"sourceid": "1"
+				},
+				{
+					"pluginid": "10109",
+					"alertRef": "10109",
+					"alert": "Modern Web Application",
+					"name": "Modern Web Application",
+					"riskcode": "0",
+					"confidence": "2",
+					"riskdesc": "Informational (Medium)",
+					"desc": "<p>The application appears to be a modern web application. If you need to explore it automatically then the Ajax Spider may well be more effective than the standard one.</p>",
+					"instances":[ 
+						{
+							"uri": "https://injep.fr",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<noscript><link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Roboto%3A400%2C500%2C700%7CMerriweather%3A400%2C700%2C900%2C400italic%2C700italic%2C900italic%7CMontserrat%3A400%2C700%7CInconsolata%3A400&#038;subset=latin%2Clatin-ext&#038;display=swap\" /></noscript>"
+						},
+						{
+							"uri": "https://injep.fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<noscript><link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Roboto%3A400%2C500%2C700%7CMerriweather%3A400%2C700%2C900%2C400italic%2C700italic%2C900italic%7CMontserrat%3A400%2C700%7CInconsolata%3A400&#038;subset=latin%2Clatin-ext&#038;display=swap\" /></noscript>"
+						},
+						{
+							"uri": "https://injep.fr/analyser/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<noscript><link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Roboto%3A400%2C500%2C700%7CMerriweather%3A400%2C700%2C900%2C400italic%2C700italic%2C900italic%7CMontserrat%3A400%2C700%7CInconsolata%3A400&#038;subset=latin%2Clatin-ext&#038;display=swap\" /></noscript>"
+						},
+						{
+							"uri": "https://injep.fr/centre-de-ressources/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<noscript><link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Roboto%3A400%2C500%2C700%7CMerriweather%3A400%2C700%2C900%2C400italic%2C700italic%2C900italic%7CMontserrat%3A400%2C700%7CInconsolata%3A400&#038;subset=latin%2Clatin-ext&#038;display=swap\" /></noscript>"
+						},
+						{
+							"uri": "https://injep.fr/evenements/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<noscript><link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Roboto%3A400%2C500%2C700%7CMerriweather%3A400%2C700%2C900%2C400italic%2C700italic%2C900italic%7CMontserrat%3A400%2C700%7CInconsolata%3A400&#038;subset=latin%2Clatin-ext&#038;display=swap\" /></noscript>"
+						},
+						{
+							"uri": "https://injep.fr/experimenter/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<noscript><link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Roboto%3A400%2C500%2C700%7CMerriweather%3A400%2C700%2C900%2C400italic%2C700italic%2C900italic%7CMontserrat%3A400%2C700%7CInconsolata%3A400&#038;subset=latin%2Clatin-ext&#038;display=swap\" /></noscript>"
+						},
+						{
+							"uri": "https://injep.fr/linstitut/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<noscript><link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Roboto%3A400%2C500%2C700%7CMerriweather%3A400%2C700%2C900%2C400italic%2C700italic%2C900italic%7CMontserrat%3A400%2C700%7CInconsolata%3A400&#038;subset=latin%2Clatin-ext&#038;display=swap\" /></noscript>"
+						},
+						{
+							"uri": "https://injep.fr/mesurer/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<noscript><link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Roboto%3A400%2C500%2C700%7CMerriweather%3A400%2C700%2C900%2C400italic%2C700italic%2C900italic%7CMontserrat%3A400%2C700%7CInconsolata%3A400&#038;subset=latin%2Clatin-ext&#038;display=swap\" /></noscript>"
+						},
+						{
+							"uri": "https://injep.fr/publications/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<noscript><link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Roboto%3A400%2C500%2C700%7CMerriweather%3A400%2C700%2C900%2C400italic%2C700italic%2C900italic%7CMontserrat%3A400%2C700%7CInconsolata%3A400&#038;subset=latin%2Clatin-ext&#038;display=swap\" /></noscript>"
+						},
+						{
+							"uri": "https://injep.fr/thematique/education-populaire/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<noscript><link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Roboto%3A400%2C500%2C700%7CMerriweather%3A400%2C700%2C900%2C400italic%2C700italic%2C900italic%7CMontserrat%3A400%2C700%7CInconsolata%3A400&#038;subset=latin%2Clatin-ext&#038;display=swap\" /></noscript>"
+						},
+						{
+							"uri": "https://injep.fr/thematique/jeunesse/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<noscript><link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Roboto%3A400%2C500%2C700%7CMerriweather%3A400%2C700%2C900%2C400italic%2C700italic%2C900italic%7CMontserrat%3A400%2C700%7CInconsolata%3A400&#038;subset=latin%2Clatin-ext&#038;display=swap\" /></noscript>"
+						}
+					],
+					"count": "11",
+					"solution": "<p>This is an informational alert and so no changes are required.</p>",
+					"otherinfo": "<p>A noScript tag has been found, which is an indication that the application works differently with JavaScript enabled compared to when it is not.</p>",
+					"reference": "",
+					"cweid": "-1",
+					"wascid": "-1",
+					"sourceid": "1"
+				},
+				{
+					"pluginid": "10049",
+					"alertRef": "10049",
+					"alert": "Storable and Cacheable Content",
+					"name": "Storable and Cacheable Content",
+					"riskcode": "0",
+					"confidence": "2",
+					"riskdesc": "Informational (Medium)",
+					"desc": "<p>The response contents are storable by caching components such as proxy servers, and may be retrieved directly from the cache, rather than from the origin server by the caching servers, in response to similar requests from other users.  If the response data is sensitive, personal or user-specific, this may result in sensitive information being leaked. In some cases, this may even result in a user gaining complete control of the session of another user, depending on the configuration of the caching components in use in their environment. This is primarily an issue where \"shared\" caching servers such as \"proxy\" caches are configured on the local network. This configuration is typically found in corporate or educational environments, for instance.</p>",
+					"instances":[ 
+						{
+							"uri": "https://injep.fr",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://injep.fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://injep.fr/analyser/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://injep.fr/experimenter/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://injep.fr/linstitut/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://injep.fr/mesurer/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://injep.fr/publications/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://injep.fr/robots.txt",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://injep.fr/sitemap.xml",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						}
+					],
+					"count": "9",
+					"solution": "<p>Validate that the response does not contain sensitive, personal or user-specific information.  If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:</p><p>Cache-Control: no-cache, no-store, must-revalidate, private</p><p>Pragma: no-cache</p><p>Expires: 0</p><p>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request. </p>",
+					"otherinfo": "<p>In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234.</p>",
+					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
+					"cweid": "524",
+					"wascid": "13",
+					"sourceid": "1"
+				},
+				{
+					"pluginid": "10049",
+					"alertRef": "10049",
+					"alert": "Storable but Non-Cacheable Content",
+					"name": "Storable but Non-Cacheable Content",
+					"riskcode": "0",
+					"confidence": "2",
+					"riskdesc": "Informational (Medium)",
+					"desc": "<p>The response contents are storable by caching components such as proxy servers, but will not be retrieved directly from the cache, without validating the request upstream, in response to similar requests from other users. </p>",
+					"instances":[ 
+						{
+							"uri": "https://injep.fr",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://injep.fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://injep.fr/analyser/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://injep.fr/experimenter/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://injep.fr/linstitut/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://injep.fr/mesurer/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://injep.fr/publications/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://injep.fr/robots.txt",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://injep.fr/sitemap.xml",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						}
+					],
+					"count": "9",
+					"solution": "",
+					"otherinfo": "",
+					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
+					"cweid": "524",
+					"wascid": "13",
+					"sourceid": "109"
+				}
+			]
+		}
+	]
+}
