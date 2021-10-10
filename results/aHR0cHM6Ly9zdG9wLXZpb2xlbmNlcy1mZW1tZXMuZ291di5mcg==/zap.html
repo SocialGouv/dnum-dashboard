@@ -1,1531 +1,1959 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>ZAP Scanning Report</title>
-        <style>
-body{
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-  color: #000;
-  font-size: 13px;
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>ZAP Scanning Report</title>
+<style type="text/css">
+body {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #000;
+	font-size: 13px;
 }
-h1{
-  text-align: center;
-  font-weight: bold;
-  font-size: 32px
+
+h1 {
+	text-align: center;
+	font-weight: bold;
+	font-size: 32px
 }
-h3{
-  font-size: 16px;
+
+h3 {
+	font-size: 16px;
 }
-table{
-  border: none;
-  font-size: 13px;
+
+table {
+	border: none;
+	font-size: 13px;
 }
+
 td, th {
-  padding: 3px 4px;
-  word-break: break-word;
+	padding: 3px 4px;
+	word-break: break-word;
 }
-th{
-  font-weight: bold;
+
+th {
+	font-weight: bold;
+	background-color: #666666;
 }
-.results th{
-  text-align: left;
+
+td {
+	background-color: #e8e8e8;
 }
-.spacer{
-  margin: 10px;
+
+.spacer {
+	margin: 10px;
 }
-.spacer-lg{
-  margin: 40px;
+
+.spacer-lg {
+	margin: 40px;
 }
-.indent1{
-  padding: 4px 20px;
+
+.indent1 {
+	padding: 4px 20px;
 }
-.indent2{
-  padding: 4px 40px;
+
+.indent2 {
+	padding: 4px 40px;
 }
-.risk-high{
-  background-color: red;
-  color: #FFF;
+
+.risk-3 {
+	background-color: red;
+	color: #FFF;
 }
-.risk-medium{
-  background-color: orange;
-  color: #FFF;
+
+.risk-2 {
+	background-color: orange;
+	color: #FFF;
 }
-.risk-low{
-  background-color: yellow;
-  color: #000;
+
+.risk-1 {
+	background-color: yellow;
+	color: #000;
 }
-.risk-info{
-  background-color: blue;
-  color: #FFF;
+
+.risk-0 {
+	background-color: blue;
+	color: #FFF;
 }
-.summary th{
-  color: #FFF;
+
+.risk--1 {
+	background-color: green;
+	color: #FFF;
 }
-.alerts th{
-  color: #FFF;
+
+.summary {
+	width: 45%;
 }
-.left-header{
-  display: inline-block;
+
+.summary th {
+	color: #FFF;
 }
-.time-stamp{
-  float: right;
+
+.alerts {
+	width: 75%;
+}
+
+.alerts th {
+	color: #FFF;
+}
+
+.results {
+	width: 100%;
+}
+
+.results th {
+	text-align: left;
+}
+
+.left-header {
+	display: inline-block;
 }
 </style>
-    </head>
-    <body>
-        <h1>
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAABqbAAAamwHdbkbTAAAAB3RJTUUH4QsKDDQPKy6k8AAABxpJREFUWMO9l31sVWcdxz+/55xzbwt9QddJExClvIzNxTKJDZi22oJSbFZpmRb4g8sfhpEIwXQNTKh0NYgiMKIwo5AsdIxdQldGNBN5W2OTFRVcIZE1YwExcXOdc1DK+nLvOc/PP87tC9CWsj98bp6ck3Ofc57v7+37/T3wYGMucBR4F/gK/8exAugAdPXq1bpx40YFekZdHYuP+8PuGP+lAc8CmzIyMtLq6uqora3FcRwAzp49m/7Wv5O95tsNEfyEKvwH9B1V2hT7GnB+PABkhGePAvVA9dy5c6mvr2fp0qX3LOru7iYrK4toSQ1OXhGKohpOiyVQe0NVn9PGFb8iFofGFSMCMMPulwEXgbdXrlxZ3dHRQXt7+4ibA2RmZtLc3Ex/y/O4fg8RMUSMS8RxiRiPqPE+4xrnl07syA3Q+aN5wADlwO1oNPpqQ0NDfl9fH4cPH2bOnDn3dV9VVRWVlVV88vsteNF0XCO4xuA6Bs9xiBgPz/EmueKcIxavHyk/BPjnli1bpm3btu1TZ2hmxkTk8aeYMK8aay1WFVWwqgSqBDYgqQFJGxygccWa4e86IhJpbW39Zk5ODgUFBZ8KwOLFZeyr/wHZs0vw0jMxIqFpAuFt+EOYZ/OrAi41t96dhF8HThcWFnpnzpwhGo0+MIhnamvZs+8AM55uIhn4+Cnrkza8Wqv4NiBhfXwNCgxy3jauuKMKPOCPrpHSU2fOUlJS8sAg8qZP50bGY0xeuIFk4JO0SnIYiMAqSRuQDPyPgsbqh++ugqSsPXGC+WsoLS1lzZqnHxhA40svcfPvfyDNjRARwTOCJ+E0IjgiOGIwRnIkFl97NwBMX9dPvEfLSC+t5cCB/eTk5Ix78ylTplBcXMxDjy3EweIZISKSqoxwcyOCYwRXHETkuSEAsTjE4kVGTLrjpdP7p33U1NTQ2dk5bgCbN28Ow7BoA8YmcVOWR1KWuyKIgEEwYjBiJhN75Ushr15qRp747g9dcRZ4RtCuf3HhdBMlpQuZNm3auAAUFBRw+fJlWl/dy9SCaqwGIBIyJGBTUwemWqzy/mAIRPmaEUGsJeNbz+IVfJ+ioiI2bNgwbi80NTUxJWciV47/GM9Lwwg4CA6CSblbBqYYRPjqEACRR8JaVcRPkPHlJ5m66kX27W8kL2/6uMPR3t7Ox+++yQcXjmLEIEYQA8YIkuIHSYVDkBnDk3DSEDwAi5c5mUfWNtGVPovc3FwOHTp0XwDZ2dm0nTvH9Td+zSedVxDVkIQAEQ1BoIgKCpnmflqpQcAXyjYxo6KeVatWUVZWRiKRGPO1+fPns2vXLjoOr7uvFA8HcHMoQ8IHmkqOINnH1d81kJeXR0VFRcqKkUcQBLS0tHD79u2QXHq7UmkIqgKqoIKKAnQPNiSqXFG0QFVCXbcGK4pVIdnTBcDOnTupqqoa06q2tjZKS0uZ8LmZzKiox5nwWXzfx9qBfmGgCkDRa4MeUNE3repg2QSEiwMFk5nDF8vrWLZsGTNnzqS9vX1UAEVFRezYsYOeD68y8fNPEFifAL2rDAfBnJdhGv0NzzgtoYYbHGOICkSMIWKEqBE8x+X91v18cKGJyspKDh48SFZW1ohAlixZQstfLzM99iK9iQQJqySsxVfFDyz9Nolv/fw7gumsPtIbMZE0zxhcR3DFEDVCZIDTjeA5Drb3Jv84sYOu639j69atNDQ0jAgiN3cyPQ/NJXvhM/QnEwRW8dWSDAL6bbLTHlyee0cVWNWfBhpgVbEWfFUSqiSGqVoyCCCaxayndjKn+nm2736BzIyJHDt27B4AFy9eovvtU3R3nA5DkFJEXwNUtWHEptSsPtIXNW7UMy4mJSLeMA+4IrhCKC6A46XR+VYz772xj/z8fJqampg1a9bg906ePElZWRlZy3+DZuSGPUGQ/G/QuDznHjVMeaEyaS2+WqxVbMryxMDVKv0W+qzSr0pPoo/Mx8uZs/51rgdTmD17NrFYbJArFi9ezKZNm7h1dD1B4JO0PgG23KR6QxnlYLHXM846z7i4oX4P6vmA9Q6ENMsQZyiGxK1OPjr5M5Kd77B7925qamoAWLBgAX+59jFU7tmivy3fPvq5INXDSyx+3DXOd1xx8YzBiGBMKCIDwmKMDLEWEnoMUDdK37U2bp/6BQ9PSueV+BEWLVpEdnYW3be6f67wo7EOJoMgiMX3uuKs84zBEQcjghjBMCAmhF1niskGCMaiqFWs8ehrj+Off5nCwkK2b99OcXExwFTgvdEB3AmizIi85oqTNgDCSKrPFWV4DFRD/beqWLX4YUXdst0ffk+b168CVqZWpwN9YwO4Wzhi8c1GpM6ISTcYREJPMOSAQYZLHc1upY5meyjfBq/XAUwGbgL9Y4dgrBGLFwtSITAPkekCk1L73wS9qsoFxR6nceWfx/O5/wGLCSMJ+zJrfwAAAABJRU5ErkJggg==">
-ZAP Scanning Report
+</head>
+<body>
+	<h1>
+		<!-- The ZAP Logo -->
+		<img
+			src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAABqbAAAamwHdbkbTAAAAB3RJTUUH4QsKDDQPKy6k8AAABxpJREFUWMO9l31sVWcdxz+/55xzbwt9QddJExClvIzNxTKJDZi22oJSbFZpmRb4g8sfhpEIwXQNTKh0NYgiMKIwo5AsdIxdQldGNBN5W2OTFRVcIZE1YwExcXOdc1DK+nLvOc/PP87tC9CWsj98bp6ck3Ofc57v7+37/T3wYGMucBR4F/gK/8exAugAdPXq1bpx40YFekZdHYuP+8PuGP+lAc8CmzIyMtLq6uqora3FcRwAzp49m/7Wv5O95tsNEfyEKvwH9B1V2hT7GnB+PABkhGePAvVA9dy5c6mvr2fp0qX3LOru7iYrK4toSQ1OXhGKohpOiyVQe0NVn9PGFb8iFofGFSMCMMPulwEXgbdXrlxZ3dHRQXt7+4ibA2RmZtLc3Ex/y/O4fg8RMUSMS8RxiRiPqPE+4xrnl07syA3Q+aN5wADlwO1oNPpqQ0NDfl9fH4cPH2bOnDn3dV9VVRWVlVV88vsteNF0XCO4xuA6Bs9xiBgPz/EmueKcIxavHyk/BPjnli1bpm3btu1TZ2hmxkTk8aeYMK8aay1WFVWwqgSqBDYgqQFJGxygccWa4e86IhJpbW39Zk5ODgUFBZ8KwOLFZeyr/wHZs0vw0jMxIqFpAuFt+EOYZ/OrAi41t96dhF8HThcWFnpnzpwhGo0+MIhnamvZs+8AM55uIhn4+Cnrkza8Wqv4NiBhfXwNCgxy3jauuKMKPOCPrpHSU2fOUlJS8sAg8qZP50bGY0xeuIFk4JO0SnIYiMAqSRuQDPyPgsbqh++ugqSsPXGC+WsoLS1lzZqnHxhA40svcfPvfyDNjRARwTOCJ+E0IjgiOGIwRnIkFl97NwBMX9dPvEfLSC+t5cCB/eTk5Ix78ylTplBcXMxDjy3EweIZISKSqoxwcyOCYwRXHETkuSEAsTjE4kVGTLrjpdP7p33U1NTQ2dk5bgCbN28Ow7BoA8YmcVOWR1KWuyKIgEEwYjBiJhN75Ushr15qRp747g9dcRZ4RtCuf3HhdBMlpQuZNm3auAAUFBRw+fJlWl/dy9SCaqwGIBIyJGBTUwemWqzy/mAIRPmaEUGsJeNbz+IVfJ+ioiI2bNgwbi80NTUxJWciV47/GM9Lwwg4CA6CSblbBqYYRPjqEACRR8JaVcRPkPHlJ5m66kX27W8kL2/6uMPR3t7Ox+++yQcXjmLEIEYQA8YIkuIHSYVDkBnDk3DSEDwAi5c5mUfWNtGVPovc3FwOHTp0XwDZ2dm0nTvH9Td+zSedVxDVkIQAEQ1BoIgKCpnmflqpQcAXyjYxo6KeVatWUVZWRiKRGPO1+fPns2vXLjoOr7uvFA8HcHMoQ8IHmkqOINnH1d81kJeXR0VFRcqKkUcQBLS0tHD79u2QXHq7UmkIqgKqoIKKAnQPNiSqXFG0QFVCXbcGK4pVIdnTBcDOnTupqqoa06q2tjZKS0uZ8LmZzKiox5nwWXzfx9qBfmGgCkDRa4MeUNE3repg2QSEiwMFk5nDF8vrWLZsGTNnzqS9vX1UAEVFRezYsYOeD68y8fNPEFifAL2rDAfBnJdhGv0NzzgtoYYbHGOICkSMIWKEqBE8x+X91v18cKGJyspKDh48SFZW1ohAlixZQstfLzM99iK9iQQJqySsxVfFDyz9Nolv/fw7gumsPtIbMZE0zxhcR3DFEDVCZIDTjeA5Drb3Jv84sYOu639j69atNDQ0jAgiN3cyPQ/NJXvhM/QnEwRW8dWSDAL6bbLTHlyee0cVWNWfBhpgVbEWfFUSqiSGqVoyCCCaxayndjKn+nm2736BzIyJHDt27B4AFy9eovvtU3R3nA5DkFJEXwNUtWHEptSsPtIXNW7UMy4mJSLeMA+4IrhCKC6A46XR+VYz772xj/z8fJqampg1a9bg906ePElZWRlZy3+DZuSGPUGQ/G/QuDznHjVMeaEyaS2+WqxVbMryxMDVKv0W+qzSr0pPoo/Mx8uZs/51rgdTmD17NrFYbJArFi9ezKZNm7h1dD1B4JO0PgG23KR6QxnlYLHXM846z7i4oX4P6vmA9Q6ENMsQZyiGxK1OPjr5M5Kd77B7925qamoAWLBgAX+59jFU7tmivy3fPvq5INXDSyx+3DXOd1xx8YzBiGBMKCIDwmKMDLEWEnoMUDdK37U2bp/6BQ9PSueV+BEWLVpEdnYW3be6f67wo7EOJoMgiMX3uuKs84zBEQcjghjBMCAmhF1niskGCMaiqFWs8ehrj+Off5nCwkK2b99OcXExwFTgvdEB3AmizIi85oqTNgDCSKrPFWV4DFRD/beqWLX4YUXdst0ffk+b168CVqZWpwN9YwO4Wzhi8c1GpM6ISTcYREJPMOSAQYZLHc1upY5meyjfBq/XAUwGbgL9Y4dgrBGLFwtSITAPkekCk1L73wS9qsoFxR6nceWfx/O5/wGLCSMJ+zJrfwAAAABJRU5ErkJggg=="
+			alt="" />
+		ZAP Scanning Report
+	</h1>
+	<p />
+	
 
-        </h1>
-        <p>
-</p>
-        <h3 class="left-header">Summary of Alerts</h3>
-        <h3 class="time-stamp">Generated on Sun, 26 Sep 2021 22:43:57</h3>
-        <table width="45%" class="summary">
-            <tr bgcolor="#666666">
-                <th width="45%" height="24">Risk 
-      Level</th><th width="55%" align="center">Number 
-      of Alerts</th>
-            </tr>
-            <tr bgcolor="#e8e8e8">
-                <td><a href="#high">High</a></td><td align="center">0</td>
-            </tr>
-            <tr bgcolor="#e8e8e8">
-                <td><a href="#medium">Medium</a></td><td align="center">2</td>
-            </tr>
-            <tr bgcolor="#e8e8e8">
-                <td><a href="#low">Low</a></td><td align="center">6</td>
-            </tr>
-            <tr bgcolor="#e8e8e8">
-                <td><a href="#info">Informational</a></td><td align="center">5</td>
-            </tr>
-        </table>
-        <div class="spacer-lg"></div>
-        <h3>Alerts</h3>
-        <table width="75%" class="alerts">
-            <tr bgcolor="#666666">
-                <th width="60%" height="24">Name</th><th width="20%" align="center">Risk Level</th><th width="20%" align="center">Number of Instances</th>
-            </tr>
-            <tr bgcolor="#e8e8e8">
-                <td>Content Security Policy (CSP) Header Not Set</td><td align="center">Medium</td><td align="center">2</td>
-            </tr>
-            <tr bgcolor="#e8e8e8">
-                <td>X-Frame-Options Header Not Set</td><td align="center">Medium</td><td align="center">2</td>
-            </tr>
-            <tr bgcolor="#e8e8e8">
-                <td>Cookie No HttpOnly Flag</td><td align="center">Low</td><td align="center">2</td>
-            </tr>
-            <tr bgcolor="#e8e8e8">
-                <td>Cookie without SameSite Attribute</td><td align="center">Low</td><td align="center">3</td>
-            </tr>
-            <tr bgcolor="#e8e8e8">
-                <td>Cookie Without Secure Flag</td><td align="center">Low</td><td align="center">2</td>
-            </tr>
-            <tr bgcolor="#e8e8e8">
-                <td>Permissions Policy Header Not Set</td><td align="center">Low</td><td align="center">3</td>
-            </tr>
-            <tr bgcolor="#e8e8e8">
-                <td>Strict-Transport-Security Header Not Set</td><td align="center">Low</td><td align="center">3</td>
-            </tr>
-            <tr bgcolor="#e8e8e8">
-                <td>X-Content-Type-Options Header Missing</td><td align="center">Low</td><td align="center">4</td>
-            </tr>
-            <tr bgcolor="#e8e8e8">
-                <td>Base64 Disclosure</td><td align="center">Informational</td><td align="center">5</td>
-            </tr>
-            <tr bgcolor="#e8e8e8">
-                <td>Modern Web Application</td><td align="center">Informational</td><td align="center">3</td>
-            </tr>
-            <tr bgcolor="#e8e8e8">
-                <td>Non-Storable Content</td><td align="center">Informational</td><td align="center">4</td>
-            </tr>
-            <tr bgcolor="#e8e8e8">
-                <td>Storable and Cacheable Content</td><td align="center">Informational</td><td align="center">1</td>
-            </tr>
-            <tr bgcolor="#e8e8e8">
-                <td>Timestamp Disclosure - Unix</td><td align="center">Informational</td><td align="center">16</td>
-            </tr>
-        </table>
-        <div class="spacer-lg"></div>
-        <h3>Alert Detail</h3>
-        <div class="spacer"></div>
-        <table width="100%" class="results">
-              
-  
-  
-  
-            <tr height="24" class="risk-medium">
-                <th width="20%"><a name="medium"></a>Medium (High)</th><th width="80%">Content Security Policy (CSP) Header Not Set</th>
-            </tr>
-              
-  
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Description</td><td width="80%"><p>Content Security Policy (CSP) is an added layer of security that helps to detect and mitigate certain types of attacks, including Cross Site Scripting (XSS) and data injection attacks. These attacks are used for everything from data theft to site defacement or distribution of malware. CSP provides a set of standard HTTP headers that allow website owners to declare approved sources of content that browsers should be allowed to load on that page &mdash; covered types are JavaScript, CSS, HTML frames, fonts, images and embeddable objects such as Java applets, ActiveX, audio and video files.</p></td>
-            </tr>
-            <TR vAlign="top">
-                <TD colspan="2"></TD>
-            </TR>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://stop-violences-femmes.gouv.fr</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://stop-violences-femmes.gouv.fr/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Instances</td><td width="80%">2</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Solution</td><td width="80%"><p>Ensure that your web server, application server, load balancer, etc. is configured to set the Content-Security-Policy header, to achieve optimal browser support: "Content-Security-Policy" for Chrome 25+, Firefox 23+ and Safari 7+, "X-Content-Security-Policy" for Firefox 4.0+ and Internet Explorer 10+, and "X-WebKit-CSP" for Chrome 14+ and Safari 6+.</p></td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Reference</td><td width="80%"><p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>http://www.w3.org/TR/CSP/</p><p>http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html</p><p>http://www.html5rocks.com/en/tutorials/security/content-security-policy/</p><p>http://caniuse.com/#feat=contentsecuritypolicy</p><p>http://content-security-policy.com/</p></td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">CWE Id</td><td width="80%">693</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">WASC Id</td><td width="80%">15</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Source ID</td><td width="80%">3</td>
-            </tr>
-            
-        </table>
-        <div class="spacer"></div>
-        <table width="100%" class="results">
-              
-  
-  
-  
-            <tr height="24" class="risk-medium">
-                <th width="20%"><a name="medium"></a>Medium (Medium)</th><th width="80%">X-Frame-Options Header Not Set</th>
-            </tr>
-              
-  
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Description</td><td width="80%"><p>X-Frame-Options header is not included in the HTTP response to protect against 'ClickJacking' attacks.</p></td>
-            </tr>
-            <TR vAlign="top">
-                <TD colspan="2"></TD>
-            </TR>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://stop-violences-femmes.gouv.fr/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Parameter</td><td width="80%">X-Frame-Options</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://stop-violences-femmes.gouv.fr</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Parameter</td><td width="80%">X-Frame-Options</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Instances</td><td width="80%">2</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Solution</td><td width="80%"><p>Most modern Web browsers support the X-Frame-Options HTTP header. Ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY. Alternatively consider implementing Content Security Policy's "frame-ancestors" directive. </p></td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Reference</td><td width="80%"><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options</p></td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">CWE Id</td><td width="80%">1021</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">WASC Id</td><td width="80%">15</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Source ID</td><td width="80%">3</td>
-            </tr>
-            
-        </table>
-        <div class="spacer"></div>
-        <table width="100%" class="results">
-              
-  
-  
-  
-            <tr height="24" class="risk-low">
-                <a name="low"></a><th width="20%">Low (Medium)</th><th width="80%">Cookie No HttpOnly Flag</th>
-            </tr>
-              
-  
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Description</td><td width="80%"><p>A cookie has been set without the HttpOnly flag, which means that the cookie can be accessed by JavaScript. If a malicious script can be run on this page then the cookie will be accessible and can be transmitted to another site. If this is a session cookie then session hijacking may be possible.</p></td>
-            </tr>
-            <TR vAlign="top">
-                <TD colspan="2"></TD>
-            </TR>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://stop-violences-femmes.gouv.fr/robots.txt</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Parameter</td><td width="80%">TS01cf5a77</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">Set-Cookie: TS01cf5a77</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://stop-violences-femmes.gouv.fr/robots.txt</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Parameter</td><td width="80%">TS01cf5a77_28</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">Set-Cookie: TS01cf5a77_28</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Instances</td><td width="80%">2</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Solution</td><td width="80%"><p>Ensure that the HttpOnly flag is set for all cookies.</p></td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Reference</td><td width="80%"><p>https://owasp.org/www-community/HttpOnly</p></td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">CWE Id</td><td width="80%">1004</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">WASC Id</td><td width="80%">13</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Source ID</td><td width="80%">3</td>
-            </tr>
-            
-        </table>
-        <div class="spacer"></div>
-        <table width="100%" class="results">
-              
-  
-  
-  
-            <tr height="24" class="risk-low">
-                <a name="low"></a><th width="20%">Low (Medium)</th><th width="80%">Cookie without SameSite Attribute</th>
-            </tr>
-              
-  
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Description</td><td width="80%"><p>A cookie has been set without the SameSite attribute, which means that the cookie can be sent as a result of a 'cross-site' request. The SameSite attribute is an effective counter measure to cross-site request forgery, cross-site script inclusion, and timing attacks.</p></td>
-            </tr>
-            <TR vAlign="top">
-                <TD colspan="2"></TD>
-            </TR>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://stop-violences-femmes.gouv.fr/robots.txt</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Parameter</td><td width="80%">TS01cf5a77_28</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">Set-Cookie: TS01cf5a77_28</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://stop-violences-femmes.gouv.fr/robots.txt</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Parameter</td><td width="80%">BIGipServerpool-dicom-arlv.cegedim.cloud-HTTP</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">Set-Cookie: BIGipServerpool-dicom-arlv.cegedim.cloud-HTTP</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://stop-violences-femmes.gouv.fr/robots.txt</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Parameter</td><td width="80%">TS01cf5a77</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">Set-Cookie: TS01cf5a77</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Instances</td><td width="80%">3</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Solution</td><td width="80%"><p>Ensure that the SameSite attribute is set to either 'lax' or ideally 'strict' for all cookies.</p></td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Reference</td><td width="80%"><p>https://tools.ietf.org/html/draft-ietf-httpbis-cookie-same-site</p></td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">CWE Id</td><td width="80%">1275</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">WASC Id</td><td width="80%">13</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Source ID</td><td width="80%">3</td>
-            </tr>
-            
-        </table>
-        <div class="spacer"></div>
-        <table width="100%" class="results">
-              
-  
-  
-  
-            <tr height="24" class="risk-low">
-                <a name="low"></a><th width="20%">Low (Medium)</th><th width="80%">Cookie Without Secure Flag</th>
-            </tr>
-              
-  
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Description</td><td width="80%"><p>A cookie has been set without the secure flag, which means that the cookie can be accessed via unencrypted connections.</p></td>
-            </tr>
-            <TR vAlign="top">
-                <TD colspan="2"></TD>
-            </TR>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://stop-violences-femmes.gouv.fr/robots.txt</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Parameter</td><td width="80%">TS01cf5a77</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">Set-Cookie: TS01cf5a77</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://stop-violences-femmes.gouv.fr/robots.txt</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Parameter</td><td width="80%">TS01cf5a77_28</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">Set-Cookie: TS01cf5a77_28</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Instances</td><td width="80%">2</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Solution</td><td width="80%"><p>Whenever a cookie contains sensitive information or is a session token, then it should always be passed using an encrypted channel. Ensure that the secure flag is set for cookies containing such sensitive information.</p></td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Reference</td><td width="80%"><p>https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/06-Session_Management_Testing/02-Testing_for_Cookies_Attributes.html</p></td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">CWE Id</td><td width="80%">614</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">WASC Id</td><td width="80%">13</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Source ID</td><td width="80%">3</td>
-            </tr>
-            
-        </table>
-        <div class="spacer"></div>
-        <table width="100%" class="results">
-              
-  
-  
-  
-            <tr height="24" class="risk-low">
-                <a name="low"></a><th width="20%">Low (Medium)</th><th width="80%">Permissions Policy Header Not Set</th>
-            </tr>
-              
-  
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Description</td><td width="80%"><p>Permissions Policy Header is an added layer of security that helps to restrict from unauthorized access or usage of browser/client features by web resources. This policy ensures the user privacy by limiting or specifying the features of the browsers can be used by the web resources. Permissions Policy provides a set of standard HTTP headers that allow website owners to limit which features of browsers can be used by the page such as camera, microphone, location, full screen etc.</p></td>
-            </tr>
-            <TR vAlign="top">
-                <TD colspan="2"></TD>
-            </TR>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://stop-violences-femmes.gouv.fr/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://stop-violences-femmes.gouv.fr/TSPD/08eeb285a9ab2000961b793f2c937e9e365ffe56e9455ddee6f89827160e07e37e457920bb2cb958?type=12</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://stop-violences-femmes.gouv.fr</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Instances</td><td width="80%">3</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Solution</td><td width="80%"><p>Ensure that your web server, application server, load balancer, etc. is configured to set the Permissions-Policy header.</p></td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Reference</td><td width="80%"><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy</p><p>https://developers.google.com/web/updates/2018/06/feature-policy</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p></td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">CWE Id</td><td width="80%">693</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">WASC Id</td><td width="80%">15</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Source ID</td><td width="80%">3</td>
-            </tr>
-            
-        </table>
-        <div class="spacer"></div>
-        <table width="100%" class="results">
-              
-  
-  
-  
-            <tr height="24" class="risk-low">
-                <a name="low"></a><th width="20%">Low (High)</th><th width="80%">Strict-Transport-Security Header Not Set</th>
-            </tr>
-              
-  
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Description</td><td width="80%"><p>HTTP Strict Transport Security (HSTS) is a web security policy mechanism whereby a web server declares that complying user agents (such as a web browser) are to interact with it using only secure HTTPS connections (i.e. HTTP layered over TLS/SSL). HSTS is an IETF standards track protocol and is specified in RFC 6797.</p></td>
-            </tr>
-            <TR vAlign="top">
-                <TD colspan="2"></TD>
-            </TR>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://stop-violences-femmes.gouv.fr</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://stop-violences-femmes.gouv.fr/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://stop-violences-femmes.gouv.fr/TSPD/08eeb285a9ab2000961b793f2c937e9e365ffe56e9455ddee6f89827160e07e37e457920bb2cb958?type=12</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Instances</td><td width="80%">3</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Solution</td><td width="80%"><p>Ensure that your web server, application server, load balancer, etc. is configured to enforce Strict-Transport-Security.</p></td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Reference</td><td width="80%"><p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>http://caniuse.com/stricttransportsecurity</p><p>http://tools.ietf.org/html/rfc6797</p></td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">CWE Id</td><td width="80%">319</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">WASC Id</td><td width="80%">15</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Source ID</td><td width="80%">3</td>
-            </tr>
-            
-        </table>
-        <div class="spacer"></div>
-        <table width="100%" class="results">
-              
-  
-  
-  
-            <tr height="24" class="risk-low">
-                <a name="low"></a><th width="20%">Low (Medium)</th><th width="80%">X-Content-Type-Options Header Missing</th>
-            </tr>
-              
-  
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Description</td><td width="80%"><p>The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.</p></td>
-            </tr>
-            <TR vAlign="top">
-                <TD colspan="2"></TD>
-            </TR>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://stop-violences-femmes.gouv.fr/TSPD/08eeb285a9ab2000961b793f2c937e9e365ffe56e9455ddee6f89827160e07e37e457920bb2cb958?type=8</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Parameter</td><td width="80%">X-Content-Type-Options</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://stop-violences-femmes.gouv.fr/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Parameter</td><td width="80%">X-Content-Type-Options</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://stop-violences-femmes.gouv.fr/TSPD/08eeb285a9ab2000961b793f2c937e9e365ffe56e9455ddee6f89827160e07e37e457920bb2cb958?type=12</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Parameter</td><td width="80%">X-Content-Type-Options</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://stop-violences-femmes.gouv.fr</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Parameter</td><td width="80%">X-Content-Type-Options</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Instances</td><td width="80%">4</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Solution</td><td width="80%"><p>Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.</p><p>If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.</p></td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Other information</td><td width="80%"><p>This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.</p><p>At "High" threshold this scan rule will not alert on client or server error responses.</p></td>
-            </tr>
-            <TR vAlign="top">
-                <TD colspan="2"></TD>
-            </TR>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Reference</td><td width="80%"><p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p><p>https://owasp.org/www-community/Security_Headers</p></td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">CWE Id</td><td width="80%">693</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">WASC Id</td><td width="80%">15</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Source ID</td><td width="80%">3</td>
-            </tr>
-            
-        </table>
-        <div class="spacer"></div>
-        <table width="100%" class="results">
-              
-  
-  
-  
-            <tr height="24" class="risk-info">
-                <th width="20%"><a name="info"></a>Informational (Medium)</th><th width="80%">Base64 Disclosure</th>
-            </tr>
-              
-  
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Description</td><td width="80%"><p>Base64 encoded data was disclosed by the application/web server. Note: in the interests of performance not all base64 strings in the response were analyzed individually, the entire response should be looked at by the analyst/security team/developer(s).</p></td>
-            </tr>
-            <TR vAlign="top">
-                <TD colspan="2"></TD>
-            </TR>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://stop-violences-femmes.gouv.fr/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">1111101110101020000000220000000520000000021389b4c4200000096300000000300000000300000006/TSPD/300000008TSPD_101300000005https3000000b008eeb285a9ab2000ea7c494be321bf643b4fce5eb32e219d9c3fc36a73a900775ce5e92af5b2f995083669b0180a2800fb311f418883b8931676a582bcb80e33a08fa5aab24872fb4f77099bab071403a0f797a22946cfcf200000000200000000</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://stop-violences-femmes.gouv.fr/TSPD/08eeb285a9ab2000961b793f2c937e9e365ffe56e9455ddee6f89827160e07e37e457920bb2cb958?type=12</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">/9j/4AAQSkZJRgABAQEAAQABAAD/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0o</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://stop-violences-femmes.gouv.fr/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">1111101110101020000000220000000520000000021389b4c4200000096300000000300000000300000006/TSPD/300000008TSPD_101300000005https3000000b008eeb285a9ab200057f7bcb40396e7cbfb598611b11cce33f737b3e60b3c5a3fe6a5254e93434b0508fddb7b680a2800ca8f5da9e2c61c00792f6b3b5a5c8aa9878ba93b99d002f50665329d0f31f6ac497906738d622ebe200000000200000000</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://stop-violences-femmes.gouv.fr/robots.txt</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">YnLiGK3UXphJxcUqJlLL3fNyljz02S0F/ffYwdpHe1vHcH4uj01WxdfwRwtrL72HLvsvebdVcUvIXCjBycjCCLVLB28=</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://stop-violences-femmes.gouv.fr</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">1111101110101020000000220000000520000000021389b4c4200000096300000000300000000300000006/TSPD/300000008TSPD_101300000005https3000000b008eeb285a9ab20004a72ca3537d04ccc84448694cbfe0209b4f2f662b5547696f8dceb8918bede7608e5605db50a280054ab3c128750b5914594cc6596283a27d697f7f43482e8fb5aaa37d09c5f3638b71f81b2cd8c7d27200000000200000000</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Instances</td><td width="80%">5</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Solution</td><td width="80%"><p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p></td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Other information</td><td width="80%"><p>�]u�Mu�Mt�M��M4�M��M4�M9�M4�M4�mw���s���M4�޷�M4�M4�M4�M4�}4�M4ӯ�H���M4�M4�4�\x000f�t�}4�M4Әm��7�M4�F��Ǟoo9k֛�M4y����\x001b{}�m��ݾ\x001fq�^o}��_]���s~��v��N��ǹ{ݚ&#127;��&#127;�y��������\x001a��4}����5��7o�w׮�k�6m�����kO\x001fk��on&lt;�g������[i�;׍7kG������:q�\x001f�M4�M4�m4�M4�</p></td>
-            </tr>
-            <TR vAlign="top">
-                <TD colspan="2"></TD>
-            </TR>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Reference</td><td width="80%"><p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p></td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">CWE Id</td><td width="80%">200</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">WASC Id</td><td width="80%">13</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Source ID</td><td width="80%">3</td>
-            </tr>
-            
-        </table>
-        <div class="spacer"></div>
-        <table width="100%" class="results">
-              
-  
-  
-  
-            <tr height="24" class="risk-info">
-                <th width="20%"><a name="info"></a>Informational (Medium)</th><th width="80%">Modern Web Application</th>
-            </tr>
-              
-  
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Description</td><td width="80%"><p>The application appears to be a modern web application. If you need to explore it automatically then the Ajax Spider may well be more effective than the standard one.</p></td>
-            </tr>
-            <TR vAlign="top">
-                <TD colspan="2"></TD>
-            </TR>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://stop-violences-femmes.gouv.fr/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">&lt;script&gt;
+	<h2>
+		
+		Site: https://stop-violences-femmes.gouv.fr
+		
+	</h2>
+
+	<h3>
+		Generated on Sun, 10 Oct 2021 04:55:43
+	</h3>
+
+	
+		<h3 class="left-header">Summary of Alerts</h3>
+		<table class="summary">
+			<tr>
+				<th width="45%"
+					height="24">Risk Level</th>
+				<th width="55%"
+					align="center">Number of Alerts</th>
+			</tr>
+			<tr>
+				<td class="risk-3">
+					<div>High</div>
+				</td>
+				<td align="center">
+					<div>0</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="risk-2">
+					<div>Medium</div>
+				</td>
+				<td align="center">
+					<div>2</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="risk-1">
+					<div>Low</div>
+				</td>
+				<td align="center">
+					<div>7</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="risk-0">
+					<div>Informational</div>
+				</td>
+				<td align="center">
+					<div>4</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="risk--1">
+					<div>				False Positives:</div>
+				</td>
+				<td align="center">
+					<div>0</div>
+				</td>
+			</tr>
+		</table>
+		<div class="spacer-lg"></div>
+	
+
+	
+		<h3>Alerts</h3>
+		<table class="alerts">
+			<tr>
+				<th width="60%" height="24">Name</th>
+				<th width="20%"
+					align="center">Risk Level</th>
+				<th width="20%"
+					align="center">Number of Instances</th>
+			</tr>
+			<tr>
+				<td><a href="#10038">Content Security Policy (CSP) Header Not Set</a></td>
+				<td align="center" class="risk-2">Medium</td>
+				<td align="center">1</td>
+			</tr>
+			<tr>
+				<td><a href="#10020">X-Frame-Options Header Not Set</a></td>
+				<td align="center" class="risk-2">Medium</td>
+				<td align="center">1</td>
+			</tr>
+			<tr>
+				<td><a href="#10010">Cookie No HttpOnly Flag</a></td>
+				<td align="center" class="risk-1">Low</td>
+				<td align="center">2</td>
+			</tr>
+			<tr>
+				<td><a href="#10011">Cookie Without Secure Flag</a></td>
+				<td align="center" class="risk-1">Low</td>
+				<td align="center">2</td>
+			</tr>
+			<tr>
+				<td><a href="#10054">Cookie without SameSite Attribute</a></td>
+				<td align="center" class="risk-1">Low</td>
+				<td align="center">3</td>
+			</tr>
+			<tr>
+				<td><a href="#10063">Permissions Policy Header Not Set</a></td>
+				<td align="center" class="risk-1">Low</td>
+				<td align="center">2</td>
+			</tr>
+			<tr>
+				<td><a href="#10035">Strict-Transport-Security Header Not Set</a></td>
+				<td align="center" class="risk-1">Low</td>
+				<td align="center">2</td>
+			</tr>
+			<tr>
+				<td><a href="#10096">Timestamp Disclosure - Unix</a></td>
+				<td align="center" class="risk-1">Low</td>
+				<td align="center">7</td>
+			</tr>
+			<tr>
+				<td><a href="#10021">X-Content-Type-Options Header Missing</a></td>
+				<td align="center" class="risk-1">Low</td>
+				<td align="center">3</td>
+			</tr>
+			<tr>
+				<td><a href="#10094">Base64 Disclosure</a></td>
+				<td align="center" class="risk-0">Informational</td>
+				<td align="center">4</td>
+			</tr>
+			<tr>
+				<td><a href="#10109">Modern Web Application</a></td>
+				<td align="center" class="risk-0">Informational</td>
+				<td align="center">2</td>
+			</tr>
+			<tr>
+				<td><a href="#10049">Non-Storable Content</a></td>
+				<td align="center" class="risk-0">Informational</td>
+				<td align="center">3</td>
+			</tr>
+			<tr>
+				<td><a href="#10049">Storable and Cacheable Content</a></td>
+				<td align="center" class="risk-0">Informational</td>
+				<td align="center">1</td>
+			</tr>
+		</table>
+		<div class="spacer-lg"></div>
+	
+
+	
+		<h3>Alert Detail</h3>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-2"><a
+						id="10038"></a>
+						<div>Medium</div></th>
+					<th class="risk-2">Content Security Policy (CSP) Header Not Set</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>Content Security Policy (CSP) is an added layer of security that helps to detect and mitigate certain types of attacks, including Cross Site Scripting (XSS) and data injection attacks. These attacks are used for everything from data theft to site defacement or distribution of malware. CSP provides a set of standard HTTP headers that allow website owners to declare approved sources of content that browsers should be allowed to load on that page — covered types are JavaScript, CSS, HTML frames, fonts, images and embeddable objects such as Java applets, ActiveX, audio and video files.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://stop-violences-femmes.gouv.fr">https://stop-violences-femmes.gouv.fr</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">1</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Ensure that your web server, application server, load balancer, etc. is configured to set the Content-Security-Policy header, to achieve optimal browser support: &quot;Content-Security-Policy&quot; for Chrome 25+, Firefox 23+ and Safari 7+, &quot;X-Content-Security-Policy&quot; for Firefox 4.0+ and Internet Explorer 10+, and &quot;X-WebKit-CSP&quot; for Chrome 14+ and Safari 6+.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%">
+							<a href="https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy">https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</a>
+							<br />
+						
+							<a href="https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html">https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</a>
+							<br />
+						
+							<a href="http://www.w3.org/TR/CSP/">http://www.w3.org/TR/CSP/</a>
+							<br />
+						
+							<a href="http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html">http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html</a>
+							<br />
+						
+							<a href="http://www.html5rocks.com/en/tutorials/security/content-security-policy/">http://www.html5rocks.com/en/tutorials/security/content-security-policy/</a>
+							<br />
+						
+							<a href="http://caniuse.com/#feat=contentsecuritypolicy">http://caniuse.com/#feat=contentsecuritypolicy</a>
+							<br />
+						
+							<a href="http://content-security-policy.com/">http://content-security-policy.com/</a>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/693.html">693</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">15</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10038/">10038</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-2"><a
+						id="10020"></a>
+						<div>Medium</div></th>
+					<th class="risk-2">X-Frame-Options Header Not Set</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>X-Frame-Options header is not included in the HTTP response to protect against &#39;ClickJacking&#39; attacks.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://stop-violences-femmes.gouv.fr">https://stop-violences-femmes.gouv.fr</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">X-Frame-Options</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">1</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Most modern Web browsers support the X-Frame-Options HTTP header. Ensure it&#39;s set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it&#39;s part of a FRAMESET) then you&#39;ll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY. Alternatively consider implementing Content Security Policy&#39;s &quot;frame-ancestors&quot; directive. </div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%">
+							<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options">https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options</a>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/1021.html">1021</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">15</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10020/">10020</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-1"><a
+						id="10010"></a>
+						<div>Low</div></th>
+					<th class="risk-1">Cookie No HttpOnly Flag</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>A cookie has been set without the HttpOnly flag, which means that the cookie can be accessed by JavaScript. If a malicious script can be run on this page then the cookie will be accessible and can be transmitted to another site. If this is a session cookie then session hijacking may be possible.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://stop-violences-femmes.gouv.fr/robots.txt">https://stop-violences-femmes.gouv.fr/robots.txt</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">TS01cf5a77</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">Set-Cookie: TS01cf5a77</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://stop-violences-femmes.gouv.fr/robots.txt">https://stop-violences-femmes.gouv.fr/robots.txt</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">TS01cf5a77_28</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">Set-Cookie: TS01cf5a77_28</td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">2</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Ensure that the HttpOnly flag is set for all cookies.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%">
+							<a href="https://owasp.org/www-community/HttpOnly">https://owasp.org/www-community/HttpOnly</a>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/1004.html">1004</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">13</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10010/">10010</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-1"><a
+						id="10011"></a>
+						<div>Low</div></th>
+					<th class="risk-1">Cookie Without Secure Flag</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>A cookie has been set without the secure flag, which means that the cookie can be accessed via unencrypted connections.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://stop-violences-femmes.gouv.fr/robots.txt">https://stop-violences-femmes.gouv.fr/robots.txt</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">TS01cf5a77</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">Set-Cookie: TS01cf5a77</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://stop-violences-femmes.gouv.fr/robots.txt">https://stop-violences-femmes.gouv.fr/robots.txt</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">TS01cf5a77_28</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">Set-Cookie: TS01cf5a77_28</td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">2</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Whenever a cookie contains sensitive information or is a session token, then it should always be passed using an encrypted channel. Ensure that the secure flag is set for cookies containing such sensitive information.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%">
+							<a href="https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/06-Session_Management_Testing/02-Testing_for_Cookies_Attributes.html">https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/06-Session_Management_Testing/02-Testing_for_Cookies_Attributes.html</a>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/614.html">614</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">13</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10011/">10011</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-1"><a
+						id="10054"></a>
+						<div>Low</div></th>
+					<th class="risk-1">Cookie without SameSite Attribute</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>A cookie has been set without the SameSite attribute, which means that the cookie can be sent as a result of a &#39;cross-site&#39; request. The SameSite attribute is an effective counter measure to cross-site request forgery, cross-site script inclusion, and timing attacks.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://stop-violences-femmes.gouv.fr/robots.txt">https://stop-violences-femmes.gouv.fr/robots.txt</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">BIGipServerpool-dicom-arlv.cegedim.cloud-HTTP</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">Set-Cookie: BIGipServerpool-dicom-arlv.cegedim.cloud-HTTP</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://stop-violences-femmes.gouv.fr/robots.txt">https://stop-violences-femmes.gouv.fr/robots.txt</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">TS01cf5a77</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">Set-Cookie: TS01cf5a77</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://stop-violences-femmes.gouv.fr/robots.txt">https://stop-violences-femmes.gouv.fr/robots.txt</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">TS01cf5a77_28</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">Set-Cookie: TS01cf5a77_28</td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">3</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Ensure that the SameSite attribute is set to either &#39;lax&#39; or ideally &#39;strict&#39; for all cookies.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%">
+							<a href="https://tools.ietf.org/html/draft-ietf-httpbis-cookie-same-site">https://tools.ietf.org/html/draft-ietf-httpbis-cookie-same-site</a>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/1275.html">1275</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">13</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10054/">10054</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-1"><a
+						id="10063"></a>
+						<div>Low</div></th>
+					<th class="risk-1">Permissions Policy Header Not Set</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>Permissions Policy Header is an added layer of security that helps to restrict from unauthorized access or usage of browser/client features by web resources. This policy ensures the user privacy by limiting or specifying the features of the browsers can be used by the web resources. Permissions Policy provides a set of standard HTTP headers that allow website owners to limit which features of browsers can be used by the page such as camera, microphone, location, full screen etc.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://stop-violences-femmes.gouv.fr">https://stop-violences-femmes.gouv.fr</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://stop-violences-femmes.gouv.fr/TSPD/08eeb285a9ab2000a723ec7cadbd2e32f18319e40babdb238aac6ab680c05ca94d52ba04f21e7013?type=12">https://stop-violences-femmes.gouv.fr/TSPD/08eeb285a9ab2000a723ec7cadbd2e32f18319e40babdb238aac6ab680c05ca94d52ba04f21e7013?type=12</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">2</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Ensure that your web server, application server, load balancer, etc. is configured to set the Permissions-Policy header.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%">
+							<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy">https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy</a>
+							<br />
+						
+							<a href="https://developers.google.com/web/updates/2018/06/feature-policy">https://developers.google.com/web/updates/2018/06/feature-policy</a>
+							<br />
+						
+							<a href="https://scotthelme.co.uk/a-new-security-header-feature-policy/">https://scotthelme.co.uk/a-new-security-header-feature-policy/</a>
+							<br />
+						
+							<a href="https://w3c.github.io/webappsec-feature-policy/">https://w3c.github.io/webappsec-feature-policy/</a>
+							<br />
+						
+							<a href="https://www.smashingmagazine.com/2018/12/feature-policy/">https://www.smashingmagazine.com/2018/12/feature-policy/</a>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/693.html">693</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">15</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10063/">10063</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-1"><a
+						id="10035"></a>
+						<div>Low</div></th>
+					<th class="risk-1">Strict-Transport-Security Header Not Set</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>HTTP Strict Transport Security (HSTS) is a web security policy mechanism whereby a web server declares that complying user agents (such as a web browser) are to interact with it using only secure HTTPS connections (i.e. HTTP layered over TLS/SSL). HSTS is an IETF standards track protocol and is specified in RFC 6797.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://stop-violences-femmes.gouv.fr">https://stop-violences-femmes.gouv.fr</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://stop-violences-femmes.gouv.fr/TSPD/08eeb285a9ab2000a723ec7cadbd2e32f18319e40babdb238aac6ab680c05ca94d52ba04f21e7013?type=12">https://stop-violences-femmes.gouv.fr/TSPD/08eeb285a9ab2000a723ec7cadbd2e32f18319e40babdb238aac6ab680c05ca94d52ba04f21e7013?type=12</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">2</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Ensure that your web server, application server, load balancer, etc. is configured to enforce Strict-Transport-Security.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%">
+							<a href="https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html">https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</a>
+							<br />
+						
+							<a href="https://owasp.org/www-community/Security_Headers">https://owasp.org/www-community/Security_Headers</a>
+							<br />
+						
+							<a href="http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security">http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</a>
+							<br />
+						
+							<a href="http://caniuse.com/stricttransportsecurity">http://caniuse.com/stricttransportsecurity</a>
+							<br />
+						
+							<a href="http://tools.ietf.org/html/rfc6797">http://tools.ietf.org/html/rfc6797</a>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/319.html">319</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">15</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10035/">10035</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-1"><a
+						id="10096"></a>
+						<div>Low</div></th>
+					<th class="risk-1">Timestamp Disclosure - Unix</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>A timestamp was disclosed by the application/web server - Unix</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://stop-violences-femmes.gouv.fr">https://stop-violences-femmes.gouv.fr</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">1058781971</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://stop-violences-femmes.gouv.fr">https://stop-violences-femmes.gouv.fr</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">1294399138</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://stop-violences-femmes.gouv.fr">https://stop-violences-femmes.gouv.fr</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">1558153217</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://stop-violences-femmes.gouv.fr">https://stop-violences-femmes.gouv.fr</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">1743045605</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://stop-violences-femmes.gouv.fr">https://stop-violences-femmes.gouv.fr</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">17795081</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://stop-violences-femmes.gouv.fr">https://stop-violences-femmes.gouv.fr</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">18562269</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://stop-violences-femmes.gouv.fr">https://stop-violences-femmes.gouv.fr</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">2147483647</td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">7</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%">
+							<a href="http://projects.webappsec.org/w/page/13246936/Information%20Leakage">http://projects.webappsec.org/w/page/13246936/Information%20Leakage</a>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/200.html">200</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">13</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10096/">10096</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-1"><a
+						id="10021"></a>
+						<div>Low</div></th>
+					<th class="risk-1">X-Content-Type-Options Header Missing</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>The Anti-MIME-Sniffing header X-Content-Type-Options was not set to &#39;nosniff&#39;. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://stop-violences-femmes.gouv.fr">https://stop-violences-femmes.gouv.fr</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">X-Content-Type-Options</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://stop-violences-femmes.gouv.fr/TSPD/08eeb285a9ab2000a723ec7cadbd2e32f18319e40babdb238aac6ab680c05ca94d52ba04f21e7013?type=12">https://stop-violences-femmes.gouv.fr/TSPD/08eeb285a9ab2000a723ec7cadbd2e32f18319e40babdb238aac6ab680c05ca94d52ba04f21e7013?type=12</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">X-Content-Type-Options</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://stop-violences-femmes.gouv.fr/TSPD/08eeb285a9ab2000a723ec7cadbd2e32f18319e40babdb238aac6ab680c05ca94d52ba04f21e7013?type=8">https://stop-violences-femmes.gouv.fr/TSPD/08eeb285a9ab2000a723ec7cadbd2e32f18319e40babdb238aac6ab680c05ca94d52ba04f21e7013?type=8</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">X-Content-Type-Options</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">3</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to &#39;nosniff&#39; for all web pages.</div>
+							<br />
+						
+							<div>If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%">
+							<a href="http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx">http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</a>
+							<br />
+						
+							<a href="https://owasp.org/www-community/Security_Headers">https://owasp.org/www-community/Security_Headers</a>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/693.html">693</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">15</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10021/">10021</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-0"><a
+						id="10094"></a>
+						<div>Informational</div></th>
+					<th class="risk-0">Base64 Disclosure</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>Base64 encoded data was disclosed by the application/web server. Note: in the interests of performance not all base64 strings in the response were analyzed individually, the entire response should be looked at by the analyst/security team/developer(s).</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://stop-violences-femmes.gouv.fr">https://stop-violences-femmes.gouv.fr</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">1111101110101020000000220000000520000000021389b4c4200000096300000000300000000300000006/TSPD/300000008TSPD_101300000005https3000000b008eeb285a9ab20007215e166afe25a74c6df49e0d2ec4113edbf8b05c9c35889837144b91c11251908415595070a28001494a4c0a0eb8a752ae12e9c55e8a19cceef5f5e55e6b7c65448fdd6930b545538c6be5fe8a114fa200000000200000000</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://stop-violences-femmes.gouv.fr">https://stop-violences-femmes.gouv.fr</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">1111101110101020000000220000000520000000021389b4c4200000096300000000300000000300000006/TSPD/300000008TSPD_101300000005https3000000b008eeb285a9ab200086ac8676849a015886ed83ed4b990696b226e74f2ff5d0b64b19cf6a31a7a3290854f8932c0a28005a4339998fb233798cc593a4b66c188c13431520feb3e2763e33fc1905f3dc4d3b0812e335016654200000000200000000</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://stop-violences-femmes.gouv.fr/robots.txt">https://stop-violences-femmes.gouv.fr/robots.txt</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">H4cjgmMVN8zDA+d7bLUtGytATXjoYC1PAvFbvotdXVYZcAxuHpgWi6c5NHvI+x/tRMpr+z639TAF7We255YmLWyEoVk=</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://stop-violences-femmes.gouv.fr/TSPD/08eeb285a9ab2000a723ec7cadbd2e32f18319e40babdb238aac6ab680c05ca94d52ba04f21e7013?type=12">https://stop-violences-femmes.gouv.fr/TSPD/08eeb285a9ab2000a723ec7cadbd2e32f18319e40babdb238aac6ab680c05ca94d52ba04f21e7013?type=12</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">/9j/4AAQSkZJRgABAQEAAQABAAD/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0o</td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">4</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%">
+							<a href="http://projects.webappsec.org/w/page/13246936/Information%20Leakage">http://projects.webappsec.org/w/page/13246936/Information%20Leakage</a>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/200.html">200</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">13</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10094/">10094</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-0"><a
+						id="10109"></a>
+						<div>Informational</div></th>
+					<th class="risk-0">Modern Web Application</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>The application appears to be a modern web application. If you need to explore it automatically then the Ajax Spider may well be more effective than the standard one.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://stop-violences-femmes.gouv.fr">https://stop-violences-femmes.gouv.fr</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;script&gt;
 
 (function(){
-window["bobcmn"] = "1111101110101020000000220000000520000000021389b4c4200000096300000000300000000300000006/TSPD/300000008TSPD_101300000005https3000000b008eeb285a9ab2000ea7c494be321bf643b4fce5eb32e219d9c3fc36a73a900775ce5e92af5b2f995083669b0180a2800fb311f418883b8931676a582bcb80e33a08fa5aab24872fb4f77099bab071403a0f797a22946cfcf200000000200000000";
+window[&quot;bobcmn&quot;] = &quot;1111101110101020000000220000000520000000021389b4c4200000096300000000300000000300000006/TSPD/300000008TSPD_101300000005https3000000b008eeb285a9ab20007215e166afe25a74c6df49e0d2ec4113edbf8b05c9c35889837144b91c11251908415595070a28001494a4c0a0eb8a752ae12e9c55e8a19cceef5f5e55e6b7c65448fdd6930b545538c6be5fe8a114fa200000000200000000&quot;;
 
-window.YRuL=!!window.YRuL;try{(function(){(function(){var O={decrypt:function(O){try{return JSON.parse(function(O){O=O.split("l");var Z="";for(var S=0;S&lt;O.length;++S)Z+=String.fromCharCode(O[S]);return Z}(O))}catch(S){}}};return O={configuration:O.decrypt("123l34l97l99l116l105l118l101l34l58l34l110l111l34l44l34l100l101l98l117l103l103l105l110l103l34l58l34l110l111l34l44l34l109l111l100l117l108l101l49l34l58l34l101l110l97l98l108l101l100l34l44l34l109l111l100l117l108l101l50l34l58l34l101l110l97l98l108l101l100l34l44l34l109l111l100l117l108l101l51l34l58l34l101l110l97l98l108l101l100l34l44l34l109l111l100l117l108l101l52l34l58l34l101l110l97l98l108l101l100l34l125")}})();
-var Zo=13;try{var _o,Io,Jo=z(171)?1:0,Lo=z(618)?1:0,OO=z(85)?1:0,zO=z(591)?1:0,ZO=z(489)?1:0;for(var jO=(z(696),0);jO&lt;Io;++jO)Jo+=(z(163),2),Lo+=z(691)?2:1,OO+=z(61)?2:1,zO+=z(170)?2:1,ZO+=(z(20),3);_o=Jo+Lo+OO+zO+ZO;window.oo===_o&amp;&amp;(window.oo=++_o)}catch(lO){window.oo=_o}var Zz=!0;function s(O){var Z=arguments.length,S=[],l=1;while(l&lt;Z)S[l-1]=arguments[l++]-O;return String.fromCharCode.apply(String,S)}
-function sz(O){var Z=18;!O||document[_(Z,136,123,133,123,116,123,126,123,134,139,101,134,115,134,119)]&amp;&amp;document[_(Z,136,123,133,123,116,123,126,123,134,139,101,134,115,134,119)]!==I(68616527648,Z)||(Zz=!1);return Zz}function I(O,Z){O+=Z;return O.toString(36)}function _(O){var Z=arguments.length,S=[];for(var l=1;l&lt;Z;++l)S.push(arguments[l]-O);return String.fromCharCode.apply(String,S)}function Sz(){}sz(window[Sz[I(1086841,Zo)]]===Sz);sz(typeof ie9rgb4!==I(1242178186186,Zo));
-sz(RegExp("\x3c")[I(1372192,Zo)](function(){return"\x3c"})&amp;!RegExp(_(Zo,133,64,113))[s(Zo,129,114,128,129)](function(){return"'x3'+'d';"}));
-var iz=window[s(Zo,110,129,129,110,112,117,82,131,114,123,129)]||RegExp(s(Zo,122,124,111,118,137,110,123,113,127,124,118,113),I(5,Zo))[s(Zo,129,114,128,129)](window["\x6e\x61vi\x67a\x74\x6f\x72"]["\x75\x73e\x72A\x67\x65\x6et"]),Iz=+new Date+(z(370)?6E5:562071),Lz,zZ,ZZ,sZ=window[s(Zo,128,114,129,97,118,122,114,124,130,129)],SZ=iz?z(564)?3E4:21906:z(735)?6E3:5031;
-document[_(Zo,110,113,113,82,131,114,123,129,89,118,128,129,114,123,114,127)]&amp;&amp;document[_(Zo,110,113,113,82,131,114,123,129,89,118,128,129,114,123,114,127)](_(Zo,131,118,128,118,111,118,121,118,129,134,112,117,110,123,116,114),function(O){var Z=91;document[_(Z,209,196,206,196,189,196,199,196,207,212,174,207,188,207,192)]&amp;&amp;(document[_(Z,209,196,206,196,189,196,199,196,207,212,174,207,188,207,192)]===I(1058781892,Z)&amp;&amp;O[s(Z,196,206,175,205,208,206,207,192,191)]?ZZ=!0:document[s(Z,209,196,206,196,189,
-196,199,196,207,212,174,207,188,207,192)]===I(68616527575,Z)&amp;&amp;(Lz=+new Date,ZZ=!1,_Z()))});function _Z(){if(!document[s(46,159,163,147,160,167,129,147,154,147,145,162,157,160)])return!0;var O=+new Date;if(O&gt;Iz&amp;&amp;(z(890)?665523:6E5)&gt;O-Lz)return sz(!1);var Z=sz(zZ&amp;&amp;!ZZ&amp;&amp;Lz+SZ&lt;O);Lz=O;zZ||(zZ=!0,sZ(function(){zZ=!1},z(199)?1:0));return Z}_Z();var jZ=[z(534)?17795081:21695097,z(135)?27611931586:2147483647,z(821)?1558153217:1105003008];
-function lZ(O){var Z=97;O=typeof O===I(1743045579,Z)?O:O[s(Z,213,208,180,213,211,202,207,200)](z(104)?36:30);var S=window[O];if(!S[_(Z,213,208,180,213,211,202,207,200)])return;var l=""+S;window[O]=function(O,Z){zZ=!1;return S(O,Z)};window[O][s(Z,213,208,180,213,211,202,207,200)]=function(){return l}}for(var os=(z(730),0);os&lt;jZ[I(1294399192,Zo)];++os)lZ(jZ[os]);sz(!1!==window[s(Zo,102,95,130,89)]);window.LO={Zz:"08921c13d7017800d484cc98d2142144afc8c49419ae9404fb2126c3a4257e9fe2467c8f7d97ade49d4293b811057c8b8156fcf9bbfef0c11acf55c3c3558eecc24f4f64174cc84479728c8efacc7e321288071dec94ab3e2ccf3c152f57746ad2c4f3ca650be8b041fa89c04dc8dd9e46a047aeb5a0b2027dbb1675b2e7e7e2"};
-function Os(O){var Z=+new Date,S;!document[_(77,190,194,178,191,198,160,178,185,178,176,193,188,191,142,185,185)]||Z&gt;Iz&amp;&amp;(z(774)?6E5:639210)&gt;Z-Lz?S=sz(!1):(S=sz(zZ&amp;&amp;!ZZ&amp;&amp;Lz+SZ&lt;Z),Lz=Z,zZ||(zZ=!0,sZ(function(){zZ=!1},z(565)?1:0)));return!(arguments[O]^S)}function z(O){return 856&gt;O}(function Ss(Z){Z&amp;&amp;"number"!==typeof Z||("number"!==typeof Z&amp;&amp;(Z=1E3),Z=Math.max(Z,1),setInterval(function(){Ss(Z-10)},Z))})(!0);})();}catch(x){}finally{ie9rgb4=void(0);};function ie9rgb4(a,b){return a&gt;&gt;b&gt;&gt;0};
+window.ByOP=!!window.ByOP;try{(function(){(function(){var I=-1,I={i:++I,lS:&quot;false&quot;[I],J:++I,Jo:&quot;false&quot;[I],Sj:++I,jjj:&quot;[object Object]&quot;[I],oO:(I[I]+&quot;&quot;)[I],Lo:++I,LO:&quot;true&quot;[I],oj:++I,_j:++I,LS:&quot;[object Object]&quot;[I],_:++I,lJ:++I,lZj:++I,JZj:++I};try{I.jo=(I.jo=I+&quot;&quot;)[I._j]+(I.lL=I.jo[I.J])+(I.JS=(I.JL+&quot;&quot;)[I.J])+(!I+&quot;&quot;)[I.Lo]+(I.LL=I.jo[I._])+(I.JL=&quot;true&quot;[I.J])+(I.ZO=&quot;true&quot;[I.Sj])+I.jo[I._j]+I.LL+I.lL+I.JL,I.JS=I.JL+&quot;true&quot;[I.Lo]+I.LL+I.ZO+I.JL+I.JS,I.JL=I.i[I.jo][I.jo],I.JL(I.JL(I.JS+&#39;&quot;\\&#39;+I.J+I._j+I.J+I.lS+&quot;\\&quot;+I.oj+I.i+&quot;(&quot;+I.LL+&quot;\\&quot;+I.J+I.lJ+
+I.J+&quot;\\&quot;+I.J+I._+I.i+I.LO+I.lL+I.lS+&quot;\\&quot;+I.oj+I.i+&quot;\\&quot;+I.J+I._+I.lJ+&quot;\\&quot;+I.J+I._j+I.J+&quot;\\&quot;+I.J+I._j+I._+I.oO+I.lL+&quot;\\&quot;+I.J+I._+I.lJ+&quot;[&#39;\\&quot;+I.J+I._+I.i+I.Jo+&quot;\\&quot;+I.J+I.lJ+I.J+&quot;false&quot;[I.Sj]+I.lL+I.Jo+I.oO+&quot;&#39;]\\&quot;+I.oj+I.i+&quot;===\\&quot;+I.oj+I.i+&quot;&#39;\\&quot;+I.J+I._+I.Lo+I.LL+&quot;\\&quot;+I.J+I._+I.Sj+&quot;\\&quot;+I.J+I._j+I.J+&quot;\\&quot;+I.J+I._j+I._+&quot;\\&quot;+I.J+I.oj+I.lJ+&quot;&#39;)\\&quot;+I.oj+I.i+&quot;{\\&quot;+I.J+I.Sj+&quot;\\&quot;+I.J+I.J+&quot;\\&quot;+I.J+I._+I._+I.Jo+&quot;\\&quot;+I.J+I._+I.Sj+&quot;\\&quot;+I.oj+I.i+I.LO+I.oO+&quot;\\&quot;+I.J+I._+I._+I.LS+&quot;\\&quot;+I.J+I.lJ+I.J+I.ZO+&quot;\\&quot;+I.J+I._j+I.Sj+
+&quot;\\&quot;+I.J+I._j+I.Lo+&quot;\\&quot;+I.J+I._+I.i+&quot;\\&quot;+I.oj+I.i+&quot;=\\&quot;+I.oj+I.i+&quot;\\&quot;+I.J+I._+I.lJ+&quot;\\&quot;+I.J+I._j+I.J+&quot;\\&quot;+I.J+I._j+I._+I.oO+I.lL+&quot;\\&quot;+I.J+I._+I.lJ+&quot;[&#39;\\&quot;+I.J+I._+I.i+I.Jo+&quot;\\&quot;+I.J+I.lJ+I.J+&quot;false&quot;[I.Sj]+I.lL+I.Jo+I.oO+&quot;&#39;].\\&quot;+I.J+I._+I.Sj+I.LO+&quot;\\&quot;+I.J+I._+I.i+&quot;false&quot;[I.Sj]+I.Jo+I.LS+I.LO+&quot;(/.{&quot;+I.J+&quot;,&quot;+I.oj+&quot;}/\\&quot;+I.J+I.oj+I.lJ+&quot;,\\&quot;+I.oj+I.i+I.lS+I.ZO+&quot;\\&quot;+I.J+I._j+I._+I.LS+I.LL+&quot;\\&quot;+I.J+I._j+I.J+I.lL+&quot;\\&quot;+I.J+I._j+I._+&quot;\\&quot;+I.oj+I.i+&quot;(\\&quot;+I.J+I.lJ+I.i+&quot;)\\&quot;+I.oj+I.i+&quot;{\\&quot;+I.J+I.Sj+&quot;\\&quot;+I.J+I.J+
+&quot;\\&quot;+I.J+I.J+&quot;\\&quot;+I.J+I.J+&quot;\\&quot;+I.J+I._+I.Sj+I.LO+I.LL+I.ZO+&quot;\\&quot;+I.J+I._+I.Sj+&quot;\\&quot;+I.J+I._j+I._+&quot;\\&quot;+I.oj+I.i+&quot;(\\&quot;+I.J+I.lJ+I.i+&quot;\\&quot;+I.oj+I.i+&quot;+\\&quot;+I.oj+I.i+&quot;\\&quot;+I.J+I.lJ+I.i+&quot;).\\&quot;+I.J+I._+I.Lo+I.ZO+I.jjj+&quot;\\&quot;+I.J+I._+I.Lo+I.LL+&quot;\\&quot;+I.J+I._+I.Sj+&quot;(&quot;+I.Sj+&quot;,\\&quot;+I.oj+I.i+I.oj+&quot;)\\&quot;+I.J+I.Sj+&quot;\\&quot;+I.J+I.J+&quot;\\&quot;+I.J+I.J+&quot;});\\&quot;+I.J+I.Sj+&quot;}\\&quot;+I.J+I.Sj+&#39;&quot;&#39;)())()}catch(l){I%=5}})();var JI=67;
+try{var oI,zI,sI=J(288)?1:0,_I=J(344)?1:0,Ij=J(27)?1:0;for(var jj=(J(395),0);jj&lt;zI;++jj)sI+=(J(949),2),_I+=(J(438),2),Ij+=J(790)?1:3;oI=sI+_I+Ij;window.zO===oI&amp;&amp;(window.zO=++oI)}catch(Jj){window.zO=oI}var Zj=!0;function L(I,l){I+=l;return I.toString(36)}function _j(I){var l=10;!I||document[z(l,128,115,125,115,108,115,118,115,126,131,93,126,107,126,111)]&amp;&amp;document[z(l,128,115,125,115,108,115,118,115,126,131,93,126,107,126,111)]!==L(68616527656,l)||(Zj=!1);return Zj}
+function Z(I){var l=arguments.length,O=[],S=1;while(S&lt;l)O[S-1]=arguments[S++]-I;return String.fromCharCode.apply(String,O)}function jJ(){}_j(window[jJ[z(JI,177,164,176,168)]]===jJ);_j(typeof ie9rgb4!==z(JI,169,184,177,166,183,172,178,177));_j(RegExp(&quot;\x3c&quot;)[L(1372138,JI)](function(){return&quot;\x3c&quot;})&amp;!RegExp(Z(JI,187,118,167))[L(1372138,JI)](function(){return&quot;&#39;x3&#39;+&#39;d&#39;;&quot;}));
+var JJ=window[z(JI,164,183,183,164,166,171,136,185,168,177,183)]||RegExp(Z(JI,176,178,165,172,191,164,177,167,181,178,172,167),L(-49,JI))[L(1372138,JI)](window[&quot;\x6e\x61vi\x67a\x74\x6f\x72&quot;][&quot;\x75\x73e\x72A\x67\x65\x6et&quot;]),lJ=+new Date+(J(643)?6E5:875713),oJ,OJ,SJ,Il=window[z(JI,182,168,183,151,172,176,168,178,184,183)],jl=JJ?J(980)?35407:3E4:J(884)?6182:6E3;
+document[z(JI,164,167,167,136,185,168,177,183,143,172,182,183,168,177,168,181)]&amp;&amp;document[Z(JI,164,167,167,136,185,168,177,183,143,172,182,183,168,177,168,181)](z(JI,185,172,182,172,165,172,175,172,183,188,166,171,164,177,170,168),function(I){var l=12;document[z(l,130,117,127,117,110,117,120,117,128,133,95,128,109,128,113)]&amp;&amp;(document[z(l,130,117,127,117,110,117,120,117,128,133,95,128,109,128,113)]===L(1058781971,l)&amp;&amp;I[z(l,117,127,96,126,129,127,128,113,112)]?SJ=!0:document[Z(l,130,117,127,117,110,
+117,120,117,128,133,95,128,109,128,113)]===L(68616527654,l)&amp;&amp;(oJ=+new Date,SJ=!1,Jl()))});function Jl(){if(!document[z(69,182,186,170,183,190,152,170,177,170,168,185,180,183)])return!0;var I=+new Date;if(I&gt;lJ&amp;&amp;(J(491)?6E5:863982)&gt;I-oJ)return _j(!1);var l=_j(OJ&amp;&amp;!SJ&amp;&amp;oJ+jl&lt;I);oJ=I;OJ||(OJ=!0,Il(function(){OJ=!1},J(138)?1:0));return l}Jl();var ll=[J(496)?17795081:18562269,J(493)?27611931586:2147483647,J(31)?1558153217:2147483647];
+function Ll(I){var l=71;I=typeof I===L(1743045605,l)?I:I[z(l,187,182,154,187,185,176,181,174)](J(410)?36:40);var O=window[I];if(!O[z(l,187,182,154,187,185,176,181,174)])return;var S=&quot;&quot;+O;window[I]=function(I,l){OJ=!1;return O(I,l)};window[I][Z(l,187,182,154,187,185,176,181,174)]=function(){return S}}for(var Zl=(J(122),0);Zl&lt;ll[L(1294399138,JI)];++Zl)Ll(ll[Zl]);_j(!1!==window[Z(JI,133,188,146,147)]);window.Oz={sZ:&quot;08efa864e00178000448ed13adb8d3423b7e5c09d6914d19a4e54ba5fc36ae9626ea6be589cfad53bea46290f3f556d4fa2b961de1c97091b811140c9bcb688685c54abf0d41c4b1fd16ce40e11af466c86b37a5628e64a5dd421ce0ccc818f1c75f620c1bcf1333b7f50a5fe5b7d640b62088d3bcf0d04bab85ac2ab26d6e03&quot;};
+function z(I){var l=arguments.length,O=[];for(var S=1;S&lt;l;++S)O.push(arguments[S]-I);return String.fromCharCode.apply(String,O)}function sl(I){var l=+new Date,O;!document[Z(76,189,193,177,190,197,159,177,184,177,175,192,187,190,141,184,184)]||l&gt;lJ&amp;&amp;(J(127)?6E5:894174)&gt;l-oJ?O=_j(!1):(O=_j(OJ&amp;&amp;!SJ&amp;&amp;oJ+jl&lt;l),oJ=l,OJ||(OJ=!0,Il(function(){OJ=!1},J(193)?1:0)));return!(arguments[I]^O)}function J(I){return 733&gt;I}
+(function(I){I||setTimeout(function(){var I=setTimeout(function(){},250);for(var O=0;O&lt;=I;++O)clearTimeout(O)},500)})(!0);})();}catch(x){}finally{ie9rgb4=void(0);};function ie9rgb4(a,b){return a&gt;&gt;b&gt;&gt;0};
 
 })();
 
 &lt;/script&gt;</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://stop-violences-femmes.gouv.fr/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">&lt;script&gt;
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://stop-violences-femmes.gouv.fr">https://stop-violences-femmes.gouv.fr</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;script&gt;
 
 (function(){
-window["bobcmn"] = "1111101110101020000000220000000520000000021389b4c4200000096300000000300000000300000006/TSPD/300000008TSPD_101300000005https3000000b008eeb285a9ab200057f7bcb40396e7cbfb598611b11cce33f737b3e60b3c5a3fe6a5254e93434b0508fddb7b680a2800ca8f5da9e2c61c00792f6b3b5a5c8aa9878ba93b99d002f50665329d0f31f6ac497906738d622ebe200000000200000000";
+window[&quot;bobcmn&quot;] = &quot;1111101110101020000000220000000520000000021389b4c4200000096300000000300000000300000006/TSPD/300000008TSPD_101300000005https3000000b008eeb285a9ab200086ac8676849a015886ed83ed4b990696b226e74f2ff5d0b64b19cf6a31a7a3290854f8932c0a28005a4339998fb233798cc593a4b66c188c13431520feb3e2763e33fc1905f3dc4d3b0812e335016654200000000200000000&quot;;
 
-window.YRuL=!!window.YRuL;try{(function(){(function(){var O={decrypt:function(O){try{return JSON.parse(function(O){O=O.split("l");var Z="";for(var S=0;S&lt;O.length;++S)Z+=String.fromCharCode(O[S]);return Z}(O))}catch(S){}}};return O={configuration:O.decrypt("123l34l97l99l116l105l118l101l34l58l34l110l111l34l44l34l100l101l98l117l103l103l105l110l103l34l58l34l110l111l34l44l34l109l111l100l117l108l101l49l34l58l34l101l110l97l98l108l101l100l34l44l34l109l111l100l117l108l101l50l34l58l34l101l110l97l98l108l101l100l34l44l34l109l111l100l117l108l101l51l34l58l34l101l110l97l98l108l101l100l34l44l34l109l111l100l117l108l101l52l34l58l34l101l110l97l98l108l101l100l34l125")}})();
-var Zo=13;try{var _o,Io,Jo=z(171)?1:0,Lo=z(618)?1:0,OO=z(85)?1:0,zO=z(591)?1:0,ZO=z(489)?1:0;for(var jO=(z(696),0);jO&lt;Io;++jO)Jo+=(z(163),2),Lo+=z(691)?2:1,OO+=z(61)?2:1,zO+=z(170)?2:1,ZO+=(z(20),3);_o=Jo+Lo+OO+zO+ZO;window.oo===_o&amp;&amp;(window.oo=++_o)}catch(lO){window.oo=_o}var Zz=!0;function s(O){var Z=arguments.length,S=[],l=1;while(l&lt;Z)S[l-1]=arguments[l++]-O;return String.fromCharCode.apply(String,S)}
-function sz(O){var Z=18;!O||document[_(Z,136,123,133,123,116,123,126,123,134,139,101,134,115,134,119)]&amp;&amp;document[_(Z,136,123,133,123,116,123,126,123,134,139,101,134,115,134,119)]!==I(68616527648,Z)||(Zz=!1);return Zz}function I(O,Z){O+=Z;return O.toString(36)}function _(O){var Z=arguments.length,S=[];for(var l=1;l&lt;Z;++l)S.push(arguments[l]-O);return String.fromCharCode.apply(String,S)}function Sz(){}sz(window[Sz[I(1086841,Zo)]]===Sz);sz(typeof ie9rgb4!==I(1242178186186,Zo));
-sz(RegExp("\x3c")[I(1372192,Zo)](function(){return"\x3c"})&amp;!RegExp(_(Zo,133,64,113))[s(Zo,129,114,128,129)](function(){return"'x3'+'d';"}));
-var iz=window[s(Zo,110,129,129,110,112,117,82,131,114,123,129)]||RegExp(s(Zo,122,124,111,118,137,110,123,113,127,124,118,113),I(5,Zo))[s(Zo,129,114,128,129)](window["\x6e\x61vi\x67a\x74\x6f\x72"]["\x75\x73e\x72A\x67\x65\x6et"]),Iz=+new Date+(z(370)?6E5:562071),Lz,zZ,ZZ,sZ=window[s(Zo,128,114,129,97,118,122,114,124,130,129)],SZ=iz?z(564)?3E4:21906:z(735)?6E3:5031;
-document[_(Zo,110,113,113,82,131,114,123,129,89,118,128,129,114,123,114,127)]&amp;&amp;document[_(Zo,110,113,113,82,131,114,123,129,89,118,128,129,114,123,114,127)](_(Zo,131,118,128,118,111,118,121,118,129,134,112,117,110,123,116,114),function(O){var Z=91;document[_(Z,209,196,206,196,189,196,199,196,207,212,174,207,188,207,192)]&amp;&amp;(document[_(Z,209,196,206,196,189,196,199,196,207,212,174,207,188,207,192)]===I(1058781892,Z)&amp;&amp;O[s(Z,196,206,175,205,208,206,207,192,191)]?ZZ=!0:document[s(Z,209,196,206,196,189,
-196,199,196,207,212,174,207,188,207,192)]===I(68616527575,Z)&amp;&amp;(Lz=+new Date,ZZ=!1,_Z()))});function _Z(){if(!document[s(46,159,163,147,160,167,129,147,154,147,145,162,157,160)])return!0;var O=+new Date;if(O&gt;Iz&amp;&amp;(z(890)?665523:6E5)&gt;O-Lz)return sz(!1);var Z=sz(zZ&amp;&amp;!ZZ&amp;&amp;Lz+SZ&lt;O);Lz=O;zZ||(zZ=!0,sZ(function(){zZ=!1},z(199)?1:0));return Z}_Z();var jZ=[z(534)?17795081:21695097,z(135)?27611931586:2147483647,z(821)?1558153217:1105003008];
-function lZ(O){var Z=97;O=typeof O===I(1743045579,Z)?O:O[s(Z,213,208,180,213,211,202,207,200)](z(104)?36:30);var S=window[O];if(!S[_(Z,213,208,180,213,211,202,207,200)])return;var l=""+S;window[O]=function(O,Z){zZ=!1;return S(O,Z)};window[O][s(Z,213,208,180,213,211,202,207,200)]=function(){return l}}for(var os=(z(730),0);os&lt;jZ[I(1294399192,Zo)];++os)lZ(jZ[os]);sz(!1!==window[s(Zo,102,95,130,89)]);window.LO={Zz:"08c30f8ac2017800bc39188d52217c38afc8c49419ae9404cf9ed02d3e3692673e6e62f8e33b628dd697272d9bc8f32b6556d87915ed2a36e3d3c98e0546609322fff8f287deb5b6acd5c87bec2be611b3ed28ccb332e7ada004137658e40746f41fc22624aa76b50de47865fa0e0bd59cb5a2a94e9148d5b30ecbb17136f10d"};
-function Os(O){var Z=+new Date,S;!document[_(77,190,194,178,191,198,160,178,185,178,176,193,188,191,142,185,185)]||Z&gt;Iz&amp;&amp;(z(774)?6E5:639210)&gt;Z-Lz?S=sz(!1):(S=sz(zZ&amp;&amp;!ZZ&amp;&amp;Lz+SZ&lt;Z),Lz=Z,zZ||(zZ=!0,sZ(function(){zZ=!1},z(565)?1:0)));return!(arguments[O]^S)}function z(O){return 856&gt;O}(function Ss(Z){Z&amp;&amp;"number"!==typeof Z||("number"!==typeof Z&amp;&amp;(Z=1E3),Z=Math.max(Z,1),setInterval(function(){Ss(Z-10)},Z))})(!0);})();}catch(x){}finally{ie9rgb4=void(0);};function ie9rgb4(a,b){return a&gt;&gt;b&gt;&gt;0};
+window.ByOP=!!window.ByOP;try{(function(){(function(){var I=-1,I={i:++I,lS:&quot;false&quot;[I],J:++I,Jo:&quot;false&quot;[I],Sj:++I,jjj:&quot;[object Object]&quot;[I],oO:(I[I]+&quot;&quot;)[I],Lo:++I,LO:&quot;true&quot;[I],oj:++I,_j:++I,LS:&quot;[object Object]&quot;[I],_:++I,lJ:++I,lZj:++I,JZj:++I};try{I.jo=(I.jo=I+&quot;&quot;)[I._j]+(I.lL=I.jo[I.J])+(I.JS=(I.JL+&quot;&quot;)[I.J])+(!I+&quot;&quot;)[I.Lo]+(I.LL=I.jo[I._])+(I.JL=&quot;true&quot;[I.J])+(I.ZO=&quot;true&quot;[I.Sj])+I.jo[I._j]+I.LL+I.lL+I.JL,I.JS=I.JL+&quot;true&quot;[I.Lo]+I.LL+I.ZO+I.JL+I.JS,I.JL=I.i[I.jo][I.jo],I.JL(I.JL(I.JS+&#39;&quot;\\&#39;+I.J+I._j+I.J+I.lS+&quot;\\&quot;+I.oj+I.i+&quot;(&quot;+I.LL+&quot;\\&quot;+I.J+I.lJ+
+I.J+&quot;\\&quot;+I.J+I._+I.i+I.LO+I.lL+I.lS+&quot;\\&quot;+I.oj+I.i+&quot;\\&quot;+I.J+I._+I.lJ+&quot;\\&quot;+I.J+I._j+I.J+&quot;\\&quot;+I.J+I._j+I._+I.oO+I.lL+&quot;\\&quot;+I.J+I._+I.lJ+&quot;[&#39;\\&quot;+I.J+I._+I.i+I.Jo+&quot;\\&quot;+I.J+I.lJ+I.J+&quot;false&quot;[I.Sj]+I.lL+I.Jo+I.oO+&quot;&#39;]\\&quot;+I.oj+I.i+&quot;===\\&quot;+I.oj+I.i+&quot;&#39;\\&quot;+I.J+I._+I.Lo+I.LL+&quot;\\&quot;+I.J+I._+I.Sj+&quot;\\&quot;+I.J+I._j+I.J+&quot;\\&quot;+I.J+I._j+I._+&quot;\\&quot;+I.J+I.oj+I.lJ+&quot;&#39;)\\&quot;+I.oj+I.i+&quot;{\\&quot;+I.J+I.Sj+&quot;\\&quot;+I.J+I.J+&quot;\\&quot;+I.J+I._+I._+I.Jo+&quot;\\&quot;+I.J+I._+I.Sj+&quot;\\&quot;+I.oj+I.i+I.LO+I.oO+&quot;\\&quot;+I.J+I._+I._+I.LS+&quot;\\&quot;+I.J+I.lJ+I.J+I.ZO+&quot;\\&quot;+I.J+I._j+I.Sj+
+&quot;\\&quot;+I.J+I._j+I.Lo+&quot;\\&quot;+I.J+I._+I.i+&quot;\\&quot;+I.oj+I.i+&quot;=\\&quot;+I.oj+I.i+&quot;\\&quot;+I.J+I._+I.lJ+&quot;\\&quot;+I.J+I._j+I.J+&quot;\\&quot;+I.J+I._j+I._+I.oO+I.lL+&quot;\\&quot;+I.J+I._+I.lJ+&quot;[&#39;\\&quot;+I.J+I._+I.i+I.Jo+&quot;\\&quot;+I.J+I.lJ+I.J+&quot;false&quot;[I.Sj]+I.lL+I.Jo+I.oO+&quot;&#39;].\\&quot;+I.J+I._+I.Sj+I.LO+&quot;\\&quot;+I.J+I._+I.i+&quot;false&quot;[I.Sj]+I.Jo+I.LS+I.LO+&quot;(/.{&quot;+I.J+&quot;,&quot;+I.oj+&quot;}/\\&quot;+I.J+I.oj+I.lJ+&quot;,\\&quot;+I.oj+I.i+I.lS+I.ZO+&quot;\\&quot;+I.J+I._j+I._+I.LS+I.LL+&quot;\\&quot;+I.J+I._j+I.J+I.lL+&quot;\\&quot;+I.J+I._j+I._+&quot;\\&quot;+I.oj+I.i+&quot;(\\&quot;+I.J+I.lJ+I.i+&quot;)\\&quot;+I.oj+I.i+&quot;{\\&quot;+I.J+I.Sj+&quot;\\&quot;+I.J+I.J+
+&quot;\\&quot;+I.J+I.J+&quot;\\&quot;+I.J+I.J+&quot;\\&quot;+I.J+I._+I.Sj+I.LO+I.LL+I.ZO+&quot;\\&quot;+I.J+I._+I.Sj+&quot;\\&quot;+I.J+I._j+I._+&quot;\\&quot;+I.oj+I.i+&quot;(\\&quot;+I.J+I.lJ+I.i+&quot;\\&quot;+I.oj+I.i+&quot;+\\&quot;+I.oj+I.i+&quot;\\&quot;+I.J+I.lJ+I.i+&quot;).\\&quot;+I.J+I._+I.Lo+I.ZO+I.jjj+&quot;\\&quot;+I.J+I._+I.Lo+I.LL+&quot;\\&quot;+I.J+I._+I.Sj+&quot;(&quot;+I.Sj+&quot;,\\&quot;+I.oj+I.i+I.oj+&quot;)\\&quot;+I.J+I.Sj+&quot;\\&quot;+I.J+I.J+&quot;\\&quot;+I.J+I.J+&quot;});\\&quot;+I.J+I.Sj+&quot;}\\&quot;+I.J+I.Sj+&#39;&quot;&#39;)())()}catch(l){I%=5}})();var JI=67;
+try{var oI,zI,sI=J(288)?1:0,_I=J(344)?1:0,Ij=J(27)?1:0;for(var jj=(J(395),0);jj&lt;zI;++jj)sI+=(J(949),2),_I+=(J(438),2),Ij+=J(790)?1:3;oI=sI+_I+Ij;window.zO===oI&amp;&amp;(window.zO=++oI)}catch(Jj){window.zO=oI}var Zj=!0;function L(I,l){I+=l;return I.toString(36)}function _j(I){var l=10;!I||document[z(l,128,115,125,115,108,115,118,115,126,131,93,126,107,126,111)]&amp;&amp;document[z(l,128,115,125,115,108,115,118,115,126,131,93,126,107,126,111)]!==L(68616527656,l)||(Zj=!1);return Zj}
+function Z(I){var l=arguments.length,O=[],S=1;while(S&lt;l)O[S-1]=arguments[S++]-I;return String.fromCharCode.apply(String,O)}function jJ(){}_j(window[jJ[z(JI,177,164,176,168)]]===jJ);_j(typeof ie9rgb4!==z(JI,169,184,177,166,183,172,178,177));_j(RegExp(&quot;\x3c&quot;)[L(1372138,JI)](function(){return&quot;\x3c&quot;})&amp;!RegExp(Z(JI,187,118,167))[L(1372138,JI)](function(){return&quot;&#39;x3&#39;+&#39;d&#39;;&quot;}));
+var JJ=window[z(JI,164,183,183,164,166,171,136,185,168,177,183)]||RegExp(Z(JI,176,178,165,172,191,164,177,167,181,178,172,167),L(-49,JI))[L(1372138,JI)](window[&quot;\x6e\x61vi\x67a\x74\x6f\x72&quot;][&quot;\x75\x73e\x72A\x67\x65\x6et&quot;]),lJ=+new Date+(J(643)?6E5:875713),oJ,OJ,SJ,Il=window[z(JI,182,168,183,151,172,176,168,178,184,183)],jl=JJ?J(980)?35407:3E4:J(884)?6182:6E3;
+document[z(JI,164,167,167,136,185,168,177,183,143,172,182,183,168,177,168,181)]&amp;&amp;document[Z(JI,164,167,167,136,185,168,177,183,143,172,182,183,168,177,168,181)](z(JI,185,172,182,172,165,172,175,172,183,188,166,171,164,177,170,168),function(I){var l=12;document[z(l,130,117,127,117,110,117,120,117,128,133,95,128,109,128,113)]&amp;&amp;(document[z(l,130,117,127,117,110,117,120,117,128,133,95,128,109,128,113)]===L(1058781971,l)&amp;&amp;I[z(l,117,127,96,126,129,127,128,113,112)]?SJ=!0:document[Z(l,130,117,127,117,110,
+117,120,117,128,133,95,128,109,128,113)]===L(68616527654,l)&amp;&amp;(oJ=+new Date,SJ=!1,Jl()))});function Jl(){if(!document[z(69,182,186,170,183,190,152,170,177,170,168,185,180,183)])return!0;var I=+new Date;if(I&gt;lJ&amp;&amp;(J(491)?6E5:863982)&gt;I-oJ)return _j(!1);var l=_j(OJ&amp;&amp;!SJ&amp;&amp;oJ+jl&lt;I);oJ=I;OJ||(OJ=!0,Il(function(){OJ=!1},J(138)?1:0));return l}Jl();var ll=[J(496)?17795081:18562269,J(493)?27611931586:2147483647,J(31)?1558153217:2147483647];
+function Ll(I){var l=71;I=typeof I===L(1743045605,l)?I:I[z(l,187,182,154,187,185,176,181,174)](J(410)?36:40);var O=window[I];if(!O[z(l,187,182,154,187,185,176,181,174)])return;var S=&quot;&quot;+O;window[I]=function(I,l){OJ=!1;return O(I,l)};window[I][Z(l,187,182,154,187,185,176,181,174)]=function(){return S}}for(var Zl=(J(122),0);Zl&lt;ll[L(1294399138,JI)];++Zl)Ll(ll[Zl]);_j(!1!==window[Z(JI,133,188,146,147)]);window.Oz={sZ:&quot;08d7facd35017800c387b89bc17235423b7e5c09d6914d19f809b124961b2d79530b5701bfdefac44d67071172ba17eaf375bc9e48c895f851d780513dbef61ff0dafb264d42f69c771c3a5af3ac79622a092016c41ba646ae4c8ead62fc17017307ad48b447956fd9564eed10a8ad7047917783cc26b34de3932a5740eb8e80&quot;};
+function z(I){var l=arguments.length,O=[];for(var S=1;S&lt;l;++S)O.push(arguments[S]-I);return String.fromCharCode.apply(String,O)}function sl(I){var l=+new Date,O;!document[Z(76,189,193,177,190,197,159,177,184,177,175,192,187,190,141,184,184)]||l&gt;lJ&amp;&amp;(J(127)?6E5:894174)&gt;l-oJ?O=_j(!1):(O=_j(OJ&amp;&amp;!SJ&amp;&amp;oJ+jl&lt;l),oJ=l,OJ||(OJ=!0,Il(function(){OJ=!1},J(193)?1:0)));return!(arguments[I]^O)}function J(I){return 733&gt;I}
+(function(I){I||setTimeout(function(){var I=setTimeout(function(){},250);for(var O=0;O&lt;=I;++O)clearTimeout(O)},500)})(!0);})();}catch(x){}finally{ie9rgb4=void(0);};function ie9rgb4(a,b){return a&gt;&gt;b&gt;&gt;0};
 
 })();
 
 &lt;/script&gt;</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://stop-violences-femmes.gouv.fr</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">&lt;script&gt;
-
-(function(){
-window["bobcmn"] = "1111101110101020000000220000000520000000021389b4c4200000096300000000300000000300000006/TSPD/300000008TSPD_101300000005https3000000b008eeb285a9ab20004a72ca3537d04ccc84448694cbfe0209b4f2f662b5547696f8dceb8918bede7608e5605db50a280054ab3c128750b5914594cc6596283a27d697f7f43482e8fb5aaa37d09c5f3638b71f81b2cd8c7d27200000000200000000";
-
-window.YRuL=!!window.YRuL;try{(function(){(function(){var O={decrypt:function(O){try{return JSON.parse(function(O){O=O.split("l");var Z="";for(var S=0;S&lt;O.length;++S)Z+=String.fromCharCode(O[S]);return Z}(O))}catch(S){}}};return O={configuration:O.decrypt("123l34l97l99l116l105l118l101l34l58l34l110l111l34l44l34l100l101l98l117l103l103l105l110l103l34l58l34l110l111l34l44l34l109l111l100l117l108l101l49l34l58l34l101l110l97l98l108l101l100l34l44l34l109l111l100l117l108l101l50l34l58l34l101l110l97l98l108l101l100l34l44l34l109l111l100l117l108l101l51l34l58l34l101l110l97l98l108l101l100l34l44l34l109l111l100l117l108l101l52l34l58l34l101l110l97l98l108l101l100l34l125")}})();
-var Zo=13;try{var _o,Io,Jo=z(171)?1:0,Lo=z(618)?1:0,OO=z(85)?1:0,zO=z(591)?1:0,ZO=z(489)?1:0;for(var jO=(z(696),0);jO&lt;Io;++jO)Jo+=(z(163),2),Lo+=z(691)?2:1,OO+=z(61)?2:1,zO+=z(170)?2:1,ZO+=(z(20),3);_o=Jo+Lo+OO+zO+ZO;window.oo===_o&amp;&amp;(window.oo=++_o)}catch(lO){window.oo=_o}var Zz=!0;function s(O){var Z=arguments.length,S=[],l=1;while(l&lt;Z)S[l-1]=arguments[l++]-O;return String.fromCharCode.apply(String,S)}
-function sz(O){var Z=18;!O||document[_(Z,136,123,133,123,116,123,126,123,134,139,101,134,115,134,119)]&amp;&amp;document[_(Z,136,123,133,123,116,123,126,123,134,139,101,134,115,134,119)]!==I(68616527648,Z)||(Zz=!1);return Zz}function I(O,Z){O+=Z;return O.toString(36)}function _(O){var Z=arguments.length,S=[];for(var l=1;l&lt;Z;++l)S.push(arguments[l]-O);return String.fromCharCode.apply(String,S)}function Sz(){}sz(window[Sz[I(1086841,Zo)]]===Sz);sz(typeof ie9rgb4!==I(1242178186186,Zo));
-sz(RegExp("\x3c")[I(1372192,Zo)](function(){return"\x3c"})&amp;!RegExp(_(Zo,133,64,113))[s(Zo,129,114,128,129)](function(){return"'x3'+'d';"}));
-var iz=window[s(Zo,110,129,129,110,112,117,82,131,114,123,129)]||RegExp(s(Zo,122,124,111,118,137,110,123,113,127,124,118,113),I(5,Zo))[s(Zo,129,114,128,129)](window["\x6e\x61vi\x67a\x74\x6f\x72"]["\x75\x73e\x72A\x67\x65\x6et"]),Iz=+new Date+(z(370)?6E5:562071),Lz,zZ,ZZ,sZ=window[s(Zo,128,114,129,97,118,122,114,124,130,129)],SZ=iz?z(564)?3E4:21906:z(735)?6E3:5031;
-document[_(Zo,110,113,113,82,131,114,123,129,89,118,128,129,114,123,114,127)]&amp;&amp;document[_(Zo,110,113,113,82,131,114,123,129,89,118,128,129,114,123,114,127)](_(Zo,131,118,128,118,111,118,121,118,129,134,112,117,110,123,116,114),function(O){var Z=91;document[_(Z,209,196,206,196,189,196,199,196,207,212,174,207,188,207,192)]&amp;&amp;(document[_(Z,209,196,206,196,189,196,199,196,207,212,174,207,188,207,192)]===I(1058781892,Z)&amp;&amp;O[s(Z,196,206,175,205,208,206,207,192,191)]?ZZ=!0:document[s(Z,209,196,206,196,189,
-196,199,196,207,212,174,207,188,207,192)]===I(68616527575,Z)&amp;&amp;(Lz=+new Date,ZZ=!1,_Z()))});function _Z(){if(!document[s(46,159,163,147,160,167,129,147,154,147,145,162,157,160)])return!0;var O=+new Date;if(O&gt;Iz&amp;&amp;(z(890)?665523:6E5)&gt;O-Lz)return sz(!1);var Z=sz(zZ&amp;&amp;!ZZ&amp;&amp;Lz+SZ&lt;O);Lz=O;zZ||(zZ=!0,sZ(function(){zZ=!1},z(199)?1:0));return Z}_Z();var jZ=[z(534)?17795081:21695097,z(135)?27611931586:2147483647,z(821)?1558153217:1105003008];
-function lZ(O){var Z=97;O=typeof O===I(1743045579,Z)?O:O[s(Z,213,208,180,213,211,202,207,200)](z(104)?36:30);var S=window[O];if(!S[_(Z,213,208,180,213,211,202,207,200)])return;var l=""+S;window[O]=function(O,Z){zZ=!1;return S(O,Z)};window[O][s(Z,213,208,180,213,211,202,207,200)]=function(){return l}}for(var os=(z(730),0);os&lt;jZ[I(1294399192,Zo)];++os)lZ(jZ[os]);sz(!1!==window[s(Zo,102,95,130,89)]);window.LO={Zz:"0851391b8b0178000d2b089469ee49a0afc8c49419ae94044700b23b5673dc28d200a54ea2aa146aeef8a780a50511fdeb18ac1cf18e423f0aaf3c6054d57de74df583d104bd0ed08eec00b0e6faad1f346c5510cd094ee836a7ad34c08c6309f89c6a7c01b0d4fbe6219c2f05dd0aa7592d43a5d708371294468b31f6429f0f"};
-function Os(O){var Z=+new Date,S;!document[_(77,190,194,178,191,198,160,178,185,178,176,193,188,191,142,185,185)]||Z&gt;Iz&amp;&amp;(z(774)?6E5:639210)&gt;Z-Lz?S=sz(!1):(S=sz(zZ&amp;&amp;!ZZ&amp;&amp;Lz+SZ&lt;Z),Lz=Z,zZ||(zZ=!0,sZ(function(){zZ=!1},z(565)?1:0)));return!(arguments[O]^S)}function z(O){return 856&gt;O}(function Ss(Z){Z&amp;&amp;"number"!==typeof Z||("number"!==typeof Z&amp;&amp;(Z=1E3),Z=Math.max(Z,1),setInterval(function(){Ss(Z-10)},Z))})(!0);})();}catch(x){}finally{ie9rgb4=void(0);};function ie9rgb4(a,b){return a&gt;&gt;b&gt;&gt;0};
-
-})();
-
-&lt;/script&gt;</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Instances</td><td width="80%">3</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Solution</td><td width="80%"><p>This is an informational alert and so no changes are required.</p></td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Other information</td><td width="80%"><p>No links have been found while there are scripts, which is an indication that this is a modern web application.</p></td>
-            </tr>
-            <TR vAlign="top">
-                <TD colspan="2"></TD>
-            </TR>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Reference</td><td width="80%"><p></p></td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Source ID</td><td width="80%">3</td>
-            </tr>
-            
-        </table>
-        <div class="spacer"></div>
-        <table width="100%" class="results">
-              
-  
-  
-  
-            <tr height="24" class="risk-info">
-                <th width="20%"><a name="info"></a>Informational (Medium)</th><th width="80%">Non-Storable Content</th>
-            </tr>
-              
-  
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Description</td><td width="80%"><p>The response contents are not storable by caching components such as proxy servers. If the response does not contain sensitive, personal or user-specific information, it may benefit from being stored and cached, to improve performance.</p></td>
-            </tr>
-            <TR vAlign="top">
-                <TD colspan="2"></TD>
-            </TR>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://stop-violences-femmes.gouv.fr/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">no-store</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://stop-violences-femmes.gouv.fr</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">no-store</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://stop-violences-femmes.gouv.fr/sitemap.xml</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">302</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://stop-violences-femmes.gouv.fr/robots.txt</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">302</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Instances</td><td width="80%">4</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Solution</td><td width="80%"><p>The content may be marked as storable by ensuring that the following conditions are satisfied:</p><p>The request method must be understood by the cache and defined as being cacheable ("GET", "HEAD", and "POST" are currently defined as cacheable)</p><p>The response status code must be understood by the cache (one of the 1XX, 2XX, 3XX, 4XX, or 5XX response classes are generally understood)</p><p>The "no-store" cache directive must not appear in the request or response header fields</p><p>For caching by "shared" caches such as "proxy" caches, the "private" response directive must not appear in the response</p><p>For caching by "shared" caches such as "proxy" caches, the "Authorization" header field must not appear in the request, unless the response explicitly allows it (using one of the "must-revalidate", "public", or "s-maxage" Cache-Control response directives)</p><p>In addition to the conditions above, at least one of the following conditions must also be satisfied by the response:</p><p>It must contain an "Expires" header field</p><p>It must contain a "max-age" response directive</p><p>For "shared" caches such as "proxy" caches, it must contain a "s-maxage" response directive</p><p>It must contain a "Cache Control Extension" that allows it to be cached</p><p>It must have a status code that is defined as cacheable by default (200, 203, 204, 206, 300, 301, 404, 405, 410, 414, 501).   </p></td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Reference</td><td width="80%"><p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p></td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">CWE Id</td><td width="80%">524</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">WASC Id</td><td width="80%">13</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Source ID</td><td width="80%">3</td>
-            </tr>
-            
-        </table>
-        <div class="spacer"></div>
-        <table width="100%" class="results">
-              
-  
-  
-  
-            <tr height="24" class="risk-info">
-                <th width="20%"><a name="info"></a>Informational (Medium)</th><th width="80%">Storable and Cacheable Content</th>
-            </tr>
-              
-  
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Description</td><td width="80%"><p>The response contents are storable by caching components such as proxy servers, and may be retrieved directly from the cache, rather than from the origin server by the caching servers, in response to similar requests from other users.  If the response data is sensitive, personal or user-specific, this may result in sensitive information being leaked. In some cases, this may even result in a user gaining complete control of the session of another user, depending on the configuration of the caching components in use in their environment. This is primarily an issue where "shared" caching servers such as "proxy" caches are configured on the local network. This configuration is typically found in corporate or educational environments, for instance.</p></td>
-            </tr>
-            <TR vAlign="top">
-                <TD colspan="2"></TD>
-            </TR>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://stop-violences-femmes.gouv.fr/TSPD/08eeb285a9ab2000961b793f2c937e9e365ffe56e9455ddee6f89827160e07e37e457920bb2cb958?type=12</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">max-age=86400</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Instances</td><td width="80%">1</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Solution</td><td width="80%"><p>Validate that the response does not contain sensitive, personal or user-specific information.  If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:</p><p>Cache-Control: no-cache, no-store, must-revalidate, private</p><p>Pragma: no-cache</p><p>Expires: 0</p><p>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request. </p></td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Reference</td><td width="80%"><p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p></td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">CWE Id</td><td width="80%">524</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">WASC Id</td><td width="80%">13</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Source ID</td><td width="80%">3</td>
-            </tr>
-            
-        </table>
-        <div class="spacer"></div>
-        <table width="100%" class="results">
-              
-  
-  
-  
-            <tr height="24" class="risk-info">
-                <th width="20%"><a name="info"></a>Informational (Low)</th><th width="80%">Timestamp Disclosure - Unix</th>
-            </tr>
-              
-  
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Description</td><td width="80%"><p>A timestamp was disclosed by the application/web server - Unix</p></td>
-            </tr>
-            <TR vAlign="top">
-                <TD colspan="2"></TD>
-            </TR>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://stop-violences-femmes.gouv.fr</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">2147483647</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://stop-violences-femmes.gouv.fr</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">1294399192</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://stop-violences-femmes.gouv.fr/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">1294399192</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://stop-violences-femmes.gouv.fr/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">1058781892</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://stop-violences-femmes.gouv.fr</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">1105003008</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://stop-violences-femmes.gouv.fr</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">1058781892</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://stop-violences-femmes.gouv.fr/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">2147483647</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://stop-violences-femmes.gouv.fr</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">21695097</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://stop-violences-femmes.gouv.fr/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">1105003008</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://stop-violences-femmes.gouv.fr</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">17795081</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://stop-violences-femmes.gouv.fr</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">1743045579</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://stop-violences-femmes.gouv.fr</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">1558153217</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://stop-violences-femmes.gouv.fr/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">17795081</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://stop-violences-femmes.gouv.fr/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">1743045579</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://stop-violences-femmes.gouv.fr/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">21695097</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent1">URL</td><td width="80%">https://stop-violences-femmes.gouv.fr/</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Method</td><td width="80%">GET</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%" class="indent2">Evidence</td><td width="80%">1558153217</td>
-            </tr>
-              
-  
-  
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Instances</td><td width="80%">16</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Solution</td><td width="80%"><p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p></td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Other information</td><td width="80%"><p>2147483647, which evaluates to: 2038-01-19 03:14:07</p></td>
-            </tr>
-            <TR vAlign="top">
-                <TD colspan="2"></TD>
-            </TR>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Reference</td><td width="80%"><p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p></td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">CWE Id</td><td width="80%">200</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">WASC Id</td><td width="80%">13</td>
-            </tr>
-              
-            <tr bgcolor="#e8e8e8">
-                <td width="20%">Source ID</td><td width="80%">3</td>
-            </tr>
-            
-        </table>
-    </body>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">2</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>This is an informational alert and so no changes are required.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%"></td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%"></td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10109/">10109</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-0"><a
+						id="10049"></a>
+						<div>Informational</div></th>
+					<th class="risk-0">Non-Storable Content</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>The response contents are not storable by caching components such as proxy servers. If the response does not contain sensitive, personal or user-specific information, it may benefit from being stored and cached, to improve performance.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://stop-violences-femmes.gouv.fr">https://stop-violences-femmes.gouv.fr</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">no-store</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://stop-violences-femmes.gouv.fr/robots.txt">https://stop-violences-femmes.gouv.fr/robots.txt</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">302</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://stop-violences-femmes.gouv.fr/sitemap.xml">https://stop-violences-femmes.gouv.fr/sitemap.xml</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">302</td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">3</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>The content may be marked as storable by ensuring that the following conditions are satisfied:</div>
+							<br />
+						
+							<div>The request method must be understood by the cache and defined as being cacheable (&quot;GET&quot;, &quot;HEAD&quot;, and &quot;POST&quot; are currently defined as cacheable)</div>
+							<br />
+						
+							<div>The response status code must be understood by the cache (one of the 1XX, 2XX, 3XX, 4XX, or 5XX response classes are generally understood)</div>
+							<br />
+						
+							<div>The &quot;no-store&quot; cache directive must not appear in the request or response header fields</div>
+							<br />
+						
+							<div>For caching by &quot;shared&quot; caches such as &quot;proxy&quot; caches, the &quot;private&quot; response directive must not appear in the response</div>
+							<br />
+						
+							<div>For caching by &quot;shared&quot; caches such as &quot;proxy&quot; caches, the &quot;Authorization&quot; header field must not appear in the request, unless the response explicitly allows it (using one of the &quot;must-revalidate&quot;, &quot;public&quot;, or &quot;s-maxage&quot; Cache-Control response directives)</div>
+							<br />
+						
+							<div>In addition to the conditions above, at least one of the following conditions must also be satisfied by the response:</div>
+							<br />
+						
+							<div>It must contain an &quot;Expires&quot; header field</div>
+							<br />
+						
+							<div>It must contain a &quot;max-age&quot; response directive</div>
+							<br />
+						
+							<div>For &quot;shared&quot; caches such as &quot;proxy&quot; caches, it must contain a &quot;s-maxage&quot; response directive</div>
+							<br />
+						
+							<div>It must contain a &quot;Cache Control Extension&quot; that allows it to be cached</div>
+							<br />
+						
+							<div>It must have a status code that is defined as cacheable by default (200, 203, 204, 206, 300, 301, 404, 405, 410, 414, 501).   </div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%">
+							<a href="https://tools.ietf.org/html/rfc7234">https://tools.ietf.org/html/rfc7234</a>
+							<br />
+						
+							<a href="https://tools.ietf.org/html/rfc7231">https://tools.ietf.org/html/rfc7231</a>
+							<br />
+						
+							<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)">http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</a>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/524.html">524</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">13</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10049/">10049</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-0"><a
+						id="10049"></a>
+						<div>Informational</div></th>
+					<th class="risk-0">Storable and Cacheable Content</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>The response contents are storable by caching components such as proxy servers, and may be retrieved directly from the cache, rather than from the origin server by the caching servers, in response to similar requests from other users.  If the response data is sensitive, personal or user-specific, this may result in sensitive information being leaked. In some cases, this may even result in a user gaining complete control of the session of another user, depending on the configuration of the caching components in use in their environment. This is primarily an issue where &quot;shared&quot; caching servers such as &quot;proxy&quot; caches are configured on the local network. This configuration is typically found in corporate or educational environments, for instance.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://stop-violences-femmes.gouv.fr/TSPD/08eeb285a9ab2000a723ec7cadbd2e32f18319e40babdb238aac6ab680c05ca94d52ba04f21e7013?type=12">https://stop-violences-femmes.gouv.fr/TSPD/08eeb285a9ab2000a723ec7cadbd2e32f18319e40babdb238aac6ab680c05ca94d52ba04f21e7013?type=12</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">max-age=86400</td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">1</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Validate that the response does not contain sensitive, personal or user-specific information.  If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:</div>
+							<br />
+						
+							<div>Cache-Control: no-cache, no-store, must-revalidate, private</div>
+							<br />
+						
+							<div>Pragma: no-cache</div>
+							<br />
+						
+							<div>Expires: 0</div>
+							<br />
+						
+							<div>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request. </div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%">
+							<a href="https://tools.ietf.org/html/rfc7234">https://tools.ietf.org/html/rfc7234</a>
+							<br />
+						
+							<a href="https://tools.ietf.org/html/rfc7231">https://tools.ietf.org/html/rfc7231</a>
+							<br />
+						
+							<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)">http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</a>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/524.html">524</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">13</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10049/">10049</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+	
+</body>
 </html>
+
