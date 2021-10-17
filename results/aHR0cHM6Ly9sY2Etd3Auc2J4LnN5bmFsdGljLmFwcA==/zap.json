@@ -1,6 +1,6 @@
 {
 	"@version": "2.11.0",
-	"@generated": "Sun, 10 Oct 2021 05:44:37",
+	"@generated": "Sun, 17 Oct 2021 05:25:49",
 	"site":[ 
 		{
 			"@name": "https://lca-wp.sbx.synaltic.app",
@@ -32,7 +32,7 @@
 					"reference": "",
 					"cweid": "359",
 					"wascid": "13",
-					"sourceid": "555"
+					"sourceid": "554"
 				},
 				{
 					"pluginid": "10038",
@@ -816,14 +816,14 @@
 					"desc": "<p>A private IP (such as 10.x.x.x, 172.x.x.x, 192.168.x.x) or an Amazon EC2 private hostname (for example, ip-10-0-56-78) has been found in the HTTP response body. This information might be helpful for further attacks targeting internal systems.</p>",
 					"instances":[ 
 						{
-							"uri": "https://lca-wp.sbx.synaltic.app/actualites/",
+							"uri": "https://lca-wp.sbx.synaltic.app/?s",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "10.2.12.0"
+							"evidence": "10.2.9.0"
 						},
 						{
-							"uri": "https://lca-wp.sbx.synaltic.app/actualites/lancement-du-passsport-dans-le-compte-asso-pour-permettre-aux-structures-de-se-faire-rembourser/",
+							"uri": "https://lca-wp.sbx.synaltic.app/actualites/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -834,31 +834,10 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "10.2.12.0"
-						},
-						{
-							"uri": "https://lca-wp.sbx.synaltic.app/category/demarches-administratives/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
 							"evidence": "10.2.9.0"
 						},
 						{
 							"uri": "https://lca-wp.sbx.synaltic.app/comment-gerer-mon-association/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "10.2.12.0"
-						},
-						{
-							"uri": "https://lca-wp.sbx.synaltic.app/comment-se-creer-un-compte/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "10.2.9.0"
-						},
-						{
-							"uri": "https://lca-wp.sbx.synaltic.app/declarer-ses-activites-de-benevolat-via-le-compte-benevole/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -869,17 +848,38 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "10.2.12.0"
+							"evidence": "10.2.9.0"
 						},
 						{
-							"uri": "https://lca-wp.sbx.synaltic.app/demander-lattribution-dun-n-siren-siret/",
+							"uri": "https://lca-wp.sbx.synaltic.app/decouvrir-le-compte-asso/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "10.2.9.0"
 						},
 						{
-							"uri": "https://lca-wp.sbx.synaltic.app/demander-une-subvention/",
+							"uri": "https://lca-wp.sbx.synaltic.app/faq/creer-mon-association/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "10.2.9.0"
+						},
+						{
+							"uri": "https://lca-wp.sbx.synaltic.app/faq/declarer-un-changement-de-situation/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "10.2.9.0"
+						},
+						{
+							"uri": "https://lca-wp.sbx.synaltic.app/faq/demander-renouveler-un-agrement/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "10.2.9.0"
+						},
+						{
+							"uri": "https://lca-wp.sbx.synaltic.app/faq/recommandation/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -890,23 +890,23 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "10.2.12.0"
+							"evidence": "10.2.9.0"
 						},
 						{
 							"uri": "https://lca-wp.sbx.synaltic.app/traiter-les-declarations-des-activites-de-benevolat/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "10.2.12.0"
+							"evidence": "10.2.9.0"
 						}
 					],
 					"count": "12",
 					"solution": "<p>Remove the private IP address from the HTTP response body.  For comments, use JSP/ASP/PHP comment instead of HTML/JavaScript comment which can be seen by client browsers.</p>",
-					"otherinfo": "<p>10.2.12.0</p><p></p>",
+					"otherinfo": "<p>10.2.9.0</p><p></p>",
 					"reference": "<p>https://tools.ietf.org/html/rfc1918</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "136"
+					"sourceid": "626"
 				},
 				{
 					"pluginid": "10037",
@@ -1527,7 +1527,7 @@
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "129"
+					"sourceid": "128"
 				},
 				{
 					"pluginid": "10049",
@@ -1540,14 +1540,63 @@
 					"desc": "<p>The response contents are storable by caching components such as proxy servers, and may be retrieved directly from the cache, rather than from the origin server by the caching servers, in response to similar requests from other users.  If the response data is sensitive, personal or user-specific, this may result in sensitive information being leaked. In some cases, this may even result in a user gaining complete control of the session of another user, depending on the configuration of the caching components in use in their environment. This is primarily an issue where \"shared\" caching servers such as \"proxy\" caches are configured on the local network. This configuration is typically found in corporate or educational environments, for instance.</p>",
 					"instances":[ 
 						{
-							"uri": "https://lca-wp.sbx.synaltic.app/sitemap.xml",
+							"uri": "https://lca-wp.sbx.synaltic.app",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "302"
+							"evidence": ""
+						},
+						{
+							"uri": "https://lca-wp.sbx.synaltic.app/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://lca-wp.sbx.synaltic.app/actualites/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://lca-wp.sbx.synaltic.app/category/demarches-administratives/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://lca-wp.sbx.synaltic.app/comment-se-creer-un-compte/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://lca-wp.sbx.synaltic.app/decouvrir-le-compte-asso",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://lca-wp.sbx.synaltic.app/faq/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://lca-wp.sbx.synaltic.app/robots.txt",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
 						}
 					],
-					"count": "1",
+					"count": "8",
 					"solution": "<p>Validate that the response does not contain sensitive, personal or user-specific information.  If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:</p><p>Cache-Control: no-cache, no-store, must-revalidate, private</p><p>Pragma: no-cache</p><p>Expires: 0</p><p>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request. </p>",
 					"otherinfo": "<p>In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234.</p>",
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
@@ -1566,20 +1615,27 @@
 					"desc": "<p>The response contents are storable by caching components such as proxy servers, but will not be retrieved directly from the cache, without validating the request upstream, in response to similar requests from other users. </p>",
 					"instances":[ 
 						{
-							"uri": "https://lca-wp.sbx.synaltic.app/sitemap.xml",
+							"uri": "https://lca-wp.sbx.synaltic.app/wp-admin/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "302"
+							"evidence": "no-cache"
+						},
+						{
+							"uri": "https://lca-wp.sbx.synaltic.app/wp-admin/admin-ajax.php",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "no-cache"
 						}
 					],
-					"count": "1",
+					"count": "2",
 					"solution": "",
 					"otherinfo": "",
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "132"
+					"sourceid": "131"
 				},
 				{
 					"pluginid": "10031",
