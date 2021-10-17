@@ -1,6 +1,6 @@
 {
 	"@version": "2.11.0",
-	"@generated": "Sun, 10 Oct 2021 04:44:23",
+	"@generated": "Sun, 17 Oct 2021 04:19:09",
 	"site":[ 
 		{
 			"@name": "https://sports.gouv.fr",
@@ -245,7 +245,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Protection_Cheat_Sheet.html</p>",
 					"cweid": "311",
 					"wascid": "4",
-					"sourceid": "3793"
+					"sourceid": "3801"
 				},
 				{
 					"pluginid": "90003",
@@ -348,7 +348,7 @@
 					"reference": "<p>https://developer.mozilla.org/en/docs/Web/Security/Subresource_Integrity</p>",
 					"cweid": "345",
 					"wascid": "15",
-					"sourceid": "1622"
+					"sourceid": "322"
 				},
 				{
 					"pluginid": "10003",
@@ -374,7 +374,7 @@
 					"reference": "<p>https://blog.jquery.com/2019/04/10/jquery-3-4-0-released/</p><p>https://nvd.nist.gov/vuln/detail/CVE-2019-11358</p><p>https://github.com/jquery/jquery/commit/753d591aea698e57d6db58c9f722cd0808619b1b</p><p>https://blog.jquery.com/2020/04/10/jquery-3-5-0-released/</p><p></p>",
 					"cweid": "829",
 					"wascid": "-1",
-					"sourceid": "4632"
+					"sourceid": "4627"
 				},
 				{
 					"pluginid": "10202",
@@ -476,13 +476,6 @@
 					"desc": "<p>The server has responded with a redirect that seems to provide a large response. This may indicate that although the server sent a redirect it also responded with body content (which may include sensitive details, PII, etc.).</p>",
 					"instances":[ 
 						{
-							"uri": "https://sports.gouv.fr/accueil-du-site/actualites/article/le-pass-sport",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
 							"uri": "https://sports.gouv.fr/accueil-du-site/evenement-88/article/toutes-les-informations-concernant-les-mesures-sports-dans-le-contexte-de-la",
 							"method": "GET",
 							"param": "",
@@ -491,13 +484,6 @@
 						},
 						{
 							"uri": "https://sports.gouv.fr/accueil-du-site/Plan-d-acces-ministere-des-sports",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://sports.gouv.fr/accueil-du-site/zoom-sur/article/le-pass-sport",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -519,6 +505,13 @@
 						},
 						{
 							"uri": "https://sports.gouv.fr/services-pratiques/grand-public/Apprendre-a-nager-pres-de-chez-vous",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://sports.gouv.fr/services-pratiques/grand-public/En-mer-portez-un-gilet-de-sauvetage",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -558,15 +551,22 @@
 							"param": "",
 							"attack": "",
 							"evidence": ""
+						},
+						{
+							"uri": "https://sports.gouv.fr/services-pratiques/grand-public/Votre-mode-d-emploi-pour-une-baignade-en-toute-securite",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
 						}
 					],
 					"count": "12",
 					"solution": "<p>Ensure that no sensitive information is leaked via redirect responses. Redirect responses should have almost no content.</p>",
-					"otherinfo": "<p>Location header URI length: 75 [https://www.sports.gouv.fr/pratiques-sportives/sports-pour-tous/pass-sport/].</p><p>Predicted response size: 375.</p><p>Response Body Length: 442.</p>",
+					"otherinfo": "<p>Location header URI length: 51 [https://sports.gouv.fr/pratiques-sportives/covid19/].</p><p>Predicted response size: 351.</p><p>Response Body Length: 418.</p>",
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "3653"
+					"sourceid": "3553"
 				},
 				{
 					"pluginid": "10054",
@@ -702,7 +702,7 @@
 					"reference": "",
 					"cweid": "829",
 					"wascid": "15",
-					"sourceid": "1622"
+					"sourceid": "322"
 				},
 				{
 					"pluginid": "10110",
@@ -715,7 +715,7 @@
 					"desc": "<p>A dangerous JS function seems to be in use that would leave the site vulnerable.</p>",
 					"instances":[ 
 						{
-							"uri": "https://sports.gouv.fr/local/cache-js/jsdyn-javascript_porte_plume_start_js-cd1741ab.js?1628866661",
+							"uri": "https://sports.gouv.fr/local/cache-js/jsdyn-javascript_porte_plume_start_js-cd1741ab.js?1633944761",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -763,7 +763,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "4642"
+					"sourceid": "4637"
 				},
 				{
 					"pluginid": "10015",
@@ -891,15 +891,36 @@
 							"param": "Cross-Origin-Resource-Policy",
 							"attack": "",
 							"evidence": ""
+						},
+						{
+							"uri": "https://sports.gouv.fr/oembed.api/?format=json&url=https%3A%2F%2Fsports.gouv.fr%2Fspip.php%3Fid_syndic%3D0%26amp%3Bpage%3Dsg-english",
+							"method": "GET",
+							"param": "Cross-Origin-Embedder-Policy",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://sports.gouv.fr/oembed.api/?format=json&url=https%3A%2F%2Fsports.gouv.fr%2Fspip.php%3Fid_syndic%3D0%26amp%3Bpage%3Dsg-english",
+							"method": "GET",
+							"param": "Cross-Origin-Opener-Policy",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://sports.gouv.fr/oembed.api/?format=json&url=https%3A%2F%2Fsports.gouv.fr%2Fspip.php%3Fid_syndic%3D0%26amp%3Bpage%3Dsg-english",
+							"method": "GET",
+							"param": "Cross-Origin-Resource-Policy",
+							"attack": "",
+							"evidence": ""
 						}
 					],
-					"count": "3",
+					"count": "6",
 					"solution": "<p>Ensure that the application/web server sets the Cross-Origin-Embedder-Policy header appropriately, and that it sets the Cross-Origin-Embedder-Policy header to 'require-corp' for documents.</p><p>If possible, ensure that the end user uses a standards-compliant and modern web browser that supports the Cross-Origin-Embedder-Policy header (https://caniuse.com/mdn-http_headers_cross-origin-embedder-policy).</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cross-Origin-Embedder-Policy</p>",
 					"cweid": "693",
 					"wascid": "14",
-					"sourceid": "4624"
+					"sourceid": "4619"
 				},
 				{
 					"pluginid": "10063",
@@ -1008,35 +1029,28 @@
 					"desc": "<p>The page includes mixed content, that is content accessed via HTTP instead of HTTPS.</p>",
 					"instances":[ 
 						{
-							"uri": "https://sports.gouv.fr/accueil-du-site/a-savoir/",
+							"uri": "https://sports.gouv.fr/organisation/le-ministere/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "http://connect.facebook.net/en_US/all.js#xfbml=1"
+							"evidence": "http://www.dailymotion.com/embed/video/x1b1t7p"
 						},
 						{
-							"uri": "https://sports.gouv.fr/accueil-du-site/actualites/",
+							"uri": "https://sports.gouv.fr/organisation/le-ministere/Missions-11062/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "http://connect.facebook.net/en_US/all.js#xfbml=1"
+							"evidence": "http://www.dailymotion.com/embed/video/x1b1t7p"
 						},
 						{
-							"uri": "https://sports.gouv.fr/accueil-du-site/videos/",
+							"uri": "https://sports.gouv.fr/pratiques-sportives/Les-activites-physiques-et-sportives-APS-Benefices-sur-la-sante-des-jeunes",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "http://connect.facebook.net/en_US/all.js#xfbml=1"
-						},
-						{
-							"uri": "https://sports.gouv.fr/accueil-du-site/zoom-sur/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "http://connect.facebook.net/en_US/all.js#xfbml=1"
+							"evidence": "http://www.dailymotion.com/widget/jukebox?list[]=%2Fplaylist%2Fx3orsh_ministeredessports_les-bienfaits-de-la-pratique-d-activite-physique%2F1&skin=default&autoplay=0&automute=0&info=1"
 						}
 					],
-					"count": "4",
+					"count": "3",
 					"solution": "<p>A page that is available over SSL/TLS must be comprised completely of content which is transmitted over SSL/TLS.</p><p>The page must not contain any content that is transmitted over unencrypted HTTP.</p><p> This includes content from third party sites.</p>",
 					"otherinfo": "<p>tag=iframe src=http://www.dailymotion.com/embed/video/x1b1t7p</p><p></p>",
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Protection_Cheat_Sheet.html</p>",
@@ -1059,62 +1073,6 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1628866661"
-						},
-						{
-							"uri": "https://sports.gouv.fr",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1628866664"
-						},
-						{
-							"uri": "https://sports.gouv.fr",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1628866665"
-						},
-						{
-							"uri": "https://sports.gouv.fr",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1628869401"
-						},
-						{
-							"uri": "https://sports.gouv.fr",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1630666442"
-						},
-						{
-							"uri": "https://sports.gouv.fr",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1631448896"
-						},
-						{
-							"uri": "https://sports.gouv.fr",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1632386128"
-						},
-						{
-							"uri": "https://sports.gouv.fr",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1632487489"
-						},
-						{
-							"uri": "https://sports.gouv.fr",
-							"method": "GET",
-							"param": "",
-							"attack": "",
 							"evidence": "1633442958"
 						},
 						{
@@ -1122,7 +1080,63 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1633730421"
+							"evidence": "1633944742"
+						},
+						{
+							"uri": "https://sports.gouv.fr",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1633944743"
+						},
+						{
+							"uri": "https://sports.gouv.fr",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1633944744"
+						},
+						{
+							"uri": "https://sports.gouv.fr",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1633944745"
+						},
+						{
+							"uri": "https://sports.gouv.fr",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1633944751"
+						},
+						{
+							"uri": "https://sports.gouv.fr",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1633944761"
+						},
+						{
+							"uri": "https://sports.gouv.fr",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1633961937"
+						},
+						{
+							"uri": "https://sports.gouv.fr",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1634213661"
+						},
+						{
+							"uri": "https://sports.gouv.fr",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1634301431"
 						},
 						{
 							"uri": "https://sports.gouv.fr",
@@ -1134,7 +1148,7 @@
 					],
 					"count": "11",
 					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
-					"otherinfo": "<p>1628866661, which evaluates to: 2021-08-13 14:57:41</p>",
+					"otherinfo": "<p>1633442958, which evaluates to: 2021-10-05 14:09:18</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
@@ -1155,14 +1169,14 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "MvFrpUaR+Yk/5q57bLUtGytATXjoYOupFOjP/7BESsF3rI0Wtg72gbaJgpTqHHnwtzwGYhroLC6GohmJraJTOVB8FEA="
+							"evidence": "RPstGpWvITpfcnp7bLUtGytATXjoYOlAKqpC2yHsVmlDcJIcgv5naznprIFDA2sJ9Aj8H4W39SuWEUkmMIEB06beLSc="
 						},
 						{
 							"uri": "https://sports.gouv.fr",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "gs5SYIOqZKz2PfB7bLUtGytATXjoYD0fSeXY5+OaS/R+MIdSo1ULnxuGgvsC6PUN0H21zLLZTVYzmMb/k/r8n45s6hE="
+							"evidence": "VGMuEqK8YmJ1TTV7bLUtGytATXjoYDhWyIlaGpUntru91/OO6HS5+Y5hEPONoUd0O4LaWtorNNo28DyCbvQ8NeI7shk="
 						},
 						{
 							"uri": "https://sports.gouv.fr/",
@@ -1211,7 +1225,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "FFQht9S4BPa+NzV7bLUtGytATXjoYNTHAZaOiwJkngtiVp90ElSI4Z5/uR45cBTAn7bdaX+YrhcdqaCcV2vxl3HEIQE="
+							"evidence": "IoGSctROSKl6p5d7bLUtGytATXjoYJs2RW/3DUwv84WfWMmCclTMmDqWcgbMeTP9cNtMpCLvUV2Ix8WxeLNsOUtu+Ro="
 						},
 						{
 							"uri": "https://sports.gouv.fr/services-pratiques/",
@@ -1237,7 +1251,7 @@
 					],
 					"count": "12",
 					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
-					"otherinfo": "<p>2\uFFFDk\uFFFDF\uFFFD\uFFFD\uFFFD?\uFFFD{l\uFFFD-\\x001b+@Mx\uFFFD`\uFFFD\\x0014\uFFFD\uFFFD\uFFFD\uFFFDDJ\uFFFDw\uFFFD\uFFFD\\x0016\uFFFD\\x000e\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x001cy\uFFFD<\\x0006b\\x001a\uFFFD,.\uFFFD\uFFFD\\x0019\uFFFD\uFFFD\uFFFDS9P|\\x0014@</p>",
+					"otherinfo": "<p>D\uFFFD-\\x001a\uFFFD\uFFFD!:_rz{l\uFFFD-\\x001b+@Mx\uFFFD`\uFFFD@*\uFFFDB\uFFFD!\uFFFDViCp\uFFFD\\x001c\uFFFD\uFFFDgk9\u9B01C\\x0003k\t\uFFFD\\x0008\uFFFD\\x001f\uFFFD\uFFFD\uFFFD+\uFFFD\\x0011I&0\uFFFD\\x0001\u04E6\uFFFD-'</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
@@ -1521,63 +1535,28 @@
 					"desc": "<p>The response contents are storable by caching components such as proxy servers, and may be retrieved directly from the cache, rather than from the origin server by the caching servers, in response to similar requests from other users.  If the response data is sensitive, personal or user-specific, this may result in sensitive information being leaked. In some cases, this may even result in a user gaining complete control of the session of another user, depending on the configuration of the caching components in use in their environment. This is primarily an issue where \"shared\" caching servers such as \"proxy\" caches are configured on the local network. This configuration is typically found in corporate or educational environments, for instance.</p>",
 					"instances":[ 
 						{
-							"uri": "https://sports.gouv.fr/ecrire/",
+							"uri": "https://sports.gouv.fr",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "302"
+							"evidence": ""
 						},
 						{
-							"uri": "https://sports.gouv.fr/extensions/",
+							"uri": "https://sports.gouv.fr/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "no-store"
+							"evidence": ""
 						},
 						{
-							"uri": "https://sports.gouv.fr/lib/",
+							"uri": "https://sports.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "no-store"
-						},
-						{
-							"uri": "https://sports.gouv.fr/local/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "403"
-						},
-						{
-							"uri": "https://sports.gouv.fr/plugins/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "403"
-						},
-						{
-							"uri": "https://sports.gouv.fr/prive/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "403"
-						},
-						{
-							"uri": "https://sports.gouv.fr/squelettes-dist/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "403"
-						},
-						{
-							"uri": "https://sports.gouv.fr/squelettes/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "403"
+							"evidence": ""
 						}
 					],
-					"count": "8",
+					"count": "3",
 					"solution": "<p>Validate that the response does not contain sensitive, personal or user-specific information.  If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:</p><p>Cache-Control: no-cache, no-store, must-revalidate, private</p><p>Pragma: no-cache</p><p>Expires: 0</p><p>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request. </p>",
 					"otherinfo": "<p>In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234.</p>",
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
@@ -1658,7 +1637,7 @@
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "4685"
+					"sourceid": "4680"
 				}
 			]
 		}
