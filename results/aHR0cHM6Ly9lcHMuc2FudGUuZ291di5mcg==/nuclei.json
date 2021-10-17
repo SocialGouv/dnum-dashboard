@@ -1,47 +1,282 @@
 [
   {
-    "templateID": "springboot-actuator",
+    "templateID": "http-missing-security-headers",
     "info": {
-      "name": "Detect Springboot Actuators",
+      "name": "HTTP Missing Security Headers",
       "author": [
-        "that_juan_",
-        "dwisiswant0",
-        "wdahlenb"
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki"
       ],
       "tags": [
-        "tech",
-        "springboot",
-        "actuator"
+        "misconfig",
+        "generic"
       ],
+      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
       "reference": null,
       "severity": "info"
     },
+    "matcher_name": "x-permitted-cross-domain-policies",
     "type": "http",
     "host": "https://eps.sante.gouv.fr",
-    "matched": "https://eps.sante.gouv.fr/actuator",
-    "request": "GET /actuator HTTP/1.1\r\nHost: eps.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nCache-Control: no-cache, no-store, max-age=0, must-revalidate\r\nContent-Security-Policy: default-src 'self'; frame-src 'self' data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://storage.googleapis.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:\r\nContent-Type: application/vnd.spring-boot.actuator.v2+json;charset=UTF-8\r\nDate: Sun, 10 Oct 2021 02:32:36 GMT\r\nExpires: 0\r\nFeature-Policy: geolocation 'none'; midi 'none'; sync-xhr 'none'; microphone 'none'; camera 'none'; magnetometer 'none'; gyroscope 'none'; speaker 'none'; fullscreen 'self'; payment 'none'\r\nPragma: no-cache\r\nReferrer-Policy: strict-origin-when-cross-origin\r\nSet-Cookie: BIGipServerpool-dgos-eps.cegedim.cloud-HTTP=!qYGgPEShg/Ocaet7bLUtGytATXjoYGj2jMQyvh9UtuP/WZd1Mt3AUUp3uV49UrioyJI0lqf/aQnMV9Q3LmSc6N5ApL4=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: DENY\r\nX-Xss-Protection: 1; mode=block\r\n\r\n{\"_links\":{\"self\":{\"href\":\"http://eps.sante.gouv.fr/actuator\",\"templated\":false},\"health-component\":{\"href\":\"http://eps.sante.gouv.fr/actuator/health/{component}\",\"templated\":true},\"health-component-instance\":{\"href\":\"http://eps.sante.gouv.fr/actuator/health/{component}/{instance}\",\"templated\":true},\"health\":{\"href\":\"http://eps.sante.gouv.fr/actuator/health\",\"templated\":false},\"info\":{\"href\":\"http://eps.sante.gouv.fr/actuator/info\",\"templated\":false}}}",
-    "timestamp": "2021-10-10T02:32:36.379399997Z"
+    "matched": "https://eps.sante.gouv.fr",
+    "request": "GET / HTTP/1.1\r\nHost: eps.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nCache-Control: no-cache, no-store, max-age=0, must-revalidate\r\nContent-Language: en-\r\nContent-Security-Policy: default-src 'self'; frame-src 'self' data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://storage.googleapis.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:\r\nContent-Type: text/html;charset=utf-8\r\nDate: Sun, 17 Oct 2021 02:24:02 GMT\r\nExpires: 0\r\nFeature-Policy: geolocation 'none'; midi 'none'; sync-xhr 'none'; microphone 'none'; camera 'none'; magnetometer 'none'; gyroscope 'none'; speaker 'none'; fullscreen 'self'; payment 'none'\r\nLast-Modified: Wed, 29 Sep 2021 12:05:29 GMT\r\nPragma: no-cache\r\nReferrer-Policy: strict-origin-when-cross-origin\r\nSet-Cookie: BIGipServerpool-dgos-eps.cegedim.cloud-HTTP=!uU0UcJjT8+A1dXx7bLUtGytATXjoYG1nwA3skbj/PmHhqn6MgOMNqPHxjZUCae848N//gXUd/xKjIqIfdCg1JmyLWcA=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: DENY\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\n<html class=\"no-js\" lang=\"fr\" dir=\"ltr\">\n<head>\n    <base href=\"/\" />\n    <meta charset=\"utf-8\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <title>Éthique des professionnels de santé</title>\n    <meta name=\"description\" content=\"Éthique des professionnels de santé\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\n    <meta name=\"theme-color\" content=\"#000000\">\n    <link rel=\"shortcut icon\" href=\"favicon.ico\" />\n    <link rel=\"manifest\" href=\"manifest.webapp\" />\n    <link rel=\"stylesheet\" href=\"content/css/loading.css\">\n    <link rel=\"stylesheet\" href=\"content/css/material-icons.css\"/>\n    <!-- jhipster-needle-add-resources-to-root - JHipster will add new resources here -->\n<link href=\"content/main.d74a6b2f7a36c260d8b2.css\" rel=\"stylesheet\"><link href=\"content/global.64181361eb129a84b7a2.css\" rel=\"stylesheet\"></head>\n<body>\n\n    <!--[if lt IE 9]>\n        <p class=\"browserupgrade\">Vous utilisez un navigateur <strong>obsolète</strong>. Merci de basculer sur Mozilla Firefox, Google Chrome ou Safari pour une meilleure expérience utilisateur.</p>\n    <![endif]-->\n    <jhi-main>\n        <div class=\"hfull\">\n        <div class=\"app-loading\">\n            <div class=\"lds-css ng-scope\">\n                <div class=\"lds-pacman\">\n                    <div><div></div><div></div><div></div></div>\n                    <div><div></div><div></div><div></div></div>\n                </div>\n            </div>\n        </div>\n        <div class=\"app-loading\">\n            <div id=\"jhipster-error\" style=\"display:none\">\n                <!-- This content is for troubleshooting purpose and will be removed when app renders -->\n                <h1>Une erreur est survenue lors du chargement de l'application.</h1>\n                <!-- end of troubleshooting content -->\n            </div>\n        </div>\n    </jhi-main>\n    <noscript>\n        <h1>Vous devez activer JavaScript pour accéder à cette page.</h1>\n    </noscript>\n    <script type=\"text/javascript\" language=\"javascript\">\n        // show an error message if the app loading takes more than 5 sec\n        window.onload=function() {\n            setTimeout(showError, 4000);\n        }\n        function showError() {\n            var errorElm = document.getElementById(\"jhipster-error\");\n            if (errorElm && errorElm.style) {\n                errorElm.style.display = \"block\";\n            }\n        }\n    </script>\n<script type=\"text/javascript\" src=\"app/polyfills.926870e744b3ae83be5d.bundle.js\"></script><script type=\"text/javascript\" src=\"app/main.926870e744b3ae83be5d.bundle.js\"></script><script type=\"text/javascript\" src=\"app/global.926870e744b3ae83be5d.bundle.js\"></script></body>\n</html>\n",
+    "timestamp": "2021-10-17T02:24:02.478659756Z"
   },
   {
-    "templateID": "springboot-info",
+    "templateID": "http-missing-security-headers",
     "info": {
-      "name": "Detect Springboot Information page",
+      "name": "HTTP Missing Security Headers",
       "author": [
-        "philippedelteil"
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki"
       ],
       "tags": [
-        "springboot"
+        "misconfig",
+        "generic"
       ],
-      "description": "Displays app name and version information among others values",
+      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
       "reference": null,
       "severity": "info"
     },
+    "matcher_name": "cross-origin-resource-policy",
     "type": "http",
     "host": "https://eps.sante.gouv.fr",
-    "matched": "https://eps.sante.gouv.fr/actuator/info",
-    "request": "GET /actuator/info HTTP/1.1\r\nHost: eps.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nCache-Control: no-cache, no-store, max-age=0, must-revalidate\r\nContent-Security-Policy: default-src 'self'; frame-src 'self' data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://storage.googleapis.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:\r\nContent-Type: application/vnd.spring-boot.actuator.v2+json;charset=UTF-8\r\nDate: Sun, 10 Oct 2021 02:33:20 GMT\r\nExpires: 0\r\nFeature-Policy: geolocation 'none'; midi 'none'; sync-xhr 'none'; microphone 'none'; camera 'none'; magnetometer 'none'; gyroscope 'none'; speaker 'none'; fullscreen 'self'; payment 'none'\r\nPragma: no-cache\r\nReferrer-Policy: strict-origin-when-cross-origin\r\nSet-Cookie: BIGipServerpool-dgos-eps.cegedim.cloud-HTTP=!KPEoz6n8XfReIr17bLUtGytATXjoYBBacrqZ91ScxTWpvMVX4BC543F5+d6RZaTAmwwod/lSgvPslXtvWi7ecHsW3e8=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: DENY\r\nX-Xss-Protection: 1; mode=block\r\n\r\n{\"git\":{\"branch\":\"develop\",\"commit\":{\"id\":\"7fd7e88\"}},\"build\":{\"artifact\":\"eps\",\"name\":\"EPS\",\"time\":\"2021-09-03T13:24:12.140Z\",\"version\":\"1.1.3\",\"group\":\"fr.mss.eps\"},\"activeProfiles\":[\"prod\"]}",
-    "timestamp": "2021-10-10T02:33:20.061244724Z"
+    "matched": "https://eps.sante.gouv.fr",
+    "request": "GET / HTTP/1.1\r\nHost: eps.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nCache-Control: no-cache, no-store, max-age=0, must-revalidate\r\nContent-Language: en-\r\nContent-Security-Policy: default-src 'self'; frame-src 'self' data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://storage.googleapis.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:\r\nContent-Type: text/html;charset=utf-8\r\nDate: Sun, 17 Oct 2021 02:24:02 GMT\r\nExpires: 0\r\nFeature-Policy: geolocation 'none'; midi 'none'; sync-xhr 'none'; microphone 'none'; camera 'none'; magnetometer 'none'; gyroscope 'none'; speaker 'none'; fullscreen 'self'; payment 'none'\r\nLast-Modified: Wed, 29 Sep 2021 12:05:29 GMT\r\nPragma: no-cache\r\nReferrer-Policy: strict-origin-when-cross-origin\r\nSet-Cookie: BIGipServerpool-dgos-eps.cegedim.cloud-HTTP=!uU0UcJjT8+A1dXx7bLUtGytATXjoYG1nwA3skbj/PmHhqn6MgOMNqPHxjZUCae848N//gXUd/xKjIqIfdCg1JmyLWcA=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: DENY\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\n<html class=\"no-js\" lang=\"fr\" dir=\"ltr\">\n<head>\n    <base href=\"/\" />\n    <meta charset=\"utf-8\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <title>Éthique des professionnels de santé</title>\n    <meta name=\"description\" content=\"Éthique des professionnels de santé\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\n    <meta name=\"theme-color\" content=\"#000000\">\n    <link rel=\"shortcut icon\" href=\"favicon.ico\" />\n    <link rel=\"manifest\" href=\"manifest.webapp\" />\n    <link rel=\"stylesheet\" href=\"content/css/loading.css\">\n    <link rel=\"stylesheet\" href=\"content/css/material-icons.css\"/>\n    <!-- jhipster-needle-add-resources-to-root - JHipster will add new resources here -->\n<link href=\"content/main.d74a6b2f7a36c260d8b2.css\" rel=\"stylesheet\"><link href=\"content/global.64181361eb129a84b7a2.css\" rel=\"stylesheet\"></head>\n<body>\n\n    <!--[if lt IE 9]>\n        <p class=\"browserupgrade\">Vous utilisez un navigateur <strong>obsolète</strong>. Merci de basculer sur Mozilla Firefox, Google Chrome ou Safari pour une meilleure expérience utilisateur.</p>\n    <![endif]-->\n    <jhi-main>\n        <div class=\"hfull\">\n        <div class=\"app-loading\">\n            <div class=\"lds-css ng-scope\">\n                <div class=\"lds-pacman\">\n                    <div><div></div><div></div><div></div></div>\n                    <div><div></div><div></div><div></div></div>\n                </div>\n            </div>\n        </div>\n        <div class=\"app-loading\">\n            <div id=\"jhipster-error\" style=\"display:none\">\n                <!-- This content is for troubleshooting purpose and will be removed when app renders -->\n                <h1>Une erreur est survenue lors du chargement de l'application.</h1>\n                <!-- end of troubleshooting content -->\n            </div>\n        </div>\n    </jhi-main>\n    <noscript>\n        <h1>Vous devez activer JavaScript pour accéder à cette page.</h1>\n    </noscript>\n    <script type=\"text/javascript\" language=\"javascript\">\n        // show an error message if the app loading takes more than 5 sec\n        window.onload=function() {\n            setTimeout(showError, 4000);\n        }\n        function showError() {\n            var errorElm = document.getElementById(\"jhipster-error\");\n            if (errorElm && errorElm.style) {\n                errorElm.style.display = \"block\";\n            }\n        }\n    </script>\n<script type=\"text/javascript\" src=\"app/polyfills.926870e744b3ae83be5d.bundle.js\"></script><script type=\"text/javascript\" src=\"app/main.926870e744b3ae83be5d.bundle.js\"></script><script type=\"text/javascript\" src=\"app/global.926870e744b3ae83be5d.bundle.js\"></script></body>\n</html>\n",
+    "timestamp": "2021-10-17T02:24:02.47928066Z"
+  },
+  {
+    "templateID": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher_name": "access-control-allow-origin",
+    "type": "http",
+    "host": "https://eps.sante.gouv.fr",
+    "matched": "https://eps.sante.gouv.fr",
+    "request": "GET / HTTP/1.1\r\nHost: eps.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nCache-Control: no-cache, no-store, max-age=0, must-revalidate\r\nContent-Language: en-\r\nContent-Security-Policy: default-src 'self'; frame-src 'self' data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://storage.googleapis.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:\r\nContent-Type: text/html;charset=utf-8\r\nDate: Sun, 17 Oct 2021 02:24:02 GMT\r\nExpires: 0\r\nFeature-Policy: geolocation 'none'; midi 'none'; sync-xhr 'none'; microphone 'none'; camera 'none'; magnetometer 'none'; gyroscope 'none'; speaker 'none'; fullscreen 'self'; payment 'none'\r\nLast-Modified: Wed, 29 Sep 2021 12:05:29 GMT\r\nPragma: no-cache\r\nReferrer-Policy: strict-origin-when-cross-origin\r\nSet-Cookie: BIGipServerpool-dgos-eps.cegedim.cloud-HTTP=!uU0UcJjT8+A1dXx7bLUtGytATXjoYG1nwA3skbj/PmHhqn6MgOMNqPHxjZUCae848N//gXUd/xKjIqIfdCg1JmyLWcA=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: DENY\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\n<html class=\"no-js\" lang=\"fr\" dir=\"ltr\">\n<head>\n    <base href=\"/\" />\n    <meta charset=\"utf-8\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <title>Éthique des professionnels de santé</title>\n    <meta name=\"description\" content=\"Éthique des professionnels de santé\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\n    <meta name=\"theme-color\" content=\"#000000\">\n    <link rel=\"shortcut icon\" href=\"favicon.ico\" />\n    <link rel=\"manifest\" href=\"manifest.webapp\" />\n    <link rel=\"stylesheet\" href=\"content/css/loading.css\">\n    <link rel=\"stylesheet\" href=\"content/css/material-icons.css\"/>\n    <!-- jhipster-needle-add-resources-to-root - JHipster will add new resources here -->\n<link href=\"content/main.d74a6b2f7a36c260d8b2.css\" rel=\"stylesheet\"><link href=\"content/global.64181361eb129a84b7a2.css\" rel=\"stylesheet\"></head>\n<body>\n\n    <!--[if lt IE 9]>\n        <p class=\"browserupgrade\">Vous utilisez un navigateur <strong>obsolète</strong>. Merci de basculer sur Mozilla Firefox, Google Chrome ou Safari pour une meilleure expérience utilisateur.</p>\n    <![endif]-->\n    <jhi-main>\n        <div class=\"hfull\">\n        <div class=\"app-loading\">\n            <div class=\"lds-css ng-scope\">\n                <div class=\"lds-pacman\">\n                    <div><div></div><div></div><div></div></div>\n                    <div><div></div><div></div><div></div></div>\n                </div>\n            </div>\n        </div>\n        <div class=\"app-loading\">\n            <div id=\"jhipster-error\" style=\"display:none\">\n                <!-- This content is for troubleshooting purpose and will be removed when app renders -->\n                <h1>Une erreur est survenue lors du chargement de l'application.</h1>\n                <!-- end of troubleshooting content -->\n            </div>\n        </div>\n    </jhi-main>\n    <noscript>\n        <h1>Vous devez activer JavaScript pour accéder à cette page.</h1>\n    </noscript>\n    <script type=\"text/javascript\" language=\"javascript\">\n        // show an error message if the app loading takes more than 5 sec\n        window.onload=function() {\n            setTimeout(showError, 4000);\n        }\n        function showError() {\n            var errorElm = document.getElementById(\"jhipster-error\");\n            if (errorElm && errorElm.style) {\n                errorElm.style.display = \"block\";\n            }\n        }\n    </script>\n<script type=\"text/javascript\" src=\"app/polyfills.926870e744b3ae83be5d.bundle.js\"></script><script type=\"text/javascript\" src=\"app/main.926870e744b3ae83be5d.bundle.js\"></script><script type=\"text/javascript\" src=\"app/global.926870e744b3ae83be5d.bundle.js\"></script></body>\n</html>\n",
+    "timestamp": "2021-10-17T02:24:02.47931476Z"
+  },
+  {
+    "templateID": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher_name": "access-control-allow-credentials",
+    "type": "http",
+    "host": "https://eps.sante.gouv.fr",
+    "matched": "https://eps.sante.gouv.fr",
+    "request": "GET / HTTP/1.1\r\nHost: eps.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nCache-Control: no-cache, no-store, max-age=0, must-revalidate\r\nContent-Language: en-\r\nContent-Security-Policy: default-src 'self'; frame-src 'self' data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://storage.googleapis.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:\r\nContent-Type: text/html;charset=utf-8\r\nDate: Sun, 17 Oct 2021 02:24:02 GMT\r\nExpires: 0\r\nFeature-Policy: geolocation 'none'; midi 'none'; sync-xhr 'none'; microphone 'none'; camera 'none'; magnetometer 'none'; gyroscope 'none'; speaker 'none'; fullscreen 'self'; payment 'none'\r\nLast-Modified: Wed, 29 Sep 2021 12:05:29 GMT\r\nPragma: no-cache\r\nReferrer-Policy: strict-origin-when-cross-origin\r\nSet-Cookie: BIGipServerpool-dgos-eps.cegedim.cloud-HTTP=!uU0UcJjT8+A1dXx7bLUtGytATXjoYG1nwA3skbj/PmHhqn6MgOMNqPHxjZUCae848N//gXUd/xKjIqIfdCg1JmyLWcA=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: DENY\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\n<html class=\"no-js\" lang=\"fr\" dir=\"ltr\">\n<head>\n    <base href=\"/\" />\n    <meta charset=\"utf-8\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <title>Éthique des professionnels de santé</title>\n    <meta name=\"description\" content=\"Éthique des professionnels de santé\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\n    <meta name=\"theme-color\" content=\"#000000\">\n    <link rel=\"shortcut icon\" href=\"favicon.ico\" />\n    <link rel=\"manifest\" href=\"manifest.webapp\" />\n    <link rel=\"stylesheet\" href=\"content/css/loading.css\">\n    <link rel=\"stylesheet\" href=\"content/css/material-icons.css\"/>\n    <!-- jhipster-needle-add-resources-to-root - JHipster will add new resources here -->\n<link href=\"content/main.d74a6b2f7a36c260d8b2.css\" rel=\"stylesheet\"><link href=\"content/global.64181361eb129a84b7a2.css\" rel=\"stylesheet\"></head>\n<body>\n\n    <!--[if lt IE 9]>\n        <p class=\"browserupgrade\">Vous utilisez un navigateur <strong>obsolète</strong>. Merci de basculer sur Mozilla Firefox, Google Chrome ou Safari pour une meilleure expérience utilisateur.</p>\n    <![endif]-->\n    <jhi-main>\n        <div class=\"hfull\">\n        <div class=\"app-loading\">\n            <div class=\"lds-css ng-scope\">\n                <div class=\"lds-pacman\">\n                    <div><div></div><div></div><div></div></div>\n                    <div><div></div><div></div><div></div></div>\n                </div>\n            </div>\n        </div>\n        <div class=\"app-loading\">\n            <div id=\"jhipster-error\" style=\"display:none\">\n                <!-- This content is for troubleshooting purpose and will be removed when app renders -->\n                <h1>Une erreur est survenue lors du chargement de l'application.</h1>\n                <!-- end of troubleshooting content -->\n            </div>\n        </div>\n    </jhi-main>\n    <noscript>\n        <h1>Vous devez activer JavaScript pour accéder à cette page.</h1>\n    </noscript>\n    <script type=\"text/javascript\" language=\"javascript\">\n        // show an error message if the app loading takes more than 5 sec\n        window.onload=function() {\n            setTimeout(showError, 4000);\n        }\n        function showError() {\n            var errorElm = document.getElementById(\"jhipster-error\");\n            if (errorElm && errorElm.style) {\n                errorElm.style.display = \"block\";\n            }\n        }\n    </script>\n<script type=\"text/javascript\" src=\"app/polyfills.926870e744b3ae83be5d.bundle.js\"></script><script type=\"text/javascript\" src=\"app/main.926870e744b3ae83be5d.bundle.js\"></script><script type=\"text/javascript\" src=\"app/global.926870e744b3ae83be5d.bundle.js\"></script></body>\n</html>\n",
+    "timestamp": "2021-10-17T02:24:02.479357561Z"
+  },
+  {
+    "templateID": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher_name": "access-control-expose-headers",
+    "type": "http",
+    "host": "https://eps.sante.gouv.fr",
+    "matched": "https://eps.sante.gouv.fr",
+    "request": "GET / HTTP/1.1\r\nHost: eps.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nCache-Control: no-cache, no-store, max-age=0, must-revalidate\r\nContent-Language: en-\r\nContent-Security-Policy: default-src 'self'; frame-src 'self' data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://storage.googleapis.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:\r\nContent-Type: text/html;charset=utf-8\r\nDate: Sun, 17 Oct 2021 02:24:02 GMT\r\nExpires: 0\r\nFeature-Policy: geolocation 'none'; midi 'none'; sync-xhr 'none'; microphone 'none'; camera 'none'; magnetometer 'none'; gyroscope 'none'; speaker 'none'; fullscreen 'self'; payment 'none'\r\nLast-Modified: Wed, 29 Sep 2021 12:05:29 GMT\r\nPragma: no-cache\r\nReferrer-Policy: strict-origin-when-cross-origin\r\nSet-Cookie: BIGipServerpool-dgos-eps.cegedim.cloud-HTTP=!uU0UcJjT8+A1dXx7bLUtGytATXjoYG1nwA3skbj/PmHhqn6MgOMNqPHxjZUCae848N//gXUd/xKjIqIfdCg1JmyLWcA=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: DENY\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\n<html class=\"no-js\" lang=\"fr\" dir=\"ltr\">\n<head>\n    <base href=\"/\" />\n    <meta charset=\"utf-8\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <title>Éthique des professionnels de santé</title>\n    <meta name=\"description\" content=\"Éthique des professionnels de santé\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\n    <meta name=\"theme-color\" content=\"#000000\">\n    <link rel=\"shortcut icon\" href=\"favicon.ico\" />\n    <link rel=\"manifest\" href=\"manifest.webapp\" />\n    <link rel=\"stylesheet\" href=\"content/css/loading.css\">\n    <link rel=\"stylesheet\" href=\"content/css/material-icons.css\"/>\n    <!-- jhipster-needle-add-resources-to-root - JHipster will add new resources here -->\n<link href=\"content/main.d74a6b2f7a36c260d8b2.css\" rel=\"stylesheet\"><link href=\"content/global.64181361eb129a84b7a2.css\" rel=\"stylesheet\"></head>\n<body>\n\n    <!--[if lt IE 9]>\n        <p class=\"browserupgrade\">Vous utilisez un navigateur <strong>obsolète</strong>. Merci de basculer sur Mozilla Firefox, Google Chrome ou Safari pour une meilleure expérience utilisateur.</p>\n    <![endif]-->\n    <jhi-main>\n        <div class=\"hfull\">\n        <div class=\"app-loading\">\n            <div class=\"lds-css ng-scope\">\n                <div class=\"lds-pacman\">\n                    <div><div></div><div></div><div></div></div>\n                    <div><div></div><div></div><div></div></div>\n                </div>\n            </div>\n        </div>\n        <div class=\"app-loading\">\n            <div id=\"jhipster-error\" style=\"display:none\">\n                <!-- This content is for troubleshooting purpose and will be removed when app renders -->\n                <h1>Une erreur est survenue lors du chargement de l'application.</h1>\n                <!-- end of troubleshooting content -->\n            </div>\n        </div>\n    </jhi-main>\n    <noscript>\n        <h1>Vous devez activer JavaScript pour accéder à cette page.</h1>\n    </noscript>\n    <script type=\"text/javascript\" language=\"javascript\">\n        // show an error message if the app loading takes more than 5 sec\n        window.onload=function() {\n            setTimeout(showError, 4000);\n        }\n        function showError() {\n            var errorElm = document.getElementById(\"jhipster-error\");\n            if (errorElm && errorElm.style) {\n                errorElm.style.display = \"block\";\n            }\n        }\n    </script>\n<script type=\"text/javascript\" src=\"app/polyfills.926870e744b3ae83be5d.bundle.js\"></script><script type=\"text/javascript\" src=\"app/main.926870e744b3ae83be5d.bundle.js\"></script><script type=\"text/javascript\" src=\"app/global.926870e744b3ae83be5d.bundle.js\"></script></body>\n</html>\n",
+    "timestamp": "2021-10-17T02:24:02.479408461Z"
+  },
+  {
+    "templateID": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher_name": "access-control-allow-methods",
+    "type": "http",
+    "host": "https://eps.sante.gouv.fr",
+    "matched": "https://eps.sante.gouv.fr",
+    "request": "GET / HTTP/1.1\r\nHost: eps.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nCache-Control: no-cache, no-store, max-age=0, must-revalidate\r\nContent-Language: en-\r\nContent-Security-Policy: default-src 'self'; frame-src 'self' data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://storage.googleapis.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:\r\nContent-Type: text/html;charset=utf-8\r\nDate: Sun, 17 Oct 2021 02:24:02 GMT\r\nExpires: 0\r\nFeature-Policy: geolocation 'none'; midi 'none'; sync-xhr 'none'; microphone 'none'; camera 'none'; magnetometer 'none'; gyroscope 'none'; speaker 'none'; fullscreen 'self'; payment 'none'\r\nLast-Modified: Wed, 29 Sep 2021 12:05:29 GMT\r\nPragma: no-cache\r\nReferrer-Policy: strict-origin-when-cross-origin\r\nSet-Cookie: BIGipServerpool-dgos-eps.cegedim.cloud-HTTP=!uU0UcJjT8+A1dXx7bLUtGytATXjoYG1nwA3skbj/PmHhqn6MgOMNqPHxjZUCae848N//gXUd/xKjIqIfdCg1JmyLWcA=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: DENY\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\n<html class=\"no-js\" lang=\"fr\" dir=\"ltr\">\n<head>\n    <base href=\"/\" />\n    <meta charset=\"utf-8\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <title>Éthique des professionnels de santé</title>\n    <meta name=\"description\" content=\"Éthique des professionnels de santé\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\n    <meta name=\"theme-color\" content=\"#000000\">\n    <link rel=\"shortcut icon\" href=\"favicon.ico\" />\n    <link rel=\"manifest\" href=\"manifest.webapp\" />\n    <link rel=\"stylesheet\" href=\"content/css/loading.css\">\n    <link rel=\"stylesheet\" href=\"content/css/material-icons.css\"/>\n    <!-- jhipster-needle-add-resources-to-root - JHipster will add new resources here -->\n<link href=\"content/main.d74a6b2f7a36c260d8b2.css\" rel=\"stylesheet\"><link href=\"content/global.64181361eb129a84b7a2.css\" rel=\"stylesheet\"></head>\n<body>\n\n    <!--[if lt IE 9]>\n        <p class=\"browserupgrade\">Vous utilisez un navigateur <strong>obsolète</strong>. Merci de basculer sur Mozilla Firefox, Google Chrome ou Safari pour une meilleure expérience utilisateur.</p>\n    <![endif]-->\n    <jhi-main>\n        <div class=\"hfull\">\n        <div class=\"app-loading\">\n            <div class=\"lds-css ng-scope\">\n                <div class=\"lds-pacman\">\n                    <div><div></div><div></div><div></div></div>\n                    <div><div></div><div></div><div></div></div>\n                </div>\n            </div>\n        </div>\n        <div class=\"app-loading\">\n            <div id=\"jhipster-error\" style=\"display:none\">\n                <!-- This content is for troubleshooting purpose and will be removed when app renders -->\n                <h1>Une erreur est survenue lors du chargement de l'application.</h1>\n                <!-- end of troubleshooting content -->\n            </div>\n        </div>\n    </jhi-main>\n    <noscript>\n        <h1>Vous devez activer JavaScript pour accéder à cette page.</h1>\n    </noscript>\n    <script type=\"text/javascript\" language=\"javascript\">\n        // show an error message if the app loading takes more than 5 sec\n        window.onload=function() {\n            setTimeout(showError, 4000);\n        }\n        function showError() {\n            var errorElm = document.getElementById(\"jhipster-error\");\n            if (errorElm && errorElm.style) {\n                errorElm.style.display = \"block\";\n            }\n        }\n    </script>\n<script type=\"text/javascript\" src=\"app/polyfills.926870e744b3ae83be5d.bundle.js\"></script><script type=\"text/javascript\" src=\"app/main.926870e744b3ae83be5d.bundle.js\"></script><script type=\"text/javascript\" src=\"app/global.926870e744b3ae83be5d.bundle.js\"></script></body>\n</html>\n",
+    "timestamp": "2021-10-17T02:24:02.479436161Z"
+  },
+  {
+    "templateID": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher_name": "clear-site-data",
+    "type": "http",
+    "host": "https://eps.sante.gouv.fr",
+    "matched": "https://eps.sante.gouv.fr",
+    "request": "GET / HTTP/1.1\r\nHost: eps.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nCache-Control: no-cache, no-store, max-age=0, must-revalidate\r\nContent-Language: en-\r\nContent-Security-Policy: default-src 'self'; frame-src 'self' data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://storage.googleapis.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:\r\nContent-Type: text/html;charset=utf-8\r\nDate: Sun, 17 Oct 2021 02:24:02 GMT\r\nExpires: 0\r\nFeature-Policy: geolocation 'none'; midi 'none'; sync-xhr 'none'; microphone 'none'; camera 'none'; magnetometer 'none'; gyroscope 'none'; speaker 'none'; fullscreen 'self'; payment 'none'\r\nLast-Modified: Wed, 29 Sep 2021 12:05:29 GMT\r\nPragma: no-cache\r\nReferrer-Policy: strict-origin-when-cross-origin\r\nSet-Cookie: BIGipServerpool-dgos-eps.cegedim.cloud-HTTP=!uU0UcJjT8+A1dXx7bLUtGytATXjoYG1nwA3skbj/PmHhqn6MgOMNqPHxjZUCae848N//gXUd/xKjIqIfdCg1JmyLWcA=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: DENY\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\n<html class=\"no-js\" lang=\"fr\" dir=\"ltr\">\n<head>\n    <base href=\"/\" />\n    <meta charset=\"utf-8\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <title>Éthique des professionnels de santé</title>\n    <meta name=\"description\" content=\"Éthique des professionnels de santé\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\n    <meta name=\"theme-color\" content=\"#000000\">\n    <link rel=\"shortcut icon\" href=\"favicon.ico\" />\n    <link rel=\"manifest\" href=\"manifest.webapp\" />\n    <link rel=\"stylesheet\" href=\"content/css/loading.css\">\n    <link rel=\"stylesheet\" href=\"content/css/material-icons.css\"/>\n    <!-- jhipster-needle-add-resources-to-root - JHipster will add new resources here -->\n<link href=\"content/main.d74a6b2f7a36c260d8b2.css\" rel=\"stylesheet\"><link href=\"content/global.64181361eb129a84b7a2.css\" rel=\"stylesheet\"></head>\n<body>\n\n    <!--[if lt IE 9]>\n        <p class=\"browserupgrade\">Vous utilisez un navigateur <strong>obsolète</strong>. Merci de basculer sur Mozilla Firefox, Google Chrome ou Safari pour une meilleure expérience utilisateur.</p>\n    <![endif]-->\n    <jhi-main>\n        <div class=\"hfull\">\n        <div class=\"app-loading\">\n            <div class=\"lds-css ng-scope\">\n                <div class=\"lds-pacman\">\n                    <div><div></div><div></div><div></div></div>\n                    <div><div></div><div></div><div></div></div>\n                </div>\n            </div>\n        </div>\n        <div class=\"app-loading\">\n            <div id=\"jhipster-error\" style=\"display:none\">\n                <!-- This content is for troubleshooting purpose and will be removed when app renders -->\n                <h1>Une erreur est survenue lors du chargement de l'application.</h1>\n                <!-- end of troubleshooting content -->\n            </div>\n        </div>\n    </jhi-main>\n    <noscript>\n        <h1>Vous devez activer JavaScript pour accéder à cette page.</h1>\n    </noscript>\n    <script type=\"text/javascript\" language=\"javascript\">\n        // show an error message if the app loading takes more than 5 sec\n        window.onload=function() {\n            setTimeout(showError, 4000);\n        }\n        function showError() {\n            var errorElm = document.getElementById(\"jhipster-error\");\n            if (errorElm && errorElm.style) {\n                errorElm.style.display = \"block\";\n            }\n        }\n    </script>\n<script type=\"text/javascript\" src=\"app/polyfills.926870e744b3ae83be5d.bundle.js\"></script><script type=\"text/javascript\" src=\"app/main.926870e744b3ae83be5d.bundle.js\"></script><script type=\"text/javascript\" src=\"app/global.926870e744b3ae83be5d.bundle.js\"></script></body>\n</html>\n",
+    "timestamp": "2021-10-17T02:24:02.479464061Z"
+  },
+  {
+    "templateID": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher_name": "cross-origin-embedder-policy",
+    "type": "http",
+    "host": "https://eps.sante.gouv.fr",
+    "matched": "https://eps.sante.gouv.fr",
+    "request": "GET / HTTP/1.1\r\nHost: eps.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nCache-Control: no-cache, no-store, max-age=0, must-revalidate\r\nContent-Language: en-\r\nContent-Security-Policy: default-src 'self'; frame-src 'self' data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://storage.googleapis.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:\r\nContent-Type: text/html;charset=utf-8\r\nDate: Sun, 17 Oct 2021 02:24:02 GMT\r\nExpires: 0\r\nFeature-Policy: geolocation 'none'; midi 'none'; sync-xhr 'none'; microphone 'none'; camera 'none'; magnetometer 'none'; gyroscope 'none'; speaker 'none'; fullscreen 'self'; payment 'none'\r\nLast-Modified: Wed, 29 Sep 2021 12:05:29 GMT\r\nPragma: no-cache\r\nReferrer-Policy: strict-origin-when-cross-origin\r\nSet-Cookie: BIGipServerpool-dgos-eps.cegedim.cloud-HTTP=!uU0UcJjT8+A1dXx7bLUtGytATXjoYG1nwA3skbj/PmHhqn6MgOMNqPHxjZUCae848N//gXUd/xKjIqIfdCg1JmyLWcA=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: DENY\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\n<html class=\"no-js\" lang=\"fr\" dir=\"ltr\">\n<head>\n    <base href=\"/\" />\n    <meta charset=\"utf-8\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <title>Éthique des professionnels de santé</title>\n    <meta name=\"description\" content=\"Éthique des professionnels de santé\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\n    <meta name=\"theme-color\" content=\"#000000\">\n    <link rel=\"shortcut icon\" href=\"favicon.ico\" />\n    <link rel=\"manifest\" href=\"manifest.webapp\" />\n    <link rel=\"stylesheet\" href=\"content/css/loading.css\">\n    <link rel=\"stylesheet\" href=\"content/css/material-icons.css\"/>\n    <!-- jhipster-needle-add-resources-to-root - JHipster will add new resources here -->\n<link href=\"content/main.d74a6b2f7a36c260d8b2.css\" rel=\"stylesheet\"><link href=\"content/global.64181361eb129a84b7a2.css\" rel=\"stylesheet\"></head>\n<body>\n\n    <!--[if lt IE 9]>\n        <p class=\"browserupgrade\">Vous utilisez un navigateur <strong>obsolète</strong>. Merci de basculer sur Mozilla Firefox, Google Chrome ou Safari pour une meilleure expérience utilisateur.</p>\n    <![endif]-->\n    <jhi-main>\n        <div class=\"hfull\">\n        <div class=\"app-loading\">\n            <div class=\"lds-css ng-scope\">\n                <div class=\"lds-pacman\">\n                    <div><div></div><div></div><div></div></div>\n                    <div><div></div><div></div><div></div></div>\n                </div>\n            </div>\n        </div>\n        <div class=\"app-loading\">\n            <div id=\"jhipster-error\" style=\"display:none\">\n                <!-- This content is for troubleshooting purpose and will be removed when app renders -->\n                <h1>Une erreur est survenue lors du chargement de l'application.</h1>\n                <!-- end of troubleshooting content -->\n            </div>\n        </div>\n    </jhi-main>\n    <noscript>\n        <h1>Vous devez activer JavaScript pour accéder à cette page.</h1>\n    </noscript>\n    <script type=\"text/javascript\" language=\"javascript\">\n        // show an error message if the app loading takes more than 5 sec\n        window.onload=function() {\n            setTimeout(showError, 4000);\n        }\n        function showError() {\n            var errorElm = document.getElementById(\"jhipster-error\");\n            if (errorElm && errorElm.style) {\n                errorElm.style.display = \"block\";\n            }\n        }\n    </script>\n<script type=\"text/javascript\" src=\"app/polyfills.926870e744b3ae83be5d.bundle.js\"></script><script type=\"text/javascript\" src=\"app/main.926870e744b3ae83be5d.bundle.js\"></script><script type=\"text/javascript\" src=\"app/global.926870e744b3ae83be5d.bundle.js\"></script></body>\n</html>\n",
+    "timestamp": "2021-10-17T02:24:02.479488261Z"
+  },
+  {
+    "templateID": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher_name": "cross-origin-opener-policy",
+    "type": "http",
+    "host": "https://eps.sante.gouv.fr",
+    "matched": "https://eps.sante.gouv.fr",
+    "request": "GET / HTTP/1.1\r\nHost: eps.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nCache-Control: no-cache, no-store, max-age=0, must-revalidate\r\nContent-Language: en-\r\nContent-Security-Policy: default-src 'self'; frame-src 'self' data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://storage.googleapis.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:\r\nContent-Type: text/html;charset=utf-8\r\nDate: Sun, 17 Oct 2021 02:24:02 GMT\r\nExpires: 0\r\nFeature-Policy: geolocation 'none'; midi 'none'; sync-xhr 'none'; microphone 'none'; camera 'none'; magnetometer 'none'; gyroscope 'none'; speaker 'none'; fullscreen 'self'; payment 'none'\r\nLast-Modified: Wed, 29 Sep 2021 12:05:29 GMT\r\nPragma: no-cache\r\nReferrer-Policy: strict-origin-when-cross-origin\r\nSet-Cookie: BIGipServerpool-dgos-eps.cegedim.cloud-HTTP=!uU0UcJjT8+A1dXx7bLUtGytATXjoYG1nwA3skbj/PmHhqn6MgOMNqPHxjZUCae848N//gXUd/xKjIqIfdCg1JmyLWcA=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: DENY\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\n<html class=\"no-js\" lang=\"fr\" dir=\"ltr\">\n<head>\n    <base href=\"/\" />\n    <meta charset=\"utf-8\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <title>Éthique des professionnels de santé</title>\n    <meta name=\"description\" content=\"Éthique des professionnels de santé\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\n    <meta name=\"theme-color\" content=\"#000000\">\n    <link rel=\"shortcut icon\" href=\"favicon.ico\" />\n    <link rel=\"manifest\" href=\"manifest.webapp\" />\n    <link rel=\"stylesheet\" href=\"content/css/loading.css\">\n    <link rel=\"stylesheet\" href=\"content/css/material-icons.css\"/>\n    <!-- jhipster-needle-add-resources-to-root - JHipster will add new resources here -->\n<link href=\"content/main.d74a6b2f7a36c260d8b2.css\" rel=\"stylesheet\"><link href=\"content/global.64181361eb129a84b7a2.css\" rel=\"stylesheet\"></head>\n<body>\n\n    <!--[if lt IE 9]>\n        <p class=\"browserupgrade\">Vous utilisez un navigateur <strong>obsolète</strong>. Merci de basculer sur Mozilla Firefox, Google Chrome ou Safari pour une meilleure expérience utilisateur.</p>\n    <![endif]-->\n    <jhi-main>\n        <div class=\"hfull\">\n        <div class=\"app-loading\">\n            <div class=\"lds-css ng-scope\">\n                <div class=\"lds-pacman\">\n                    <div><div></div><div></div><div></div></div>\n                    <div><div></div><div></div><div></div></div>\n                </div>\n            </div>\n        </div>\n        <div class=\"app-loading\">\n            <div id=\"jhipster-error\" style=\"display:none\">\n                <!-- This content is for troubleshooting purpose and will be removed when app renders -->\n                <h1>Une erreur est survenue lors du chargement de l'application.</h1>\n                <!-- end of troubleshooting content -->\n            </div>\n        </div>\n    </jhi-main>\n    <noscript>\n        <h1>Vous devez activer JavaScript pour accéder à cette page.</h1>\n    </noscript>\n    <script type=\"text/javascript\" language=\"javascript\">\n        // show an error message if the app loading takes more than 5 sec\n        window.onload=function() {\n            setTimeout(showError, 4000);\n        }\n        function showError() {\n            var errorElm = document.getElementById(\"jhipster-error\");\n            if (errorElm && errorElm.style) {\n                errorElm.style.display = \"block\";\n            }\n        }\n    </script>\n<script type=\"text/javascript\" src=\"app/polyfills.926870e744b3ae83be5d.bundle.js\"></script><script type=\"text/javascript\" src=\"app/main.926870e744b3ae83be5d.bundle.js\"></script><script type=\"text/javascript\" src=\"app/global.926870e744b3ae83be5d.bundle.js\"></script></body>\n</html>\n",
+    "timestamp": "2021-10-17T02:24:02.479521862Z"
+  },
+  {
+    "templateID": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher_name": "access-control-max-age",
+    "type": "http",
+    "host": "https://eps.sante.gouv.fr",
+    "matched": "https://eps.sante.gouv.fr",
+    "request": "GET / HTTP/1.1\r\nHost: eps.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nCache-Control: no-cache, no-store, max-age=0, must-revalidate\r\nContent-Language: en-\r\nContent-Security-Policy: default-src 'self'; frame-src 'self' data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://storage.googleapis.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:\r\nContent-Type: text/html;charset=utf-8\r\nDate: Sun, 17 Oct 2021 02:24:02 GMT\r\nExpires: 0\r\nFeature-Policy: geolocation 'none'; midi 'none'; sync-xhr 'none'; microphone 'none'; camera 'none'; magnetometer 'none'; gyroscope 'none'; speaker 'none'; fullscreen 'self'; payment 'none'\r\nLast-Modified: Wed, 29 Sep 2021 12:05:29 GMT\r\nPragma: no-cache\r\nReferrer-Policy: strict-origin-when-cross-origin\r\nSet-Cookie: BIGipServerpool-dgos-eps.cegedim.cloud-HTTP=!uU0UcJjT8+A1dXx7bLUtGytATXjoYG1nwA3skbj/PmHhqn6MgOMNqPHxjZUCae848N//gXUd/xKjIqIfdCg1JmyLWcA=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: DENY\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\n<html class=\"no-js\" lang=\"fr\" dir=\"ltr\">\n<head>\n    <base href=\"/\" />\n    <meta charset=\"utf-8\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <title>Éthique des professionnels de santé</title>\n    <meta name=\"description\" content=\"Éthique des professionnels de santé\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\n    <meta name=\"theme-color\" content=\"#000000\">\n    <link rel=\"shortcut icon\" href=\"favicon.ico\" />\n    <link rel=\"manifest\" href=\"manifest.webapp\" />\n    <link rel=\"stylesheet\" href=\"content/css/loading.css\">\n    <link rel=\"stylesheet\" href=\"content/css/material-icons.css\"/>\n    <!-- jhipster-needle-add-resources-to-root - JHipster will add new resources here -->\n<link href=\"content/main.d74a6b2f7a36c260d8b2.css\" rel=\"stylesheet\"><link href=\"content/global.64181361eb129a84b7a2.css\" rel=\"stylesheet\"></head>\n<body>\n\n    <!--[if lt IE 9]>\n        <p class=\"browserupgrade\">Vous utilisez un navigateur <strong>obsolète</strong>. Merci de basculer sur Mozilla Firefox, Google Chrome ou Safari pour une meilleure expérience utilisateur.</p>\n    <![endif]-->\n    <jhi-main>\n        <div class=\"hfull\">\n        <div class=\"app-loading\">\n            <div class=\"lds-css ng-scope\">\n                <div class=\"lds-pacman\">\n                    <div><div></div><div></div><div></div></div>\n                    <div><div></div><div></div><div></div></div>\n                </div>\n            </div>\n        </div>\n        <div class=\"app-loading\">\n            <div id=\"jhipster-error\" style=\"display:none\">\n                <!-- This content is for troubleshooting purpose and will be removed when app renders -->\n                <h1>Une erreur est survenue lors du chargement de l'application.</h1>\n                <!-- end of troubleshooting content -->\n            </div>\n        </div>\n    </jhi-main>\n    <noscript>\n        <h1>Vous devez activer JavaScript pour accéder à cette page.</h1>\n    </noscript>\n    <script type=\"text/javascript\" language=\"javascript\">\n        // show an error message if the app loading takes more than 5 sec\n        window.onload=function() {\n            setTimeout(showError, 4000);\n        }\n        function showError() {\n            var errorElm = document.getElementById(\"jhipster-error\");\n            if (errorElm && errorElm.style) {\n                errorElm.style.display = \"block\";\n            }\n        }\n    </script>\n<script type=\"text/javascript\" src=\"app/polyfills.926870e744b3ae83be5d.bundle.js\"></script><script type=\"text/javascript\" src=\"app/main.926870e744b3ae83be5d.bundle.js\"></script><script type=\"text/javascript\" src=\"app/global.926870e744b3ae83be5d.bundle.js\"></script></body>\n</html>\n",
+    "timestamp": "2021-10-17T02:24:02.479549662Z"
   }
 ]
