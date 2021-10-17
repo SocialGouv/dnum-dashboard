@@ -3,8 +3,8 @@
               "id"           : "service",
               "ip"           : "www.telerc.travail.gouv.fr/164.131.132.45",
               "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "HTTP"
+              "severity"     : "DEBUG",
+              "finding"      : "Couldn't determine service, skipping all HTTP checks"
           }
 ,         {
               "id"           : "pre_128cipher",
@@ -220,7 +220,7 @@
               "ip"           : "www.telerc.travail.gouv.fr/164.131.132.45",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "not supported"
+              "finding"      : "supported"
           }
 ,         {
               "id"           : "TLS_timestamp",
@@ -353,7 +353,7 @@
               "ip"           : "www.telerc.travail.gouv.fr/164.131.132.45",
               "port"         : "443",
               "severity"     : "OK",
-              "finding"      : "344 >= 60 days"
+              "finding"      : "337 >= 60 days"
           }
 ,         {
               "id"           : "cert_notBefore",
@@ -538,98 +538,6 @@
               "finding"      : "intermediate certificate(s) is/are ok"
           }
 ,         {
-              "id"           : "HTTP_status_code",
-              "ip"           : "www.telerc.travail.gouv.fr/164.131.132.45",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "200 OK ('/')"
-          }
-,         {
-              "id"           : "HTTP_clock_skew",
-              "ip"           : "www.telerc.travail.gouv.fr/164.131.132.45",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "0 seconds from localtime"
-          }
-,         {
-              "id"           : "HSTS_time",
-              "ip"           : "www.telerc.travail.gouv.fr/164.131.132.45",
-              "port"         : "443",
-              "severity"     : "OK",
-              "finding"      : "730 days (=63072000 seconds) > 15552000 seconds"
-          }
-,         {
-              "id"           : "HSTS_subdomains",
-              "ip"           : "www.telerc.travail.gouv.fr/164.131.132.45",
-              "port"         : "443",
-              "severity"     : "OK",
-              "finding"      : "includes subdomains"
-          }
-,         {
-              "id"           : "HSTS_preload",
-              "ip"           : "www.telerc.travail.gouv.fr/164.131.132.45",
-              "port"         : "443",
-              "severity"     : "OK",
-              "finding"      : "domain IS marked for preloading"
-          }
-,         {
-              "id"           : "HPKP",
-              "ip"           : "www.telerc.travail.gouv.fr/164.131.132.45",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "No support for HTTP Public Key Pinning"
-          }
-,         {
-              "id"           : "banner_server",
-              "ip"           : "www.telerc.travail.gouv.fr/164.131.132.45",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "No Server banner line in header, interesting!"
-          }
-,         {
-              "id"           : "banner_application",
-              "ip"           : "www.telerc.travail.gouv.fr/164.131.132.45",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "No application banner found"
-          }
-,         {
-              "id"           : "cookie_count",
-              "ip"           : "www.telerc.travail.gouv.fr/164.131.132.45",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "1 at '/'"
-          }
-,         {
-              "id"           : "cookie_secure",
-              "ip"           : "www.telerc.travail.gouv.fr/164.131.132.45",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "0/1 at '/' marked as secure"
-          }
-,         {
-              "id"           : "cookie_httponly",
-              "ip"           : "www.telerc.travail.gouv.fr/164.131.132.45",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "0/1 at '/' marked as HttpOnly"
-          }
-,         {
-              "id"           : "security_headers",
-              "ip"           : "www.telerc.travail.gouv.fr/164.131.132.45",
-              "port"         : "443",
-              "severity"     : "MEDIUM",
-              "finding"      : "--"
-          }
-,         {
-              "id"           : "banner_reverseproxy",
-              "ip"           : "www.telerc.travail.gouv.fr/164.131.132.45",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "cwe"          : "CWE-200",
-              "finding"      : "--"
-          }
-,         {
               "id"           : "heartbleed",
               "ip"           : "www.telerc.travail.gouv.fr/164.131.132.45",
               "port"         : "443",
@@ -651,10 +559,10 @@
               "id"           : "ticketbleed",
               "ip"           : "www.telerc.travail.gouv.fr/164.131.132.45",
               "port"         : "443",
-              "severity"     : "OK",
+              "severity"     : "INFO",
               "cve"          : "CVE-2016-9244",
               "cwe"          : "CWE-200",
-              "finding"      : "no session ticket extension"
+              "finding"      : "not applicable, not HTTP"
           }
 ,         {
               "id"           : "ROBOT",
@@ -677,10 +585,10 @@
               "id"           : "secure_client_renego",
               "ip"           : "www.telerc.travail.gouv.fr/164.131.132.45",
               "port"         : "443",
-              "severity"     : "OK",
+              "severity"     : "MEDIUM",
               "cve"          : "CVE-2011-1473",
               "cwe"          : "CWE-310",
-              "finding"      : "not vulnerable, mitigated"
+              "finding"      : "VULNERABLE, potential DoS threat"
           }
 ,         {
               "id"           : "CRIME_TLS",
@@ -689,16 +597,7 @@
               "severity"     : "OK",
               "cve"          : "CVE-2012-4929",
               "cwe"          : "CWE-310",
-              "finding"      : "not vulnerable"
-          }
-,         {
-              "id"           : "BREACH",
-              "ip"           : "www.telerc.travail.gouv.fr/164.131.132.45",
-              "port"         : "443",
-              "severity"     : "MEDIUM",
-              "cve"          : "CVE-2013-3587",
-              "cwe"          : "CWE-310",
-              "finding"      : "potentially VULNERABLE, gzip HTTP compression detected  - only supplied '/' tested"
+              "finding"      : "not vulnerable (not using HTTP anyway)"
           }
 ,         {
               "id"           : "POODLE_SSL",
@@ -1163,6 +1062,6 @@
               "ip"           : "www.telerc.travail.gouv.fr/164.131.132.45",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "197"
+              "finding"      : "183"
           }
 ]
