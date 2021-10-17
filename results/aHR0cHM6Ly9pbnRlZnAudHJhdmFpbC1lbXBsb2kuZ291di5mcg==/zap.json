@@ -1,6 +1,6 @@
 {
 	"@version": "2.11.0",
-	"@generated": "Sun, 10 Oct 2021 03:13:19",
+	"@generated": "Sun, 17 Oct 2021 02:59:19",
 	"site":[ 
 		{
 			"@name": "https://intefp.travail-emploi.gouv.fr",
@@ -268,21 +268,35 @@
 					"desc": "<p>An X-Frame-Options header was present in the response but the value was not correctly set.</p>",
 					"instances":[ 
 						{
-							"uri": "https://intefp.travail-emploi.gouv.fr",
+							"uri": "https://intefp.travail-emploi.gouv.fr/piwik/",
 							"method": "GET",
 							"param": "X-Frame-Options",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://intefp.travail-emploi.gouv.fr/erreur",
+							"uri": "https://intefp.travail-emploi.gouv.fr/piwik/index.php?action=databaseSetup",
 							"method": "GET",
+							"param": "X-Frame-Options",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://intefp.travail-emploi.gouv.fr/piwik/index.php?action=systemCheck",
+							"method": "GET",
+							"param": "X-Frame-Options",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://intefp.travail-emploi.gouv.fr/piwik/index.php?action=databaseSetup",
+							"method": "POST",
 							"param": "X-Frame-Options",
 							"attack": "",
 							"evidence": ""
 						}
 					],
-					"count": "2",
+					"count": "4",
 					"solution": "<p>Ensure a valid setting is used on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.  Alternatively consider implementing Content Security Policy's \"frame-ancestors\" directive.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://tools.ietf.org/html/rfc7034#section-2.1</p>",
@@ -728,7 +742,7 @@
 					],
 					"count": "2",
 					"solution": "<p>A page that is available over SSL/TLS must be comprised completely of content which is transmitted over SSL/TLS.</p><p>The page must not contain any content that is transmitted over unencrypted HTTP.</p><p> This includes content from third party sites.</p>",
-					"otherinfo": "<p>tag=img src=http://intefp.travail-emploi.gouv.fr/images/img/Logo-intefp.png</p><p>tag=img src=http://www.intefp.travail-emploi.gouv.fr/analytics/piwik.php?idsite=1&rec=1&apiv=1&action_name=INTEFP+-+Accueil+-+No-Java&rand=1979304033</p><p></p>",
+					"otherinfo": "<p>tag=img src=http://intefp.travail-emploi.gouv.fr/images/img/Logo-intefp.png</p><p>tag=img src=http://www.intefp.travail-emploi.gouv.fr/analytics/piwik.php?idsite=1&rec=1&apiv=1&action_name=INTEFP+-+Accueil+-+No-Java&rand=1419846613</p><p></p>",
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Protection_Cheat_Sheet.html</p>",
 					"cweid": "311",
 					"wascid": "4",
@@ -749,7 +763,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1979304033"
+							"evidence": "1419846613"
 						},
 						{
 							"uri": "https://intefp.travail-emploi.gouv.fr/administrator/templates/isis/css/template.css?05914f7ea81b29abfc0f2ccbba24690e",
@@ -812,7 +826,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "2054898739"
+							"evidence": "1979801462"
 						},
 						{
 							"uri": "https://intefp.travail-emploi.gouv.fr/piwik/libs/jquery/jquery-ui.js?cb=c11eb523eb54be55c56965245131137a",
@@ -824,7 +838,7 @@
 					],
 					"count": "11",
 					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
-					"otherinfo": "<p>1979304033, which evaluates to: 2032-09-20 14:40:33</p>",
+					"otherinfo": "<p>1419846613, which evaluates to: 2014-12-29 09:50:13</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
@@ -1177,7 +1191,7 @@
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "28"
+					"sourceid": "30"
 				},
 				{
 					"pluginid": "10109",
@@ -1194,7 +1208,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<noscript><img src=\"http://www.intefp.travail-emploi.gouv.fr/analytics/piwik.php?idsite=1&amp;rec=1&amp;apiv=1&amp;action_name=INTEFP+-+Accueil+-+No-Java&amp;rand=1979304033\" style=\"border:0\" alt=\"\" /></noscript>"
+							"evidence": "<noscript><img src=\"http://www.intefp.travail-emploi.gouv.fr/analytics/piwik.php?idsite=1&amp;rec=1&amp;apiv=1&amp;action_name=INTEFP+-+Accueil+-+No-Java&amp;rand=1419846613\" style=\"border:0\" alt=\"\" /></noscript>"
 						},
 						{
 							"uri": "https://intefp.travail-emploi.gouv.fr/administrator/",
@@ -1348,7 +1362,7 @@
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "28"
+					"sourceid": "30"
 				},
 				{
 					"pluginid": "10049",
@@ -1361,63 +1375,21 @@
 					"desc": "<p>The response contents are storable by caching components such as proxy servers, and may be retrieved directly from the cache, rather than from the origin server by the caching servers, in response to similar requests from other users.  If the response data is sensitive, personal or user-specific, this may result in sensitive information being leaked. In some cases, this may even result in a user gaining complete control of the session of another user, depending on the configuration of the caching components in use in their environment. This is primarily an issue where \"shared\" caching servers such as \"proxy\" caches are configured on the local network. This configuration is typically found in corporate or educational environments, for instance.</p>",
 					"instances":[ 
 						{
-							"uri": "https://intefp.travail-emploi.gouv.fr/administrator/",
+							"uri": "https://intefp.travail-emploi.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "no-store"
+							"evidence": ""
 						},
 						{
-							"uri": "https://intefp.travail-emploi.gouv.fr/cache/",
+							"uri": "https://intefp.travail-emploi.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "403"
-						},
-						{
-							"uri": "https://intefp.travail-emploi.gouv.fr/cli/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "403"
-						},
-						{
-							"uri": "https://intefp.travail-emploi.gouv.fr/components/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "403"
-						},
-						{
-							"uri": "https://intefp.travail-emploi.gouv.fr/images/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "403"
-						},
-						{
-							"uri": "https://intefp.travail-emploi.gouv.fr/includes/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "403"
-						},
-						{
-							"uri": "https://intefp.travail-emploi.gouv.fr/language/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "403"
-						},
-						{
-							"uri": "https://intefp.travail-emploi.gouv.fr/libraries/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "403"
+							"evidence": ""
 						}
 					],
-					"count": "8",
+					"count": "2",
 					"solution": "<p>Validate that the response does not contain sensitive, personal or user-specific information.  If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:</p><p>Cache-Control: no-cache, no-store, must-revalidate, private</p><p>Pragma: no-cache</p><p>Expires: 0</p><p>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request. </p>",
 					"otherinfo": "<p>In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234.</p>",
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
@@ -1436,63 +1408,14 @@
 					"desc": "<p>The response contents are storable by caching components such as proxy servers, but will not be retrieved directly from the cache, without validating the request upstream, in response to similar requests from other users. </p>",
 					"instances":[ 
 						{
-							"uri": "https://intefp.travail-emploi.gouv.fr/administrator/",
+							"uri": "https://intefp.travail-emploi.gouv.fr",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "no-store"
-						},
-						{
-							"uri": "https://intefp.travail-emploi.gouv.fr/cache/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "403"
-						},
-						{
-							"uri": "https://intefp.travail-emploi.gouv.fr/cli/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "403"
-						},
-						{
-							"uri": "https://intefp.travail-emploi.gouv.fr/components/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "403"
-						},
-						{
-							"uri": "https://intefp.travail-emploi.gouv.fr/images/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "403"
-						},
-						{
-							"uri": "https://intefp.travail-emploi.gouv.fr/includes/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "403"
-						},
-						{
-							"uri": "https://intefp.travail-emploi.gouv.fr/language/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "403"
-						},
-						{
-							"uri": "https://intefp.travail-emploi.gouv.fr/libraries/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "403"
+							"evidence": "no-cache"
 						}
 					],
-					"count": "8",
+					"count": "1",
 					"solution": "",
 					"otherinfo": "",
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
