@@ -1,6 +1,6 @@
 {
 	"@version": "2.11.0",
-	"@generated": "Sun, 10 Oct 2021 03:42:38",
+	"@generated": "Sun, 17 Oct 2021 03:26:24",
 	"site":[ 
 		{
 			"@name": "https://onpes.gouv.fr",
@@ -103,6 +103,32 @@
 					"cweid": "693",
 					"wascid": "15",
 					"sourceid": "1"
+				},
+				{
+					"pluginid": "10108",
+					"alertRef": "10108",
+					"alert": "Reverse Tabnabbing",
+					"name": "Reverse Tabnabbing",
+					"riskcode": "2",
+					"confidence": "2",
+					"riskdesc": "Medium (Medium)",
+					"desc": "<p>At least one link on this page is vulnerable to Reverse tabnabbing as it uses a target attribute without using both of the \"noopener\" and \"noreferrer\" keywords in the \"rel\" attribute, which allows the target page to take control of this page.</p>",
+					"instances":[ 
+						{
+							"uri": "https://onpes.gouv.fr/s-attaquer-aux-dimensions-cachees.html",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a href=\"http://www.atd-quartmonde.org/nos-actions/penser-agir-ensemble/croisement-des-savoirs/\" target=\"_blank\">Croisement des Savoirs</a>"
+						}
+					],
+					"count": "1",
+					"solution": "<p>Do not use a target attribute, or if you have to then also add the attribute: rel=\"noopener noreferrer\".</p>",
+					"otherinfo": "",
+					"reference": "<p>https://owasp.org/www-community/attacks/Reverse_Tabnabbing</p><p>https://dev.to/ben/the-targetblank-vulnerability-by-example</p><p>https://mathiasbynens.github.io/rel-noopener/</p><p>https://medium.com/@jitbit/target-blank-the-most-underestimated-vulnerability-ever-96e328301f4c</p>",
+					"cweid": "-1",
+					"wascid": "-1",
+					"sourceid": "2499"
 				},
 				{
 					"pluginid": "10003",
@@ -257,7 +283,7 @@
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "386"
+					"sourceid": "123"
 				},
 				{
 					"pluginid": "10054",
@@ -594,6 +620,13 @@
 							"evidence": ""
 						},
 						{
+							"uri": "https://onpes.gouv.fr/oembed.api/?format=json&url=https%3A%2F%2Fonpes.gouv.fr%2Flib%2F",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
 							"uri": "https://onpes.gouv.fr/plugins-dist/",
 							"method": "GET",
 							"param": "",
@@ -629,13 +662,13 @@
 							"evidence": ""
 						}
 					],
-					"count": "8",
+					"count": "9",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to enforce Strict-Transport-Security.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>http://caniuse.com/stricttransportsecurity</p><p>http://tools.ietf.org/html/rfc6797</p>",
 					"cweid": "319",
 					"wascid": "15",
-					"sourceid": "177"
+					"sourceid": "122"
 				},
 				{
 					"pluginid": "10096",
@@ -692,14 +725,14 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "sBQFKz/Yxx2LFGZ7bLUtGytATXjoYHLqXfW4Et3Ki09qeek2J5AFCyJSdKnMLwIdvN5ujrS4Kd7blQeXDR3fOR6F908="
+							"evidence": "Hy0yCGS/HRfZhRx7bLUtGytATXjoYJIfADj4m2Jvjiysh7p1PeDitHGRc7yPQWlZNl+z8hipOP6B9+hZWqs7c/+2S8w="
 						},
 						{
 							"uri": "https://onpes.gouv.fr",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "11Od2kZiV0BcYKp7bLUtGytATXjoYNs9KJcnEtRz5U5joku7NuzH/5cZvi/pb7zRxnwx3JoGse0GVXDoPLGcIssaPsc="
+							"evidence": "I5Ih/11E0YvXwvZ7bLUtGytATXjoYPuF9okB+vHaIawrAexLk1Y8ahYnmUVvxHbaMdVIi2m1zp1Aba+FnFvxwhz24uo="
 						},
 						{
 							"uri": "https://onpes.gouv.fr/",
@@ -755,7 +788,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "Sae9k23HQAk4SsZ7bLUtGytATXjoYG+JVC85wR3UfF1xb0xk5gkBPzm82K6MVNlf1aOlA7pjHpvtNnhEAyRPZ76QZos="
+							"evidence": "C25IlSeh+2VX64F7bLUtGytATXjoYLn//StihFh53DkxfSNiUHsOmDmHmUxekzzAO8QadtDMtJqIW7/gJopffdiOMvA="
 						},
 						{
 							"uri": "https://onpes.gouv.fr/spip.php?lang=fr&page=spip_pass",
@@ -774,7 +807,7 @@
 					],
 					"count": "12",
 					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
-					"otherinfo": "<p>\uFFFD\\x0014\\x0005+?\uFFFD\uFFFD\\x001d\uFFFD\\x0014f{l\uFFFD-\\x001b+@Mx\uFFFD`r\uFFFD]\uFFFD\uFFFD\\x0012\uFFFD\u028BOjy\uFFFD6'\uFFFD\\x0005\\x000b\"Rt\uFFFD\uFFFD/\\x0002\\x001d\uFFFD\uFFFDn\uFFFD\uFFFD\uFFFD)\uFFFD\u06D5\\x0007\uFFFD\r\\x001d\uFFFD9\\x001e\uFFFD\uFFFDO</p>",
+					"otherinfo": "<p>\\x001f-2\\x0008d\uFFFD\\x001d\\x0017\u0645\\x001c{l\uFFFD-\\x001b+@Mx\uFFFD`\uFFFD\\x001f\\x00008\uFFFD\uFFFDbo\uFFFD,\uFFFD\uFFFD\uFFFDu=\uFFFD\uFFFDq\uFFFDs\uFFFD\uFFFDAiY6_\uFFFD\uFFFD\\x0018\uFFFD8\uFFFD\uFFFD\uFFFD\uFFFDYZ\uFFFD;s\uFFFD\uFFFDK\uFFFD</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
@@ -806,6 +839,13 @@
 						},
 						{
 							"uri": "https://onpes.gouv.fr/local/cache-js/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://onpes.gouv.fr/oembed.api/?format=json&url=https%3A%2F%2Fonpes.gouv.fr%2Flib%2F",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -847,13 +887,13 @@
 							"evidence": ""
 						}
 					],
-					"count": "8",
+					"count": "9",
 					"solution": "<p>Ensure each page is setting the specific and appropriate content-type value for the content being delivered.</p>",
 					"otherinfo": "",
 					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p>",
 					"cweid": "345",
 					"wascid": "12",
-					"sourceid": "177"
+					"sourceid": "122"
 				},
 				{
 					"pluginid": "10027",
@@ -1140,70 +1180,21 @@
 					"desc": "<p>The response contents are storable by caching components such as proxy servers, and may be retrieved directly from the cache, rather than from the origin server by the caching servers, in response to similar requests from other users.  If the response data is sensitive, personal or user-specific, this may result in sensitive information being leaked. In some cases, this may even result in a user gaining complete control of the session of another user, depending on the configuration of the caching components in use in their environment. This is primarily an issue where \"shared\" caching servers such as \"proxy\" caches are configured on the local network. This configuration is typically found in corporate or educational environments, for instance.</p>",
 					"instances":[ 
 						{
-							"uri": "https://onpes.gouv.fr",
+							"uri": "https://onpes.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "no-store"
+							"evidence": ""
 						},
 						{
-							"uri": "https://onpes.gouv.fr/ecrire/",
+							"uri": "https://onpes.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "302"
-						},
-						{
-							"uri": "https://onpes.gouv.fr/lib/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "no-store"
-						},
-						{
-							"uri": "https://onpes.gouv.fr/local/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "403"
-						},
-						{
-							"uri": "https://onpes.gouv.fr/local/cache-css/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "403"
-						},
-						{
-							"uri": "https://onpes.gouv.fr/local/cache-js/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "403"
-						},
-						{
-							"uri": "https://onpes.gouv.fr/plugins-dist/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "403"
-						},
-						{
-							"uri": "https://onpes.gouv.fr/plugins/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "403"
-						},
-						{
-							"uri": "https://onpes.gouv.fr/prive/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "403"
+							"evidence": ""
 						}
 					],
-					"count": "9",
+					"count": "2",
 					"solution": "<p>Validate that the response does not contain sensitive, personal or user-specific information.  If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:</p><p>Cache-Control: no-cache, no-store, must-revalidate, private</p><p>Pragma: no-cache</p><p>Expires: 0</p><p>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request. </p>",
 					"otherinfo": "<p>In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234.</p>",
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
@@ -1297,9 +1288,44 @@
 							"param": "page",
 							"attack": "",
 							"evidence": ""
+						},
+						{
+							"uri": "https://onpes.gouv.fr/",
+							"method": "POST",
+							"param": "formulaire_action",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://onpes.gouv.fr/",
+							"method": "POST",
+							"param": "formulaire_action_args",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://onpes.gouv.fr/",
+							"method": "POST",
+							"param": "password",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://onpes.gouv.fr/",
+							"method": "POST",
+							"param": "session_remember",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://onpes.gouv.fr/",
+							"method": "POST",
+							"param": "var_login",
+							"attack": "",
+							"evidence": ""
 						}
 					],
-					"count": "11",
+					"count": "16",
 					"solution": "<p>Validate all input and sanitize output it before writing to any HTML attributes.</p>",
 					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://onpes.gouv.fr/spip.php?lang=fr&page=spip_pass</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [html] tag [lang] attribute </p><p></p><p>The user input found was:</p><p>lang=fr</p><p></p><p>The user-controlled value was:</p><p>fr</p>",
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
