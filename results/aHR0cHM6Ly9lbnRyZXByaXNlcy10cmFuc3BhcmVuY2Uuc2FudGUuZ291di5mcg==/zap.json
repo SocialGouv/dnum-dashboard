@@ -1,6 +1,6 @@
 {
 	"@version": "2.11.0",
-	"@generated": "Sun, 10 Oct 2021 02:38:56",
+	"@generated": "Sun, 17 Oct 2021 02:11:05",
 	"site":[ 
 		{
 			"@name": "https://entreprises-transparence.sante.gouv.fr",
@@ -188,30 +188,30 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "I4s95toRjqPeEWd7bLUtGytATXjoYEs01Q85QBkELGPME7WnFRA427pdhoTRM+J0RACot7a361uQK6BW9DqkmUNmdys="
+							"evidence": "MRVEluc42PvIHIp7bLUtGytATXjoYC8TvJpGfbm1fNFCmMT42Ax/15vUT4+hch9RSn4S/0xExGYLeRwf1hDk2BXDViE="
 						},
 						{
 							"uri": "https://entreprises-transparence.sante.gouv.fr",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "vPo2egK4zSUK9w57bLUtGytATXjoYL1HSIyYa0F3AGkgCWJEFuu3QBoA0ytBM4dviDXbEQNj/PM6/s266L8X8mV004o="
+							"evidence": "mAHIyDTkRNEx+3B7bLUtGytATXjoYO0ob4syZPbfi6uicV4u5wHQ07FpPA0E/FGnDmj4NhshTlfFCk01aFz/2rN9xJc="
 						},
 						{
 							"uri": "https://entreprises-transparence.sante.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "cOkvwuragFUoQyh7bLUtGytATXjoYIYOMAyBz5SfwrmCVy73Ur4B2TvD/ErUnWSziO6zuqlC+zoLwQtUHTlwHOA7zW8="
+							"evidence": "6dJz4LQ/dWDsxbB7bLUtGytATXjoYH7AeZnPazYNh3DEQzYwFrJoOBqOIsFX2nXef9Y2WZgsSXu4il8fpqdnsAaNFbA="
 						}
 					],
 					"count": "3",
 					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
-					"otherinfo": "<p>#\uFFFD=\uFFFD\uFFFD\\x0011\uFFFD\uFFFD\uFFFD\\x0011g{l\uFFFD-\\x001b+@Mx\uFFFD`K4\uFFFD\\x000f9@\\x0019\\x0004,c\uFFFD\\x0013\uFFFD\uFFFD\\x0015\\x00108\u06FA]\uFFFD\uFFFD\uFFFD3\uFFFDtD\\x0000\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD[\uFFFD+\uFFFDV\uFFFD:\uFFFD\uFFFDCfw+</p>",
+					"otherinfo": "<p>1\\x0015D\uFFFD\uFFFD8\uFFFD\uFFFD\uFFFD\\x001c\uFFFD{l\uFFFD-\\x001b+@Mx\uFFFD`/\\x0013\uFFFD\uFFFDF}\uFFFD\uFFFD|\uFFFDB\uFFFD\uFFFD\uFFFD\uFFFD\\x000c\u05DB\uFFFDO\uFFFD\uFFFDr\\x001fQJ~\\x0012\uFFFDLD\uFFFDf\\x000by\\x001c\\x001f\uFFFD\\x0010\uFFFD\uFFFD\\x0015\uFFFDV!</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "7"
 				},
 				{
 					"pluginid": "10027",
@@ -303,7 +303,7 @@
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "6"
+					"sourceid": "7"
 				},
 				{
 					"pluginid": "10049",
@@ -320,24 +320,10 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "302"
-						},
-						{
-							"uri": "https://entreprises-transparence.sante.gouv.fr/robots.txt",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "302"
-						},
-						{
-							"uri": "https://entreprises-transparence.sante.gouv.fr/sitemap.xml",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "302"
+							"evidence": ""
 						}
 					],
-					"count": "3",
+					"count": "1",
 					"solution": "<p>Validate that the response does not contain sensitive, personal or user-specific information.  If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:</p><p>Cache-Control: no-cache, no-store, must-revalidate, private</p><p>Pragma: no-cache</p><p>Expires: 0</p><p>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request. </p>",
 					"otherinfo": "<p>In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234.</p>",
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
