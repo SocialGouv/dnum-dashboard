@@ -1,6 +1,6 @@
 {
 	"@version": "2.11.0",
-	"@generated": "Sun, 10 Oct 2021 03:56:32",
+	"@generated": "Sun, 17 Oct 2021 03:37:37",
 	"site":[ 
 		{
 			"@name": "https://publisocial.fr",
@@ -696,26 +696,26 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "IUZ5J7KIY3H9AmF7bLUtGytATXjoYCdx6G4Lt5Pyyqw37ndOF7EZJgZZrTWoQoVxSYaHNTiNqoxwP0N1wJr/XIbtE5o="
+							"evidence": "EYx08zUKWS/ExL57bLUtGytATXjoYHjd+nkFg2SSWhebYIssru9mJGMZDsYtYq8dTtFYYQgKeEYLoVO0QYzei25wyEo="
 						},
 						{
 							"uri": "https://publisocial.fr",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "KRFWrqxefHNx02V7bLUtGytATXjoYHVezEmJRNYUnIsTOG/lQXhkLBfE+LZ9y3b+BSistP8P4h96/ai35t0pXHiBGoU="
+							"evidence": "rABNZTfVSVA5e+h7bLUtGytATXjoYGAPR3p7eg/3lw+y/pskVRjLI5Mb4BtOcAzrennB5PtrA9u1giOSaiQF/PH6LJM="
 						},
 						{
 							"uri": "https://publisocial.fr/robots.txt",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "0utJL0G5yNEWSVF7bLUtGytATXjoYP3l1M/K7LtYOapF3wW+NaRz5qB+JrSocQZhQYhhHmWIH+L2jkVGqr2MinmGs30="
+							"evidence": "WRg5GNlWfHc+ynR7bLUtGytATXjoYLKwdRe4CmyqCd8PMALTUi/LdygyJv5cL0dhc9l869RsMqWcYP5k3s3nGzwx4+w="
 						}
 					],
 					"count": "3",
 					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
-					"otherinfo": "<p>!Fy'\uFFFD\uFFFDcq\uFFFD\\x0002a{l\uFFFD-\\x001b+@Mx\uFFFD`'q\uFFFDn\\x000b\uFFFD\uFFFD\uFFFD\u02AC7\uFFFDwN\\x0017\uFFFD\\x0019&\\x0006Y\uFFFD5\uFFFDB\uFFFDqI\uFFFD\uFFFD58\uFFFD\uFFFD\uFFFDp?Cu\uFFFD\uFFFD\uFFFD\\\uFFFD\uFFFD\\x0013\uFFFD</p>",
+					"otherinfo": "<p>\\x0011\uFFFDt\uFFFD5</p><p>Y/\uFFFD\u013E{l\uFFFD-\\x001b+@Mx\uFFFD`x\uFFFD\uFFFDy\\x0005\uFFFDd\uFFFDZ\\x0017\uFFFD`\uFFFD,\uFFFD\uFFFDf$c\\x0019\\x000e\uFFFD-b\uFFFD\\x001dN\uFFFDXa\\x0008</p><p>xF\\x000b\uFFFDS\uFFFDA\uFFFD\u078Bnp\uFFFDJ</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
@@ -805,21 +805,35 @@
 					"desc": "<p>The response contents are storable by caching components such as proxy servers, but will not be retrieved directly from the cache, without validating the request upstream, in response to similar requests from other users. </p>",
 					"instances":[ 
 						{
-							"uri": "https://publisocial.fr",
+							"uri": "https://publisocial.fr/sitemap.xml",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": ""
+							"evidence": "no-cache"
 						},
 						{
-							"uri": "https://publisocial.fr/robots.txt",
+							"uri": "https://publisocial.fr/wp-admin/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": ""
+							"evidence": "no-cache"
+						},
+						{
+							"uri": "https://publisocial.fr/wp-admin/admin-ajax.php",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "no-cache"
+						},
+						{
+							"uri": "https://publisocial.fr/wp-content/uploads/wpo-plugins-tables-list.json",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "no-cache"
 						}
 					],
-					"count": "2",
+					"count": "4",
 					"solution": "",
 					"otherinfo": "",
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
