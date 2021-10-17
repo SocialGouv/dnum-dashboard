@@ -1,6 +1,6 @@
 {
 	"@version": "2.11.0",
-	"@generated": "Sun, 10 Oct 2021 01:55:26",
+	"@generated": "Sun, 17 Oct 2021 01:39:31",
 	"site":[ 
 		{
 			"@name": "https://demat.social.gouv.fr",
@@ -516,6 +516,13 @@
 					"riskdesc": "Low (Low)",
 					"desc": "<p>A timestamp was disclosed by the application/web server - Unix</p>",
 					"instances":[ 
+						{
+							"uri": "https://demat.social.gouv.fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "51140192"
+						},
 						{
 							"uri": "https://demat.social.gouv.fr/Demat-demarches-sociales_CGU.pdf",
 							"method": "GET",
@@ -4990,13 +4997,13 @@
 							"evidence": "0144383838"
 						}
 					],
-					"count": "639",
+					"count": "640",
 					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
-					"otherinfo": "<p>0000000000, which evaluates to: 1970-01-01 00:00:00</p>",
+					"otherinfo": "<p>51140192, which evaluates to: 1971-08-15 21:36:32</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "37"
+					"sourceid": "32"
 				},
 				{
 					"pluginid": "10021",
@@ -5099,7 +5106,7 @@
 					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p><p>https://owasp.org/www-community/Security_Headers</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "52"
+					"sourceid": "49"
 				},
 				{
 					"pluginid": "10094",
@@ -5172,7 +5179,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "db/i/BUbuzeBMlp7bLUtGytATXjoYJoeDHfctR4Vgux258NMAgBIHpnJAcWBk14zrAy1ngijJW9PJCIjwAnh9bJv683z"
+							"evidence": "euz1jpBJXyjGCO97bLUtGytATXjoYLbrNwF3yrec8Myacui17uUZQfo99LX/N7izyZX9Nus7ngteIRmbNJ93idLxgRe0"
 						},
 						{
 							"uri": "https://demat.social.gouv.fr/users/password/new",
@@ -5247,7 +5254,7 @@
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "74"
+					"sourceid": "75"
 				},
 				{
 					"pluginid": "10027",
@@ -5323,13 +5330,6 @@
 							"evidence": "user"
 						},
 						{
-							"uri": "https://demat.social.gouv.fr/contact",
-							"method": "POST",
-							"param": "",
-							"attack": "",
-							"evidence": "user"
-						},
-						{
 							"uri": "https://demat.social.gouv.fr/users/sign_in",
 							"method": "POST",
 							"param": "",
@@ -5337,7 +5337,7 @@
 							"evidence": "user"
 						}
 					],
-					"count": "11",
+					"count": "10",
 					"solution": "<p>Remove all comments that return information that may help an attacker and fix any underlying problems they refer to.</p>",
 					"otherinfo": "<p>The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script></p><p>//<![CDATA[</p><p>window.gon={};gon.autosave={\"debounce_delay\":3000,\"status_visible_duration\":6000};gon.autocomplete={\"api_ge\", see evidence field for the suspicious comment/snippet.</p>",
 					"reference": "",
@@ -5429,35 +5429,56 @@
 					"desc": "<p>The response contents are storable by caching components such as proxy servers, and may be retrieved directly from the cache, rather than from the origin server by the caching servers, in response to similar requests from other users.  If the response data is sensitive, personal or user-specific, this may result in sensitive information being leaked. In some cases, this may even result in a user gaining complete control of the session of another user, depending on the configuration of the caching components in use in their environment. This is primarily an issue where \"shared\" caching servers such as \"proxy\" caches are configured on the local network. This configuration is typically found in corporate or educational environments, for instance.</p>",
 					"instances":[ 
 						{
-							"uri": "https://demat.social.gouv.fr",
+							"uri": "https://demat.social.gouv.fr/assets/favicons/16x16-dnum-15011e9a0d9147bc211f73933e335bb9fbb9499171ca9f39f878035d827f18a5.png",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "private"
+							"evidence": "max-age=604800"
 						},
 						{
-							"uri": "https://demat.social.gouv.fr/",
+							"uri": "https://demat.social.gouv.fr/assets/favicons/32x32-dnum-bf94a71418753eea829c795729bb37de5b90a61f4c821a167ce3572aa0e2a210.png",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "private"
+							"evidence": "max-age=604800"
 						},
 						{
-							"uri": "https://demat.social.gouv.fr/contact",
+							"uri": "https://demat.social.gouv.fr/commencer",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "private"
+							"evidence": ""
 						},
 						{
-							"uri": "https://demat.social.gouv.fr/users/sign_in",
+							"uri": "https://demat.social.gouv.fr/Demat-demarches-sociales_CGU.pdf",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "private"
+							"evidence": "max-age=604800"
+						},
+						{
+							"uri": "https://demat.social.gouv.fr/Demat-demarches-sociales_Mentions-legales.pdf",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "max-age=604800"
+						},
+						{
+							"uri": "https://demat.social.gouv.fr/robots.txt",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "max-age=604800"
+						},
+						{
+							"uri": "https://demat.social.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
 						}
 					],
-					"count": "4",
+					"count": "7",
 					"solution": "<p>Validate that the response does not contain sensitive, personal or user-specific information.  If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:</p><p>Cache-Control: no-cache, no-store, must-revalidate, private</p><p>Pragma: no-cache</p><p>Expires: 0</p><p>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request. </p>",
 					"otherinfo": "",
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
