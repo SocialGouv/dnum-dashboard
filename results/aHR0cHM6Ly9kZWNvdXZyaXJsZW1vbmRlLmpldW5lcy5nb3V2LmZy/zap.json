@@ -1,6 +1,6 @@
 {
 	"@version": "2.11.0",
-	"@generated": "Sun, 17 Oct 2021 01:38:21",
+	"@generated": "Sun, 24 Oct 2021 01:29:47",
 	"site":[ 
 		{
 			"@name": "https://decouvrirlemonde.jeunes.gouv.fr",
@@ -39,7 +39,7 @@
 					"reference": "",
 					"cweid": "359",
 					"wascid": "13",
-					"sourceid": "1562"
+					"sourceid": "1567"
 				},
 				{
 					"pluginid": "10055",
@@ -53,6 +53,13 @@
 					"instances":[ 
 						{
 							"uri": "https://decouvrirlemonde.jeunes.gouv.fr",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "upgrade-insecure-requests"
+						},
+						{
+							"uri": "https://decouvrirlemonde.jeunes.gouv.fr/?q=admin/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -95,13 +102,6 @@
 						},
 						{
 							"uri": "https://decouvrirlemonde.jeunes.gouv.fr/user/login/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "upgrade-insecure-requests"
-						},
-						{
-							"uri": "https://decouvrirlemonde.jeunes.gouv.fr/user/logout/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -204,7 +204,7 @@
 							"evidence": "<a href=\"http://jeunes.gouv.fr/\"  target=\"_blank\" title=\"Lien vers le site http://jeunes.gouv.fr/\">\n          <img src=\"/sites/default/files/min_education_nationale_jeunesse_sports_rvb.png\" alt=\"Lien vers le site http://jeunes.gouv.fr/\" />\n        </a>"
 						},
 						{
-							"uri": "https://decouvrirlemonde.jeunes.gouv.fr/propositions/aide-a-la-mobilite-internationale-des-etudiants-sections-de-techniciens-superieurs-amie",
+							"uri": "https://decouvrirlemonde.jeunes.gouv.fr/propositions/volontariat-de-solidarite-internationale-vsi-0",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -353,7 +353,7 @@
 					"reference": "<p>http://blogs.wsj.com/cio/2013/10/08/adobe-source-code-leak-is-bad-news-for-u-s-government/</p>",
 					"cweid": "540",
 					"wascid": "13",
-					"sourceid": "1564"
+					"sourceid": "1569"
 				},
 				{
 					"pluginid": "10099",
@@ -379,7 +379,7 @@
 					"reference": "<p>http://blogs.wsj.com/cio/2013/10/08/adobe-source-code-leak-is-bad-news-for-u-s-government/</p>",
 					"cweid": "540",
 					"wascid": "13",
-					"sourceid": "1562"
+					"sourceid": "1567"
 				},
 				{
 					"pluginid": "10099",
@@ -405,7 +405,7 @@
 					"reference": "<p>http://blogs.wsj.com/cio/2013/10/08/adobe-source-code-leak-is-bad-news-for-u-s-government/</p>",
 					"cweid": "540",
 					"wascid": "13",
-					"sourceid": "203"
+					"sourceid": "201"
 				},
 				{
 					"pluginid": "90003",
@@ -527,7 +527,7 @@
 					"reference": "<p>https://nvd.nist.gov/vuln/detail/CVE-2012-6708</p><p>https://github.com/jquery/jquery/issues/2432</p><p>http://research.insecurelabs.org/jquery/test/</p><p>http://blog.jquery.com/2016/01/08/jquery-2-2-and-1-12-released/</p><p>http://bugs.jquery.com/ticket/11290</p><p>https://blog.jquery.com/2019/04/10/jquery-3-4-0-released/</p><p>https://nvd.nist.gov/vuln/detail/CVE-2019-11358</p><p>https://nvd.nist.gov/vuln/detail/CVE-2015-9251</p><p>https://github.com/jquery/jquery/commit/753d591aea698e57d6db58c9f722cd0808619b1b</p><p>https://bugs.jquery.com/ticket/11974</p><p>https://blog.jquery.com/2020/04/10/jquery-3-5-0-released/</p><p></p>",
 					"cweid": "829",
 					"wascid": "-1",
-					"sourceid": "732"
+					"sourceid": "736"
 				},
 				{
 					"pluginid": "10202",
@@ -643,7 +643,14 @@
 							"evidence": "Set-Cookie: SESS00ae994736abdb0bdac1c02f04d4dbfc"
 						},
 						{
-							"uri": "https://decouvrirlemonde.jeunes.gouv.fr/?q=user/register/",
+							"uri": "https://decouvrirlemonde.jeunes.gouv.fr/?q=node/add/",
+							"method": "GET",
+							"param": "SESS00ae994736abdb0bdac1c02f04d4dbfc",
+							"attack": "",
+							"evidence": "Set-Cookie: SESS00ae994736abdb0bdac1c02f04d4dbfc"
+						},
+						{
+							"uri": "https://decouvrirlemonde.jeunes.gouv.fr/?q=user/logout/",
 							"method": "GET",
 							"param": "SESS00ae994736abdb0bdac1c02f04d4dbfc",
 							"attack": "",
@@ -678,13 +685,13 @@
 							"evidence": "Set-Cookie: SESS00ae994736abdb0bdac1c02f04d4dbfc"
 						}
 					],
-					"count": "6",
+					"count": "7",
 					"solution": "<p>Whenever a cookie contains sensitive information or is a session token, then it should always be passed using an encrypted channel. Ensure that the secure flag is set for cookies containing such sensitive information.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/06-Session_Management_Testing/02-Testing_for_Cookies_Attributes.html</p>",
 					"cweid": "614",
 					"wascid": "13",
-					"sourceid": "247"
+					"sourceid": "244"
 				},
 				{
 					"pluginid": "10054",
@@ -711,7 +718,14 @@
 							"evidence": "Set-Cookie: SESS00ae994736abdb0bdac1c02f04d4dbfc"
 						},
 						{
-							"uri": "https://decouvrirlemonde.jeunes.gouv.fr/?q=user/register/",
+							"uri": "https://decouvrirlemonde.jeunes.gouv.fr/?q=node/add/",
+							"method": "GET",
+							"param": "SESS00ae994736abdb0bdac1c02f04d4dbfc",
+							"attack": "",
+							"evidence": "Set-Cookie: SESS00ae994736abdb0bdac1c02f04d4dbfc"
+						},
+						{
+							"uri": "https://decouvrirlemonde.jeunes.gouv.fr/?q=user/logout/",
 							"method": "GET",
 							"param": "SESS00ae994736abdb0bdac1c02f04d4dbfc",
 							"attack": "",
@@ -753,7 +767,7 @@
 							"evidence": "Set-Cookie: SESS00ae994736abdb0bdac1c02f04d4dbfc"
 						}
 					],
-					"count": "8",
+					"count": "9",
 					"solution": "<p>Ensure that the SameSite attribute is set to either 'lax' or ideally 'strict' for all cookies.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://tools.ietf.org/html/draft-ietf-httpbis-cookie-same-site</p>",
@@ -902,7 +916,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "782"
+					"sourceid": "785"
 				},
 				{
 					"pluginid": "10015",
@@ -1223,7 +1237,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>http://caniuse.com/stricttransportsecurity</p><p>http://tools.ietf.org/html/rfc6797</p>",
 					"cweid": "319",
 					"wascid": "15",
-					"sourceid": "157"
+					"sourceid": "156"
 				},
 				{
 					"pluginid": "10096",
@@ -1254,7 +1268,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1860511660"
+							"evidence": "1487628715"
 						},
 						{
 							"uri": "https://decouvrirlemonde.jeunes.gouv.fr/sites/default/files/css/css__n4e4mStRMKRkCtZ3G_zOfPyysNS0M_EW9o_k8K331I.css",
@@ -1284,7 +1298,7 @@
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "350"
+					"sourceid": "357"
 				},
 				{
 					"pluginid": "10094",
@@ -1301,28 +1315,28 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "0aKsfZm+TUHdCmZ7bLUtGytATXjoYPjmJtDz6YTsHGf578hbPOcjG1FFVNlDxMgapgGzKBqR+Lh4RdCiofn8fvUDPMo="
+							"evidence": "Ic9+VyJ+CL3upEN7bLUtGytATXjoYK+n1oLXC1QfM/zbwjvk1oetRQhf5woR5ROyRUJ2ABZGqw/zyXYnaPK+tTz9l3k="
 						},
 						{
 							"uri": "https://decouvrirlemonde.jeunes.gouv.fr",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "g+vv7nqbepdIMWN7bLUtGytATXjoYDkfEfvlN6UUL/5EUN/lZTsA54W+5sA3ftpCe/sCEQgPI24sSmb5347kdIYoVAI="
+							"evidence": "ld6RyhOTzXrShNd7bLUtGytATXjoYFYtlcB8eiMcDzwecyMY2xCqN+j4GozFd6abEPq0mPIOej+4tHnnQ5nOZ/lEXR8="
 						},
 						{
 							"uri": "https://decouvrirlemonde.jeunes.gouv.fr/?q=admin/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "cLaC9L5ddouGvZBxyqwdzqmB7wE3jqLsRcZfiU6tBi4"
+							"evidence": "66caIhc5wrRh1__KUf2g5o0oWY9dKBfOimEgOjBwSLg"
 						},
 						{
 							"uri": "https://decouvrirlemonde.jeunes.gouv.fr/cron.php",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "fpUNbi3PtY_QqWaxTZ1pNcaLRvKinWwQ4X9qwAZjxO8"
+							"evidence": "6MhOJ0hvnITuLvbimqBa_97SQ7hnbdN25hq72NXZGys"
 						},
 						{
 							"uri": "https://decouvrirlemonde.jeunes.gouv.fr/filter/tips/",
@@ -1343,14 +1357,14 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "rmXjUWW5rMYK9woF-zEsy2zwewteuh1QZniDjzDDBVM"
+							"evidence": "VkDUVjfWI7XDyHc549A_KDmAVnEmBEoTHk2NaIuHwkM"
 						},
 						{
 							"uri": "https://decouvrirlemonde.jeunes.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "mqUbBOzyxQcuMaB7bLUtGytATXjoYIILeBfTgMLM2OXFuPpd6EkCEt03HAIdZoCC5K26lts1cwoq+55jFkSW6o8/nvQ="
+							"evidence": "FOahWB1L1BwLvSR7bLUtGytATXjoYG/7n72Sn3JuFjuzkuE80jJIeEPRD9pzhSs9joraSzMB+J0eERywgsVvMOR4r5k="
 						},
 						{
 							"uri": "https://decouvrirlemonde.jeunes.gouv.fr/sitemap.xml",
@@ -1371,7 +1385,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "2HizfHCysYCNDT0c8j72kKq736ysazQmf1VvFqluJZU"
+							"evidence": "LaHFoVz_t5Y62jlI779TRdSye4vybd4rn1wNlZ9OvZk"
 						},
 						{
 							"uri": "https://decouvrirlemonde.jeunes.gouv.fr/user/password/",
@@ -1383,11 +1397,11 @@
 					],
 					"count": "12",
 					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
-					"otherinfo": "<p>\u0462\uFFFD}\uFFFD\uFFFDMA\uFFFD</p><p>f{l\uFFFD-\\x001b+@Mx\uFFFD`\uFFFD\uFFFD&\uFFFD\uFFFD\uFFFD\uFFFD\\x001cg\uFFFD\uFFFD\uFFFD[<\uFFFD#\\x001bQET\uFFFDC\uFFFD\uFFFD\\x001a\uFFFD\\x0001\uFFFD(\\x001a\uFFFD\uFFFD\uFFFDxE\u0422\uFFFD\uFFFD\uFFFD~\uFFFD\\x0003<\uFFFD</p>",
+					"otherinfo": "<p>!\uFFFD~W\"~\\x0008\uFFFD\uFFFDC{l\uFFFD-\\x001b+@Mx\uFFFD`\uFFFD\uFFFD\u0582\uFFFD\\x000bT\\x001f3\uFFFD\uFFFD\uFFFD;\uFFFD\u0587\uFFFDE\\x0008_\uFFFD</p><p>\\x0011\uFFFD\\x0013\uFFFDEBv\\x0000\\x0016F\uFFFD\\x000f\uFFFD\uFFFDv'h\uFFFD<\uFFFD\uFFFDy</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "75"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10019",
@@ -1490,7 +1504,7 @@
 					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p>",
 					"cweid": "345",
 					"wascid": "12",
-					"sourceid": "157"
+					"sourceid": "156"
 				},
 				{
 					"pluginid": "10027",
@@ -1624,14 +1638,14 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<a class=\"close\" data-dismiss=\"alert\" href=\"#\">&times;</a>"
+							"evidence": "<a st_url=\"http://decouvrirlemonde.jeunes.gouv.fr/user/login\" st_title=\"Compte utilisateur\" class=\"st_facebook_custom\" displayText=\"facebook\"></a>"
 						},
 						{
 							"uri": "https://decouvrirlemonde.jeunes.gouv.fr/?q=user/password/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<a st_url=\"http://decouvrirlemonde.jeunes.gouv.fr/user/password\" st_title=\"Compte utilisateur\" class=\"st_facebook_custom\" displayText=\"facebook\"></a>"
+							"evidence": "<a class=\"close\" data-dismiss=\"alert\" href=\"#\">&times;</a>"
 						},
 						{
 							"uri": "https://decouvrirlemonde.jeunes.gouv.fr/filter/tips/",
@@ -1645,21 +1659,21 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<a st_url=\"http://decouvrirlemonde.jeunes.gouv.fr/mes-favoris\" st_title=\"Mes favoris\" class=\"st_facebook_custom\" displayText=\"facebook\"></a>"
+							"evidence": "<a st_url=\"http://www.decouvrirlemonde.jeunes.gouv.fr/mes-favoris\" st_title=\"Mes favoris\" class=\"st_facebook_custom\" displayText=\"facebook\"></a>"
 						},
 						{
 							"uri": "https://decouvrirlemonde.jeunes.gouv.fr/page/pr%C3%A9sentation-du-site",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<a st_url=\"http://decouvrirlemonde.jeunes.gouv.fr/page/presentation-du-site\" st_title=\"Pr\u00E9sentation du site\" class=\"st_facebook_custom\" displayText=\"facebook\"></a>"
+							"evidence": "<a class=\"close\" data-dismiss=\"alert\" href=\"#\">&times;</a>"
 						},
 						{
-							"uri": "https://decouvrirlemonde.jeunes.gouv.fr/propositions/aide-a-la-mobilite-internationale-des-etudiants-sections-de-techniciens-superieurs-amie",
+							"uri": "https://decouvrirlemonde.jeunes.gouv.fr/propositions/volontariat-de-solidarite-internationale-vsi-0",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<a st_url=\"http://decouvrirlemonde.jeunes.gouv.fr/propositions/aide-a-la-mobilite-internationale-des-etudiants-sections-de-techniciens-superieurs-amie\" st_title=\"Aide \u00E0 la mobilit\u00E9 internationale des \u00E9tudiants - Sections de techniciens sup\u00E9rieurs AMIE BTS\" class=\"st_facebook_custom\" displayText=\"facebook\"></a>"
+							"evidence": "<a st_url=\"http://decouvrirlemonde.jeunes.gouv.fr/propositions/volontariat-de-solidarite-internationale-vsi-0\" st_title=\"Volontariat de Solidarit\u00E9 Internationale (VSI)\" class=\"st_facebook_custom\" displayText=\"facebook\"></a>"
 						},
 						{
 							"uri": "https://decouvrirlemonde.jeunes.gouv.fr/user/login/",
@@ -1797,7 +1811,7 @@
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "156"
+					"sourceid": "155"
 				},
 				{
 					"pluginid": "10031",
@@ -1886,7 +1900,7 @@
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "402"
+					"sourceid": "406"
 				}
 			]
 		}
