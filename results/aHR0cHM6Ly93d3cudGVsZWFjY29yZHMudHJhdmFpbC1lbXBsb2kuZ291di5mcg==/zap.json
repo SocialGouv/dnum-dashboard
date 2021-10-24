@@ -1,6 +1,6 @@
 {
 	"@version": "2.11.0",
-	"@generated": "Sun, 10 Oct 2021 05:30:59",
+	"@generated": "Sun, 24 Oct 2021 04:08:27",
 	"site":[ 
 		{
 			"@name": "https://www.teleaccords.travail-emploi.gouv.fr",
@@ -627,7 +627,7 @@
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "7"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10049",
@@ -644,24 +644,45 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "302"
+							"evidence": ""
 						},
 						{
-							"uri": "https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures",
+							"uri": "https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "302"
+							"evidence": ""
 						},
 						{
-							"uri": "https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/portailteleprocedures/portailteleprocedures.nocache.js",
+							"uri": "https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/favicon.ico",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "no-store"
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/PortailTeleprocedures.css",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.teleaccords.travail-emploi.gouv.fr/robots.txt",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.teleaccords.travail-emploi.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
 						}
 					],
-					"count": "3",
+					"count": "6",
 					"solution": "<p>Validate that the response does not contain sensitive, personal or user-specific information.  If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:</p><p>Cache-Control: no-cache, no-store, must-revalidate, private</p><p>Pragma: no-cache</p><p>Expires: 0</p><p>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request. </p>",
 					"otherinfo": "<p>In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234.</p>",
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
