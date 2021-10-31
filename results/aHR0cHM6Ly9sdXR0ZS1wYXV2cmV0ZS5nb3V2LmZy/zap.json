@@ -1,6 +1,6 @@
 {
 	"@version": "2.11.0",
-	"@generated": "Sun, 24 Oct 2021 02:43:29",
+	"@generated": "Sun, 31 Oct 2021 02:38:25",
 	"site":[ 
 		{
 			"@name": "https://lutte-pauvrete.gouv.fr",
@@ -125,7 +125,7 @@
 							"evidence": "Set-Cookie: BIGipServerpool-dicom-portail-dares.cegedim.cloud-HTTP"
 						},
 						{
-							"uri": "https://lutte-pauvrete.gouv.fr/robots.txt",
+							"uri": "https://lutte-pauvrete.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "BIGipServerpool-dicom-portail-dares.cegedim.cloud-HTTP",
 							"attack": "",
@@ -343,21 +343,21 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1634926604"
+							"evidence": "1635614049"
 						},
 						{
 							"uri": "https://lutte-pauvrete.gouv.fr",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1634926614"
+							"evidence": "1635643832"
 						},
 						{
 							"uri": "https://lutte-pauvrete.gouv.fr",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1635012885"
+							"evidence": "1635643864"
 						}
 					],
 					"count": "15",
@@ -383,19 +383,19 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "ABur5SjH7B7AlM97bLUtGytATXjoYMgIpXOcrX6F4sWhM3BcZt8xuV9U9ICHLAydIzi5ZJ34arOwFBKn4zeurPfZzbc="
+							"evidence": "jnFusCkrrbbNsuV7bLUtGytATXjoYBIxTmbmJD8uiFLIV7a72f/WTYHvZjam6s2bidyhi7BXCgEzrdCnJ5VlWh3nXPQ="
 						},
 						{
-							"uri": "https://lutte-pauvrete.gouv.fr/robots.txt",
+							"uri": "https://lutte-pauvrete.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "daPt5qqNgm6KAGl7bLUtGytATXjoYFh1Qh5gmHZldJLaue6jxlf5saXQR2L2eRlaJV2rUjmNrWtsqdwVbitudh6BA2I="
+							"evidence": "OtrGKLy9zZgP8hR7bLUtGytATXjoYP9Nyq81WqRuBu7XAdxBx7V23IVzs32xyxVU2D3OXHmQuzoGS/gcz+6ka1MnZ1w="
 						}
 					],
 					"count": "2",
 					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
-					"otherinfo": "<p>\\x0000\\x001b\uFFFD\uFFFD(\uFFFD\uFFFD\\x001e\uFFFD\uFFFD\uFFFD{l\uFFFD-\\x001b+@Mx\uFFFD`\uFFFD\\x0008\uFFFDs\uFFFD\uFFFD~\uFFFD\uFFFD\u01613p\\f\uFFFD1\uFFFD_T\uFFFD,\\x000c\uFFFD#8\uFFFDd\uFFFD\uFFFDj\uFFFD\uFFFD\\x0014\\x0012\uFFFD\uFFFD7\uFFFD\uFFFD\uFFFD\uFFFD\u0377</p>",
+					"otherinfo": "<p>\uFFFDqn\uFFFD)+\uFFFD\uFFFD\u0372\uFFFD{l\uFFFD-\\x001b+@Mx\uFFFD`\\x00121Nf\uFFFD$?.\uFFFDR\uFFFDW\uFFFD\uFFFD\uFFFD\uFFFD\uFFFDM\uFFFD\uFFFDf6\uFFFD\uFFFD\u035B\uFFFD\u0721\uFFFD\uFFFDW</p><p>\\x00013\uFFFD\u0427'\uFFFDeZ\\x001d\uFFFD\\\uFFFD</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
@@ -482,16 +482,23 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "Age: 103"
+							"evidence": "Age: 100"
+						},
+						{
+							"uri": "https://lutte-pauvrete.gouv.fr/robots.txt",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Age: 70"
 						}
 					],
-					"count": "1",
+					"count": "2",
 					"solution": "<p>Validate that the response does not contain sensitive, personal or user-specific information.  If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:</p><p>Cache-Control: no-cache, no-store, must-revalidate, private</p><p>Pragma: no-cache</p><p>Expires: 0</p><p>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request.</p>",
 					"otherinfo": "<p>The presence of the 'Age' header indicates that that a HTTP/1.1 compliant caching server is in use.</p>",
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "6"
+					"sourceid": "7"
 				},
 				{
 					"pluginid": "10049",
