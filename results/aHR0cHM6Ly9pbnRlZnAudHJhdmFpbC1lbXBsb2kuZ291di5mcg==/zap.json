@@ -1,6 +1,6 @@
 {
 	"@version": "2.11.0",
-	"@generated": "Sun, 24 Oct 2021 02:31:37",
+	"@generated": "Sun, 31 Oct 2021 02:26:02",
 	"site":[ 
 		{
 			"@name": "https://intefp.travail-emploi.gouv.fr",
@@ -75,6 +75,13 @@
 							"evidence": "upgrade-insecure-requests"
 						},
 						{
+							"uri": "https://intefp.travail-emploi.gouv.fr/piwik/index.php?action=databaseSetup",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "upgrade-insecure-requests"
+						},
+						{
 							"uri": "https://intefp.travail-emploi.gouv.fr/piwik/index.php?action=saveLanguage&module=LanguagesManager",
 							"method": "POST",
 							"param": "",
@@ -82,7 +89,7 @@
 							"evidence": "upgrade-insecure-requests"
 						}
 					],
-					"count": "9",
+					"count": "10",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is properly configured to set the Content-Security-Policy header.</p>",
 					"otherinfo": "",
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
@@ -280,9 +287,16 @@
 							"param": "X-Frame-Options",
 							"attack": "",
 							"evidence": ""
+						},
+						{
+							"uri": "https://intefp.travail-emploi.gouv.fr/piwik/index.php?action=databaseSetup",
+							"method": "POST",
+							"param": "X-Frame-Options",
+							"attack": "",
+							"evidence": ""
 						}
 					],
-					"count": "3",
+					"count": "4",
 					"solution": "<p>Ensure a valid setting is used on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY.  Alternatively consider implementing Content Security Policy's \"frame-ancestors\" directive.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://tools.ietf.org/html/rfc7034#section-2.1</p>",
@@ -348,9 +362,23 @@
 							"param": "",
 							"attack": "",
 							"evidence": "<form action=\"index.php?module=LanguagesManager&amp;action=saveLanguage\" method=\"post\">"
+						},
+						{
+							"uri": "https://intefp.travail-emploi.gouv.fr/piwik/index.php?action=databaseSetup",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "<form action=\"index.php?module=LanguagesManager&amp;action=saveLanguage\" method=\"post\">"
+						},
+						{
+							"uri": "https://intefp.travail-emploi.gouv.fr/piwik/index.php?action=databaseSetup",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "<form  autocomplete=\"off\" action=\"?action=databaseSetup\" name=\"databasesetupform\" id=\"databasesetupform\" method=\"post\">"
 						}
 					],
-					"count": "7",
+					"count": "9",
 					"solution": "<p>Phase: Architecture and Design</p><p>Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.</p><p>For example, use anti-CSRF packages such as the OWASP CSRFGuard.</p><p></p><p>Phase: Implementation</p><p>Ensure that your application is free of cross-site scripting issues, because most CSRF defenses can be bypassed using attacker-controlled script.</p><p></p><p>Phase: Architecture and Design</p><p>Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Be sure that the nonce is not predictable (CWE-330).</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Identify especially dangerous operations. When the user performs a dangerous operation, send a separate confirmation request to ensure that the user intended to perform that operation.</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Use the ESAPI Session Management control.</p><p>This control includes a component for CSRF.</p><p></p><p>Do not use the GET method for any request that triggers a state change.</p><p></p><p>Phase: Implementation</p><p>Check the HTTP Referer header to see if the request originated from an expected page. This could break legitimate functionality, because users or proxies may have disabled sending the Referer for privacy reasons.</p>",
 					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"Itemid\" \"mod-search-searchword\" \"option\" \"task\" ].</p>",
 					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>http://cwe.mitre.org/data/definitions/352.html</p>",
@@ -548,15 +576,48 @@
 							"param": "Cache-Control",
 							"attack": "",
 							"evidence": ""
+						},
+						{
+							"uri": "https://intefp.travail-emploi.gouv.fr/piwik/index.php?action=databaseSetup",
+							"method": "POST",
+							"param": "Cache-Control",
+							"attack": "",
+							"evidence": "no-store, must-revalidate"
 						}
 					],
-					"count": "5",
+					"count": "6",
 					"solution": "<p>Whenever possible ensure the cache-control HTTP header is set with no-cache, no-store, must-revalidate.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p>",
 					"cweid": "525",
 					"wascid": "13",
 					"sourceid": "1"
+				},
+				{
+					"pluginid": "10023",
+					"alertRef": "10023",
+					"alert": "Information Disclosure - Debug Error Messages",
+					"name": "Information Disclosure - Debug Error Messages",
+					"riskcode": "1",
+					"confidence": "2",
+					"riskdesc": "Low (Medium)",
+					"desc": "<p>The response appeared to contain common error messages returned by platforms such as ASP.NET, and Web-servers such as IIS and Apache. You can configure the list of common debug messages.</p>",
+					"instances":[ 
+						{
+							"uri": "https://intefp.travail-emploi.gouv.fr/piwik/index.php?action=databaseSetup",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "Access denied for user"
+						}
+					],
+					"count": "1",
+					"solution": "<p>Disable debugging messages before pushing to production.</p>",
+					"otherinfo": "",
+					"reference": "",
+					"cweid": "200",
+					"wascid": "13",
+					"sourceid": "135"
 				},
 				{
 					"pluginid": "10063",
@@ -681,7 +742,7 @@
 					],
 					"count": "2",
 					"solution": "<p>A page that is available over SSL/TLS must be comprised completely of content which is transmitted over SSL/TLS.</p><p>The page must not contain any content that is transmitted over unencrypted HTTP.</p><p> This includes content from third party sites.</p>",
-					"otherinfo": "<p>tag=img src=http://intefp.travail-emploi.gouv.fr/images/img/Logo-intefp.png</p><p>tag=img src=http://www.intefp.travail-emploi.gouv.fr/analytics/piwik.php?idsite=1&rec=1&apiv=1&action_name=INTEFP+-+Accueil+-+No-Java&rand=1466616269</p><p></p>",
+					"otherinfo": "<p>tag=img src=http://intefp.travail-emploi.gouv.fr/images/img/Logo-intefp.png</p><p>tag=img src=http://www.intefp.travail-emploi.gouv.fr/analytics/piwik.php?idsite=1&rec=1&apiv=1&action_name=INTEFP+-+Accueil+-+No-Java&rand=2101605116</p><p></p>",
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Protection_Cheat_Sheet.html</p>",
 					"cweid": "311",
 					"wascid": "4",
@@ -702,7 +763,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1466616269"
+							"evidence": "2101605116"
 						},
 						{
 							"uri": "https://intefp.travail-emploi.gouv.fr/administrator/templates/isis/css/template.css?05914f7ea81b29abfc0f2ccbba24690e",
@@ -765,7 +826,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1676989741"
+							"evidence": "916415828"
 						},
 						{
 							"uri": "https://intefp.travail-emploi.gouv.fr/piwik/libs/jquery/jquery-ui.js?cb=c11eb523eb54be55c56965245131137a",
@@ -777,7 +838,7 @@
 					],
 					"count": "11",
 					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
-					"otherinfo": "<p>1466616269, which evaluates to: 2016-06-22 17:24:29</p>",
+					"otherinfo": "<p>2101605116, which evaluates to: 2036-08-06 03:11:56</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
@@ -1027,7 +1088,7 @@
 					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p>",
 					"cweid": "345",
 					"wascid": "12",
-					"sourceid": "40"
+					"sourceid": "26"
 				},
 				{
 					"pluginid": "10027",
@@ -1130,7 +1191,7 @@
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "26"
+					"sourceid": "28"
 				},
 				{
 					"pluginid": "10109",
@@ -1147,7 +1208,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<noscript><img src=\"http://www.intefp.travail-emploi.gouv.fr/analytics/piwik.php?idsite=1&amp;rec=1&amp;apiv=1&amp;action_name=INTEFP+-+Accueil+-+No-Java&amp;rand=1466616269\" style=\"border:0\" alt=\"\" /></noscript>"
+							"evidence": "<noscript><img src=\"http://www.intefp.travail-emploi.gouv.fr/analytics/piwik.php?idsite=1&amp;rec=1&amp;apiv=1&amp;action_name=INTEFP+-+Accueil+-+No-Java&amp;rand=2101605116\" style=\"border:0\" alt=\"\" /></noscript>"
 						},
 						{
 							"uri": "https://intefp.travail-emploi.gouv.fr/administrator/",
@@ -1211,9 +1272,16 @@
 							"param": "",
 							"attack": "",
 							"evidence": "<a>\")\n        .insertAfter(select)\n        .text(select.children(':selected').text())\n        .autocomplete({\n            delay: 0,\n            position: { my : \"right top\", at: \"right bottom\" },\n            minLength: 0,\n            appendTo: '#languageSelection',\n            source: function (request, response) {\n                response(select.children(\"option\").map(function () {\n                    var text = $(this).text();\n                    return {\n                        label: text,\n                        value: this.value,\n                        title: $(this).attr('title'),\n                        href: $(this).attr('href'),\n                        option: this\n                    };\n                }));\n            },\n            select: function (event, ui) {\n                event.preventDefault();\n                ui.item.option.selected = true;\n                if (ui.item.value) {\n                    langSelect.text(ui.item.label);\n                    $('#languageSelection').find('form').submit();\n                } else if (ui.item.href) {\n                    window.open(ui.item.href);\n                }\n            }\n        })\n        .click(function () {\n            // close if already visible\n            if ($(this).autocomplete(\"widget\").is(\":visible\")) {\n                $(this).autocomplete(\"close\");\n                return;\n            }\n\n            // pass empty string as value to search for, displaying all results\n            $(this).autocomplete(\"search\", \"\");\n        });\n\n    langSelect.data( \"ui-autocomplete\" )._renderItem = function( ul, item ) {\n        $(ul).attr('id', 'languageSelect');\n        return $( \"<li></li>\" )\n            .data( \"item.ui-autocomplete\", item )\n            .append( \"<a title=\\\"\" + item.title + \"\\\" href=\\\"javascript:;\\\">\" + item.label + \"</a>"
+						},
+						{
+							"uri": "https://intefp.travail-emploi.gouv.fr/piwik/index.php?action=databaseSetup",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "<script type=\"text/javascript\" src=\"libs/jquery/jquery.js?cb=c11eb523eb54be55c56965245131137a\"></script>"
 						}
 					],
-					"count": "10",
+					"count": "11",
 					"solution": "<p>This is an informational alert and so no changes are required.</p>",
 					"otherinfo": "<p>A noScript tag has been found, which is an indication that the application works differently with JavaScript enabled compared to when it is not.</p>",
 					"reference": "",
@@ -1294,7 +1362,7 @@
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "26"
+					"sourceid": "28"
 				},
 				{
 					"pluginid": "10049",
@@ -1392,9 +1460,72 @@
 							"param": "action",
 							"attack": "",
 							"evidence": ""
+						},
+						{
+							"uri": "https://intefp.travail-emploi.gouv.fr/piwik/index.php?action=databaseSetup",
+							"method": "POST",
+							"param": "action",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://intefp.travail-emploi.gouv.fr/piwik/index.php?action=databaseSetup",
+							"method": "POST",
+							"param": "action",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://intefp.travail-emploi.gouv.fr/piwik/index.php?action=databaseSetup",
+							"method": "POST",
+							"param": "adapter",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://intefp.travail-emploi.gouv.fr/piwik/index.php?action=databaseSetup",
+							"method": "POST",
+							"param": "dbname",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://intefp.travail-emploi.gouv.fr/piwik/index.php?action=databaseSetup",
+							"method": "POST",
+							"param": "host",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://intefp.travail-emploi.gouv.fr/piwik/index.php?action=databaseSetup",
+							"method": "POST",
+							"param": "password",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://intefp.travail-emploi.gouv.fr/piwik/index.php?action=databaseSetup",
+							"method": "POST",
+							"param": "submit",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://intefp.travail-emploi.gouv.fr/piwik/index.php?action=databaseSetup",
+							"method": "POST",
+							"param": "tables_prefix",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://intefp.travail-emploi.gouv.fr/piwik/index.php?action=databaseSetup",
+							"method": "POST",
+							"param": "username",
+							"attack": "",
+							"evidence": ""
 						}
 					],
-					"count": "4",
+					"count": "13",
 					"solution": "<p>Validate all input and sanitize output it before writing to any HTML attributes.</p>",
 					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://intefp.travail-emploi.gouv.fr/piwik/index.php?action=databaseSetup</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [form] tag [id] attribute </p><p></p><p>The user input found was:</p><p>action=databaseSetup</p><p></p><p>The user-controlled value was:</p><p>databasesetupform</p>",
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
