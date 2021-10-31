@@ -1,6 +1,6 @@
 {
 	"@version": "2.11.0",
-	"@generated": "Sun, 24 Oct 2021 02:17:05",
+	"@generated": "Sun, 31 Oct 2021 02:11:49",
 	"site":[ 
 		{
 			"@name": "https://hcfea.fr",
@@ -226,30 +226,56 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "MAWCXQhigVIpydJ7bLUtGytATXjoYHwaqFW+wC5uY3TB6WtzoAuW8gKHz+X/b232SSjzL9ftKjs29peogjeao+YDLtE="
+							"evidence": "G0ZS29wXEcKSqLN7bLUtGytATXjoYKuORvJUWeCMvsESOOeoHl0tmw6hzTMOiP0EWCp2OvOHl64rog91KOxk3biQ/98="
 						},
 						{
 							"uri": "https://hcfea.fr",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "wubHIHAgb7T5vux7bLUtGytATXjoYDm1wi/E53C+ghdOiukuUgwwbucHNvA2NwpfvdKt95FszyXVE1xjOSB/mLUVkI4="
+							"evidence": "j1iwhLcBxtq6j597bLUtGytATXjoYPB1HK/oAysC5ROqu7kadQnqfobvmgMYDW+2TKH/GDXNCPh8cj/0C0pguI0QcOM="
 						},
 						{
 							"uri": "https://hcfea.fr/robots.txt",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "Lf7gp0EmX1/W26R7bLUtGytATXjoYMQE5LjVBslVLJ1zkshusRzyY1mqjEzcaWTHjGHTPc0SpjZYIYInPryjAQXiCGc="
+							"evidence": "wKAEAQVvBWmFV0V7bLUtGytATXjoYMQUOvUh2mfM/9PWQDNjElvHDUgI5H1AEZzWwyzkAeDfDIXYEteN262VAnLT53I="
 						}
 					],
 					"count": "3",
 					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
-					"otherinfo": "<p>0\\x0005\uFFFD]\\x0008b\uFFFDR)\uFFFD\uFFFD{l\uFFFD-\\x001b+@Mx\uFFFD`|\\x001a\uFFFDU\uFFFD\uFFFD.nct\uFFFD\uFFFDks\uFFFD\\x000b\uFFFD\uFFFD\\x0002\uFFFD\uFFFD\uFFFD\uFFFDom\uFFFDI(\uFFFD/\uFFFD\uFFFD*;6\uFFFD\uFFFD\uFFFD\uFFFD7\uFFFD\uFFFD\uFFFD\\x0003.\uFFFD</p>",
+					"otherinfo": "<p>\\x001bFR\uFFFD\uFFFD\\x0017\\x0011\u0092\uFFFD\uFFFD{l\uFFFD-\\x001b+@Mx\uFFFD`\uFFFD\uFFFDF\uFFFDTY\uFFFD\uFFFD\uFFFD\uFFFD\\x00128\uFFFD\\x001e]-\uFFFD\\x000e\uFFFD\uFFFD3\\x000e\uFFFD\uFFFD\\x0004X*v:\uDADD\uDDEE+\uFFFD\\x000fu(\uFFFDd\u0778\uFFFD\uFFFD\uFFFD</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "7"
+					"sourceid": "1"
+				},
+				{
+					"pluginid": "10109",
+					"alertRef": "10109",
+					"alert": "Modern Web Application",
+					"name": "Modern Web Application",
+					"riskcode": "0",
+					"confidence": "2",
+					"riskdesc": "Informational (Medium)",
+					"desc": "<p>The application appears to be a modern web application. If you need to explore it automatically then the Ajax Spider may well be more effective than the standard one.</p>",
+					"instances":[ 
+						{
+							"uri": "https://hcfea.fr",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<noscript><div style=\"background-image: url('https://www.hcfea.fr/spip.php?action=cron');\"></div></noscript>"
+						}
+					],
+					"count": "1",
+					"solution": "<p>This is an informational alert and so no changes are required.</p>",
+					"otherinfo": "<p>A noScript tag has been found, which is an indication that the application works differently with JavaScript enabled compared to when it is not.</p>",
+					"reference": "",
+					"cweid": "-1",
+					"wascid": "-1",
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10049",
