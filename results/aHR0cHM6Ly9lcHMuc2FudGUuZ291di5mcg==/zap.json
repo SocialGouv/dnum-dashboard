@@ -1,6 +1,6 @@
 {
 	"@version": "2.11.0",
-	"@generated": "Sun, 24 Oct 2021 01:57:59",
+	"@generated": "Sun, 31 Oct 2021 01:55:02",
 	"site":[ 
 		{
 			"@name": "https://eps.sante.gouv.fr",
@@ -282,30 +282,30 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "Z88rCpzRmWoLPVx7bLUtGytATXjoYL9yaFAMXOcuE8aStxrKz+5EWexemqcDfSmW7mN3ONreEImwlkmz+ayNKmoqtMU="
+							"evidence": "i97RAQ1mW+59/7x7bLUtGytATXjoYOwdjIgOxqqs3ugqhz7x13/FMKYdXy9OWiD8KQtytZP1LgRjto/cdqVmO6Txn0k="
 						},
 						{
 							"uri": "https://eps.sante.gouv.fr",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "sf1Z/pZAV1Qi7bR7bLUtGytATXjoYAqGnlbkGnBWihyGFxo+TSHjPNOCzXFsJnfyIDCvD2F/3ghOhOuVaEu96nMhvIU="
+							"evidence": "n/W7VrHq1huvTmB7bLUtGytATXjoYA/ySOJXxET6/A4x06KbjPkUfQMFW96HrzWmc1zWFUIBKq1Ps72IwyVJT+VTOFU="
 						},
 						{
 							"uri": "https://eps.sante.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "EZPj4s8Xoa98TJl7bLUtGytATXjoYF4Pw5oWkEoByH1Ls5KVbdaGtWJlinbKf5m46TV4nJKVAAy9T3tkvY+v+Qs1rxo="
+							"evidence": "Wm9WTKSV/6NaeYx7bLUtGytATXjoYKZtjWeWHXA7Vn5ehqPnQEhtqLiFCmHdhkRmZ7rXjS+9FV9TE5+eluTDNA5vEQ8="
 						}
 					],
 					"count": "3",
 					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
-					"otherinfo": "<p>g\uFFFD+</p><p>\uFFFD\u0459j\\x000b=\\{l\uFFFD-\\x001b+@Mx\uFFFD`\uFFFDrhP\\x000c\\\uFFFD.\\x0013\u0192\uFFFD\\x001a\uFFFD\uFFFD\uFFFDDY\uFFFD^\uFFFD\uFFFD\\x0003})\uFFFD\uFFFDcw8\uFFFD\uFFFD\\x0010\uFFFD\uFFFD\uFFFDI\uFFFD\uFFFD\uFFFD\uFFFD*j*\uFFFD\uFFFD</p>",
+					"otherinfo": "<p>\uFFFD\uFFFD\uFFFD\\x0001\rf[\uFFFD}\uFFFD\uFFFD{l\uFFFD-\\x001b+@Mx\uFFFD`\uFFFD\\x001d\uFFFD\uFFFD\\x000e\u01AA\uFFFD\uFFFD\uFFFD*\uFFFD>\uFFFD\uFFFD\uFFFD0\uFFFD\\x001d_/NZ \uFFFD)\\x000br\uFFFD\uFFFD\uFFFD.\\x0004c\uFFFD\uFFFD\uFFFDv\uFFFDf;\uFFFD\uFFFDI</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "6"
+					"sourceid": "7"
 				},
 				{
 					"pluginid": "10027",
@@ -331,7 +331,7 @@
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "50"
+					"sourceid": "49"
 				},
 				{
 					"pluginid": "10109",
@@ -419,6 +419,20 @@
 							"evidence": "no-store"
 						},
 						{
+							"uri": "https://eps.sante.gouv.fr/api/logs/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "no-store"
+						},
+						{
+							"uri": "https://eps.sante.gouv.fr/api/users/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "no-store"
+						},
+						{
 							"uri": "https://eps.sante.gouv.fr/favicon.ico",
 							"method": "GET",
 							"param": "",
@@ -426,7 +440,7 @@
 							"evidence": "no-store"
 						},
 						{
-							"uri": "https://eps.sante.gouv.fr/manifest.webapp",
+							"uri": "https://eps.sante.gouv.fr/management/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -447,46 +461,13 @@
 							"evidence": "no-store"
 						}
 					],
-					"count": "9",
+					"count": "11",
 					"solution": "<p>The content may be marked as storable by ensuring that the following conditions are satisfied:</p><p>The request method must be understood by the cache and defined as being cacheable (\"GET\", \"HEAD\", and \"POST\" are currently defined as cacheable)</p><p>The response status code must be understood by the cache (one of the 1XX, 2XX, 3XX, 4XX, or 5XX response classes are generally understood)</p><p>The \"no-store\" cache directive must not appear in the request or response header fields</p><p>For caching by \"shared\" caches such as \"proxy\" caches, the \"private\" response directive must not appear in the response</p><p>For caching by \"shared\" caches such as \"proxy\" caches, the \"Authorization\" header field must not appear in the request, unless the response explicitly allows it (using one of the \"must-revalidate\", \"public\", or \"s-maxage\" Cache-Control response directives)</p><p>In addition to the conditions above, at least one of the following conditions must also be satisfied by the response:</p><p>It must contain an \"Expires\" header field</p><p>It must contain a \"max-age\" response directive</p><p>For \"shared\" caches such as \"proxy\" caches, it must contain a \"s-maxage\" response directive</p><p>It must contain a \"Cache Control Extension\" that allows it to be cached</p><p>It must have a status code that is defined as cacheable by default (200, 203, 204, 206, 300, 301, 404, 405, 410, 414, 501).   </p>",
 					"otherinfo": "",
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
 					"cweid": "524",
 					"wascid": "13",
 					"sourceid": "1"
-				},
-				{
-					"pluginid": "10049",
-					"alertRef": "10049",
-					"alert": "Storable and Cacheable Content",
-					"name": "Storable and Cacheable Content",
-					"riskcode": "0",
-					"confidence": "2",
-					"riskdesc": "Informational (Medium)",
-					"desc": "<p>The response contents are storable by caching components such as proxy servers, and may be retrieved directly from the cache, rather than from the origin server by the caching servers, in response to similar requests from other users.  If the response data is sensitive, personal or user-specific, this may result in sensitive information being leaked. In some cases, this may even result in a user gaining complete control of the session of another user, depending on the configuration of the caching components in use in their environment. This is primarily an issue where \"shared\" caching servers such as \"proxy\" caches are configured on the local network. This configuration is typically found in corporate or educational environments, for instance.</p>",
-					"instances":[ 
-						{
-							"uri": "https://eps.sante.gouv.fr/content/css/loading.css",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "max-age=126230400000"
-						},
-						{
-							"uri": "https://eps.sante.gouv.fr/content/css/material-icons.css",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "max-age=126230400000"
-						}
-					],
-					"count": "2",
-					"solution": "<p>Validate that the response does not contain sensitive, personal or user-specific information.  If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:</p><p>Cache-Control: no-cache, no-store, must-revalidate, private</p><p>Pragma: no-cache</p><p>Expires: 0</p><p>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request. </p>",
-					"otherinfo": "",
-					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
-					"cweid": "524",
-					"wascid": "13",
-					"sourceid": "35"
 				}
 			]
 		}
