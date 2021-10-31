@@ -1,6 +1,6 @@
 {
 	"@version": "2.11.0",
-	"@generated": "Sun, 24 Oct 2021 04:04:39",
+	"@generated": "Sun, 31 Oct 2021 03:51:31",
 	"site":[ 
 		{
 			"@name": "https://www.sipsi.travail.gouv.fr",
@@ -33,6 +33,32 @@
 					"cweid": "693",
 					"wascid": "15",
 					"sourceid": "1"
+				},
+				{
+					"pluginid": "10098",
+					"alertRef": "10098",
+					"alert": "Cross-Domain Misconfiguration",
+					"name": "Cross-Domain Misconfiguration",
+					"riskcode": "2",
+					"confidence": "2",
+					"riskdesc": "Medium (Medium)",
+					"desc": "<p>Web browser data loading may be possible, due to a Cross Origin Resource Sharing (CORS) misconfiguration on the web server</p>",
+					"instances":[ 
+						{
+							"uri": "https://www.sipsi.travail.gouv.fr/ruxitagentjs_ICA2SVfqru_10213210506081349.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Access-Control-Allow-Origin: *"
+						}
+					],
+					"count": "1",
+					"solution": "<p>Ensure that sensitive data is not available in an unauthenticated manner (using IP address white-listing, for instance).</p><p>Configure the \"Access-Control-Allow-Origin\" HTTP header to a more restrictive set of domains, or remove all CORS headers entirely, to allow the web browser to enforce the Same Origin Policy (SOP) in a more restrictive manner.</p>",
+					"otherinfo": "<p>The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing.</p>",
+					"reference": "<p>https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.html5_overly_permissive_cors_policy</p>",
+					"cweid": "264",
+					"wascid": "14",
+					"sourceid": "52"
 				},
 				{
 					"pluginid": "10020",
@@ -73,33 +99,19 @@
 						{
 							"uri": "https://www.sipsi.travail.gouv.fr",
 							"method": "GET",
-							"param": "TS01fffb4c",
+							"param": "dtCookie",
 							"attack": "",
-							"evidence": "Set-Cookie: TS01fffb4c"
+							"evidence": "Set-Cookie: dtCookie"
 						},
 						{
-							"uri": "https://www.sipsi.travail.gouv.fr/assets/favicon/apple-icon-114x114.png",
+							"uri": "https://www.sipsi.travail.gouv.fr",
 							"method": "GET",
-							"param": "TS01fffb4c",
+							"param": "TS01fc06af",
 							"attack": "",
-							"evidence": "Set-Cookie: TS01fffb4c"
+							"evidence": "Set-Cookie: TS01fc06af"
 						},
 						{
-							"uri": "https://www.sipsi.travail.gouv.fr/assets/favicon/apple-icon-120x120.png",
-							"method": "GET",
-							"param": "TS01fffb4c",
-							"attack": "",
-							"evidence": "Set-Cookie: TS01fffb4c"
-						},
-						{
-							"uri": "https://www.sipsi.travail.gouv.fr/assets/favicon/apple-icon-144x144.png",
-							"method": "GET",
-							"param": "TS01fffb4c",
-							"attack": "",
-							"evidence": "Set-Cookie: TS01fffb4c"
-						},
-						{
-							"uri": "https://www.sipsi.travail.gouv.fr/assets/favicon/apple-icon-152x152.png",
+							"uri": "https://www.sipsi.travail.gouv.fr",
 							"method": "GET",
 							"param": "TS01fffb4c",
 							"attack": "",
@@ -120,18 +132,18 @@
 							"evidence": "Set-Cookie: TS01fffb4c"
 						},
 						{
-							"uri": "https://www.sipsi.travail.gouv.fr/assets/favicon/apple-icon-72x72.png",
+							"uri": "https://www.sipsi.travail.gouv.fr/robots.txt",
 							"method": "GET",
-							"param": "TS01fffb4c",
+							"param": "dtCookie",
 							"attack": "",
-							"evidence": "Set-Cookie: TS01fffb4c"
+							"evidence": "Set-Cookie: dtCookie"
 						},
 						{
-							"uri": "https://www.sipsi.travail.gouv.fr/assets/favicon/apple-icon-76x76.png",
+							"uri": "https://www.sipsi.travail.gouv.fr/robots.txt",
 							"method": "GET",
-							"param": "TS01fffb4c",
+							"param": "TS01fc06af",
 							"attack": "",
-							"evidence": "Set-Cookie: TS01fffb4c"
+							"evidence": "Set-Cookie: TS01fc06af"
 						},
 						{
 							"uri": "https://www.sipsi.travail.gouv.fr/robots.txt",
@@ -148,7 +160,7 @@
 							"evidence": "Set-Cookie: TS01fffb4c"
 						}
 					],
-					"count": "11",
+					"count": "9",
 					"solution": "<p>Ensure that the HttpOnly flag is set for all cookies.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://owasp.org/www-community/HttpOnly</p>",
@@ -169,33 +181,19 @@
 						{
 							"uri": "https://www.sipsi.travail.gouv.fr",
 							"method": "GET",
-							"param": "TS01fffb4c",
+							"param": "dtCookie",
 							"attack": "",
-							"evidence": "Set-Cookie: TS01fffb4c"
+							"evidence": "Set-Cookie: dtCookie"
 						},
 						{
-							"uri": "https://www.sipsi.travail.gouv.fr/assets/favicon/apple-icon-114x114.png",
+							"uri": "https://www.sipsi.travail.gouv.fr",
 							"method": "GET",
-							"param": "TS01fffb4c",
+							"param": "TS01fc06af",
 							"attack": "",
-							"evidence": "Set-Cookie: TS01fffb4c"
+							"evidence": "Set-Cookie: TS01fc06af"
 						},
 						{
-							"uri": "https://www.sipsi.travail.gouv.fr/assets/favicon/apple-icon-120x120.png",
-							"method": "GET",
-							"param": "TS01fffb4c",
-							"attack": "",
-							"evidence": "Set-Cookie: TS01fffb4c"
-						},
-						{
-							"uri": "https://www.sipsi.travail.gouv.fr/assets/favicon/apple-icon-144x144.png",
-							"method": "GET",
-							"param": "TS01fffb4c",
-							"attack": "",
-							"evidence": "Set-Cookie: TS01fffb4c"
-						},
-						{
-							"uri": "https://www.sipsi.travail.gouv.fr/assets/favicon/apple-icon-152x152.png",
+							"uri": "https://www.sipsi.travail.gouv.fr",
 							"method": "GET",
 							"param": "TS01fffb4c",
 							"attack": "",
@@ -216,18 +214,18 @@
 							"evidence": "Set-Cookie: TS01fffb4c"
 						},
 						{
-							"uri": "https://www.sipsi.travail.gouv.fr/assets/favicon/apple-icon-72x72.png",
+							"uri": "https://www.sipsi.travail.gouv.fr/robots.txt",
 							"method": "GET",
-							"param": "TS01fffb4c",
+							"param": "dtCookie",
 							"attack": "",
-							"evidence": "Set-Cookie: TS01fffb4c"
+							"evidence": "Set-Cookie: dtCookie"
 						},
 						{
-							"uri": "https://www.sipsi.travail.gouv.fr/assets/favicon/apple-icon-76x76.png",
+							"uri": "https://www.sipsi.travail.gouv.fr/robots.txt",
 							"method": "GET",
-							"param": "TS01fffb4c",
+							"param": "TS01fc06af",
 							"attack": "",
-							"evidence": "Set-Cookie: TS01fffb4c"
+							"evidence": "Set-Cookie: TS01fc06af"
 						},
 						{
 							"uri": "https://www.sipsi.travail.gouv.fr/robots.txt",
@@ -244,7 +242,7 @@
 							"evidence": "Set-Cookie: TS01fffb4c"
 						}
 					],
-					"count": "11",
+					"count": "9",
 					"solution": "<p>Whenever a cookie contains sensitive information or is a session token, then it should always be passed using an encrypted channel. Ensure that the secure flag is set for cookies containing such sensitive information.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/06-Session_Management_Testing/02-Testing_for_Cookies_Attributes.html</p>",
@@ -265,33 +263,19 @@
 						{
 							"uri": "https://www.sipsi.travail.gouv.fr",
 							"method": "GET",
-							"param": "TS01fffb4c",
+							"param": "dtCookie",
 							"attack": "",
-							"evidence": "Set-Cookie: TS01fffb4c"
+							"evidence": "Set-Cookie: dtCookie"
 						},
 						{
-							"uri": "https://www.sipsi.travail.gouv.fr/assets/favicon/apple-icon-114x114.png",
+							"uri": "https://www.sipsi.travail.gouv.fr",
 							"method": "GET",
-							"param": "TS01fffb4c",
+							"param": "TS01fc06af",
 							"attack": "",
-							"evidence": "Set-Cookie: TS01fffb4c"
+							"evidence": "Set-Cookie: TS01fc06af"
 						},
 						{
-							"uri": "https://www.sipsi.travail.gouv.fr/assets/favicon/apple-icon-120x120.png",
-							"method": "GET",
-							"param": "TS01fffb4c",
-							"attack": "",
-							"evidence": "Set-Cookie: TS01fffb4c"
-						},
-						{
-							"uri": "https://www.sipsi.travail.gouv.fr/assets/favicon/apple-icon-144x144.png",
-							"method": "GET",
-							"param": "TS01fffb4c",
-							"attack": "",
-							"evidence": "Set-Cookie: TS01fffb4c"
-						},
-						{
-							"uri": "https://www.sipsi.travail.gouv.fr/assets/favicon/apple-icon-152x152.png",
+							"uri": "https://www.sipsi.travail.gouv.fr",
 							"method": "GET",
 							"param": "TS01fffb4c",
 							"attack": "",
@@ -312,18 +296,18 @@
 							"evidence": "Set-Cookie: TS01fffb4c"
 						},
 						{
-							"uri": "https://www.sipsi.travail.gouv.fr/assets/favicon/apple-icon-72x72.png",
+							"uri": "https://www.sipsi.travail.gouv.fr/robots.txt",
 							"method": "GET",
-							"param": "TS01fffb4c",
+							"param": "dtCookie",
 							"attack": "",
-							"evidence": "Set-Cookie: TS01fffb4c"
+							"evidence": "Set-Cookie: dtCookie"
 						},
 						{
-							"uri": "https://www.sipsi.travail.gouv.fr/assets/favicon/apple-icon-76x76.png",
+							"uri": "https://www.sipsi.travail.gouv.fr/robots.txt",
 							"method": "GET",
-							"param": "TS01fffb4c",
+							"param": "TS01fc06af",
 							"attack": "",
-							"evidence": "Set-Cookie: TS01fffb4c"
+							"evidence": "Set-Cookie: TS01fc06af"
 						},
 						{
 							"uri": "https://www.sipsi.travail.gouv.fr/robots.txt",
@@ -340,7 +324,7 @@
 							"evidence": "Set-Cookie: TS01fffb4c"
 						}
 					],
-					"count": "11",
+					"count": "9",
 					"solution": "<p>Ensure that the SameSite attribute is set to either 'lax' or ideally 'strict' for all cookies.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://tools.ietf.org/html/draft-ietf-httpbis-cookie-same-site</p>",
@@ -359,27 +343,20 @@
 					"desc": "<p>A dangerous JS function seems to be in use that would leave the site vulnerable.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.sipsi.travail.gouv.fr/main-es2015.5ee986c60d05e7fefe51.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "bypassSecurityTrustHtml"
-						},
-						{
-							"uri": "https://www.sipsi.travail.gouv.fr/main-es5.5ee986c60d05e7fefe51.js",
+							"uri": "https://www.sipsi.travail.gouv.fr/main-es2015.fd64a742bd2bb98804a2.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "bypassSecurityTrustHtml"
 						}
 					],
-					"count": "2",
+					"count": "1",
 					"solution": "<p>See the references for security advice on the use of these functions.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "55"
+					"sourceid": "57"
 				},
 				{
 					"pluginid": "10063",
@@ -399,14 +376,7 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.sipsi.travail.gouv.fr/main-es2015.5ee986c60d05e7fefe51.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.sipsi.travail.gouv.fr/main-es5.5ee986c60d05e7fefe51.js",
+							"uri": "https://www.sipsi.travail.gouv.fr/main-es2015.fd64a742bd2bb98804a2.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -439,6 +409,13 @@
 							"param": "",
 							"attack": "",
 							"evidence": ""
+						},
+						{
+							"uri": "https://www.sipsi.travail.gouv.fr/ruxitagentjs_ICA2SVfqru_10213210506081349.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
 						}
 					],
 					"count": "7",
@@ -448,6 +425,32 @@
 					"cweid": "693",
 					"wascid": "15",
 					"sourceid": "1"
+				},
+				{
+					"pluginid": "10035",
+					"alertRef": "10035",
+					"alert": "Strict-Transport-Security Header Not Set",
+					"name": "Strict-Transport-Security Header Not Set",
+					"riskcode": "1",
+					"confidence": "3",
+					"riskdesc": "Low (High)",
+					"desc": "<p>HTTP Strict Transport Security (HSTS) is a web security policy mechanism whereby a web server declares that complying user agents (such as a web browser) are to interact with it using only secure HTTPS connections (i.e. HTTP layered over TLS/SSL). HSTS is an IETF standards track protocol and is specified in RFC 6797.</p>",
+					"instances":[ 
+						{
+							"uri": "https://www.sipsi.travail.gouv.fr/ruxitagentjs_ICA2SVfqru_10213210506081349.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						}
+					],
+					"count": "1",
+					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to enforce Strict-Transport-Security.</p>",
+					"otherinfo": "",
+					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>http://caniuse.com/stricttransportsecurity</p><p>http://tools.ietf.org/html/rfc6797</p>",
+					"cweid": "319",
+					"wascid": "15",
+					"sourceid": "52"
 				},
 				{
 					"pluginid": "10096",
@@ -460,35 +463,42 @@
 					"desc": "<p>A timestamp was disclosed by the application/web server - Unix</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.sipsi.travail.gouv.fr/assets/favicon/apple-icon-114x114.png",
+							"uri": "https://www.sipsi.travail.gouv.fr",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1548233249"
+							"evidence": "1007937333"
 						},
 						{
-							"uri": "https://www.sipsi.travail.gouv.fr/assets/favicon/apple-icon-120x120.png",
+							"uri": "https://www.sipsi.travail.gouv.fr",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1548233249"
+							"evidence": "1209600000"
 						},
 						{
-							"uri": "https://www.sipsi.travail.gouv.fr/assets/favicon/apple-icon-144x144.png",
+							"uri": "https://www.sipsi.travail.gouv.fr",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1548233249"
+							"evidence": "1283076538"
 						},
 						{
-							"uri": "https://www.sipsi.travail.gouv.fr/assets/favicon/apple-icon-152x152.png",
+							"uri": "https://www.sipsi.travail.gouv.fr",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1548233249"
+							"evidence": "132751201"
 						},
 						{
-							"uri": "https://www.sipsi.travail.gouv.fr/assets/favicon/apple-icon-180x180.png",
+							"uri": "https://www.sipsi.travail.gouv.fr",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "253949591"
+						},
+						{
+							"uri": "https://www.sipsi.travail.gouv.fr/assets/favicon/apple-icon-57x57.png",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -499,7 +509,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1548233249"
+							"evidence": "36869475"
 						},
 						{
 							"uri": "https://www.sipsi.travail.gouv.fr/assets/favicon/apple-icon-60x60.png",
@@ -509,41 +519,60 @@
 							"evidence": "1548233249"
 						},
 						{
-							"uri": "https://www.sipsi.travail.gouv.fr/assets/favicon/apple-icon-72x72.png",
+							"uri": "https://www.sipsi.travail.gouv.fr/assets/favicon/apple-icon-60x60.png",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1548233249"
+							"evidence": "803400530"
 						},
 						{
-							"uri": "https://www.sipsi.travail.gouv.fr/assets/favicon/apple-icon-76x76.png",
+							"uri": "https://www.sipsi.travail.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1548233249"
+							"evidence": "1743295192"
 						},
 						{
-							"uri": "https://www.sipsi.travail.gouv.fr/assets/favicon/favicon-16x16.png",
+							"uri": "https://www.sipsi.travail.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1548233249"
-						},
-						{
-							"uri": "https://www.sipsi.travail.gouv.fr/styles.4b1ed2b4fd86ed722418.css",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "70710678"
+							"evidence": "2104498170"
 						}
 					],
 					"count": "11",
 					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
-					"otherinfo": "<p>1548233249, which evaluates to: 2019-01-23 08:47:29</p>",
+					"otherinfo": "<p>1007937333, which evaluates to: 2001-12-09 22:35:33</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "38"
+					"sourceid": "7"
+				},
+				{
+					"pluginid": "10021",
+					"alertRef": "10021",
+					"alert": "X-Content-Type-Options Header Missing",
+					"name": "X-Content-Type-Options Header Missing",
+					"riskcode": "1",
+					"confidence": "2",
+					"riskdesc": "Low (Medium)",
+					"desc": "<p>The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.</p>",
+					"instances":[ 
+						{
+							"uri": "https://www.sipsi.travail.gouv.fr/ruxitagentjs_ICA2SVfqru_10213210506081349.js",
+							"method": "GET",
+							"param": "X-Content-Type-Options",
+							"attack": "",
+							"evidence": ""
+						}
+					],
+					"count": "1",
+					"solution": "<p>Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.</p><p>If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.</p>",
+					"otherinfo": "<p>This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.</p><p>At \"High\" threshold this scan rule will not alert on client or server error responses.</p>",
+					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p><p>https://owasp.org/www-community/Security_Headers</p>",
+					"cweid": "693",
+					"wascid": "15",
+					"sourceid": "52"
 				},
 				{
 					"pluginid": "10094",
@@ -556,14 +585,14 @@
 					"desc": "<p>Base64 encoded data was disclosed by the application/web server. Note: in the interests of performance not all base64 strings in the response were analyzed individually, the entire response should be looked at by the analyst/security team/developer(s).</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.sipsi.travail.gouv.fr/main-es2015.5ee986c60d05e7fefe51.js",
+							"uri": "https://www.sipsi.travail.gouv.fr",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+							"evidence": "/ruxitagentjs_ICA2SVfqru_10213210506081349"
 						},
 						{
-							"uri": "https://www.sipsi.travail.gouv.fr/main-es5.5ee986c60d05e7fefe51.js",
+							"uri": "https://www.sipsi.travail.gouv.fr/main-es2015.fd64a742bd2bb98804a2.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -572,11 +601,11 @@
 					],
 					"count": "2",
 					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
-					"otherinfo": "<p>GIF89a\\x0001\\x0000\\x0001\\x0000\\x0000\uFFFD\\x0000,\\x0000\\x0000\\x0000\\x0000\\x0001\\x0000\\x0001\\x0000\\x0000\\x0002\\x0000;</p>",
+					"otherinfo": "<p>\uFFFD\uFFFD\uFFFD\uFFFD\u05A0z{c\uFFFD\uFFFD\\x0002\\x0003d\uFFFD~\uFFFD\uFFFD\uFFFD]6\uFFFD}\uFFFD\u04DD:\uFFFD\uFFFDw\uFFFD</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "55"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "90011",
@@ -615,14 +644,7 @@
 					"desc": "<p>The response appears to contain suspicious comments which may help an attacker. Note: Matches made within script blocks or files are against the entire content not only comments.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.sipsi.travail.gouv.fr/main-es2015.5ee986c60d05e7fefe51.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "bug"
-						},
-						{
-							"uri": "https://www.sipsi.travail.gouv.fr/main-es5.5ee986c60d05e7fefe51.js",
+							"uri": "https://www.sipsi.travail.gouv.fr/main-es2015.fd64a742bd2bb98804a2.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -641,15 +663,76 @@
 							"param": "",
 							"attack": "",
 							"evidence": "Select"
+						},
+						{
+							"uri": "https://www.sipsi.travail.gouv.fr/ruxitagentjs_ICA2SVfqru_10213210506081349.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Db"
+						},
+						{
+							"uri": "https://www.sipsi.travail.gouv.fr/ruxitagentjs_ICA2SVfqru_10213210506081349.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "from"
+						},
+						{
+							"uri": "https://www.sipsi.travail.gouv.fr/ruxitagentjs_ICA2SVfqru_10213210506081349.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "SELECT"
 						}
 					],
-					"count": "4",
+					"count": "6",
 					"solution": "<p>Remove all comments that return information that may help an attacker and fix any underlying problems they refer to.</p>",
 					"otherinfo": "<p>The following pattern was used: \\bBUG\\b and was detected in the element starting with: \"(window.webpackJsonp=window.webpackJsonp||[]).push([[1],{\"+s0g\":function(t,e,n){!function(t){\"use strict\";var e=\"jan._feb._mrt._\", see evidence field for the suspicious comment/snippet.</p>",
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "55"
+					"sourceid": "57"
+				},
+				{
+					"pluginid": "90033",
+					"alertRef": "90033",
+					"alert": "Loosely Scoped Cookie",
+					"name": "Loosely Scoped Cookie",
+					"riskcode": "0",
+					"confidence": "1",
+					"riskdesc": "Informational (Low)",
+					"desc": "<p>Cookies can be scoped by domain or path. This check is only concerned with domain scope.The domain scope applied to a cookie determines which domains can access it. For example, a cookie can be scoped strictly to a subdomain e.g. www.nottrusted.com, or loosely scoped to a parent domain e.g. nottrusted.com. In the latter case, any subdomain of nottrusted.com can access the cookie. Loosely scoped cookies are common in mega-applications like google.com and live.com. Cookies set from a subdomain like app.foo.bar are transmitted only to that domain by the browser. However, cookies scoped to a parent-level domain may be transmitted to the parent, or any subdomain of the parent.</p>",
+					"instances":[ 
+						{
+							"uri": "https://www.sipsi.travail.gouv.fr",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.sipsi.travail.gouv.fr",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.sipsi.travail.gouv.fr/robots.txt",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						}
+					],
+					"count": "3",
+					"solution": "<p>Always scope cookies to a FQDN (Fully Qualified Domain Name).</p>",
+					"otherinfo": "<p>The origin domain used for comparison was: </p><p>www.sipsi.travail.gouv.fr</p><p>dtCookie=v_4_srv_9_sn_0A4EFA9D2129F9EB315B8F471627C008_perc_100000_ol_0_mul_1_app-3Aea7c4b59f27d43eb_1</p><p>TS01fc06af=012f5c94ea24c905761dd51b470ccd74f859f86b3e9c81751dc7e77088e60a9858be3a7d5a940395e3c996d25cbb78adca7bb624356ed7d668ed52aa6ae93bbbc78a1d7abd</p><p></p>",
+					"reference": "<p>https://tools.ietf.org/html/rfc6265#section-4.1</p><p>https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/06-Session_Management_Testing/02-Testing_for_Cookies_Attributes.html</p><p>http://code.google.com/p/browsersec/wiki/Part2#Same-origin_policy_for_cookies</p>",
+					"cweid": "565",
+					"wascid": "15",
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10109",
@@ -666,7 +749,14 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<script src=\"runtime-es2015.f81ca6ec93d08e20e19a.js\" type=\"module\"></script>"
+							"evidence": "<script type=\"text/javascript\" src=\"/ruxitagentjs_ICA2SVfqru_10213210506081349.js\" data-dtconfig=\"app=ea7c4b59f27d43eb|rcdec=1209600000|featureHash=ICA2SVfqru|rdnt=1|uxrgce=1|srcss=1|bp=2|srmcrv=10|cuc=bkulvisy|mel=100000|dpvc=1|ssv=4|lastModification=1630308962910|dtVersion=10213210506081349|srmcrl=1|tp=500,50,0,1|uxdcw=1500|vs=2|agentUri=/ruxitagentjs_ICA2SVfqru_10213210506081349.js|reportUrl=/rb_ae8c4144-addf-4535-803a-23b7bba15d1e|rid=RID_2418|rpid=-132751201|domain=travail.gouv.fr\"></script>"
+						},
+						{
+							"uri": "https://www.sipsi.travail.gouv.fr",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script type=\"text/javascript\" src=\"/ruxitagentjs_ICA2SVfqru_10213210506081349.js\" data-dtconfig=\"app=ea7c4b59f27d43eb|rcdec=1209600000|featureHash=ICA2SVfqru|rdnt=1|uxrgce=1|srcss=1|bp=2|srmcrv=10|cuc=bkulvisy|mel=100000|dpvc=1|ssv=4|lastModification=1630308962910|dtVersion=10213210506081349|srmcrl=1|tp=500,50,0,1|uxdcw=1500|vs=2|agentUri=/ruxitagentjs_ICA2SVfqru_10213210506081349.js|reportUrl=/rb_ae8c4144-addf-4535-803a-23b7bba15d1e|rid=RID_2418|rpid=253949591|domain=travail.gouv.fr\"></script>"
 						},
 						{
 							"uri": "https://www.sipsi.travail.gouv.fr/polyfills-es2015.1764998744653a3e1a7d.js",
@@ -681,15 +771,22 @@
 							"param": "",
 							"attack": "",
 							"evidence": "<script>"
+						},
+						{
+							"uri": "https://www.sipsi.travail.gouv.fr/ruxitagentjs_ICA2SVfqru_10213210506081349.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script id=\"dtjsagentdw\" type=\"text/javascript\" src=\"'+ug+'\">"
 						}
 					],
-					"count": "3",
+					"count": "5",
 					"solution": "<p>This is an informational alert and so no changes are required.</p>",
 					"otherinfo": "<p>No links have been found while there are scripts, which is an indication that this is a modern web application.</p>",
 					"reference": "",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "1"
+					"sourceid": "7"
 				},
 				{
 					"pluginid": "10049",
