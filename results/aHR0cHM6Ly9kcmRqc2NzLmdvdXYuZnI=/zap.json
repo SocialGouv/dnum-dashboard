@@ -1,6 +1,6 @@
 {
 	"@version": "2.11.0",
-	"@generated": "Sun, 24 Oct 2021 01:41:38",
+	"@generated": "Sun, 31 Oct 2021 01:39:58",
 	"site":[ 
 		{
 			"@name": "https://drdjscs.gouv.fr",
@@ -128,7 +128,7 @@
 					"reference": "<p>https://blog.jquery.com/2019/04/10/jquery-3-4-0-released/</p><p>https://nvd.nist.gov/vuln/detail/CVE-2019-11358</p><p>https://github.com/jquery/jquery/commit/753d591aea698e57d6db58c9f722cd0808619b1b</p><p>https://blog.jquery.com/2020/04/10/jquery-3-5-0-released/</p><p></p>",
 					"cweid": "829",
 					"wascid": "-1",
-					"sourceid": "143"
+					"sourceid": "163"
 				},
 				{
 					"pluginid": "10202",
@@ -209,9 +209,16 @@
 							"param": "",
 							"attack": "",
 							"evidence": "<form action=\"spip.php?page=recherche\" method=\"get\" name=\"formrecherche\" id=\"formrecherche\">"
+						},
+						{
+							"uri": "https://drdjscs.gouv.fr/spip.php?rubrique5",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form action=\"spip.php?page=recherche\" method=\"get\" name=\"formrecherche\" id=\"formrecherche\">"
 						}
 					],
-					"count": "10",
+					"count": "11",
 					"solution": "<p>Phase: Architecture and Design</p><p>Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.</p><p>For example, use anti-CSRF packages such as the OWASP CSRFGuard.</p><p></p><p>Phase: Implementation</p><p>Ensure that your application is free of cross-site scripting issues, because most CSRF defenses can be bypassed using attacker-controlled script.</p><p></p><p>Phase: Architecture and Design</p><p>Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Be sure that the nonce is not predictable (CWE-330).</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Identify especially dangerous operations. When the user performs a dangerous operation, send a separate confirmation request to ensure that the user intended to perform that operation.</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Use the ESAPI Session Management control.</p><p>This control includes a component for CSRF.</p><p></p><p>Do not use the GET method for any request that triggers a state change.</p><p></p><p>Phase: Implementation</p><p>Check the HTTP Referer header to see if the request originated from an expected page. This could break legitimate functionality, because users or proxies may have disabled sending the Referer for privacy reasons.</p>",
 					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"\" ].</p>",
 					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>http://cwe.mitre.org/data/definitions/352.html</p>",
@@ -264,7 +271,7 @@
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "186"
+					"sourceid": "82"
 				},
 				{
 					"pluginid": "10010",
@@ -325,7 +332,7 @@
 					"reference": "<p>https://owasp.org/www-community/HttpOnly</p>",
 					"cweid": "1004",
 					"wascid": "13",
-					"sourceid": "259"
+					"sourceid": "261"
 				},
 				{
 					"pluginid": "10011",
@@ -386,7 +393,7 @@
 					"reference": "<p>https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/06-Session_Management_Testing/02-Testing_for_Cookies_Attributes.html</p>",
 					"cweid": "614",
 					"wascid": "13",
-					"sourceid": "259"
+					"sourceid": "261"
 				},
 				{
 					"pluginid": "10054",
@@ -515,7 +522,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "148"
+					"sourceid": "171"
 				},
 				{
 					"pluginid": "10015",
@@ -536,20 +543,6 @@
 						},
 						{
 							"uri": "https://drdjscs.gouv.fr/",
-							"method": "GET",
-							"param": "Cache-Control",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://drdjscs.gouv.fr/?Llist_1=http%3A%2F%2Fauvergne-rhone-alpes.drdjscs.gouv.fr",
-							"method": "GET",
-							"param": "Cache-Control",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://drdjscs.gouv.fr/?Llist_2=http%3A%2F%2Fguadeloupe.drjscs.gouv.fr",
 							"method": "GET",
 							"param": "Cache-Control",
 							"attack": "",
@@ -598,7 +591,21 @@
 							"evidence": ""
 						},
 						{
+							"uri": "https://drdjscs.gouv.fr/spip.php?rubrique1",
+							"method": "GET",
+							"param": "Cache-Control",
+							"attack": "",
+							"evidence": ""
+						},
+						{
 							"uri": "https://drdjscs.gouv.fr/spip.php?rubrique2",
+							"method": "GET",
+							"param": "Cache-Control",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://drdjscs.gouv.fr/spip.php?rubrique5",
 							"method": "GET",
 							"param": "Cache-Control",
 							"attack": "",
@@ -638,13 +645,6 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://drdjscs.gouv.fr/prive/javascript/ajaxCallback.js?1617002834",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
 							"uri": "https://drdjscs.gouv.fr/prive/javascript/jquery-migrate-3.0.1.js?1617002834",
 							"method": "GET",
 							"param": "",
@@ -666,20 +666,6 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://drdjscs.gouv.fr/prive/javascript/jquery.placeholder-label.js?1617002834",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://drdjscs.gouv.fr/prive/javascript/js.cookie.js?1617002834",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
 							"uri": "https://drdjscs.gouv.fr/spip.php?article6",
 							"method": "GET",
 							"param": "",
@@ -695,6 +681,27 @@
 						},
 						{
 							"uri": "https://drdjscs.gouv.fr/spip.php?article9",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://drdjscs.gouv.fr/spip.php?rubrique1",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://drdjscs.gouv.fr/spip.php?rubrique2",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://drdjscs.gouv.fr/spip.php?rubrique5",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -803,7 +810,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>http://caniuse.com/stricttransportsecurity</p><p>http://tools.ietf.org/html/rfc6797</p>",
 					"cweid": "319",
 					"wascid": "15",
-					"sourceid": "212"
+					"sourceid": "225"
 				},
 				{
 					"pluginid": "10096",
@@ -881,14 +888,14 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "ait8H4EaZ9Vl9Cp7bLUtGytATXjoYKZrjdooR3YSpLr2W6cjhDk2asvCG1q9la4XwOFW0eCG0e6VqJL7p6ScjiUEFpQ="
+							"evidence": "rSda+Ucs8wFoWzt7bLUtGytATXjoYCVJZIhycnLdYplHbX/H+35SPJM87LKqQagbldSml908s7/aXGfrYB+cB0yh75M="
 						},
 						{
 							"uri": "https://drdjscs.gouv.fr",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "qvS4122UyWhTEb17bLUtGytATXjoYLuSaXmJwuKRF/jgVwXOU8UXfwr+tyBuQt4M1U35ExnQIHrY94UfsvNAq7nmprw="
+							"evidence": "1P4EEEBlZEMskhJ7bLUtGytATXjoYNljWZR+QprCF4q2hhmx/E8hWAxdg6qvcWDMe7nWpwAoCEOnx6OwUu8YqZtFXcI="
 						},
 						{
 							"uri": "https://drdjscs.gouv.fr/prive/javascript/jquery.js?1617002834",
@@ -902,24 +909,24 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "CRAvhrnBQHQhduB7bLUtGytATXjoYE+c11wITXjowL3+cl4CDl5e0UKUPHvnVvfgPfy0HKUBooh6qDc7xZxxEOpYzR8="
+							"evidence": "6VdFYPHWikB6HyV7bLUtGytATXjoYNtBRq/bwoikMWhMSpurG0ohDkBgfXnq0m5gNQbjpxn2HXrFoYIVvjrlWoqqC8c="
 						},
 						{
-							"uri": "https://drdjscs.gouv.fr/sites/drdjscs.gouv.fr/IMG/xlsx/23-sites-spip-3.2.9.xlsx",
+							"uri": "https://drdjscs.gouv.fr/spip.php?id_rubrique=1&page=backend",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "xl/printerSettings/printerSettings1"
-						},
-						{
-							"uri": "https://drdjscs.gouv.fr/sites/drdjscs.gouv.fr/IMG/xlsx/dreets_migration.xlsx",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "xl/printerSettings/printerSettings1"
+							"evidence": "fr/local/cache-vignettes/L144xH49/siteon0-d15b6"
 						},
 						{
 							"uri": "https://drdjscs.gouv.fr/spip.php?id_rubrique=2&page=backend",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "fr/local/cache-vignettes/L144xH49/siteon0-d15b6"
+						},
+						{
+							"uri": "https://drdjscs.gouv.fr/spip.php?id_rubrique=5&page=backend",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -944,30 +951,30 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "YAKWwuMj0NhQMB8b0jhiYN0CYM5CrYjlhd7W7YhgGfxO0gpgwVy8CQ9dly6AxAa34obkkeJPlVzthxOjL/qcTmGQHG1G0iKYo0RPtOJaZNqX6YbNYWUvX7gYpe2z90XlAqFgAmeGtUwWUUEku7eF0FMbTyCSn9l2cNDxDufqHY+GUVOZL2HshAVgUCCLnxg5KdsF7V26pg1TrduykANyv4gEyh7g0cDhmt+0OGgmXeYW49CyQezpFXzYGzPI"
+							"evidence": "YAIMwqMj0NmAd0EpYsIBldCWkwtEq7kkQVwa44i+4Tjp4VQGWSzxfCCMxaR6fWjbKK7iZF8DLHW1cg5fSO673JOXnFNmvgQsmmMcqenv1NitINhd9V4mE6uiBFaul6hmmA7t5I0hzWY7HHw1yWbZ8RREjCyRQn7/D2HVmy8oU8LTTfbGPOnelZy/qAyjkkvxAbshF9N+M6NZPW7PfxyBKyl8W3SSctbOpyWqt5FAihAwXGPVOtKxLkqtJGn5"
 						},
 						{
 							"uri": "https://drdjscs.gouv.fr/spip.php?rubrique2",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "YAIMoqIj0NmA12ePVMKzOkBdajJ9I8/GejOTTwHPjBGUCrYFd6C9C1vL+nIyJKkSLsOiav22pAS7vL/Jn5U7otHzVZV+zJquDnsdnnXVHLrLltxVgjNOJXpDjOGCeRsnN1qxzHDk1to6lxom8NpklR9pa83AgckfeRoAkAfRX182IasisZTbXF1x4HCjcTtoUCzfHsb9udWVBhScOXJBFg5cS7RSKQUgOeL048B8FbQBgRNG0MvAY732d+ADRaI="
+							"evidence": "YAKcQuIz0NlQgM+rD/mJL1mqW7E2JMldOAGKSSPPpfljdbqVwie1vJr2cAm9g4Hu7R6ekmfioCVvuU36x2PRQiKA+5hFHUn8U8Xr1hkQHEZwDQmSMVoB5IX4sCUs0WKxU2wKvL8OG81ACy2Xyz8jOCtNX+OIDK46WSSW7P0qwCD3SVXdDyb0xxBQv1naM5USr5N8Euz/9ZGojepgWkOtOjs7pWU9P/EFxAHAhAE+2M6+DTMYvCt2Y9CooWAIvQ=="
 						},
 						{
 							"uri": "https://drdjscs.gouv.fr/spip.php?rubrique5",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "YAIMouIj1NmA11/P4v/vgX4Vw40l0HgE+I8kNSUNYsWVtsvwMNqtjwW/d8MnkE0eCw+9Xf2ZrpmU+k50ZNk9iOGSzWRBQGWaUZSfRrmBlqiA7WrbZWXrAWHg7lhcHJLoHqcaTMOtMdwb4bNMTPULCo8rkXbEq96olmrWL+/yPEXLetL/+CG7ZPkXZzOyRUt6AjNkf7un+ycLlV+ykB0+DD6X8iqi1vn1nBWXLGKkX+ZnqGX4PPnQiR/4G6NA"
+							"evidence": "YAKWwuMj0NhQMB8bojhiYN0CYA5n2XhcFzgYQbZhj5Xwc02Gt0EpPnH9usSMUb0eFxe/ZrQ6owsOPqvLZojz9vOXnFN6yM+dXataXwFCL/DFO8iIQyTr4Fs4JeFB+8fPFDl4HGTuXhwpL927LiHBHwKo+tvSSjOLPEjNoj0dQiAsRHImKATdgAQ1Wz7fdGXSIJLBu3UC1Q88Q1+Z4aDEir5vWLiRI5vLpumrF6vhfgzYBKzJGL03oI72P0vk"
 						}
 					],
 					"count": "12",
 					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
-					"otherinfo": "<p>j+|\\x001f\uFFFD\\x001ag\uFFFDe\uFFFD*{l\uFFFD-\\x001b+@Mx\uFFFD`\uFFFDk\uFFFD\uFFFD(Gv\\x0012\uFFFD\uFFFD\uFFFD[\uFFFD#\uFFFD96j\uFFFD\uFFFD\\x001bZ\uFFFD\uFFFD\uFFFD\\x0017\uFFFD\uFFFDV\uFFFD\uFFFD\uFFFD\uFFFD\uE568\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD%\\x0004\\x0016\uFFFD</p>",
+					"otherinfo": "<p>\uFFFD'Z\uFFFDG,\uFFFD\\x0001h[;{l\uFFFD-\\x001b+@Mx\uFFFD`%Id\uFFFDrrr\uFFFDb\uFFFDGm\uFFFD\uFFFD~R<\uFFFD<\uCCAAA\uFFFD\\x001b\uFFFD\u0526\uFFFD\uFFFD<\uFFFD\uFFFD\uFFFD\\g\uFFFD`\\x001f\uFFFD\\x0007L\uFFFD\uFFFD</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "6"
+					"sourceid": "28"
 				},
 				{
 					"pluginid": "10019",
@@ -1063,7 +1070,7 @@
 					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p>",
 					"cweid": "345",
 					"wascid": "12",
-					"sourceid": "212"
+					"sourceid": "225"
 				},
 				{
 					"pluginid": "10029",
@@ -1120,11 +1127,11 @@
 					],
 					"count": "6",
 					"solution": "<p>Do not allow user input to control cookie names and values. If some query string parameters must be set in cookie values, be sure to filter out semicolon's that can serve as name/value pair delimiters.</p>",
-					"otherinfo": "<p>An attacker may be able to poison cookie values through POST parameters. To test if this is a more serious issue, you should try resending that request as a GET, with the POST parameter included as a query string parameter. For example:  http://nottrusted.com/page?value=maliciousInput.</p><p></p><p>This was identified at:</p><p></p><p>https://drdjscs.gouv.fr/spip.php?action=converser&redirect=spip.php%3Fpage%3Dlogin</p><p></p><p>User-input was found in the following cookie:</p><p>drdjscsg60d4_lang=fr; expires=Mon, 24-Oct-2022 01:41:31 GMT; Max-Age=31536000; path=/</p><p></p><p>The user input was:</p><p>var_lang_ecrire=fr</p>",
+					"otherinfo": "<p>An attacker may be able to poison cookie values through POST parameters. To test if this is a more serious issue, you should try resending that request as a GET, with the POST parameter included as a query string parameter. For example:  http://nottrusted.com/page?value=maliciousInput.</p><p></p><p>This was identified at:</p><p></p><p>https://drdjscs.gouv.fr/spip.php?action=converser&redirect=spip.php%3Fpage%3Dlogin</p><p></p><p>User-input was found in the following cookie:</p><p>drdjscsg60d4_lang=fr; expires=Mon, 31-Oct-2022 01:39:53 GMT; Max-Age=31536000; path=/</p><p></p><p>The user input was:</p><p>var_lang_ecrire=fr</p>",
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-cookie</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "259"
+					"sourceid": "261"
 				},
 				{
 					"pluginid": "10027",
@@ -1136,27 +1143,6 @@
 					"riskdesc": "Informational (Low)",
 					"desc": "<p>The response appears to contain suspicious comments which may help an attacker. Note: Matches made within script blocks or files are against the entire content not only comments.</p>",
 					"instances":[ 
-						{
-							"uri": "https://drdjscs.gouv.fr/prive/javascript/ajaxCallback.js?1617002834",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "bugs"
-						},
-						{
-							"uri": "https://drdjscs.gouv.fr/prive/javascript/ajaxCallback.js?1617002834",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "select"
-						},
-						{
-							"uri": "https://drdjscs.gouv.fr/prive/javascript/ajaxCallback.js?1617002834",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "xxx"
-						},
 						{
 							"uri": "https://drdjscs.gouv.fr/prive/javascript/jquery-migrate-3.0.1.js?1617002834",
 							"method": "GET",
@@ -1219,15 +1205,85 @@
 							"param": "",
 							"attack": "",
 							"evidence": "where"
+						},
+						{
+							"uri": "https://drdjscs.gouv.fr/prive/javascript/jquery.js?1617002834",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "bug"
+						},
+						{
+							"uri": "https://drdjscs.gouv.fr/prive/javascript/jquery.js?1617002834",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "bugs"
+						},
+						{
+							"uri": "https://drdjscs.gouv.fr/prive/javascript/jquery.js?1617002834",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "from"
+						},
+						{
+							"uri": "https://drdjscs.gouv.fr/prive/javascript/jquery.js?1617002834",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "later"
+						},
+						{
+							"uri": "https://drdjscs.gouv.fr/prive/javascript/jquery.js?1617002834",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "query"
+						},
+						{
+							"uri": "https://drdjscs.gouv.fr/prive/javascript/jquery.js?1617002834",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "select"
+						},
+						{
+							"uri": "https://drdjscs.gouv.fr/prive/javascript/jquery.js?1617002834",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "TODO"
+						},
+						{
+							"uri": "https://drdjscs.gouv.fr/prive/javascript/jquery.js?1617002834",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "user"
+						},
+						{
+							"uri": "https://drdjscs.gouv.fr/prive/javascript/jquery.js?1617002834",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "username"
+						},
+						{
+							"uri": "https://drdjscs.gouv.fr/prive/javascript/jquery.js?1617002834",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "where"
 						}
 					],
-					"count": "12",
+					"count": "19",
 					"solution": "<p>Remove all comments that return information that may help an attacker and fix any underlying problems they refer to.</p>",
-					"otherinfo": "<p>The following pattern was used: \\bBUGS\\b and was detected 2 times, the first in the element starting with: \"\t\t// cf http://bugs.jquery.com/ticket/7447\", see evidence field for the suspicious comment/snippet.</p>",
+					"otherinfo": "<p>The following pattern was used: \\bBUGS\\b and was detected in the element starting with: \"\t\t// See http://bugs.jquery.com/ticket/11820\", see evidence field for the suspicious comment/snippet.</p>",
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "141"
+					"sourceid": "159"
 				},
 				{
 					"pluginid": "10109",
@@ -1239,20 +1295,6 @@
 					"riskdesc": "Informational (Medium)",
 					"desc": "<p>The application appears to be a modern web application. If you need to explore it automatically then the Ajax Spider may well be more effective than the standard one.</p>",
 					"instances":[ 
-						{
-							"uri": "https://drdjscs.gouv.fr",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<noscript><div style=\"background-image: url('https://drdjscs.gouv.fr/spip.php?action=cron');\"></div></noscript>"
-						},
-						{
-							"uri": "https://drdjscs.gouv.fr/?Llist_1=http%3A%2F%2Fauvergne-rhone-alpes.drdjscs.gouv.fr",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<noscript><div style=\"background-image: url('https://drdjscs.gouv.fr/spip.php?action=cron');\"></div></noscript>"
-						},
 						{
 							"uri": "https://drdjscs.gouv.fr/plugins-dist/mediabox/javascript/jquery.colorbox.js?1617002834",
 							"method": "GET",
@@ -1310,7 +1352,21 @@
 							"evidence": "<a href=\"#\" class=\"agrandir\" title=\"Augmenter la police de caract&egrave;re\">Augmenter la police de caract&egrave;re</a>"
 						},
 						{
+							"uri": "https://drdjscs.gouv.fr/spip.php?page=login&url=%2Fecrire%2F",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<noscript><p class=\"boutons\"><input type=\"submit\" class=\"submit\" value=\"&gt;&gt;\" /></p></noscript>"
+						},
+						{
 							"uri": "https://drdjscs.gouv.fr/spip.php?rubrique1",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a name='pagination_articles_pagination' id='pagination_articles_pagination'></a>"
+						},
+						{
+							"uri": "https://drdjscs.gouv.fr/spip.php?rubrique5",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1326,11 +1382,65 @@
 					],
 					"count": "12",
 					"solution": "<p>This is an informational alert and so no changes are required.</p>",
-					"otherinfo": "<p>A noScript tag has been found, which is an indication that the application works differently with JavaScript enabled compared to when it is not.</p>",
+					"otherinfo": "<p>Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application.</p>",
 					"reference": "",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "1"
+					"sourceid": "168"
+				},
+				{
+					"pluginid": "10049",
+					"alertRef": "10049",
+					"alert": "Non-Storable Content",
+					"name": "Non-Storable Content",
+					"riskcode": "0",
+					"confidence": "2",
+					"riskdesc": "Informational (Medium)",
+					"desc": "<p>The response contents are not storable by caching components such as proxy servers. If the response does not contain sensitive, personal or user-specific information, it may benefit from being stored and cached, to improve performance.</p>",
+					"instances":[ 
+						{
+							"uri": "https://drdjscs.gouv.fr/ecrire/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "302"
+						},
+						{
+							"uri": "https://drdjscs.gouv.fr/lib/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "403"
+						},
+						{
+							"uri": "https://drdjscs.gouv.fr/plugins-dist/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "403"
+						},
+						{
+							"uri": "https://drdjscs.gouv.fr/plugins/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "403"
+						},
+						{
+							"uri": "https://drdjscs.gouv.fr/prive/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "403"
+						}
+					],
+					"count": "5",
+					"solution": "<p>The content may be marked as storable by ensuring that the following conditions are satisfied:</p><p>The request method must be understood by the cache and defined as being cacheable (\"GET\", \"HEAD\", and \"POST\" are currently defined as cacheable)</p><p>The response status code must be understood by the cache (one of the 1XX, 2XX, 3XX, 4XX, or 5XX response classes are generally understood)</p><p>The \"no-store\" cache directive must not appear in the request or response header fields</p><p>For caching by \"shared\" caches such as \"proxy\" caches, the \"private\" response directive must not appear in the response</p><p>For caching by \"shared\" caches such as \"proxy\" caches, the \"Authorization\" header field must not appear in the request, unless the response explicitly allows it (using one of the \"must-revalidate\", \"public\", or \"s-maxage\" Cache-Control response directives)</p><p>In addition to the conditions above, at least one of the following conditions must also be satisfied by the response:</p><p>It must contain an \"Expires\" header field</p><p>It must contain a \"max-age\" response directive</p><p>For \"shared\" caches such as \"proxy\" caches, it must contain a \"s-maxage\" response directive</p><p>It must contain a \"Cache Control Extension\" that allows it to be cached</p><p>It must have a status code that is defined as cacheable by default (200, 203, 204, 206, 300, 301, 404, 405, 410, 414, 501).   </p>",
+					"otherinfo": "",
+					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
+					"cweid": "524",
+					"wascid": "13",
+					"sourceid": "82"
 				},
 				{
 					"pluginid": "10049",
@@ -1350,14 +1460,21 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://drdjscs.gouv.fr/",
+							"uri": "https://drdjscs.gouv.fr/local/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://drdjscs.gouv.fr/plugins-dist/mediabox/colorbox/black-striped/colorbox.css",
+							"uri": "https://drdjscs.gouv.fr/local/cache-css/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://drdjscs.gouv.fr/local/cache-js/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1376,51 +1493,9 @@
 							"param": "",
 							"attack": "",
 							"evidence": ""
-						},
-						{
-							"uri": "https://drdjscs.gouv.fr/spip.php?article6",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://drdjscs.gouv.fr/spip.php?article7",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://drdjscs.gouv.fr/spip.php?article9",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://drdjscs.gouv.fr/squelettes-dist/css/form.css",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://drdjscs.gouv.fr/squelettes-dist/css/spip.css",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://drdjscs.gouv.fr/squelettes/favicon.ico",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
 						}
 					],
-					"count": "11",
+					"count": "6",
 					"solution": "<p>Validate that the response does not contain sensitive, personal or user-specific information.  If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:</p><p>Cache-Control: no-cache, no-store, must-revalidate, private</p><p>Pragma: no-cache</p><p>Expires: 0</p><p>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request. </p>",
 					"otherinfo": "<p>In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234.</p>",
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
@@ -1453,34 +1528,6 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://drdjscs.gouv.fr/?Llist_1=http%3A%2F%2Fauvergne-rhone-alpes.drdjscs.gouv.fr&Llist_2=http%3A%2F%2Fguadeloupe.drjscs.gouv.fr",
-							"method": "GET",
-							"param": "Llist_1",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://drdjscs.gouv.fr/?Llist_1=http%3A%2F%2Fauvergne-rhone-alpes.drdjscs.gouv.fr&Llist_2=http%3A%2F%2Fguadeloupe.drjscs.gouv.fr",
-							"method": "GET",
-							"param": "Llist_1",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://drdjscs.gouv.fr/?Llist_1=http%3A%2F%2Fauvergne-rhone-alpes.drdjscs.gouv.fr&Llist_2=http%3A%2F%2Fguadeloupe.drjscs.gouv.fr",
-							"method": "GET",
-							"param": "Llist_2",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://drdjscs.gouv.fr/?Llist_1=http%3A%2F%2Fauvergne-rhone-alpes.drdjscs.gouv.fr&Llist_2=http%3A%2F%2Fguadeloupe.drjscs.gouv.fr",
-							"method": "GET",
-							"param": "Llist_2",
-							"attack": "",
-							"evidence": ""
-						},
-						{
 							"uri": "https://drdjscs.gouv.fr/?Llist_2=http%3A%2F%2Fguadeloupe.drjscs.gouv.fr",
 							"method": "GET",
 							"param": "Llist_2",
@@ -1491,34 +1538,6 @@
 							"uri": "https://drdjscs.gouv.fr/?Llist_2=http%3A%2F%2Fguadeloupe.drjscs.gouv.fr",
 							"method": "GET",
 							"param": "Llist_2",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://drdjscs.gouv.fr/spip.php?lang=fr&page=spip_pass",
-							"method": "GET",
-							"param": "lang",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://drdjscs.gouv.fr/spip.php?lang=fr&page=spip_pass",
-							"method": "GET",
-							"param": "lang",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://drdjscs.gouv.fr/spip.php?lang=fr&page=spip_pass",
-							"method": "GET",
-							"param": "lang",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://drdjscs.gouv.fr/spip.php?lang=fr&page=spip_pass",
-							"method": "GET",
-							"param": "page",
 							"attack": "",
 							"evidence": ""
 						},
@@ -1535,15 +1554,99 @@
 							"param": "url",
 							"attack": "",
 							"evidence": ""
+						},
+						{
+							"uri": "https://drdjscs.gouv.fr/spip.php?page=recherche&recherche=Rechercher",
+							"method": "GET",
+							"param": "page",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://drdjscs.gouv.fr/spip.php?page=recherche&recherche=Rechercher",
+							"method": "GET",
+							"param": "page",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://drdjscs.gouv.fr/spip.php?page=recherche&recherche=Rechercher",
+							"method": "GET",
+							"param": "page",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://drdjscs.gouv.fr/spip.php?page=recherche&recherche=Rechercher",
+							"method": "GET",
+							"param": "page",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://drdjscs.gouv.fr/spip.php?page=recherche&recherche=Rechercher",
+							"method": "GET",
+							"param": "page",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://drdjscs.gouv.fr/spip.php?page=recherche&recherche=Rechercher",
+							"method": "GET",
+							"param": "page",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://drdjscs.gouv.fr/spip.php?page=recherche&recherche=Rechercher",
+							"method": "GET",
+							"param": "page",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://drdjscs.gouv.fr/spip.php?page=recherche&recherche=Rechercher",
+							"method": "GET",
+							"param": "recherche",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://drdjscs.gouv.fr/spip.php?page=recherche&recherche=Rechercher",
+							"method": "GET",
+							"param": "recherche",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://drdjscs.gouv.fr/spip.php?page=recherche&recherche=Rechercher",
+							"method": "GET",
+							"param": "recherche",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://drdjscs.gouv.fr/spip.php?page=recherche&recherche=Rechercher",
+							"method": "GET",
+							"param": "recherche",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://drdjscs.gouv.fr/spip.php?page=recherche&recherche=Rechercher",
+							"method": "GET",
+							"param": "recherche",
+							"attack": "",
+							"evidence": ""
 						}
 					],
-					"count": "14",
+					"count": "18",
 					"solution": "<p>Validate all input and sanitize output it before writing to any HTML attributes.</p>",
 					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://drdjscs.gouv.fr/?Llist_1=http%3A%2F%2Fauvergne-rhone-alpes.drdjscs.gouv.fr</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [area] tag [href] attribute </p><p></p><p>The user input found was:</p><p>Llist_1=http://auvergne-rhone-alpes.drdjscs.gouv.fr</p><p></p><p>The user-controlled value was:</p><p>http://auvergne-rhone-alpes.drdjscs.gouv.fr</p>",
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "185"
+					"sourceid": "201"
 				}
 			]
 		}
