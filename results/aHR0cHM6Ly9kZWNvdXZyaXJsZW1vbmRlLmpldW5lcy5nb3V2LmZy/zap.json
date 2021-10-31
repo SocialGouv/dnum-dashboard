@@ -1,6 +1,6 @@
 {
 	"@version": "2.11.0",
-	"@generated": "Sun, 24 Oct 2021 01:29:47",
+	"@generated": "Sun, 31 Oct 2021 01:32:41",
 	"site":[ 
 		{
 			"@name": "https://decouvrirlemonde.jeunes.gouv.fr",
@@ -59,13 +59,6 @@
 							"evidence": "upgrade-insecure-requests"
 						},
 						{
-							"uri": "https://decouvrirlemonde.jeunes.gouv.fr/?q=admin/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "upgrade-insecure-requests"
-						},
-						{
 							"uri": "https://decouvrirlemonde.jeunes.gouv.fr/admin/",
 							"method": "GET",
 							"param": "",
@@ -102,6 +95,13 @@
 						},
 						{
 							"uri": "https://decouvrirlemonde.jeunes.gouv.fr/user/login/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "upgrade-insecure-requests"
+						},
+						{
+							"uri": "https://decouvrirlemonde.jeunes.gouv.fr/user/logout/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -204,7 +204,7 @@
 							"evidence": "<a href=\"http://jeunes.gouv.fr/\"  target=\"_blank\" title=\"Lien vers le site http://jeunes.gouv.fr/\">\n          <img src=\"/sites/default/files/min_education_nationale_jeunesse_sports_rvb.png\" alt=\"Lien vers le site http://jeunes.gouv.fr/\" />\n        </a>"
 						},
 						{
-							"uri": "https://decouvrirlemonde.jeunes.gouv.fr/propositions/volontariat-de-solidarite-internationale-vsi-0",
+							"uri": "https://decouvrirlemonde.jeunes.gouv.fr/propositions/echanges-de-jeunes-sportifs-culturels-et-scientifiques",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -527,7 +527,7 @@
 					"reference": "<p>https://nvd.nist.gov/vuln/detail/CVE-2012-6708</p><p>https://github.com/jquery/jquery/issues/2432</p><p>http://research.insecurelabs.org/jquery/test/</p><p>http://blog.jquery.com/2016/01/08/jquery-2-2-and-1-12-released/</p><p>http://bugs.jquery.com/ticket/11290</p><p>https://blog.jquery.com/2019/04/10/jquery-3-4-0-released/</p><p>https://nvd.nist.gov/vuln/detail/CVE-2019-11358</p><p>https://nvd.nist.gov/vuln/detail/CVE-2015-9251</p><p>https://github.com/jquery/jquery/commit/753d591aea698e57d6db58c9f722cd0808619b1b</p><p>https://bugs.jquery.com/ticket/11974</p><p>https://blog.jquery.com/2020/04/10/jquery-3-5-0-released/</p><p></p>",
 					"cweid": "829",
 					"wascid": "-1",
-					"sourceid": "736"
+					"sourceid": "741"
 				},
 				{
 					"pluginid": "10202",
@@ -643,14 +643,7 @@
 							"evidence": "Set-Cookie: SESS00ae994736abdb0bdac1c02f04d4dbfc"
 						},
 						{
-							"uri": "https://decouvrirlemonde.jeunes.gouv.fr/?q=node/add/",
-							"method": "GET",
-							"param": "SESS00ae994736abdb0bdac1c02f04d4dbfc",
-							"attack": "",
-							"evidence": "Set-Cookie: SESS00ae994736abdb0bdac1c02f04d4dbfc"
-						},
-						{
-							"uri": "https://decouvrirlemonde.jeunes.gouv.fr/?q=user/logout/",
+							"uri": "https://decouvrirlemonde.jeunes.gouv.fr/?q=user/register/",
 							"method": "GET",
 							"param": "SESS00ae994736abdb0bdac1c02f04d4dbfc",
 							"attack": "",
@@ -685,13 +678,13 @@
 							"evidence": "Set-Cookie: SESS00ae994736abdb0bdac1c02f04d4dbfc"
 						}
 					],
-					"count": "7",
+					"count": "6",
 					"solution": "<p>Whenever a cookie contains sensitive information or is a session token, then it should always be passed using an encrypted channel. Ensure that the secure flag is set for cookies containing such sensitive information.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/06-Session_Management_Testing/02-Testing_for_Cookies_Attributes.html</p>",
 					"cweid": "614",
 					"wascid": "13",
-					"sourceid": "244"
+					"sourceid": "246"
 				},
 				{
 					"pluginid": "10054",
@@ -718,14 +711,7 @@
 							"evidence": "Set-Cookie: SESS00ae994736abdb0bdac1c02f04d4dbfc"
 						},
 						{
-							"uri": "https://decouvrirlemonde.jeunes.gouv.fr/?q=node/add/",
-							"method": "GET",
-							"param": "SESS00ae994736abdb0bdac1c02f04d4dbfc",
-							"attack": "",
-							"evidence": "Set-Cookie: SESS00ae994736abdb0bdac1c02f04d4dbfc"
-						},
-						{
-							"uri": "https://decouvrirlemonde.jeunes.gouv.fr/?q=user/logout/",
+							"uri": "https://decouvrirlemonde.jeunes.gouv.fr/?q=user/register/",
 							"method": "GET",
 							"param": "SESS00ae994736abdb0bdac1c02f04d4dbfc",
 							"attack": "",
@@ -767,7 +753,7 @@
 							"evidence": "Set-Cookie: SESS00ae994736abdb0bdac1c02f04d4dbfc"
 						}
 					],
-					"count": "9",
+					"count": "8",
 					"solution": "<p>Ensure that the SameSite attribute is set to either 'lax' or ideally 'strict' for all cookies.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://tools.ietf.org/html/draft-ietf-httpbis-cookie-same-site</p>",
@@ -1038,7 +1024,7 @@
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "200"
+					"sourceid": "199"
 				},
 				{
 					"pluginid": "10063",
@@ -1268,7 +1254,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1487628715"
+							"evidence": "1808958347"
 						},
 						{
 							"uri": "https://decouvrirlemonde.jeunes.gouv.fr/sites/default/files/css/css__n4e4mStRMKRkCtZ3G_zOfPyysNS0M_EW9o_k8K331I.css",
@@ -1298,7 +1284,7 @@
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "357"
+					"sourceid": "354"
 				},
 				{
 					"pluginid": "10094",
@@ -1315,28 +1301,28 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "Ic9+VyJ+CL3upEN7bLUtGytATXjoYK+n1oLXC1QfM/zbwjvk1oetRQhf5woR5ROyRUJ2ABZGqw/zyXYnaPK+tTz9l3k="
+							"evidence": "x2y4my8B5H2bwSN7bLUtGytATXjoYHIWHpGGGzLFjbWFurjqqzr0yIPJNSZ/0nQCeg7KP8WVq4HIWNwZ4haDVB40tpw="
 						},
 						{
 							"uri": "https://decouvrirlemonde.jeunes.gouv.fr",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "ld6RyhOTzXrShNd7bLUtGytATXjoYFYtlcB8eiMcDzwecyMY2xCqN+j4GozFd6abEPq0mPIOej+4tHnnQ5nOZ/lEXR8="
+							"evidence": "g6OORjFFTrrIqlp7bLUtGytATXjoYPu9TOI2ECQJ3XlSn0Q8i/GTfAGpFZG6zUDR2nrAAhfanWRjFYtn3+ro5NAKIJQ="
 						},
 						{
 							"uri": "https://decouvrirlemonde.jeunes.gouv.fr/?q=admin/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "66caIhc5wrRh1__KUf2g5o0oWY9dKBfOimEgOjBwSLg"
+							"evidence": "6BvXBMFhH9rS-3xiGMinvN9IlO2YruiOpXlD4axnvjI"
 						},
 						{
 							"uri": "https://decouvrirlemonde.jeunes.gouv.fr/cron.php",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "6MhOJ0hvnITuLvbimqBa_97SQ7hnbdN25hq72NXZGys"
+							"evidence": "tnOr3fbyk1g13pb0lfI1jPbuszc562BXivJ2w0NwY6U"
 						},
 						{
 							"uri": "https://decouvrirlemonde.jeunes.gouv.fr/filter/tips/",
@@ -1357,14 +1343,14 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "VkDUVjfWI7XDyHc549A_KDmAVnEmBEoTHk2NaIuHwkM"
+							"evidence": "zDBGr6rbVO7xaLWpaQ1iE07UqxVYxUBoj_yi1iFhKAI"
 						},
 						{
 							"uri": "https://decouvrirlemonde.jeunes.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "FOahWB1L1BwLvSR7bLUtGytATXjoYG/7n72Sn3JuFjuzkuE80jJIeEPRD9pzhSs9joraSzMB+J0eERywgsVvMOR4r5k="
+							"evidence": "+62iyHxY/eh6Pfl7bLUtGytATXjoYH+eJxZxG70Mtk9rYZjVOZQyEez4u5aQqdzFZaxGAmxk1dWdNeww8g/wnvzZCIk="
 						},
 						{
 							"uri": "https://decouvrirlemonde.jeunes.gouv.fr/sitemap.xml",
@@ -1385,7 +1371,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "LaHFoVz_t5Y62jlI779TRdSye4vybd4rn1wNlZ9OvZk"
+							"evidence": "qe3Su80mWIk2p0D2s4MbKWjn_2in1gU_KN4zGnhpZEI"
 						},
 						{
 							"uri": "https://decouvrirlemonde.jeunes.gouv.fr/user/password/",
@@ -1397,7 +1383,7 @@
 					],
 					"count": "12",
 					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
-					"otherinfo": "<p>!\uFFFD~W\"~\\x0008\uFFFD\uFFFDC{l\uFFFD-\\x001b+@Mx\uFFFD`\uFFFD\uFFFD\u0582\uFFFD\\x000bT\\x001f3\uFFFD\uFFFD\uFFFD;\uFFFD\u0587\uFFFDE\\x0008_\uFFFD</p><p>\\x0011\uFFFD\\x0013\uFFFDEBv\\x0000\\x0016F\uFFFD\\x000f\uFFFD\uFFFDv'h\uFFFD<\uFFFD\uFFFDy</p>",
+					"otherinfo": "<p>\uFFFDl\uFFFD\uFFFD/\\x0001\uFFFD}\uFFFD\uFFFD#{l\uFFFD-\\x001b+@Mx\uFFFD`r\\x0016\\x001e\uFFFD\uFFFD\\x001b2\u014D\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD:\uFFFD\u0203\uFFFD5&\uFFFDt\\x0002z\\x000e\uFFFD?\u0155\uFFFD\uFFFD\uFFFDX\uFFFD\\x0019\uFFFD\\x0016\uFFFDT\\x001e4\uFFFD\uFFFD</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
@@ -1638,14 +1624,14 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<a st_url=\"http://decouvrirlemonde.jeunes.gouv.fr/user/login\" st_title=\"Compte utilisateur\" class=\"st_facebook_custom\" displayText=\"facebook\"></a>"
+							"evidence": "<a class=\"close\" data-dismiss=\"alert\" href=\"#\">&times;</a>"
 						},
 						{
 							"uri": "https://decouvrirlemonde.jeunes.gouv.fr/?q=user/password/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<a class=\"close\" data-dismiss=\"alert\" href=\"#\">&times;</a>"
+							"evidence": "<a st_url=\"http://decouvrirlemonde.jeunes.gouv.fr/user/password\" st_title=\"Compte utilisateur\" class=\"st_facebook_custom\" displayText=\"facebook\"></a>"
 						},
 						{
 							"uri": "https://decouvrirlemonde.jeunes.gouv.fr/filter/tips/",
@@ -1659,21 +1645,21 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<a st_url=\"http://www.decouvrirlemonde.jeunes.gouv.fr/mes-favoris\" st_title=\"Mes favoris\" class=\"st_facebook_custom\" displayText=\"facebook\"></a>"
+							"evidence": "<a st_url=\"http://decouvrirlemonde.jeunes.gouv.fr/mes-favoris\" st_title=\"Mes favoris\" class=\"st_facebook_custom\" displayText=\"facebook\"></a>"
 						},
 						{
 							"uri": "https://decouvrirlemonde.jeunes.gouv.fr/page/pr%C3%A9sentation-du-site",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<a class=\"close\" data-dismiss=\"alert\" href=\"#\">&times;</a>"
+							"evidence": "<a st_url=\"http://decouvrirlemonde.jeunes.gouv.fr/page/presentation-du-site\" st_title=\"Pr\u00E9sentation du site\" class=\"st_facebook_custom\" displayText=\"facebook\"></a>"
 						},
 						{
-							"uri": "https://decouvrirlemonde.jeunes.gouv.fr/propositions/volontariat-de-solidarite-internationale-vsi-0",
+							"uri": "https://decouvrirlemonde.jeunes.gouv.fr/propositions/echanges-de-jeunes-sportifs-culturels-et-scientifiques",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<a st_url=\"http://decouvrirlemonde.jeunes.gouv.fr/propositions/volontariat-de-solidarite-internationale-vsi-0\" st_title=\"Volontariat de Solidarit\u00E9 Internationale (VSI)\" class=\"st_facebook_custom\" displayText=\"facebook\"></a>"
+							"evidence": "<a st_url=\"http://decouvrirlemonde.jeunes.gouv.fr/propositions/echanges-de-jeunes-sportifs-culturels-et-scientifiques\" st_title=\"Echanges de jeunes sportifs, culturels et scientifiques\" class=\"st_facebook_custom\" displayText=\"facebook\"></a>"
 						},
 						{
 							"uri": "https://decouvrirlemonde.jeunes.gouv.fr/user/login/",
