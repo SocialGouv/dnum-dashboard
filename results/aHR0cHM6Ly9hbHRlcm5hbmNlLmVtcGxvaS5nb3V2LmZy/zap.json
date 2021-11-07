@@ -1,6 +1,6 @@
 {
 	"@version": "2.11.0",
-	"@generated": "Sun, 31 Oct 2021 00:57:08",
+	"@generated": "Sun, 7 Nov 2021 00:57:23",
 	"site":[ 
 		{
 			"@name": "https://alternance.emploi.gouv.fr",
@@ -96,7 +96,7 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://alternance.emploi.gouv.fr/profiles/*.css$",
+							"uri": "https://alternance.emploi.gouv.fr/profiles/*.css",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -238,7 +238,7 @@
 					"reference": "<p>http://blogs.wsj.com/cio/2013/10/08/adobe-source-code-leak-is-bad-news-for-u-s-government/</p>",
 					"cweid": "540",
 					"wascid": "13",
-					"sourceid": "849"
+					"sourceid": "878"
 				},
 				{
 					"pluginid": "10099",
@@ -264,7 +264,7 @@
 					"reference": "<p>http://blogs.wsj.com/cio/2013/10/08/adobe-source-code-leak-is-bad-news-for-u-s-government/</p>",
 					"cweid": "540",
 					"wascid": "13",
-					"sourceid": "803"
+					"sourceid": "832"
 				},
 				{
 					"pluginid": "90003",
@@ -612,13 +612,6 @@
 					"desc": "<p>A cookie has been set without the HttpOnly flag, which means that the cookie can be accessed by JavaScript. If a malicious script can be run on this page then the cookie will be accessible and can be transmitted to another site. If this is a session cookie then session hijacking may be possible.</p>",
 					"instances":[ 
 						{
-							"uri": "https://alternance.emploi.gouv.fr/big_pipe/no-js?destination=/organisme-de-formation",
-							"method": "GET",
-							"param": "big_pipe_nojs",
-							"attack": "",
-							"evidence": "Set-Cookie: big_pipe_nojs"
-						},
-						{
 							"uri": "https://alternance.emploi.gouv.fr/big_pipe/no-js?destination=/simulateur-alternant/etape-1",
 							"method": "GET",
 							"param": "big_pipe_nojs",
@@ -626,7 +619,7 @@
 							"evidence": "Set-Cookie: big_pipe_nojs"
 						}
 					],
-					"count": "2",
+					"count": "1",
 					"solution": "<p>Ensure that the HttpOnly flag is set for all cookies.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://owasp.org/www-community/HttpOnly</p>",
@@ -645,13 +638,6 @@
 					"desc": "<p>A cookie has been set without the secure flag, which means that the cookie can be accessed via unencrypted connections.</p>",
 					"instances":[ 
 						{
-							"uri": "https://alternance.emploi.gouv.fr/big_pipe/no-js?destination=/organisme-de-formation",
-							"method": "GET",
-							"param": "big_pipe_nojs",
-							"attack": "",
-							"evidence": "Set-Cookie: big_pipe_nojs"
-						},
-						{
 							"uri": "https://alternance.emploi.gouv.fr/big_pipe/no-js?destination=/simulateur-alternant/etape-1",
 							"method": "GET",
 							"param": "big_pipe_nojs",
@@ -659,7 +645,7 @@
 							"evidence": "Set-Cookie: big_pipe_nojs"
 						}
 					],
-					"count": "2",
+					"count": "1",
 					"solution": "<p>Whenever a cookie contains sensitive information or is a session token, then it should always be passed using an encrypted channel. Ensure that the secure flag is set for cookies containing such sensitive information.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/06-Session_Management_Testing/02-Testing_for_Cookies_Attributes.html</p>",
@@ -685,6 +671,13 @@
 							"evidence": "Set-Cookie: BIGipServerpool-dgefp-pa-v2-prod.cegedim.cloud-HTTP"
 						},
 						{
+							"uri": "https://alternance.emploi.gouv.fr/accessibilite",
+							"method": "GET",
+							"param": "SSESSd0114473950558fedde967dfe008db39",
+							"attack": "",
+							"evidence": "Set-Cookie: SSESSd0114473950558fedde967dfe008db39"
+						},
+						{
 							"uri": "https://alternance.emploi.gouv.fr/actualites",
 							"method": "GET",
 							"param": "SSESSd0114473950558fedde967dfe008db39",
@@ -692,35 +685,7 @@
 							"evidence": "Set-Cookie: SSESSd0114473950558fedde967dfe008db39"
 						},
 						{
-							"uri": "https://alternance.emploi.gouv.fr/actualites/cfa-tout-savoir-sur-le-dispositif-6-mois-sans-contrat",
-							"method": "GET",
-							"param": "SSESSd0114473950558fedde967dfe008db39",
-							"attack": "",
-							"evidence": "Set-Cookie: SSESSd0114473950558fedde967dfe008db39"
-						},
-						{
-							"uri": "https://alternance.emploi.gouv.fr/actualites/entreprises-cfa-decouvrez-les-mesures-du-plan-de-relance-pour-lapprentissage",
-							"method": "GET",
-							"param": "SSESSd0114473950558fedde967dfe008db39",
-							"attack": "",
-							"evidence": "Set-Cookie: SSESSd0114473950558fedde967dfe008db39"
-						},
-						{
-							"uri": "https://alternance.emploi.gouv.fr/actualites/la-tournee-de-lapprentissage",
-							"method": "GET",
-							"param": "SSESSd0114473950558fedde967dfe008db39",
-							"attack": "",
-							"evidence": "Set-Cookie: SSESSd0114473950558fedde967dfe008db39"
-						},
-						{
-							"uri": "https://alternance.emploi.gouv.fr/actualites/lalternance-par-duoday-journee-nationale-de-lalternance-inclusive",
-							"method": "GET",
-							"param": "SSESSd0114473950558fedde967dfe008db39",
-							"attack": "",
-							"evidence": "Set-Cookie: SSESSd0114473950558fedde967dfe008db39"
-						},
-						{
-							"uri": "https://alternance.emploi.gouv.fr/actualites/relance-de-lapprentissage-les-mesures-gouvernementales",
+							"uri": "https://alternance.emploi.gouv.fr/mentions-legales",
 							"method": "GET",
 							"param": "SSESSd0114473950558fedde967dfe008db39",
 							"attack": "",
@@ -728,6 +693,27 @@
 						},
 						{
 							"uri": "https://alternance.emploi.gouv.fr/organisme-de-formation",
+							"method": "GET",
+							"param": "SSESSd0114473950558fedde967dfe008db39",
+							"attack": "",
+							"evidence": "Set-Cookie: SSESSd0114473950558fedde967dfe008db39"
+						},
+						{
+							"uri": "https://alternance.emploi.gouv.fr/partenaires",
+							"method": "GET",
+							"param": "SSESSd0114473950558fedde967dfe008db39",
+							"attack": "",
+							"evidence": "Set-Cookie: SSESSd0114473950558fedde967dfe008db39"
+						},
+						{
+							"uri": "https://alternance.emploi.gouv.fr/plan-du-site",
+							"method": "GET",
+							"param": "SSESSd0114473950558fedde967dfe008db39",
+							"attack": "",
+							"evidence": "Set-Cookie: SSESSd0114473950558fedde967dfe008db39"
+						},
+						{
+							"uri": "https://alternance.emploi.gouv.fr/politique-de-confidentialite",
 							"method": "GET",
 							"param": "SSESSd0114473950558fedde967dfe008db39",
 							"attack": "",
@@ -889,15 +875,22 @@
 							"param": "",
 							"attack": "",
 							"evidence": "eval"
+						},
+						{
+							"uri": "https://alternance.emploi.gouv.fr/modules/custom/pdl_vos_offres_d_emploi/vue_js_app/dist/ApiResults.js?v=1.x",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "eval"
 						}
 					],
-					"count": "2",
+					"count": "3",
 					"solution": "<p>See the references for security advice on the use of these functions.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "429"
+					"sourceid": "339"
 				},
 				{
 					"pluginid": "10009",
@@ -1237,7 +1230,7 @@
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "426"
+					"sourceid": "336"
 				},
 				{
 					"pluginid": "10094",
@@ -1559,13 +1552,6 @@
 							"evidence": "private"
 						},
 						{
-							"uri": "https://alternance.emploi.gouv.fr/accueil",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "private"
-						},
-						{
 							"uri": "https://alternance.emploi.gouv.fr/core/*.css",
 							"method": "GET",
 							"param": "",
@@ -1609,6 +1595,13 @@
 						},
 						{
 							"uri": "https://alternance.emploi.gouv.fr/core/*.js$",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "private"
+						},
+						{
+							"uri": "https://alternance.emploi.gouv.fr/core/*.png",
 							"method": "GET",
 							"param": "",
 							"attack": "",
