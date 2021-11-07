@@ -1,6 +1,6 @@
 {
 	"@version": "2.11.0",
-	"@generated": "Sun, 31 Oct 2021 03:43:31",
+	"@generated": "Sun, 7 Nov 2021 03:51:01",
 	"site":[ 
 		{
 			"@name": "https://www.associations.gouv.fr",
@@ -32,7 +32,7 @@
 					"reference": "",
 					"cweid": "359",
 					"wascid": "13",
-					"sourceid": "1374"
+					"sourceid": "1380"
 				},
 				{
 					"pluginid": "10038",
@@ -231,7 +231,7 @@
 					"reference": "<p>https://owasp.org/www-community/attacks/Reverse_Tabnabbing</p><p>https://dev.to/ben/the-targetblank-vulnerability-by-example</p><p>https://mathiasbynens.github.io/rel-noopener/</p><p>https://medium.com/@jitbit/target-blank-the-most-underestimated-vulnerability-ever-96e328301f4c</p>",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "2904"
+					"sourceid": "2907"
 				},
 				{
 					"pluginid": "10099",
@@ -305,9 +305,16 @@
 							"param": "",
 							"attack": "",
 							"evidence": "$_GET["
+						},
+						{
+							"uri": "https://www.associations.gouv.fr/les-centres-de-ressources-pour-les-responsables-ou-createurs-d-association.html",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "$_GET["
 						}
 					],
-					"count": "9",
+					"count": "10",
 					"solution": "<p>Ensure that application Source Code is not available with alternative extensions, and ensure that source code is not present within other files or data deployed to the web server, or served by the web server. </p>",
 					"otherinfo": "<p>$_GET[</p>",
 					"reference": "<p>http://blogs.wsj.com/cio/2013/10/08/adobe-source-code-leak-is-bad-news-for-u-s-government/</p>",
@@ -331,22 +338,15 @@
 							"param": "",
 							"attack": "",
 							"evidence": "$#ENHa"
-						},
-						{
-							"uri": "https://www.associations.gouv.fr/IMG/pdf/protocole_acm_03052021-3.pdf",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "$#FraL"
 						}
 					],
-					"count": "2",
+					"count": "1",
 					"solution": "<p>Ensure that application Source Code is not available with alternative extensions, and ensure that source code is not present within other files or data deployed to the web server, or served by the web server. </p>",
 					"otherinfo": "<p>$#ENHa</p>",
 					"reference": "<p>http://blogs.wsj.com/cio/2013/10/08/adobe-source-code-leak-is-bad-news-for-u-s-government/</p>",
 					"cweid": "540",
 					"wascid": "13",
-					"sourceid": "1346"
+					"sourceid": "1352"
 				},
 				{
 					"pluginid": "90003",
@@ -380,21 +380,21 @@
 							"evidence": "<link rel=\"schema.DCTERMS\" href=\"https://purl.org/dc/terms/\" />"
 						},
 						{
-							"uri": "https://www.associations.gouv.fr/creer-votre-association.html",
+							"uri": "https://www.associations.gouv.fr/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "<link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,400italic,300italic,500italic,700,700italic,900,900italic,100italic,100' rel='stylesheet' type='text/css' />"
 						},
 						{
-							"uri": "https://www.associations.gouv.fr/creer-votre-association.html",
+							"uri": "https://www.associations.gouv.fr/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "<link rel=\"schema.DC\" href=\"https://purl.org/dc/elements/1.1/\" />"
 						},
 						{
-							"uri": "https://www.associations.gouv.fr/creer-votre-association.html",
+							"uri": "https://www.associations.gouv.fr/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -429,6 +429,32 @@
 					"cweid": "345",
 					"wascid": "15",
 					"sourceid": "1"
+				},
+				{
+					"pluginid": "10003",
+					"alertRef": "10003",
+					"alert": "Vulnerable JS Library",
+					"name": "Vulnerable JS Library",
+					"riskcode": "2",
+					"confidence": "2",
+					"riskdesc": "Medium (Medium)",
+					"desc": "<p>The identified library bootstrap, version 3.3.7 is vulnerable.</p>",
+					"instances":[ 
+						{
+							"uri": "https://www.associations.gouv.fr/squelettes/bootstrap/js/bootstrap.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "* Bootstrap v3.3.7"
+						}
+					],
+					"count": "1",
+					"solution": "<p>Please upgrade to the latest version of bootstrap.</p>",
+					"otherinfo": "<p>CVE-2019-8331</p><p>CVE-2018-14041</p><p>CVE-2018-14040</p><p>CVE-2018-14042</p><p></p>",
+					"reference": "<p>https://github.com/twbs/bootstrap/issues/28236</p><p>https://github.com/twbs/bootstrap/issues/20184</p><p></p>",
+					"cweid": "829",
+					"wascid": "-1",
+					"sourceid": "3105"
 				},
 				{
 					"pluginid": "10202",
@@ -599,7 +625,7 @@
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "2989"
+					"sourceid": "2995"
 				},
 				{
 					"pluginid": "10054",
@@ -644,6 +670,13 @@
 					"riskdesc": "Low (Medium)",
 					"desc": "<p>The page includes one or more script files from a third-party domain.</p>",
 					"instances":[ 
+						{
+							"uri": "https://www.associations.gouv.fr/conserve-t-on-son-allocation-de-pre-retraite-si-l-on-fait-du-benevolat.html",
+							"method": "GET",
+							"param": "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53109861138a71e2",
+							"attack": "",
+							"evidence": "<script type=\"text/javascript\" src=\"//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53109861138a71e2\"></script>"
+						},
 						{
 							"uri": "https://www.associations.gouv.fr/covid.html",
 							"method": "GET",
@@ -694,13 +727,6 @@
 							"evidence": "<script type=\"text/javascript\" src=\"//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53109861138a71e2\"></script>"
 						},
 						{
-							"uri": "https://www.associations.gouv.fr/qui-peut-representer-l-association-en-justice.html",
-							"method": "GET",
-							"param": "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53109861138a71e2",
-							"attack": "",
-							"evidence": "<script type=\"text/javascript\" src=\"//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53109861138a71e2\"></script>"
-						},
-						{
 							"uri": "https://www.associations.gouv.fr/tous-mobilises-autour-de-la-campagne-vosdonsagissent.html",
 							"method": "GET",
 							"param": "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53109861138a71e2",
@@ -735,7 +761,33 @@
 					"reference": "",
 					"cweid": "829",
 					"wascid": "15",
-					"sourceid": "2790"
+					"sourceid": "2864"
+				},
+				{
+					"pluginid": "10110",
+					"alertRef": "10110",
+					"alert": "Dangerous JS Functions",
+					"name": "Dangerous JS Functions",
+					"riskcode": "1",
+					"confidence": "1",
+					"riskdesc": "Low (Low)",
+					"desc": "<p>A dangerous JS function seems to be in use that would leave the site vulnerable.</p>",
+					"instances":[ 
+						{
+							"uri": "https://www.associations.gouv.fr/local/cache-js/4110eaaafc4fa03d51bf73a301b0c2c7.js?1634893791",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Eval"
+						}
+					],
+					"count": "1",
+					"solution": "<p>See the references for security advice on the use of these functions.</p>",
+					"otherinfo": "",
+					"reference": "<p>https://angular.io/guide/security</p>",
+					"cweid": "749",
+					"wascid": "-1",
+					"sourceid": "3111"
 				},
 				{
 					"pluginid": "10015",
@@ -776,6 +828,13 @@
 							"evidence": ""
 						},
 						{
+							"uri": "https://www.associations.gouv.fr/guide-juridique-et-fiscal.html",
+							"method": "GET",
+							"param": "Cache-Control",
+							"attack": "",
+							"evidence": ""
+						},
+						{
 							"uri": "https://www.associations.gouv.fr/IMG/docx/fiche_spd-rna.docx",
 							"method": "GET",
 							"param": "Cache-Control",
@@ -784,13 +843,6 @@
 						},
 						{
 							"uri": "https://www.associations.gouv.fr/IMG/docx/logo_place_numerique_dans_le_projet_associatif_en_2019.docx",
-							"method": "GET",
-							"param": "Cache-Control",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.associations.gouv.fr/IMG/xlsx/associations_nationales_agreees_au_8_sept_2016.xlsx",
 							"method": "GET",
 							"param": "Cache-Control",
 							"attack": "",
@@ -1023,7 +1075,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>http://caniuse.com/stricttransportsecurity</p><p>http://tools.ietf.org/html/rfc6797</p>",
 					"cweid": "319",
 					"wascid": "15",
-					"sourceid": "1390"
+					"sourceid": "2511"
 				},
 				{
 					"pluginid": "10096",
@@ -1143,14 +1195,14 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "8JKdnz9EZhVpA0l7bLUtGytATXjoYESJSCvxh5xEFQcK9V2nrLohW3IXC6AwkOa14Y/5VPoYPzSRfOayLaMWqVp2hgY="
+							"evidence": "aXGA5i+AV7T2Gb97bLUtGytATXjoYNUV5k13qd+11GpeIVQx5r64vcraI2KA/jLSctrTFQN+m1SyeOldFRCCIaAx9oY="
 						},
 						{
 							"uri": "https://www.associations.gouv.fr",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "wvxT/8gk4IXvF4J7bLUtGytATXjoYCP2SX6HC/JY4G7hg8a4ksO1WDM377yd4owElf3CSWtOsSnqoo5Wg22CzyH+JwA="
+							"evidence": "/WGbPBKUg9FtB9N7bLUtGytATXjoYJEwFyNMHBd/rveGE3IQN35nxKUuagIecGnpbObcvFlkHs5cu+wuAkjhBGYVVuY="
 						},
 						{
 							"uri": "https://www.associations.gouv.fr/IMG/pdf/0718_-_Discours_VF_remise_rapport_final_Duport_et_Dilain-2.pdf",
@@ -1213,7 +1265,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "W4pl4yZJW4TgjNN7bLUtGytATXjoYIZR6owfUzkcFy+MWy9i7inCPfjwgYypYwDcAEX1OhW9ECdWiVE7K9MNZ50eF2o="
+							"evidence": "2aQYfpHT34pSaLB7bLUtGytATXjoYFyKz4i0aOphQRary/XJ6INDgoIwxBanNPmQseqMqUK+IS85xqS8kVWD4Ar9J4A="
 						},
 						{
 							"uri": "https://www.associations.gouv.fr/sitemap.xml",
@@ -1225,11 +1277,11 @@
 					],
 					"count": "12",
 					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
-					"otherinfo": "<p>\uD809\uDF5F?Df\\x0015i\\x0003I{l\uFFFD-\\x001b+@Mx\uFFFD`D\uFFFDH+\uFFFDD\\x0015\\x0007</p><p>\uFFFD]\uFFFD\uFFFD\uFFFD![r\\x0017\\x000b\uFFFD0\uFFFD\uFFFD\uFFFD\uFFFDT\uFFFD\\x0018?4\uFFFD|\uFFFD-\uFFFD\\x0016\uFFFDZv\uFFFD\\x0006</p>",
+					"otherinfo": "<p>iq\uFFFD\uFFFD/\uFFFDW\uFFFD\uFFFD\\x0019\uFFFD{l\uFFFD-\\x001b+@Mx\uFFFD`\uFFFD\\x0015\uFFFDMw\uFFFD\u07F5\uFFFDj^!T1\u6FB8\uFFFD\uFFFD\uFFFD#b\uFFFD\uFFFD2\uFFFDr\uFFFD\uFFFD\\x0015\\x0003~\uFFFDT\uFFFDx\uFFFD]\\x0015\\x0010\uFFFD!\uFFFD1\uFFFD\uFFFD</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "74"
 				},
 				{
 					"pluginid": "10019",
@@ -1325,7 +1377,89 @@
 					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p>",
 					"cweid": "345",
 					"wascid": "12",
-					"sourceid": "1390"
+					"sourceid": "2511"
+				},
+				{
+					"pluginid": "10027",
+					"alertRef": "10027",
+					"alert": "Information Disclosure - Suspicious Comments",
+					"name": "Information Disclosure - Suspicious Comments",
+					"riskcode": "0",
+					"confidence": "1",
+					"riskdesc": "Informational (Low)",
+					"desc": "<p>The response appears to contain suspicious comments which may help an attacker. Note: Matches made within script blocks or files are against the entire content not only comments.</p>",
+					"instances":[ 
+						{
+							"uri": "https://www.associations.gouv.fr/local/cache-js/4110eaaafc4fa03d51bf73a301b0c2c7.js?1634893791",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "from"
+						},
+						{
+							"uri": "https://www.associations.gouv.fr/local/cache-js/4110eaaafc4fa03d51bf73a301b0c2c7.js?1634893791",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "select"
+						},
+						{
+							"uri": "https://www.associations.gouv.fr/local/cache-js/4110eaaafc4fa03d51bf73a301b0c2c7.js?1634893791",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "username"
+						},
+						{
+							"uri": "https://www.associations.gouv.fr/squelettes/bootstrap/js/bootstrap.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "from"
+						},
+						{
+							"uri": "https://www.associations.gouv.fr/squelettes/bootstrap/js/bootstrap.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "TODO"
+						},
+						{
+							"uri": "https://www.associations.gouv.fr/squelettes/bootstrap/plugins/bootstrap-accessibility-plugin-tabpanel/js/bootstrap-accessibility.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "from"
+						},
+						{
+							"uri": "https://www.associations.gouv.fr/squelettes/bootstrap/plugins/bootstrap-accessibility-plugin-tabpanel/js/bootstrap-accessibility.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "select"
+						},
+						{
+							"uri": "https://www.associations.gouv.fr/squelettes/javascript/main.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "select"
+						},
+						{
+							"uri": "https://www.associations.gouv.fr/squelettes/javascript/masonry.pkgd.min.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "from"
+						}
+					],
+					"count": "9",
+					"solution": "<p>Remove all comments that return information that may help an attacker and fix any underlying problems they refer to.</p>",
+					"otherinfo": "<p>The following pattern was used: \\bFROM\\b and was detected 34 times, the first in the element starting with: \"error:conv?e:\"No conversion from \"+prev+\" to \"+current\", see evidence field for the suspicious comment/snippet.</p>",
+					"reference": "",
+					"cweid": "200",
+					"wascid": "13",
+					"sourceid": "3111"
 				},
 				{
 					"pluginid": "10109",
@@ -1447,7 +1581,7 @@
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "370"
+					"sourceid": "371"
 				},
 				{
 					"pluginid": "10049",
@@ -1555,7 +1689,7 @@
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "373"
+					"sourceid": "370"
 				},
 				{
 					"pluginid": "10031",
@@ -1616,7 +1750,7 @@
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "3006"
+					"sourceid": "3012"
 				}
 			]
 		}
