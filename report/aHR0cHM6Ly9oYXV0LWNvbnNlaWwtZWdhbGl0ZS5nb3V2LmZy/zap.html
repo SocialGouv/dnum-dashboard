@@ -127,7 +127,7 @@ td {
 	</h2>
 
 	<h3>
-		Generated on Sun, 31 Oct 2021 02:13:34
+		Generated on Sun, 7 Nov 2021 02:13:39
 	</h3>
 
 	
@@ -152,7 +152,7 @@ td {
 					<div>Medium</div>
 				</td>
 				<td align="center">
-					<div>3</div>
+					<div>4</div>
 				</td>
 			</tr>
 			<tr>
@@ -160,7 +160,7 @@ td {
 					<div>Low</div>
 				</td>
 				<td align="center">
-					<div>10</div>
+					<div>11</div>
 				</td>
 			</tr>
 			<tr>
@@ -204,6 +204,11 @@ td {
 				<td align="center">12</td>
 			</tr>
 			<tr>
+				<td><a href="#90003">Sub Resource Integrity Attribute Missing</a></td>
+				<td align="center" class="risk-2">Medium</td>
+				<td align="center">1</td>
+			</tr>
+			<tr>
 				<td><a href="#10003">Vulnerable JS Library</a></td>
 				<td align="center" class="risk-2">Medium</td>
 				<td align="center">1</td>
@@ -220,6 +225,11 @@ td {
 			</tr>
 			<tr>
 				<td><a href="#10054">Cookie without SameSite Attribute</a></td>
+				<td align="center" class="risk-1">Low</td>
+				<td align="center">2</td>
+			</tr>
+			<tr>
+				<td><a href="#10017">Cross-Domain JavaScript Source File Inclusion</a></td>
 				<td align="center" class="risk-1">Low</td>
 				<td align="center">2</td>
 			</tr>
@@ -281,12 +291,12 @@ td {
 			<tr>
 				<td><a href="#10049">Non-Storable Content</a></td>
 				<td align="center" class="risk-0">Informational</td>
-				<td align="center">8</td>
+				<td align="center">9</td>
 			</tr>
 			<tr>
 				<td><a href="#10049">Storable and Cacheable Content</a></td>
 				<td align="center" class="risk-0">Informational</td>
-				<td align="center">3</td>
+				<td align="center">2</td>
 			</tr>
 			<tr>
 				<td><a href="#10031">User Controllable HTML Element Attribute (Potential XSS)</a></td>
@@ -1052,6 +1062,85 @@ td {
 					<td width="20%">Plugin Id</td>
 					<td width="80%"><a
 						href="https://www.zaproxy.org/docs/alerts/10108/">10108</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-2"><a
+						id="90003"></a>
+						<div>Medium</div></th>
+					<th class="risk-2">Sub Resource Integrity Attribute Missing</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>The integrity attribute is missing on a script or link tag served by an external server. The integrity tag prevents an attacker who have gained access to this server from injecting a malicious content. </div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://haut-conseil-egalite.gouv.fr/parite/actualites/article/projet-de-loi-sur-l-election-des">https://haut-conseil-egalite.gouv.fr/parite/actualites/article/projet-de-loi-sur-l-election-des</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;script type=&quot;text/javascript&quot; src=&quot;http://e.issuu.com/embed.js&quot; async=&quot;true&quot;&gt;&lt;/script&gt;</td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">1</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Provide a valid integrity attribute to the tag.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%">
+							<a href="https://developer.mozilla.org/en/docs/Web/Security/Subresource_Integrity">https://developer.mozilla.org/en/docs/Web/Security/Subresource_Integrity</a>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/345.html">345</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">15</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/90003/">90003</a></td>
 				</tr>
 			</table>
 			<div class="spacer"></div>
@@ -2016,6 +2105,108 @@ td {
 			<table class="results">
 				<tr height="24">
 					<th width="20%" class="risk-1"><a
+						id="10017"></a>
+						<div>Low</div></th>
+					<th class="risk-1">Cross-Domain JavaScript Source File Inclusion</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>The page includes one or more script files from a third-party domain.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://haut-conseil-egalite.gouv.fr/parite/actualites/article/projet-de-loi-sur-l-election-des">https://haut-conseil-egalite.gouv.fr/parite/actualites/article/projet-de-loi-sur-l-election-des</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">http://e.issuu.com/embed.js</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;script type=&quot;text/javascript&quot; src=&quot;http://e.issuu.com/embed.js&quot; async=&quot;true&quot;&gt;&lt;/script&gt;</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://haut-conseil-egalite.gouv.fr/parite/actualites/article/reforme-du-cumul-des-mandats-une">https://haut-conseil-egalite.gouv.fr/parite/actualites/article/reforme-du-cumul-des-mandats-une</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">//e.issuu.com/embed.js</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;script type=&quot;text/javascript&quot; src=&quot;//e.issuu.com/embed.js&quot; async=&quot;true&quot;&gt;&lt;/script&gt;</td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">2</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Ensure JavaScript source files are loaded from only trusted sources, and the sources can&#39;t be controlled by end users of the application.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%"></td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/829.html">829</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">15</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10017/">10017</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-1"><a
 						id="10110"></a>
 						<div>Low</div></th>
 					<th class="risk-1">Dangerous JS Functions</th>
@@ -2451,7 +2642,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://haut-conseil-egalite.gouv.fr/stereotypes-et-roles-sociaux/bibliographie/">https://haut-conseil-egalite.gouv.fr/stereotypes-et-roles-sociaux/bibliographie/</a></td>
+						<td width="80%"><a href="https://haut-conseil-egalite.gouv.fr/stereotypes-et-roles-sociaux/travaux-du-hce/">https://haut-conseil-egalite.gouv.fr/stereotypes-et-roles-sociaux/travaux-du-hce/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2477,7 +2668,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://haut-conseil-egalite.gouv.fr/stereotypes-et-roles-sociaux/travaux-du-hce/">https://haut-conseil-egalite.gouv.fr/stereotypes-et-roles-sociaux/travaux-du-hce/</a></td>
+						<td width="80%"><a href="https://haut-conseil-egalite.gouv.fr/stereotypes-et-roles-sociaux/zoom-sur/">https://haut-conseil-egalite.gouv.fr/stereotypes-et-roles-sociaux/zoom-sur/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3783,7 +3974,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">1635611359</td>
+						<td width="80%">1636217034</td>
 					</tr>
 				
 					<tr>
@@ -3888,7 +4079,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">16+Po5DmpR4EaiZ7bLUtGytATXjoYHBgxMhmtWLlz5hrrkdgbHImRN1ua2eM8SiK1nJDUcPlHlhk81TFIrPxzz2Ir5o=</td>
+						<td width="80%">L5jDnbt46X53Nbd7bLUtGytATXjoYO/35sLajFZgRAdx4k3BzskJEPL33o3/5u7DebfJoiAJ/zqPxlqmI1mANIRGzPM=</td>
 					</tr>
 				
 					<tr>
@@ -3914,7 +4105,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">nwaF1aAWYhEF8/N7bLUtGytATXjoYCqed8jcW3hJXfPxS5B0g9r7wCT1oqSG1GNqeb6fdTL46YzW7tZziK6Wg060mNE=</td>
+						<td width="80%">V4IGcCe1UdnNRxp7bLUtGytATXjoYGsUqP4q3TF0k1yMgwUrfVystawdzX+bHrGd2jWI+rFBaIhhY17RAXDKektm5QY=</td>
 					</tr>
 				
 					<tr>
@@ -4044,7 +4235,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">bYNd3TK4qyozW8p7bLUtGytATXjoYGYSke5RUpX5HeU721IhcNU27EvvL1CLrGjTK8nGJ29X56zXtRU8qP5mXtmI0is=</td>
+						<td width="80%">G5+5wX2lOLnT5wB7bLUtGytATXjoYG7LuXwTSmgxQ5SrPGUrC/uS+ze4SyZvV69tuw/TGhO+kJPv/T0DbQ/6+zZOH84=</td>
 					</tr>
 				
 					<tr>
@@ -5298,7 +5489,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://haut-conseil-egalite.gouv.fr/stereotypes-et-roles-sociaux/bibliographie/">https://haut-conseil-egalite.gouv.fr/stereotypes-et-roles-sociaux/bibliographie/</a></td>
+						<td width="80%"><a href="https://haut-conseil-egalite.gouv.fr/stereotypes-et-roles-sociaux/travaux-du-hce/">https://haut-conseil-egalite.gouv.fr/stereotypes-et-roles-sociaux/travaux-du-hce/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5324,7 +5515,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://haut-conseil-egalite.gouv.fr/stereotypes-et-roles-sociaux/travaux-du-hce/">https://haut-conseil-egalite.gouv.fr/stereotypes-et-roles-sociaux/travaux-du-hce/</a></td>
+						<td width="80%"><a href="https://haut-conseil-egalite.gouv.fr/stereotypes-et-roles-sociaux/zoom-sur/">https://haut-conseil-egalite.gouv.fr/stereotypes-et-roles-sociaux/zoom-sur/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5604,9 +5795,35 @@ td {
 						<td width="80%">403</td>
 					</tr>
 				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://haut-conseil-egalite.gouv.fr/squelettes-dist/">https://haut-conseil-egalite.gouv.fr/squelettes-dist/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">403</td>
+					</tr>
+				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">8</td>
+					<td width="80%">9</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -5748,35 +5965,9 @@ td {
 						<td width="80%"></td>
 					</tr>
 				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://haut-conseil-egalite.gouv.fr/sitemap.xml">https://haut-conseil-egalite.gouv.fr/sitemap.xml</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">3</td>
+					<td width="80%">2</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
