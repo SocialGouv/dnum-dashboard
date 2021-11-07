@@ -1,6 +1,6 @@
 {
 	"@version": "2.11.0",
-	"@generated": "Sun, 31 Oct 2021 03:48:15",
+	"@generated": "Sun, 7 Nov 2021 03:52:03",
 	"site":[ 
 		{
 			"@name": "https://www.cng.sante.fr",
@@ -19,6 +19,20 @@
 					"desc": "<p>The response contains Personally Identifiable Information, such as CC number, SSN and similar sensitive data.</p>",
 					"instances":[ 
 						{
+							"uri": "https://www.cng.sante.fr/sites/default/files/Laure%20Salafa/consignes_obligation_vaccinale_passe_sanitaire_110821.pd_.pdf",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "586921821866638"
+						},
+						{
+							"uri": "https://www.cng.sante.fr/sites/default/files/Laure%20Salafa/Note+FHF+certification+p%C3%A9riodique-+ordonnance+du+19+juillet+2021.pdf",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "503503503503"
+						},
+						{
 							"uri": "https://www.cng.sante.fr/sites/default/files/Testeur%20Plume/modele_DREESSEN.pdf",
 							"method": "GET",
 							"param": "",
@@ -33,13 +47,13 @@
 							"evidence": "579544533615488"
 						}
 					],
-					"count": "2",
+					"count": "4",
 					"solution": "",
-					"otherinfo": "<p>Credit Card Type detected: Maestro</p><p>Bank Identification Number: 579544</p><p>Brand: MAESTRO</p><p>Category: </p><p>Issuer: </p>",
+					"otherinfo": "<p>Credit Card Type detected: Maestro</p><p>Bank Identification Number: 586921</p><p>Brand: MAESTRO</p><p>Category: </p><p>Issuer: </p>",
 					"reference": "",
 					"cweid": "359",
 					"wascid": "13",
-					"sourceid": "2814"
+					"sourceid": "2854"
 				},
 				{
 					"pluginid": "10055",
@@ -53,6 +67,13 @@
 					"instances":[ 
 						{
 							"uri": "https://www.cng.sante.fr",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "upgrade-insecure-requests"
+						},
+						{
+							"uri": "https://www.cng.sante.fr/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -120,13 +141,6 @@
 							"param": "",
 							"attack": "",
 							"evidence": "upgrade-insecure-requests"
-						},
-						{
-							"uri": "https://www.cng.sante.fr/profiles/*.css$",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "upgrade-insecure-requests"
 						}
 					],
 					"count": "11",
@@ -155,18 +169,32 @@
 							"evidence": "<a href=\"https://www.facebook.com/CNG-page-institutionnelle-100112859131450/about/?ref=page_internal\" target=\"_blank\" class=\"facebook-suivre\">Facebook</a>"
 						},
 						{
-							"uri": "https://www.cng.sante.fr/admin/",
+							"uri": "https://www.cng.sante.fr/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "<a href=\"https://www.facebook.com/CNG-page-institutionnelle-100112859131450/about/?ref=page_internal\" target=\"_blank\" class=\"facebook-suivre\">Facebook</a>"
 						},
 						{
-							"uri": "https://www.cng.sante.fr/comment/reply/",
+							"uri": "https://www.cng.sante.fr/accompagnement-professionnel",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "<a href=\"https://www.facebook.com/CNG-page-institutionnelle-100112859131450/about/?ref=page_internal\" target=\"_blank\" class=\"facebook-suivre\">Facebook</a>"
+						},
+						{
+							"uri": "https://www.cng.sante.fr/autorisation-dexercice",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a href=\"https://www.legifrance.gouv.fr/eli/decret/2017/11/22/SSAH1727640D/jo/texte\" target=\"_blank\">d\u00E9cret du 22 novembre 2017</a>"
+						},
+						{
+							"uri": "https://www.cng.sante.fr/concours-examens",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a href=\"https://www.gouvernement/fr/info-coronavirus\" target=\"_blank\">https://www.gouvernement/fr/info-coronavirus</a>"
 						},
 						{
 							"uri": "https://www.cng.sante.fr/core/*.css$",
@@ -184,20 +212,6 @@
 						},
 						{
 							"uri": "https://www.cng.sante.fr/core/*.svg",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<a href=\"https://www.facebook.com/CNG-page-institutionnelle-100112859131450/about/?ref=page_internal\" target=\"_blank\" class=\"facebook-suivre\">Facebook</a>"
-						},
-						{
-							"uri": "https://www.cng.sante.fr/filter/tips",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<a href=\"https://www.facebook.com/CNG-page-institutionnelle-100112859131450/about/?ref=page_internal\" target=\"_blank\" class=\"facebook-suivre\">Facebook</a>"
-						},
-						{
-							"uri": "https://www.cng.sante.fr/node/add/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -257,7 +271,33 @@
 					"reference": "<p>http://blogs.wsj.com/cio/2013/10/08/adobe-source-code-leak-is-bad-news-for-u-s-government/</p>",
 					"cweid": "540",
 					"wascid": "13",
-					"sourceid": "2822"
+					"sourceid": "2809"
+				},
+				{
+					"pluginid": "10099",
+					"alertRef": "10099",
+					"alert": "Source Code Disclosure - Perl",
+					"name": "Source Code Disclosure - Perl",
+					"riskcode": "2",
+					"confidence": "2",
+					"riskdesc": "Medium (Medium)",
+					"desc": "<p>Application Source Code was disclosed by the web server - Perl</p>",
+					"instances":[ 
+						{
+							"uri": "https://www.cng.sante.fr/sites/default/files/Laure%20Salafa/consignes_obligation_vaccinale_passe_sanitaire_110821.pd_.pdf",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "$#zAfi"
+						}
+					],
+					"count": "1",
+					"solution": "<p>Ensure that application Source Code is not available with alternative extensions, and ensure that source code is not present within other files or data deployed to the web server, or served by the web server. </p>",
+					"otherinfo": "<p>$#zAfi</p>",
+					"reference": "<p>http://blogs.wsj.com/cio/2013/10/08/adobe-source-code-leak-is-bad-news-for-u-s-government/</p>",
+					"cweid": "540",
+					"wascid": "13",
+					"sourceid": "2854"
 				},
 				{
 					"pluginid": "90003",
@@ -277,14 +317,28 @@
 							"evidence": "<script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-109299715-1\"></script>"
 						},
 						{
-							"uri": "https://www.cng.sante.fr/admin/",
+							"uri": "https://www.cng.sante.fr/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "<script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-109299715-1\"></script>"
 						},
 						{
-							"uri": "https://www.cng.sante.fr/comment/reply/",
+							"uri": "https://www.cng.sante.fr/accompagnement-professionnel",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-109299715-1\"></script>"
+						},
+						{
+							"uri": "https://www.cng.sante.fr/autorisation-dexercice",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-109299715-1\"></script>"
+						},
+						{
+							"uri": "https://www.cng.sante.fr/concours-examens",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -306,20 +360,6 @@
 						},
 						{
 							"uri": "https://www.cng.sante.fr/core/*.svg",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-109299715-1\"></script>"
-						},
-						{
-							"uri": "https://www.cng.sante.fr/filter/tips",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-109299715-1\"></script>"
-						},
-						{
-							"uri": "https://www.cng.sante.fr/node/add/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -394,6 +434,13 @@
 							"evidence": "<form class=\"views-exposed-form bef-exposed-form\" data-drupal-selector=\"views-exposed-form-cng-bourse-de-l-emploi-block-1\" action=\"/bourse-de-lemploi\" method=\"get\" id=\"views-exposed-form--cng-bourse-de-l-emploi-block-1\" accept-charset=\"UTF-8\">"
 						},
 						{
+							"uri": "https://www.cng.sante.fr/bourse-de-lemploi?combine&field_departement_target_id=All&field_type_de_poste_target_id=All&page=3",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form class=\"views-exposed-form bef-exposed-form\" data-drupal-selector=\"views-exposed-form-cng-bourse-de-l-emploi-block-1\" action=\"/bourse-de-lemploi\" method=\"get\" id=\"views-exposed-form--cng-bourse-de-l-emploi-block-1\" accept-charset=\"UTF-8\">"
+						},
+						{
 							"uri": "https://www.cng.sante.fr/bourse-de-lemploi?combine=ZAP&field_departement_target_id=All&field_type_de_poste_target_id=All",
 							"method": "GET",
 							"param": "",
@@ -415,13 +462,13 @@
 							"evidence": "<form class=\"views-exposed-form bef-exposed-form\" data-drupal-selector=\"views-exposed-form-cng-page-de-recherche-page-1\" action=\"/rechercher\" method=\"get\" id=\"views-exposed-form-cng-page-de-recherche-page-1\" accept-charset=\"UTF-8\">"
 						}
 					],
-					"count": "7",
+					"count": "8",
 					"solution": "<p>Phase: Architecture and Design</p><p>Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.</p><p>For example, use anti-CSRF packages such as the OWASP CSRFGuard.</p><p></p><p>Phase: Implementation</p><p>Ensure that your application is free of cross-site scripting issues, because most CSRF defenses can be bypassed using attacker-controlled script.</p><p></p><p>Phase: Architecture and Design</p><p>Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Be sure that the nonce is not predictable (CWE-330).</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Identify especially dangerous operations. When the user performs a dangerous operation, send a separate confirmation request to ensure that the user intended to perform that operation.</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Use the ESAPI Session Management control.</p><p>This control includes a component for CSRF.</p><p></p><p>Do not use the GET method for any request that triggers a state change.</p><p></p><p>Phase: Implementation</p><p>Check the HTTP Referer header to see if the request originated from an expected page. This could break legitimate functionality, because users or proxies may have disabled sending the Referer for privacy reasons.</p>",
 					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"edit-combine\" ].</p>",
 					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>http://cwe.mitre.org/data/definitions/352.html</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "533"
+					"sourceid": "478"
 				},
 				{
 					"pluginid": "10044",
@@ -524,7 +571,7 @@
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "1133"
+					"sourceid": "1135"
 				},
 				{
 					"pluginid": "10054",
@@ -577,14 +624,28 @@
 							"evidence": "<script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-109299715-1\"></script>"
 						},
 						{
-							"uri": "https://www.cng.sante.fr/admin/",
+							"uri": "https://www.cng.sante.fr/",
 							"method": "GET",
 							"param": "https://www.googletagmanager.com/gtag/js?id=UA-109299715-1",
 							"attack": "",
 							"evidence": "<script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-109299715-1\"></script>"
 						},
 						{
-							"uri": "https://www.cng.sante.fr/comment/reply/",
+							"uri": "https://www.cng.sante.fr/accompagnement-professionnel",
+							"method": "GET",
+							"param": "https://www.googletagmanager.com/gtag/js?id=UA-109299715-1",
+							"attack": "",
+							"evidence": "<script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-109299715-1\"></script>"
+						},
+						{
+							"uri": "https://www.cng.sante.fr/autorisation-dexercice",
+							"method": "GET",
+							"param": "https://www.googletagmanager.com/gtag/js?id=UA-109299715-1",
+							"attack": "",
+							"evidence": "<script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-109299715-1\"></script>"
+						},
+						{
+							"uri": "https://www.cng.sante.fr/concours-examens",
 							"method": "GET",
 							"param": "https://www.googletagmanager.com/gtag/js?id=UA-109299715-1",
 							"attack": "",
@@ -606,20 +667,6 @@
 						},
 						{
 							"uri": "https://www.cng.sante.fr/core/*.svg",
-							"method": "GET",
-							"param": "https://www.googletagmanager.com/gtag/js?id=UA-109299715-1",
-							"attack": "",
-							"evidence": "<script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-109299715-1\"></script>"
-						},
-						{
-							"uri": "https://www.cng.sante.fr/filter/tips",
-							"method": "GET",
-							"param": "https://www.googletagmanager.com/gtag/js?id=UA-109299715-1",
-							"attack": "",
-							"evidence": "<script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-109299715-1\"></script>"
-						},
-						{
-							"uri": "https://www.cng.sante.fr/node/add/",
 							"method": "GET",
 							"param": "https://www.googletagmanager.com/gtag/js?id=UA-109299715-1",
 							"attack": "",
@@ -693,7 +740,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "816"
+					"sourceid": "819"
 				},
 				{
 					"pluginid": "10015",
@@ -809,6 +856,13 @@
 							"evidence": ""
 						},
 						{
+							"uri": "https://www.cng.sante.fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
 							"uri": "https://www.cng.sante.fr/core/*.css",
 							"method": "GET",
 							"param": "",
@@ -870,13 +924,6 @@
 							"param": "",
 							"attack": "",
 							"evidence": ""
-						},
-						{
-							"uri": "https://www.cng.sante.fr/profiles/*.css$",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
 						}
 					],
 					"count": "11",
@@ -911,7 +958,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>http://caniuse.com/stricttransportsecurity</p><p>http://tools.ietf.org/html/rfc6797</p>",
 					"cweid": "319",
 					"wascid": "15",
-					"sourceid": "445"
+					"sourceid": "487"
 				},
 				{
 					"pluginid": "10096",
@@ -975,28 +1022,35 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "S6GDsex4f9yWF6J7bLUtGytATXjoYCfpuy0LqU6W2lGGvf6ynfDu0k/mHCXa0eVVp4/ZaPGux6LDanTPU7jWyIdXZs4="
+							"evidence": "FJoN89EnIrkHdu97bLUtGytATXjoYOfiBoN6wE6vmFTwCVpzCcl0SktF4XwYFcwWZAVAMJ9Z17YfaM3qbYlchB7mPgg="
 						},
 						{
 							"uri": "https://www.cng.sante.fr",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "cGIvAqT05tUfwoR7bLUtGytATXjoYC/IzWVZuylnhoS7/I26w264jYRix4/iivpEXnixIK2y20SUp4siKD/aGyydRRU="
+							"evidence": "yV6VMSMR+OlYcHJ7bLUtGytATXjoYHAE42BUkvzvSOOrcsH6RrNkI/y04q6XMO6egpf6M7wSutr/UeJQCCSW/Rrc4LU="
 						},
 						{
-							"uri": "https://www.cng.sante.fr/admin/",
+							"uri": "https://www.cng.sante.fr/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "/sites/default/files/css/css_ucF4nKbfsLqbEcVjouMO_G8zDfNK8goWukLtEP8XWGs"
+							"evidence": "/sites/default/files/css/css_TipM9RgfguP0eczKNR2bT6yFlm9pFYBFwsQrBqsTqPA"
 						},
 						{
-							"uri": "https://www.cng.sante.fr/comment/reply/",
+							"uri": "https://www.cng.sante.fr/accompagnement-professionnel",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "/sites/default/files/css/css_ucF4nKbfsLqbEcVjouMO_G8zDfNK8goWukLtEP8XWGs"
+							"evidence": "/sites/default/files/css/css_U8Wh8F_AHDLSudKdaUErSYalhFkDqMbrwjjzkm2cC-4"
+						},
+						{
+							"uri": "https://www.cng.sante.fr/concours-examens",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "/sites/default/files/css/css_moJJ27T1vHIGlezicI68lEyvSi8zbn5UtnN5Eor69bI"
 						},
 						{
 							"uri": "https://www.cng.sante.fr/core/*.css$",
@@ -1014,13 +1068,6 @@
 						},
 						{
 							"uri": "https://www.cng.sante.fr/core/*.svg",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "/sites/default/files/css/css_ucF4nKbfsLqbEcVjouMO_G8zDfNK8goWukLtEP8XWGs"
-						},
-						{
-							"uri": "https://www.cng.sante.fr/node/add/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1052,12 +1099,12 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1aM0vPSDPOZifL17bLUtGytATXjoYO2UV/AtZHPvnoalo3EStSlWH4pRi2+7ogGV4hckeRIhIX8iRVrCEzY+VhKPk08="
+							"evidence": "45wUlBNVm/YMJlt7bLUtGytATXjoYL8aWXHsIENFNJfcZia1logYhqEDiYLUFIKh+GZVPIdB349MPcZHyx/6KtVrWgc="
 						}
 					],
 					"count": "12",
 					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
-					"otherinfo": "<p>K\uFFFD\uFFFD\uFFFD\uFFFDx\u0716\\x0017\uFFFD{l\uFFFD-\\x001b+@Mx\uFFFD`'\uFFFD-\\x000b\uFFFDN\uFFFD\uFFFDQ\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFDO\uFFFD\\x001c%\uFFFD\uFFFD\uFFFDU\uFFFD\uFFFD\uFFFDh\uFFFD\u01E2\uFFFDjt\uFFFDS\uFFFD\uFFFD\u0207Wf\uFFFD</p>",
+					"otherinfo": "<p>\\x0014\uFFFD\r\uFFFD\uFFFD'\"\uFFFD\\x0007v\uFFFD{l\uFFFD-\\x001b+@Mx\uFFFD`\uFFFD\uFFFD\\x0006\uFFFDz\uFFFDN\uFFFD\uFFFDT\uFFFD\tZs\t\uFFFDtJKE\uFFFD|\\x0018\\x0015\uFFFD\\x0016d\\x0005@0\uFFFDY\u05F6\\x001fh\uFFFD\uFFFDm\uFFFD\\\uFFFD\\x001e\uFFFD>\\x0008</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
@@ -1081,6 +1128,20 @@
 							"evidence": "user"
 						},
 						{
+							"uri": "https://www.cng.sante.fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "user"
+						},
+						{
+							"uri": "https://www.cng.sante.fr/concours-examens",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "user"
+						},
+						{
 							"uri": "https://www.cng.sante.fr/core/*.css$",
 							"method": "GET",
 							"param": "",
@@ -1131,20 +1192,6 @@
 						},
 						{
 							"uri": "https://www.cng.sante.fr/profiles/*.css$",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "user"
-						},
-						{
-							"uri": "https://www.cng.sante.fr/profiles/*.js$",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "from"
-						},
-						{
-							"uri": "https://www.cng.sante.fr/profiles/*.js$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1177,18 +1224,32 @@
 							"evidence": "<a href=\"/concours-examens\" target=\"_self\" data-drupal-link-system-path=\"node/5\">Concours &amp; examens</a>"
 						},
 						{
-							"uri": "https://www.cng.sante.fr/admin/",
+							"uri": "https://www.cng.sante.fr/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "<a href=\"/concours-examens\" target=\"_self\" data-drupal-link-system-path=\"node/5\">Concours &amp; examens</a>"
 						},
 						{
-							"uri": "https://www.cng.sante.fr/comment/reply/",
+							"uri": "https://www.cng.sante.fr/accompagnement-professionnel",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "<a href=\"/concours-examens\" target=\"_self\" data-drupal-link-system-path=\"node/5\">Concours &amp; examens</a>"
+						},
+						{
+							"uri": "https://www.cng.sante.fr/autorisation-dexercice",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a href=\"/concours-examens\" target=\"_self\" data-drupal-link-system-path=\"node/5\">Concours &amp; examens</a>"
+						},
+						{
+							"uri": "https://www.cng.sante.fr/concours-examens",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a href=\"/concours-examens\" target=\"_self\" class=\"active-trail is-active\" data-drupal-link-system-path=\"node/5\">Concours &amp; examens</a>"
 						},
 						{
 							"uri": "https://www.cng.sante.fr/core/*.css$",
@@ -1206,20 +1267,6 @@
 						},
 						{
 							"uri": "https://www.cng.sante.fr/core/*.svg",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<a href=\"/concours-examens\" target=\"_self\" data-drupal-link-system-path=\"node/5\">Concours &amp; examens</a>"
-						},
-						{
-							"uri": "https://www.cng.sante.fr/filter/tips",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<a href=\"/concours-examens\" target=\"_self\" data-drupal-link-system-path=\"node/5\">Concours &amp; examens</a>"
-						},
-						{
-							"uri": "https://www.cng.sante.fr/node/add/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1321,7 +1368,7 @@
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "249"
+					"sourceid": "299"
 				},
 				{
 					"pluginid": "10049",
@@ -1443,7 +1490,7 @@
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "2832"
+					"sourceid": "2814"
 				}
 			]
 		}
