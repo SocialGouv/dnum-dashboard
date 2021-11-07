@@ -1,6 +1,6 @@
 {
 	"@version": "2.11.0",
-	"@generated": "Sun, 31 Oct 2021 03:02:29",
+	"@generated": "Sun, 7 Nov 2021 03:05:27",
 	"site":[ 
 		{
 			"@name": "https://rappel.conso.gouv.fr",
@@ -8,6 +8,32 @@
 			"@port": "443",
 			"@ssl": "true",
 			"alerts": [ 
+				{
+					"pluginid": "10062",
+					"alertRef": "10062",
+					"alert": "PII Disclosure",
+					"name": "PII Disclosure",
+					"riskcode": "3",
+					"confidence": "3",
+					"riskdesc": "High (High)",
+					"desc": "<p>The response contains Personally Identifiable Information, such as CC number, SSN and similar sensitive data.</p>",
+					"instances":[ 
+						{
+							"uri": "https://rappel.conso.gouv.fr/fiche-rappel/4333/Interne",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "4047777150589"
+						}
+					],
+					"count": "1",
+					"solution": "",
+					"otherinfo": "<p>Credit Card Type detected: Visa</p><p>Bank Identification Number: 404777</p><p>Brand: VISA</p><p>Category: </p><p>Issuer: FIRST COMMERCIAL BANK</p>",
+					"reference": "",
+					"cweid": "359",
+					"wascid": "13",
+					"sourceid": "1073"
+				},
 				{
 					"pluginid": "10055",
 					"alertRef": "10055",
@@ -313,96 +339,7 @@
 					"reference": "<p>https://blog.jquery.com/2020/04/10/jquery-3-5-0-released/</p><p></p>",
 					"cweid": "829",
 					"wascid": "-1",
-					"sourceid": "1191"
-				},
-				{
-					"pluginid": "90022",
-					"alertRef": "90022",
-					"alert": "Application Error Disclosure",
-					"name": "Application Error Disclosure",
-					"riskcode": "1",
-					"confidence": "2",
-					"riskdesc": "Low (Medium)",
-					"desc": "<p>This page contains an error/warning message that may disclose sensitive information like the location of the file that produced the unhandled exception. This information can be used to launch further attacks against the web application. The alert could be a false positive if the error message is found inside a documentation page.</p>",
-					"instances":[ 
-						{
-							"uri": "https://rappel.conso.gouv.fr/fiche-rappel/2122/Rapex",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "HTTP/1.1 500 Internal Server Error"
-						},
-						{
-							"uri": "https://rappel.conso.gouv.fr/fiche-rappel/2189/Rapex",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "HTTP/1.1 500 Internal Server Error"
-						},
-						{
-							"uri": "https://rappel.conso.gouv.fr/fiche-rappel/2193/Rapex",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "HTTP/1.1 500 Internal Server Error"
-						},
-						{
-							"uri": "https://rappel.conso.gouv.fr/fiche-rappel/2195/Rapex",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "HTTP/1.1 500 Internal Server Error"
-						},
-						{
-							"uri": "https://rappel.conso.gouv.fr/fiche-rappel/2209/Rapex",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "HTTP/1.1 500 Internal Server Error"
-						},
-						{
-							"uri": "https://rappel.conso.gouv.fr/fiche-rappel/2214/Rapex",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "HTTP/1.1 500 Internal Server Error"
-						},
-						{
-							"uri": "https://rappel.conso.gouv.fr/fiche-rappel/2245/Rapex",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "HTTP/1.1 500 Internal Server Error"
-						},
-						{
-							"uri": "https://rappel.conso.gouv.fr/fiche-rappel/2251/Rapex",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "HTTP/1.1 500 Internal Server Error"
-						},
-						{
-							"uri": "https://rappel.conso.gouv.fr/fiche-rappel/2276/Rapex",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "HTTP/1.1 500 Internal Server Error"
-						},
-						{
-							"uri": "https://rappel.conso.gouv.fr/fiche-rappel/2277/Rapex",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "HTTP/1.1 500 Internal Server Error"
-						}
-					],
-					"count": "10",
-					"solution": "<p>Review the source code of this page. Implement custom error pages. Consider implementing a mechanism to provide a unique error reference/identifier to the client (browser) while logging the details on the server side and not exposing them to the user.</p>",
-					"otherinfo": "",
-					"reference": "",
-					"cweid": "200",
-					"wascid": "13",
-					"sourceid": "4929"
+					"sourceid": "1153"
 				},
 				{
 					"pluginid": "10010",
@@ -422,41 +359,6 @@
 							"evidence": "Set-Cookie: BWROUTEID"
 						},
 						{
-							"uri": "https://rappel.conso.gouv.fr/fiche-rappel/2122/Rapex",
-							"method": "GET",
-							"param": "BWROUTEID",
-							"attack": "",
-							"evidence": "Set-Cookie: BWROUTEID"
-						},
-						{
-							"uri": "https://rappel.conso.gouv.fr/fiche-rappel/2195/Rapex",
-							"method": "GET",
-							"param": "BWROUTEID",
-							"attack": "",
-							"evidence": "Set-Cookie: BWROUTEID"
-						},
-						{
-							"uri": "https://rappel.conso.gouv.fr/fiche-rappel/2209/Rapex",
-							"method": "GET",
-							"param": "BWROUTEID",
-							"attack": "",
-							"evidence": "Set-Cookie: BWROUTEID"
-						},
-						{
-							"uri": "https://rappel.conso.gouv.fr/fiche-rappel/2251/Rapex",
-							"method": "GET",
-							"param": "BWROUTEID",
-							"attack": "",
-							"evidence": "Set-Cookie: BWROUTEID"
-						},
-						{
-							"uri": "https://rappel.conso.gouv.fr/fiche-rappel/2277/Rapex",
-							"method": "GET",
-							"param": "BWROUTEID",
-							"attack": "",
-							"evidence": "Set-Cookie: BWROUTEID"
-						},
-						{
 							"uri": "https://rappel.conso.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "BWROUTEID",
@@ -464,7 +366,7 @@
 							"evidence": "Set-Cookie: BWROUTEID"
 						}
 					],
-					"count": "7",
+					"count": "2",
 					"solution": "<p>Ensure that the HttpOnly flag is set for all cookies.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://owasp.org/www-community/HttpOnly</p>",
@@ -490,41 +392,6 @@
 							"evidence": "Set-Cookie: .AspNetCore.Antiforgery.O33mliWV2hE"
 						},
 						{
-							"uri": "https://rappel.conso.gouv.fr/fiche-rappel/2122/Rapex",
-							"method": "GET",
-							"param": ".AspNetCore.Antiforgery.O33mliWV2hE",
-							"attack": "",
-							"evidence": "Set-Cookie: .AspNetCore.Antiforgery.O33mliWV2hE"
-						},
-						{
-							"uri": "https://rappel.conso.gouv.fr/fiche-rappel/2195/Rapex",
-							"method": "GET",
-							"param": ".AspNetCore.Antiforgery.O33mliWV2hE",
-							"attack": "",
-							"evidence": "Set-Cookie: .AspNetCore.Antiforgery.O33mliWV2hE"
-						},
-						{
-							"uri": "https://rappel.conso.gouv.fr/fiche-rappel/2209/Rapex",
-							"method": "GET",
-							"param": ".AspNetCore.Antiforgery.O33mliWV2hE",
-							"attack": "",
-							"evidence": "Set-Cookie: .AspNetCore.Antiforgery.O33mliWV2hE"
-						},
-						{
-							"uri": "https://rappel.conso.gouv.fr/fiche-rappel/2251/Rapex",
-							"method": "GET",
-							"param": ".AspNetCore.Antiforgery.O33mliWV2hE",
-							"attack": "",
-							"evidence": "Set-Cookie: .AspNetCore.Antiforgery.O33mliWV2hE"
-						},
-						{
-							"uri": "https://rappel.conso.gouv.fr/fiche-rappel/2277/Rapex",
-							"method": "GET",
-							"param": ".AspNetCore.Antiforgery.O33mliWV2hE",
-							"attack": "",
-							"evidence": "Set-Cookie: .AspNetCore.Antiforgery.O33mliWV2hE"
-						},
-						{
 							"uri": "https://rappel.conso.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": ".AspNetCore.Antiforgery.O33mliWV2hE",
@@ -532,7 +399,7 @@
 							"evidence": "Set-Cookie: .AspNetCore.Antiforgery.O33mliWV2hE"
 						}
 					],
-					"count": "7",
+					"count": "2",
 					"solution": "<p>Whenever a cookie contains sensitive information or is a session token, then it should always be passed using an encrypted channel. Ensure that the secure flag is set for cookies containing such sensitive information.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/06-Session_Management_Testing/02-Testing_for_Cookies_Attributes.html</p>",
@@ -558,41 +425,6 @@
 							"evidence": "Set-Cookie: BWROUTEID"
 						},
 						{
-							"uri": "https://rappel.conso.gouv.fr/fiche-rappel/2122/Rapex",
-							"method": "GET",
-							"param": "BWROUTEID",
-							"attack": "",
-							"evidence": "Set-Cookie: BWROUTEID"
-						},
-						{
-							"uri": "https://rappel.conso.gouv.fr/fiche-rappel/2195/Rapex",
-							"method": "GET",
-							"param": "BWROUTEID",
-							"attack": "",
-							"evidence": "Set-Cookie: BWROUTEID"
-						},
-						{
-							"uri": "https://rappel.conso.gouv.fr/fiche-rappel/2209/Rapex",
-							"method": "GET",
-							"param": "BWROUTEID",
-							"attack": "",
-							"evidence": "Set-Cookie: BWROUTEID"
-						},
-						{
-							"uri": "https://rappel.conso.gouv.fr/fiche-rappel/2251/Rapex",
-							"method": "GET",
-							"param": "BWROUTEID",
-							"attack": "",
-							"evidence": "Set-Cookie: BWROUTEID"
-						},
-						{
-							"uri": "https://rappel.conso.gouv.fr/fiche-rappel/2277/Rapex",
-							"method": "GET",
-							"param": "BWROUTEID",
-							"attack": "",
-							"evidence": "Set-Cookie: BWROUTEID"
-						},
-						{
 							"uri": "https://rappel.conso.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "BWROUTEID",
@@ -600,7 +432,7 @@
 							"evidence": "Set-Cookie: BWROUTEID"
 						}
 					],
-					"count": "7",
+					"count": "2",
 					"solution": "<p>Ensure that the SameSite attribute is set to either 'lax' or ideally 'strict' for all cookies.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://tools.ietf.org/html/draft-ietf-httpbis-cookie-same-site</p>",
@@ -728,7 +560,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "1191"
+					"sourceid": "1153"
 				},
 				{
 					"pluginid": "10015",
@@ -1132,13 +964,6 @@
 							"evidence": "20210921"
 						},
 						{
-							"uri": "https://rappel.conso.gouv.fr/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "20210921"
-						},
-						{
 							"uri": "https://rappel.conso.gouv.fr/assets/files/RAPPELCONSO_FAQ.pdf",
 							"method": "GET",
 							"param": "",
@@ -1531,7 +1356,7 @@
 							"evidence": "20210921"
 						}
 					],
-					"count": "58",
+					"count": "57",
 					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
 					"otherinfo": "<p>20210921, which evaluates to: 1970-08-22 22:08:41</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
@@ -1554,21 +1379,21 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "CfDJ8ApzRALrpH1ImftGI1f8nOtJ57Ptic5EPWvXvdH0H7vI0ePxJAUByF2PunKzr4qglTNjgVWF7iGajNS8jkPK8OhO_ShzIh2lRFq_UcFQ-dlGx0tZlpnMMlHIsZtl_TfhrEU50Q9D19gNdx74RBdAjrs"
+							"evidence": "CfDJ8ApzRALrpH1ImftGI1f8nOtovk1agqw98_2YSk7CUPP5ptcjbFWEhY8tIxi3k2q4zzdIMvJcnXZrKGavBe4CIYib2GvY-V4tfIWevRHXSPrcU8PHfOgZFRFGh48IBb7g85ig97D2anEWkV8cRengrPM"
 						},
 						{
 							"uri": "https://rappel.conso.gouv.fr",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "CfDJ8ApzRALrpH1ImftGI1f8nOv-cJxaYZKt848s_tfK4Dx_ZK1F6kMmya0xMgO0Iksvp5qsT5Rmj5-7F2BlH7UPU-2DuxIZuK0aqYdA1UX802bM3izGKaB53UZQQb9mMbOd-EAfBuRqJWWKSb97mTvMq3I"
+							"evidence": "CfDJ8ApzRALrpH1ImftGI1f8nOvbYXS1rFoE6FZGh414AJ0-daGbr9ISeD0pwttH1qdghV8dbmJNTXmR856NQOV68cFwh_2eppqJLPmsRPFG6N1sGwqZXSXWw1aU-yd4ZICFMBr8BH3-rN-RDqNRGh1UCWM"
 						},
 						{
 							"uri": "https://rappel.conso.gouv.fr/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "CfDJ8ApzRALrpH1ImftGI1f8nOtPihNgIbEpitYEZ8xXa9ZCqScw1jBXAikf-iajQusJkhIGZaar8808bXxQ3cv2RY0Ve5V7n54dpBC_r7YP_MvI2ZjPlBIyJE4o8np9w1BR95YBEdsTu12xg_2ihhHywdA"
+							"evidence": "CfDJ8ApzRALrpH1ImftGI1f8nOtvmsIZzcRDJhxGeHX8AXyJDMzfz7JE5vXrBKgxjnhQ54g5QwGzQbDGCgcowHSCMZh4awnNkTEfID15twQ-CPLshyPDMVCuDjdd8WVJN6eI2FHIDskfYTN8w-V5QdfBo2M"
 						},
 						{
 							"uri": "https://rappel.conso.gouv.fr/assets/files/RAPPELCONSO_FAQ.pdf",
@@ -1582,61 +1407,61 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "CfDJ8ApzRALrpH1ImftGI1f8nOvxtGwrwFpeY-cfVsEWaOYqbjty1mhmiK2Mms6TocX81yC99-8YBmnFJDgUHFdsF5BYdtvEw41XFIRXZom9yYmzJW7QL98Fj_cF7NXxhltImVyGgBnAZ4Pqb280tRcDrnY"
+							"evidence": "CfDJ8ApzRALrpH1ImftGI1f8nOu_pvnVLIK7Rr-kpPWxLUcEKBkfUoOzenOe9Ur8RsVAZtYt9uEctSymIG2oBU2t7dm1U3xzShmcd-ksnrKSxzi7x-xy3fiCCiRzFHME4j2kjWuHMB58F2mU29o-veyTZ-U"
 						},
 						{
 							"uri": "https://rappel.conso.gouv.fr/categorie/18",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "CfDJ8ApzRALrpH1ImftGI1f8nOuq738ZjmK1t-BFzCsBS3iCcqPvrgXWXt6Ga7CbJYPBchMg8kQbcH-bRBenK1auBfelMNn4L5n-ofza0Pq6TFh1Lzvd1qf2-6DdVmYrYfxRBur-bHoSGYHZ7efpJU8hJLI"
+							"evidence": "CfDJ8ApzRALrpH1ImftGI1f8nOuaTu3GXI3RueF8JNYhiVoUjMFnEnS0lJV0QTasM5Ud0fmfMDtk05-R99WSbXAEip3uE9L3vNgWVy5oe4Pz-UQ5GJOjQ3n4VwgwYEczhM8BblTDVhEpJuiqI6NOFcapmYs"
 						},
 						{
 							"uri": "https://rappel.conso.gouv.fr/categorie/2",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "CfDJ8ApzRALrpH1ImftGI1f8nOuzZc-6sX5C9BJZUP_H7YTKaRSJltrvNgLRGkwyw_Z3jGX1AK1TekdbnhEXLlK6IckDHsyzfyopqxNijl8shyH90j48tzuwoCqrlq6TAq1mH92_eylDoK0F106kTS2u0vE"
+							"evidence": "CfDJ8ApzRALrpH1ImftGI1f8nOudHsUm7VqeZeF2jyaaSCs2BJ0N1IhN7QphWuRO03vmMVq7mi-ehlWmtbXUK4om0ZWXRC5Qfm1oyn4Y8RQSVX1RDNoIGeOIbka8H9QsWZJWH5cvGuygUg-EHFVvidj0OtA"
 						},
 						{
 							"uri": "https://rappel.conso.gouv.fr/categorie/21",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "CfDJ8ApzRALrpH1ImftGI1f8nOsLpOMk9ze1jtbT9u01qsgD7_jUG_mf2IQyGSZ01rgjK0Ql-dCcjbO4HkhFmNlzJ-iVEUOdpGk9j5s8mAjZ3D2bEjUc-VhRbOSDoydd7du55kVxmaAF2C_iIN3nDh3lWAg"
+							"evidence": "CfDJ8ApzRALrpH1ImftGI1f8nOtKjDVjUkLQXxiGO49-SGJf0AQ70WO8ce-ba0cfrHqjMF8vqkNpCeXnjBgm4gELwFZUQcDbQKoi-6IYgbSTfkh0TuBrrV-vOTtx3KhPhsab0m6XrA9kn2GjIEO5Je0-e54"
 						},
 						{
 							"uri": "https://rappel.conso.gouv.fr/categorie/25",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "CfDJ8ApzRALrpH1ImftGI1f8nOsRQFWhsU4YgZpOKLaiLVu7flQGtMYWtkJYrgfDNMrzzuJWlOAAzN2GPeCXuCSNZsb96newkd4xZVGCc2niQCTDbWNe31I7M_24D2f1V2FwrtXMpd46pHpL-Dg48vfBDgw"
+							"evidence": "CfDJ8ApzRALrpH1ImftGI1f8nOszB8HR7asHmkJjR5Q9EU8yKtMKXGQxA8FYZsyMHHklnz71h79yvp9wemhfcrPZoRT6KHTzLHxQEH_CjUrhEeUDotuHsGpDblM88j342JRaSBpkNQfPlBuBlNd8S4uWpTM"
 						},
 						{
 							"uri": "https://rappel.conso.gouv.fr/categorie/7",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "CfDJ8ApzRALrpH1ImftGI1f8nOsOCtK0eNp8uwRTmDGSYl0kry-0aq_d4Q-uRGGFsfxPy5k3mPEhXOxiOKiVn2kaxmVnumvRLkMuJucTM1w2PXysQSLdDC28mDPSLBRDWRfkFn0t7F0wTlAqCFr77sajC8U"
+							"evidence": "CfDJ8ApzRALrpH1ImftGI1f8nOu5ZSJcfoqpEqgt0JLGdSmflPUxyeOLqvjlutom9lEelDTwaSTSXthWbeJ8r-GpclsGHNEQVueLGtrje2TlAn5jBXNqe8R7wwoj2rob3DAeVlDwapS0BvrAoiDSBv7rkPI"
 						},
 						{
 							"uri": "https://rappel.conso.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "CfDJ8ApzRALrpH1ImftGI1f8nOttzjrjU6n3d9LDO7gpARyVjUFs3wvX6LBckX-No9TQqMncLZmrB-Q4pB4Vehc4wgm5gB8fC84uWx7nnUuJL1ir3mcGJ7m7zzoo-3tKDmWM9Has3OpmyxLkzFvyIjLCvJM"
+							"evidence": "CfDJ8ApzRALrpH1ImftGI1f8nOuUn1rrQ107iVIOdIaBB-J47M-nkJn7Oal7tWGsiw_zJurPY3nKTv_mk--rE_t-sICQLKkvXUyPZB0GxL8fWveKicvYipbNgfUuoiRAEs5hJ2OW9GQdLdT9gqnB5SLL0-8"
 						},
 						{
 							"uri": "https://rappel.conso.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "CfDJ8ApzRALrpH1ImftGI1f8nOt6uK4Ibk3mqCjtq3JGgHjT84CBOb-f5DXfGpiXxa5umSCqYe2VElpE4D0Ew-zkthyCmv5ulxKGsTkagw_FITh14Opil3QDeBY4GzfzaX2-jD99wwQY09R4uwBbYCDNuRw"
+							"evidence": "CfDJ8ApzRALrpH1ImftGI1f8nOshX9cOeEgq95awqrVEmPktAy0X8si5i-Le8uv9Aapv2e_OA9NpvD1uQNLZ58A_TNJ0k82ACPGKuW_Z8L2tdJQYyyY7YjNTH4049jrT8kwsDeP3Y4dqK6DYC-huV0Vucmo"
 						}
 					],
 					"count": "12",
 					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
-					"otherinfo": "<p>\t\uFFFD\uFFFD\uFFFD</p><p>sD\\x0002\uFFFD}H\uFFFD\uFFFDF#W\uFFFD\uFFFD\uFFFDI\uFFFD\uFFFD\uFFFDD=k\u05FD\uFFFD\uFFFD\\x001f\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD$\\x0005\\x0001\uFFFD]\uFFFD\uFFFDr\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD3c\uFFFDU\uFFFD\uFFFD!\uFFFD\uFFFD\u053C\uFFFDC\uFFFD\uFFFD\uFFFDN\uFFFD(s\"\\x001d\uFFFDDZ\uFFFDQ\uFFFDP\uFFFD\uFFFDF\uFFFDKY\uFFFD\uFFFD\uFFFD2Q\u0231\uFFFDe\uFFFD7\uFFFDE9\uFFFD\\x000fC\uFFFD\uFFFD\rw\\x001e\uFFFDD\\x0017@\uFFFD\uFFFD</p>",
+					"otherinfo": "<p>\t\uFFFD\uFFFD\uFFFD</p><p>sD\\x0002\uFFFD}H\uFFFD\uFFFDF#W\uFFFD\uFFFD\uFFFDh\uFFFDMZ\uFFFD\uFFFD=\uFFFD\uFFFD\uFFFDJN\uFFFDP\uFFFD\uFFFD\uFFFD\uFFFD#lU\uFFFD\uFFFD\uFFFD-#\\x0018\uFFFD\uFFFDj\uFFFD\uFFFD7H2\uFFFD\\\uFFFDvk(f\uFFFD\\x0005\uFFFD\\x0002!\uFFFD\uFFFD\uFFFDk\uFFFD\uFFFD^-|\uFFFD\uFFFD\uFFFD\\x0011\uFFFDH\uFFFD\uFFFDS\uFFFD\uFFFD|\uFFFD\\x0019\\x0015\\x0011F\uFFFD\uFFFD\\x0008\\x0005\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFDjq\\x0016\uFFFD_\\x001cE\uFFFD\uFFFD\uFFFD</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
@@ -1673,7 +1498,7 @@
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1191"
+					"sourceid": "1153"
 				},
 				{
 					"pluginid": "10109",
@@ -1884,7 +1709,7 @@
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "108"
+					"sourceid": "106"
 				}
 			]
 		}
