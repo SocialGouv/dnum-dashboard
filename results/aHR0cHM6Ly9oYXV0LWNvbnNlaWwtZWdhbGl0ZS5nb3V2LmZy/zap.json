@@ -1,6 +1,6 @@
 {
 	"@version": "2.11.0",
-	"@generated": "Sun, 31 Oct 2021 02:13:34",
+	"@generated": "Sun, 7 Nov 2021 02:13:39",
 	"site":[ 
 		{
 			"@name": "https://haut-conseil-egalite.gouv.fr",
@@ -205,7 +205,33 @@
 					"reference": "<p>https://owasp.org/www-community/attacks/Reverse_Tabnabbing</p><p>https://dev.to/ben/the-targetblank-vulnerability-by-example</p><p>https://mathiasbynens.github.io/rel-noopener/</p><p>https://medium.com/@jitbit/target-blank-the-most-underestimated-vulnerability-ever-96e328301f4c</p>",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "2316"
+					"sourceid": "2314"
+				},
+				{
+					"pluginid": "90003",
+					"alertRef": "90003",
+					"alert": "Sub Resource Integrity Attribute Missing",
+					"name": "Sub Resource Integrity Attribute Missing",
+					"riskcode": "2",
+					"confidence": "3",
+					"riskdesc": "Medium (High)",
+					"desc": "<p>The integrity attribute is missing on a script or link tag served by an external server. The integrity tag prevents an attacker who have gained access to this server from injecting a malicious content. </p>",
+					"instances":[ 
+						{
+							"uri": "https://haut-conseil-egalite.gouv.fr/parite/actualites/article/projet-de-loi-sur-l-election-des",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script type=\"text/javascript\" src=\"http://e.issuu.com/embed.js\" async=\"true\"></script>"
+						}
+					],
+					"count": "1",
+					"solution": "<p>Provide a valid integrity attribute to the tag.</p>",
+					"otherinfo": "",
+					"reference": "<p>https://developer.mozilla.org/en/docs/Web/Security/Subresource_Integrity</p>",
+					"cweid": "345",
+					"wascid": "15",
+					"sourceid": "4458"
 				},
 				{
 					"pluginid": "10003",
@@ -231,7 +257,7 @@
 					"reference": "<p>https://blog.jquery.com/2019/04/10/jquery-3-4-0-released/</p><p>https://nvd.nist.gov/vuln/detail/CVE-2019-11358</p><p>https://github.com/jquery/jquery/commit/753d591aea698e57d6db58c9f722cd0808619b1b</p><p>https://blog.jquery.com/2020/04/10/jquery-3-5-0-released/</p><p></p>",
 					"cweid": "829",
 					"wascid": "-1",
-					"sourceid": "1803"
+					"sourceid": "1804"
 				},
 				{
 					"pluginid": "10202",
@@ -430,7 +456,7 @@
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "522"
+					"sourceid": "151"
 				},
 				{
 					"pluginid": "10054",
@@ -464,6 +490,39 @@
 					"cweid": "1275",
 					"wascid": "13",
 					"sourceid": "1"
+				},
+				{
+					"pluginid": "10017",
+					"alertRef": "10017",
+					"alert": "Cross-Domain JavaScript Source File Inclusion",
+					"name": "Cross-Domain JavaScript Source File Inclusion",
+					"riskcode": "1",
+					"confidence": "2",
+					"riskdesc": "Low (Medium)",
+					"desc": "<p>The page includes one or more script files from a third-party domain.</p>",
+					"instances":[ 
+						{
+							"uri": "https://haut-conseil-egalite.gouv.fr/parite/actualites/article/projet-de-loi-sur-l-election-des",
+							"method": "GET",
+							"param": "http://e.issuu.com/embed.js",
+							"attack": "",
+							"evidence": "<script type=\"text/javascript\" src=\"http://e.issuu.com/embed.js\" async=\"true\"></script>"
+						},
+						{
+							"uri": "https://haut-conseil-egalite.gouv.fr/parite/actualites/article/reforme-du-cumul-des-mandats-une",
+							"method": "GET",
+							"param": "//e.issuu.com/embed.js",
+							"attack": "",
+							"evidence": "<script type=\"text/javascript\" src=\"//e.issuu.com/embed.js\" async=\"true\"></script>"
+						}
+					],
+					"count": "2",
+					"solution": "<p>Ensure JavaScript source files are loaded from only trusted sources, and the sources can't be controlled by end users of the application.</p>",
+					"otherinfo": "",
+					"reference": "",
+					"cweid": "829",
+					"wascid": "15",
+					"sourceid": "4458"
 				},
 				{
 					"pluginid": "10110",
@@ -593,14 +652,14 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://haut-conseil-egalite.gouv.fr/stereotypes-et-roles-sociaux/bibliographie/",
+							"uri": "https://haut-conseil-egalite.gouv.fr/stereotypes-et-roles-sociaux/travaux-du-hce/",
 							"method": "GET",
 							"param": "Cache-Control",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://haut-conseil-egalite.gouv.fr/stereotypes-et-roles-sociaux/travaux-du-hce/",
+							"uri": "https://haut-conseil-egalite.gouv.fr/stereotypes-et-roles-sociaux/zoom-sur/",
 							"method": "GET",
 							"param": "Cache-Control",
 							"attack": "",
@@ -735,7 +794,7 @@
 					"reference": "<p>https://tools.ietf.org/html/rfc1918</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "3788"
+					"sourceid": "3813"
 				},
 				{
 					"pluginid": "10040",
@@ -965,7 +1024,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1635611359"
+							"evidence": "1636217034"
 						},
 						{
 							"uri": "https://haut-conseil-egalite.gouv.fr",
@@ -998,14 +1057,14 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "16+Po5DmpR4EaiZ7bLUtGytATXjoYHBgxMhmtWLlz5hrrkdgbHImRN1ua2eM8SiK1nJDUcPlHlhk81TFIrPxzz2Ir5o="
+							"evidence": "L5jDnbt46X53Nbd7bLUtGytATXjoYO/35sLajFZgRAdx4k3BzskJEPL33o3/5u7DebfJoiAJ/zqPxlqmI1mANIRGzPM="
 						},
 						{
 							"uri": "https://haut-conseil-egalite.gouv.fr",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "nwaF1aAWYhEF8/N7bLUtGytATXjoYCqed8jcW3hJXfPxS5B0g9r7wCT1oqSG1GNqeb6fdTL46YzW7tZziK6Wg060mNE="
+							"evidence": "V4IGcCe1UdnNRxp7bLUtGytATXjoYGsUqP4q3TF0k1yMgwUrfVystawdzX+bHrGd2jWI+rFBaIhhY17RAXDKektm5QY="
 						},
 						{
 							"uri": "https://haut-conseil-egalite.gouv.fr/",
@@ -1040,7 +1099,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "bYNd3TK4qyozW8p7bLUtGytATXjoYGYSke5RUpX5HeU721IhcNU27EvvL1CLrGjTK8nGJ29X56zXtRU8qP5mXtmI0is="
+							"evidence": "G5+5wX2lOLnT5wB7bLUtGytATXjoYG7LuXwTSmgxQ5SrPGUrC/uS+ze4SyZvV69tuw/TGhO+kJPv/T0DbQ/6+zZOH84="
 						},
 						{
 							"uri": "https://haut-conseil-egalite.gouv.fr/stereotypes-et-roles-sociaux/",
@@ -1080,11 +1139,11 @@
 					],
 					"count": "12",
 					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
-					"otherinfo": "<p>\u05EF\uFFFD\uFFFD\uFFFD\uFFFD\\x001e\\x0004j&{l\uFFFD-\\x001b+@Mx\uFFFD`p`\uFFFD\uFFFDf\uFFFDb\uFFFD\u03D8k\uFFFDG`lr&D\uFFFDnkg\uFFFD\uFFFD(\uFFFD\uFFFDrCQ\uFFFD\uFFFD\\x001eXd\uFFFDT\uFFFD\"\uFFFD\uFFFD\uFFFD=\uFFFD\uFFFD\uFFFD</p>",
+					"otherinfo": "<p>/\uFFFD\u00DD\uFFFDx\uFFFD~w5\uFFFD{l\uFFFD-\\x001b+@Mx\uFFFD`\uFFFD\uFFFD\uFFFD\uFFFD\u068CV`D\\x0007q\uFFFDM\uFFFD\uFFFD\uFFFD\t\\x0010\uFFFD\uFFFD\u078D\uFFFD\uFFFD\uFFFD\uFFFDy\uFFFD\u0262 \t\uFFFD:\uFFFD\uFFFDZ\uFFFD#Y\uFFFD4\uFFFDF\uFFFD\uFFFD</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "7"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10019",
@@ -1394,14 +1453,14 @@
 							"evidence": "<a id=\"top\"></a>"
 						},
 						{
-							"uri": "https://haut-conseil-egalite.gouv.fr/stereotypes-et-roles-sociaux/bibliographie/",
+							"uri": "https://haut-conseil-egalite.gouv.fr/stereotypes-et-roles-sociaux/travaux-du-hce/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "<a id=\"top\"></a>"
 						},
 						{
-							"uri": "https://haut-conseil-egalite.gouv.fr/stereotypes-et-roles-sociaux/travaux-du-hce/",
+							"uri": "https://haut-conseil-egalite.gouv.fr/stereotypes-et-roles-sociaux/zoom-sur/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1481,9 +1540,16 @@
 							"param": "",
 							"attack": "",
 							"evidence": "403"
+						},
+						{
+							"uri": "https://haut-conseil-egalite.gouv.fr/squelettes-dist/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "403"
 						}
 					],
-					"count": "8",
+					"count": "9",
 					"solution": "<p>The content may be marked as storable by ensuring that the following conditions are satisfied:</p><p>The request method must be understood by the cache and defined as being cacheable (\"GET\", \"HEAD\", and \"POST\" are currently defined as cacheable)</p><p>The response status code must be understood by the cache (one of the 1XX, 2XX, 3XX, 4XX, or 5XX response classes are generally understood)</p><p>The \"no-store\" cache directive must not appear in the request or response header fields</p><p>For caching by \"shared\" caches such as \"proxy\" caches, the \"private\" response directive must not appear in the response</p><p>For caching by \"shared\" caches such as \"proxy\" caches, the \"Authorization\" header field must not appear in the request, unless the response explicitly allows it (using one of the \"must-revalidate\", \"public\", or \"s-maxage\" Cache-Control response directives)</p><p>In addition to the conditions above, at least one of the following conditions must also be satisfied by the response:</p><p>It must contain an \"Expires\" header field</p><p>It must contain a \"max-age\" response directive</p><p>For \"shared\" caches such as \"proxy\" caches, it must contain a \"s-maxage\" response directive</p><p>It must contain a \"Cache Control Extension\" that allows it to be cached</p><p>It must have a status code that is defined as cacheable by default (200, 203, 204, 206, 300, 301, 404, 405, 410, 414, 501).   </p>",
 					"otherinfo": "",
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
@@ -1514,16 +1580,9 @@
 							"param": "",
 							"attack": "",
 							"evidence": ""
-						},
-						{
-							"uri": "https://haut-conseil-egalite.gouv.fr/sitemap.xml",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
 						}
 					],
-					"count": "3",
+					"count": "2",
 					"solution": "<p>Validate that the response does not contain sensitive, personal or user-specific information.  If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:</p><p>Cache-Control: no-cache, no-store, must-revalidate, private</p><p>Pragma: no-cache</p><p>Expires: 0</p><p>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request. </p>",
 					"otherinfo": "<p>In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234.</p>",
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
