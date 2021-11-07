@@ -1,6 +1,6 @@
 {
 	"@version": "2.11.0",
-	"@generated": "Sun, 31 Oct 2021 01:06:04",
+	"@generated": "Sun, 7 Nov 2021 01:05:12",
 	"site":[ 
 		{
 			"@name": "https://boussole.jeunes.gouv.fr",
@@ -1395,9 +1395,23 @@
 							"param": "",
 							"attack": "",
 							"evidence": "where"
+						},
+						{
+							"uri": "https://boussole.jeunes.gouv.fr/src/js/jquery-ui.min.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "from"
+						},
+						{
+							"uri": "https://boussole.jeunes.gouv.fr/src/js/jquery-ui.min.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "select"
 						}
 					],
-					"count": "12",
+					"count": "14",
 					"solution": "<p>Remove all comments that return information that may help an attacker and fix any underlying problems they refer to.</p>",
 					"otherinfo": "<p>The following pattern was used: \\bSELECT\\b and was detected in the element starting with: \"<script>$( function() {</p><p>\t\t\t$( \"#villes\" ).autocomplete({</p><p>\t\t\t\tminLength: 2,</p><p>\t\t\t\tsource: 'ville.php',</p><p>\t\t\t\tselect: function(eve\", see evidence field for the suspicious comment/snippet.</p>",
 					"reference": "",
