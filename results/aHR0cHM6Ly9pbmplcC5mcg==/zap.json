@@ -1,6 +1,6 @@
 {
 	"@version": "2.11.0",
-	"@generated": "Sun, 7 Nov 2021 02:23:56",
+	"@generated": "Sun, 14 Nov 2021 02:25:04",
 	"site":[ 
 		{
 			"@name": "https://injep.fr",
@@ -8,6 +8,32 @@
 			"@port": "443",
 			"@ssl": "true",
 			"alerts": [ 
+				{
+					"pluginid": "10062",
+					"alertRef": "10062",
+					"alert": "PII Disclosure",
+					"name": "PII Disclosure",
+					"riskcode": "3",
+					"confidence": "3",
+					"riskdesc": "High (High)",
+					"desc": "<p>The response contains Personally Identifiable Information, such as CC number, SSN and similar sensitive data.</p>",
+					"instances":[ 
+						{
+							"uri": "https://injep.fr/wp-content/uploads/2021/11/INJEP_Liste-des-acquisitions-n-103-novembre-2021.pdf",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "586333461306562"
+						}
+					],
+					"count": "1",
+					"solution": "",
+					"otherinfo": "<p>Credit Card Type detected: Maestro</p><p>Bank Identification Number: 586333</p><p>Brand: MAESTRO</p><p>Category: STANDARD</p><p>Issuer: </p>",
+					"reference": "",
+					"cweid": "359",
+					"wascid": "13",
+					"sourceid": "2677"
+				},
 				{
 					"pluginid": "10038",
 					"alertRef": "10038",
@@ -89,7 +115,7 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://injep.fr/thematique/vie-associative/",
+							"uri": "https://injep.fr/thematique/jeunesse/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -185,7 +211,7 @@
 							"evidence": "<a href=\"https://www.facebook.com/injep/\" target=\"_blank\"><i class=\"fa fa-facebook fa-2x\" ></i></a>"
 						},
 						{
-							"uri": "https://injep.fr/thematique/vie-associative/",
+							"uri": "https://injep.fr/thematique/jeunesse/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -264,7 +290,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<script src='https://stats.wp.com/e-202144.js' defer></script>"
+							"evidence": "<script src='https://stats.wp.com/e-202145.js' defer></script>"
 						},
 						{
 							"uri": "https://injep.fr",
@@ -363,7 +389,7 @@
 							"evidence": "<form role=\"search\" method=\"get\" class=\"search\" action=\"https://injep.fr/\">"
 						},
 						{
-							"uri": "https://injep.fr/thematique/vie-associative/",
+							"uri": "https://injep.fr/thematique/jeunesse/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -445,9 +471,9 @@
 						{
 							"uri": "https://injep.fr",
 							"method": "GET",
-							"param": "https://stats.wp.com/e-202144.js",
+							"param": "https://stats.wp.com/e-202145.js",
 							"attack": "",
-							"evidence": "<script src='https://stats.wp.com/e-202144.js' defer></script>"
+							"evidence": "<script src='https://stats.wp.com/e-202145.js' defer></script>"
 						},
 						{
 							"uri": "https://injep.fr/",
@@ -473,9 +499,9 @@
 						{
 							"uri": "https://injep.fr/",
 							"method": "GET",
-							"param": "https://stats.wp.com/e-202144.js",
+							"param": "https://stats.wp.com/e-202145.js",
 							"attack": "",
-							"evidence": "<script src='https://stats.wp.com/e-202144.js' defer></script>"
+							"evidence": "<script src='https://stats.wp.com/e-202145.js' defer></script>"
 						}
 					],
 					"count": "8",
@@ -517,7 +543,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "1267"
+					"sourceid": "1266"
 				},
 				{
 					"pluginid": "10015",
@@ -696,7 +722,7 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://injep.fr/thematique/vie-associative/",
+							"uri": "https://injep.fr/thematique/jeunesse/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -721,13 +747,6 @@
 					"riskdesc": "Low (Medium)",
 					"desc": "<p>The page includes mixed content, that is content accessed via HTTP instead of HTTPS.</p>",
 					"instances":[ 
-						{
-							"uri": "https://injep.fr/donnee/accueils-collectifs-de-mineurs-2007-2008-a-2016-2017/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "http://mtsfp-vm-injep-preprod.accelance.net/wp-content/uploads/2018/09/graphique-accueil-loisirs2_0-1-1024x623.png"
-						},
 						{
 							"uri": "https://injep.fr/donnee/accueils-collectifs-de-mineurs-2009-2010-a-2017-2018/",
 							"method": "GET",
@@ -764,20 +783,20 @@
 							"evidence": "http://mtsfp-vm-injep-preprod.accelance.net/wp-content/uploads/2018/12/retour-renc2017-diapo.jpg"
 						},
 						{
-							"uri": "https://injep.fr/injep_veille_actus/470-27-octobre-2021/",
+							"uri": "https://injep.fr/injep_veille_actus/471-9-novembre-2021/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "http://newsmailer.fr/templates/124/images/ministere-en-2018.gif"
 						}
 					],
-					"count": "7",
+					"count": "6",
 					"solution": "<p>A page that is available over SSL/TLS must be comprised completely of content which is transmitted over SSL/TLS.</p><p>The page must not contain any content that is transmitted over unencrypted HTTP.</p><p> This includes content from third party sites.</p>",
-					"otherinfo": "<p>tag=img src=http://mtsfp-vm-injep-preprod.accelance.net/wp-content/uploads/2018/09/graphique-accueil-loisirs2_0-1-1024x623.png</p><p></p>",
+					"otherinfo": "<p>tag=img src=http://mtsfp-vm-injep-preprod.accelance.net/wp-content/uploads/2018/12/1_0.jpg</p><p>tag=img src=http://mtsfp-vm-injep-preprod.accelance.net/wp-content/uploads/2018/12/2.jpg</p><p>tag=img src=http://mtsfp-vm-injep-preprod.accelance.net/wp-content/uploads/2018/12/3.jpg</p><p></p>",
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Protection_Cheat_Sheet.html</p>",
 					"cweid": "311",
 					"wascid": "4",
-					"sourceid": "5612"
+					"sourceid": "3958"
 				},
 				{
 					"pluginid": "10096",
@@ -801,7 +820,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1636231204"
+							"evidence": "1636832432"
 						},
 						{
 							"uri": "https://injep.fr",
@@ -848,14 +867,14 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "DphhzGffpIkzwFZ7bLUtGytATXjoYLBiQCM2OTVCs4JAe3RsI544gBBIq+u5QWHHV7lrvy/GMz41dghBPW69emWiyVo="
+							"evidence": "YfDaMX1NMQ5iGsN7bLUtGytATXjoYM+rRudlCbvIwZIj/dfZTK2B6Jb0b8XeAXsLUZiURMYOcZfGWyB9ryTjpcyv6rk="
 						},
 						{
 							"uri": "https://injep.fr",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "KDhGHE8hPPyaqy97bLUtGytATXjoYPTBylOZpkU7g07Kxawot30NjfJfGofRMxJz5FgGMTPiTQr3W1COBxqvTuAXrqg="
+							"evidence": "mltL2Rt5FuRPP2d7bLUtGytATXjoYKt2g0S9IiGN4rHbbt2+OZIgUU55v5ESN2Ig2CwrKF3ZctZh+18wV/yspbL5T28="
 						},
 						{
 							"uri": "https://injep.fr/",
@@ -869,7 +888,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "com/channel/UCShs01H7M6fMT_pX0B7NojA"
+							"evidence": "fr/wp-content/cache/min/1/wp-content/themes/injep-theme/IE/ie11"
 						},
 						{
 							"uri": "https://injep.fr/centre-de-ressources/",
@@ -883,7 +902,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "com/channel/UCShs01H7M6fMT_pX0B7NojA"
+							"evidence": "fr/wp-content/cache/min/1/wp-content/themes/injep-theme/IE/ie11"
 						},
 						{
 							"uri": "https://injep.fr/experimenter/",
@@ -904,7 +923,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "com/channel/UCShs01H7M6fMT_pX0B7NojA"
+							"evidence": "fr/wp-content/cache/min/1/wp-content/themes/injep-theme/IE/ie11"
 						},
 						{
 							"uri": "https://injep.fr/publications/",
@@ -918,10 +937,10 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "9hzSGFkHpGSg/mB7bLUtGytATXjoYKgGnkh1LeaJ5D0/TUE4PL9YzrN0JT86Ecu4DafPVStZ75bDPmYYFTQD/FaGasA="
+							"evidence": "s3QGREoZeTYxEzx7bLUtGytATXjoYJukDfskCo0Wb3LrQz4JG9jTEOCnGxuBVXzo+7r3wBdCx+zmCEEcyWdhftYCgPE="
 						},
 						{
-							"uri": "https://injep.fr/thematique/education-populaire/",
+							"uri": "https://injep.fr/thematique/jeunesse/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -930,7 +949,7 @@
 					],
 					"count": "12",
 					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
-					"otherinfo": "<p>\\x000e\uFFFDa\uFFFDg\u07E4\uFFFD3\uFFFDV{l\uFFFD-\\x001b+@Mx\uFFFD`\uFFFDb@#695B\uFFFD\uFFFD@{tl#\uFFFD8\uFFFD\\x0010H\uFFFD\uFFFDAa\uFFFDW\uFFFDk\uFFFD/\uFFFD3>5v\\x0008A=n\uFFFDze\uFFFD\uFFFDZ</p>",
+					"otherinfo": "<p>a\uFFFD\uFFFD1}M1\\x000eb\\x001a\uFFFD{l\uFFFD-\\x001b+@Mx\uFFFD`\u03EBF\uFFFDe\t\uFFFD\uFFFD\uFFFD\uFFFD#\uFFFD\uFFFD\uFFFDL\uFFFD\uFFFD\uFFFD\uFFFDo\uFFFD\uFFFD\\x0001{\\x000bQ\uFFFD\uFFFDD\uFFFD\\x000eq\uFFFD\uFFFD[ }\uFFFD$\uFFFD\u032F\uFFFD</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
@@ -967,7 +986,7 @@
 					"reference": "<p>http://code.google.com/p/browsersec/wiki/Part2#Character_set_handling_and_detection</p>",
 					"cweid": "436",
 					"wascid": "15",
-					"sourceid": "2651"
+					"sourceid": "2675"
 				},
 				{
 					"pluginid": "10027",
@@ -1022,28 +1041,28 @@
 							"evidence": "user"
 						},
 						{
-							"uri": "https://injep.fr/linstitut/",
+							"uri": "https://injep.fr/experimenter/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "query"
 						},
 						{
-							"uri": "https://injep.fr/linstitut/",
+							"uri": "https://injep.fr/experimenter/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "user"
 						},
 						{
-							"uri": "https://injep.fr/mesurer/",
+							"uri": "https://injep.fr/linstitut/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "query"
 						},
 						{
-							"uri": "https://injep.fr/mesurer/",
+							"uri": "https://injep.fr/linstitut/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1139,7 +1158,7 @@
 							"evidence": "<noscript><link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Roboto%3A400%2C500%2C700%7CMerriweather%3A400%2C700%2C900%2C400italic%2C700italic%2C900italic%7CMontserrat%3A400%2C700%7CInconsolata%3A400&#038;subset=latin%2Clatin-ext&#038;display=swap\" /></noscript>"
 						},
 						{
-							"uri": "https://injep.fr/thematique/vie-associative/",
+							"uri": "https://injep.fr/thematique/jeunesse/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
