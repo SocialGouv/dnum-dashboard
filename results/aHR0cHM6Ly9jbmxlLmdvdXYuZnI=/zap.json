@@ -1,6 +1,6 @@
 {
 	"@version": "2.11.0",
-	"@generated": "Sun, 7 Nov 2021 01:14:31",
+	"@generated": "Sun, 14 Nov 2021 01:15:09",
 	"site":[ 
 		{
 			"@name": "https://cnle.gouv.fr",
@@ -8,6 +8,32 @@
 			"@port": "443",
 			"@ssl": "true",
 			"alerts": [ 
+				{
+					"pluginid": "10062",
+					"alertRef": "10062",
+					"alert": "PII Disclosure",
+					"name": "PII Disclosure",
+					"riskcode": "3",
+					"confidence": "3",
+					"riskdesc": "High (High)",
+					"desc": "<p>The response contains Personally Identifiable Information, such as CC number, SSN and similar sensitive data.</p>",
+					"instances":[ 
+						{
+							"uri": "https://cnle.gouv.fr/bilan-du-collectif-alerte-de-la-3e.html",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "6571455717765475"
+						}
+					],
+					"count": "1",
+					"solution": "",
+					"otherinfo": "<p>Credit Card Type detected: Discover</p><p>Bank Identification Number: 657145</p><p>Brand: DISCOVER</p><p>Category: </p><p>Issuer: BANK OF AMERICA</p>",
+					"reference": "",
+					"cweid": "359",
+					"wascid": "13",
+					"sourceid": "4066"
+				},
 				{
 					"pluginid": "10038",
 					"alertRef": "10038",
@@ -135,7 +161,7 @@
 					"reference": "<p>https://blog.jquery.com/2019/04/10/jquery-3-4-0-released/</p><p>https://nvd.nist.gov/vuln/detail/CVE-2019-11358</p><p>https://github.com/jquery/jquery/commit/753d591aea698e57d6db58c9f722cd0808619b1b</p><p>https://blog.jquery.com/2020/04/10/jquery-3-5-0-released/</p><p></p>",
 					"cweid": "829",
 					"wascid": "-1",
-					"sourceid": "1954"
+					"sourceid": "1952"
 				},
 				{
 					"pluginid": "10202",
@@ -244,14 +270,7 @@
 					"desc": "<p>The server has responded with a redirect that seems to provide a large response. This may indicate that although the server sent a redirect it also responded with body content (which may include sensitive details, PII, etc.).</p>",
 					"instances":[ 
 						{
-							"uri": "https://cnle.gouv.fr/atd-quart-monde-vous-invite-aux.html",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://cnle.gouv.fr/dossier-de-la-conference-nationale.html",
+							"uri": "https://cnle.gouv.fr/contribution-du-cnle-au-suivi-du-1398.html",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -265,6 +284,20 @@
 							"evidence": ""
 						},
 						{
+							"uri": "https://cnle.gouv.fr/le-cae-preconise-la-creation-d-un.html",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://cnle.gouv.fr/le-cese-se-prononce-en-faveur-d-un-1478.html",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
 							"uri": "https://cnle.gouv.fr/plan-du-site.html",
 							"method": "GET",
 							"param": "",
@@ -272,13 +305,13 @@
 							"evidence": ""
 						}
 					],
-					"count": "4",
+					"count": "5",
 					"solution": "<p>Ensure that no sensitive information is leaked via redirect responses. Redirect responses should have almost no content.</p>",
-					"otherinfo": "<p>Location header URI length: 56 [https://www.cnle.gouv.fr/A-noter-sur-vos-agendas,30.html].</p><p>Predicted response size: 356.</p><p>Response Body Length: 423.</p>",
+					"otherinfo": "<p>Location header URI length: 58 [https://cnle.gouv.fr/contribution-du-cnle-au-suivi-du.html].</p><p>Predicted response size: 358.</p><p>Response Body Length: 425.</p>",
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "2360"
+					"sourceid": "4063"
 				},
 				{
 					"pluginid": "10054",
@@ -372,7 +405,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "1970"
+					"sourceid": "1968"
 				},
 				{
 					"pluginid": "10015",
@@ -508,7 +541,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cross-Origin-Embedder-Policy</p>",
 					"cweid": "693",
 					"wascid": "14",
-					"sourceid": "1943"
+					"sourceid": "1941"
 				},
 				{
 					"pluginid": "10063",
@@ -645,27 +678,6 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://cnle.gouv.fr/oembed.api/?format=json&url=https%3A%2F%2Fcnle.gouv.fr%2Fbreves.html",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://cnle.gouv.fr/oembed.api/?format=json&url=https%3A%2F%2Fcnle.gouv.fr%2Fcnle.html",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://cnle.gouv.fr/oembed.api/?format=json&url=https%3A%2F%2Fcnle.gouv.fr%2Fcomite-scientifique-424.html",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
 							"uri": "https://cnle.gouv.fr/plugins-dist/",
 							"method": "GET",
 							"param": "",
@@ -701,13 +713,13 @@
 							"evidence": ""
 						}
 					],
-					"count": "12",
+					"count": "9",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to enforce Strict-Transport-Security.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>http://caniuse.com/stricttransportsecurity</p><p>http://tools.ietf.org/html/rfc6797</p>",
 					"cweid": "319",
 					"wascid": "15",
-					"sourceid": "123"
+					"sourceid": "150"
 				},
 				{
 					"pluginid": "10096",
@@ -764,14 +776,14 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "OgArjD9vPJACXtx7bLUtGytATXjoYIAYiOWCBPZ01XgT0u0yOFDAq7QL6va7I33YZUUlxoxXnPl8WTW6EKPWcsWFyOA="
+							"evidence": "YpCzY07nNgpix3R7bLUtGytATXjoYCY0r9WbWo5z86QliK0fTrWduVikTeKfV65gspQe201UOIs4XKz+MNDOxZ6iLq4="
 						},
 						{
 							"uri": "https://cnle.gouv.fr",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "QIGIAMYfik0AI/N7bLUtGytATXjoYOE+qDdqGd0CTbOYqroRrewayzfsU8vouvlmEaLf2xV1hwTjZvBXNDwnVzJrfhU="
+							"evidence": "knr1EGTn50V40dB7bLUtGytATXjoYLiDQB8eXXJkJ+sP7zc6fS7aPImmZyb2EJI/piUMDTTTDcmd7/BNCrL1hsobtrA="
 						},
 						{
 							"uri": "https://cnle.gouv.fr/",
@@ -841,12 +853,12 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "efOgup/6P+hrrD57bLUtGytATXjoYFdMTAlnIZKPeZo48shK9zR4T9v9zahrOMkewwE+ja7O3JVFrz4WCSEZnf/2KhE="
+							"evidence": "64iZxlmQfbe0Fb17bLUtGytATXjoYFgkBTZvgLo723UAUWeFAIemjqk5hty4K/gdGJvGrb7u4p2C6FQoZk533XpHUFA="
 						}
 					],
 					"count": "12",
 					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
-					"otherinfo": "<p>:\\x0000+\uFFFD?o<\uFFFD\\x0002^\uFFFD{l\uFFFD-\\x001b+@Mx\uFFFD`\uFFFD\\x0018\uFFFD\uFFFD\\x0004\uFFFDt\uFFFDx\\x0013\uFFFD\uFFFD28P\uFFFD\uFFFD\uFFFD\\x000b\uFFFD\uFFFD\uFFFD#}\uFFFDeE%\u018CW\uFFFD\uFFFD|Y5\uFFFD\\x0010\uFFFD\uFFFDr\u0145\uFFFD\uFFFD</p>",
+					"otherinfo": "<p>b\uFFFD\uFFFDcN\uFFFD6</p><p>b\uFFFDt{l\uFFFD-\\x001b+@Mx\uFFFD`&4\uFFFD\u055BZ\uFFFDs\uFFFD%\uFFFD\uFFFD\\x001fN\uFFFD\uFFFD\uFFFDX\uFFFDM\uFFFDW\uFFFD`\uFFFD\uFFFD\\x001e\uFFFDMT8\uFFFD8\\\uFFFD\uFFFD0\uFFFD\uFFFD\u015E\uFFFD.\uFFFD</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
@@ -891,27 +903,6 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://cnle.gouv.fr/oembed.api/?format=json&url=https%3A%2F%2Fcnle.gouv.fr%2Fbreves.html",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://cnle.gouv.fr/oembed.api/?format=json&url=https%3A%2F%2Fcnle.gouv.fr%2Fcnle.html",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://cnle.gouv.fr/oembed.api/?format=json&url=https%3A%2F%2Fcnle.gouv.fr%2Fcomite-scientifique-424.html",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
 							"uri": "https://cnle.gouv.fr/plugins-dist/",
 							"method": "GET",
 							"param": "",
@@ -947,13 +938,13 @@
 							"evidence": ""
 						}
 					],
-					"count": "12",
+					"count": "9",
 					"solution": "<p>Ensure each page is setting the specific and appropriate content-type value for the content being delivered.</p>",
 					"otherinfo": "",
 					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p>",
 					"cweid": "345",
 					"wascid": "12",
-					"sourceid": "123"
+					"sourceid": "150"
 				},
 				{
 					"pluginid": "10027",
@@ -1212,16 +1203,9 @@
 							"param": "",
 							"attack": "",
 							"evidence": "403"
-						},
-						{
-							"uri": "https://cnle.gouv.fr/squelettes-dist/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "403"
 						}
 					],
-					"count": "9",
+					"count": "8",
 					"solution": "<p>The content may be marked as storable by ensuring that the following conditions are satisfied:</p><p>The request method must be understood by the cache and defined as being cacheable (\"GET\", \"HEAD\", and \"POST\" are currently defined as cacheable)</p><p>The response status code must be understood by the cache (one of the 1XX, 2XX, 3XX, 4XX, or 5XX response classes are generally understood)</p><p>The \"no-store\" cache directive must not appear in the request or response header fields</p><p>For caching by \"shared\" caches such as \"proxy\" caches, the \"private\" response directive must not appear in the response</p><p>For caching by \"shared\" caches such as \"proxy\" caches, the \"Authorization\" header field must not appear in the request, unless the response explicitly allows it (using one of the \"must-revalidate\", \"public\", or \"s-maxage\" Cache-Control response directives)</p><p>In addition to the conditions above, at least one of the following conditions must also be satisfied by the response:</p><p>It must contain an \"Expires\" header field</p><p>It must contain a \"max-age\" response directive</p><p>For \"shared\" caches such as \"proxy\" caches, it must contain a \"s-maxage\" response directive</p><p>It must contain a \"Cache Control Extension\" that allows it to be cached</p><p>It must have a status code that is defined as cacheable by default (200, 203, 204, 206, 300, 301, 404, 405, 410, 414, 501).   </p>",
 					"otherinfo": "",
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
@@ -1252,9 +1236,16 @@
 							"param": "",
 							"attack": "",
 							"evidence": ""
+						},
+						{
+							"uri": "https://cnle.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
 						}
 					],
-					"count": "2",
+					"count": "3",
 					"solution": "<p>Validate that the response does not contain sensitive, personal or user-specific information.  If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:</p><p>Cache-Control: no-cache, no-store, must-revalidate, private</p><p>Pragma: no-cache</p><p>Expires: 0</p><p>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request. </p>",
 					"otherinfo": "<p>In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234.</p>",
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
@@ -1335,7 +1326,7 @@
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "1987"
+					"sourceid": "1985"
 				}
 			]
 		}
