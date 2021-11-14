@@ -1,6 +1,6 @@
 {
 	"@version": "2.11.0",
-	"@generated": "Sun, 7 Nov 2021 02:35:41",
+	"@generated": "Sun, 14 Nov 2021 02:38:35",
 	"site":[ 
 		{
 			"@name": "https://liste-noire.travail-emploi.gouv.fr",
@@ -101,7 +101,7 @@
 					"desc": "<p>A cookie has been set without the SameSite attribute, which means that the cookie can be sent as a result of a 'cross-site' request. The SameSite attribute is an effective counter measure to cross-site request forgery, cross-site script inclusion, and timing attacks.</p>",
 					"instances":[ 
 						{
-							"uri": "https://liste-noire.travail-emploi.gouv.fr/robots.txt",
+							"uri": "https://liste-noire.travail-emploi.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "BIGipServerpool-dicom-portail-dares2.cegedim.cloud-HTTP",
 							"attack": "",
@@ -114,7 +114,7 @@
 					"reference": "<p>https://tools.ietf.org/html/draft-ietf-httpbis-cookie-same-site</p>",
 					"cweid": "1275",
 					"wascid": "13",
-					"sourceid": "6"
+					"sourceid": "18"
 				},
 				{
 					"pluginid": "10015",
@@ -450,7 +450,7 @@
 							"evidence": "/Type/OutputIntent/S/GTS_PDFA1/OutputConditionIdentifier"
 						},
 						{
-							"uri": "https://liste-noire.travail-emploi.gouv.fr/robots.txt",
+							"uri": "https://liste-noire.travail-emploi.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -555,21 +555,28 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "Age: 0"
+							"evidence": "Age: 219"
 						},
 						{
 							"uri": "https://liste-noire.travail-emploi.gouv.fr",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "Age: 1"
+							"evidence": "Age: 220"
 						},
 						{
 							"uri": "https://liste-noire.travail-emploi.gouv.fr/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "Age: 1"
+							"evidence": "Age: 220"
+						},
+						{
+							"uri": "https://liste-noire.travail-emploi.gouv.fr/condamnations/condamnations-personnes-physiques.pdf",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Age: 0"
 						},
 						{
 							"uri": "https://liste-noire.travail-emploi.gouv.fr/img/siteon0.jpg",
@@ -577,9 +584,16 @@
 							"param": "",
 							"attack": "",
 							"evidence": "Age: 110"
+						},
+						{
+							"uri": "https://liste-noire.travail-emploi.gouv.fr/robots.txt",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Age: 78"
 						}
 					],
-					"count": "4",
+					"count": "6",
 					"solution": "<p>Validate that the response does not contain sensitive, personal or user-specific information.  If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:</p><p>Cache-Control: no-cache, no-store, must-revalidate, private</p><p>Pragma: no-cache</p><p>Expires: 0</p><p>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request.</p>",
 					"otherinfo": "<p>The presence of the 'Age' header indicates that that a HTTP/1.1 compliant caching server is in use.</p>",
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
