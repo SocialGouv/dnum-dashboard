@@ -1,6 +1,6 @@
 {
 	"@version": "2.11.0",
-	"@generated": "Sun, 7 Nov 2021 00:57:23",
+	"@generated": "Sun, 14 Nov 2021 00:57:38",
 	"site":[ 
 		{
 			"@name": "https://alternance.emploi.gouv.fr",
@@ -20,13 +20,6 @@
 					"instances":[ 
 						{
 							"uri": "https://alternance.emploi.gouv.fr",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://alternance.emploi.gouv.fr/accueil",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -97,6 +90,13 @@
 						},
 						{
 							"uri": "https://alternance.emploi.gouv.fr/profiles/*.css",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://alternance.emploi.gouv.fr/profiles/*.css$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -238,7 +238,7 @@
 					"reference": "<p>http://blogs.wsj.com/cio/2013/10/08/adobe-source-code-leak-is-bad-news-for-u-s-government/</p>",
 					"cweid": "540",
 					"wascid": "13",
-					"sourceid": "878"
+					"sourceid": "902"
 				},
 				{
 					"pluginid": "10099",
@@ -264,7 +264,7 @@
 					"reference": "<p>http://blogs.wsj.com/cio/2013/10/08/adobe-source-code-leak-is-bad-news-for-u-s-government/</p>",
 					"cweid": "540",
 					"wascid": "13",
-					"sourceid": "832"
+					"sourceid": "855"
 				},
 				{
 					"pluginid": "90003",
@@ -393,7 +393,7 @@
 					"reference": "<p>https://nvd.nist.gov/vuln/detail/CVE-2012-6708</p><p>https://github.com/jquery/jquery/issues/2432</p><p>http://research.insecurelabs.org/jquery/test/</p><p>http://blog.jquery.com/2016/01/08/jquery-2-2-and-1-12-released/</p><p>http://bugs.jquery.com/ticket/11290</p><p>https://blog.jquery.com/2019/04/10/jquery-3-4-0-released/</p><p>https://nvd.nist.gov/vuln/detail/CVE-2019-11358</p><p>https://nvd.nist.gov/vuln/detail/CVE-2015-9251</p><p>https://github.com/jquery/jquery/commit/753d591aea698e57d6db58c9f722cd0808619b1b</p><p>https://blog.jquery.com/2020/04/10/jquery-3-5-0-released/</p><p></p>",
 					"cweid": "829",
 					"wascid": "-1",
-					"sourceid": "674"
+					"sourceid": "697"
 				},
 				{
 					"pluginid": "10202",
@@ -509,6 +509,13 @@
 					"desc": "<p>The server has responded with a redirect that seems to provide a large response. This may indicate that although the server sent a redirect it also responded with body content (which may include sensitive details, PII, etc.).</p>",
 					"instances":[ 
 						{
+							"uri": "https://alternance.emploi.gouv.fr/big_pipe/no-js?destination=/simulateur-alternant/etape-1",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
 							"uri": "https://alternance.emploi.gouv.fr/index.php/search/",
 							"method": "GET",
 							"param": "",
@@ -565,13 +572,6 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://alternance.emploi.gouv.fr/bourse-a-la-formation-recherche",
-							"method": "POST",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
 							"uri": "https://alternance.emploi.gouv.fr/index.php/user/password",
 							"method": "POST",
 							"param": "",
@@ -595,11 +595,11 @@
 					],
 					"count": "12",
 					"solution": "<p>Ensure that no sensitive information is leaked via redirect responses. Redirect responses should have almost no content.</p>",
-					"otherinfo": "<p>Location header URI length: 55 [https://alternance.emploi.gouv.fr/index.php/search/node].</p><p>Predicted response size: 355.</p><p>Response Body Length: 466.</p>",
+					"otherinfo": "<p>Location header URI length: 62 [https://alternance.emploi.gouv.fr/simulateur-alternant/etape-1].</p><p>Predicted response size: 362.</p><p>Response Body Length: 494.</p>",
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "191"
+					"sourceid": "736"
 				},
 				{
 					"pluginid": "10010",
@@ -625,7 +625,7 @@
 					"reference": "<p>https://owasp.org/www-community/HttpOnly</p>",
 					"cweid": "1004",
 					"wascid": "13",
-					"sourceid": "725"
+					"sourceid": "736"
 				},
 				{
 					"pluginid": "10011",
@@ -651,7 +651,7 @@
 					"reference": "<p>https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/06-Session_Management_Testing/02-Testing_for_Cookies_Attributes.html</p>",
 					"cweid": "614",
 					"wascid": "13",
-					"sourceid": "725"
+					"sourceid": "736"
 				},
 				{
 					"pluginid": "10054",
@@ -671,14 +671,14 @@
 							"evidence": "Set-Cookie: BIGipServerpool-dgefp-pa-v2-prod.cegedim.cloud-HTTP"
 						},
 						{
-							"uri": "https://alternance.emploi.gouv.fr/accessibilite",
+							"uri": "https://alternance.emploi.gouv.fr/actualites",
 							"method": "GET",
 							"param": "SSESSd0114473950558fedde967dfe008db39",
 							"attack": "",
 							"evidence": "Set-Cookie: SSESSd0114473950558fedde967dfe008db39"
 						},
 						{
-							"uri": "https://alternance.emploi.gouv.fr/actualites",
+							"uri": "https://alternance.emploi.gouv.fr/bourse-a-la-formation-recherche",
 							"method": "GET",
 							"param": "SSESSd0114473950558fedde967dfe008db39",
 							"attack": "",
@@ -890,7 +890,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "339"
+					"sourceid": "346"
 				},
 				{
 					"pluginid": "10009",
@@ -1230,7 +1230,7 @@
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "336"
+					"sourceid": "343"
 				},
 				{
 					"pluginid": "10094",
@@ -1736,7 +1736,7 @@
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "524"
+					"sourceid": "531"
 				}
 			]
 		}
