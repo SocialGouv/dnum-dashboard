@@ -127,7 +127,7 @@ td {
 	</h2>
 
 	<h3>
-		Generated on Sun, 7 Nov 2021 03:05:27
+		Generated on Sun, 14 Nov 2021 03:06:55
 	</h3>
 
 	
@@ -144,7 +144,7 @@ td {
 					<div>High</div>
 				</td>
 				<td align="center">
-					<div>1</div>
+					<div>0</div>
 				</td>
 			</tr>
 			<tr>
@@ -160,7 +160,7 @@ td {
 					<div>Low</div>
 				</td>
 				<td align="center">
-					<div>10</div>
+					<div>11</div>
 				</td>
 			</tr>
 			<tr>
@@ -194,11 +194,6 @@ td {
 					align="center">Number of Instances</th>
 			</tr>
 			<tr>
-				<td><a href="#10062">PII Disclosure</a></td>
-				<td align="center" class="risk-3">High</td>
-				<td align="center">1</td>
-			</tr>
-			<tr>
 				<td><a href="#10055">CSP: Wildcard Directive</a></td>
 				<td align="center" class="risk-2">Medium</td>
 				<td align="center">10</td>
@@ -219,19 +214,24 @@ td {
 				<td align="center">1</td>
 			</tr>
 			<tr>
+				<td><a href="#90022">Application Error Disclosure</a></td>
+				<td align="center" class="risk-1">Low</td>
+				<td align="center">10</td>
+			</tr>
+			<tr>
 				<td><a href="#10010">Cookie No HttpOnly Flag</a></td>
 				<td align="center" class="risk-1">Low</td>
-				<td align="center">2</td>
+				<td align="center">7</td>
 			</tr>
 			<tr>
 				<td><a href="#10011">Cookie Without Secure Flag</a></td>
 				<td align="center" class="risk-1">Low</td>
-				<td align="center">2</td>
+				<td align="center">7</td>
 			</tr>
 			<tr>
 				<td><a href="#10054">Cookie without SameSite Attribute</a></td>
 				<td align="center" class="risk-1">Low</td>
-				<td align="center">2</td>
+				<td align="center">7</td>
 			</tr>
 			<tr>
 				<td><a href="#10017">Cross-Domain JavaScript Source File Inclusion</a></td>
@@ -266,7 +266,7 @@ td {
 			<tr>
 				<td><a href="#10096">Timestamp Disclosure - Unix</a></td>
 				<td align="center" class="risk-1">Low</td>
-				<td align="center">57</td>
+				<td align="center">60</td>
 			</tr>
 			<tr>
 				<td><a href="#10094">Base64 Disclosure</a></td>
@@ -299,79 +299,6 @@ td {
 
 	
 		<h3>Alert Detail</h3>
-		
-			<table class="results">
-				<tr height="24">
-					<th width="20%" class="risk-3"><a
-						id="10062"></a>
-						<div>High</div></th>
-					<th class="risk-3">PII Disclosure</th>
-				</tr>
-				<tr>
-					<td width="20%">Description</td>
-					<td width="80%">
-							<div>The response contains Personally Identifiable Information, such as CC number, SSN and similar sensitive data.</div>
-							
-						</td>
-				</tr>
-				<TR vAlign="top">
-					<TD colspan="2"></TD>
-				</TR>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://rappel.conso.gouv.fr/fiche-rappel/4333/Interne">https://rappel.conso.gouv.fr/fiche-rappel/4333/Interne</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">4047777150589</td>
-					</tr>
-				
-				<tr>
-					<td width="20%">Instances</td>
-					<td width="80%">1</td>
-				</tr>
-				<tr>
-					<td width="20%">Solution</td>
-					<td width="80%"></td>
-				</tr>
-				<tr>
-					<td width="20%">Reference</td>
-					<td width="80%"></td>
-				</tr>
-				<tr>
-					<td width="20%">CWE Id</td>
-					<td width="80%"><a
-						href="https://cwe.mitre.org/data/definitions/359.html">359</a></td>
-				</tr>
-				<tr>
-					<td width="20%">WASC Id</td>
-					<td width="80%">13</td>
-				</tr>
-				<tr>
-					<td width="20%">Plugin Id</td>
-					<td width="80%"><a
-						href="https://www.zaproxy.org/docs/alerts/10062/">10062</a></td>
-				</tr>
-			</table>
-			<div class="spacer"></div>
 		
 			<table class="results">
 				<tr height="24">
@@ -1552,6 +1479,316 @@ td {
 			<table class="results">
 				<tr height="24">
 					<th width="20%" class="risk-1"><a
+						id="90022"></a>
+						<div>Low</div></th>
+					<th class="risk-1">Application Error Disclosure</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>This page contains an error/warning message that may disclose sensitive information like the location of the file that produced the unhandled exception. This information can be used to launch further attacks against the web application. The alert could be a false positive if the error message is found inside a documentation page.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://rappel.conso.gouv.fr/fiche-rappel/2214/Rapex">https://rappel.conso.gouv.fr/fiche-rappel/2214/Rapex</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">HTTP/1.1 500 Internal Server Error</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://rappel.conso.gouv.fr/fiche-rappel/2276/Rapex">https://rappel.conso.gouv.fr/fiche-rappel/2276/Rapex</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">HTTP/1.1 500 Internal Server Error</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://rappel.conso.gouv.fr/fiche-rappel/2277/Rapex">https://rappel.conso.gouv.fr/fiche-rappel/2277/Rapex</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">HTTP/1.1 500 Internal Server Error</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://rappel.conso.gouv.fr/fiche-rappel/2321/Rapex">https://rappel.conso.gouv.fr/fiche-rappel/2321/Rapex</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">HTTP/1.1 500 Internal Server Error</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://rappel.conso.gouv.fr/fiche-rappel/2333/Rapex">https://rappel.conso.gouv.fr/fiche-rappel/2333/Rapex</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">HTTP/1.1 500 Internal Server Error</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://rappel.conso.gouv.fr/fiche-rappel/2397/Rapex">https://rappel.conso.gouv.fr/fiche-rappel/2397/Rapex</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">HTTP/1.1 500 Internal Server Error</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://rappel.conso.gouv.fr/fiche-rappel/2402/Rapex">https://rappel.conso.gouv.fr/fiche-rappel/2402/Rapex</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">HTTP/1.1 500 Internal Server Error</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://rappel.conso.gouv.fr/fiche-rappel/2432/Rapex">https://rappel.conso.gouv.fr/fiche-rappel/2432/Rapex</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">HTTP/1.1 500 Internal Server Error</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://rappel.conso.gouv.fr/fiche-rappel/2446/Rapex">https://rappel.conso.gouv.fr/fiche-rappel/2446/Rapex</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">HTTP/1.1 500 Internal Server Error</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://rappel.conso.gouv.fr/fiche-rappel/2466/Rapex">https://rappel.conso.gouv.fr/fiche-rappel/2466/Rapex</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">HTTP/1.1 500 Internal Server Error</td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">10</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Review the source code of this page. Implement custom error pages. Consider implementing a mechanism to provide a unique error reference/identifier to the client (browser) while logging the details on the server side and not exposing them to the user.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%"></td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/200.html">200</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">13</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/90022/">90022</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-1"><a
 						id="10010"></a>
 						<div>Low</div></th>
 					<th class="risk-1">Cookie No HttpOnly Flag</th>
@@ -1571,6 +1808,136 @@ td {
 						<td width="20%"
 							class="indent1">URL</td>
 						<td width="80%"><a href="https://rappel.conso.gouv.fr">https://rappel.conso.gouv.fr</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">BWROUTEID</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">Set-Cookie: BWROUTEID</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://rappel.conso.gouv.fr/fiche-rappel/2214/Rapex">https://rappel.conso.gouv.fr/fiche-rappel/2214/Rapex</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">BWROUTEID</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">Set-Cookie: BWROUTEID</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://rappel.conso.gouv.fr/fiche-rappel/2276/Rapex">https://rappel.conso.gouv.fr/fiche-rappel/2276/Rapex</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">BWROUTEID</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">Set-Cookie: BWROUTEID</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://rappel.conso.gouv.fr/fiche-rappel/2277/Rapex">https://rappel.conso.gouv.fr/fiche-rappel/2277/Rapex</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">BWROUTEID</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">Set-Cookie: BWROUTEID</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://rappel.conso.gouv.fr/fiche-rappel/2321/Rapex">https://rappel.conso.gouv.fr/fiche-rappel/2321/Rapex</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">BWROUTEID</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">Set-Cookie: BWROUTEID</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://rappel.conso.gouv.fr/fiche-rappel/2333/Rapex">https://rappel.conso.gouv.fr/fiche-rappel/2333/Rapex</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1621,7 +1988,7 @@ td {
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">2</td>
+					<td width="80%">7</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -1701,6 +2068,136 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
+						<td width="80%"><a href="https://rappel.conso.gouv.fr/fiche-rappel/2214/Rapex">https://rappel.conso.gouv.fr/fiche-rappel/2214/Rapex</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">.AspNetCore.Antiforgery.O33mliWV2hE</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">Set-Cookie: .AspNetCore.Antiforgery.O33mliWV2hE</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://rappel.conso.gouv.fr/fiche-rappel/2276/Rapex">https://rappel.conso.gouv.fr/fiche-rappel/2276/Rapex</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">.AspNetCore.Antiforgery.O33mliWV2hE</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">Set-Cookie: .AspNetCore.Antiforgery.O33mliWV2hE</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://rappel.conso.gouv.fr/fiche-rappel/2277/Rapex">https://rappel.conso.gouv.fr/fiche-rappel/2277/Rapex</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">.AspNetCore.Antiforgery.O33mliWV2hE</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">Set-Cookie: .AspNetCore.Antiforgery.O33mliWV2hE</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://rappel.conso.gouv.fr/fiche-rappel/2321/Rapex">https://rappel.conso.gouv.fr/fiche-rappel/2321/Rapex</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">.AspNetCore.Antiforgery.O33mliWV2hE</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">Set-Cookie: .AspNetCore.Antiforgery.O33mliWV2hE</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://rappel.conso.gouv.fr/fiche-rappel/2333/Rapex">https://rappel.conso.gouv.fr/fiche-rappel/2333/Rapex</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">.AspNetCore.Antiforgery.O33mliWV2hE</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">Set-Cookie: .AspNetCore.Antiforgery.O33mliWV2hE</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
 						<td width="80%"><a href="https://rappel.conso.gouv.fr/robots.txt">https://rappel.conso.gouv.fr/robots.txt</a></td>
 					</tr>
 					<tr>
@@ -1726,7 +2223,7 @@ td {
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">2</td>
+					<td width="80%">7</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -1806,6 +2303,136 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
+						<td width="80%"><a href="https://rappel.conso.gouv.fr/fiche-rappel/2214/Rapex">https://rappel.conso.gouv.fr/fiche-rappel/2214/Rapex</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">BWROUTEID</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">Set-Cookie: BWROUTEID</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://rappel.conso.gouv.fr/fiche-rappel/2276/Rapex">https://rappel.conso.gouv.fr/fiche-rappel/2276/Rapex</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">BWROUTEID</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">Set-Cookie: BWROUTEID</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://rappel.conso.gouv.fr/fiche-rappel/2277/Rapex">https://rappel.conso.gouv.fr/fiche-rappel/2277/Rapex</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">BWROUTEID</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">Set-Cookie: BWROUTEID</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://rappel.conso.gouv.fr/fiche-rappel/2321/Rapex">https://rappel.conso.gouv.fr/fiche-rappel/2321/Rapex</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">BWROUTEID</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">Set-Cookie: BWROUTEID</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://rappel.conso.gouv.fr/fiche-rappel/2333/Rapex">https://rappel.conso.gouv.fr/fiche-rappel/2333/Rapex</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">BWROUTEID</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">Set-Cookie: BWROUTEID</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
 						<td width="80%"><a href="https://rappel.conso.gouv.fr/robots.txt">https://rappel.conso.gouv.fr/robots.txt</a></td>
 					</tr>
 					<tr>
@@ -1831,7 +2458,7 @@ td {
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">2</td>
+					<td width="80%">7</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -3712,6 +4339,84 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
+						<td width="80%">04358194</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://rappel.conso.gouv.fr">https://rappel.conso.gouv.fr</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">20210921</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://rappel.conso.gouv.fr/">https://rappel.conso.gouv.fr/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">04358194</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://rappel.conso.gouv.fr/">https://rappel.conso.gouv.fr/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
 						<td width="80%">20210921</td>
 					</tr>
 				
@@ -5173,7 +5878,7 @@ td {
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">57</td>
+					<td width="80%">60</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -5247,7 +5952,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">CfDJ8ApzRALrpH1ImftGI1f8nOtovk1agqw98_2YSk7CUPP5ptcjbFWEhY8tIxi3k2q4zzdIMvJcnXZrKGavBe4CIYib2GvY-V4tfIWevRHXSPrcU8PHfOgZFRFGh48IBb7g85ig97D2anEWkV8cRengrPM</td>
+						<td width="80%">CfDJ8ApzRALrpH1ImftGI1f8nOvtLSYWyd7-H301YwI6Dg-5qeeAhlhDVxobEvWsU1dRkX_UgjOUX_LHK9o20t_xNvDHM82JeRWRBMhb512Zu7BnD3E97AYa7kbrC45YOgrBfmYkSWY9pzD8v9Q0vqzzNMI</td>
 					</tr>
 				
 					<tr>
@@ -5273,7 +5978,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">CfDJ8ApzRALrpH1ImftGI1f8nOvbYXS1rFoE6FZGh414AJ0-daGbr9ISeD0pwttH1qdghV8dbmJNTXmR856NQOV68cFwh_2eppqJLPmsRPFG6N1sGwqZXSXWw1aU-yd4ZICFMBr8BH3-rN-RDqNRGh1UCWM</td>
+						<td width="80%">CfDJ8ApzRALrpH1ImftGI1f8nOuHydvVnfDRQvfSED3GOV2yEx8OX2SRsS_KNWLHcX9sXP1AK_oCoPRdHib6UgzqyBJQ2gOkGGUqXHhWiyg0XbSD7vzk1jLajpkvb-ZloXm54q0Udjc0qbBuMm_1V9wVfBo</td>
 					</tr>
 				
 					<tr>
@@ -5299,7 +6004,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">CfDJ8ApzRALrpH1ImftGI1f8nOtvmsIZzcRDJhxGeHX8AXyJDMzfz7JE5vXrBKgxjnhQ54g5QwGzQbDGCgcowHSCMZh4awnNkTEfID15twQ-CPLshyPDMVCuDjdd8WVJN6eI2FHIDskfYTN8w-V5QdfBo2M</td>
+						<td width="80%">CfDJ8ApzRALrpH1ImftGI1f8nOsFwAY6a28wnB7iaE83ekul2QfGUhNc5lojwQzeFOaYLUZckFBq4uASVJ_ri3CQfcc8PNpNJI-X_c0hGlER3MnLN8f2oXwbHmFvP-vqnycJ3isQO3m2Txg8OkBr9b0HvNk</td>
 					</tr>
 				
 					<tr>
@@ -5351,7 +6056,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">CfDJ8ApzRALrpH1ImftGI1f8nOu_pvnVLIK7Rr-kpPWxLUcEKBkfUoOzenOe9Ur8RsVAZtYt9uEctSymIG2oBU2t7dm1U3xzShmcd-ksnrKSxzi7x-xy3fiCCiRzFHME4j2kjWuHMB58F2mU29o-veyTZ-U</td>
+						<td width="80%">CfDJ8ApzRALrpH1ImftGI1f8nOuHfbJNFMKrZcrPgkNaVwJNc5rGLveru0uSGRol6w6sISwp13jgYqeZoQzFbItB1k-Ibba5dhy8STuHeql7d1UCqml1NgdZbcj1fbfoXNf7iGCOb2u2EkfTitSx-GZ9OsE</td>
 					</tr>
 				
 					<tr>
@@ -5377,7 +6082,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">CfDJ8ApzRALrpH1ImftGI1f8nOuaTu3GXI3RueF8JNYhiVoUjMFnEnS0lJV0QTasM5Ud0fmfMDtk05-R99WSbXAEip3uE9L3vNgWVy5oe4Pz-UQ5GJOjQ3n4VwgwYEczhM8BblTDVhEpJuiqI6NOFcapmYs</td>
+						<td width="80%">CfDJ8ApzRALrpH1ImftGI1f8nOvWgmX2H0QTiWWp_dSV76ZWIFzlmsJeg6H2TnJqE96ZiYawbJy1vV18UmNPXvP59r5hviqWpyXaekSQ72MoKz9rxyW_Dtp48xOQoXgkgvS1Mgiv-Puo3OSN9kwt-xQ7P70</td>
 					</tr>
 				
 					<tr>
@@ -5403,7 +6108,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">CfDJ8ApzRALrpH1ImftGI1f8nOudHsUm7VqeZeF2jyaaSCs2BJ0N1IhN7QphWuRO03vmMVq7mi-ehlWmtbXUK4om0ZWXRC5Qfm1oyn4Y8RQSVX1RDNoIGeOIbka8H9QsWZJWH5cvGuygUg-EHFVvidj0OtA</td>
+						<td width="80%">CfDJ8ApzRALrpH1ImftGI1f8nOua9u4SsByiAnr_9Ws5qnpep6EhikghrQGsJDLlTt1Hc09cwfJM8GRqQFiNGEgRRT3joUOYXEc1fIEbyq3-ISyCIrdQDWrgzE9t4thhuZCEsptZAt7_s-i6BtndF9mJJMI</td>
 					</tr>
 				
 					<tr>
@@ -5429,7 +6134,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">CfDJ8ApzRALrpH1ImftGI1f8nOtKjDVjUkLQXxiGO49-SGJf0AQ70WO8ce-ba0cfrHqjMF8vqkNpCeXnjBgm4gELwFZUQcDbQKoi-6IYgbSTfkh0TuBrrV-vOTtx3KhPhsab0m6XrA9kn2GjIEO5Je0-e54</td>
+						<td width="80%">CfDJ8ApzRALrpH1ImftGI1f8nOvwRzhVON-B-Dy78fa9NpgdcHxNFtUtQ4RiUmBe98Q-CebWPeege3S8ky6ay2NP13IolYbWTUqmPM66oaYGHOTGYZAs16y9UggXn-5OcPikesk4IrAZ-ipiJf0XSPgzGrY</td>
 					</tr>
 				
 					<tr>
@@ -5455,7 +6160,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">CfDJ8ApzRALrpH1ImftGI1f8nOszB8HR7asHmkJjR5Q9EU8yKtMKXGQxA8FYZsyMHHklnz71h79yvp9wemhfcrPZoRT6KHTzLHxQEH_CjUrhEeUDotuHsGpDblM88j342JRaSBpkNQfPlBuBlNd8S4uWpTM</td>
+						<td width="80%">CfDJ8ApzRALrpH1ImftGI1f8nOuvFgtAb-uQMEb0UiXDsanW6Aa3IxP9S5ejXfNm69a5ddm89NrLdEbtEUEBItAXOTL_1qqs5ZOJN4HwBGjN0soaC1ei-5V9qoiTSbdvZ5_8I_5g9GuZ29HK1r5z9nwTJVY</td>
 					</tr>
 				
 					<tr>
@@ -5481,7 +6186,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">CfDJ8ApzRALrpH1ImftGI1f8nOu5ZSJcfoqpEqgt0JLGdSmflPUxyeOLqvjlutom9lEelDTwaSTSXthWbeJ8r-GpclsGHNEQVueLGtrje2TlAn5jBXNqe8R7wwoj2rob3DAeVlDwapS0BvrAoiDSBv7rkPI</td>
+						<td width="80%">CfDJ8ApzRALrpH1ImftGI1f8nOv3_qddvlbFEJ--K6vgDUWNk4wU7a_yKwbc-ArzTSMd1B9p2VZkyWH0-0fGWY3fhn7uO3BG3kAEvuDXH4fCzCBUM1XNXz-Cujnjwyr2HogxyyXT-8HQ9FPeYtx4CC4OK0E</td>
 					</tr>
 				
 					<tr>
@@ -5507,7 +6212,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">CfDJ8ApzRALrpH1ImftGI1f8nOuUn1rrQ107iVIOdIaBB-J47M-nkJn7Oal7tWGsiw_zJurPY3nKTv_mk--rE_t-sICQLKkvXUyPZB0GxL8fWveKicvYipbNgfUuoiRAEs5hJ2OW9GQdLdT9gqnB5SLL0-8</td>
+						<td width="80%">CfDJ8ApzRALrpH1ImftGI1f8nOtDaKpuzKQpAYwSW1Jk8ZZjDE07PACUJS8JDo9h6hic6FdbI7bt9CsPS1b1KLSbA3icKQFB3f28MkVbommP4_MogULEgl55Ie55bP4cKoXcYEI0vpcBEPN14SOSTICMFeI</td>
 					</tr>
 				
 					<tr>
@@ -5533,7 +6238,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">CfDJ8ApzRALrpH1ImftGI1f8nOshX9cOeEgq95awqrVEmPktAy0X8si5i-Le8uv9Aapv2e_OA9NpvD1uQNLZ58A_TNJ0k82ACPGKuW_Z8L2tdJQYyyY7YjNTH4049jrT8kwsDeP3Y4dqK6DYC-huV0Vucmo</td>
+						<td width="80%">CfDJ8ApzRALrpH1ImftGI1f8nOvUtYj9dcAn1PS8NhHaGHdM68A3YlY4Rxvn46TS7hVXCzULGFFAikihf1jWL834MwoDMGJqDyJdpXEZOmfpZc287TRMWTALt-Gyophz0WiN_U-Y87HZwDyDQ8JbFJT--tk</td>
 					</tr>
 				
 				<tr>
