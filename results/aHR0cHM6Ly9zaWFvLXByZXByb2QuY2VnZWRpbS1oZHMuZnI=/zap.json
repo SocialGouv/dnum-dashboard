@@ -1,6 +1,6 @@
 {
 	"@version": "2.11.0",
-	"@generated": "Sun, 14 Nov 2021 03:13:46",
+	"@generated": "Sun, 21 Nov 2021 03:19:32",
 	"site":[ 
 		{
 			"@name": "https://siao-preprod.cegedim-hds.fr",
@@ -78,11 +78,25 @@
 							"evidence": "Set-Cookie: serverTime"
 						},
 						{
-							"uri": "https://siao-preprod.cegedim-hds.fr",
+							"uri": "https://siao-preprod.cegedim-hds.fr/assets/fonts/roboto-v20-latin-700.woff",
 							"method": "GET",
-							"param": "sessionExpiry",
+							"param": "serverTime",
 							"attack": "",
-							"evidence": "Set-Cookie: sessionExpiry"
+							"evidence": "Set-Cookie: serverTime"
+						},
+						{
+							"uri": "https://siao-preprod.cegedim-hds.fr/assets/fonts/roboto-v20-latin-700.woff2",
+							"method": "GET",
+							"param": "serverTime",
+							"attack": "",
+							"evidence": "Set-Cookie: serverTime"
+						},
+						{
+							"uri": "https://siao-preprod.cegedim-hds.fr/assets/fonts/roboto-v20-latin-italic.woff",
+							"method": "GET",
+							"param": "serverTime",
+							"attack": "",
+							"evidence": "Set-Cookie: serverTime"
 						},
 						{
 							"uri": "https://siao-preprod.cegedim-hds.fr/assets/fonts/roboto-v20-latin-italic.woff2",
@@ -113,6 +127,13 @@
 							"evidence": "Set-Cookie: serverTime"
 						},
 						{
+							"uri": "https://siao-preprod.cegedim-hds.fr/primeicons.ttf",
+							"method": "GET",
+							"param": "serverTime",
+							"attack": "",
+							"evidence": "Set-Cookie: serverTime"
+						},
+						{
 							"uri": "https://siao-preprod.cegedim-hds.fr/robots.txt",
 							"method": "GET",
 							"param": "serverTime",
@@ -127,7 +148,7 @@
 							"evidence": "Set-Cookie: serverTime"
 						}
 					],
-					"count": "8",
+					"count": "11",
 					"solution": "<p>Ensure that the HttpOnly flag is set for all cookies.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://owasp.org/www-community/HttpOnly</p>",
@@ -153,11 +174,25 @@
 							"evidence": "Set-Cookie: serverTime"
 						},
 						{
-							"uri": "https://siao-preprod.cegedim-hds.fr",
+							"uri": "https://siao-preprod.cegedim-hds.fr/assets/fonts/roboto-v20-latin-700.woff",
 							"method": "GET",
-							"param": "sessionExpiry",
+							"param": "serverTime",
 							"attack": "",
-							"evidence": "Set-Cookie: sessionExpiry"
+							"evidence": "Set-Cookie: serverTime"
+						},
+						{
+							"uri": "https://siao-preprod.cegedim-hds.fr/assets/fonts/roboto-v20-latin-700.woff2",
+							"method": "GET",
+							"param": "serverTime",
+							"attack": "",
+							"evidence": "Set-Cookie: serverTime"
+						},
+						{
+							"uri": "https://siao-preprod.cegedim-hds.fr/assets/fonts/roboto-v20-latin-italic.woff",
+							"method": "GET",
+							"param": "serverTime",
+							"attack": "",
+							"evidence": "Set-Cookie: serverTime"
 						},
 						{
 							"uri": "https://siao-preprod.cegedim-hds.fr/assets/fonts/roboto-v20-latin-italic.woff2",
@@ -188,6 +223,13 @@
 							"evidence": "Set-Cookie: serverTime"
 						},
 						{
+							"uri": "https://siao-preprod.cegedim-hds.fr/primeicons.ttf",
+							"method": "GET",
+							"param": "serverTime",
+							"attack": "",
+							"evidence": "Set-Cookie: serverTime"
+						},
+						{
 							"uri": "https://siao-preprod.cegedim-hds.fr/robots.txt",
 							"method": "GET",
 							"param": "serverTime",
@@ -202,7 +244,7 @@
 							"evidence": "Set-Cookie: serverTime"
 						}
 					],
-					"count": "8",
+					"count": "11",
 					"solution": "<p>Whenever a cookie contains sensitive information or is a session token, then it should always be passed using an encrypted channel. Ensure that the secure flag is set for cookies containing such sensitive information.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/06-Session_Management_Testing/02-Testing_for_Cookies_Attributes.html</p>",
@@ -296,46 +338,27 @@
 					"desc": "<p>A dangerous JS function seems to be in use that would leave the site vulnerable.</p>",
 					"instances":[ 
 						{
-							"uri": "https://siao-preprod.cegedim-hds.fr/vendor.4d77f7c9af23c5ff5e95.js",
+							"uri": "https://siao-preprod.cegedim-hds.fr/vendor-es2015.bd761ed5b51188b3a46b.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "bypassSecurityTrustHtml"
+						},
+						{
+							"uri": "https://siao-preprod.cegedim-hds.fr/vendor-es5.bd761ed5b51188b3a46b.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "bypassSecurityTrustHtml"
 						}
 					],
-					"count": "1",
+					"count": "2",
 					"solution": "<p>See the references for security advice on the use of these functions.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "51"
-				},
-				{
-					"pluginid": "10015",
-					"alertRef": "10015",
-					"alert": "Incomplete or No Cache-control Header Set",
-					"name": "Incomplete or No Cache-control Header Set",
-					"riskcode": "1",
-					"confidence": "2",
-					"riskdesc": "Low (Medium)",
-					"desc": "<p>The cache-control header has not been set properly or is missing, allowing the browser and proxies to cache content.</p>",
-					"instances":[ 
-						{
-							"uri": "https://siao-preprod.cegedim-hds.fr",
-							"method": "GET",
-							"param": "Cache-Control",
-							"attack": "",
-							"evidence": "no-store"
-						}
-					],
-					"count": "1",
-					"solution": "<p>Whenever possible ensure the cache-control HTTP header is set with no-cache, no-store, must-revalidate.</p>",
-					"otherinfo": "",
-					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p>",
-					"cweid": "525",
-					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "57"
 				},
 				{
 					"pluginid": "10063",
@@ -355,42 +378,70 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://siao-preprod.cegedim-hds.fr/main.ec4b0a185059241bd804.js",
+							"uri": "https://siao-preprod.cegedim-hds.fr/main-es2015.2359e5dd530e4f4366d2.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://siao-preprod.cegedim-hds.fr/polyfills.aa105357c20dc86be210.js",
+							"uri": "https://siao-preprod.cegedim-hds.fr/main-es5.2359e5dd530e4f4366d2.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://siao-preprod.cegedim-hds.fr/runtime.f15a20d3c2e6609c77b7.js",
+							"uri": "https://siao-preprod.cegedim-hds.fr/polyfills-es2015.4543f74522287b7abbe7.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://siao-preprod.cegedim-hds.fr/scripts.b4f65a4d21d23fe87145.js",
+							"uri": "https://siao-preprod.cegedim-hds.fr/polyfills-es5.7fc275125ffb2c7fd7c9.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://siao-preprod.cegedim-hds.fr/vendor.4d77f7c9af23c5ff5e95.js",
+							"uri": "https://siao-preprod.cegedim-hds.fr/runtime-es2015.5460a2577504d3527919.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://siao-preprod.cegedim-hds.fr/runtime-es5.5460a2577504d3527919.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://siao-preprod.cegedim-hds.fr/scripts.7e3c12780cbda2cc3f17.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://siao-preprod.cegedim-hds.fr/vendor-es2015.bd761ed5b51188b3a46b.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://siao-preprod.cegedim-hds.fr/vendor-es5.bd761ed5b51188b3a46b.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": ""
 						}
 					],
-					"count": "6",
+					"count": "10",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Permissions-Policy header.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy</p><p>https://developers.google.com/web/updates/2018/06/feature-policy</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
@@ -409,28 +460,28 @@
 					"desc": "<p>A timestamp was disclosed by the application/web server - Unix</p>",
 					"instances":[ 
 						{
-							"uri": "https://siao-preprod.cegedim-hds.fr/leaflet-style.2adb0d482e163aa37dc2.css",
+							"uri": "https://siao-preprod.cegedim-hds.fr/leaflet-style.b475cb6474f3330cfb08.css",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "70710678"
 						},
 						{
-							"uri": "https://siao-preprod.cegedim-hds.fr/styles.f9061f83925f4199fd50.css",
+							"uri": "https://siao-preprod.cegedim-hds.fr/styles.c37e4d949e234715d5a8.css",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "33333333"
 						},
 						{
-							"uri": "https://siao-preprod.cegedim-hds.fr/styles.f9061f83925f4199fd50.css",
+							"uri": "https://siao-preprod.cegedim-hds.fr/styles.c37e4d949e234715d5a8.css",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "42857143"
 						},
 						{
-							"uri": "https://siao-preprod.cegedim-hds.fr/styles.f9061f83925f4199fd50.css",
+							"uri": "https://siao-preprod.cegedim-hds.fr/styles.c37e4d949e234715d5a8.css",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -443,33 +494,7 @@
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "44"
-				},
-				{
-					"pluginid": "10021",
-					"alertRef": "10021",
-					"alert": "X-Content-Type-Options Header Missing",
-					"name": "X-Content-Type-Options Header Missing",
-					"riskcode": "1",
-					"confidence": "2",
-					"riskdesc": "Low (Medium)",
-					"desc": "<p>The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.</p>",
-					"instances":[ 
-						{
-							"uri": "https://siao-preprod.cegedim-hds.fr/favicon.ico",
-							"method": "GET",
-							"param": "X-Content-Type-Options",
-							"attack": "",
-							"evidence": ""
-						}
-					],
-					"count": "1",
-					"solution": "<p>Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.</p><p>If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.</p>",
-					"otherinfo": "<p>This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.</p><p>At \"High\" threshold this scan rule will not alert on client or server error responses.</p>",
-					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p><p>https://owasp.org/www-community/Security_Headers</p>",
-					"cweid": "693",
-					"wascid": "15",
-					"sourceid": "30"
+					"sourceid": "48"
 				},
 				{
 					"pluginid": "10094",
@@ -486,17 +511,24 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "TtHafhN0kidBeop7bLUtGytATXjoYEnU3R/FicFLuuHcOge0YlkEywZD5m2oBSLRy7aX2PQHfcjyMq8WrVqcZsgLy4A="
+							"evidence": "LJDxGICqiNLsRG17bLUtGytATXjoYBX8MM+bJUbNR/IG5/jjMh0QHN6kWLo8USodoR4heGJoYAKoYd3eJqGZ796ina4="
 						},
 						{
 							"uri": "https://siao-preprod.cegedim-hds.fr",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "dL+P+xwo+O7+JLh7bLUtGytATXjoYGIZFPwmt7c6zCiIVmtW6j8NQKKCDx6jAHc5dVb7/iGZAFsNSgxPKwq2BLWCqKU="
+							"evidence": "muERgYv0ocud/917bLUtGytATXjoYCm4qBngyGzuCBxv9RXupMkDdiw2TzpKiTlZct2TaMAinkmIRBXxC3as/oXTVu4="
 						},
 						{
-							"uri": "https://siao-preprod.cegedim-hds.fr/main.ec4b0a185059241bd804.js",
+							"uri": "https://siao-preprod.cegedim-hds.fr/main-es2015.2359e5dd530e4f4366d2.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "api/demandeHebergements/exportFinPeca3Jours"
+						},
+						{
+							"uri": "https://siao-preprod.cegedim-hds.fr/main-es5.2359e5dd530e4f4366d2.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -507,23 +539,30 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "MJ5i9e0HMrCtXYp7bLUtGytATXjoYC0VJr1DH5j/phJ2biNy2KpZE64XFe4vuKc4LgZRmeeI/2DowmcDRHMTUcNUH6s="
+							"evidence": "SYGu31RQwD1hM617bLUtGytATXjoYCAlugbXJWG9vEx6rke7lDfoS+EXTq9gYWX+Bxd+zrK70l29JxlF65hMpj/9HY4="
 						},
 						{
-							"uri": "https://siao-preprod.cegedim-hds.fr/vendor.4d77f7c9af23c5ff5e95.js",
+							"uri": "https://siao-preprod.cegedim-hds.fr/vendor-es2015.bd761ed5b51188b3a46b.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+							"evidence": "Search__x28_and_thou_shall_find_x29_"
+						},
+						{
+							"uri": "https://siao-preprod.cegedim-hds.fr/vendor-es5.bd761ed5b51188b3a46b.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Search__x28_and_thou_shall_find_x29_"
 						}
 					],
-					"count": "5",
+					"count": "7",
 					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
-					"otherinfo": "<p>N\uFFFD\uFFFD~\\x0013t\uFFFD'Az\uFFFD{l\uFFFD-\\x001b+@Mx\uFFFD`I\uFFFD\uFFFD\\x001f\u0149\uFFFDK\uFFFD\uFFFD\uFFFD:\\x0007\uFFFDbY\\x0004\uFFFD\\x0006C\uFFFDm\uFFFD\\x0005\"\uFFFD\u02F6\uFFFD\uFFFD\uFFFD\\x0007}\uFFFD\uFFFD2\uFFFD\\x0016\uFFFDZ\uFFFDf\uFFFD\\x000b\u02C0</p>",
+					"otherinfo": "<p>,\uFFFD\uFFFD\\x0018\uFFFD\uFFFD\uFFFD\uFFFD\uFFFDDm{l\uFFFD-\\x001b+@Mx\uFFFD`\\x0015\uFFFD0\u03DB%F\uFFFDG\uFFFD\\x0006\uFFFD\uFFFD\uFFFD2\\x001d\\x0010\\x001c\u07A4X\uFFFD<Q*\\x001d\uFFFD\\x001e!xbh`\\x0002\uFFFDa\uFFFD\uFFFD&\uFFFD\uFFFD\uFFFD\u07A2\uFFFD\uFFFD</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10027",
@@ -536,41 +575,62 @@
 					"desc": "<p>The response appears to contain suspicious comments which may help an attacker. Note: Matches made within script blocks or files are against the entire content not only comments.</p>",
 					"instances":[ 
 						{
-							"uri": "https://siao-preprod.cegedim-hds.fr/main.ec4b0a185059241bd804.js",
+							"uri": "https://siao-preprod.cegedim-hds.fr/main-es2015.2359e5dd530e4f4366d2.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "query"
 						},
 						{
-							"uri": "https://siao-preprod.cegedim-hds.fr/polyfills.aa105357c20dc86be210.js",
+							"uri": "https://siao-preprod.cegedim-hds.fr/main-es5.2359e5dd530e4f4366d2.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "query"
+						},
+						{
+							"uri": "https://siao-preprod.cegedim-hds.fr/polyfills-es2015.4543f74522287b7abbe7.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "username"
 						},
 						{
-							"uri": "https://siao-preprod.cegedim-hds.fr/scripts.b4f65a4d21d23fe87145.js",
+							"uri": "https://siao-preprod.cegedim-hds.fr/polyfills-es5.7fc275125ffb2c7fd7c9.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "username"
+						},
+						{
+							"uri": "https://siao-preprod.cegedim-hds.fr/scripts.7e3c12780cbda2cc3f17.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "query"
 						},
 						{
-							"uri": "https://siao-preprod.cegedim-hds.fr/vendor.4d77f7c9af23c5ff5e95.js",
+							"uri": "https://siao-preprod.cegedim-hds.fr/vendor-es2015.bd761ed5b51188b3a46b.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "Query"
+							"evidence": "query"
+						},
+						{
+							"uri": "https://siao-preprod.cegedim-hds.fr/vendor-es5.bd761ed5b51188b3a46b.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "query"
 						}
 					],
-					"count": "4",
+					"count": "7",
 					"solution": "<p>Remove all comments that return information that may help an attacker and fix any underlying problems they refer to.</p>",
-					"otherinfo": "<p>The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"(window.webpackJsonp=window.webpackJsonp||[]).push([[7],{\"/Knb\":function(l,n,e){\"use strict\";e.d(n,\"a\",function(){return i});var\", see evidence field for the suspicious comment/snippet.</p>",
+					"otherinfo": "<p>The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"(self.webpackChunksiao=self.webpackChunksiao||[]).push([[179],{98255:function(e){function t(e){return Promise.resolve().then(fun\", see evidence field for the suspicious comment/snippet.</p>",
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "52"
+					"sourceid": "59"
 				},
 				{
 					"pluginid": "10109",
@@ -590,28 +650,42 @@
 							"evidence": "<script type=\"text/javascript\">\n      var appID = '5e73a199f7cefb002fa1e866';\n      var url = 'https://chat.vizir.co'\n      ! function() {\n        var e, l, t, a, c = document,\n          r = c.getElementById,\n          s = c.createElement,\n          i = c.getElementsByTagName,\n          n = 'n',\n          d = 'https://chat.vizir.co/static/widget/';\n        r.call(c, n) || (l = s.call(c, 'script'), l.id = n, l.src = d + 'new.js', t = i.call(c, 'script')[0], t.parentNode.insertBefore(l, t)), n += '_', r.call(c, n) || (e = s.call(c, 'link'), e.rel = 'stylesheet', e.id = n, e.href = d + 'm.css', a = i.call(c, 'head')[0], a.appendChild(e, a))\n      }();\n    </script>"
 						},
 						{
-							"uri": "https://siao-preprod.cegedim-hds.fr/polyfills.aa105357c20dc86be210.js",
+							"uri": "https://siao-preprod.cegedim-hds.fr/polyfills-es2015.4543f74522287b7abbe7.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script>"
+						},
+						{
+							"uri": "https://siao-preprod.cegedim-hds.fr/polyfills-es5.7fc275125ffb2c7fd7c9.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "<a>"
 						},
 						{
-							"uri": "https://siao-preprod.cegedim-hds.fr/scripts.b4f65a4d21d23fe87145.js",
+							"uri": "https://siao-preprod.cegedim-hds.fr/scripts.7e3c12780cbda2cc3f17.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "<a class=\"ql-action\"></a>"
 						},
 						{
-							"uri": "https://siao-preprod.cegedim-hds.fr/vendor.4d77f7c9af23c5ff5e95.js",
+							"uri": "https://siao-preprod.cegedim-hds.fr/vendor-es2015.bd761ed5b51188b3a46b.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<a href=\"#\" (click)=\"incrementHour($event)\">\\n                            <span class=\"pi pi-chevron-up\"></span>\\n                        </a>"
+							"evidence": "<a class=\"ql-action\"></a>"
+						},
+						{
+							"uri": "https://siao-preprod.cegedim-hds.fr/vendor-es5.bd761ed5b51188b3a46b.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a class=\"ql-action\"></a>"
 						}
 					],
-					"count": "4",
+					"count": "6",
 					"solution": "<p>This is an informational alert and so no changes are required.</p>",
 					"otherinfo": "<p>No links have been found while there are scripts, which is an indication that this is a modern web application.</p>",
 					"reference": "",
@@ -679,6 +753,13 @@
 							"evidence": "no-store"
 						},
 						{
+							"uri": "https://siao-preprod.cegedim-hds.fr/favicon.ico",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "no-store"
+						},
+						{
 							"uri": "https://siao-preprod.cegedim-hds.fr/primeicons.ttf",
 							"method": "GET",
 							"param": "",
@@ -700,39 +781,13 @@
 							"evidence": "no-store"
 						}
 					],
-					"count": "10",
+					"count": "11",
 					"solution": "<p>The content may be marked as storable by ensuring that the following conditions are satisfied:</p><p>The request method must be understood by the cache and defined as being cacheable (\"GET\", \"HEAD\", and \"POST\" are currently defined as cacheable)</p><p>The response status code must be understood by the cache (one of the 1XX, 2XX, 3XX, 4XX, or 5XX response classes are generally understood)</p><p>The \"no-store\" cache directive must not appear in the request or response header fields</p><p>For caching by \"shared\" caches such as \"proxy\" caches, the \"private\" response directive must not appear in the response</p><p>For caching by \"shared\" caches such as \"proxy\" caches, the \"Authorization\" header field must not appear in the request, unless the response explicitly allows it (using one of the \"must-revalidate\", \"public\", or \"s-maxage\" Cache-Control response directives)</p><p>In addition to the conditions above, at least one of the following conditions must also be satisfied by the response:</p><p>It must contain an \"Expires\" header field</p><p>It must contain a \"max-age\" response directive</p><p>For \"shared\" caches such as \"proxy\" caches, it must contain a \"s-maxage\" response directive</p><p>It must contain a \"Cache Control Extension\" that allows it to be cached</p><p>It must have a status code that is defined as cacheable by default (200, 203, 204, 206, 300, 301, 404, 405, 410, 414, 501).   </p>",
 					"otherinfo": "",
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
 					"cweid": "524",
 					"wascid": "13",
 					"sourceid": "1"
-				},
-				{
-					"pluginid": "10049",
-					"alertRef": "10049",
-					"alert": "Storable and Cacheable Content",
-					"name": "Storable and Cacheable Content",
-					"riskcode": "0",
-					"confidence": "2",
-					"riskdesc": "Informational (Medium)",
-					"desc": "<p>The response contents are storable by caching components such as proxy servers, and may be retrieved directly from the cache, rather than from the origin server by the caching servers, in response to similar requests from other users.  If the response data is sensitive, personal or user-specific, this may result in sensitive information being leaked. In some cases, this may even result in a user gaining complete control of the session of another user, depending on the configuration of the caching components in use in their environment. This is primarily an issue where \"shared\" caching servers such as \"proxy\" caches are configured on the local network. This configuration is typically found in corporate or educational environments, for instance.</p>",
-					"instances":[ 
-						{
-							"uri": "https://siao-preprod.cegedim-hds.fr/favicon.ico",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						}
-					],
-					"count": "1",
-					"solution": "<p>Validate that the response does not contain sensitive, personal or user-specific information.  If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:</p><p>Cache-Control: no-cache, no-store, must-revalidate, private</p><p>Pragma: no-cache</p><p>Expires: 0</p><p>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request. </p>",
-					"otherinfo": "<p>In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234.</p>",
-					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
-					"cweid": "524",
-					"wascid": "13",
-					"sourceid": "30"
 				}
 			]
 		}
