@@ -1,6 +1,6 @@
 {
 	"@version": "2.11.0",
-	"@generated": "Sun, 14 Nov 2021 02:14:30",
+	"@generated": "Sun, 21 Nov 2021 02:15:11",
 	"site":[ 
 		{
 			"@name": "https://handicap.gouv.fr",
@@ -8,6 +8,32 @@
 			"@port": "443",
 			"@ssl": "true",
 			"alerts": [ 
+				{
+					"pluginid": "10062",
+					"alertRef": "10062",
+					"alert": "PII Disclosure",
+					"name": "PII Disclosure",
+					"riskcode": "3",
+					"confidence": "3",
+					"riskdesc": "High (High)",
+					"desc": "<p>The response contains Personally Identifiable Information, such as CC number, SSN and similar sensitive data.</p>",
+					"instances":[ 
+						{
+							"uri": "https://handicap.gouv.fr/les-aides-et-les-prestations",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "5623380549455"
+						}
+					],
+					"count": "1",
+					"solution": "",
+					"otherinfo": "<p>Credit Card Type detected: Maestro</p><p>Bank Identification Number: 562338</p><p>Brand: MAESTRO</p><p>Category: </p><p>Issuer: </p>",
+					"reference": "",
+					"cweid": "359",
+					"wascid": "13",
+					"sourceid": "564"
+				},
 				{
 					"pluginid": "10038",
 					"alertRef": "10038",
@@ -89,6 +115,13 @@
 							"evidence": ""
 						},
 						{
+							"uri": "https://handicap.gouv.fr/profiles/*.css",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
 							"uri": "https://handicap.gouv.fr/profiles/*.css$",
 							"method": "GET",
 							"param": "",
@@ -96,7 +129,7 @@
 							"evidence": ""
 						}
 					],
-					"count": "11",
+					"count": "12",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Content-Security-Policy header, to achieve optimal browser support: \"Content-Security-Policy\" for Chrome 25+, Firefox 23+ and Safari 7+, \"X-Content-Security-Policy\" for Firefox 4.0+ and Internet Explorer 10+, and \"X-WebKit-CSP\" for Chrome 14+ and Safari 6+.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>http://www.w3.org/TR/CSP/</p><p>http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html</p><p>http://www.html5rocks.com/en/tutorials/security/content-security-policy/</p><p>http://caniuse.com/#feat=contentsecuritypolicy</p><p>http://content-security-policy.com/</p>",
@@ -190,9 +223,16 @@
 							"param": "",
 							"attack": "",
 							"evidence": "<a href=\"https://twitter.com/Handicap_gouv\" target=\"_blank\">Twitter</a>"
+						},
+						{
+							"uri": "https://handicap.gouv.fr/user/logout/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a href=\"https://twitter.com/Handicap_gouv\" target=\"_blank\">Twitter</a>"
 						}
 					],
-					"count": "11",
+					"count": "12",
 					"solution": "<p>Do not use a target attribute, or if you have to then also add the attribute: rel=\"noopener noreferrer\".</p>",
 					"otherinfo": "",
 					"reference": "<p>https://owasp.org/www-community/attacks/Reverse_Tabnabbing</p><p>https://dev.to/ben/the-targetblank-vulnerability-by-example</p><p>https://mathiasbynens.github.io/rel-noopener/</p><p>https://medium.com/@jitbit/target-blank-the-most-underestimated-vulnerability-ever-96e328301f4c</p>",
@@ -260,6 +300,20 @@
 							"evidence": "<form action=\"/recherche\" method=\"get\" id=\"views-exposed-form-global-search-page-search-block-header\" accept-charset=\"UTF-8\">"
 						},
 						{
+							"uri": "https://handicap.gouv.fr/filter/tips",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form action=\"/recherche\" method=\"get\" id=\"views-exposed-form-global-search-page-search-block-header\" accept-charset=\"UTF-8\">"
+						},
+						{
+							"uri": "https://handicap.gouv.fr/node/add/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form action=\"/recherche\" method=\"get\" id=\"views-exposed-form-global-search-page-search-block-header\" accept-charset=\"UTF-8\">"
+						},
+						{
 							"uri": "https://handicap.gouv.fr/profiles/*.css$",
 							"method": "GET",
 							"param": "",
@@ -281,7 +335,7 @@
 							"evidence": "<form action=\"/recherche\" method=\"get\" id=\"views-exposed-form-global-search-page-search-block-header\" accept-charset=\"UTF-8\">"
 						}
 					],
-					"count": "10",
+					"count": "12",
 					"solution": "<p>Phase: Architecture and Design</p><p>Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.</p><p>For example, use anti-CSRF packages such as the OWASP CSRFGuard.</p><p></p><p>Phase: Implementation</p><p>Ensure that your application is free of cross-site scripting issues, because most CSRF defenses can be bypassed using attacker-controlled script.</p><p></p><p>Phase: Architecture and Design</p><p>Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Be sure that the nonce is not predictable (CWE-330).</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Identify especially dangerous operations. When the user performs a dangerous operation, send a separate confirmation request to ensure that the user intended to perform that operation.</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Use the ESAPI Session Management control.</p><p>This control includes a component for CSRF.</p><p></p><p>Do not use the GET method for any request that triggers a state change.</p><p></p><p>Phase: Implementation</p><p>Check the HTTP Referer header to see if the request originated from an expected page. This could break legitimate functionality, because users or proxies may have disabled sending the Referer for privacy reasons.</p>",
 					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"edit-search-api-fulltext--2\" \"edit-submit-global-search--2\" ].</p>",
 					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>http://cwe.mitre.org/data/definitions/352.html</p>",
@@ -299,6 +353,20 @@
 					"riskdesc": "Low (Medium)",
 					"desc": "<p>The server has responded with a redirect that seems to provide a large response. This may indicate that although the server sent a redirect it also responded with body content (which may include sensitive details, PII, etc.).</p>",
 					"instances":[ 
+						{
+							"uri": "https://handicap.gouv.fr",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://handicap.gouv.fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
 						{
 							"uri": "https://handicap.gouv.fr/index.php/filter/tips",
 							"method": "GET",
@@ -342,20 +410,6 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://handicap.gouv.fr/node/10",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://handicap.gouv.fr/node/1212",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
 							"uri": "https://handicap.gouv.fr/search/",
 							"method": "GET",
 							"param": "",
@@ -386,11 +440,11 @@
 					],
 					"count": "12",
 					"solution": "<p>Ensure that no sensitive information is leaked via redirect responses. Redirect responses should have almost no content.</p>",
-					"otherinfo": "<p>Location header URI length: 35 [http://handicap.gouv.fr/filter/tips].</p><p>Predicted response size: 335.</p><p>Response Body Length: 386.</p>",
+					"otherinfo": "<p>Location header URI length: 31 [http://handicap.gouv.fr/accueil].</p><p>Predicted response size: 331.</p><p>Response Body Length: 370.</p>",
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "224"
+					"sourceid": "47"
 				},
 				{
 					"pluginid": "10054",
@@ -449,7 +503,7 @@
 					"reference": "",
 					"cweid": "829",
 					"wascid": "15",
-					"sourceid": "1074"
+					"sourceid": "923"
 				},
 				{
 					"pluginid": "10110",
@@ -461,6 +515,13 @@
 					"riskdesc": "Low (Low)",
 					"desc": "<p>A dangerous JS function seems to be in use that would leave the site vulnerable.</p>",
 					"instances":[ 
+						{
+							"uri": "https://handicap.gouv.fr/core/assets/vendor/jquery-form/jquery.form.min.js?v=4.22",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "eval"
+						},
 						{
 							"uri": "https://handicap.gouv.fr/core/assets/vendor/jquery/jquery.min.js?v=3.5.1",
 							"method": "GET",
@@ -476,13 +537,13 @@
 							"evidence": "eval"
 						}
 					],
-					"count": "2",
+					"count": "3",
 					"solution": "<p>See the references for security advice on the use of these functions.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "885"
+					"sourceid": "998"
 				},
 				{
 					"pluginid": "10015",
@@ -496,13 +557,6 @@
 					"instances":[ 
 						{
 							"uri": "https://handicap.gouv.fr",
-							"method": "GET",
-							"param": "Cache-Control",
-							"attack": "",
-							"evidence": "must-revalidate, no-cache, private"
-						},
-						{
-							"uri": "https://handicap.gouv.fr/",
 							"method": "GET",
 							"param": "Cache-Control",
 							"attack": "",
@@ -524,6 +578,20 @@
 						},
 						{
 							"uri": "https://handicap.gouv.fr/filter/tips",
+							"method": "GET",
+							"param": "Cache-Control",
+							"attack": "",
+							"evidence": "must-revalidate, no-cache, private"
+						},
+						{
+							"uri": "https://handicap.gouv.fr/la-conference-nationale-du-handicap-cnh",
+							"method": "GET",
+							"param": "Cache-Control",
+							"attack": "",
+							"evidence": "must-revalidate, no-cache, private"
+						},
+						{
+							"uri": "https://handicap.gouv.fr/lagefiph",
 							"method": "GET",
 							"param": "Cache-Control",
 							"attack": "",
@@ -572,7 +640,7 @@
 							"evidence": "must-revalidate, no-cache, private"
 						}
 					],
-					"count": "11",
+					"count": "12",
 					"solution": "<p>Whenever possible ensure the cache-control HTTP header is set with no-cache, no-store, must-revalidate.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p>",
@@ -661,6 +729,13 @@
 							"evidence": ""
 						},
 						{
+							"uri": "https://handicap.gouv.fr/profiles/*.css",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
 							"uri": "https://handicap.gouv.fr/profiles/*.css$",
 							"method": "GET",
 							"param": "",
@@ -668,7 +743,7 @@
 							"evidence": ""
 						}
 					],
-					"count": "11",
+					"count": "12",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Permissions-Policy header.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy</p><p>https://developers.google.com/web/updates/2018/06/feature-policy</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
@@ -705,14 +780,14 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "http://handicap.gouv.fr/sites/handicap/files/2021-10/Vignettes%20DuoDay.png"
+							"evidence": "http://handicap.gouv.fr/sites/handicap/files/2021-11/en-tete-cp-tensions-recrutement-handicap.png"
 						},
 						{
 							"uri": "https://handicap.gouv.fr/france-relance-soutien-aux-employeurs-pour-le-recrutement-inclusif",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "http://handicap.gouv.fr/sites/handicap/files/2021-10/Vignettes%20DuoDay.png"
+							"evidence": "http://handicap.gouv.fr/sites/handicap/files/2021-11/en-tete-cp-tensions-recrutement-handicap.png"
 						},
 						{
 							"uri": "https://handicap.gouv.fr/la-strategie-nationale-autisme-et-troubles-du-neuro-developpement",
@@ -726,10 +801,17 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "http://handicap.gouv.fr/sites/handicap/files/2021-10/Une-rubrique-scolarit%C3%A9-sur-le-site-Mon-parcours-handicap.png"
+							"evidence": "http://handicap.gouv.fr/sites/handicap/files/2021-11/photo-inauguration-cafe-joyeux.jpg"
 						},
 						{
 							"uri": "https://handicap.gouv.fr/les-aides-et-les-prestations",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "http://handicap.gouv.fr/sites/handicap/files/2021-09/shutterstock_1937455846.jpg"
+						},
+						{
+							"uri": "https://handicap.gouv.fr/les-aides-et-les-prestations?source=dfbfb851-6382-4969-9eb7-4b22afd6458d",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -740,16 +822,23 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "http://handicap.gouv.fr/sites/handicap/files/2021-11/cp-indemnites-inflation-handicap.png"
+							"evidence": "http://handicap.gouv.fr/sites/handicap/files/2021-11/en-tete-cp-tensions-recrutement-handicap.png"
+						},
+						{
+							"uri": "https://handicap.gouv.fr/les-articles-de-presse-et-les-actualites?source=dfbfb851-6382-4969-9eb7-4b22afd6458d",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "http://handicap.gouv.fr/sites/handicap/files/2021-11/en-tete-cp-tensions-recrutement-handicap.png"
 						}
 					],
-					"count": "8",
+					"count": "10",
 					"solution": "<p>A page that is available over SSL/TLS must be comprised completely of content which is transmitted over SSL/TLS.</p><p>The page must not contain any content that is transmitted over unencrypted HTTP.</p><p> This includes content from third party sites.</p>",
 					"otherinfo": "<p>tag=img src=http://handicap.gouv.fr/sites/handicap/files/2021-09/shutterstock_751605355.jpg</p><p></p>",
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Protection_Cheat_Sheet.html</p>",
 					"cweid": "311",
 					"wascid": "4",
-					"sourceid": "565"
+					"sourceid": "389"
 				},
 				{
 					"pluginid": "10035",
@@ -775,7 +864,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>http://caniuse.com/stricttransportsecurity</p><p>http://tools.ietf.org/html/rfc6797</p>",
 					"cweid": "319",
 					"wascid": "15",
-					"sourceid": "196"
+					"sourceid": "174"
 				},
 				{
 					"pluginid": "10096",
@@ -795,20 +884,6 @@
 							"evidence": "1266494637"
 						},
 						{
-							"uri": "https://handicap.gouv.fr/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1266494637"
-						},
-						{
-							"uri": "https://handicap.gouv.fr/agir-pour-les-aidants",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "0800360360"
-						},
-						{
 							"uri": "https://handicap.gouv.fr/la-strategie-nationale-autisme-et-troubles-du-neuro-developpement",
 							"method": "GET",
 							"param": "",
@@ -816,18 +891,25 @@
 							"evidence": "59963709"
 						},
 						{
-							"uri": "https://handicap.gouv.fr/le-0-800-360-360-un-numero-dappui-pour-les-personnes-handicapees-et-les-proches-aidants",
+							"uri": "https://handicap.gouv.fr/les-politiques-publiques",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "0800360360"
+							"evidence": "1266494637"
 						},
 						{
-							"uri": "https://handicap.gouv.fr/mes-aides-et-demarches",
+							"uri": "https://handicap.gouv.fr/libraries/tarteaucitron/tarteaucitron.js?v=0",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "20120655"
+							"evidence": "20210509"
+						},
+						{
+							"uri": "https://handicap.gouv.fr/libraries/tarteaucitron/tarteaucitron.js?v=0",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "86400000"
 						},
 						{
 							"uri": "https://handicap.gouv.fr/sophie-cluzel-secretaire-detat-aupres-du-premier-ministre-chargee-des-personnes-handicapees",
@@ -837,14 +919,28 @@
 							"evidence": "2057116086"
 						},
 						{
-							"uri": "https://handicap.gouv.fr/voyons-les-personnes-avant-le-handicap",
+							"uri": "https://handicap.gouv.fr/themes/custom/theme_dicom_handicap/css/main.css?r2pqpy",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "20211103"
+							"evidence": "2147483645"
+						},
+						{
+							"uri": "https://handicap.gouv.fr/themes/custom/theme_dicom_handicap/css/main.css?r2pqpy",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "2147483646"
+						},
+						{
+							"uri": "https://handicap.gouv.fr/themes/custom/theme_dicom_handicap/css/main.css?r2pqpy",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "2147483647"
 						}
 					],
-					"count": "8",
+					"count": "9",
 					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
 					"otherinfo": "<p>1266494637, which evaluates to: 2010-02-18 12:03:57</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
@@ -867,14 +963,14 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "B8WLaR7MV1NDhpx7bLUtGytATXjoYBnnrwxcM7m0zk5oAK/BaZTpjqPB9+AXHLT9rb5AcmmVndNywRV48J3CUbVzSOaA"
+							"evidence": "7gvhGebN7CfxtZx7bLUtGytATXjoYKNpzJuwrafgQ3wRZB3ZyisGrRmL51PWlalYbsrAe8RkR8kRUvLN292jWLGDP9eP"
 						},
 						{
 							"uri": "https://handicap.gouv.fr",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "la1c7Di7vVnLDvp7bLUtGytATXjoYPOChi9bj1f0moo5kPrPYpp+Yw2+4m/DB4/F+g1g5UmFA5L3iQTLde3M2wHwQH2Z"
+							"evidence": "98pxpRGjpYoD8K57bLUtGytATXjoYOLJqDRqBPbg081I+HjVNQ4PmfMzD8ynz8EKN0e1TUCteKY9ZrmYnnX+7y4sd/bF"
 						},
 						{
 							"uri": "https://handicap.gouv.fr/admin/",
@@ -944,12 +1040,12 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "ofqfv6riyycIMRR7bLUtGytATXjoYCE7BF76sNZpfLGZpJMQiwljYqUdb+jD9KLboG2sabMtnvRMCij1MnfT+q0jx4tF"
+							"evidence": "R3GlbDyVHnsB5MZ7bLUtGytATXjoYJPsqHVMqrJAetkPDAPt5InhDnHoHgYuHadtvYcFLWX7u4QxlpAVNfYQhlk9z2Pm"
 						}
 					],
 					"count": "12",
 					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
-					"otherinfo": "<p>\\x0007\u014Bi\\x001e\uFFFDWSC\uFFFD\uFFFD{l\uFFFD-\\x001b+@Mx\uFFFD`\\x0019\uFFFD\\x000c\\3\uFFFD\uFFFD\uFFFDNh\\x0000\uFFFD\uFFFDi\uFFFD\u93A3\uFFFD\uFFFD\uFFFD\\x0017\\x001c\uFFFD\uFFFD\uFFFD\uFFFD@ri\uFFFD\uFFFD\uFFFDr\uFFFD\\x0015x\uFFFD\uFFFDQ\uFFFDsH\uFFFD</p>",
+					"otherinfo": "<p>\uFFFD\\x000b\uFFFD\\x0019\uFFFD\uFFFD\uFFFD'\uFFFD{l\uFFFD-\\x001b+@Mx\uFFFD`\uFFFDi\u031B\uFFFD\uFFFD\uFFFD\uFFFDC|\\x0011d\\x001d\uFFFD\uFFFD+\\x0006\uFFFD\\x0019\uFFFD\uFFFDS\u0595\uFFFDXn\uFFFD\uFFFD{\uFFFDdG\uFFFD\\x0011R\uFFFD\uFFFD\uFFFD\u0763X\uFFFD\uFFFD?\u05CF</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
@@ -973,6 +1069,20 @@
 							"evidence": "user"
 						},
 						{
+							"uri": "https://handicap.gouv.fr/admin/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "admin"
+						},
+						{
+							"uri": "https://handicap.gouv.fr/comment/reply/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "user"
+						},
+						{
 							"uri": "https://handicap.gouv.fr/core/*.css$",
 							"method": "GET",
 							"param": "",
@@ -994,6 +1104,20 @@
 							"evidence": "user"
 						},
 						{
+							"uri": "https://handicap.gouv.fr/filter/tips",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "user"
+						},
+						{
+							"uri": "https://handicap.gouv.fr/node/add/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "user"
+						},
+						{
 							"uri": "https://handicap.gouv.fr/profiles/*.css$",
 							"method": "GET",
 							"param": "",
@@ -1001,42 +1125,28 @@
 							"evidence": "user"
 						},
 						{
-							"uri": "https://handicap.gouv.fr",
+							"uri": "https://handicap.gouv.fr/profiles/*.js$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "from"
+							"evidence": "user"
 						},
 						{
-							"uri": "https://handicap.gouv.fr/core/*.css$",
+							"uri": "https://handicap.gouv.fr/profiles/*.svg",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "from"
+							"evidence": "user"
 						},
 						{
-							"uri": "https://handicap.gouv.fr/core/*.js$",
+							"uri": "https://handicap.gouv.fr/user/logout/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "from"
-						},
-						{
-							"uri": "https://handicap.gouv.fr/core/*.svg",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "from"
-						},
-						{
-							"uri": "https://handicap.gouv.fr/profiles/*.css$",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "from"
+							"evidence": "user"
 						}
 					],
-					"count": "10",
+					"count": "12",
 					"solution": "<p>Remove all comments that return information that may help an attacker and fix any underlying problems they refer to.</p>",
 					"otherinfo": "<p>The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script type=\"application/json\" data-drupal-selector=\"drupal-settings-json\">{\"path\":{\"baseUrl\":\"\\/\",\"scriptPath\":null,\"pathPrefi\", see evidence field for the suspicious comment/snippet.</p>",
 					"reference": "",
@@ -1069,6 +1179,13 @@
 							"evidence": "<a>un ensemble de ressources pour les professionnels et les familles, visant \u00E0\u00A0</a>"
 						},
 						{
+							"uri": "https://handicap.gouv.fr/engagement-2?source=1cfe601b-4736-44b9-92c5-9a7e24ccaf6c",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a>un ensemble de ressources pour les professionnels et les familles, visant \u00E0\u00A0</a>"
+						},
+						{
 							"uri": "https://handicap.gouv.fr/la-formation",
 							"method": "GET",
 							"param": "",
@@ -1083,27 +1200,6 @@
 							"evidence": "<a href=\"\" target=\"_blank\">Le point d\u2019\u00E9tape \u00E0 3 ans</a>"
 						},
 						{
-							"uri": "https://handicap.gouv.fr/le-0-800-360-360-un-numero-dappui-pour-les-personnes-handicapees-et-les-proches-aidants",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<noscript><p></p><iframe>src=\"https://2953234.fls.doubleclick.net/activityi;src=2953234;type=handi0;cat=itag-00;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=;npa=;<p></p>ord=1;num=1?\" width=\"1\" height=\"1\" frameborder=\"0\" style=\"display:none\"&gt;</iframe><p></p></noscript>"
-						},
-						{
-							"uri": "https://handicap.gouv.fr/sites/handicap/files/2021-09/COUV_2.jpg",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<a>"
-						},
-						{
-							"uri": "https://handicap.gouv.fr/sites/handicap/files/2021-09/Image1.png",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<a>"
-						},
-						{
 							"uri": "https://handicap.gouv.fr/sites/handicap/files/files-spip/arton1.png",
 							"method": "GET",
 							"param": "",
@@ -1111,20 +1207,27 @@
 							"evidence": "<A>"
 						},
 						{
-							"uri": "https://handicap.gouv.fr/themes/custom/theme_dicom/js/dicom.js?r1ojh3",
+							"uri": "https://handicap.gouv.fr/sites/handicap/files/files-spip/arton1278.jpg",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a>"
+						},
+						{
+							"uri": "https://handicap.gouv.fr/themes/custom/theme_dicom/js/dicom.js?r2pqpy",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "<a>"
 						}
 					],
-					"count": "9",
+					"count": "8",
 					"solution": "<p>This is an informational alert and so no changes are required.</p>",
 					"otherinfo": "<p>Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application.</p>",
 					"reference": "",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "885"
+					"sourceid": "739"
 				},
 				{
 					"pluginid": "10049",
@@ -1265,7 +1368,7 @@
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "934"
+					"sourceid": "781"
 				}
 			]
 		}

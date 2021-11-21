@@ -346,7 +346,7 @@
               "ip"           : "handicap.gouv.fr/185.194.82.206",
               "port"         : "443",
               "severity"     : "HIGH",
-              "finding"      : "expires < 30 days (28)"
+              "finding"      : "expires < 30 days (21)"
           }
 ,         {
               "id"           : "cert_notBefore",
@@ -489,18 +489,25 @@
               "finding"      : "intermediate certificate(s) is/are ok"
           }
 ,         {
+              "id"           : "insecure_redirect",
+              "ip"           : "handicap.gouv.fr/185.194.82.206",
+              "port"         : "443",
+              "severity"     : "HIGH",
+              "finding"      : "Redirect to insecure URL: 'http://handicap.gouv.fr/accueil'"
+          }
+,         {
               "id"           : "HTTP_status_code",
               "ip"           : "handicap.gouv.fr/185.194.82.206",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "200 OK ('/')"
+              "finding"      : "301 Moved Permanently ('/')"
           }
 ,         {
               "id"           : "HTTP_clock_skew",
               "ip"           : "handicap.gouv.fr/185.194.82.206",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "-23257 seconds from localtime"
+              "finding"      : "0 seconds from localtime"
           }
 ,         {
               "id"           : "HSTS_time",
@@ -549,7 +556,7 @@
               "ip"           : "handicap.gouv.fr/185.194.82.206",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "1 at '/'"
+              "finding"      : "1 at '/' (30x detected, better try target URL of 30x)"
           }
 ,         {
               "id"           : "cookie_secure",
@@ -563,7 +570,7 @@
               "ip"           : "handicap.gouv.fr/185.194.82.206",
               "port"         : "443",
               "severity"     : "OK",
-              "finding"      : "All (1) at '/' marked as HttpOnly"
+              "finding"      : "All (1) at '/' marked as HttpOnly (30x detected, better try target URL of 30x)"
           }
 ,         {
               "id"           : "X-Frame-Options",
@@ -674,10 +681,10 @@
               "id"           : "BREACH",
               "ip"           : "handicap.gouv.fr/185.194.82.206",
               "port"         : "443",
-              "severity"     : "MEDIUM",
+              "severity"     : "OK",
               "cve"          : "CVE-2013-3587",
               "cwe"          : "CWE-310",
-              "finding"      : "potentially VULNERABLE, gzip HTTP compression detected  - only supplied '/' tested"
+              "finding"      : "not vulnerable, no gzip/deflate/compress/br HTTP compression  - only supplied '/' tested"
           }
 ,         {
               "id"           : "POODLE_SSL",
@@ -1112,6 +1119,6 @@
               "ip"           : "handicap.gouv.fr/185.194.82.206",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "167"
+              "finding"      : "171"
           }
 ]
