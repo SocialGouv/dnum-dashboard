@@ -1,6 +1,6 @@
 {
 	"@version": "2.11.0",
-	"@generated": "Sun, 14 Nov 2021 03:47:32",
+	"@generated": "Sun, 21 Nov 2021 03:49:23",
 	"site":[ 
 		{
 			"@name": "https://www.ars.sante.fr",
@@ -526,7 +526,7 @@
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "371"
+					"sourceid": "351"
 				},
 				{
 					"pluginid": "10011",
@@ -1005,7 +1005,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1639177200"
+							"evidence": "1639781999"
 						},
 						{
 							"uri": "https://www.ars.sante.fr",
@@ -1033,7 +1033,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1639177200"
+							"evidence": "1639781999"
 						},
 						{
 							"uri": "https://www.ars.sante.fr/robots.txt",
@@ -1256,7 +1256,7 @@
 					],
 					"count": "1",
 					"solution": "<p>Always scope cookies to a FQDN (Fully Qualified Domain Name).</p>",
-					"otherinfo": "<p>The origin domain used for comparison was: </p><p>www.ars.sante.fr</p><p>SESSe7a36b2f1cd34f4db14e088f07b12340=hz3rv-qDn393ZJkBBO8hlKVottQLtJ5EsKaOYkNMD3I</p><p></p>",
+					"otherinfo": "<p>The origin domain used for comparison was: </p><p>www.ars.sante.fr</p><p>SESSe7a36b2f1cd34f4db14e088f07b12340=a5GhEDj5wy3vzcSZyKrqAuYDpnTMUhGqw976p09p088</p><p></p>",
 					"reference": "<p>https://tools.ietf.org/html/rfc6265#section-4.1</p><p>https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/06-Session_Management_Testing/02-Testing_for_Cookies_Attributes.html</p><p>http://code.google.com/p/browsersec/wiki/Part2#Same-origin_policy_for_cookies</p>",
 					"cweid": "565",
 					"wascid": "15",
@@ -1396,7 +1396,7 @@
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "159"
+					"sourceid": "163"
 				},
 				{
 					"pluginid": "10050",
@@ -1641,15 +1641,36 @@
 							"param": "pass",
 							"attack": "",
 							"evidence": ""
+						},
+						{
+							"uri": "https://www.ars.sante.fr/user/password/",
+							"method": "POST",
+							"param": "form_id",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.ars.sante.fr/user/password/",
+							"method": "POST",
+							"param": "name",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.ars.sante.fr/user/password/",
+							"method": "POST",
+							"param": "op",
+							"attack": "",
+							"evidence": ""
 						}
 					],
-					"count": "8",
+					"count": "11",
 					"solution": "<p>Validate all input and sanitize output it before writing to any HTML attributes.</p>",
 					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://www.ars.sante.fr/recherche-globale?search_ars=ZAP&submit_search=Rechercher</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [input] tag [value] attribute </p><p></p><p>The user input found was:</p><p>search_ars=ZAP</p><p></p><p>The user-controlled value was:</p><p>zap</p>",
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "798"
+					"sourceid": "800"
 				}
 			]
 		}
