@@ -1,6 +1,6 @@
 {
 	"@version": "2.11.0",
-	"@generated": "Sun, 14 Nov 2021 01:46:47",
+	"@generated": "Sun, 21 Nov 2021 01:50:07",
 	"site":[ 
 		{
 			"@name": "https://drees.solidarites-sante.gouv.fr",
@@ -8,6 +8,32 @@
 			"@port": "443",
 			"@ssl": "true",
 			"alerts": [ 
+				{
+					"pluginid": "10062",
+					"alertRef": "10062",
+					"alert": "PII Disclosure",
+					"name": "PII Disclosure",
+					"riskcode": "3",
+					"confidence": "3",
+					"riskdesc": "High (High)",
+					"desc": "<p>The response contains Personally Identifiable Information, such as CC number, SSN and similar sensitive data.</p>",
+					"instances":[ 
+						{
+							"uri": "https://drees.solidarites-sante.gouv.fr/enfance-famille-et-jeunesse",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "570752853579353"
+						}
+					],
+					"count": "1",
+					"solution": "",
+					"otherinfo": "<p>Credit Card Type detected: Maestro</p><p>Bank Identification Number: 570752</p><p>Brand: MAESTRO</p><p>Category: </p><p>Issuer: </p>",
+					"reference": "",
+					"cweid": "359",
+					"wascid": "13",
+					"sourceid": "1269"
+				},
 				{
 					"pluginid": "10038",
 					"alertRef": "10038",
@@ -236,7 +262,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<form  class=\"solr-search-form\" data-drupal-selector=\"solr-search-form-2\" action=\"/core/*.css$\" method=\"post\" id=\"solr-search-form--2\" accept-charset=\"UTF-8\" role=\"search\" >"
+							"evidence": "<form  class=\"solr-search-form\" data-drupal-selector=\"solr-search-form\" action=\"/core/*.css$\" method=\"post\" id=\"solr-search-form\" accept-charset=\"UTF-8\" role=\"search\" >"
 						},
 						{
 							"uri": "https://drees.solidarites-sante.gouv.fr/core/*.js$",
@@ -250,7 +276,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<form  class=\"solr-search-form\" data-drupal-selector=\"solr-search-form-2\" action=\"/core/*.js$\" method=\"post\" id=\"solr-search-form--2\" accept-charset=\"UTF-8\" role=\"search\" >"
+							"evidence": "<form  class=\"solr-search-form\" data-drupal-selector=\"solr-search-form\" action=\"/core/*.js$\" method=\"post\" id=\"solr-search-form\" accept-charset=\"UTF-8\" role=\"search\" >"
 						},
 						{
 							"uri": "https://drees.solidarites-sante.gouv.fr/core/*.svg",
@@ -264,7 +290,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<form  class=\"solr-search-form\" data-drupal-selector=\"solr-search-form-2\" action=\"/core/*.svg\" method=\"post\" id=\"solr-search-form--2\" accept-charset=\"UTF-8\" role=\"search\" >"
+							"evidence": "<form  class=\"solr-search-form\" data-drupal-selector=\"solr-search-form\" action=\"/core/*.svg\" method=\"post\" id=\"solr-search-form\" accept-charset=\"UTF-8\" role=\"search\" >"
 						},
 						{
 							"uri": "https://drees.solidarites-sante.gouv.fr/sitemap.xml",
@@ -278,7 +304,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<form  class=\"solr-search-form\" data-drupal-selector=\"solr-search-form-2\" action=\"/sitemap.xml\" method=\"post\" id=\"solr-search-form--2\" accept-charset=\"UTF-8\" role=\"search\" >"
+							"evidence": "<form  class=\"solr-search-form\" data-drupal-selector=\"solr-search-form\" action=\"/sitemap.xml\" method=\"post\" id=\"solr-search-form\" accept-charset=\"UTF-8\" role=\"search\" >"
 						}
 					],
 					"count": "10",
@@ -341,7 +367,7 @@
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "408"
+					"sourceid": "409"
 				},
 				{
 					"pluginid": "10054",
@@ -414,7 +440,7 @@
 					"reference": "<p>https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/08-Testing_for_Error_Handling/</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "352"
+					"sourceid": "353"
 				},
 				{
 					"pluginid": "10015",
@@ -815,7 +841,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1136941322"
+							"evidence": "1120164106"
 						},
 						{
 							"uri": "https://drees.solidarites-sante.gouv.fr/article/observatoire-national-de-la-demographie-des-professions-de-sante-ondps",
@@ -832,23 +858,16 @@
 							"evidence": "20000722"
 						},
 						{
-							"uri": "https://drees.solidarites-sante.gouv.fr/article/presentation-de-la-drees",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "2020211001"
-						},
-						{
 							"uri": "https://drees.solidarites-sante.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1136941322"
+							"evidence": "1120164106"
 						}
 					],
-					"count": "5",
+					"count": "4",
 					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
-					"otherinfo": "<p>1136941322, which evaluates to: 2006-01-11 01:02:02</p>",
+					"otherinfo": "<p>1120164106, which evaluates to: 2005-06-30 20:41:46</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
@@ -895,82 +914,82 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "form-NvM2SLPdyGpuTMaM4wXXjEPP8dVGoZdkJBbSxbnjE2g"
+							"evidence": "form-WUrNrDl820Mr8yDD2JJD3mRAAOFknJ9USC4Ni2Ery70"
 						},
 						{
 							"uri": "https://drees.solidarites-sante.gouv.fr/admin/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "form-kqKNbDEOpRvy14dwwUvBCJW9mePze8Q5HPCC5MBMH2g"
+							"evidence": "form-8HAq5nppImEvyPce1a17oYq7pLE8UuN-JDQOWYTInLk"
 						},
 						{
 							"uri": "https://drees.solidarites-sante.gouv.fr/comment/reply/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "form-kqKNbDEOpRvy14dwwUvBCJW9mePze8Q5HPCC5MBMH2g"
+							"evidence": "form-8HAq5nppImEvyPce1a17oYq7pLE8UuN-JDQOWYTInLk"
 						},
 						{
 							"uri": "https://drees.solidarites-sante.gouv.fr/core/*.css$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "form-kqKNbDEOpRvy14dwwUvBCJW9mePze8Q5HPCC5MBMH2g"
+							"evidence": "form-8HAq5nppImEvyPce1a17oYq7pLE8UuN-JDQOWYTInLk"
 						},
 						{
 							"uri": "https://drees.solidarites-sante.gouv.fr/core/*.js$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "form-kqKNbDEOpRvy14dwwUvBCJW9mePze8Q5HPCC5MBMH2g"
+							"evidence": "form-8HAq5nppImEvyPce1a17oYq7pLE8UuN-JDQOWYTInLk"
 						},
 						{
 							"uri": "https://drees.solidarites-sante.gouv.fr/core/*.svg",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "form-kqKNbDEOpRvy14dwwUvBCJW9mePze8Q5HPCC5MBMH2g"
+							"evidence": "form-8HAq5nppImEvyPce1a17oYq7pLE8UuN-JDQOWYTInLk"
 						},
 						{
 							"uri": "https://drees.solidarites-sante.gouv.fr/filter/tips",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "form-kqKNbDEOpRvy14dwwUvBCJW9mePze8Q5HPCC5MBMH2g"
+							"evidence": "form-8HAq5nppImEvyPce1a17oYq7pLE8UuN-JDQOWYTInLk"
 						},
 						{
 							"uri": "https://drees.solidarites-sante.gouv.fr/profiles/*.css$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "form-kqKNbDEOpRvy14dwwUvBCJW9mePze8Q5HPCC5MBMH2g"
+							"evidence": "form-8HAq5nppImEvyPce1a17oYq7pLE8UuN-JDQOWYTInLk"
 						},
 						{
 							"uri": "https://drees.solidarites-sante.gouv.fr/profiles/*.js$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "form-kqKNbDEOpRvy14dwwUvBCJW9mePze8Q5HPCC5MBMH2g"
+							"evidence": "form-8HAq5nppImEvyPce1a17oYq7pLE8UuN-JDQOWYTInLk"
 						},
 						{
 							"uri": "https://drees.solidarites-sante.gouv.fr/profiles/*.svg",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "form-kqKNbDEOpRvy14dwwUvBCJW9mePze8Q5HPCC5MBMH2g"
+							"evidence": "form-8HAq5nppImEvyPce1a17oYq7pLE8UuN-JDQOWYTInLk"
 						},
 						{
 							"uri": "https://drees.solidarites-sante.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "form-kqKNbDEOpRvy14dwwUvBCJW9mePze8Q5HPCC5MBMH2g"
+							"evidence": "form-8HAq5nppImEvyPce1a17oYq7pLE8UuN-JDQOWYTInLk"
 						}
 					],
 					"count": "11",
 					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
-					"otherinfo": "<p>~\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\"\uFFFDw!\uFFFD\uFFFD3\\x001a3\uFFFD\\x0017^1\\x000f?\uFFFDU\\x001a\uFFFD]\uFFFD\uFFFD[K\\x0016\uFFFDM\uFFFD</p>",
+					"otherinfo": "<p>~\uFFFD\uFFFD\uFFFDe+6\uFFFD\uFFFD\uFFFDm\\x000c\uFFFD\u0303\\x000fbI\\x000fy\uFFFD\\x0000\\x0003\uFFFD\uFFFDr}Q \uFFFD6-\uFFFD\uFFFD.\uFFFD</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
