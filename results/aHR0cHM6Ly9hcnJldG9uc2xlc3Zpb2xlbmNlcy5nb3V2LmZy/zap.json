@@ -1,6 +1,6 @@
 {
 	"@version": "2.11.0",
-	"@generated": "Sun, 14 Nov 2021 00:56:54",
+	"@generated": "Sun, 21 Nov 2021 00:57:41",
 	"site":[ 
 		{
 			"@name": "https://arretonslesviolences.gouv.fr",
@@ -74,7 +74,7 @@
 					"reference": "",
 					"cweid": "359",
 					"wascid": "13",
-					"sourceid": "507"
+					"sourceid": "511"
 				},
 				{
 					"pluginid": "10038",
@@ -115,7 +115,7 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://arretonslesviolences.gouv.fr/focus/plan-angela",
+							"uri": "https://arretonslesviolences.gouv.fr/focus/la-synthese-de-letude-sur-les-morts-violentes-au-sein-du-couple-en-2019",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -273,7 +273,7 @@
 					"reference": "<p>https://owasp.org/www-community/attacks/Reverse_Tabnabbing</p><p>https://dev.to/ben/the-targetblank-vulnerability-by-example</p><p>https://mathiasbynens.github.io/rel-noopener/</p><p>https://medium.com/@jitbit/target-blank-the-most-underestimated-vulnerability-ever-96e328301f4c</p>",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "134"
+					"sourceid": "132"
 				},
 				{
 					"pluginid": "10099",
@@ -299,7 +299,7 @@
 					"reference": "<p>http://blogs.wsj.com/cio/2013/10/08/adobe-source-code-leak-is-bad-news-for-u-s-government/</p>",
 					"cweid": "540",
 					"wascid": "13",
-					"sourceid": "511"
+					"sourceid": "515"
 				},
 				{
 					"pluginid": "10099",
@@ -325,7 +325,7 @@
 					"reference": "<p>http://blogs.wsj.com/cio/2013/10/08/adobe-source-code-leak-is-bad-news-for-u-s-government/</p>",
 					"cweid": "540",
 					"wascid": "13",
-					"sourceid": "509"
+					"sourceid": "513"
 				},
 				{
 					"pluginid": "90003",
@@ -407,7 +407,7 @@
 					"reference": "<p>https://developer.mozilla.org/en/docs/Web/Security/Subresource_Integrity</p>",
 					"cweid": "345",
 					"wascid": "15",
-					"sourceid": "389"
+					"sourceid": "411"
 				},
 				{
 					"pluginid": "10003",
@@ -433,7 +433,7 @@
 					"reference": "<p>https://blog.jquery.com/2020/04/10/jquery-3-5-0-released/</p><p></p>",
 					"cweid": "829",
 					"wascid": "-1",
-					"sourceid": "441"
+					"sourceid": "464"
 				},
 				{
 					"pluginid": "10020",
@@ -458,9 +458,16 @@
 							"param": "X-Frame-Options",
 							"attack": "",
 							"evidence": ""
+						},
+						{
+							"uri": "https://arretonslesviolences.gouv.fr/media/oembed?hash=eOlblY4VSj8CKQUTdBsv1UtHRPP535jxVqPy85V0E2E&max_height=0&max_width=0&url=https%3A//youtu.be/6ObA3qLXJLU",
+							"method": "GET",
+							"param": "X-Frame-Options",
+							"attack": "",
+							"evidence": ""
 						}
 					],
-					"count": "2",
+					"count": "3",
 					"solution": "<p>Most modern Web browsers support the X-Frame-Options HTTP header. Ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY. Alternatively consider implementing Content Security Policy's \"frame-ancestors\" directive. </p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options</p>",
@@ -569,7 +576,7 @@
 					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>http://cwe.mitre.org/data/definitions/352.html</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "185"
+					"sourceid": "186"
 				},
 				{
 					"pluginid": "10010",
@@ -582,20 +589,6 @@
 					"desc": "<p>A cookie has been set without the HttpOnly flag, which means that the cookie can be accessed by JavaScript. If a malicious script can be run on this page then the cookie will be accessible and can be transmitted to another site. If this is a session cookie then session hijacking may be possible.</p>",
 					"instances":[ 
 						{
-							"uri": "https://arretonslesviolences.gouv.fr/index.php/user/login/",
-							"method": "GET",
-							"param": "TS01cf5a77",
-							"attack": "",
-							"evidence": "Set-Cookie: TS01cf5a77"
-						},
-						{
-							"uri": "https://arretonslesviolences.gouv.fr/index.php/user/login/",
-							"method": "GET",
-							"param": "TS01cf5a77_26",
-							"attack": "",
-							"evidence": "Set-Cookie: TS01cf5a77_26"
-						},
-						{
 							"uri": "https://arretonslesviolences.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "TS01cf5a77",
@@ -608,20 +601,6 @@
 							"param": "TS01cf5a77_28",
 							"attack": "",
 							"evidence": "Set-Cookie: TS01cf5a77_28"
-						},
-						{
-							"uri": "https://arretonslesviolences.gouv.fr/user/login",
-							"method": "GET",
-							"param": "TS01cf5a77",
-							"attack": "",
-							"evidence": "Set-Cookie: TS01cf5a77"
-						},
-						{
-							"uri": "https://arretonslesviolences.gouv.fr/user/login",
-							"method": "GET",
-							"param": "TS01cf5a77_26",
-							"attack": "",
-							"evidence": "Set-Cookie: TS01cf5a77_26"
 						},
 						{
 							"uri": "https://arretonslesviolences.gouv.fr/user/login/",
@@ -666,13 +645,13 @@
 							"evidence": "Set-Cookie: TS01cf5a77_26"
 						}
 					],
-					"count": "12",
+					"count": "8",
 					"solution": "<p>Ensure that the HttpOnly flag is set for all cookies.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://owasp.org/www-community/HttpOnly</p>",
 					"cweid": "1004",
 					"wascid": "13",
-					"sourceid": "185"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10011",
@@ -685,20 +664,6 @@
 					"desc": "<p>A cookie has been set without the secure flag, which means that the cookie can be accessed via unencrypted connections.</p>",
 					"instances":[ 
 						{
-							"uri": "https://arretonslesviolences.gouv.fr/index.php/user/login/",
-							"method": "GET",
-							"param": "TS01cf5a77",
-							"attack": "",
-							"evidence": "Set-Cookie: TS01cf5a77"
-						},
-						{
-							"uri": "https://arretonslesviolences.gouv.fr/index.php/user/login/",
-							"method": "GET",
-							"param": "TS01cf5a77_26",
-							"attack": "",
-							"evidence": "Set-Cookie: TS01cf5a77_26"
-						},
-						{
 							"uri": "https://arretonslesviolences.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "TS01cf5a77",
@@ -711,20 +676,6 @@
 							"param": "TS01cf5a77_28",
 							"attack": "",
 							"evidence": "Set-Cookie: TS01cf5a77_28"
-						},
-						{
-							"uri": "https://arretonslesviolences.gouv.fr/user/login",
-							"method": "GET",
-							"param": "TS01cf5a77",
-							"attack": "",
-							"evidence": "Set-Cookie: TS01cf5a77"
-						},
-						{
-							"uri": "https://arretonslesviolences.gouv.fr/user/login",
-							"method": "GET",
-							"param": "TS01cf5a77_26",
-							"attack": "",
-							"evidence": "Set-Cookie: TS01cf5a77_26"
 						},
 						{
 							"uri": "https://arretonslesviolences.gouv.fr/user/login/",
@@ -769,13 +720,13 @@
 							"evidence": "Set-Cookie: TS01cf5a77_26"
 						}
 					],
-					"count": "12",
+					"count": "8",
 					"solution": "<p>Whenever a cookie contains sensitive information or is a session token, then it should always be passed using an encrypted channel. Ensure that the secure flag is set for cookies containing such sensitive information.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/06-Session_Management_Testing/02-Testing_for_Cookies_Attributes.html</p>",
 					"cweid": "614",
 					"wascid": "13",
-					"sourceid": "185"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10054",
@@ -787,20 +738,6 @@
 					"riskdesc": "Low (Medium)",
 					"desc": "<p>A cookie has been set without the SameSite attribute, which means that the cookie can be sent as a result of a 'cross-site' request. The SameSite attribute is an effective counter measure to cross-site request forgery, cross-site script inclusion, and timing attacks.</p>",
 					"instances":[ 
-						{
-							"uri": "https://arretonslesviolences.gouv.fr/index.php/user/login/",
-							"method": "GET",
-							"param": "TS01cf5a77",
-							"attack": "",
-							"evidence": "Set-Cookie: TS01cf5a77"
-						},
-						{
-							"uri": "https://arretonslesviolences.gouv.fr/index.php/user/login/",
-							"method": "GET",
-							"param": "TS01cf5a77_26",
-							"attack": "",
-							"evidence": "Set-Cookie: TS01cf5a77_26"
-						},
 						{
 							"uri": "https://arretonslesviolences.gouv.fr/robots.txt",
 							"method": "GET",
@@ -823,20 +760,6 @@
 							"evidence": "Set-Cookie: TS01cf5a77_28"
 						},
 						{
-							"uri": "https://arretonslesviolences.gouv.fr/user/login",
-							"method": "GET",
-							"param": "TS01cf5a77",
-							"attack": "",
-							"evidence": "Set-Cookie: TS01cf5a77"
-						},
-						{
-							"uri": "https://arretonslesviolences.gouv.fr/user/login",
-							"method": "GET",
-							"param": "TS01cf5a77_26",
-							"attack": "",
-							"evidence": "Set-Cookie: TS01cf5a77_26"
-						},
-						{
 							"uri": "https://arretonslesviolences.gouv.fr/user/login/",
 							"method": "GET",
 							"param": "TS01cf5a77",
@@ -879,13 +802,13 @@
 							"evidence": "Set-Cookie: TS01cf5a77_26"
 						}
 					],
-					"count": "13",
+					"count": "9",
 					"solution": "<p>Ensure that the SameSite attribute is set to either 'lax' or ideally 'strict' for all cookies.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://tools.ietf.org/html/draft-ietf-httpbis-cookie-same-site</p>",
 					"cweid": "1275",
 					"wascid": "13",
-					"sourceid": "185"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10017",
@@ -967,7 +890,7 @@
 					"reference": "",
 					"cweid": "829",
 					"wascid": "15",
-					"sourceid": "389"
+					"sourceid": "411"
 				},
 				{
 					"pluginid": "10110",
@@ -1001,7 +924,7 @@
 							"evidence": "Eval"
 						},
 						{
-							"uri": "https://arretonslesviolences.gouv.fr/TSPD/08eeb285a9ab2000e97ea98355ee84edaa9d9b9ff77ac933931637a2113ccf8c0b20f46e0a1e6a5e?type=8",
+							"uri": "https://arretonslesviolences.gouv.fr/TSPD/08eeb285a9ab2000fc8859ee538dc8460227f6d15a8c3f585710bdf86e879e5d04f15b0f8569caa2?type=8",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1014,7 +937,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "445"
+					"sourceid": "468"
 				},
 				{
 					"pluginid": "10015",
@@ -1117,7 +1040,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p>",
 					"cweid": "525",
 					"wascid": "13",
-					"sourceid": "134"
+					"sourceid": "132"
 				},
 				{
 					"pluginid": "10063",
@@ -1151,7 +1074,7 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://arretonslesviolences.gouv.fr/focus/violences-conjugales-le-gouvernement-se-mobilise",
+							"uri": "https://arretonslesviolences.gouv.fr/focus/de-nouveaux-outils-disposition-pour-lutter-contre-les-violences-conjugales",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1179,14 +1102,14 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://arretonslesviolences.gouv.fr/TSPD/08eeb285a9ab2000e97ea98355ee84edaa9d9b9ff77ac933931637a2113ccf8c0b20f46e0a1e6a5e?type=12",
+							"uri": "https://arretonslesviolences.gouv.fr/TSPD/08eeb285a9ab2000fc8859ee538dc8460227f6d15a8c3f585710bdf86e879e5d04f15b0f8569caa2?type=12",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://arretonslesviolences.gouv.fr/TSPD/08eeb285a9ab2000e97ea98355ee84edaa9d9b9ff77ac933931637a2113ccf8c0b20f46e0a1e6a5e?type=8",
+							"uri": "https://arretonslesviolences.gouv.fr/TSPD/08eeb285a9ab2000fc8859ee538dc8460227f6d15a8c3f585710bdf86e879e5d04f15b0f8569caa2?type=8",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1289,14 +1212,14 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://arretonslesviolences.gouv.fr/TSPD/08eeb285a9ab2000e97ea98355ee84edaa9d9b9ff77ac933931637a2113ccf8c0b20f46e0a1e6a5e?type=12",
+							"uri": "https://arretonslesviolences.gouv.fr/core/*.svg",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://arretonslesviolences.gouv.fr/TSPD/08eeb285a9ab2000e97ea98355ee84edaa9d9b9ff77ac933931637a2113ccf8c0b20f46e0a1e6a5e?type=8",
+							"uri": "https://arretonslesviolences.gouv.fr/profiles/*.css$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1326,7 +1249,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1294399126"
+							"evidence": "1273848589"
 						},
 						{
 							"uri": "https://arretonslesviolences.gouv.fr",
@@ -1340,7 +1263,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1743045631"
+							"evidence": "1743045578"
 						},
 						{
 							"uri": "https://arretonslesviolences.gouv.fr",
@@ -1354,26 +1277,19 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "17981632"
-						},
-						{
-							"uri": "https://arretonslesviolences.gouv.fr",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1884235712"
-						},
-						{
-							"uri": "https://arretonslesviolences.gouv.fr",
-							"method": "GET",
-							"param": "",
-							"attack": "",
 							"evidence": "2147483647"
+						},
+						{
+							"uri": "https://arretonslesviolences.gouv.fr",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "25216155"
 						}
 					],
-					"count": "7",
+					"count": "6",
 					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
-					"otherinfo": "<p>1294399126, which evaluates to: 2011-01-07 11:18:46</p>",
+					"otherinfo": "<p>1273848589, which evaluates to: 2010-05-14 14:49:49</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
@@ -1404,21 +1320,28 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://arretonslesviolences.gouv.fr/TSPD/08eeb285a9ab2000e97ea98355ee84edaa9d9b9ff77ac933931637a2113ccf8c0b20f46e0a1e6a5e?type=12",
+							"uri": "https://arretonslesviolences.gouv.fr/media/oembed?hash=eOlblY4VSj8CKQUTdBsv1UtHRPP535jxVqPy85V0E2E&max_height=0&max_width=0&url=https%3A//youtu.be/6ObA3qLXJLU",
 							"method": "GET",
 							"param": "X-Content-Type-Options",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://arretonslesviolences.gouv.fr/TSPD/08eeb285a9ab2000e97ea98355ee84edaa9d9b9ff77ac933931637a2113ccf8c0b20f46e0a1e6a5e?type=8",
+							"uri": "https://arretonslesviolences.gouv.fr/TSPD/08eeb285a9ab2000fc8859ee538dc8460227f6d15a8c3f585710bdf86e879e5d04f15b0f8569caa2?type=12",
+							"method": "GET",
+							"param": "X-Content-Type-Options",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://arretonslesviolences.gouv.fr/TSPD/08eeb285a9ab2000fc8859ee538dc8460227f6d15a8c3f585710bdf86e879e5d04f15b0f8569caa2?type=8",
 							"method": "GET",
 							"param": "X-Content-Type-Options",
 							"attack": "",
 							"evidence": ""
 						}
 					],
-					"count": "4",
+					"count": "5",
 					"solution": "<p>Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.</p><p>If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.</p>",
 					"otherinfo": "<p>This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.</p><p>At \"High\" threshold this scan rule will not alert on client or server error responses.</p>",
 					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p><p>https://owasp.org/www-community/Security_Headers</p>",
@@ -1441,21 +1364,21 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1111101110101020000000220000000520000000021389b4c4200000096300000000300000000300000006/TSPD/300000008TSPD_101300000005https3000000b008eeb285a9ab2000651e1c0ee1ec291b2ced9023af57443a6bf46ecb09e4447e05798718cb4a139f088f31cb2a0a2800b8185ae8f234bb1a43cceb46bd6887ddab2610e82e00bb5b6886112731df3978bb0ca540a5c184b5200000000200000000"
+							"evidence": "1111101110101020000000220000000520000000021389b4c4200000096300000000300000000300000006/TSPD/300000008TSPD_101300000005https3000000b008eeb285a9ab20000ecedd3a1374b0175f862b42da66533d62ddd21bd731f99d3dc4261bf0169333085f5fbcbe0a2800a1e2820945364d616662f119cea98c72e5d90193dcf0e74203cc2acdd9cd47074f6f658705c71833200000000200000000"
 						},
 						{
 							"uri": "https://arretonslesviolences.gouv.fr",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1111101110101020000000220000000520000000021389b4c4200000096300000000300000000300000006/TSPD/300000008TSPD_101300000005https3000000b008eeb285a9ab20001e9c9f3f23f21ebe9de436b055e1e6eba3baca414bdd4556ace0cb9de819808708946a2e9c0a2800367798c40cb4fd26464fab9d726035481a96ba87297f61ae0a73b1381a854cc23940de766d6f8c26200000000200000000"
+							"evidence": "1111101110101020000000220000000520000000021389b4c4200000096300000000300000000300000006/TSPD/300000008TSPD_101300000005https3000000b008eeb285a9ab20008f6a0885d33ee604226dbc8d8e8e671ce0786f2f96d7cdb18d5ddae7013bd54008b19d3f1b0a2800414e9e44cc2a617e674affc6463581983cd72c09910145d07ab174eff3804b183d5db530a4cb88e9200000000200000000"
 						},
 						{
 							"uri": "https://arretonslesviolences.gouv.fr/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "xml300000006/TSPD/300000008TSPD_101300000005https3000000b008eeb285a9ab2000aa1d81a3cb0f435a9a7fde85fab6632d15cf5b12593388dd470ef6a85fdceeed087b7e5c660a2800c64683aa38bd3dd0c0f345836121c6c8d8e942557c83a19b2855dddff6fbaa95b6856c210ba42861200000000200000000"
+							"evidence": "xml300000006/TSPD/300000008TSPD_101300000005https3000000b008eeb285a9ab2000b68e8c2016253d9cdaa84acc1d375a550a0f67dc73e2eb8e138859410bfb3f5208b4f2b8750a28006bc1cedb8f51a5fe21bd1e8310a8b420a4274bca790b6e26817a4548d839552ec3a5c63774b9bfa7200000000200000000"
 						},
 						{
 							"uri": "https://arretonslesviolences.gouv.fr/filter/tips",
@@ -1465,11 +1388,11 @@
 							"evidence": "/sites/default/files/css/css_0hHz8SUrag7aEh1DKXBaPRDOUqJ6plYpg3kkXMhm9R8"
 						},
 						{
-							"uri": "https://arretonslesviolences.gouv.fr/focus/violences-conjugales-le-gouvernement-se-mobilise",
+							"uri": "https://arretonslesviolences.gouv.fr/focus/de-nouveaux-outils-disposition-pour-lutter-contre-les-violences-conjugales",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "/sites/default/files/css/css_85XNCAFyrhN3OoMh4tYn3pxOKwesg0jcz0DMH-gl6BM"
+							"evidence": "/sites/default/files/css/css_DIRUb-IjDs6XuNJgksyKeFfglZienxMsOamKeCCfPT8"
 						},
 						{
 							"uri": "https://arretonslesviolences.gouv.fr/index.php/filter/tips",
@@ -1497,10 +1420,10 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "G7Mkl1Ih+nfBjy57bLUtGytATXjoYI5TPbVpPL3O/lMIcC59tWgZxxPAQQon2Ux8Oum3JozxXyRX3kci07gmHUKFyoU="
+							"evidence": "Eo8IUj16ltuukxF7bLUtGytATXjoYBFL/kyaKMU9jOZ3F5P/JfpBOMt/7LVHBaXrKNlD+DXvojGPGUzIUY8aNrXLh5E="
 						},
 						{
-							"uri": "https://arretonslesviolences.gouv.fr/TSPD/08eeb285a9ab2000e97ea98355ee84edaa9d9b9ff77ac933931637a2113ccf8c0b20f46e0a1e6a5e?type=12",
+							"uri": "https://arretonslesviolences.gouv.fr/TSPD/08eeb285a9ab2000fc8859ee538dc8460227f6d15a8c3f585710bdf86e879e5d04f15b0f8569caa2?type=12",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1523,7 +1446,7 @@
 					],
 					"count": "12",
 					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
-					"otherinfo": "<p>\uFFFD]u\uFFFDMu\uFFFDMt\uFFFDM\uFFFD\uFFFDM4\uFFFDM\uFFFD\uFFFDM4\uFFFDM9\uFFFDM4\uFFFDM4\uFFFDmw\uFFFD\uFFFD\uFFFDs\uFFFD\uFFFD\uFFFDM4\uFFFD\u07B7\uFFFDM4\uFFFDM4\uFFFDM4\uFFFDM4\uFFFD}4\uFFFDM4\u04EF\uFFFDH\uFFFD\uFFFD\uFFFDM4\uFFFDM4\uFFFD4\uFFFD\\x000f\uFFFDt\uFFFD}4\uFFFDM4\u04D8m\uFFFD\uFFFD7\uFFFDM4\uFFFDF\uFFFD\uFFFD\u01DEoo9k\u059B\uFFFDM4\uFFFD^\uFFFD\uFFFD\\x001e{W\uFFFD\uFFFD\uFFFD[\uFFFD\u01DD\uFFFDM\uFFFDi\uFFFD{\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x001b\uFFFD\u05F8\uFFFD\uFFFD\u04DE\uFFFD\uFFFD|q\uFFFD\\x001a\uFFFD_\uFFFD\uFFFD\\x001f\uFFFDW\\x001b\u066D\\x001a\uFFFD\uFFFD4o\uFFFD|\u59FCm\uFFFDm\uFFFDZ\uFFFDw\\x001cy\uFFFD:m\u07BC\uFFFD]i\uFFFD\uFFFD\uFFFDG\uFFFD\uFFFD\uFFFD4m\uFFFD[\uFFFD\uFFFD:\uFFFD]\uFFFD\uFFFDW_\uFFFD\uFFFD\uFFFDm\uFFFD\\x001ck\uFFFD4k\uFFFD5\uFFFD\uFFFD\uFFFDM4\uFFFDM4\uFFFDm4\uFFFDM4\uFFFD</p>",
+					"otherinfo": "<p>\uFFFD]u\uFFFDMu\uFFFDMt\uFFFDM\uFFFD\uFFFDM4\uFFFDM\uFFFD\uFFFDM4\uFFFDM9\uFFFDM4\uFFFDM4\uFFFDmw\uFFFD\uFFFD\uFFFDs\uFFFD\uFFFD\uFFFDM4\uFFFD\u07B7\uFFFDM4\uFFFDM4\uFFFDM4\uFFFDM4\uFFFD}4\uFFFDM4\u04EF\uFFFDH\uFFFD\uFFFD\uFFFDM4\uFFFDM4\uFFFD4\uFFFD\\x000f\uFFFDt\uFFFD}4\uFFFDM4\u04D8m\uFFFD\uFFFD7\uFFFDM4\uFFFDF\uFFFD\uFFFD\u01DEoo9k\u059B\uFFFDM4\uFFFD\uFFFD\\x001eu\uFFFD\uFFFD\uFFFD~\uFFFDoM{\uFFFD\uFFFD:\u067E6u\uFFFD\uFFFD\uFFFD}\uFFFD\uFFFDg]wm[w\uFFFD\uFFFD\uFFFD]\uFFFD\uFFFD8\u06ED[Mz\uFFFD}\uFFFD\uFFFD\uFFFD_\uFFFD\uFFFD\uFFFDm\uFFFD\\x001a\uFFFD\uFFFD4kW\uFFFD\uFFFDm=\uFFFD\uFFFD\uFFFD\u07B5\uBBB6]}q\uFFFD\uFFFD\uFFFD\uFFFD{\uFFFD}\uFFFD_wu\uFFFD\uFFFD{\uFFFD6\uFFFDw\\x001c\u0667\\x001dw\uFFFD\\x001d\uFFFD;\uFFFD\uFFFD\uFFFD\uFFFD;\u04D7;\uFFFD\uFFFD\uFFFD\uFFFDM4\uFFFDM4\uFFFDm4\uFFFDM4\uFFFD</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
@@ -1617,7 +1540,7 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://arretonslesviolences.gouv.fr/profiles/*.js",
+							"uri": "https://arretonslesviolences.gouv.fr/profiles/*.js$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1630,7 +1553,7 @@
 					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p>",
 					"cweid": "345",
 					"wascid": "12",
-					"sourceid": "101"
+					"sourceid": "102"
 				},
 				{
 					"pluginid": "10027",
@@ -1733,7 +1656,7 @@
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "134"
+					"sourceid": "132"
 				},
 				{
 					"pluginid": "10109",
@@ -1750,21 +1673,21 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<script>\r\n\r\n(function(){\r\nwindow[\"bobcmn\"] = \"1111101110101020000000220000000520000000021389b4c4200000096300000000300000000300000006/TSPD/300000008TSPD_101300000005https3000000b008eeb285a9ab20001e9c9f3f23f21ebe9de436b055e1e6eba3baca414bdd4556ace0cb9de819808708946a2e9c0a2800367798c40cb4fd26464fab9d726035481a96ba87297f61ae0a73b1381a854cc23940de766d6f8c26200000000200000000\";\r\n\r\nwindow.NgR=!!window.NgR;try{(function(){(function(){var I=-1,I={l:++I,zj:\"false\"[I],o:++I,Os:\"false\"[I],jo:++I,L$:\"[object Object]\"[I],SS:(I[I]+\"\")[I],Zs:++I,sS:\"true\"[I],so:++I,Jo:++I,Zj:\"[object Object]\"[I],J:++I,zO:++I,zio:++I,Oio:++I};try{I.os=(I.os=I+\"\")[I.Jo]+(I.zZ=I.os[I.o])+(I.Oj=(I.OZ+\"\")[I.o])+(!I+\"\")[I.Zs]+(I.ZZ=I.os[I.J])+(I.OZ=\"true\"[I.o])+(I.IS=\"true\"[I.jo])+I.os[I.Jo]+I.ZZ+I.zZ+I.OZ,I.Oj=I.OZ+\"true\"[I.Zs]+I.ZZ+I.IS+I.OZ+I.Oj,I.OZ=I.l[I.os][I.os],I.OZ(I.OZ(I.Oj+'\"\\\\'+I.o+I.Jo+I.o+I.zj+\"\\\\\"+I.so+I.l+\"(\"+I.ZZ+\"\\\\\"+I.o+I.zO+\nI.o+\"\\\\\"+I.o+I.J+I.l+I.sS+I.zZ+I.zj+\"\\\\\"+I.so+I.l+\"\\\\\"+I.o+I.J+I.zO+\"\\\\\"+I.o+I.Jo+I.o+\"\\\\\"+I.o+I.Jo+I.J+I.SS+I.zZ+\"\\\\\"+I.o+I.J+I.zO+\"['\\\\\"+I.o+I.J+I.l+I.Os+\"\\\\\"+I.o+I.zO+I.o+\"false\"[I.jo]+I.zZ+I.Os+I.SS+\"']\\\\\"+I.so+I.l+\"===\\\\\"+I.so+I.l+\"'\\\\\"+I.o+I.J+I.Zs+I.ZZ+\"\\\\\"+I.o+I.J+I.jo+\"\\\\\"+I.o+I.Jo+I.o+\"\\\\\"+I.o+I.Jo+I.J+\"\\\\\"+I.o+I.so+I.zO+\"')\\\\\"+I.so+I.l+\"{\\\\\"+I.o+I.jo+\"\\\\\"+I.o+I.o+\"\\\\\"+I.o+I.J+I.J+I.Os+\"\\\\\"+I.o+I.J+I.jo+\"\\\\\"+I.so+I.l+I.sS+I.SS+\"\\\\\"+I.o+I.J+I.J+I.Zj+\"\\\\\"+I.o+I.zO+I.o+I.IS+\"\\\\\"+I.o+I.Jo+I.jo+\n\"\\\\\"+I.o+I.Jo+I.Zs+\"\\\\\"+I.o+I.J+I.l+\"\\\\\"+I.so+I.l+\"=\\\\\"+I.so+I.l+\"\\\\\"+I.o+I.J+I.zO+\"\\\\\"+I.o+I.Jo+I.o+\"\\\\\"+I.o+I.Jo+I.J+I.SS+I.zZ+\"\\\\\"+I.o+I.J+I.zO+\"['\\\\\"+I.o+I.J+I.l+I.Os+\"\\\\\"+I.o+I.zO+I.o+\"false\"[I.jo]+I.zZ+I.Os+I.SS+\"'].\\\\\"+I.o+I.J+I.jo+I.sS+\"\\\\\"+I.o+I.J+I.l+\"false\"[I.jo]+I.Os+I.Zj+I.sS+\"(/.{\"+I.o+\",\"+I.so+\"}/\\\\\"+I.o+I.so+I.zO+\",\\\\\"+I.so+I.l+I.zj+I.IS+\"\\\\\"+I.o+I.Jo+I.J+I.Zj+I.ZZ+\"\\\\\"+I.o+I.Jo+I.o+I.zZ+\"\\\\\"+I.o+I.Jo+I.J+\"\\\\\"+I.so+I.l+\"(\\\\\"+I.o+I.zO+I.l+\")\\\\\"+I.so+I.l+\"{\\\\\"+I.o+I.jo+\"\\\\\"+I.o+I.o+\n\"\\\\\"+I.o+I.o+\"\\\\\"+I.o+I.o+\"\\\\\"+I.o+I.J+I.jo+I.sS+I.ZZ+I.IS+\"\\\\\"+I.o+I.J+I.jo+\"\\\\\"+I.o+I.Jo+I.J+\"\\\\\"+I.so+I.l+\"(\\\\\"+I.o+I.zO+I.l+\"\\\\\"+I.so+I.l+\"+\\\\\"+I.so+I.l+\"\\\\\"+I.o+I.zO+I.l+\").\\\\\"+I.o+I.J+I.Zs+I.IS+I.L$+\"\\\\\"+I.o+I.J+I.Zs+I.ZZ+\"\\\\\"+I.o+I.J+I.jo+\"(\"+I.jo+\",\\\\\"+I.so+I.l+I.so+\")\\\\\"+I.o+I.jo+\"\\\\\"+I.o+I.o+\"\\\\\"+I.o+I.o+\"});\\\\\"+I.o+I.jo+\"}\\\\\"+I.o+I.jo+'\"')())()}catch(l){I%=5}})();var ji=79;\ntry{var Li,Oi,si=J(514)?1:0,Si=J(884)?0:1,iI=J(30)?1:0;for(var II=(J(603),0);II<Oi;++II)si+=J(860)?2:1,Si+=(J(960),2),iI+=(J(722),3);Li=si+Si+iI;window.iS===Li&&(window.iS=++Li)}catch(jI){window.iS=Li}var zI=!0;function L(I){var l=arguments.length,O=[],S=1;while(S<l)O[S-1]=arguments[S++]-I;return String.fromCharCode.apply(String,O)}\nfunction sI(I){var l=63;!I||document[z(l,181,168,178,168,161,168,171,168,179,184,146,179,160,179,164)]&&document[z(l,181,168,178,168,161,168,171,168,179,184,146,179,160,179,164)]!==z(l,181,168,178,168,161,171,164)||(zI=!1);return zI}function Z(I,l){I+=l;return I.toString(36)}function Ij(){}sI(window[Ij[Z(1086775,ji)]]===Ij);sI(typeof ie9rgb4!==Z(1242178186120,ji));\nsI(RegExp(\"\\x3c\")[z(ji,195,180,194,195)](function(){return\"\\x3c\"})&!RegExp(L(ji,199,130,179))[Z(1372126,ji)](function(){return\"'x3'+'d';\"}));\nvar jj=window[z(ji,176,195,195,176,178,183,148,197,180,189,195)]||RegExp(L(ji,188,190,177,184,203,176,189,179,193,190,184,179),Z(-61,ji))[Z(1372126,ji)](window[\"\\x6e\\x61vi\\x67a\\x74\\x6f\\x72\"][\"\\x75\\x73e\\x72A\\x67\\x65\\x6et\"]),lj=+new Date+(J(287)?6E5:466498),Lj,Oj,sj,iJ=window[z(ji,194,180,195,163,184,188,180,190,196,195)],IJ=jj?J(499)?3E4:32098:J(589)?6E3:7257;\ndocument[z(ji,176,179,179,148,197,180,189,195,155,184,194,195,180,189,180,193)]&&document[z(ji,176,179,179,148,197,180,189,195,155,184,194,195,180,189,180,193)](z(ji,197,184,194,184,177,184,187,184,195,200,178,183,176,189,182,180),function(I){var l=73;document[L(l,191,178,188,178,171,178,181,178,189,194,156,189,170,189,174)]&&(document[z(l,191,178,188,178,171,178,181,178,189,194,156,189,170,189,174)]===L(l,177,178,173,173,174,183)&&I[L(l,178,188,157,187,190,188,189,174,173)]?sj=!0:document[z(l,191,\n178,188,178,171,178,181,178,189,194,156,189,170,189,174)]===Z(68616527593,l)&&(Lj=+new Date,sj=!1,jJ()))});function z(I){var l=arguments.length,O=[];for(var S=1;S<l;++S)O.push(arguments[S]-I);return String.fromCharCode.apply(String,O)}function jJ(){if(!document[L(34,147,151,135,148,155,117,135,142,135,133,150,145,148)])return!0;var I=+new Date;if(I>lj&&(J(434)?6E5:884496)>I-Lj)return sI(!1);var l=sI(Oj&&!sj&&Lj+IJ<I);Lj=I;Oj||(Oj=!0,iJ(function(){Oj=!1},J(574)?1:0));return l}jJ();\nvar JJ=[J(765)?17795081:17981632,J(100)?27611931586:2147483647,J(956)?1884235712:1558153217];function lJ(I){var l=45;I=typeof I===Z(1743045631,l)?I:I[z(l,161,156,128,161,159,150,155,148)](J(589)?36:41);var O=window[I];if(!O[L(l,161,156,128,161,159,150,155,148)])return;var S=\"\"+O;window[I]=function(I,l){Oj=!1;return O(I,l)};window[I][z(l,161,156,128,161,159,150,155,148)]=function(){return S}}for(var OJ=(J(172),0);OJ<JJ[Z(1294399126,ji)];++OJ)lJ(JJ[OJ]);sI(!1!==window[L(ji,157,182,161)]);\nwindow.__={ji:\"08bd0c3ef901780005860ed3a908d65cccba7a56647897b304c6af548c956300d372ec0bca1000543f21ba76d3af40de6332dc80d30e4c95f0af6e9140d26ea32ac2f5b0bd1b7fe785a7af1fcb6a1790f4164a3687ac066453257c6f288a4eec69c7f58930d14a5a65bad784a0fdb48e6b7006033deb360207372a4743f81733\"};function ZJ(I){var l=+new Date,O;!document[z(74,187,191,175,188,195,157,175,182,175,173,190,185,188,139,182,182)]||l>lj&&(J(685)?6E5:816232)>l-Lj?O=sI(!1):(O=sI(Oj&&!sj&&Lj+IJ<l),Lj=l,Oj||(Oj=!0,iJ(function(){Oj=!1},J(928)?0:1)));return!(arguments[I]^O)}function J(I){return 884>I}(function(I){I||setTimeout(function(){var I=setTimeout(function(){},250);for(var O=0;O<=I;++O)clearTimeout(O)},500)})(!0);})();}catch(x){}finally{ie9rgb4=void(0);};function ie9rgb4(a,b){return a>>b>>0};\n\r\n})();\r\n\r\n</script>"
+							"evidence": "<script>\r\n\r\n(function(){\r\nwindow[\"bobcmn\"] = \"1111101110101020000000220000000520000000021389b4c4200000096300000000300000000300000006/TSPD/300000008TSPD_101300000005https3000000b008eeb285a9ab20000ecedd3a1374b0175f862b42da66533d62ddd21bd731f99d3dc4261bf0169333085f5fbcbe0a2800a1e2820945364d616662f119cea98c72e5d90193dcf0e74203cc2acdd9cd47074f6f658705c71833200000000200000000\";\r\n\r\nwindow.iCKp=!!window.iCKp;try{(function(){(function ji(){var l=!1;function O(l){for(var O=0;l--;)O+=S(document.documentElement,null);return O}function S(l,O){var s=\"vi\";O=O||new _;return Ji(l,function(l){l.setAttribute(\"data-\"+s,O.sI());return S(l,O)},null)}function _(){this.lS=1;this.js=0;this.OO=this.lS;this._z=null;this.sI=function(){this._z=this.js+this.OO;if(!isFinite(this._z))return this.reset(),this.sI();this.js=this.OO;this.OO=this._z;this._z=null;return this.OO};this.reset=function(){this.lS++;this.js=0;this.OO=this.lS}}var ii=!1;\nfunction s(l,O){var s=document.createElement(l);O=O||document.body;O.appendChild(s);s&&s.style&&(s.style.display=\"none\")}function Ii(O,s){s=s||O;var S=\"|\";function _(l){l=l.split(S);var O=[];for(var s=0;s<l.length;++s){var ii=\"\",Ii=l[s].split(\",\");for(var li=0;li<Ii.length;++li)ii+=Ii[li][li];O.push(ii)}return O}var Ii=0,Ji=\"datalist,details,embed,figure,hrimg,strong,article,formaddress|audio,blockquote,area,source,input|canvas,form,link,tbase,option,details,article\";Ji.split(S);Ji=_(Ji);Ji=new RegExp(Ji.join(S),\n\"g\");while(Ji.exec(O))Ji=new RegExp((\"\"+new Date)[8],\"g\"),l&&(ii=!0),++Ii;return s(Ii&&1)}function Ji(l,O,S){(S=S||ii)&&s(\"div\",l);l=l.children;var _=0;for(var Ii in l){S=l[Ii];try{S instanceof HTMLElement&&(O(S),++_)}catch(Ji){}}return _}Ii(ji,O)})();var Li=38;try{var zi,si,Si=J(502)?1:0,iI=J(871)?1:0;for(var II=(J(187),0);II<si;++II)Si+=J(788)?2:1,iI+=J(534)?3:1;zi=Si+iI;window.oO===zi&&(window.oO=++zi)}catch(JI){window.oO=zi}var zI=!0;function L(I,l){I+=l;return I.toString(36)}\nfunction SI(I){var l=18;!I||document[z(l,136,123,133,123,116,123,126,123,134,139,101,134,115,134,119)]&&document[Z(l,136,123,133,123,116,123,126,123,134,139,101,134,115,134,119)]!==z(l,136,123,133,123,116,126,119)||(zI=!1);return zI}function z(I){var l=arguments.length,O=[],S=1;while(S<l)O[S-1]=arguments[S++]-I;return String.fromCharCode.apply(String,O)}function Ij(){}SI(window[Ij[L(1086816,Li)]]===Ij);SI(typeof ie9rgb4!==Z(Li,140,155,148,137,154,143,149,148));\nSI(RegExp(\"\\x3c\")[L(1372167,Li)](function(){return\"\\x3c\"})&!RegExp(z(Li,158,89,138))[L(1372167,Li)](function(){return\"'x3'+'d';\"}));\nvar jj=window[z(Li,135,154,154,135,137,142,107,156,139,148,154)]||RegExp(z(Li,147,149,136,143,162,135,148,138,152,149,143,138),L(-20,Li))[L(1372167,Li)](window[\"\\x6e\\x61vi\\x67a\\x74\\x6f\\x72\"][\"\\x75\\x73e\\x72A\\x67\\x65\\x6et\"]),lj=+new Date+(J(724)?6E5:652764),Lj,Oj,sj,iJ=window[z(Li,153,139,154,122,143,147,139,149,155,154)],IJ=jj?J(394)?3E4:25594:J(771)?6E3:4042;\ndocument[z(Li,135,138,138,107,156,139,148,154,114,143,153,154,139,148,139,152)]&&document[z(Li,135,138,138,107,156,139,148,154,114,143,153,154,139,148,139,152)](z(Li,156,143,153,143,136,143,146,143,154,159,137,142,135,148,141,139),function(I){var l=55;document[z(l,173,160,170,160,153,160,163,160,171,176,138,171,152,171,156)]&&(document[Z(l,173,160,170,160,153,160,163,160,171,176,138,171,152,171,156)]===Z(l,159,160,155,155,156,165)&&I[z(l,160,170,139,169,172,170,171,156,155)]?sj=!0:document[z(l,173,\n160,170,160,153,160,163,160,171,176,138,171,152,171,156)]===L(68616527611,l)&&(Lj=+new Date,sj=!1,jJ()))});function Z(I){var l=arguments.length,O=[];for(var S=1;S<l;++S)O.push(arguments[S]-I);return String.fromCharCode.apply(String,O)}function jJ(){if(!document[z(22,135,139,123,136,143,105,123,130,123,121,138,133,136)])return!0;var I=+new Date;if(I>lj&&(J(961)?6E5:862206)>I-Lj)return SI(!1);var l=SI(Oj&&!sj&&Lj+IJ<I);Lj=I;Oj||(Oj=!0,iJ(function(){Oj=!1},J(671)?1:0));return l}jJ();\nvar JJ=[J(13)?17795081:25216155,J(700)?27611931586:2147483647,J(652)?1558153217:1273848589];function lJ(I){var l=98;I=typeof I===L(1743045578,l)?I:I[Z(l,214,209,181,214,212,203,208,201)](J(270)?36:19);var O=window[I];if(!O[z(l,214,209,181,214,212,203,208,201)])return;var S=\"\"+O;window[I]=function(I,l){Oj=!1;return O(I,l)};window[I][z(l,214,209,181,214,212,203,208,201)]=function(){return S}}for(var zJ=(J(915),0);zJ<JJ[Z(Li,146,139,148,141,154,142)];++zJ)lJ(JJ[zJ]);SI(!1!==window[z(Li,143,105,113,150)]);\nwindow.Jz={OZ:\"082fd967a80178000d5e6b4eb7df1091685d8da720affbcf01b1d46943590cbf46df3cbda28f408839fefad2feef54c79da69e091544d19fc3c8b42c7cbada47185a16fd650a901d474578d038257a66d7d2bfb93eeecf472e974336436f3f1f43c8395c46796ac5911d5051a1a0ffbb5bb5fd7304afe4ed85efe3c3090e8fed\"};function ZJ(I){var l=+new Date,O;!document[Z(56,169,173,157,170,177,139,157,164,157,155,172,167,170,121,164,164)]||l>lj&&(J(321)?6E5:324298)>l-Lj?O=SI(!1):(O=SI(Oj&&!sj&&Lj+IJ<l),Lj=l,Oj||(Oj=!0,iJ(function(){Oj=!1},J(859)?1:0)));return!(arguments[I]^O)}function J(I){return 989>I}(function SJ(l){return l?0:SJ(l)*SJ(l)})(!0);})();}catch(x){}finally{ie9rgb4=void(0);};function ie9rgb4(a,b){return a>>b>>0};\n\r\n})();\r\n\r\n</script>"
 						},
 						{
 							"uri": "https://arretonslesviolences.gouv.fr",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<script>\r\n\r\n(function(){\r\nwindow[\"bobcmn\"] = \"1111101110101020000000220000000520000000021389b4c4200000096300000000300000000300000006/TSPD/300000008TSPD_101300000005https3000000b008eeb285a9ab2000651e1c0ee1ec291b2ced9023af57443a6bf46ecb09e4447e05798718cb4a139f088f31cb2a0a2800b8185ae8f234bb1a43cceb46bd6887ddab2610e82e00bb5b6886112731df3978bb0ca540a5c184b5200000000200000000\";\r\n\r\nwindow.NgR=!!window.NgR;try{(function(){(function(){var I=-1,I={l:++I,zj:\"false\"[I],o:++I,Os:\"false\"[I],jo:++I,L$:\"[object Object]\"[I],SS:(I[I]+\"\")[I],Zs:++I,sS:\"true\"[I],so:++I,Jo:++I,Zj:\"[object Object]\"[I],J:++I,zO:++I,zio:++I,Oio:++I};try{I.os=(I.os=I+\"\")[I.Jo]+(I.zZ=I.os[I.o])+(I.Oj=(I.OZ+\"\")[I.o])+(!I+\"\")[I.Zs]+(I.ZZ=I.os[I.J])+(I.OZ=\"true\"[I.o])+(I.IS=\"true\"[I.jo])+I.os[I.Jo]+I.ZZ+I.zZ+I.OZ,I.Oj=I.OZ+\"true\"[I.Zs]+I.ZZ+I.IS+I.OZ+I.Oj,I.OZ=I.l[I.os][I.os],I.OZ(I.OZ(I.Oj+'\"\\\\'+I.o+I.Jo+I.o+I.zj+\"\\\\\"+I.so+I.l+\"(\"+I.ZZ+\"\\\\\"+I.o+I.zO+\nI.o+\"\\\\\"+I.o+I.J+I.l+I.sS+I.zZ+I.zj+\"\\\\\"+I.so+I.l+\"\\\\\"+I.o+I.J+I.zO+\"\\\\\"+I.o+I.Jo+I.o+\"\\\\\"+I.o+I.Jo+I.J+I.SS+I.zZ+\"\\\\\"+I.o+I.J+I.zO+\"['\\\\\"+I.o+I.J+I.l+I.Os+\"\\\\\"+I.o+I.zO+I.o+\"false\"[I.jo]+I.zZ+I.Os+I.SS+\"']\\\\\"+I.so+I.l+\"===\\\\\"+I.so+I.l+\"'\\\\\"+I.o+I.J+I.Zs+I.ZZ+\"\\\\\"+I.o+I.J+I.jo+\"\\\\\"+I.o+I.Jo+I.o+\"\\\\\"+I.o+I.Jo+I.J+\"\\\\\"+I.o+I.so+I.zO+\"')\\\\\"+I.so+I.l+\"{\\\\\"+I.o+I.jo+\"\\\\\"+I.o+I.o+\"\\\\\"+I.o+I.J+I.J+I.Os+\"\\\\\"+I.o+I.J+I.jo+\"\\\\\"+I.so+I.l+I.sS+I.SS+\"\\\\\"+I.o+I.J+I.J+I.Zj+\"\\\\\"+I.o+I.zO+I.o+I.IS+\"\\\\\"+I.o+I.Jo+I.jo+\n\"\\\\\"+I.o+I.Jo+I.Zs+\"\\\\\"+I.o+I.J+I.l+\"\\\\\"+I.so+I.l+\"=\\\\\"+I.so+I.l+\"\\\\\"+I.o+I.J+I.zO+\"\\\\\"+I.o+I.Jo+I.o+\"\\\\\"+I.o+I.Jo+I.J+I.SS+I.zZ+\"\\\\\"+I.o+I.J+I.zO+\"['\\\\\"+I.o+I.J+I.l+I.Os+\"\\\\\"+I.o+I.zO+I.o+\"false\"[I.jo]+I.zZ+I.Os+I.SS+\"'].\\\\\"+I.o+I.J+I.jo+I.sS+\"\\\\\"+I.o+I.J+I.l+\"false\"[I.jo]+I.Os+I.Zj+I.sS+\"(/.{\"+I.o+\",\"+I.so+\"}/\\\\\"+I.o+I.so+I.zO+\",\\\\\"+I.so+I.l+I.zj+I.IS+\"\\\\\"+I.o+I.Jo+I.J+I.Zj+I.ZZ+\"\\\\\"+I.o+I.Jo+I.o+I.zZ+\"\\\\\"+I.o+I.Jo+I.J+\"\\\\\"+I.so+I.l+\"(\\\\\"+I.o+I.zO+I.l+\")\\\\\"+I.so+I.l+\"{\\\\\"+I.o+I.jo+\"\\\\\"+I.o+I.o+\n\"\\\\\"+I.o+I.o+\"\\\\\"+I.o+I.o+\"\\\\\"+I.o+I.J+I.jo+I.sS+I.ZZ+I.IS+\"\\\\\"+I.o+I.J+I.jo+\"\\\\\"+I.o+I.Jo+I.J+\"\\\\\"+I.so+I.l+\"(\\\\\"+I.o+I.zO+I.l+\"\\\\\"+I.so+I.l+\"+\\\\\"+I.so+I.l+\"\\\\\"+I.o+I.zO+I.l+\").\\\\\"+I.o+I.J+I.Zs+I.IS+I.L$+\"\\\\\"+I.o+I.J+I.Zs+I.ZZ+\"\\\\\"+I.o+I.J+I.jo+\"(\"+I.jo+\",\\\\\"+I.so+I.l+I.so+\")\\\\\"+I.o+I.jo+\"\\\\\"+I.o+I.o+\"\\\\\"+I.o+I.o+\"});\\\\\"+I.o+I.jo+\"}\\\\\"+I.o+I.jo+'\"')())()}catch(l){I%=5}})();var ji=79;\ntry{var Li,Oi,si=J(514)?1:0,Si=J(884)?0:1,iI=J(30)?1:0;for(var II=(J(603),0);II<Oi;++II)si+=J(860)?2:1,Si+=(J(960),2),iI+=(J(722),3);Li=si+Si+iI;window.iS===Li&&(window.iS=++Li)}catch(jI){window.iS=Li}var zI=!0;function L(I){var l=arguments.length,O=[],S=1;while(S<l)O[S-1]=arguments[S++]-I;return String.fromCharCode.apply(String,O)}\nfunction sI(I){var l=63;!I||document[z(l,181,168,178,168,161,168,171,168,179,184,146,179,160,179,164)]&&document[z(l,181,168,178,168,161,168,171,168,179,184,146,179,160,179,164)]!==z(l,181,168,178,168,161,171,164)||(zI=!1);return zI}function Z(I,l){I+=l;return I.toString(36)}function Ij(){}sI(window[Ij[Z(1086775,ji)]]===Ij);sI(typeof ie9rgb4!==Z(1242178186120,ji));\nsI(RegExp(\"\\x3c\")[z(ji,195,180,194,195)](function(){return\"\\x3c\"})&!RegExp(L(ji,199,130,179))[Z(1372126,ji)](function(){return\"'x3'+'d';\"}));\nvar jj=window[z(ji,176,195,195,176,178,183,148,197,180,189,195)]||RegExp(L(ji,188,190,177,184,203,176,189,179,193,190,184,179),Z(-61,ji))[Z(1372126,ji)](window[\"\\x6e\\x61vi\\x67a\\x74\\x6f\\x72\"][\"\\x75\\x73e\\x72A\\x67\\x65\\x6et\"]),lj=+new Date+(J(287)?6E5:466498),Lj,Oj,sj,iJ=window[z(ji,194,180,195,163,184,188,180,190,196,195)],IJ=jj?J(499)?3E4:32098:J(589)?6E3:7257;\ndocument[z(ji,176,179,179,148,197,180,189,195,155,184,194,195,180,189,180,193)]&&document[z(ji,176,179,179,148,197,180,189,195,155,184,194,195,180,189,180,193)](z(ji,197,184,194,184,177,184,187,184,195,200,178,183,176,189,182,180),function(I){var l=73;document[L(l,191,178,188,178,171,178,181,178,189,194,156,189,170,189,174)]&&(document[z(l,191,178,188,178,171,178,181,178,189,194,156,189,170,189,174)]===L(l,177,178,173,173,174,183)&&I[L(l,178,188,157,187,190,188,189,174,173)]?sj=!0:document[z(l,191,\n178,188,178,171,178,181,178,189,194,156,189,170,189,174)]===Z(68616527593,l)&&(Lj=+new Date,sj=!1,jJ()))});function z(I){var l=arguments.length,O=[];for(var S=1;S<l;++S)O.push(arguments[S]-I);return String.fromCharCode.apply(String,O)}function jJ(){if(!document[L(34,147,151,135,148,155,117,135,142,135,133,150,145,148)])return!0;var I=+new Date;if(I>lj&&(J(434)?6E5:884496)>I-Lj)return sI(!1);var l=sI(Oj&&!sj&&Lj+IJ<I);Lj=I;Oj||(Oj=!0,iJ(function(){Oj=!1},J(574)?1:0));return l}jJ();\nvar JJ=[J(765)?17795081:17981632,J(100)?27611931586:2147483647,J(956)?1884235712:1558153217];function lJ(I){var l=45;I=typeof I===Z(1743045631,l)?I:I[z(l,161,156,128,161,159,150,155,148)](J(589)?36:41);var O=window[I];if(!O[L(l,161,156,128,161,159,150,155,148)])return;var S=\"\"+O;window[I]=function(I,l){Oj=!1;return O(I,l)};window[I][z(l,161,156,128,161,159,150,155,148)]=function(){return S}}for(var OJ=(J(172),0);OJ<JJ[Z(1294399126,ji)];++OJ)lJ(JJ[OJ]);sI(!1!==window[L(ji,157,182,161)]);\nwindow.__={ji:\"08c4d15d33017800e5c1e79d51e8df9eccba7a56647897b3493d44f9bbc1d70a94d1a2272f1e524c062dbe818d932b97a35b9af3c3e5fb9d437fbb0405dedb7b135229908037dd4d7f864b8f202d86c3b1de16320d0d40887c4dc0ca07e9bbb19108fec3779f703b3660a832cd597e984900bbdb920f80578addccaf354794e3\"};function ZJ(I){var l=+new Date,O;!document[z(74,187,191,175,188,195,157,175,182,175,173,190,185,188,139,182,182)]||l>lj&&(J(685)?6E5:816232)>l-Lj?O=sI(!1):(O=sI(Oj&&!sj&&Lj+IJ<l),Lj=l,Oj||(Oj=!0,iJ(function(){Oj=!1},J(928)?0:1)));return!(arguments[I]^O)}function J(I){return 884>I}(function(I){I||setTimeout(function(){var I=setTimeout(function(){},250);for(var O=0;O<=I;++O)clearTimeout(O)},500)})(!0);})();}catch(x){}finally{ie9rgb4=void(0);};function ie9rgb4(a,b){return a>>b>>0};\n\r\n})();\r\n\r\n</script>"
+							"evidence": "<script>\r\n\r\n(function(){\r\nwindow[\"bobcmn\"] = \"1111101110101020000000220000000520000000021389b4c4200000096300000000300000000300000006/TSPD/300000008TSPD_101300000005https3000000b008eeb285a9ab20008f6a0885d33ee604226dbc8d8e8e671ce0786f2f96d7cdb18d5ddae7013bd54008b19d3f1b0a2800414e9e44cc2a617e674affc6463581983cd72c09910145d07ab174eff3804b183d5db530a4cb88e9200000000200000000\";\r\n\r\nwindow.iCKp=!!window.iCKp;try{(function(){(function ji(){var l=!1;function O(l){for(var O=0;l--;)O+=S(document.documentElement,null);return O}function S(l,O){var s=\"vi\";O=O||new _;return Ji(l,function(l){l.setAttribute(\"data-\"+s,O.sI());return S(l,O)},null)}function _(){this.lS=1;this.js=0;this.OO=this.lS;this._z=null;this.sI=function(){this._z=this.js+this.OO;if(!isFinite(this._z))return this.reset(),this.sI();this.js=this.OO;this.OO=this._z;this._z=null;return this.OO};this.reset=function(){this.lS++;this.js=0;this.OO=this.lS}}var ii=!1;\nfunction s(l,O){var s=document.createElement(l);O=O||document.body;O.appendChild(s);s&&s.style&&(s.style.display=\"none\")}function Ii(O,s){s=s||O;var S=\"|\";function _(l){l=l.split(S);var O=[];for(var s=0;s<l.length;++s){var ii=\"\",Ii=l[s].split(\",\");for(var li=0;li<Ii.length;++li)ii+=Ii[li][li];O.push(ii)}return O}var Ii=0,Ji=\"datalist,details,embed,figure,hrimg,strong,article,formaddress|audio,blockquote,area,source,input|canvas,form,link,tbase,option,details,article\";Ji.split(S);Ji=_(Ji);Ji=new RegExp(Ji.join(S),\n\"g\");while(Ji.exec(O))Ji=new RegExp((\"\"+new Date)[8],\"g\"),l&&(ii=!0),++Ii;return s(Ii&&1)}function Ji(l,O,S){(S=S||ii)&&s(\"div\",l);l=l.children;var _=0;for(var Ii in l){S=l[Ii];try{S instanceof HTMLElement&&(O(S),++_)}catch(Ji){}}return _}Ii(ji,O)})();var Li=38;try{var zi,si,Si=J(502)?1:0,iI=J(871)?1:0;for(var II=(J(187),0);II<si;++II)Si+=J(788)?2:1,iI+=J(534)?3:1;zi=Si+iI;window.oO===zi&&(window.oO=++zi)}catch(JI){window.oO=zi}var zI=!0;function L(I,l){I+=l;return I.toString(36)}\nfunction SI(I){var l=18;!I||document[z(l,136,123,133,123,116,123,126,123,134,139,101,134,115,134,119)]&&document[Z(l,136,123,133,123,116,123,126,123,134,139,101,134,115,134,119)]!==z(l,136,123,133,123,116,126,119)||(zI=!1);return zI}function z(I){var l=arguments.length,O=[],S=1;while(S<l)O[S-1]=arguments[S++]-I;return String.fromCharCode.apply(String,O)}function Ij(){}SI(window[Ij[L(1086816,Li)]]===Ij);SI(typeof ie9rgb4!==Z(Li,140,155,148,137,154,143,149,148));\nSI(RegExp(\"\\x3c\")[L(1372167,Li)](function(){return\"\\x3c\"})&!RegExp(z(Li,158,89,138))[L(1372167,Li)](function(){return\"'x3'+'d';\"}));\nvar jj=window[z(Li,135,154,154,135,137,142,107,156,139,148,154)]||RegExp(z(Li,147,149,136,143,162,135,148,138,152,149,143,138),L(-20,Li))[L(1372167,Li)](window[\"\\x6e\\x61vi\\x67a\\x74\\x6f\\x72\"][\"\\x75\\x73e\\x72A\\x67\\x65\\x6et\"]),lj=+new Date+(J(724)?6E5:652764),Lj,Oj,sj,iJ=window[z(Li,153,139,154,122,143,147,139,149,155,154)],IJ=jj?J(394)?3E4:25594:J(771)?6E3:4042;\ndocument[z(Li,135,138,138,107,156,139,148,154,114,143,153,154,139,148,139,152)]&&document[z(Li,135,138,138,107,156,139,148,154,114,143,153,154,139,148,139,152)](z(Li,156,143,153,143,136,143,146,143,154,159,137,142,135,148,141,139),function(I){var l=55;document[z(l,173,160,170,160,153,160,163,160,171,176,138,171,152,171,156)]&&(document[Z(l,173,160,170,160,153,160,163,160,171,176,138,171,152,171,156)]===Z(l,159,160,155,155,156,165)&&I[z(l,160,170,139,169,172,170,171,156,155)]?sj=!0:document[z(l,173,\n160,170,160,153,160,163,160,171,176,138,171,152,171,156)]===L(68616527611,l)&&(Lj=+new Date,sj=!1,jJ()))});function Z(I){var l=arguments.length,O=[];for(var S=1;S<l;++S)O.push(arguments[S]-I);return String.fromCharCode.apply(String,O)}function jJ(){if(!document[z(22,135,139,123,136,143,105,123,130,123,121,138,133,136)])return!0;var I=+new Date;if(I>lj&&(J(961)?6E5:862206)>I-Lj)return SI(!1);var l=SI(Oj&&!sj&&Lj+IJ<I);Lj=I;Oj||(Oj=!0,iJ(function(){Oj=!1},J(671)?1:0));return l}jJ();\nvar JJ=[J(13)?17795081:25216155,J(700)?27611931586:2147483647,J(652)?1558153217:1273848589];function lJ(I){var l=98;I=typeof I===L(1743045578,l)?I:I[Z(l,214,209,181,214,212,203,208,201)](J(270)?36:19);var O=window[I];if(!O[z(l,214,209,181,214,212,203,208,201)])return;var S=\"\"+O;window[I]=function(I,l){Oj=!1;return O(I,l)};window[I][z(l,214,209,181,214,212,203,208,201)]=function(){return S}}for(var zJ=(J(915),0);zJ<JJ[Z(Li,146,139,148,141,154,142)];++zJ)lJ(JJ[zJ]);SI(!1!==window[z(Li,143,105,113,150)]);\nwindow.Jz={OZ:\"08713af35b0178004bedf2cac097ab88685d8da720affbcfeb76206bd1328206e86236ae212a9fd49aed80b139dca26cfe06901c388b06db133d08fd5c1667326e7f557cf1a8cdc92b79e453cf27d353a07f69ff5451d3597a0dcf1d7d6ca988bc4864e94802cfb014d8a776d0a7b83ee7ec59bcc9fa4a5047d597de5722dcba\"};function ZJ(I){var l=+new Date,O;!document[Z(56,169,173,157,170,177,139,157,164,157,155,172,167,170,121,164,164)]||l>lj&&(J(321)?6E5:324298)>l-Lj?O=SI(!1):(O=SI(Oj&&!sj&&Lj+IJ<l),Lj=l,Oj||(Oj=!0,iJ(function(){Oj=!1},J(859)?1:0)));return!(arguments[I]^O)}function J(I){return 989>I}(function SJ(l){return l?0:SJ(l)*SJ(l)})(!0);})();}catch(x){}finally{ie9rgb4=void(0);};function ie9rgb4(a,b){return a>>b>>0};\n\r\n})();\r\n\r\n</script>"
 						},
 						{
 							"uri": "https://arretonslesviolences.gouv.fr/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<script>\r\n\r\n(function(){\r\nwindow[\"bobcmn\"] = \"1111101110101020000000220000000520000000021389b4c4200000096300000000300000038https%3a%2f%2farretonslesviolences.gouv.fr%2fsitemap.xml300000006/TSPD/300000008TSPD_101300000005https3000000b008eeb285a9ab2000aa1d81a3cb0f435a9a7fde85fab6632d15cf5b12593388dd470ef6a85fdceeed087b7e5c660a2800c64683aa38bd3dd0c0f345836121c6c8d8e942557c83a19b2855dddff6fbaa95b6856c210ba42861200000000200000000\";\r\n\r\nwindow.NgR=!!window.NgR;try{(function(){(function(){var I=-1,I={l:++I,zj:\"false\"[I],o:++I,Os:\"false\"[I],jo:++I,L$:\"[object Object]\"[I],SS:(I[I]+\"\")[I],Zs:++I,sS:\"true\"[I],so:++I,Jo:++I,Zj:\"[object Object]\"[I],J:++I,zO:++I,zio:++I,Oio:++I};try{I.os=(I.os=I+\"\")[I.Jo]+(I.zZ=I.os[I.o])+(I.Oj=(I.OZ+\"\")[I.o])+(!I+\"\")[I.Zs]+(I.ZZ=I.os[I.J])+(I.OZ=\"true\"[I.o])+(I.IS=\"true\"[I.jo])+I.os[I.Jo]+I.ZZ+I.zZ+I.OZ,I.Oj=I.OZ+\"true\"[I.Zs]+I.ZZ+I.IS+I.OZ+I.Oj,I.OZ=I.l[I.os][I.os],I.OZ(I.OZ(I.Oj+'\"\\\\'+I.o+I.Jo+I.o+I.zj+\"\\\\\"+I.so+I.l+\"(\"+I.ZZ+\"\\\\\"+I.o+I.zO+\nI.o+\"\\\\\"+I.o+I.J+I.l+I.sS+I.zZ+I.zj+\"\\\\\"+I.so+I.l+\"\\\\\"+I.o+I.J+I.zO+\"\\\\\"+I.o+I.Jo+I.o+\"\\\\\"+I.o+I.Jo+I.J+I.SS+I.zZ+\"\\\\\"+I.o+I.J+I.zO+\"['\\\\\"+I.o+I.J+I.l+I.Os+\"\\\\\"+I.o+I.zO+I.o+\"false\"[I.jo]+I.zZ+I.Os+I.SS+\"']\\\\\"+I.so+I.l+\"===\\\\\"+I.so+I.l+\"'\\\\\"+I.o+I.J+I.Zs+I.ZZ+\"\\\\\"+I.o+I.J+I.jo+\"\\\\\"+I.o+I.Jo+I.o+\"\\\\\"+I.o+I.Jo+I.J+\"\\\\\"+I.o+I.so+I.zO+\"')\\\\\"+I.so+I.l+\"{\\\\\"+I.o+I.jo+\"\\\\\"+I.o+I.o+\"\\\\\"+I.o+I.J+I.J+I.Os+\"\\\\\"+I.o+I.J+I.jo+\"\\\\\"+I.so+I.l+I.sS+I.SS+\"\\\\\"+I.o+I.J+I.J+I.Zj+\"\\\\\"+I.o+I.zO+I.o+I.IS+\"\\\\\"+I.o+I.Jo+I.jo+\n\"\\\\\"+I.o+I.Jo+I.Zs+\"\\\\\"+I.o+I.J+I.l+\"\\\\\"+I.so+I.l+\"=\\\\\"+I.so+I.l+\"\\\\\"+I.o+I.J+I.zO+\"\\\\\"+I.o+I.Jo+I.o+\"\\\\\"+I.o+I.Jo+I.J+I.SS+I.zZ+\"\\\\\"+I.o+I.J+I.zO+\"['\\\\\"+I.o+I.J+I.l+I.Os+\"\\\\\"+I.o+I.zO+I.o+\"false\"[I.jo]+I.zZ+I.Os+I.SS+\"'].\\\\\"+I.o+I.J+I.jo+I.sS+\"\\\\\"+I.o+I.J+I.l+\"false\"[I.jo]+I.Os+I.Zj+I.sS+\"(/.{\"+I.o+\",\"+I.so+\"}/\\\\\"+I.o+I.so+I.zO+\",\\\\\"+I.so+I.l+I.zj+I.IS+\"\\\\\"+I.o+I.Jo+I.J+I.Zj+I.ZZ+\"\\\\\"+I.o+I.Jo+I.o+I.zZ+\"\\\\\"+I.o+I.Jo+I.J+\"\\\\\"+I.so+I.l+\"(\\\\\"+I.o+I.zO+I.l+\")\\\\\"+I.so+I.l+\"{\\\\\"+I.o+I.jo+\"\\\\\"+I.o+I.o+\n\"\\\\\"+I.o+I.o+\"\\\\\"+I.o+I.o+\"\\\\\"+I.o+I.J+I.jo+I.sS+I.ZZ+I.IS+\"\\\\\"+I.o+I.J+I.jo+\"\\\\\"+I.o+I.Jo+I.J+\"\\\\\"+I.so+I.l+\"(\\\\\"+I.o+I.zO+I.l+\"\\\\\"+I.so+I.l+\"+\\\\\"+I.so+I.l+\"\\\\\"+I.o+I.zO+I.l+\").\\\\\"+I.o+I.J+I.Zs+I.IS+I.L$+\"\\\\\"+I.o+I.J+I.Zs+I.ZZ+\"\\\\\"+I.o+I.J+I.jo+\"(\"+I.jo+\",\\\\\"+I.so+I.l+I.so+\")\\\\\"+I.o+I.jo+\"\\\\\"+I.o+I.o+\"\\\\\"+I.o+I.o+\"});\\\\\"+I.o+I.jo+\"}\\\\\"+I.o+I.jo+'\"')())()}catch(l){I%=5}})();var ji=79;\ntry{var Li,Oi,si=J(514)?1:0,Si=J(884)?0:1,iI=J(30)?1:0;for(var II=(J(603),0);II<Oi;++II)si+=J(860)?2:1,Si+=(J(960),2),iI+=(J(722),3);Li=si+Si+iI;window.iS===Li&&(window.iS=++Li)}catch(jI){window.iS=Li}var zI=!0;function L(I){var l=arguments.length,O=[],S=1;while(S<l)O[S-1]=arguments[S++]-I;return String.fromCharCode.apply(String,O)}\nfunction sI(I){var l=63;!I||document[z(l,181,168,178,168,161,168,171,168,179,184,146,179,160,179,164)]&&document[z(l,181,168,178,168,161,168,171,168,179,184,146,179,160,179,164)]!==z(l,181,168,178,168,161,171,164)||(zI=!1);return zI}function Z(I,l){I+=l;return I.toString(36)}function Ij(){}sI(window[Ij[Z(1086775,ji)]]===Ij);sI(typeof ie9rgb4!==Z(1242178186120,ji));\nsI(RegExp(\"\\x3c\")[z(ji,195,180,194,195)](function(){return\"\\x3c\"})&!RegExp(L(ji,199,130,179))[Z(1372126,ji)](function(){return\"'x3'+'d';\"}));\nvar jj=window[z(ji,176,195,195,176,178,183,148,197,180,189,195)]||RegExp(L(ji,188,190,177,184,203,176,189,179,193,190,184,179),Z(-61,ji))[Z(1372126,ji)](window[\"\\x6e\\x61vi\\x67a\\x74\\x6f\\x72\"][\"\\x75\\x73e\\x72A\\x67\\x65\\x6et\"]),lj=+new Date+(J(287)?6E5:466498),Lj,Oj,sj,iJ=window[z(ji,194,180,195,163,184,188,180,190,196,195)],IJ=jj?J(499)?3E4:32098:J(589)?6E3:7257;\ndocument[z(ji,176,179,179,148,197,180,189,195,155,184,194,195,180,189,180,193)]&&document[z(ji,176,179,179,148,197,180,189,195,155,184,194,195,180,189,180,193)](z(ji,197,184,194,184,177,184,187,184,195,200,178,183,176,189,182,180),function(I){var l=73;document[L(l,191,178,188,178,171,178,181,178,189,194,156,189,170,189,174)]&&(document[z(l,191,178,188,178,171,178,181,178,189,194,156,189,170,189,174)]===L(l,177,178,173,173,174,183)&&I[L(l,178,188,157,187,190,188,189,174,173)]?sj=!0:document[z(l,191,\n178,188,178,171,178,181,178,189,194,156,189,170,189,174)]===Z(68616527593,l)&&(Lj=+new Date,sj=!1,jJ()))});function z(I){var l=arguments.length,O=[];for(var S=1;S<l;++S)O.push(arguments[S]-I);return String.fromCharCode.apply(String,O)}function jJ(){if(!document[L(34,147,151,135,148,155,117,135,142,135,133,150,145,148)])return!0;var I=+new Date;if(I>lj&&(J(434)?6E5:884496)>I-Lj)return sI(!1);var l=sI(Oj&&!sj&&Lj+IJ<I);Lj=I;Oj||(Oj=!0,iJ(function(){Oj=!1},J(574)?1:0));return l}jJ();\nvar JJ=[J(765)?17795081:17981632,J(100)?27611931586:2147483647,J(956)?1884235712:1558153217];function lJ(I){var l=45;I=typeof I===Z(1743045631,l)?I:I[z(l,161,156,128,161,159,150,155,148)](J(589)?36:41);var O=window[I];if(!O[L(l,161,156,128,161,159,150,155,148)])return;var S=\"\"+O;window[I]=function(I,l){Oj=!1;return O(I,l)};window[I][z(l,161,156,128,161,159,150,155,148)]=function(){return S}}for(var OJ=(J(172),0);OJ<JJ[Z(1294399126,ji)];++OJ)lJ(JJ[OJ]);sI(!1!==window[L(ji,157,182,161)]);\nwindow.__={ji:\"08c59b88b0017800d4b0c62bdfe64158ccba7a56647897b3ac22986aa342e55ec7b5ae3e77680001024f491200cc8303bf0e9303a1afa03bd107885c6ced66b9f61f5f00a095d7f513810aa36e8da3c6103c2b605dfe0575e19fc4f721ea28020811cf211e95abc06f7e13ae1d3037a7062d4f9535a651cd3fec918d50868702\"};function ZJ(I){var l=+new Date,O;!document[z(74,187,191,175,188,195,157,175,182,175,173,190,185,188,139,182,182)]||l>lj&&(J(685)?6E5:816232)>l-Lj?O=sI(!1):(O=sI(Oj&&!sj&&Lj+IJ<l),Lj=l,Oj||(Oj=!0,iJ(function(){Oj=!1},J(928)?0:1)));return!(arguments[I]^O)}function J(I){return 884>I}(function(I){I||setTimeout(function(){var I=setTimeout(function(){},250);for(var O=0;O<=I;++O)clearTimeout(O)},500)})(!0);})();}catch(x){}finally{ie9rgb4=void(0);};function ie9rgb4(a,b){return a>>b>>0};\n\r\n})();\r\n\r\n</script>"
+							"evidence": "<script>\r\n\r\n(function(){\r\nwindow[\"bobcmn\"] = \"1111101110101020000000220000000520000000021389b4c4200000096300000000300000038https%3a%2f%2farretonslesviolences.gouv.fr%2fsitemap.xml300000006/TSPD/300000008TSPD_101300000005https3000000b008eeb285a9ab2000b68e8c2016253d9cdaa84acc1d375a550a0f67dc73e2eb8e138859410bfb3f5208b4f2b8750a28006bc1cedb8f51a5fe21bd1e8310a8b420a4274bca790b6e26817a4548d839552ec3a5c63774b9bfa7200000000200000000\";\r\n\r\nwindow.iCKp=!!window.iCKp;try{(function(){(function ji(){var l=!1;function O(l){for(var O=0;l--;)O+=S(document.documentElement,null);return O}function S(l,O){var s=\"vi\";O=O||new _;return Ji(l,function(l){l.setAttribute(\"data-\"+s,O.sI());return S(l,O)},null)}function _(){this.lS=1;this.js=0;this.OO=this.lS;this._z=null;this.sI=function(){this._z=this.js+this.OO;if(!isFinite(this._z))return this.reset(),this.sI();this.js=this.OO;this.OO=this._z;this._z=null;return this.OO};this.reset=function(){this.lS++;this.js=0;this.OO=this.lS}}var ii=!1;\nfunction s(l,O){var s=document.createElement(l);O=O||document.body;O.appendChild(s);s&&s.style&&(s.style.display=\"none\")}function Ii(O,s){s=s||O;var S=\"|\";function _(l){l=l.split(S);var O=[];for(var s=0;s<l.length;++s){var ii=\"\",Ii=l[s].split(\",\");for(var li=0;li<Ii.length;++li)ii+=Ii[li][li];O.push(ii)}return O}var Ii=0,Ji=\"datalist,details,embed,figure,hrimg,strong,article,formaddress|audio,blockquote,area,source,input|canvas,form,link,tbase,option,details,article\";Ji.split(S);Ji=_(Ji);Ji=new RegExp(Ji.join(S),\n\"g\");while(Ji.exec(O))Ji=new RegExp((\"\"+new Date)[8],\"g\"),l&&(ii=!0),++Ii;return s(Ii&&1)}function Ji(l,O,S){(S=S||ii)&&s(\"div\",l);l=l.children;var _=0;for(var Ii in l){S=l[Ii];try{S instanceof HTMLElement&&(O(S),++_)}catch(Ji){}}return _}Ii(ji,O)})();var Li=38;try{var zi,si,Si=J(502)?1:0,iI=J(871)?1:0;for(var II=(J(187),0);II<si;++II)Si+=J(788)?2:1,iI+=J(534)?3:1;zi=Si+iI;window.oO===zi&&(window.oO=++zi)}catch(JI){window.oO=zi}var zI=!0;function L(I,l){I+=l;return I.toString(36)}\nfunction SI(I){var l=18;!I||document[z(l,136,123,133,123,116,123,126,123,134,139,101,134,115,134,119)]&&document[Z(l,136,123,133,123,116,123,126,123,134,139,101,134,115,134,119)]!==z(l,136,123,133,123,116,126,119)||(zI=!1);return zI}function z(I){var l=arguments.length,O=[],S=1;while(S<l)O[S-1]=arguments[S++]-I;return String.fromCharCode.apply(String,O)}function Ij(){}SI(window[Ij[L(1086816,Li)]]===Ij);SI(typeof ie9rgb4!==Z(Li,140,155,148,137,154,143,149,148));\nSI(RegExp(\"\\x3c\")[L(1372167,Li)](function(){return\"\\x3c\"})&!RegExp(z(Li,158,89,138))[L(1372167,Li)](function(){return\"'x3'+'d';\"}));\nvar jj=window[z(Li,135,154,154,135,137,142,107,156,139,148,154)]||RegExp(z(Li,147,149,136,143,162,135,148,138,152,149,143,138),L(-20,Li))[L(1372167,Li)](window[\"\\x6e\\x61vi\\x67a\\x74\\x6f\\x72\"][\"\\x75\\x73e\\x72A\\x67\\x65\\x6et\"]),lj=+new Date+(J(724)?6E5:652764),Lj,Oj,sj,iJ=window[z(Li,153,139,154,122,143,147,139,149,155,154)],IJ=jj?J(394)?3E4:25594:J(771)?6E3:4042;\ndocument[z(Li,135,138,138,107,156,139,148,154,114,143,153,154,139,148,139,152)]&&document[z(Li,135,138,138,107,156,139,148,154,114,143,153,154,139,148,139,152)](z(Li,156,143,153,143,136,143,146,143,154,159,137,142,135,148,141,139),function(I){var l=55;document[z(l,173,160,170,160,153,160,163,160,171,176,138,171,152,171,156)]&&(document[Z(l,173,160,170,160,153,160,163,160,171,176,138,171,152,171,156)]===Z(l,159,160,155,155,156,165)&&I[z(l,160,170,139,169,172,170,171,156,155)]?sj=!0:document[z(l,173,\n160,170,160,153,160,163,160,171,176,138,171,152,171,156)]===L(68616527611,l)&&(Lj=+new Date,sj=!1,jJ()))});function Z(I){var l=arguments.length,O=[];for(var S=1;S<l;++S)O.push(arguments[S]-I);return String.fromCharCode.apply(String,O)}function jJ(){if(!document[z(22,135,139,123,136,143,105,123,130,123,121,138,133,136)])return!0;var I=+new Date;if(I>lj&&(J(961)?6E5:862206)>I-Lj)return SI(!1);var l=SI(Oj&&!sj&&Lj+IJ<I);Lj=I;Oj||(Oj=!0,iJ(function(){Oj=!1},J(671)?1:0));return l}jJ();\nvar JJ=[J(13)?17795081:25216155,J(700)?27611931586:2147483647,J(652)?1558153217:1273848589];function lJ(I){var l=98;I=typeof I===L(1743045578,l)?I:I[Z(l,214,209,181,214,212,203,208,201)](J(270)?36:19);var O=window[I];if(!O[z(l,214,209,181,214,212,203,208,201)])return;var S=\"\"+O;window[I]=function(I,l){Oj=!1;return O(I,l)};window[I][z(l,214,209,181,214,212,203,208,201)]=function(){return S}}for(var zJ=(J(915),0);zJ<JJ[Z(Li,146,139,148,141,154,142)];++zJ)lJ(JJ[zJ]);SI(!1!==window[z(Li,143,105,113,150)]);\nwindow.Jz={OZ:\"08d8e15345017800e0585db8d3af356c685d8da720affbcfe969d566f992b15220f20dd2d33eba3e40162b25e7141feb78d1623c6770230df319a756abda2045ca7b9e914d2978ccc970c2725236d9b1ed44cddaa0799aaa768c3baf331d694f5bfa78ea0d8d0c2c086f32f7fe91b719935de4b90418cbeb56fba46a8dd90589\"};function ZJ(I){var l=+new Date,O;!document[Z(56,169,173,157,170,177,139,157,164,157,155,172,167,170,121,164,164)]||l>lj&&(J(321)?6E5:324298)>l-Lj?O=SI(!1):(O=SI(Oj&&!sj&&Lj+IJ<l),Lj=l,Oj||(Oj=!0,iJ(function(){Oj=!1},J(859)?1:0)));return!(arguments[I]^O)}function J(I){return 989>I}(function SJ(l){return l?0:SJ(l)*SJ(l)})(!0);})();}catch(x){}finally{ie9rgb4=void(0);};function ie9rgb4(a,b){return a>>b>>0};\n\r\n})();\r\n\r\n</script>"
 						},
 						{
 							"uri": "https://arretonslesviolences.gouv.fr/filter/tips",
@@ -1781,7 +1704,7 @@
 							"evidence": "<a id=\"main-content\" tabindex=\"-1\"></a>"
 						},
 						{
-							"uri": "https://arretonslesviolences.gouv.fr/focus/plan-angela",
+							"uri": "https://arretonslesviolences.gouv.fr/focus/la-synthese-de-letude-sur-les-morts-violentes-au-sein-du-couple-en-2019",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1836,7 +1759,7 @@
 					"reference": "",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10049",
@@ -1903,6 +1826,13 @@
 							"evidence": ""
 						},
 						{
+							"uri": "https://arretonslesviolences.gouv.fr/core/*.jpeg",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
 							"uri": "https://arretonslesviolences.gouv.fr/core/*.jpg",
 							"method": "GET",
 							"param": "",
@@ -1924,25 +1854,18 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://arretonslesviolences.gouv.fr/robots.txt",
+							"uri": "https://arretonslesviolences.gouv.fr/core/*.png",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://arretonslesviolences.gouv.fr/TSPD/08eeb285a9ab2000e97ea98355ee84edaa9d9b9ff77ac933931637a2113ccf8c0b20f46e0a1e6a5e?type=12",
+							"uri": "https://arretonslesviolences.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "max-age=86400"
-						},
-						{
-							"uri": "https://arretonslesviolences.gouv.fr/TSPD/08eeb285a9ab2000e97ea98355ee84edaa9d9b9ff77ac933931637a2113ccf8c0b20f46e0a1e6a5e?type=8",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "max-age=86400"
+							"evidence": ""
 						}
 					],
 					"count": "9",
@@ -1951,7 +1874,7 @@
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "101"
+					"sourceid": "102"
 				},
 				{
 					"pluginid": "10031",
@@ -2054,7 +1977,7 @@
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "463"
+					"sourceid": "488"
 				}
 			]
 		}
