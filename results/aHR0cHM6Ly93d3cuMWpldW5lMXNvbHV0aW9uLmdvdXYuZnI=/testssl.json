@@ -353,7 +353,7 @@
               "ip"           : "www.1jeune1solution.gouv.fr/34.77.72.35",
               "port"         : "443",
               "severity"     : "OK",
-              "finding"      : "60 >= 30 days"
+              "finding"      : "53 >= 30 days"
           }
 ,         {
               "id"           : "cert_notBefore",
@@ -549,7 +549,7 @@
               "ip"           : "www.1jeune1solution.gouv.fr/34.77.72.35",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "-1 seconds from localtime"
+              "finding"      : "-3 seconds from localtime"
           }
 ,         {
               "id"           : "HSTS_time",
@@ -598,7 +598,21 @@
               "ip"           : "www.1jeune1solution.gouv.fr/34.77.72.35",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "0 at '/'"
+              "finding"      : "2 at '/'"
+          }
+,         {
+              "id"           : "cookie_secure",
+              "ip"           : "www.1jeune1solution.gouv.fr/34.77.72.35",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "All (2) at '/' marked as secure"
+          }
+,         {
+              "id"           : "cookie_httponly",
+              "ip"           : "www.1jeune1solution.gouv.fr/34.77.72.35",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "2/2 at '/' marked as HttpOnly"
           }
 ,         {
               "id"           : "X-Frame-Options",
@@ -620,7 +634,7 @@
               "port"         : "443",
               "severity"     : "INFO",
               "cwe"          : "CWE-200",
-              "finding"      : "X-Varnish: 283319 345687Via: 1.1 varnish (Varnish/6.6)x-cache: hit cached"
+              "finding"      : "X-Varnish: 381265Via: 1.1 varnish (Varnish/6.6)x-cache: pass uncacheable"
           }
 ,         {
               "id"           : "heartbleed",
@@ -688,10 +702,10 @@
               "id"           : "BREACH",
               "ip"           : "www.1jeune1solution.gouv.fr/34.77.72.35",
               "port"         : "443",
-              "severity"     : "MEDIUM",
+              "severity"     : "OK",
               "cve"          : "CVE-2013-3587",
               "cwe"          : "CWE-310",
-              "finding"      : "potentially VULNERABLE, gzip HTTP compression detected  - only supplied '/' tested"
+              "finding"      : "not vulnerable, no gzip/deflate/compress/br HTTP compression  - only supplied '/' tested"
           }
 ,         {
               "id"           : "POODLE_SSL",
@@ -1126,6 +1140,6 @@
               "ip"           : "www.1jeune1solution.gouv.fr/34.77.72.35",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "147"
+              "finding"      : "141"
           }
 ]
