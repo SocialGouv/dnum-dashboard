@@ -128,8 +128,8 @@
               "id"           : "cipher_order",
               "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
               "port"         : "443",
-              "severity"     : "OK",
-              "finding"      : "server"
+              "severity"     : "HIGH",
+              "finding"      : "NOT a cipher order configured"
           }
 ,         {
               "id"           : "protocol_negotiated",
@@ -142,15 +142,43 @@
               "id"           : "cipher_negotiated",
               "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
               "port"         : "443",
-              "severity"     : "OK",
-              "finding"      : "ECDHE-RSA-AES128-GCM-SHA256, 256 bit ECDH (P-256)"
+              "severity"     : "WARN",
+              "finding"      : "Default cipher empty  (if IIS6 give OpenSSL 1.0.1 a try)  (matching cipher in list missing)"
           }
 ,         {
-              "id"           : "cipherorder_TLSv1_2",
+              "id"           : "cipher-tls1_2_xc030",
+              "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "TLSv1.2   xc030   ECDHE-RSA-AES256-GCM-SHA384       ECDH 256   AESGCM      256      TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384"
+          }
+,         {
+              "id"           : "cipher-tls1_2_x9f",
+              "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "TLSv1.2   x9f     DHE-RSA-AES256-GCM-SHA384         DH 2048    AESGCM      256      TLS_DHE_RSA_WITH_AES_256_GCM_SHA384"
+          }
+,         {
+              "id"           : "cipher-tls1_2_xc02f",
+              "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "TLSv1.2   xc02f   ECDHE-RSA-AES128-GCM-SHA256       ECDH 256   AESGCM      128      TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"
+          }
+,         {
+              "id"           : "cipher-tls1_2_x9e",
+              "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "TLSv1.2   x9e     DHE-RSA-AES128-GCM-SHA256         DH 2048    AESGCM      128      TLS_DHE_RSA_WITH_AES_128_GCM_SHA256"
+          }
+,         {
+              "id"           : "supportedciphers_TLSv1_2",
               "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "ECDHE-RSA-AES256-GCM-SHA384 DHE-RSA-AES256-GCM-SHA384 ECDHE-RSA-AES128-GCM-SHA256 DHE-RSA-AES128-GCM-SHA256"
           }
 ,         {
               "id"           : "FS",
@@ -346,7 +374,7 @@
               "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
               "port"         : "443",
               "severity"     : "OK",
-              "finding"      : "111 >= 60 days"
+              "finding"      : "104 >= 60 days"
           }
 ,         {
               "id"           : "cert_notBefore",
@@ -500,14 +528,14 @@
               "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "0 seconds from localtime"
+              "finding"      : "-1 seconds from localtime"
           }
 ,         {
               "id"           : "HTTP_headerTime",
               "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "1641696339"
+              "finding"      : "1642301229"
           }
 ,         {
               "id"           : "HSTS",
@@ -528,7 +556,7 @@
               "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "WebServer2"
+              "finding"      : "webServer1"
           }
 ,         {
               "id"           : "banner_application",
@@ -1098,21 +1126,21 @@
               "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "60"
+              "finding"      : "90"
           }
 ,         {
               "id"           : "cipher_strength_score_weighted",
               "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "24"
+              "finding"      : "36"
           }
 ,         {
               "id"           : "final_score",
               "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "81"
+              "finding"      : "93"
           }
 ,         {
               "id"           : "overall_grade",
@@ -1133,6 +1161,6 @@
               "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "150"
+              "finding"      : "308"
           }
 ]
