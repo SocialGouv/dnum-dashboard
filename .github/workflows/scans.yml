@@ -20,7 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - id: init
-        uses: "SocialGouv/dashlord-actions/init@main"
+        uses: "SocialGouv/dashlord-actions/init@v1"
         with:
           url: ${{ github.event.inputs.url }}
 
@@ -52,6 +52,14 @@ jobs:
 #        with:
 #          url: ${{ matrix.sites.url }}
 #          output: scans/404.json
+
+      - name: Déclaration a11y
+        continue-on-error: true
+        uses: "socialgouv/dashlord-actions/declaration-a11y@v1"
+        if: ${{ matrix.sites.tools['declaration-a11y'] }}
+        with:
+          url: ${{ matrix.sites.url }}
+          output: scans/declaration-a11y.json
 
       - name: Screenshot Website
         continue-on-error: true
@@ -184,7 +192,7 @@ jobs:
           repositories: ${{ join(matrix.sites.repositories) }}
           output: scans/codescanalerts.json
 
-      - uses: SocialGouv/dashlord-actions/save@main
+      - uses: SocialGouv/dashlord-actions/save@v1
         with:
           url: ${{ matrix.sites.url }}
 
