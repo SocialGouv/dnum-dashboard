@@ -106,16 +106,16 @@
               "id"           : "cipherlist_AVERAGE",
               "ip"           : "www.agencedusport.fr/185.194.82.230",
               "port"         : "443",
-              "severity"     : "LOW",
+              "severity"     : "INFO",
               "cwe"          : "CWE-310",
-              "finding"      : "offered"
+              "finding"      : "not offered"
           }
 ,         {
               "id"           : "cipherlist_GOOD",
               "ip"           : "www.agencedusport.fr/185.194.82.230",
               "port"         : "443",
-              "severity"     : "OK",
-              "finding"      : "offered"
+              "severity"     : "INFO",
+              "finding"      : "not offered"
           }
 ,         {
               "id"           : "cipherlist_STRONG",
@@ -123,6 +123,13 @@
               "port"         : "443",
               "severity"     : "OK",
               "finding"      : "offered"
+          }
+,         {
+              "id"           : "cipherorder_TLSv1_2",
+              "ip"           : "www.agencedusport.fr/185.194.82.230",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "ECDHE-RSA-AES256-GCM-SHA384"
           }
 ,         {
               "id"           : "cipher_order",
@@ -143,14 +150,7 @@
               "ip"           : "www.agencedusport.fr/185.194.82.230",
               "port"         : "443",
               "severity"     : "OK",
-              "finding"      : "ECDHE-RSA-AES128-GCM-SHA256, 256 bit ECDH (P-256)"
-          }
-,         {
-              "id"           : "cipherorder_TLSv1_2",
-              "ip"           : "www.agencedusport.fr/185.194.82.230",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "ECDHE-RSA-AES256-GCM-SHA384, 256 bit ECDH (P-256)"
           }
 ,         {
               "id"           : "FS",
@@ -164,7 +164,7 @@
               "ip"           : "www.agencedusport.fr/185.194.82.230",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "ECDHE-RSA-AES128-GCM-SHA256 ECDHE-RSA-AES128-SHA256 ECDHE-RSA-AES128-SHA ECDHE-RSA-AES256-GCM-SHA384 ECDHE-RSA-AES256-SHA384 ECDHE-RSA-AES256-SHA"
+              "finding"      : "ECDHE-RSA-AES128-GCM-SHA256 ECDHE-RSA-AES256-GCM-SHA384"
           }
 ,         {
               "id"           : "FS_ECDHE_curves",
@@ -269,7 +269,7 @@
               "ip"           : "www.agencedusport.fr/185.194.82.230",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "6ABCA975FAF349E5578B03C27350DED9"
+              "finding"      : "76380C878D4B5E3DFFDB21068EEFB591"
           }
 ,         {
               "id"           : "cert_serialNumberLen",
@@ -283,21 +283,21 @@
               "ip"           : "www.agencedusport.fr/185.194.82.230",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "57EF70724C572290F9E2B9923AB1DEE12F16BABE"
+              "finding"      : "C6F5AEC8D3BF2163866BE455EC4D52EB8E3A69DA"
           }
 ,         {
               "id"           : "cert_fingerprintSHA256",
               "ip"           : "www.agencedusport.fr/185.194.82.230",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "F643C9F01669849F101F34631B71F2B259289359E984AEB40DA9CB9F8E0884F9"
+              "finding"      : "4A30BA4270034476CDC9358EC349537DD707FBCF754A226927A0DA37157F2A9E"
           }
 ,         {
               "id"           : "cert",
               "ip"           : "www.agencedusport.fr/185.194.82.230",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "-----BEGIN CERTIFICATE----- MIII3jCCBsagAwIBAgIQarypdfrzSeVXiwPCc1De2TANBgkqhkiG9w0BAQsFADB9 MQswCQYDVQQGEwJGUjESMBAGA1UECgwJREhJTVlPVElTMRwwGgYDVQQLDBMwMDAy IDQ4MTQ2MzA4MTAwMDM2MR0wGwYDVQRhDBROVFJGUi00ODE0NjMwODEwMDAzNjEd MBsGA1UEAwwUQ2VydGlnbmEgU2VydmljZXMgQ0EwHhcNMjAwNTA2MTI1ODQ1WhcN MjIwNTA2MTI1ODQ1WjCBjjELMAkGA1UEBhMCRlIxFDASBgNVBAcMC1BBUklTIFNQ IDA3MRwwGgYDVQQKDBNTRyBNSU4gQUZGQUlSRVMgU09DMRwwGgYDVQQLDBMwMDAy IDEzMDAwNjgwMjAwMDE2MRkwFwYDVQQDDBBhZ2VuY2VkdXNwb3J0LmZyMRIwEAYD VQQFEwlTMTYxNzAwMTkwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC+ s91o9lK5JswXo5qdGwNuLKyGUNjm2+f1LDlXQh8fW4bVtGo09IalPTeByl7THl63 wKrnC45pM/KlhJKAAanfEO++bAGTAKRgMHnTCEdyEI6/+uTU8txmMvWUvRZRqfh9 d8fWilLUM5JxYefkbOmf9IsSRUBQ6iJ/KqTm7QKSTpiTLmGBQFwzyPXCZU5WFFGd wj/6ZesbF8FbrXvkH9JuMmZeeAdi828BWgpS8/fPgR31AuiDbjt/V40dbipTvGVT 1qcEi/IdpDMivlU290OEc0Rsml1OXfsXfiupoXepl2hd6WWshK3ZnDVP+HbsnFjg poCMfybNazoyUt2Hfc7jAgMBAAGjggRGMIIEQjAJBgNVHRMEAjAAMA4GA1UdDwEB /wQEAwIFoDATBgNVHSUEDDAKBggrBgEFBQcDATBlBgNVHR8EXjBcMCugKaAnhiVo dHRwOi8vY3JsLmNlcnRpZ25hLmZyL3NlcnZpY2VzY2EuY3JsMC2gK6AphidodHRw Oi8vY3JsLmRoaW15b3Rpcy5jb20vc2VydmljZXNjYS5jcmwwgeQGCCsGAQUFBwEB BIHXMIHUMDYGCCsGAQUFBzAChipodHRwOi8vYXV0b3JpdGUuY2VydGlnbmEuZnIv c2VydmljZXNjYS5kZXIwOAYIKwYBBQUHMAKGLGh0dHA6Ly9hdXRvcml0ZS5kaGlt eW90aXMuY29tL3NlcnZpY2VzY2EuZGVyMC4GCCsGAQUFBzABhiJodHRwOi8vc2Vy dmljZXNjYS5vY3NwLmNlcnRpZ25hLmZyMDAGCCsGAQUFBzABhiRodHRwOi8vc2Vy dmljZXNjYS5vY3NwLmRoaW15b3Rpcy5jb20wHQYDVR0OBBYEFBM5ZzTmbWiv200Y 5TH5BqrBBw+aMB8GA1UdIwQYMBaAFKzsho9LNxy4fxcbGdCu6E7jNFwSMDEGA1Ud EQQqMCiCEGFnZW5jZWR1c3BvcnQuZnKCFHd3dy5hZ2VuY2VkdXNwb3J0LmZyMFQG A1UdIARNMEswCAYGZ4EMAQICMD8GCyqBegGBMQIFAQEBMDAwLgYIKwYBBQUHAgEW Imh0dHBzOi8vd3d3LmNlcnRpZ25hLmZyL2F1dG9yaXRlcy8wggH3BgorBgEEAdZ5 AgQCBIIB5wSCAeMB4QB2AEHIyrHfIkZKEMahOglCh15OMYsbA+vrS8do8JBilgb2 AAABceoRLFwAAAQDAEcwRQIgUbxPfvu4lyp29ra+coXKu2fBEttnzxrrAETvYFyw MCgCIQCCb9mpE4/Byz56plhAZrVxcs4H/OAGB986fZYAN8rDfAB3AG9Tdqwx8DEZ 2JkApFEV/3cVHBHZAsEAKQaNsgiaN9kTAAABceoRLXYAAAQDAEgwRgIhAILrbRe+ wgZ+Zgyl187VR6KaKYdkypqVLgOug9eyZnSqAiEAg9BnC9+Pr7qQfraYTAj4Fagq w9vz0dBsI76ALk+pjG8AdgAiRUUHWVUkVpY/oS/x922G4CMmY63AS39dxoNcbuIP AgAAAXHqETAlAAAEAwBHMEUCIAeRcNa0r8g6YuJ1haPFcw2+GtRBmsRzte/MV1Ht z1JyAiEAulmTP/+5EErWmep6Mqz3a/NDXNk3iiZTusJUc39vqa0AdgApeb7wnjk5 IfBWc59jpXflvld9nGAK+PlNXSZcJV3HhAAAAXHqETDuAAAEAwBHMEUCIDWs5mVY 13h+WGG7eBJYuiAIQILhSZNRcxBb3YG/Pxc4AiEAnrMtwtrnEtcFLJH1t4td5erI J4PlxXHxxgkwzxGaTlgwDQYJKoZIhvcNAQELBQADggIBAHiPKYDgVSTnYx72iqsF yDDro+6rexTvLZK4wuGCWrmUM2aYqIh+WNKuXoh8JFma/LSoqWEqNuqW61gAE5LZ ZzmPDnC8s7f12i4m8b42oYe/j+zantUFM6cA+PpMGf0RDnmk4BQqo5yga8JMJITG a+nZorqrEl+X8HjvfNcE/OVjr8WXuy7/Zz+czyr3+N6hDX2tkf+IgZKz5JeMEqa1 E//8Qz2yPf+2pCmqNd3LuseErDwGN1HSAQPIDRIbMK1hA0598Y8TGBvlSFTu7LZt IvS4hNnkflteCYv8IpWMXRsj+nlFQpSrkArjQMBVbNAVzMzIPmFOz2Ea4pz4COJw CT+qmZfQVpciip6IwRPT+R0wgeVE3E0f6h1GbwrTjAQGoSdmgULfnobiYGtwD8Q3 s4mRZiAHgVtyooZKLgZhf/dLniEj5hrb3k5lXYX4WinayLmuYTA/lzEmTdVofZCp p9fGsKv4Bgm4Y9mUsvmcDFSuCKXbNeNVz7haXBiqelMNF+Byq2J60DdjjauQqmkb i0uPKxjt4JGCvEheYVg+XM6ozZWY3cZOuMJSKTzXCGBz9EIZmEEvAXOdsSl8CZzO k21/XawcUllB/1rLjh2iCcAsTm1k/NABX7B0FXh3lUjJwirZbiR8MPpYfHvTb00T ahsvaQ/jM/UVDaWPGBz9RDs9 -----END CERTIFICATE-----"
+              "finding"      : "-----BEGIN CERTIFICATE----- MIIIkzCCBnugAwIBAgIQdjgMh41LXj3/2yEGju+1kTANBgkqhkiG9w0BAQsFADB9 MQswCQYDVQQGEwJGUjESMBAGA1UECgwJREhJTVlPVElTMRwwGgYDVQQLDBMwMDAy IDQ4MTQ2MzA4MTAwMDM2MR0wGwYDVQRhDBROVFJGUi00ODE0NjMwODEwMDAzNjEd MBsGA1UEAwwUQ2VydGlnbmEgU2VydmljZXMgQ0EwHhcNMjIwMzMwMjIwMDAwWhcN MjMwMzMwMjE1OTU5WjCBrjELMAkGA1UEBhMCRlIxDjAMBgNVBAcMBVBBUklTMUEw PwYDVQQKDDhTRUNSRVRBUklBVCBHRU5FUkFMIE1JTklTVEVSRVMgQ0hBUkdFUyBB RkZBSVJFUyBTT0NJQUxFUzEcMBoGA1UECwwTMDAwMiAxMzAwMDY4MDIwMDAxNjEZ MBcGA1UEAwwQYWdlbmNlZHVzcG9ydC5mcjETMBEGA1UEBRMKUzIzMTgzMjY3MTCC ASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMOhl8fcH5/Ex6m6AMZMfWg7 E4IJKZMDcJ7co2KA1T7oongJxcKCeycAJ5D6xYtGQFfqJmIYRLEXJB91W0UIcHAO 2Rq3zP/S9O3gRF8A7+LrEHXzxSc0GzkYY1yIRBuDQgbB5G91kutjHdQkAX6dMx6z lahQVCC2ezoIlas130YOjXyGro55Ql14JjHAr4BQG0WfKhMEZwv+SMwIhou6Qa/2 ocNxqwzB4Lqmh5+IPF9UuJYBF1fEPR1citKDyLs6Hey4xyimmNt9HDGH/Ahfa5kn ddpNSflyRPi2+Ze/DJWdNTMma5jjnpeueLfs++owDLdEsIFekbZUteiEf0YLZeMC AwEAAaOCA9swggPXMIHkBggrBgEFBQcBAQSB1zCB1DA4BggrBgEFBQcwAoYsaHR0 cDovL2F1dG9yaXRlLmRoaW15b3Rpcy5jb20vc2VydmljZXNjYS5kZXIwNgYIKwYB BQUHMAKGKmh0dHA6Ly9hdXRvcml0ZS5jZXJ0aWduYS5mci9zZXJ2aWNlc2NhLmRl cjAwBggrBgEFBQcwAYYkaHR0cDovL3NlcnZpY2VzY2Eub2NzcC5kaGlteW90aXMu Y29tMC4GCCsGAQUFBzABhiJodHRwOi8vc2VydmljZXNjYS5vY3NwLmNlcnRpZ25h LmZyMB8GA1UdIwQYMBaAFKzsho9LNxy4fxcbGdCu6E7jNFwSMAkGA1UdEwQCMAAw YQYDVR0gBFowWDAIBgZngQwBAgIwTAYLKoF6AYExAgUBAQEwPTA7BggrBgEFBQcC ARYvaHR0cHM6Ly93d3cuY2VydGlnbmEuY29tL2F1dG9yaXRlLWNlcnRpZmljYXRp b24wZQYDVR0fBF4wXDAroCmgJ4YlaHR0cDovL2NybC5jZXJ0aWduYS5mci9zZXJ2 aWNlc2NhLmNybDAtoCugKYYnaHR0cDovL2NybC5kaGlteW90aXMuY29tL3NlcnZp Y2VzY2EuY3JsMBMGA1UdJQQMMAoGCCsGAQUFBwMBMA4GA1UdDwEB/wQEAwIFoDAx BgNVHREEKjAoghBhZ2VuY2VkdXNwb3J0LmZyghR3d3cuYWdlbmNlZHVzcG9ydC5m cjAdBgNVHQ4EFgQUt+bpzaBKtw6x5l+00dl/vCOYtw4wggF/BgorBgEEAdZ5AgQC BIIBbwSCAWsBaQB2AK33vvp8/xDIi509nB4+GGq0Zyldz7EMJMqFhjTr3IKKAAAB f98tuvcAAAQDAEcwRQIhAPug315vFxvnW9gsR/uUPVUEpeZ/31IlFfYUUdfDr0hg AiAAlg6kbKhUDhvqlwIR3OyANSO3lGeiFL5QmxCEt21a0QB2AOg+0No+9QY1MudX KLyJa8kD08vREWvs62nhd31tBr1uAAABf98tvKkAAAQDAEcwRQIhALrQNel4yfF+ erSazQ1rr1dNSMdvIx9gcR8xxWuXjiq/AiAs//dZ9Zi8FbnZCtwAiC55/rarzVs8 Sd7ggedJJxOHMwB3ALNzdwfhhFD4Y4bWBancEQlKeS2xZwwLh9zwAw55NqWaAAAB f98twBIAAAQDAEgwRgIhAPhbx3lgjooHYHsI1UGP0f9ApgT+axgw9/UrebSWxJh0 AiEAly9H+NaWFLZHg9huQlvvlPbsgduN+9m8jugCwWR6dxowDQYJKoZIhvcNAQEL BQADggIBABfuxicnbxAJF1P6UrRqDIg4czJ6iViJVaoa4+7tvfbBDywRxFBDmVrL MVfUcbArPSTFB8O1LygXUFrqhoellwM9jQm3YoIKnAPYb3jocxrykhKaxvMMa5ZZ oqIRiFJ/oqHJ/fP6dbRFOlYp4ibRl1hdaNVBspN0Lmkzruh3mCCGfJRhJUD1nu22 hXOtoRwIJOINyftGpOLdQ94CDsxoR1lwjiLrnKCm0MiZeEu0eaVRx6I+jBhF86/s Me4QjT88Hl2WNothLBmTelQ43W00KKo0ZD9PVZLhs4vCGXhY7ZXzyimOuZL0DugA Qzu8aA4mw/CyA5nHMPe/N81m+SiAQ9plab0ZUl7f8iRPqw9pOT+eypFPQj3pUzRZ pGf6wMR60goKq7IqfuUvaRdiB6MmMAY6XIfdlrhY28z2WR7z00cNHDOJdISD9KFq flPo3RWQqwgiDIGYe9AijjmjKgWFtde1o3SBdXvZZ3ZhZZMN2m3nGp/8RJ5JPxOw g0kwWnAdL/eyLUbL693NeufLN7sanknVyfOGeIeUDlgExPwXg5biddggm3gYiPb/ 97Gux62TkhtcvRYcoDzfQ6YWX99u0KRF+0CuTQssV9hYxGypkjQcYwYLTI02jPsU Q9QFIgaPJQEOFj+/AdmZj4oJKZCeVKsFWOewzzvaz5UeGhnkSosV -----END CERTIFICATE-----"
           }
 ,         {
               "id"           : "cert_commonName",
@@ -345,29 +345,29 @@
               "id"           : "cert_expirationStatus",
               "ip"           : "www.agencedusport.fr/185.194.82.230",
               "port"         : "443",
-              "severity"     : "MEDIUM",
-              "finding"      : "expires < 60 days (40)"
+              "severity"     : "OK",
+              "finding"      : "361 >= 60 days"
           }
 ,         {
               "id"           : "cert_notBefore",
               "ip"           : "www.agencedusport.fr/185.194.82.230",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "2020-05-06 12:58"
+              "finding"      : "2022-03-30 22:00"
           }
 ,         {
               "id"           : "cert_notAfter",
               "ip"           : "www.agencedusport.fr/185.194.82.230",
               "port"         : "443",
-              "severity"     : "MEDIUM",
-              "finding"      : "2022-05-06 12:58"
+              "severity"     : "OK",
+              "finding"      : "2023-03-30 21:59"
           }
 ,         {
               "id"           : "cert_extlifeSpan",
               "ip"           : "www.agencedusport.fr/185.194.82.230",
               "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "730 =< 398 days"
+              "severity"     : "OK",
+              "finding"      : "certificate has no extended life time according to browser forum"
           }
 ,         {
               "id"           : "cert_eTLS",
@@ -388,7 +388,7 @@
               "ip"           : "www.agencedusport.fr/185.194.82.230",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "http://servicesca.ocsp.certigna.fr http://servicesca.ocsp.dhimyotis.com"
+              "finding"      : "http://servicesca.ocsp.dhimyotis.com http://servicesca.ocsp.certigna.fr"
           }
 ,         {
               "id"           : "OCSP_stapling",
@@ -507,7 +507,7 @@
               "ip"           : "www.agencedusport.fr/185.194.82.230",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "1648353384"
+              "finding"      : "1648957805"
           }
 ,         {
               "id"           : "HSTS_time",
@@ -649,7 +649,7 @@
               "severity"     : "OK",
               "cve"          : "CVE-2017-17382 CVE-2017-17427 CVE-2017-17428 CVE-2017-13098 CVE-2017-1000385 CVE-2017-13099 CVE-2016-6883 CVE-2012-5081 CVE-2017-6168",
               "cwe"          : "CWE-203",
-              "finding"      : "not vulnerable"
+              "finding"      : "not vulnerable, no RSA key transport cipher"
           }
 ,         {
               "id"           : "secure_renego",
@@ -666,7 +666,7 @@
               "severity"     : "OK",
               "cve"          : "CVE-2011-1473",
               "cwe"          : "CWE-310",
-              "finding"      : "not vulnerable"
+              "finding"      : "not vulnerable, mitigated"
           }
 ,         {
               "id"           : "CRIME_TLS",
@@ -736,7 +736,7 @@
               "severity"     : "INFO",
               "cve"          : "CVE-2016-0800 CVE-2016-0703",
               "cwe"          : "CWE-310",
-              "finding"      : "Make sure you don't use this certificate elsewhere with SSLv2 enabled services, see https://censys.io/ipv4?q=F643C9F01669849F101F34631B71F2B259289359E984AEB40DA9CB9F8E0884F9"
+              "finding"      : "Make sure you don't use this certificate elsewhere with SSLv2 enabled services, see https://censys.io/ipv4?q=4A30BA4270034476CDC9358EC349537DD707FBCF754A226927A0DA37157F2A9E"
           }
 ,         {
               "id"           : "LOGJAM",
@@ -769,10 +769,10 @@
               "id"           : "LUCKY13",
               "ip"           : "www.agencedusport.fr/185.194.82.230",
               "port"         : "443",
-              "severity"     : "LOW",
+              "severity"     : "OK",
               "cve"          : "CVE-2013-0169",
               "cwe"          : "CWE-310",
-              "finding"      : "potentially vulnerable, uses TLS CBC ciphers"
+              "finding"      : "not vulnerable"
           }
 ,         {
               "id"           : "winshock",
@@ -797,7 +797,7 @@
               "ip"           : "www.agencedusport.fr/185.194.82.230",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
           }
 ,         {
               "id"           : "clientsimulation-android_500",
@@ -818,56 +818,56 @@
               "ip"           : "www.agencedusport.fr/185.194.82.230",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
           }
 ,         {
               "id"           : "clientsimulation-android_81",
               "ip"           : "www.agencedusport.fr/185.194.82.230",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
           }
 ,         {
               "id"           : "clientsimulation-android_90",
               "ip"           : "www.agencedusport.fr/185.194.82.230",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
           }
 ,         {
               "id"           : "clientsimulation-android_X",
               "ip"           : "www.agencedusport.fr/185.194.82.230",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
           }
 ,         {
               "id"           : "clientsimulation-chrome_74_win10",
               "ip"           : "www.agencedusport.fr/185.194.82.230",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
           }
 ,         {
               "id"           : "clientsimulation-chrome_79_win10",
               "ip"           : "www.agencedusport.fr/185.194.82.230",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
           }
 ,         {
               "id"           : "clientsimulation-firefox_66_win81",
               "ip"           : "www.agencedusport.fr/185.194.82.230",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
           }
 ,         {
               "id"           : "clientsimulation-firefox_71_win10",
               "ip"           : "www.agencedusport.fr/185.194.82.230",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
           }
 ,         {
               "id"           : "clientsimulation-ie_6_xp",
@@ -895,91 +895,91 @@
               "ip"           : "www.agencedusport.fr/185.194.82.230",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-SHA"
+              "finding"      : "No connection"
           }
 ,         {
               "id"           : "clientsimulation-ie_11_win81",
               "ip"           : "www.agencedusport.fr/185.194.82.230",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-SHA"
+              "finding"      : "No connection"
           }
 ,         {
               "id"           : "clientsimulation-ie_11_winphone81",
               "ip"           : "www.agencedusport.fr/185.194.82.230",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-SHA"
+              "finding"      : "No connection"
           }
 ,         {
               "id"           : "clientsimulation-ie_11_win10",
               "ip"           : "www.agencedusport.fr/185.194.82.230",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
           }
 ,         {
               "id"           : "clientsimulation-edge_15_win10",
               "ip"           : "www.agencedusport.fr/185.194.82.230",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
           }
 ,         {
               "id"           : "clientsimulation-edge_17_win10",
               "ip"           : "www.agencedusport.fr/185.194.82.230",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
           }
 ,         {
               "id"           : "clientsimulation-opera_66_win10",
               "ip"           : "www.agencedusport.fr/185.194.82.230",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
           }
 ,         {
               "id"           : "clientsimulation-safari_9_ios9",
               "ip"           : "www.agencedusport.fr/185.194.82.230",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
           }
 ,         {
               "id"           : "clientsimulation-safari_9_osx1011",
               "ip"           : "www.agencedusport.fr/185.194.82.230",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
           }
 ,         {
               "id"           : "clientsimulation-safari_10_osx1012",
               "ip"           : "www.agencedusport.fr/185.194.82.230",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
           }
 ,         {
               "id"           : "clientsimulation-safari_121_ios_122",
               "ip"           : "www.agencedusport.fr/185.194.82.230",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
           }
 ,         {
               "id"           : "clientsimulation-safari_130_osx_10146",
               "ip"           : "www.agencedusport.fr/185.194.82.230",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
           }
 ,         {
               "id"           : "clientsimulation-apple_ats_9_ios9",
               "ip"           : "www.agencedusport.fr/185.194.82.230",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
           }
 ,         {
               "id"           : "clientsimulation-java_6u45",
@@ -1000,49 +1000,49 @@
               "ip"           : "www.agencedusport.fr/185.194.82.230",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
           }
 ,         {
               "id"           : "clientsimulation-java1102",
               "ip"           : "www.agencedusport.fr/185.194.82.230",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
           }
 ,         {
               "id"           : "clientsimulation-java1201",
               "ip"           : "www.agencedusport.fr/185.194.82.230",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
           }
 ,         {
               "id"           : "clientsimulation-openssl_102e",
               "ip"           : "www.agencedusport.fr/185.194.82.230",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
           }
 ,         {
               "id"           : "clientsimulation-openssl_110l",
               "ip"           : "www.agencedusport.fr/185.194.82.230",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
           }
 ,         {
               "id"           : "clientsimulation-openssl_111d",
               "ip"           : "www.agencedusport.fr/185.194.82.230",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
           }
 ,         {
               "id"           : "clientsimulation-thunderbird_68_3_1",
               "ip"           : "www.agencedusport.fr/185.194.82.230",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
           }
 ,         {
               "id"           : "rating_spec",
@@ -1119,6 +1119,6 @@
               "ip"           : "www.agencedusport.fr/185.194.82.230",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "121"
+              "finding"      : "137"
           }
 ]
