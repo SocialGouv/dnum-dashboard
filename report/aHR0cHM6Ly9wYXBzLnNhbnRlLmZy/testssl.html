@@ -21,11 +21,11 @@
 ###########################################################</span>
 
  Using &quot;OpenSSL 1.0.2-chacha (1.0.2k-dev)&quot; [~183 ciphers]
- on fv-az290-435:/home/testssl/bin/openssl.Linux.x86_64
+ on fv-az502-80:/home/testssl/bin/openssl.Linux.x86_64
  (built: &quot;Jan 18 17:12:17 2019&quot;, platform: &quot;linux-x86_64&quot;)
 
 
-<span style="color:white;background-color:black;"> Start 2022-03-27 02:58:59        --&gt;&gt; 185.194.82.45:443 (paps.sante.fr) &lt;&lt;--</span>
+<span style="color:white;background-color:black;"> Start 2022-04-03 03:11:39        --&gt;&gt; 185.194.82.45:443 (paps.sante.fr) &lt;&lt;--</span>
 
  rDNS (185.194.82.45):   --
  Service detected:       HTTP
@@ -55,11 +55,6 @@
 
 <span style="text-decoration:underline;font-weight:bold;"> Testing server&apos;s cipher preferences </span>
 
-<span style="font-weight:bold;"> Has server cipher order?     </span><span style="color:#008817;font-weight:bold;">yes (OK)</span>
-<span style="font-weight:bold;"> Negotiated protocol          </span><span style="color:#008817;font-weight:bold;">TLSv1.2</span>
-<span style="font-weight:bold;"> Negotiated cipher            </span><span style="color:#008817;font-weight:bold;">ECDHE-RSA-AES256-GCM-SHA384</span>, <span style="color:#008817;">256 bit ECDH (P-256)</span>
-<span style="font-weight:bold;"> Cipher per protocol</span>
-
 Hexcode  Cipher Suite Name (OpenSSL)       KeyExch.   Encryption  Bits     Cipher Suite Name (IANA/RFC)
 -----------------------------------------------------------------------------------------------------------------------------
 <u>SSLv2</u>
@@ -74,6 +69,9 @@ Hexcode  Cipher Suite Name (OpenSSL)       KeyExch.   Encryption  Bits     Ciphe
 <u>TLSv1.3</u>
  - 
 
+<span style="font-weight:bold;"> Has server cipher order?     </span><span style="color:#008817;font-weight:bold;">yes (OK)</span>
+<span style="font-weight:bold;"> Negotiated protocol          </span><span style="color:#008817;font-weight:bold;">TLSv1.2</span>
+<span style="font-weight:bold;"> Negotiated cipher            </span><span style="color:#008817;font-weight:bold;">ECDHE-RSA-AES256-GCM-SHA384</span>, <span style="color:#008817;">256 bit ECDH (P-256)</span>
 
 <span style="text-decoration:underline;font-weight:bold;"> Testing robust forward secrecy (FS)</span><u> -- omitting Null Authentication/Encryption, 3DES, RC4 </u>
 
@@ -85,7 +83,7 @@ Hexcode  Cipher Suite Name (OpenSSL)       KeyExch.   Encryption  Bits     Ciphe
 
 <span style="text-decoration:underline;font-weight:bold;"> Testing server defaults (Server Hello) </span>
 
-<span style="font-weight:bold;"> TLS extensions (standard)    </span>&quot;renegotiation info/#65281&quot; &quot;server name/#0&quot;
+<span style="font-weight:bold;"> TLS extensions (standard)    </span>&quot;renegotiation info/#65281&quot;
                               &quot;EC point formats/#11&quot;
                               &quot;extended master secret/#23&quot;
 <span style="font-weight:bold;"> Session Ticket RFC 5077 hint </span>no -- no lifetime advertised
@@ -97,16 +95,20 @@ Hexcode  Cipher Suite Name (OpenSSL)       KeyExch.   Encryption  Bits     Ciphe
 <span style="font-weight:bold;"> Server key size              </span>RSA 2048 bits (exponent is 65537)
 <span style="font-weight:bold;"> Server key usage             </span>Digital Signature, Key Encipherment
 <span style="font-weight:bold;"> Server extended key usage    </span>TLS Web Server Authentication
-<span style="font-weight:bold;"> Serial                       </span>78E42028F77DE79F597EC352A258C8BA (OK: length 16)
-<span style="font-weight:bold;"> Fingerprints                 </span>SHA1 C84DF95B1C97327E7FF26182AC8D3CA6B24707E9
-                              SHA256 D17A8019863873235F1D6AAA76E21930603F9C3147346DB4008158006C934383
-<span style="font-weight:bold;"> Common Name (CN)             </span><i>www.paps.sante.fr </i> (CN in response to request w/o SNI: <i>www.ars.sante.fr </i>)
-<span style="font-weight:bold;"> subjectAltName (SAN)         </span><i>paps.sante.fr www.paps.sante.fr </i>
-<span style="font-weight:bold;"> Trust (hostname)             </span><span style="color:#008817;">Ok via SAN</span> (SNI mandatory)
+<span style="font-weight:bold;"> Serial                       </span>0B8EAAE73EC94D8DA38C588213EB6D99 (OK: length 16)
+<span style="font-weight:bold;"> Fingerprints                 </span>SHA1 6D61F545187D957B5644DFE712D9A737D83F4E37
+                              SHA256 981ECEBEF4ADC423F8C78833321DD7BB8AA8D1F9C46D435A50AD18931F171965
+<span style="font-weight:bold;"> Common Name (CN)             </span><i>www.ars.sante.fr </i>
+<span style="font-weight:bold;"> subjectAltName (SAN)         </span><i>www.bourgogne-franche-comte.ars.sante.fr
+                              www.ars.sante.fr
+                              www.pays-de-la-loire.ars.sante.fr
+                              www.nouvelle-aquitaine.ars.sante.fr
+                              www.auvergne-rhone-alpes.ars.sante.fr </i>
+<span style="font-weight:bold;"> Trust (hostname)             </span><span style="color:#e52207;">certificate does not match supplied URI</span> (same w/o SNI)
 <span style="font-weight:bold;"> Chain of trust</span>               <span style="color:#e52207;font-weight:bold;">NOT ok</span><span style="color:#e52207;font-weight:bold;">:</span><span style="color:#e52207;"> Java </span>(chain incomplete)
 <span style="color:#008817;">OK: Mozilla Microsoft Linux Apple </span>
 <span style="font-weight:bold;"> EV cert</span> (experimental)       no 
-<span style="font-weight:bold;"> Certificate Validity (UTC)   </span><span style="color:#c05600;">expires &lt; 60 days (38)</span> (2021-05-04 22:00 --&gt; 2022-05-04 21:59)
+<span style="font-weight:bold;"> Certificate Validity (UTC)   </span><span style="color:#008817;">276 &gt;= 60 days</span> (2022-01-04 23:00 --&gt; 2023-01-04 22:59)
 <span style="font-weight:bold;"> ETS/&quot;eTLS&quot;</span>, visibility info  not present
 <span style="font-weight:bold;"> Certificate Revocation List  </span>http://crl.certigna.fr/servicesca.crl
                               http://crl.dhimyotis.com/servicesca.crl
@@ -131,7 +133,7 @@ Hexcode  Cipher Suite Name (OpenSSL)       KeyExch.   Encryption  Bits     Ciphe
 <span style="font-weight:bold;"> Server banner                </span>Apache
 <span style="font-weight:bold;"> Application banner           </span>--
 <span style="font-weight:bold;"> Cookie(s)                    </span>1 issued: <span style="color:#008817;">1/1</span> secure, <span style="color:#008817;">1/1</span> HttpOnly
-                              F5 cookie (default IPv4 pool member): <i>BIGipServerpool-ars.cegedim.cloud-HTTP </i><span style="color:#c05600;">10.89.196.49:6081</span>
+                              F5 cookie (default IPv4 pool member): <i>BIGipServerpool-ars.cegedim.cloud-HTTP </i><span style="color:#c05600;">10.89.196.50:6081</span>
 <span style="font-weight:bold;"> Security headers             </span><span style="color:#008817;">X-Frame-Options</span>: sameorigin
                               <span style="color:#008817;">X-Content-Type-Options</span>: nosniff
 <span style="font-weight:bold;"> Reverse Proxy banner         </span>--
@@ -154,7 +156,7 @@ Hexcode  Cipher Suite Name (OpenSSL)       KeyExch.   Encryption  Bits     Ciphe
 <span style="font-weight:bold;"> FREAK</span> (CVE-2015-0204)                     <span style="color:#008817;font-weight:bold;">not vulnerable (OK)</span>
 <span style="font-weight:bold;"> DROWN</span> (CVE-2016-0800, CVE-2016-0703)      <span style="color:#008817;font-weight:bold;">not vulnerable on this host and port (OK)</span>
                                            make sure you don&apos;t use this certificate elsewhere with SSLv2 enabled services
-                                           <a href="https://censys.io/ipv4?q=D17A8019863873235F1D6AAA76E21930603F9C3147346DB4008158006C934383" style="color:black;text-decoration:none;">https://censys.io/ipv4?q=D17A8019863873235F1D6AAA76E21930603F9C3147346DB4008158006C934383</a> could help you to find out
+                                           <a href="https://censys.io/ipv4?q=981ECEBEF4ADC423F8C78833321DD7BB8AA8D1F9C46D435A50AD18931F171965" style="color:black;text-decoration:none;">https://censys.io/ipv4?q=981ECEBEF4ADC423F8C78833321DD7BB8AA8D1F9C46D435A50AD18931F171965</a> could help you to find out
 <span style="font-weight:bold;"> LOGJAM</span> (CVE-2015-4000), experimental      <span style="color:#008817;">not vulnerable (OK):</span> no DH EXPORT ciphers, no DH key detected with &lt;= TLS 1.2
 <span style="font-weight:bold;"> BEAST</span> (CVE-2011-3389)                     <span style="color:#008817;">not vulnerable (OK)</span>, no SSL3 or TLS1
 <span style="font-weight:bold;"> LUCKY13</span> (CVE-2013-0169), experimental     <span style="color:#008817;font-weight:bold;">not vulnerable (OK)</span>
@@ -208,14 +210,15 @@ Hexcode  Cipher Suite Name (OpenSSL)       KeyExch.   Encryption  Bits     Ciphe
 
 <span style="font-weight:bold;"> Rating specs</span> (not complete)  SSL Labs&apos;s &apos;SSL Server Rating Guide&apos; (version 2009q from 2020-01-30)
 <span style="font-weight:bold;"> Specification documentation  </span><a href="https://github.com/ssllabs/research/wiki/SSL-Server-Rating-Guide" style="color:black;text-decoration:none;">https://github.com/ssllabs/research/wiki/SSL-Server-Rating-Guide</a>
-<span style="font-weight:bold;"> Protocol Support </span>(weighted)  100 (30)
-<span style="font-weight:bold;"> Key Exchange </span>    (weighted)  90 (27)
-<span style="font-weight:bold;"> Cipher Strength </span> (weighted)  60 (24)
-<span style="font-weight:bold;"> Final Score                  </span>81
-<span style="font-weight:bold;"> Overall Grade                </span><span style="color:#008817;font-weight:bold;">A</span>
-<span style="font-weight:bold;"> Grade cap reasons            </span>Grade capped to A. HSTS is not offered
+<span style="font-weight:bold;"> Protocol Support</span> (weighted)  0 (0)
+<span style="font-weight:bold;"> Key Exchange</span>     (weighted)  0 (0)
+<span style="font-weight:bold;"> Cipher Strength</span>  (weighted)  0 (0)
+<span style="font-weight:bold;"> Final Score                  </span>0
+<span style="font-weight:bold;"> Overall Grade                </span><span style="color:#e52207;font-weight:bold;">M</span>
+<span style="font-weight:bold;"> Grade cap reasons            </span>Grade capped to M. Domain name mismatch
+                              Grade capped to A. HSTS is not offered
 
-<span style="color:white;background-color:black;"> Done 2022-03-27 03:01:12 [ 135s] --&gt;&gt; 185.194.82.45:443 (paps.sante.fr) &lt;&lt;--</span>
+<span style="color:white;background-color:black;"> Done 2022-04-03 03:13:59 [ 142s] --&gt;&gt; 185.194.82.45:443 (paps.sante.fr) &lt;&lt;--</span>
 
 
 </pre>
