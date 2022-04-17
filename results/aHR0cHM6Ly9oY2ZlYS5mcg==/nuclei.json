@@ -1,0 +1,110 @@
+[
+  {
+    "template": "dns/mx-fingerprint.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/dns/mx-fingerprint.yaml",
+    "template-id": "mx-fingerprint",
+    "info": {
+      "name": "MX Record Detection",
+      "author": [
+        "pdteam"
+      ],
+      "tags": [
+        "dns",
+        "mx"
+      ],
+      "description": "An MX record was detected. MX records direct emails to a mail exchange server.",
+      "reference": [
+        "https://www.cloudflare.com/learning/dns/dns-records/dns-mx-record/",
+        "https://mxtoolbox.com/"
+      ],
+      "severity": "info",
+      "classification": {
+        "cve-id": null,
+        "cwe-id": [
+          "cwe-200"
+        ],
+        "cvss-metrics": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N"
+      }
+    },
+    "type": "dns",
+    "host": "https://hcfea.fr",
+    "matched-at": "https://hcfea.fr",
+    "extracted-results": [
+      "10 pro093001app059.social.gouv.fr.",
+      "10 pro075001app063.social.gouv.fr.",
+      "10 pro093001app060.social.gouv.fr.",
+      "10 pro075001app061.social.gouv.fr."
+    ],
+    "request": ";; opcode: QUERY, status: NOERROR, id: 30714\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags: ; udp: 4096\n\n;; QUESTION SECTION:\n;hcfea.fr.\tIN\t MX\n",
+    "response": ";; opcode: QUERY, status: NOERROR, id: 30714\n;; flags: qr rd ra; QUERY: 1, ANSWER: 4, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags: ; udp: 1232\n\n;; QUESTION SECTION:\n;hcfea.fr.\tIN\t MX\n\n;; ANSWER SECTION:\nhcfea.fr.\t14400\tIN\tMX\t10 pro075001app061.social.gouv.fr.\nhcfea.fr.\t14400\tIN\tMX\t10 pro093001app059.social.gouv.fr.\nhcfea.fr.\t14400\tIN\tMX\t10 pro075001app063.social.gouv.fr.\nhcfea.fr.\t14400\tIN\tMX\t10 pro093001app060.social.gouv.fr.\n",
+    "timestamp": "2022-04-17T03:06:45.476744693Z",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "ssl/tls-version.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/ssl/tls-version.yaml",
+    "template-id": "tls-version",
+    "info": {
+      "name": "TLS Version",
+      "author": [
+        "pdteam"
+      ],
+      "tags": [
+        "ssl"
+      ],
+      "reference": null,
+      "severity": "info"
+    },
+    "type": "ssl",
+    "host": "https://hcfea.fr",
+    "matched-at": "https://hcfea.fr",
+    "extracted-results": [
+      "TLS12"
+    ],
+    "ip": "185.194.82.165",
+    "timestamp": "2022-04-17T03:06:58.892798287Z",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "technologies/waf-detect.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/technologies/waf-detect.yaml",
+    "template-id": "waf-detect",
+    "info": {
+      "name": "WAF Detection",
+      "author": [
+        "dwisiswant0",
+        "lu4nx"
+      ],
+      "tags": [
+        "waf",
+        "tech",
+        "misc"
+      ],
+      "description": "A web application firewall was detected.",
+      "reference": [
+        "https://github.com/ekultek/whatwaf"
+      ],
+      "severity": "info",
+      "classification": {
+        "cve-id": null,
+        "cwe-id": [
+          "cwe-200"
+        ],
+        "cvss-metrics": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N"
+      }
+    },
+    "matcher-name": "bigip",
+    "type": "http",
+    "host": "https://hcfea.fr",
+    "matched-at": "https://hcfea.fr/",
+    "request": "POST / HTTP/1.1\r\nHost: hcfea.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nContent-Length: 27\r\nContent-Type: application/x-www-form-urlencoded\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 301 Moved Permanently\r\nConnection: close\r\nContent-Length: 228\r\nContent-Type: text/html; charset=iso-8859-1\r\nDate: Sun, 17 Apr 2022 03:07:11 GMT\r\nLocation: http://www.hcfea.fr/\r\nSet-Cookie: BIGipServerpool-hcfea-portail.cegedim.cloud-HTTP=!5B8W5qxNVhY3sb6sm7p0I5CraKeLeBGzXLISBgp+3eFOmc6Zl9XVDdaFgDUq7NatVIHBeYetUStwDqBxE+UvqSmHO4M=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\n\r\n<!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML 2.0//EN\">\n<html><head>\n<title>301 Moved Permanently</title>\n</head><body>\n<h1>Moved Permanently</h1>\n<p>The document has moved <a href=\"http://www.hcfea.fr/\">here</a>.</p>\n</body></html>\n",
+    "ip": "185.194.82.165",
+    "timestamp": "2022-04-17T03:07:11.087721474Z",
+    "curl-command": "curl -X 'POST' -d '_=<script>alert(1)</script>' -H 'Content-Type: application/x-www-form-urlencoded' -H 'Host: hcfea.fr' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://hcfea.fr/'",
+    "matcher-status": true,
+    "matched-line": null
+  }
+]
