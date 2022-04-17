@@ -1,0 +1,86 @@
+[
+  {
+    "template": "ssl/tls-version.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/ssl/tls-version.yaml",
+    "template-id": "tls-version",
+    "info": {
+      "name": "TLS Version",
+      "author": [
+        "pdteam"
+      ],
+      "tags": [
+        "ssl"
+      ],
+      "reference": null,
+      "severity": "info"
+    },
+    "type": "ssl",
+    "host": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
+    "matched-at": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
+    "extracted-results": [
+      "TLS12"
+    ],
+    "ip": "185.194.82.144",
+    "timestamp": "2022-04-17T03:54:06.9687174Z",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "ssl/deprecated-tls.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/ssl/deprecated-tls.yaml",
+    "template-id": "deprecated-tls",
+    "info": {
+      "name": "Deprecated TLS Detection (inferior to TLS 1.2)",
+      "author": [
+        "righettod"
+      ],
+      "tags": [
+        "ssl"
+      ],
+      "reference": [
+        "https://ssl-config.mozilla.org/#config=intermediate"
+      ],
+      "severity": "info",
+      "metadata": {
+        "shodan-query": "ssl.version:sslv2 ssl.version:sslv3 ssl.version:tlsv1 ssl.version:tlsv1.1"
+      }
+    },
+    "type": "ssl",
+    "host": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
+    "matched-at": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
+    "extracted-results": [
+      "TLS11"
+    ],
+    "ip": "185.194.82.144",
+    "timestamp": "2022-04-17T03:54:10.675974966Z",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "miscellaneous/robots-txt.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/miscellaneous/robots-txt.yaml",
+    "template-id": "robots-txt",
+    "info": {
+      "name": "robots.txt file",
+      "author": [
+        "caspergn"
+      ],
+      "tags": [
+        "misc",
+        "generic"
+      ],
+      "reference": null,
+      "severity": "info"
+    },
+    "type": "http",
+    "host": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
+    "matched-at": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr/robots.txt",
+    "request": "GET /robots.txt HTTP/1.1\r\nHost: metiers-fonctionpubliquehospitaliere.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Type: text/plain; charset=utf-8\r\nDate: Sun, 17 Apr 2022 03:55:10 GMT\r\nLast-Modified: Sun, 17 Apr 2022 03:55:10 GMT\r\nReferrer-Policy: strict-origin\r\nSet-Cookie: BIGipServerpool-dicom-mfph-preprod.cegedim.cloud-HTTP=!fGWobqBDA6y/HkWsm7p0I5CraKeLeA4CeLKhYfsJBXqBuAjC1L+NRNIOWLyYHgljaAfWZkzo/IgzMEP+DUJ1cZA77Jg=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Spip-Cache: 86400\r\nX-Xss-Protection: 1; mode=block\r\n\r\n# robots.txt\n# @url: https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr\n# @generator: SPIP 3.2.9\n# @template: squelettes-dist/robots.txt.html\n\nUser-agent: *\nAllow:    /local/cache-css/\nAllow:    /local/cache-js/\nDisallow: /local/\nDisallow: /ecrire/\nDisallow: /plugins-dist/\nDisallow: /lib/\nDisallow: /plugins/\nDisallow: /prive/\nDisallow: /squelettes-dist/\nDisallow: /squelettes/\nCrawl-delay: 1\n\nSitemap: https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr/sitemap.xml",
+    "ip": "185.194.82.144",
+    "timestamp": "2022-04-17T03:55:10.561266085Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr/robots.txt'",
+    "matcher-status": true,
+    "matched-line": null
+  }
+]
