@@ -1,31 +1,5 @@
 [
   {
-    "template": "ssl/ssl-dns-names.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/ssl/ssl-dns-names.yaml",
-    "template-id": "ssl-dns-names",
-    "info": {
-      "name": "SSL DNS Names",
-      "author": [
-        "pdteam"
-      ],
-      "tags": [
-        "ssl"
-      ],
-      "reference": null,
-      "severity": "info"
-    },
-    "type": "ssl",
-    "host": "https://www.telerc.travail.gouv.fr",
-    "matched-at": "https://www.telerc.travail.gouv.fr",
-    "extracted-results": [
-      "www.telerc.travail.gouv.fr"
-    ],
-    "ip": "164.131.132.45",
-    "timestamp": "2022-04-24T05:56:08.356152051Z",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
     "template": "misconfiguration/http-missing-security-headers.yaml",
     "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
     "template-id": "http-missing-security-headers",
@@ -47,320 +21,14 @@
       "reference": null,
       "severity": "info"
     },
-    "matcher-name": "x-permitted-cross-domain-policies",
+    "matcher-name": "clear-site-data",
     "type": "http",
     "host": "https://www.telerc.travail.gouv.fr",
     "matched-at": "https://www.telerc.travail.gouv.fr",
     "request": "GET / HTTP/1.1\r\nHost: www.telerc.travail.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 841\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 24 Apr 2022 05:56:13 GMT\r\nEtag: \"349-5dbd5cb8bb140\"\r\nLast-Modified: Mon, 04 Apr 2022 15:29:33 GMT\r\nSet-Cookie: TS01ca6659=0171284ec332113e34af8f8c7352397e6bd9285884f5e890e0bd28c6685d7672e37ab90e5583c2add8b544ff384ccf3c9bcda6c546; Path=/\r\nStrict-Transport-Security: max-age=63072000; includeSubDomains\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>TéléRC - Service de saisie d'une demande d'homologation de rupture conventionnelle individuelle</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon-marianne.ico\">\n<link rel=\"stylesheet\" href=\"styles.999a5b8dbf86755f4b6d.css\"></head>\n<body>\n  <app-root></app-root>\n<script type=\"text/javascript\" src=\"runtime.26209474bfa8dc87a77c.js\"></script><script type=\"text/javascript\" src=\"polyfills.f3d62bda11e0b37e941d.js\"></script><script type=\"text/javascript\" src=\"scripts.802b6bd05bce04c52123.js\"></script><script type=\"text/javascript\" src=\"vendor.e58ae8b53274c9366aaa.js\"></script><script type=\"text/javascript\" src=\"main.685190a6baee69b4f435.js\"></script></body>\n</html>",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 841\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 01 May 2022 06:05:15 GMT\r\nEtag: \"349-5dbd5cb8bb140\"\r\nLast-Modified: Mon, 04 Apr 2022 15:29:33 GMT\r\nSet-Cookie: TS01ca6659=0171284ec379d1cd3ed062c1c6e5add272fe6f6e936aad248b9853ca9a4fa29496c66af5162a4026b437c967ad145abe961f21db0e; Path=/\r\nStrict-Transport-Security: max-age=63072000; includeSubDomains\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>TéléRC - Service de saisie d'une demande d'homologation de rupture conventionnelle individuelle</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon-marianne.ico\">\n<link rel=\"stylesheet\" href=\"styles.999a5b8dbf86755f4b6d.css\"></head>\n<body>\n  <app-root></app-root>\n<script type=\"text/javascript\" src=\"runtime.26209474bfa8dc87a77c.js\"></script><script type=\"text/javascript\" src=\"polyfills.f3d62bda11e0b37e941d.js\"></script><script type=\"text/javascript\" src=\"scripts.802b6bd05bce04c52123.js\"></script><script type=\"text/javascript\" src=\"vendor.e58ae8b53274c9366aaa.js\"></script><script type=\"text/javascript\" src=\"main.685190a6baee69b4f435.js\"></script></body>\n</html>",
     "ip": "164.131.132.45",
-    "timestamp": "2022-04-24T05:56:13.137483441Z",
-    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.telerc.travail.gouv.fr'",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
-    "template": "misconfiguration/http-missing-security-headers.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
-    "template-id": "http-missing-security-headers",
-    "info": {
-      "name": "HTTP Missing Security Headers",
-      "author": [
-        "socketz",
-        "geeknik",
-        "g4l1t0",
-        "convisoappsec",
-        "kurohost",
-        "dawid-czarnecki"
-      ],
-      "tags": [
-        "misconfig",
-        "generic"
-      ],
-      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
-      "reference": null,
-      "severity": "info"
-    },
-    "matcher-name": "cross-origin-opener-policy",
-    "type": "http",
-    "host": "https://www.telerc.travail.gouv.fr",
-    "matched-at": "https://www.telerc.travail.gouv.fr",
-    "request": "GET / HTTP/1.1\r\nHost: www.telerc.travail.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 841\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 24 Apr 2022 05:56:13 GMT\r\nEtag: \"349-5dbd5cb8bb140\"\r\nLast-Modified: Mon, 04 Apr 2022 15:29:33 GMT\r\nSet-Cookie: TS01ca6659=0171284ec332113e34af8f8c7352397e6bd9285884f5e890e0bd28c6685d7672e37ab90e5583c2add8b544ff384ccf3c9bcda6c546; Path=/\r\nStrict-Transport-Security: max-age=63072000; includeSubDomains\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>TéléRC - Service de saisie d'une demande d'homologation de rupture conventionnelle individuelle</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon-marianne.ico\">\n<link rel=\"stylesheet\" href=\"styles.999a5b8dbf86755f4b6d.css\"></head>\n<body>\n  <app-root></app-root>\n<script type=\"text/javascript\" src=\"runtime.26209474bfa8dc87a77c.js\"></script><script type=\"text/javascript\" src=\"polyfills.f3d62bda11e0b37e941d.js\"></script><script type=\"text/javascript\" src=\"scripts.802b6bd05bce04c52123.js\"></script><script type=\"text/javascript\" src=\"vendor.e58ae8b53274c9366aaa.js\"></script><script type=\"text/javascript\" src=\"main.685190a6baee69b4f435.js\"></script></body>\n</html>",
-    "ip": "164.131.132.45",
-    "timestamp": "2022-04-24T05:56:13.137571148Z",
-    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.telerc.travail.gouv.fr'",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
-    "template": "misconfiguration/http-missing-security-headers.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
-    "template-id": "http-missing-security-headers",
-    "info": {
-      "name": "HTTP Missing Security Headers",
-      "author": [
-        "socketz",
-        "geeknik",
-        "g4l1t0",
-        "convisoappsec",
-        "kurohost",
-        "dawid-czarnecki"
-      ],
-      "tags": [
-        "misconfig",
-        "generic"
-      ],
-      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
-      "reference": null,
-      "severity": "info"
-    },
-    "matcher-name": "cross-origin-resource-policy",
-    "type": "http",
-    "host": "https://www.telerc.travail.gouv.fr",
-    "matched-at": "https://www.telerc.travail.gouv.fr",
-    "request": "GET / HTTP/1.1\r\nHost: www.telerc.travail.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 841\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 24 Apr 2022 05:56:13 GMT\r\nEtag: \"349-5dbd5cb8bb140\"\r\nLast-Modified: Mon, 04 Apr 2022 15:29:33 GMT\r\nSet-Cookie: TS01ca6659=0171284ec332113e34af8f8c7352397e6bd9285884f5e890e0bd28c6685d7672e37ab90e5583c2add8b544ff384ccf3c9bcda6c546; Path=/\r\nStrict-Transport-Security: max-age=63072000; includeSubDomains\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>TéléRC - Service de saisie d'une demande d'homologation de rupture conventionnelle individuelle</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon-marianne.ico\">\n<link rel=\"stylesheet\" href=\"styles.999a5b8dbf86755f4b6d.css\"></head>\n<body>\n  <app-root></app-root>\n<script type=\"text/javascript\" src=\"runtime.26209474bfa8dc87a77c.js\"></script><script type=\"text/javascript\" src=\"polyfills.f3d62bda11e0b37e941d.js\"></script><script type=\"text/javascript\" src=\"scripts.802b6bd05bce04c52123.js\"></script><script type=\"text/javascript\" src=\"vendor.e58ae8b53274c9366aaa.js\"></script><script type=\"text/javascript\" src=\"main.685190a6baee69b4f435.js\"></script></body>\n</html>",
-    "ip": "164.131.132.45",
-    "timestamp": "2022-04-24T05:56:13.137611951Z",
-    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.telerc.travail.gouv.fr'",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
-    "template": "misconfiguration/http-missing-security-headers.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
-    "template-id": "http-missing-security-headers",
-    "info": {
-      "name": "HTTP Missing Security Headers",
-      "author": [
-        "socketz",
-        "geeknik",
-        "g4l1t0",
-        "convisoappsec",
-        "kurohost",
-        "dawid-czarnecki"
-      ],
-      "tags": [
-        "misconfig",
-        "generic"
-      ],
-      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
-      "reference": null,
-      "severity": "info"
-    },
-    "matcher-name": "access-control-allow-methods",
-    "type": "http",
-    "host": "https://www.telerc.travail.gouv.fr",
-    "matched-at": "https://www.telerc.travail.gouv.fr",
-    "request": "GET / HTTP/1.1\r\nHost: www.telerc.travail.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 841\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 24 Apr 2022 05:56:13 GMT\r\nEtag: \"349-5dbd5cb8bb140\"\r\nLast-Modified: Mon, 04 Apr 2022 15:29:33 GMT\r\nSet-Cookie: TS01ca6659=0171284ec332113e34af8f8c7352397e6bd9285884f5e890e0bd28c6685d7672e37ab90e5583c2add8b544ff384ccf3c9bcda6c546; Path=/\r\nStrict-Transport-Security: max-age=63072000; includeSubDomains\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>TéléRC - Service de saisie d'une demande d'homologation de rupture conventionnelle individuelle</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon-marianne.ico\">\n<link rel=\"stylesheet\" href=\"styles.999a5b8dbf86755f4b6d.css\"></head>\n<body>\n  <app-root></app-root>\n<script type=\"text/javascript\" src=\"runtime.26209474bfa8dc87a77c.js\"></script><script type=\"text/javascript\" src=\"polyfills.f3d62bda11e0b37e941d.js\"></script><script type=\"text/javascript\" src=\"scripts.802b6bd05bce04c52123.js\"></script><script type=\"text/javascript\" src=\"vendor.e58ae8b53274c9366aaa.js\"></script><script type=\"text/javascript\" src=\"main.685190a6baee69b4f435.js\"></script></body>\n</html>",
-    "ip": "164.131.132.45",
-    "timestamp": "2022-04-24T05:56:13.137637654Z",
-    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.telerc.travail.gouv.fr'",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
-    "template": "misconfiguration/http-missing-security-headers.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
-    "template-id": "http-missing-security-headers",
-    "info": {
-      "name": "HTTP Missing Security Headers",
-      "author": [
-        "socketz",
-        "geeknik",
-        "g4l1t0",
-        "convisoappsec",
-        "kurohost",
-        "dawid-czarnecki"
-      ],
-      "tags": [
-        "misconfig",
-        "generic"
-      ],
-      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
-      "reference": null,
-      "severity": "info"
-    },
-    "matcher-name": "x-content-type-options",
-    "type": "http",
-    "host": "https://www.telerc.travail.gouv.fr",
-    "matched-at": "https://www.telerc.travail.gouv.fr",
-    "request": "GET / HTTP/1.1\r\nHost: www.telerc.travail.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 841\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 24 Apr 2022 05:56:13 GMT\r\nEtag: \"349-5dbd5cb8bb140\"\r\nLast-Modified: Mon, 04 Apr 2022 15:29:33 GMT\r\nSet-Cookie: TS01ca6659=0171284ec332113e34af8f8c7352397e6bd9285884f5e890e0bd28c6685d7672e37ab90e5583c2add8b544ff384ccf3c9bcda6c546; Path=/\r\nStrict-Transport-Security: max-age=63072000; includeSubDomains\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>TéléRC - Service de saisie d'une demande d'homologation de rupture conventionnelle individuelle</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon-marianne.ico\">\n<link rel=\"stylesheet\" href=\"styles.999a5b8dbf86755f4b6d.css\"></head>\n<body>\n  <app-root></app-root>\n<script type=\"text/javascript\" src=\"runtime.26209474bfa8dc87a77c.js\"></script><script type=\"text/javascript\" src=\"polyfills.f3d62bda11e0b37e941d.js\"></script><script type=\"text/javascript\" src=\"scripts.802b6bd05bce04c52123.js\"></script><script type=\"text/javascript\" src=\"vendor.e58ae8b53274c9366aaa.js\"></script><script type=\"text/javascript\" src=\"main.685190a6baee69b4f435.js\"></script></body>\n</html>",
-    "ip": "164.131.132.45",
-    "timestamp": "2022-04-24T05:56:13.137657055Z",
-    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.telerc.travail.gouv.fr'",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
-    "template": "misconfiguration/http-missing-security-headers.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
-    "template-id": "http-missing-security-headers",
-    "info": {
-      "name": "HTTP Missing Security Headers",
-      "author": [
-        "socketz",
-        "geeknik",
-        "g4l1t0",
-        "convisoappsec",
-        "kurohost",
-        "dawid-czarnecki"
-      ],
-      "tags": [
-        "misconfig",
-        "generic"
-      ],
-      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
-      "reference": null,
-      "severity": "info"
-    },
-    "matcher-name": "permission-policy",
-    "type": "http",
-    "host": "https://www.telerc.travail.gouv.fr",
-    "matched-at": "https://www.telerc.travail.gouv.fr",
-    "request": "GET / HTTP/1.1\r\nHost: www.telerc.travail.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 841\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 24 Apr 2022 05:56:13 GMT\r\nEtag: \"349-5dbd5cb8bb140\"\r\nLast-Modified: Mon, 04 Apr 2022 15:29:33 GMT\r\nSet-Cookie: TS01ca6659=0171284ec332113e34af8f8c7352397e6bd9285884f5e890e0bd28c6685d7672e37ab90e5583c2add8b544ff384ccf3c9bcda6c546; Path=/\r\nStrict-Transport-Security: max-age=63072000; includeSubDomains\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>TéléRC - Service de saisie d'une demande d'homologation de rupture conventionnelle individuelle</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon-marianne.ico\">\n<link rel=\"stylesheet\" href=\"styles.999a5b8dbf86755f4b6d.css\"></head>\n<body>\n  <app-root></app-root>\n<script type=\"text/javascript\" src=\"runtime.26209474bfa8dc87a77c.js\"></script><script type=\"text/javascript\" src=\"polyfills.f3d62bda11e0b37e941d.js\"></script><script type=\"text/javascript\" src=\"scripts.802b6bd05bce04c52123.js\"></script><script type=\"text/javascript\" src=\"vendor.e58ae8b53274c9366aaa.js\"></script><script type=\"text/javascript\" src=\"main.685190a6baee69b4f435.js\"></script></body>\n</html>",
-    "ip": "164.131.132.45",
-    "timestamp": "2022-04-24T05:56:13.137679257Z",
-    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.telerc.travail.gouv.fr'",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
-    "template": "misconfiguration/http-missing-security-headers.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
-    "template-id": "http-missing-security-headers",
-    "info": {
-      "name": "HTTP Missing Security Headers",
-      "author": [
-        "socketz",
-        "geeknik",
-        "g4l1t0",
-        "convisoappsec",
-        "kurohost",
-        "dawid-czarnecki"
-      ],
-      "tags": [
-        "misconfig",
-        "generic"
-      ],
-      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
-      "reference": null,
-      "severity": "info"
-    },
-    "matcher-name": "x-frame-options",
-    "type": "http",
-    "host": "https://www.telerc.travail.gouv.fr",
-    "matched-at": "https://www.telerc.travail.gouv.fr",
-    "request": "GET / HTTP/1.1\r\nHost: www.telerc.travail.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 841\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 24 Apr 2022 05:56:13 GMT\r\nEtag: \"349-5dbd5cb8bb140\"\r\nLast-Modified: Mon, 04 Apr 2022 15:29:33 GMT\r\nSet-Cookie: TS01ca6659=0171284ec332113e34af8f8c7352397e6bd9285884f5e890e0bd28c6685d7672e37ab90e5583c2add8b544ff384ccf3c9bcda6c546; Path=/\r\nStrict-Transport-Security: max-age=63072000; includeSubDomains\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>TéléRC - Service de saisie d'une demande d'homologation de rupture conventionnelle individuelle</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon-marianne.ico\">\n<link rel=\"stylesheet\" href=\"styles.999a5b8dbf86755f4b6d.css\"></head>\n<body>\n  <app-root></app-root>\n<script type=\"text/javascript\" src=\"runtime.26209474bfa8dc87a77c.js\"></script><script type=\"text/javascript\" src=\"polyfills.f3d62bda11e0b37e941d.js\"></script><script type=\"text/javascript\" src=\"scripts.802b6bd05bce04c52123.js\"></script><script type=\"text/javascript\" src=\"vendor.e58ae8b53274c9366aaa.js\"></script><script type=\"text/javascript\" src=\"main.685190a6baee69b4f435.js\"></script></body>\n</html>",
-    "ip": "164.131.132.45",
-    "timestamp": "2022-04-24T05:56:13.137703959Z",
-    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.telerc.travail.gouv.fr'",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
-    "template": "misconfiguration/http-missing-security-headers.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
-    "template-id": "http-missing-security-headers",
-    "info": {
-      "name": "HTTP Missing Security Headers",
-      "author": [
-        "socketz",
-        "geeknik",
-        "g4l1t0",
-        "convisoappsec",
-        "kurohost",
-        "dawid-czarnecki"
-      ],
-      "tags": [
-        "misconfig",
-        "generic"
-      ],
-      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
-      "reference": null,
-      "severity": "info"
-    },
-    "matcher-name": "cross-origin-embedder-policy",
-    "type": "http",
-    "host": "https://www.telerc.travail.gouv.fr",
-    "matched-at": "https://www.telerc.travail.gouv.fr",
-    "request": "GET / HTTP/1.1\r\nHost: www.telerc.travail.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 841\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 24 Apr 2022 05:56:13 GMT\r\nEtag: \"349-5dbd5cb8bb140\"\r\nLast-Modified: Mon, 04 Apr 2022 15:29:33 GMT\r\nSet-Cookie: TS01ca6659=0171284ec332113e34af8f8c7352397e6bd9285884f5e890e0bd28c6685d7672e37ab90e5583c2add8b544ff384ccf3c9bcda6c546; Path=/\r\nStrict-Transport-Security: max-age=63072000; includeSubDomains\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>TéléRC - Service de saisie d'une demande d'homologation de rupture conventionnelle individuelle</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon-marianne.ico\">\n<link rel=\"stylesheet\" href=\"styles.999a5b8dbf86755f4b6d.css\"></head>\n<body>\n  <app-root></app-root>\n<script type=\"text/javascript\" src=\"runtime.26209474bfa8dc87a77c.js\"></script><script type=\"text/javascript\" src=\"polyfills.f3d62bda11e0b37e941d.js\"></script><script type=\"text/javascript\" src=\"scripts.802b6bd05bce04c52123.js\"></script><script type=\"text/javascript\" src=\"vendor.e58ae8b53274c9366aaa.js\"></script><script type=\"text/javascript\" src=\"main.685190a6baee69b4f435.js\"></script></body>\n</html>",
-    "ip": "164.131.132.45",
-    "timestamp": "2022-04-24T05:56:13.137726161Z",
-    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.telerc.travail.gouv.fr'",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
-    "template": "misconfiguration/http-missing-security-headers.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
-    "template-id": "http-missing-security-headers",
-    "info": {
-      "name": "HTTP Missing Security Headers",
-      "author": [
-        "socketz",
-        "geeknik",
-        "g4l1t0",
-        "convisoappsec",
-        "kurohost",
-        "dawid-czarnecki"
-      ],
-      "tags": [
-        "misconfig",
-        "generic"
-      ],
-      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
-      "reference": null,
-      "severity": "info"
-    },
-    "matcher-name": "access-control-allow-credentials",
-    "type": "http",
-    "host": "https://www.telerc.travail.gouv.fr",
-    "matched-at": "https://www.telerc.travail.gouv.fr",
-    "request": "GET / HTTP/1.1\r\nHost: www.telerc.travail.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 841\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 24 Apr 2022 05:56:13 GMT\r\nEtag: \"349-5dbd5cb8bb140\"\r\nLast-Modified: Mon, 04 Apr 2022 15:29:33 GMT\r\nSet-Cookie: TS01ca6659=0171284ec332113e34af8f8c7352397e6bd9285884f5e890e0bd28c6685d7672e37ab90e5583c2add8b544ff384ccf3c9bcda6c546; Path=/\r\nStrict-Transport-Security: max-age=63072000; includeSubDomains\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>TéléRC - Service de saisie d'une demande d'homologation de rupture conventionnelle individuelle</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon-marianne.ico\">\n<link rel=\"stylesheet\" href=\"styles.999a5b8dbf86755f4b6d.css\"></head>\n<body>\n  <app-root></app-root>\n<script type=\"text/javascript\" src=\"runtime.26209474bfa8dc87a77c.js\"></script><script type=\"text/javascript\" src=\"polyfills.f3d62bda11e0b37e941d.js\"></script><script type=\"text/javascript\" src=\"scripts.802b6bd05bce04c52123.js\"></script><script type=\"text/javascript\" src=\"vendor.e58ae8b53274c9366aaa.js\"></script><script type=\"text/javascript\" src=\"main.685190a6baee69b4f435.js\"></script></body>\n</html>",
-    "ip": "164.131.132.45",
-    "timestamp": "2022-04-24T05:56:13.137745362Z",
-    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.telerc.travail.gouv.fr'",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
-    "template": "misconfiguration/http-missing-security-headers.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
-    "template-id": "http-missing-security-headers",
-    "info": {
-      "name": "HTTP Missing Security Headers",
-      "author": [
-        "socketz",
-        "geeknik",
-        "g4l1t0",
-        "convisoappsec",
-        "kurohost",
-        "dawid-czarnecki"
-      ],
-      "tags": [
-        "misconfig",
-        "generic"
-      ],
-      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
-      "reference": null,
-      "severity": "info"
-    },
-    "matcher-name": "access-control-expose-headers",
-    "type": "http",
-    "host": "https://www.telerc.travail.gouv.fr",
-    "matched-at": "https://www.telerc.travail.gouv.fr",
-    "request": "GET / HTTP/1.1\r\nHost: www.telerc.travail.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 841\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 24 Apr 2022 05:56:13 GMT\r\nEtag: \"349-5dbd5cb8bb140\"\r\nLast-Modified: Mon, 04 Apr 2022 15:29:33 GMT\r\nSet-Cookie: TS01ca6659=0171284ec332113e34af8f8c7352397e6bd9285884f5e890e0bd28c6685d7672e37ab90e5583c2add8b544ff384ccf3c9bcda6c546; Path=/\r\nStrict-Transport-Security: max-age=63072000; includeSubDomains\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>TéléRC - Service de saisie d'une demande d'homologation de rupture conventionnelle individuelle</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon-marianne.ico\">\n<link rel=\"stylesheet\" href=\"styles.999a5b8dbf86755f4b6d.css\"></head>\n<body>\n  <app-root></app-root>\n<script type=\"text/javascript\" src=\"runtime.26209474bfa8dc87a77c.js\"></script><script type=\"text/javascript\" src=\"polyfills.f3d62bda11e0b37e941d.js\"></script><script type=\"text/javascript\" src=\"scripts.802b6bd05bce04c52123.js\"></script><script type=\"text/javascript\" src=\"vendor.e58ae8b53274c9366aaa.js\"></script><script type=\"text/javascript\" src=\"main.685190a6baee69b4f435.js\"></script></body>\n</html>",
-    "ip": "164.131.132.45",
-    "timestamp": "2022-04-24T05:56:13.137767364Z",
+    "timestamp": "2022-05-01T06:05:15.693204273Z",
     "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.telerc.travail.gouv.fr'",
     "matcher-status": true,
     "matched-line": null
@@ -392,9 +60,9 @@
     "host": "https://www.telerc.travail.gouv.fr",
     "matched-at": "https://www.telerc.travail.gouv.fr",
     "request": "GET / HTTP/1.1\r\nHost: www.telerc.travail.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 841\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 24 Apr 2022 05:56:13 GMT\r\nEtag: \"349-5dbd5cb8bb140\"\r\nLast-Modified: Mon, 04 Apr 2022 15:29:33 GMT\r\nSet-Cookie: TS01ca6659=0171284ec332113e34af8f8c7352397e6bd9285884f5e890e0bd28c6685d7672e37ab90e5583c2add8b544ff384ccf3c9bcda6c546; Path=/\r\nStrict-Transport-Security: max-age=63072000; includeSubDomains\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>TéléRC - Service de saisie d'une demande d'homologation de rupture conventionnelle individuelle</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon-marianne.ico\">\n<link rel=\"stylesheet\" href=\"styles.999a5b8dbf86755f4b6d.css\"></head>\n<body>\n  <app-root></app-root>\n<script type=\"text/javascript\" src=\"runtime.26209474bfa8dc87a77c.js\"></script><script type=\"text/javascript\" src=\"polyfills.f3d62bda11e0b37e941d.js\"></script><script type=\"text/javascript\" src=\"scripts.802b6bd05bce04c52123.js\"></script><script type=\"text/javascript\" src=\"vendor.e58ae8b53274c9366aaa.js\"></script><script type=\"text/javascript\" src=\"main.685190a6baee69b4f435.js\"></script></body>\n</html>",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 841\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 01 May 2022 06:05:15 GMT\r\nEtag: \"349-5dbd5cb8bb140\"\r\nLast-Modified: Mon, 04 Apr 2022 15:29:33 GMT\r\nSet-Cookie: TS01ca6659=0171284ec379d1cd3ed062c1c6e5add272fe6f6e936aad248b9853ca9a4fa29496c66af5162a4026b437c967ad145abe961f21db0e; Path=/\r\nStrict-Transport-Security: max-age=63072000; includeSubDomains\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>TéléRC - Service de saisie d'une demande d'homologation de rupture conventionnelle individuelle</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon-marianne.ico\">\n<link rel=\"stylesheet\" href=\"styles.999a5b8dbf86755f4b6d.css\"></head>\n<body>\n  <app-root></app-root>\n<script type=\"text/javascript\" src=\"runtime.26209474bfa8dc87a77c.js\"></script><script type=\"text/javascript\" src=\"polyfills.f3d62bda11e0b37e941d.js\"></script><script type=\"text/javascript\" src=\"scripts.802b6bd05bce04c52123.js\"></script><script type=\"text/javascript\" src=\"vendor.e58ae8b53274c9366aaa.js\"></script><script type=\"text/javascript\" src=\"main.685190a6baee69b4f435.js\"></script></body>\n</html>",
     "ip": "164.131.132.45",
-    "timestamp": "2022-04-24T05:56:13.137789866Z",
+    "timestamp": "2022-05-01T06:05:15.693639482Z",
     "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.telerc.travail.gouv.fr'",
     "matcher-status": true,
     "matched-line": null
@@ -421,14 +89,14 @@
       "reference": null,
       "severity": "info"
     },
-    "matcher-name": "content-security-policy",
+    "matcher-name": "permission-policy",
     "type": "http",
     "host": "https://www.telerc.travail.gouv.fr",
     "matched-at": "https://www.telerc.travail.gouv.fr",
     "request": "GET / HTTP/1.1\r\nHost: www.telerc.travail.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 841\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 24 Apr 2022 05:56:13 GMT\r\nEtag: \"349-5dbd5cb8bb140\"\r\nLast-Modified: Mon, 04 Apr 2022 15:29:33 GMT\r\nSet-Cookie: TS01ca6659=0171284ec332113e34af8f8c7352397e6bd9285884f5e890e0bd28c6685d7672e37ab90e5583c2add8b544ff384ccf3c9bcda6c546; Path=/\r\nStrict-Transport-Security: max-age=63072000; includeSubDomains\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>TéléRC - Service de saisie d'une demande d'homologation de rupture conventionnelle individuelle</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon-marianne.ico\">\n<link rel=\"stylesheet\" href=\"styles.999a5b8dbf86755f4b6d.css\"></head>\n<body>\n  <app-root></app-root>\n<script type=\"text/javascript\" src=\"runtime.26209474bfa8dc87a77c.js\"></script><script type=\"text/javascript\" src=\"polyfills.f3d62bda11e0b37e941d.js\"></script><script type=\"text/javascript\" src=\"scripts.802b6bd05bce04c52123.js\"></script><script type=\"text/javascript\" src=\"vendor.e58ae8b53274c9366aaa.js\"></script><script type=\"text/javascript\" src=\"main.685190a6baee69b4f435.js\"></script></body>\n</html>",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 841\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 01 May 2022 06:05:15 GMT\r\nEtag: \"349-5dbd5cb8bb140\"\r\nLast-Modified: Mon, 04 Apr 2022 15:29:33 GMT\r\nSet-Cookie: TS01ca6659=0171284ec379d1cd3ed062c1c6e5add272fe6f6e936aad248b9853ca9a4fa29496c66af5162a4026b437c967ad145abe961f21db0e; Path=/\r\nStrict-Transport-Security: max-age=63072000; includeSubDomains\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>TéléRC - Service de saisie d'une demande d'homologation de rupture conventionnelle individuelle</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon-marianne.ico\">\n<link rel=\"stylesheet\" href=\"styles.999a5b8dbf86755f4b6d.css\"></head>\n<body>\n  <app-root></app-root>\n<script type=\"text/javascript\" src=\"runtime.26209474bfa8dc87a77c.js\"></script><script type=\"text/javascript\" src=\"polyfills.f3d62bda11e0b37e941d.js\"></script><script type=\"text/javascript\" src=\"scripts.802b6bd05bce04c52123.js\"></script><script type=\"text/javascript\" src=\"vendor.e58ae8b53274c9366aaa.js\"></script><script type=\"text/javascript\" src=\"main.685190a6baee69b4f435.js\"></script></body>\n</html>",
     "ip": "164.131.132.45",
-    "timestamp": "2022-04-24T05:56:13.137809568Z",
+    "timestamp": "2022-05-01T06:05:15.693667483Z",
     "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.telerc.travail.gouv.fr'",
     "matcher-status": true,
     "matched-line": null
@@ -455,14 +123,48 @@
       "reference": null,
       "severity": "info"
     },
-    "matcher-name": "clear-site-data",
+    "matcher-name": "x-frame-options",
     "type": "http",
     "host": "https://www.telerc.travail.gouv.fr",
     "matched-at": "https://www.telerc.travail.gouv.fr",
     "request": "GET / HTTP/1.1\r\nHost: www.telerc.travail.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 841\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 24 Apr 2022 05:56:13 GMT\r\nEtag: \"349-5dbd5cb8bb140\"\r\nLast-Modified: Mon, 04 Apr 2022 15:29:33 GMT\r\nSet-Cookie: TS01ca6659=0171284ec332113e34af8f8c7352397e6bd9285884f5e890e0bd28c6685d7672e37ab90e5583c2add8b544ff384ccf3c9bcda6c546; Path=/\r\nStrict-Transport-Security: max-age=63072000; includeSubDomains\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>TéléRC - Service de saisie d'une demande d'homologation de rupture conventionnelle individuelle</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon-marianne.ico\">\n<link rel=\"stylesheet\" href=\"styles.999a5b8dbf86755f4b6d.css\"></head>\n<body>\n  <app-root></app-root>\n<script type=\"text/javascript\" src=\"runtime.26209474bfa8dc87a77c.js\"></script><script type=\"text/javascript\" src=\"polyfills.f3d62bda11e0b37e941d.js\"></script><script type=\"text/javascript\" src=\"scripts.802b6bd05bce04c52123.js\"></script><script type=\"text/javascript\" src=\"vendor.e58ae8b53274c9366aaa.js\"></script><script type=\"text/javascript\" src=\"main.685190a6baee69b4f435.js\"></script></body>\n</html>",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 841\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 01 May 2022 06:05:15 GMT\r\nEtag: \"349-5dbd5cb8bb140\"\r\nLast-Modified: Mon, 04 Apr 2022 15:29:33 GMT\r\nSet-Cookie: TS01ca6659=0171284ec379d1cd3ed062c1c6e5add272fe6f6e936aad248b9853ca9a4fa29496c66af5162a4026b437c967ad145abe961f21db0e; Path=/\r\nStrict-Transport-Security: max-age=63072000; includeSubDomains\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>TéléRC - Service de saisie d'une demande d'homologation de rupture conventionnelle individuelle</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon-marianne.ico\">\n<link rel=\"stylesheet\" href=\"styles.999a5b8dbf86755f4b6d.css\"></head>\n<body>\n  <app-root></app-root>\n<script type=\"text/javascript\" src=\"runtime.26209474bfa8dc87a77c.js\"></script><script type=\"text/javascript\" src=\"polyfills.f3d62bda11e0b37e941d.js\"></script><script type=\"text/javascript\" src=\"scripts.802b6bd05bce04c52123.js\"></script><script type=\"text/javascript\" src=\"vendor.e58ae8b53274c9366aaa.js\"></script><script type=\"text/javascript\" src=\"main.685190a6baee69b4f435.js\"></script></body>\n</html>",
     "ip": "164.131.132.45",
-    "timestamp": "2022-04-24T05:56:13.137831369Z",
+    "timestamp": "2022-05-01T06:05:15.693689684Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.telerc.travail.gouv.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "x-content-type-options",
+    "type": "http",
+    "host": "https://www.telerc.travail.gouv.fr",
+    "matched-at": "https://www.telerc.travail.gouv.fr",
+    "request": "GET / HTTP/1.1\r\nHost: www.telerc.travail.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 841\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 01 May 2022 06:05:15 GMT\r\nEtag: \"349-5dbd5cb8bb140\"\r\nLast-Modified: Mon, 04 Apr 2022 15:29:33 GMT\r\nSet-Cookie: TS01ca6659=0171284ec379d1cd3ed062c1c6e5add272fe6f6e936aad248b9853ca9a4fa29496c66af5162a4026b437c967ad145abe961f21db0e; Path=/\r\nStrict-Transport-Security: max-age=63072000; includeSubDomains\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>TéléRC - Service de saisie d'une demande d'homologation de rupture conventionnelle individuelle</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon-marianne.ico\">\n<link rel=\"stylesheet\" href=\"styles.999a5b8dbf86755f4b6d.css\"></head>\n<body>\n  <app-root></app-root>\n<script type=\"text/javascript\" src=\"runtime.26209474bfa8dc87a77c.js\"></script><script type=\"text/javascript\" src=\"polyfills.f3d62bda11e0b37e941d.js\"></script><script type=\"text/javascript\" src=\"scripts.802b6bd05bce04c52123.js\"></script><script type=\"text/javascript\" src=\"vendor.e58ae8b53274c9366aaa.js\"></script><script type=\"text/javascript\" src=\"main.685190a6baee69b4f435.js\"></script></body>\n</html>",
+    "ip": "164.131.132.45",
+    "timestamp": "2022-05-01T06:05:15.693706784Z",
     "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.telerc.travail.gouv.fr'",
     "matcher-status": true,
     "matched-line": null
@@ -494,9 +196,77 @@
     "host": "https://www.telerc.travail.gouv.fr",
     "matched-at": "https://www.telerc.travail.gouv.fr",
     "request": "GET / HTTP/1.1\r\nHost: www.telerc.travail.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 841\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 24 Apr 2022 05:56:13 GMT\r\nEtag: \"349-5dbd5cb8bb140\"\r\nLast-Modified: Mon, 04 Apr 2022 15:29:33 GMT\r\nSet-Cookie: TS01ca6659=0171284ec332113e34af8f8c7352397e6bd9285884f5e890e0bd28c6685d7672e37ab90e5583c2add8b544ff384ccf3c9bcda6c546; Path=/\r\nStrict-Transport-Security: max-age=63072000; includeSubDomains\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>TéléRC - Service de saisie d'une demande d'homologation de rupture conventionnelle individuelle</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon-marianne.ico\">\n<link rel=\"stylesheet\" href=\"styles.999a5b8dbf86755f4b6d.css\"></head>\n<body>\n  <app-root></app-root>\n<script type=\"text/javascript\" src=\"runtime.26209474bfa8dc87a77c.js\"></script><script type=\"text/javascript\" src=\"polyfills.f3d62bda11e0b37e941d.js\"></script><script type=\"text/javascript\" src=\"scripts.802b6bd05bce04c52123.js\"></script><script type=\"text/javascript\" src=\"vendor.e58ae8b53274c9366aaa.js\"></script><script type=\"text/javascript\" src=\"main.685190a6baee69b4f435.js\"></script></body>\n</html>",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 841\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 01 May 2022 06:05:15 GMT\r\nEtag: \"349-5dbd5cb8bb140\"\r\nLast-Modified: Mon, 04 Apr 2022 15:29:33 GMT\r\nSet-Cookie: TS01ca6659=0171284ec379d1cd3ed062c1c6e5add272fe6f6e936aad248b9853ca9a4fa29496c66af5162a4026b437c967ad145abe961f21db0e; Path=/\r\nStrict-Transport-Security: max-age=63072000; includeSubDomains\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>TéléRC - Service de saisie d'une demande d'homologation de rupture conventionnelle individuelle</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon-marianne.ico\">\n<link rel=\"stylesheet\" href=\"styles.999a5b8dbf86755f4b6d.css\"></head>\n<body>\n  <app-root></app-root>\n<script type=\"text/javascript\" src=\"runtime.26209474bfa8dc87a77c.js\"></script><script type=\"text/javascript\" src=\"polyfills.f3d62bda11e0b37e941d.js\"></script><script type=\"text/javascript\" src=\"scripts.802b6bd05bce04c52123.js\"></script><script type=\"text/javascript\" src=\"vendor.e58ae8b53274c9366aaa.js\"></script><script type=\"text/javascript\" src=\"main.685190a6baee69b4f435.js\"></script></body>\n</html>",
     "ip": "164.131.132.45",
-    "timestamp": "2022-04-24T05:56:13.137853671Z",
+    "timestamp": "2022-05-01T06:05:15.693726684Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.telerc.travail.gouv.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "access-control-expose-headers",
+    "type": "http",
+    "host": "https://www.telerc.travail.gouv.fr",
+    "matched-at": "https://www.telerc.travail.gouv.fr",
+    "request": "GET / HTTP/1.1\r\nHost: www.telerc.travail.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 841\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 01 May 2022 06:05:15 GMT\r\nEtag: \"349-5dbd5cb8bb140\"\r\nLast-Modified: Mon, 04 Apr 2022 15:29:33 GMT\r\nSet-Cookie: TS01ca6659=0171284ec379d1cd3ed062c1c6e5add272fe6f6e936aad248b9853ca9a4fa29496c66af5162a4026b437c967ad145abe961f21db0e; Path=/\r\nStrict-Transport-Security: max-age=63072000; includeSubDomains\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>TéléRC - Service de saisie d'une demande d'homologation de rupture conventionnelle individuelle</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon-marianne.ico\">\n<link rel=\"stylesheet\" href=\"styles.999a5b8dbf86755f4b6d.css\"></head>\n<body>\n  <app-root></app-root>\n<script type=\"text/javascript\" src=\"runtime.26209474bfa8dc87a77c.js\"></script><script type=\"text/javascript\" src=\"polyfills.f3d62bda11e0b37e941d.js\"></script><script type=\"text/javascript\" src=\"scripts.802b6bd05bce04c52123.js\"></script><script type=\"text/javascript\" src=\"vendor.e58ae8b53274c9366aaa.js\"></script><script type=\"text/javascript\" src=\"main.685190a6baee69b4f435.js\"></script></body>\n</html>",
+    "ip": "164.131.132.45",
+    "timestamp": "2022-05-01T06:05:15.693745985Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.telerc.travail.gouv.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "access-control-allow-methods",
+    "type": "http",
+    "host": "https://www.telerc.travail.gouv.fr",
+    "matched-at": "https://www.telerc.travail.gouv.fr",
+    "request": "GET / HTTP/1.1\r\nHost: www.telerc.travail.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 841\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 01 May 2022 06:05:15 GMT\r\nEtag: \"349-5dbd5cb8bb140\"\r\nLast-Modified: Mon, 04 Apr 2022 15:29:33 GMT\r\nSet-Cookie: TS01ca6659=0171284ec379d1cd3ed062c1c6e5add272fe6f6e936aad248b9853ca9a4fa29496c66af5162a4026b437c967ad145abe961f21db0e; Path=/\r\nStrict-Transport-Security: max-age=63072000; includeSubDomains\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>TéléRC - Service de saisie d'une demande d'homologation de rupture conventionnelle individuelle</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon-marianne.ico\">\n<link rel=\"stylesheet\" href=\"styles.999a5b8dbf86755f4b6d.css\"></head>\n<body>\n  <app-root></app-root>\n<script type=\"text/javascript\" src=\"runtime.26209474bfa8dc87a77c.js\"></script><script type=\"text/javascript\" src=\"polyfills.f3d62bda11e0b37e941d.js\"></script><script type=\"text/javascript\" src=\"scripts.802b6bd05bce04c52123.js\"></script><script type=\"text/javascript\" src=\"vendor.e58ae8b53274c9366aaa.js\"></script><script type=\"text/javascript\" src=\"main.685190a6baee69b4f435.js\"></script></body>\n</html>",
+    "ip": "164.131.132.45",
+    "timestamp": "2022-05-01T06:05:15.693762285Z",
     "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.telerc.travail.gouv.fr'",
     "matcher-status": true,
     "matched-line": null
@@ -528,41 +298,240 @@
     "host": "https://www.telerc.travail.gouv.fr",
     "matched-at": "https://www.telerc.travail.gouv.fr",
     "request": "GET / HTTP/1.1\r\nHost: www.telerc.travail.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 841\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 24 Apr 2022 05:56:13 GMT\r\nEtag: \"349-5dbd5cb8bb140\"\r\nLast-Modified: Mon, 04 Apr 2022 15:29:33 GMT\r\nSet-Cookie: TS01ca6659=0171284ec332113e34af8f8c7352397e6bd9285884f5e890e0bd28c6685d7672e37ab90e5583c2add8b544ff384ccf3c9bcda6c546; Path=/\r\nStrict-Transport-Security: max-age=63072000; includeSubDomains\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>TéléRC - Service de saisie d'une demande d'homologation de rupture conventionnelle individuelle</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon-marianne.ico\">\n<link rel=\"stylesheet\" href=\"styles.999a5b8dbf86755f4b6d.css\"></head>\n<body>\n  <app-root></app-root>\n<script type=\"text/javascript\" src=\"runtime.26209474bfa8dc87a77c.js\"></script><script type=\"text/javascript\" src=\"polyfills.f3d62bda11e0b37e941d.js\"></script><script type=\"text/javascript\" src=\"scripts.802b6bd05bce04c52123.js\"></script><script type=\"text/javascript\" src=\"vendor.e58ae8b53274c9366aaa.js\"></script><script type=\"text/javascript\" src=\"main.685190a6baee69b4f435.js\"></script></body>\n</html>",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 841\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 01 May 2022 06:05:15 GMT\r\nEtag: \"349-5dbd5cb8bb140\"\r\nLast-Modified: Mon, 04 Apr 2022 15:29:33 GMT\r\nSet-Cookie: TS01ca6659=0171284ec379d1cd3ed062c1c6e5add272fe6f6e936aad248b9853ca9a4fa29496c66af5162a4026b437c967ad145abe961f21db0e; Path=/\r\nStrict-Transport-Security: max-age=63072000; includeSubDomains\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>TéléRC - Service de saisie d'une demande d'homologation de rupture conventionnelle individuelle</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon-marianne.ico\">\n<link rel=\"stylesheet\" href=\"styles.999a5b8dbf86755f4b6d.css\"></head>\n<body>\n  <app-root></app-root>\n<script type=\"text/javascript\" src=\"runtime.26209474bfa8dc87a77c.js\"></script><script type=\"text/javascript\" src=\"polyfills.f3d62bda11e0b37e941d.js\"></script><script type=\"text/javascript\" src=\"scripts.802b6bd05bce04c52123.js\"></script><script type=\"text/javascript\" src=\"vendor.e58ae8b53274c9366aaa.js\"></script><script type=\"text/javascript\" src=\"main.685190a6baee69b4f435.js\"></script></body>\n</html>",
     "ip": "164.131.132.45",
-    "timestamp": "2022-04-24T05:56:13.137876373Z",
+    "timestamp": "2022-05-01T06:05:15.693781286Z",
     "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.telerc.travail.gouv.fr'",
     "matcher-status": true,
     "matched-line": null
   },
   {
-    "template": "ssl/deprecated-tls.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/ssl/deprecated-tls.yaml",
-    "template-id": "deprecated-tls",
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
     "info": {
-      "name": "Deprecated TLS Detection (inferior to TLS 1.2)",
+      "name": "HTTP Missing Security Headers",
       "author": [
-        "righettod"
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "content-security-policy",
+    "type": "http",
+    "host": "https://www.telerc.travail.gouv.fr",
+    "matched-at": "https://www.telerc.travail.gouv.fr",
+    "request": "GET / HTTP/1.1\r\nHost: www.telerc.travail.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 841\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 01 May 2022 06:05:15 GMT\r\nEtag: \"349-5dbd5cb8bb140\"\r\nLast-Modified: Mon, 04 Apr 2022 15:29:33 GMT\r\nSet-Cookie: TS01ca6659=0171284ec379d1cd3ed062c1c6e5add272fe6f6e936aad248b9853ca9a4fa29496c66af5162a4026b437c967ad145abe961f21db0e; Path=/\r\nStrict-Transport-Security: max-age=63072000; includeSubDomains\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>TéléRC - Service de saisie d'une demande d'homologation de rupture conventionnelle individuelle</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon-marianne.ico\">\n<link rel=\"stylesheet\" href=\"styles.999a5b8dbf86755f4b6d.css\"></head>\n<body>\n  <app-root></app-root>\n<script type=\"text/javascript\" src=\"runtime.26209474bfa8dc87a77c.js\"></script><script type=\"text/javascript\" src=\"polyfills.f3d62bda11e0b37e941d.js\"></script><script type=\"text/javascript\" src=\"scripts.802b6bd05bce04c52123.js\"></script><script type=\"text/javascript\" src=\"vendor.e58ae8b53274c9366aaa.js\"></script><script type=\"text/javascript\" src=\"main.685190a6baee69b4f435.js\"></script></body>\n</html>",
+    "ip": "164.131.132.45",
+    "timestamp": "2022-05-01T06:05:15.693802286Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.telerc.travail.gouv.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "x-permitted-cross-domain-policies",
+    "type": "http",
+    "host": "https://www.telerc.travail.gouv.fr",
+    "matched-at": "https://www.telerc.travail.gouv.fr",
+    "request": "GET / HTTP/1.1\r\nHost: www.telerc.travail.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 841\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 01 May 2022 06:05:15 GMT\r\nEtag: \"349-5dbd5cb8bb140\"\r\nLast-Modified: Mon, 04 Apr 2022 15:29:33 GMT\r\nSet-Cookie: TS01ca6659=0171284ec379d1cd3ed062c1c6e5add272fe6f6e936aad248b9853ca9a4fa29496c66af5162a4026b437c967ad145abe961f21db0e; Path=/\r\nStrict-Transport-Security: max-age=63072000; includeSubDomains\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>TéléRC - Service de saisie d'une demande d'homologation de rupture conventionnelle individuelle</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon-marianne.ico\">\n<link rel=\"stylesheet\" href=\"styles.999a5b8dbf86755f4b6d.css\"></head>\n<body>\n  <app-root></app-root>\n<script type=\"text/javascript\" src=\"runtime.26209474bfa8dc87a77c.js\"></script><script type=\"text/javascript\" src=\"polyfills.f3d62bda11e0b37e941d.js\"></script><script type=\"text/javascript\" src=\"scripts.802b6bd05bce04c52123.js\"></script><script type=\"text/javascript\" src=\"vendor.e58ae8b53274c9366aaa.js\"></script><script type=\"text/javascript\" src=\"main.685190a6baee69b4f435.js\"></script></body>\n</html>",
+    "ip": "164.131.132.45",
+    "timestamp": "2022-05-01T06:05:15.693823387Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.telerc.travail.gouv.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "cross-origin-embedder-policy",
+    "type": "http",
+    "host": "https://www.telerc.travail.gouv.fr",
+    "matched-at": "https://www.telerc.travail.gouv.fr",
+    "request": "GET / HTTP/1.1\r\nHost: www.telerc.travail.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 841\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 01 May 2022 06:05:15 GMT\r\nEtag: \"349-5dbd5cb8bb140\"\r\nLast-Modified: Mon, 04 Apr 2022 15:29:33 GMT\r\nSet-Cookie: TS01ca6659=0171284ec379d1cd3ed062c1c6e5add272fe6f6e936aad248b9853ca9a4fa29496c66af5162a4026b437c967ad145abe961f21db0e; Path=/\r\nStrict-Transport-Security: max-age=63072000; includeSubDomains\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>TéléRC - Service de saisie d'une demande d'homologation de rupture conventionnelle individuelle</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon-marianne.ico\">\n<link rel=\"stylesheet\" href=\"styles.999a5b8dbf86755f4b6d.css\"></head>\n<body>\n  <app-root></app-root>\n<script type=\"text/javascript\" src=\"runtime.26209474bfa8dc87a77c.js\"></script><script type=\"text/javascript\" src=\"polyfills.f3d62bda11e0b37e941d.js\"></script><script type=\"text/javascript\" src=\"scripts.802b6bd05bce04c52123.js\"></script><script type=\"text/javascript\" src=\"vendor.e58ae8b53274c9366aaa.js\"></script><script type=\"text/javascript\" src=\"main.685190a6baee69b4f435.js\"></script></body>\n</html>",
+    "ip": "164.131.132.45",
+    "timestamp": "2022-05-01T06:05:15.693840587Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.telerc.travail.gouv.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "cross-origin-opener-policy",
+    "type": "http",
+    "host": "https://www.telerc.travail.gouv.fr",
+    "matched-at": "https://www.telerc.travail.gouv.fr",
+    "request": "GET / HTTP/1.1\r\nHost: www.telerc.travail.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 841\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 01 May 2022 06:05:15 GMT\r\nEtag: \"349-5dbd5cb8bb140\"\r\nLast-Modified: Mon, 04 Apr 2022 15:29:33 GMT\r\nSet-Cookie: TS01ca6659=0171284ec379d1cd3ed062c1c6e5add272fe6f6e936aad248b9853ca9a4fa29496c66af5162a4026b437c967ad145abe961f21db0e; Path=/\r\nStrict-Transport-Security: max-age=63072000; includeSubDomains\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>TéléRC - Service de saisie d'une demande d'homologation de rupture conventionnelle individuelle</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon-marianne.ico\">\n<link rel=\"stylesheet\" href=\"styles.999a5b8dbf86755f4b6d.css\"></head>\n<body>\n  <app-root></app-root>\n<script type=\"text/javascript\" src=\"runtime.26209474bfa8dc87a77c.js\"></script><script type=\"text/javascript\" src=\"polyfills.f3d62bda11e0b37e941d.js\"></script><script type=\"text/javascript\" src=\"scripts.802b6bd05bce04c52123.js\"></script><script type=\"text/javascript\" src=\"vendor.e58ae8b53274c9366aaa.js\"></script><script type=\"text/javascript\" src=\"main.685190a6baee69b4f435.js\"></script></body>\n</html>",
+    "ip": "164.131.132.45",
+    "timestamp": "2022-05-01T06:05:15.693859787Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.telerc.travail.gouv.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "cross-origin-resource-policy",
+    "type": "http",
+    "host": "https://www.telerc.travail.gouv.fr",
+    "matched-at": "https://www.telerc.travail.gouv.fr",
+    "request": "GET / HTTP/1.1\r\nHost: www.telerc.travail.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 841\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 01 May 2022 06:05:15 GMT\r\nEtag: \"349-5dbd5cb8bb140\"\r\nLast-Modified: Mon, 04 Apr 2022 15:29:33 GMT\r\nSet-Cookie: TS01ca6659=0171284ec379d1cd3ed062c1c6e5add272fe6f6e936aad248b9853ca9a4fa29496c66af5162a4026b437c967ad145abe961f21db0e; Path=/\r\nStrict-Transport-Security: max-age=63072000; includeSubDomains\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>TéléRC - Service de saisie d'une demande d'homologation de rupture conventionnelle individuelle</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon-marianne.ico\">\n<link rel=\"stylesheet\" href=\"styles.999a5b8dbf86755f4b6d.css\"></head>\n<body>\n  <app-root></app-root>\n<script type=\"text/javascript\" src=\"runtime.26209474bfa8dc87a77c.js\"></script><script type=\"text/javascript\" src=\"polyfills.f3d62bda11e0b37e941d.js\"></script><script type=\"text/javascript\" src=\"scripts.802b6bd05bce04c52123.js\"></script><script type=\"text/javascript\" src=\"vendor.e58ae8b53274c9366aaa.js\"></script><script type=\"text/javascript\" src=\"main.685190a6baee69b4f435.js\"></script></body>\n</html>",
+    "ip": "164.131.132.45",
+    "timestamp": "2022-05-01T06:05:15.693878588Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.telerc.travail.gouv.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "access-control-allow-credentials",
+    "type": "http",
+    "host": "https://www.telerc.travail.gouv.fr",
+    "matched-at": "https://www.telerc.travail.gouv.fr",
+    "request": "GET / HTTP/1.1\r\nHost: www.telerc.travail.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 841\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 01 May 2022 06:05:15 GMT\r\nEtag: \"349-5dbd5cb8bb140\"\r\nLast-Modified: Mon, 04 Apr 2022 15:29:33 GMT\r\nSet-Cookie: TS01ca6659=0171284ec379d1cd3ed062c1c6e5add272fe6f6e936aad248b9853ca9a4fa29496c66af5162a4026b437c967ad145abe961f21db0e; Path=/\r\nStrict-Transport-Security: max-age=63072000; includeSubDomains\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>TéléRC - Service de saisie d'une demande d'homologation de rupture conventionnelle individuelle</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon-marianne.ico\">\n<link rel=\"stylesheet\" href=\"styles.999a5b8dbf86755f4b6d.css\"></head>\n<body>\n  <app-root></app-root>\n<script type=\"text/javascript\" src=\"runtime.26209474bfa8dc87a77c.js\"></script><script type=\"text/javascript\" src=\"polyfills.f3d62bda11e0b37e941d.js\"></script><script type=\"text/javascript\" src=\"scripts.802b6bd05bce04c52123.js\"></script><script type=\"text/javascript\" src=\"vendor.e58ae8b53274c9366aaa.js\"></script><script type=\"text/javascript\" src=\"main.685190a6baee69b4f435.js\"></script></body>\n</html>",
+    "ip": "164.131.132.45",
+    "timestamp": "2022-05-01T06:05:15.693894488Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.telerc.travail.gouv.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "ssl/ssl-dns-names.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/ssl/ssl-dns-names.yaml",
+    "template-id": "ssl-dns-names",
+    "info": {
+      "name": "SSL DNS Names",
+      "author": [
+        "pdteam"
       ],
       "tags": [
         "ssl"
       ],
-      "reference": [
-        "https://ssl-config.mozilla.org/#config=intermediate"
-      ],
-      "severity": "info",
-      "metadata": {
-        "shodan-query": "ssl.version:sslv2 ssl.version:sslv3 ssl.version:tlsv1 ssl.version:tlsv1.1"
-      }
+      "reference": null,
+      "severity": "info"
     },
     "type": "ssl",
     "host": "https://www.telerc.travail.gouv.fr",
     "matched-at": "https://www.telerc.travail.gouv.fr",
     "extracted-results": [
-      "TLS11"
+      "www.telerc.travail.gouv.fr"
     ],
     "ip": "164.131.132.45",
-    "timestamp": "2022-04-24T05:56:16.257190936Z",
+    "timestamp": "2022-05-01T06:05:25.466768134Z",
     "matcher-status": true,
     "matched-line": null
   }
