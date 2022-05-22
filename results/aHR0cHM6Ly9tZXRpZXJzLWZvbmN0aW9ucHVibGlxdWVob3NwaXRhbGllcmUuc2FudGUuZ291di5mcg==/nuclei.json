@@ -1,435 +1,75 @@
 [
   {
-    "template": "misconfiguration/http-missing-security-headers.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
-    "template-id": "http-missing-security-headers",
+    "template": "misconfiguration/xss-deprecated-header.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/xss-deprecated-header.yaml",
+    "template-id": "xss-deprecated-header-detect",
     "info": {
-      "name": "HTTP Missing Security Headers",
+      "name": "Detect Deprecated XSS Protection Header",
       "author": [
-        "socketz",
-        "geeknik",
-        "g4l1t0",
-        "convisoappsec",
-        "kurohost",
-        "dawid-czarnecki"
+        "joshlarsen"
       ],
       "tags": [
+        "xss",
         "misconfig",
         "generic"
       ],
-      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
-      "reference": null,
+      "description": "Setting the XSS-Protection header is deprecated by most browsers. Setting the header to anything other than `0` can actually introduce an XSS vulnerability.",
+      "reference": [
+        "https://developer.mozilla.org/en-us/docs/web/http/headers/x-xss-protection",
+        "https://owasp.org/www-project-secure-headers/#x-xss-protection"
+      ],
       "severity": "info"
     },
-    "matcher-name": "access-control-allow-credentials",
     "type": "http",
-    "host": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
-    "matched-at": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
-    "request": "GET / HTTP/1.1\r\nHost: metiers-fonctionpubliquehospitaliere.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 15 May 2022 04:08:12 GMT\r\nLast-Modified: Tue, 14 Sep 2021 13:20:42 GMT\r\nReferrer-Policy: strict-origin\r\nSet-Cookie: BIGipServerpool-dicom-mfph-preprod.cegedim.cloud-HTTP=!eGC4CkwR1KHCsIKsm7p0I5CraKeLeHiCxx1eOUeh3oh67i4Sr1oQJJFHWGy2vGV3kBttm3QNFmQuRWWaf2zZZqcQT2w=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\r\n<html>\r\n<head>\r\n<meta charset=\"utf-8\">\r\n<title>Page de maintenance site du répertoire des métiers de la fonction publique hospitalière</title>\r\n</head>\r\n\r\n<body>\r\n<img src=\"Republique_Francaise_12.jpg\" width=\"177\" height=\"161\" alt=\"\"/>\r\n<h1><center> \r\n    Le site du répertoire des métiers de la fonction publique hospitalière est en cours de refonte.\r\n</center></h1>\r\n<h1><center>Il est actuellement indisponible.</center></h1>\r\n</body>\r\n</html>\r\n",
-    "ip": "185.194.82.144",
-    "timestamp": "2022-05-15T04:08:12.972495907Z",
-    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr'",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
-    "template": "misconfiguration/http-missing-security-headers.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
-    "template-id": "http-missing-security-headers",
-    "info": {
-      "name": "HTTP Missing Security Headers",
-      "author": [
-        "socketz",
-        "geeknik",
-        "g4l1t0",
-        "convisoappsec",
-        "kurohost",
-        "dawid-czarnecki"
-      ],
-      "tags": [
-        "misconfig",
-        "generic"
-      ],
-      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
-      "reference": null,
-      "severity": "info"
-    },
-    "matcher-name": "access-control-allow-methods",
-    "type": "http",
-    "host": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
-    "matched-at": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
-    "request": "GET / HTTP/1.1\r\nHost: metiers-fonctionpubliquehospitaliere.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 15 May 2022 04:08:12 GMT\r\nLast-Modified: Tue, 14 Sep 2021 13:20:42 GMT\r\nReferrer-Policy: strict-origin\r\nSet-Cookie: BIGipServerpool-dicom-mfph-preprod.cegedim.cloud-HTTP=!eGC4CkwR1KHCsIKsm7p0I5CraKeLeHiCxx1eOUeh3oh67i4Sr1oQJJFHWGy2vGV3kBttm3QNFmQuRWWaf2zZZqcQT2w=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\r\n<html>\r\n<head>\r\n<meta charset=\"utf-8\">\r\n<title>Page de maintenance site du répertoire des métiers de la fonction publique hospitalière</title>\r\n</head>\r\n\r\n<body>\r\n<img src=\"Republique_Francaise_12.jpg\" width=\"177\" height=\"161\" alt=\"\"/>\r\n<h1><center> \r\n    Le site du répertoire des métiers de la fonction publique hospitalière est en cours de refonte.\r\n</center></h1>\r\n<h1><center>Il est actuellement indisponible.</center></h1>\r\n</body>\r\n</html>\r\n",
-    "ip": "185.194.82.144",
-    "timestamp": "2022-05-15T04:08:12.973038908Z",
-    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr'",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
-    "template": "misconfiguration/http-missing-security-headers.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
-    "template-id": "http-missing-security-headers",
-    "info": {
-      "name": "HTTP Missing Security Headers",
-      "author": [
-        "socketz",
-        "geeknik",
-        "g4l1t0",
-        "convisoappsec",
-        "kurohost",
-        "dawid-czarnecki"
-      ],
-      "tags": [
-        "misconfig",
-        "generic"
-      ],
-      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
-      "reference": null,
-      "severity": "info"
-    },
-    "matcher-name": "content-security-policy",
-    "type": "http",
-    "host": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
-    "matched-at": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
-    "request": "GET / HTTP/1.1\r\nHost: metiers-fonctionpubliquehospitaliere.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 15 May 2022 04:08:12 GMT\r\nLast-Modified: Tue, 14 Sep 2021 13:20:42 GMT\r\nReferrer-Policy: strict-origin\r\nSet-Cookie: BIGipServerpool-dicom-mfph-preprod.cegedim.cloud-HTTP=!eGC4CkwR1KHCsIKsm7p0I5CraKeLeHiCxx1eOUeh3oh67i4Sr1oQJJFHWGy2vGV3kBttm3QNFmQuRWWaf2zZZqcQT2w=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\r\n<html>\r\n<head>\r\n<meta charset=\"utf-8\">\r\n<title>Page de maintenance site du répertoire des métiers de la fonction publique hospitalière</title>\r\n</head>\r\n\r\n<body>\r\n<img src=\"Republique_Francaise_12.jpg\" width=\"177\" height=\"161\" alt=\"\"/>\r\n<h1><center> \r\n    Le site du répertoire des métiers de la fonction publique hospitalière est en cours de refonte.\r\n</center></h1>\r\n<h1><center>Il est actuellement indisponible.</center></h1>\r\n</body>\r\n</html>\r\n",
-    "ip": "185.194.82.144",
-    "timestamp": "2022-05-15T04:08:12.975089212Z",
-    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr'",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
-    "template": "misconfiguration/http-missing-security-headers.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
-    "template-id": "http-missing-security-headers",
-    "info": {
-      "name": "HTTP Missing Security Headers",
-      "author": [
-        "socketz",
-        "geeknik",
-        "g4l1t0",
-        "convisoappsec",
-        "kurohost",
-        "dawid-czarnecki"
-      ],
-      "tags": [
-        "misconfig",
-        "generic"
-      ],
-      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
-      "reference": null,
-      "severity": "info"
-    },
-    "matcher-name": "x-permitted-cross-domain-policies",
-    "type": "http",
-    "host": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
-    "matched-at": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
-    "request": "GET / HTTP/1.1\r\nHost: metiers-fonctionpubliquehospitaliere.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 15 May 2022 04:08:12 GMT\r\nLast-Modified: Tue, 14 Sep 2021 13:20:42 GMT\r\nReferrer-Policy: strict-origin\r\nSet-Cookie: BIGipServerpool-dicom-mfph-preprod.cegedim.cloud-HTTP=!eGC4CkwR1KHCsIKsm7p0I5CraKeLeHiCxx1eOUeh3oh67i4Sr1oQJJFHWGy2vGV3kBttm3QNFmQuRWWaf2zZZqcQT2w=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\r\n<html>\r\n<head>\r\n<meta charset=\"utf-8\">\r\n<title>Page de maintenance site du répertoire des métiers de la fonction publique hospitalière</title>\r\n</head>\r\n\r\n<body>\r\n<img src=\"Republique_Francaise_12.jpg\" width=\"177\" height=\"161\" alt=\"\"/>\r\n<h1><center> \r\n    Le site du répertoire des métiers de la fonction publique hospitalière est en cours de refonte.\r\n</center></h1>\r\n<h1><center>Il est actuellement indisponible.</center></h1>\r\n</body>\r\n</html>\r\n",
-    "ip": "185.194.82.144",
-    "timestamp": "2022-05-15T04:08:12.976159514Z",
-    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr'",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
-    "template": "misconfiguration/http-missing-security-headers.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
-    "template-id": "http-missing-security-headers",
-    "info": {
-      "name": "HTTP Missing Security Headers",
-      "author": [
-        "socketz",
-        "geeknik",
-        "g4l1t0",
-        "convisoappsec",
-        "kurohost",
-        "dawid-czarnecki"
-      ],
-      "tags": [
-        "misconfig",
-        "generic"
-      ],
-      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
-      "reference": null,
-      "severity": "info"
-    },
-    "matcher-name": "cross-origin-embedder-policy",
-    "type": "http",
-    "host": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
-    "matched-at": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
-    "request": "GET / HTTP/1.1\r\nHost: metiers-fonctionpubliquehospitaliere.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 15 May 2022 04:08:12 GMT\r\nLast-Modified: Tue, 14 Sep 2021 13:20:42 GMT\r\nReferrer-Policy: strict-origin\r\nSet-Cookie: BIGipServerpool-dicom-mfph-preprod.cegedim.cloud-HTTP=!eGC4CkwR1KHCsIKsm7p0I5CraKeLeHiCxx1eOUeh3oh67i4Sr1oQJJFHWGy2vGV3kBttm3QNFmQuRWWaf2zZZqcQT2w=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\r\n<html>\r\n<head>\r\n<meta charset=\"utf-8\">\r\n<title>Page de maintenance site du répertoire des métiers de la fonction publique hospitalière</title>\r\n</head>\r\n\r\n<body>\r\n<img src=\"Republique_Francaise_12.jpg\" width=\"177\" height=\"161\" alt=\"\"/>\r\n<h1><center> \r\n    Le site du répertoire des métiers de la fonction publique hospitalière est en cours de refonte.\r\n</center></h1>\r\n<h1><center>Il est actuellement indisponible.</center></h1>\r\n</body>\r\n</html>\r\n",
-    "ip": "185.194.82.144",
-    "timestamp": "2022-05-15T04:08:12.976229414Z",
-    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr'",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
-    "template": "misconfiguration/http-missing-security-headers.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
-    "template-id": "http-missing-security-headers",
-    "info": {
-      "name": "HTTP Missing Security Headers",
-      "author": [
-        "socketz",
-        "geeknik",
-        "g4l1t0",
-        "convisoappsec",
-        "kurohost",
-        "dawid-czarnecki"
-      ],
-      "tags": [
-        "misconfig",
-        "generic"
-      ],
-      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
-      "reference": null,
-      "severity": "info"
-    },
-    "matcher-name": "cross-origin-resource-policy",
-    "type": "http",
-    "host": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
-    "matched-at": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
-    "request": "GET / HTTP/1.1\r\nHost: metiers-fonctionpubliquehospitaliere.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 15 May 2022 04:08:12 GMT\r\nLast-Modified: Tue, 14 Sep 2021 13:20:42 GMT\r\nReferrer-Policy: strict-origin\r\nSet-Cookie: BIGipServerpool-dicom-mfph-preprod.cegedim.cloud-HTTP=!eGC4CkwR1KHCsIKsm7p0I5CraKeLeHiCxx1eOUeh3oh67i4Sr1oQJJFHWGy2vGV3kBttm3QNFmQuRWWaf2zZZqcQT2w=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\r\n<html>\r\n<head>\r\n<meta charset=\"utf-8\">\r\n<title>Page de maintenance site du répertoire des métiers de la fonction publique hospitalière</title>\r\n</head>\r\n\r\n<body>\r\n<img src=\"Republique_Francaise_12.jpg\" width=\"177\" height=\"161\" alt=\"\"/>\r\n<h1><center> \r\n    Le site du répertoire des métiers de la fonction publique hospitalière est en cours de refonte.\r\n</center></h1>\r\n<h1><center>Il est actuellement indisponible.</center></h1>\r\n</body>\r\n</html>\r\n",
-    "ip": "185.194.82.144",
-    "timestamp": "2022-05-15T04:08:12.976323814Z",
-    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr'",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
-    "template": "misconfiguration/http-missing-security-headers.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
-    "template-id": "http-missing-security-headers",
-    "info": {
-      "name": "HTTP Missing Security Headers",
-      "author": [
-        "socketz",
-        "geeknik",
-        "g4l1t0",
-        "convisoappsec",
-        "kurohost",
-        "dawid-czarnecki"
-      ],
-      "tags": [
-        "misconfig",
-        "generic"
-      ],
-      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
-      "reference": null,
-      "severity": "info"
-    },
-    "matcher-name": "access-control-allow-origin",
-    "type": "http",
-    "host": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
-    "matched-at": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
-    "request": "GET / HTTP/1.1\r\nHost: metiers-fonctionpubliquehospitaliere.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 15 May 2022 04:08:12 GMT\r\nLast-Modified: Tue, 14 Sep 2021 13:20:42 GMT\r\nReferrer-Policy: strict-origin\r\nSet-Cookie: BIGipServerpool-dicom-mfph-preprod.cegedim.cloud-HTTP=!eGC4CkwR1KHCsIKsm7p0I5CraKeLeHiCxx1eOUeh3oh67i4Sr1oQJJFHWGy2vGV3kBttm3QNFmQuRWWaf2zZZqcQT2w=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\r\n<html>\r\n<head>\r\n<meta charset=\"utf-8\">\r\n<title>Page de maintenance site du répertoire des métiers de la fonction publique hospitalière</title>\r\n</head>\r\n\r\n<body>\r\n<img src=\"Republique_Francaise_12.jpg\" width=\"177\" height=\"161\" alt=\"\"/>\r\n<h1><center> \r\n    Le site du répertoire des métiers de la fonction publique hospitalière est en cours de refonte.\r\n</center></h1>\r\n<h1><center>Il est actuellement indisponible.</center></h1>\r\n</body>\r\n</html>\r\n",
-    "ip": "185.194.82.144",
-    "timestamp": "2022-05-15T04:08:12.976391314Z",
-    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr'",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
-    "template": "misconfiguration/http-missing-security-headers.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
-    "template-id": "http-missing-security-headers",
-    "info": {
-      "name": "HTTP Missing Security Headers",
-      "author": [
-        "socketz",
-        "geeknik",
-        "g4l1t0",
-        "convisoappsec",
-        "kurohost",
-        "dawid-czarnecki"
-      ],
-      "tags": [
-        "misconfig",
-        "generic"
-      ],
-      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
-      "reference": null,
-      "severity": "info"
-    },
-    "matcher-name": "permission-policy",
-    "type": "http",
-    "host": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
-    "matched-at": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
-    "request": "GET / HTTP/1.1\r\nHost: metiers-fonctionpubliquehospitaliere.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 15 May 2022 04:08:12 GMT\r\nLast-Modified: Tue, 14 Sep 2021 13:20:42 GMT\r\nReferrer-Policy: strict-origin\r\nSet-Cookie: BIGipServerpool-dicom-mfph-preprod.cegedim.cloud-HTTP=!eGC4CkwR1KHCsIKsm7p0I5CraKeLeHiCxx1eOUeh3oh67i4Sr1oQJJFHWGy2vGV3kBttm3QNFmQuRWWaf2zZZqcQT2w=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\r\n<html>\r\n<head>\r\n<meta charset=\"utf-8\">\r\n<title>Page de maintenance site du répertoire des métiers de la fonction publique hospitalière</title>\r\n</head>\r\n\r\n<body>\r\n<img src=\"Republique_Francaise_12.jpg\" width=\"177\" height=\"161\" alt=\"\"/>\r\n<h1><center> \r\n    Le site du répertoire des métiers de la fonction publique hospitalière est en cours de refonte.\r\n</center></h1>\r\n<h1><center>Il est actuellement indisponible.</center></h1>\r\n</body>\r\n</html>\r\n",
-    "ip": "185.194.82.144",
-    "timestamp": "2022-05-15T04:08:12.976444214Z",
-    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr'",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
-    "template": "misconfiguration/http-missing-security-headers.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
-    "template-id": "http-missing-security-headers",
-    "info": {
-      "name": "HTTP Missing Security Headers",
-      "author": [
-        "socketz",
-        "geeknik",
-        "g4l1t0",
-        "convisoappsec",
-        "kurohost",
-        "dawid-czarnecki"
-      ],
-      "tags": [
-        "misconfig",
-        "generic"
-      ],
-      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
-      "reference": null,
-      "severity": "info"
-    },
-    "matcher-name": "clear-site-data",
-    "type": "http",
-    "host": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
-    "matched-at": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
-    "request": "GET / HTTP/1.1\r\nHost: metiers-fonctionpubliquehospitaliere.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 15 May 2022 04:08:12 GMT\r\nLast-Modified: Tue, 14 Sep 2021 13:20:42 GMT\r\nReferrer-Policy: strict-origin\r\nSet-Cookie: BIGipServerpool-dicom-mfph-preprod.cegedim.cloud-HTTP=!eGC4CkwR1KHCsIKsm7p0I5CraKeLeHiCxx1eOUeh3oh67i4Sr1oQJJFHWGy2vGV3kBttm3QNFmQuRWWaf2zZZqcQT2w=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\r\n<html>\r\n<head>\r\n<meta charset=\"utf-8\">\r\n<title>Page de maintenance site du répertoire des métiers de la fonction publique hospitalière</title>\r\n</head>\r\n\r\n<body>\r\n<img src=\"Republique_Francaise_12.jpg\" width=\"177\" height=\"161\" alt=\"\"/>\r\n<h1><center> \r\n    Le site du répertoire des métiers de la fonction publique hospitalière est en cours de refonte.\r\n</center></h1>\r\n<h1><center>Il est actuellement indisponible.</center></h1>\r\n</body>\r\n</html>\r\n",
-    "ip": "185.194.82.144",
-    "timestamp": "2022-05-15T04:08:12.976493614Z",
-    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr'",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
-    "template": "misconfiguration/http-missing-security-headers.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
-    "template-id": "http-missing-security-headers",
-    "info": {
-      "name": "HTTP Missing Security Headers",
-      "author": [
-        "socketz",
-        "geeknik",
-        "g4l1t0",
-        "convisoappsec",
-        "kurohost",
-        "dawid-czarnecki"
-      ],
-      "tags": [
-        "misconfig",
-        "generic"
-      ],
-      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
-      "reference": null,
-      "severity": "info"
-    },
-    "matcher-name": "cross-origin-opener-policy",
-    "type": "http",
-    "host": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
-    "matched-at": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
-    "request": "GET / HTTP/1.1\r\nHost: metiers-fonctionpubliquehospitaliere.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 15 May 2022 04:08:12 GMT\r\nLast-Modified: Tue, 14 Sep 2021 13:20:42 GMT\r\nReferrer-Policy: strict-origin\r\nSet-Cookie: BIGipServerpool-dicom-mfph-preprod.cegedim.cloud-HTTP=!eGC4CkwR1KHCsIKsm7p0I5CraKeLeHiCxx1eOUeh3oh67i4Sr1oQJJFHWGy2vGV3kBttm3QNFmQuRWWaf2zZZqcQT2w=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\r\n<html>\r\n<head>\r\n<meta charset=\"utf-8\">\r\n<title>Page de maintenance site du répertoire des métiers de la fonction publique hospitalière</title>\r\n</head>\r\n\r\n<body>\r\n<img src=\"Republique_Francaise_12.jpg\" width=\"177\" height=\"161\" alt=\"\"/>\r\n<h1><center> \r\n    Le site du répertoire des métiers de la fonction publique hospitalière est en cours de refonte.\r\n</center></h1>\r\n<h1><center>Il est actuellement indisponible.</center></h1>\r\n</body>\r\n</html>\r\n",
-    "ip": "185.194.82.144",
-    "timestamp": "2022-05-15T04:08:12.976535415Z",
-    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr'",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
-    "template": "misconfiguration/http-missing-security-headers.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
-    "template-id": "http-missing-security-headers",
-    "info": {
-      "name": "HTTP Missing Security Headers",
-      "author": [
-        "socketz",
-        "geeknik",
-        "g4l1t0",
-        "convisoappsec",
-        "kurohost",
-        "dawid-czarnecki"
-      ],
-      "tags": [
-        "misconfig",
-        "generic"
-      ],
-      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
-      "reference": null,
-      "severity": "info"
-    },
-    "matcher-name": "access-control-expose-headers",
-    "type": "http",
-    "host": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
-    "matched-at": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
-    "request": "GET / HTTP/1.1\r\nHost: metiers-fonctionpubliquehospitaliere.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 15 May 2022 04:08:12 GMT\r\nLast-Modified: Tue, 14 Sep 2021 13:20:42 GMT\r\nReferrer-Policy: strict-origin\r\nSet-Cookie: BIGipServerpool-dicom-mfph-preprod.cegedim.cloud-HTTP=!eGC4CkwR1KHCsIKsm7p0I5CraKeLeHiCxx1eOUeh3oh67i4Sr1oQJJFHWGy2vGV3kBttm3QNFmQuRWWaf2zZZqcQT2w=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\r\n<html>\r\n<head>\r\n<meta charset=\"utf-8\">\r\n<title>Page de maintenance site du répertoire des métiers de la fonction publique hospitalière</title>\r\n</head>\r\n\r\n<body>\r\n<img src=\"Republique_Francaise_12.jpg\" width=\"177\" height=\"161\" alt=\"\"/>\r\n<h1><center> \r\n    Le site du répertoire des métiers de la fonction publique hospitalière est en cours de refonte.\r\n</center></h1>\r\n<h1><center>Il est actuellement indisponible.</center></h1>\r\n</body>\r\n</html>\r\n",
-    "ip": "185.194.82.144",
-    "timestamp": "2022-05-15T04:08:12.976584315Z",
-    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr'",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
-    "template": "misconfiguration/http-missing-security-headers.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
-    "template-id": "http-missing-security-headers",
-    "info": {
-      "name": "HTTP Missing Security Headers",
-      "author": [
-        "socketz",
-        "geeknik",
-        "g4l1t0",
-        "convisoappsec",
-        "kurohost",
-        "dawid-czarnecki"
-      ],
-      "tags": [
-        "misconfig",
-        "generic"
-      ],
-      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
-      "reference": null,
-      "severity": "info"
-    },
-    "matcher-name": "access-control-max-age",
-    "type": "http",
-    "host": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
-    "matched-at": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
-    "request": "GET / HTTP/1.1\r\nHost: metiers-fonctionpubliquehospitaliere.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 15 May 2022 04:08:12 GMT\r\nLast-Modified: Tue, 14 Sep 2021 13:20:42 GMT\r\nReferrer-Policy: strict-origin\r\nSet-Cookie: BIGipServerpool-dicom-mfph-preprod.cegedim.cloud-HTTP=!eGC4CkwR1KHCsIKsm7p0I5CraKeLeHiCxx1eOUeh3oh67i4Sr1oQJJFHWGy2vGV3kBttm3QNFmQuRWWaf2zZZqcQT2w=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\r\n<html>\r\n<head>\r\n<meta charset=\"utf-8\">\r\n<title>Page de maintenance site du répertoire des métiers de la fonction publique hospitalière</title>\r\n</head>\r\n\r\n<body>\r\n<img src=\"Republique_Francaise_12.jpg\" width=\"177\" height=\"161\" alt=\"\"/>\r\n<h1><center> \r\n    Le site du répertoire des métiers de la fonction publique hospitalière est en cours de refonte.\r\n</center></h1>\r\n<h1><center>Il est actuellement indisponible.</center></h1>\r\n</body>\r\n</html>\r\n",
-    "ip": "185.194.82.144",
-    "timestamp": "2022-05-15T04:08:12.976631515Z",
-    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr'",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
-    "template": "ssl/tls-version.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/ssl/tls-version.yaml",
-    "template-id": "tls-version",
-    "info": {
-      "name": "TLS Version",
-      "author": [
-        "pdteam"
-      ],
-      "tags": [
-        "ssl"
-      ],
-      "reference": null,
-      "severity": "info"
-    },
-    "type": "ssl",
     "host": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
     "matched-at": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
     "extracted-results": [
-      "TLS12"
+      "1; mode=block"
     ],
+    "request": "GET / HTTP/1.1\r\nHost: metiers-fonctionpubliquehospitaliere.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 22 May 2022 03:52:40 GMT\r\nLast-Modified: Tue, 14 Sep 2021 13:20:42 GMT\r\nReferrer-Policy: strict-origin\r\nSet-Cookie: BIGipServerpool-dicom-mfph-preprod.cegedim.cloud-HTTP=!Z7JP7CLM8gq9VefkuunEfrOB80n4KfgHq00j3zFa3RzYu32M6HKymDGrbInjZDhjZzw4djhsLFOiLzLHHttHLVQHHgY=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\r\n<html>\r\n<head>\r\n<meta charset=\"utf-8\">\r\n<title>Page de maintenance site du répertoire des métiers de la fonction publique hospitalière</title>\r\n</head>\r\n\r\n<body>\r\n<img src=\"Republique_Francaise_12.jpg\" width=\"177\" height=\"161\" alt=\"\"/>\r\n<h1><center> \r\n    Le site du répertoire des métiers de la fonction publique hospitalière est en cours de refonte.\r\n</center></h1>\r\n<h1><center>Il est actuellement indisponible.</center></h1>\r\n</body>\r\n</html>\r\n",
     "ip": "185.194.82.144",
-    "timestamp": "2022-05-15T04:08:17.914669516Z",
+    "timestamp": "2022-05-22T03:52:40.18803417Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "technologies/waf-detect.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/technologies/waf-detect.yaml",
+    "template-id": "waf-detect",
+    "info": {
+      "name": "WAF Detection",
+      "author": [
+        "dwisiswant0",
+        "lu4nx"
+      ],
+      "tags": [
+        "waf",
+        "tech",
+        "misc"
+      ],
+      "description": "A web application firewall was detected.",
+      "reference": [
+        "https://github.com/ekultek/whatwaf"
+      ],
+      "severity": "info",
+      "classification": {
+        "cve-id": null,
+        "cwe-id": [
+          "cwe-200"
+        ]
+      }
+    },
+    "matcher-name": "bigip",
+    "type": "http",
+    "host": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
+    "matched-at": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr/",
+    "request": "POST / HTTP/1.1\r\nHost: metiers-fonctionpubliquehospitaliere.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nContent-Length: 27\r\nContent-Type: application/x-www-form-urlencoded\r\nAccept-Encoding: gzip\r\n\r\n_=<script>alert(1)</script>",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 22 May 2022 03:52:59 GMT\r\nLast-Modified: Tue, 14 Sep 2021 13:20:42 GMT\r\nReferrer-Policy: strict-origin\r\nSet-Cookie: BIGipServerpool-dicom-mfph-preprod.cegedim.cloud-HTTP=!3MT/zmMNBdTKz3PkuunEfrOB80n4KW5J4H/pGrRP/QbnQ+5dtzp/V+NZ9wJ2jH6fEu16p8E688Konk50MzM0bGxQ3lE=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\r\n<html>\r\n<head>\r\n<meta charset=\"utf-8\">\r\n<title>Page de maintenance site du répertoire des métiers de la fonction publique hospitalière</title>\r\n</head>\r\n\r\n<body>\r\n<img src=\"Republique_Francaise_12.jpg\" width=\"177\" height=\"161\" alt=\"\"/>\r\n<h1><center> \r\n    Le site du répertoire des métiers de la fonction publique hospitalière est en cours de refonte.\r\n</center></h1>\r\n<h1><center>Il est actuellement indisponible.</center></h1>\r\n</body>\r\n</html>\r\n",
+    "ip": "185.194.82.144",
+    "timestamp": "2022-05-22T03:52:59.388883621Z",
+    "curl-command": "curl -X 'POST' -d '_=<script>alert(1)</script>' -H 'Content-Type: application/x-www-form-urlencoded' -H 'Host: metiers-fonctionpubliquehospitaliere.sante.gouv.fr' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr/'",
     "matcher-status": true,
     "matched-line": null
   },
@@ -453,9 +93,9 @@
     "host": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
     "matched-at": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr/robots.txt",
     "request": "GET /robots.txt HTTP/1.1\r\nHost: metiers-fonctionpubliquehospitaliere.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Type: text/plain; charset=utf-8\r\nDate: Sun, 15 May 2022 04:08:43 GMT\r\nLast-Modified: Sun, 15 May 2022 04:08:43 GMT\r\nReferrer-Policy: strict-origin\r\nSet-Cookie: BIGipServerpool-dicom-mfph-preprod.cegedim.cloud-HTTP=!RHDtbTefJfB8ai+sm7p0I5CraKeLeLWXYg+nv0SsLpkhNSaOs4Sb2lzOs70DW0aqyqSCIQpWIl6OizG1GSyOPSUDNW0=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Spip-Cache: 86400\r\nX-Xss-Protection: 1; mode=block\r\n\r\n# robots.txt\n# @url: https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr\n# @generator: SPIP 3.2.9\n# @template: squelettes-dist/robots.txt.html\n\nUser-agent: *\nAllow:    /local/cache-css/\nAllow:    /local/cache-js/\nDisallow: /local/\nDisallow: /ecrire/\nDisallow: /plugins-dist/\nDisallow: /lib/\nDisallow: /plugins/\nDisallow: /prive/\nDisallow: /squelettes-dist/\nDisallow: /squelettes/\nCrawl-delay: 1\n\nSitemap: https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr/sitemap.xml",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Type: text/plain; charset=utf-8\r\nDate: Sun, 22 May 2022 03:55:39 GMT\r\nLast-Modified: Sun, 22 May 2022 03:55:39 GMT\r\nReferrer-Policy: strict-origin\r\nSet-Cookie: BIGipServerpool-dicom-mfph-preprod.cegedim.cloud-HTTP=!kPjLUdaWGqZAoQnkuunEfrOB80n4KUi1ZM1GdizqobXbilkbdPtHoLk6bwmaW66VbdhAJCvArBP6fQj8rfhP3vbchVg=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Spip-Cache: 86400\r\nX-Xss-Protection: 1; mode=block\r\n\r\n# robots.txt\n# @url: https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr\n# @generator: SPIP 3.2.9\n# @template: squelettes-dist/robots.txt.html\n\nUser-agent: *\nAllow:    /local/cache-css/\nAllow:    /local/cache-js/\nDisallow: /local/\nDisallow: /ecrire/\nDisallow: /plugins-dist/\nDisallow: /lib/\nDisallow: /plugins/\nDisallow: /prive/\nDisallow: /squelettes-dist/\nDisallow: /squelettes/\nCrawl-delay: 1\n\nSitemap: https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr/sitemap.xml",
     "ip": "185.194.82.144",
-    "timestamp": "2022-05-15T04:08:43.463550179Z",
+    "timestamp": "2022-05-22T03:55:39.52883204Z",
     "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr/robots.txt'",
     "matcher-status": true,
     "matched-line": null
