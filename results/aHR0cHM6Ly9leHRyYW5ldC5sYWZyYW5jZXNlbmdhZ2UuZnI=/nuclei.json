@@ -19,10 +19,591 @@
     "host": "https://extranet.lafrancesengage.fr",
     "matched-at": "https://extranet.lafrancesengage.fr",
     "request": "GET / HTTP/1.1\r\nHost: extranet.lafrancesengage.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 401 Authorization Required\r\nConnection: close\r\nContent-Length: 9\r\nContent-Security-Policy: upgrade-insecure-requests\r\nDate: Sun, 15 May 2022 03:10:44 GMT\r\nSet-Cookie: BIGipServerpool-djevpa-lfse.cegedim.cloud-HTTP=!HvXbBAR46NI5iZ+sm7p0I5CraKeLeOLK8wih6U5uAZK/tb2YUN6/Uqsf4AiCWK6lfqGBQU5EzQciEJWj61ZxVJH2df0=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\nWww-Authenticate: Basic realm=\"Password Required\"\r\nX-Content-Type-Options: nosniff\r\n\r\n401 ERROR",
+    "response": "HTTP/1.1 401 Authorization Required\r\nConnection: close\r\nContent-Length: 9\r\nContent-Security-Policy: upgrade-insecure-requests\r\nDate: Sun, 22 May 2022 02:51:49 GMT\r\nSet-Cookie: BIGipServerpool-djevpa-lfse.cegedim.cloud-HTTP=!s3dYMr2KbE5IBHTkuunEfrOB80n4KRn4qymiXKbveW0cF9SPwtfTCwDcfIctQKkdAVU/a1kh7APNAhfDpKTmRPUWWV4=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\nWww-Authenticate: Basic realm=\"Password Required\"\r\nX-Content-Type-Options: nosniff\r\n\r\n401 ERROR",
     "ip": "185.194.82.152",
-    "timestamp": "2022-05-15T03:10:44.345887288Z",
+    "timestamp": "2022-05-22T02:51:49.307959058Z",
     "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://extranet.lafrancesengage.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "technologies/waf-detect.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/technologies/waf-detect.yaml",
+    "template-id": "waf-detect",
+    "info": {
+      "name": "WAF Detection",
+      "author": [
+        "dwisiswant0",
+        "lu4nx"
+      ],
+      "tags": [
+        "waf",
+        "tech",
+        "misc"
+      ],
+      "description": "A web application firewall was detected.",
+      "reference": [
+        "https://github.com/ekultek/whatwaf"
+      ],
+      "severity": "info",
+      "classification": {
+        "cve-id": null,
+        "cwe-id": [
+          "cwe-200"
+        ]
+      }
+    },
+    "matcher-name": "bigip",
+    "type": "http",
+    "host": "https://extranet.lafrancesengage.fr",
+    "matched-at": "https://extranet.lafrancesengage.fr/",
+    "request": "POST / HTTP/1.1\r\nHost: extranet.lafrancesengage.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nContent-Length: 27\r\nContent-Type: application/x-www-form-urlencoded\r\nAccept-Encoding: gzip\r\n\r\n_=<script>alert(1)</script>",
+    "response": "HTTP/1.1 401 Authorization Required\r\nConnection: close\r\nContent-Length: 9\r\nContent-Security-Policy: upgrade-insecure-requests\r\nDate: Sun, 22 May 2022 02:51:53 GMT\r\nSet-Cookie: BIGipServerpool-djevpa-lfse.cegedim.cloud-HTTP=!/lhkuBRcX28GMHXkuunEfrOB80n4KTr85t4jfs4SixS6YmOlFlYEFEp+iPatkRW+zPSMuvWvxcmMzTvuIRTtkSzPIE8=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\nWww-Authenticate: Basic realm=\"Password Required\"\r\nX-Content-Type-Options: nosniff\r\n\r\n401 ERROR",
+    "ip": "185.194.82.152",
+    "timestamp": "2022-05-22T02:51:53.263425639Z",
+    "curl-command": "curl -X 'POST' -d '_=<script>alert(1)</script>' -H 'Content-Type: application/x-www-form-urlencoded' -H 'Host: extranet.lafrancesengage.fr' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://extranet.lafrancesengage.fr/'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "ssl/tls-version.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/ssl/tls-version.yaml",
+    "template-id": "tls-version",
+    "info": {
+      "name": "TLS Version",
+      "author": [
+        "pdteam"
+      ],
+      "tags": [
+        "ssl"
+      ],
+      "reference": null,
+      "severity": "info"
+    },
+    "type": "ssl",
+    "host": "https://extranet.lafrancesengage.fr",
+    "matched-at": "https://extranet.lafrancesengage.fr",
+    "extracted-results": [
+      "TLS12"
+    ],
+    "ip": "185.194.82.152",
+    "timestamp": "2022-05-22T02:52:02.468613124Z",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "x-permitted-cross-domain-policies",
+    "type": "http",
+    "host": "https://extranet.lafrancesengage.fr",
+    "matched-at": "https://extranet.lafrancesengage.fr",
+    "request": "GET / HTTP/1.1\r\nHost: extranet.lafrancesengage.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 401 Authorization Required\r\nConnection: close\r\nContent-Length: 9\r\nContent-Security-Policy: upgrade-insecure-requests\r\nDate: Sun, 22 May 2022 02:52:10 GMT\r\nSet-Cookie: BIGipServerpool-djevpa-lfse.cegedim.cloud-HTTP=!5u09EoQWUW+kx/zkuunEfrOB80n4KRYAlS112Jjm1nC6GWLsY0TOJ8rhh9ZiEQvtTzPfMRyDgdad1EiyL/3knYClkMs=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\nWww-Authenticate: Basic realm=\"Password Required\"\r\nX-Content-Type-Options: nosniff\r\n\r\n401 ERROR",
+    "ip": "185.194.82.152",
+    "timestamp": "2022-05-22T02:52:10.839806303Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://extranet.lafrancesengage.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "referrer-policy",
+    "type": "http",
+    "host": "https://extranet.lafrancesengage.fr",
+    "matched-at": "https://extranet.lafrancesengage.fr",
+    "request": "GET / HTTP/1.1\r\nHost: extranet.lafrancesengage.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 401 Authorization Required\r\nConnection: close\r\nContent-Length: 9\r\nContent-Security-Policy: upgrade-insecure-requests\r\nDate: Sun, 22 May 2022 02:52:10 GMT\r\nSet-Cookie: BIGipServerpool-djevpa-lfse.cegedim.cloud-HTTP=!5u09EoQWUW+kx/zkuunEfrOB80n4KRYAlS112Jjm1nC6GWLsY0TOJ8rhh9ZiEQvtTzPfMRyDgdad1EiyL/3knYClkMs=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\nWww-Authenticate: Basic realm=\"Password Required\"\r\nX-Content-Type-Options: nosniff\r\n\r\n401 ERROR",
+    "ip": "185.194.82.152",
+    "timestamp": "2022-05-22T02:52:10.839888802Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://extranet.lafrancesengage.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "access-control-allow-methods",
+    "type": "http",
+    "host": "https://extranet.lafrancesengage.fr",
+    "matched-at": "https://extranet.lafrancesengage.fr",
+    "request": "GET / HTTP/1.1\r\nHost: extranet.lafrancesengage.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 401 Authorization Required\r\nConnection: close\r\nContent-Length: 9\r\nContent-Security-Policy: upgrade-insecure-requests\r\nDate: Sun, 22 May 2022 02:52:10 GMT\r\nSet-Cookie: BIGipServerpool-djevpa-lfse.cegedim.cloud-HTTP=!5u09EoQWUW+kx/zkuunEfrOB80n4KRYAlS112Jjm1nC6GWLsY0TOJ8rhh9ZiEQvtTzPfMRyDgdad1EiyL/3knYClkMs=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\nWww-Authenticate: Basic realm=\"Password Required\"\r\nX-Content-Type-Options: nosniff\r\n\r\n401 ERROR",
+    "ip": "185.194.82.152",
+    "timestamp": "2022-05-22T02:52:10.839906402Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://extranet.lafrancesengage.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "cross-origin-opener-policy",
+    "type": "http",
+    "host": "https://extranet.lafrancesengage.fr",
+    "matched-at": "https://extranet.lafrancesengage.fr",
+    "request": "GET / HTTP/1.1\r\nHost: extranet.lafrancesengage.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 401 Authorization Required\r\nConnection: close\r\nContent-Length: 9\r\nContent-Security-Policy: upgrade-insecure-requests\r\nDate: Sun, 22 May 2022 02:52:10 GMT\r\nSet-Cookie: BIGipServerpool-djevpa-lfse.cegedim.cloud-HTTP=!5u09EoQWUW+kx/zkuunEfrOB80n4KRYAlS112Jjm1nC6GWLsY0TOJ8rhh9ZiEQvtTzPfMRyDgdad1EiyL/3knYClkMs=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\nWww-Authenticate: Basic realm=\"Password Required\"\r\nX-Content-Type-Options: nosniff\r\n\r\n401 ERROR",
+    "ip": "185.194.82.152",
+    "timestamp": "2022-05-22T02:52:10.839946302Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://extranet.lafrancesengage.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "cross-origin-resource-policy",
+    "type": "http",
+    "host": "https://extranet.lafrancesengage.fr",
+    "matched-at": "https://extranet.lafrancesengage.fr",
+    "request": "GET / HTTP/1.1\r\nHost: extranet.lafrancesengage.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 401 Authorization Required\r\nConnection: close\r\nContent-Length: 9\r\nContent-Security-Policy: upgrade-insecure-requests\r\nDate: Sun, 22 May 2022 02:52:10 GMT\r\nSet-Cookie: BIGipServerpool-djevpa-lfse.cegedim.cloud-HTTP=!5u09EoQWUW+kx/zkuunEfrOB80n4KRYAlS112Jjm1nC6GWLsY0TOJ8rhh9ZiEQvtTzPfMRyDgdad1EiyL/3knYClkMs=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\nWww-Authenticate: Basic realm=\"Password Required\"\r\nX-Content-Type-Options: nosniff\r\n\r\n401 ERROR",
+    "ip": "185.194.82.152",
+    "timestamp": "2022-05-22T02:52:10.839963302Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://extranet.lafrancesengage.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "access-control-allow-credentials",
+    "type": "http",
+    "host": "https://extranet.lafrancesengage.fr",
+    "matched-at": "https://extranet.lafrancesengage.fr",
+    "request": "GET / HTTP/1.1\r\nHost: extranet.lafrancesengage.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 401 Authorization Required\r\nConnection: close\r\nContent-Length: 9\r\nContent-Security-Policy: upgrade-insecure-requests\r\nDate: Sun, 22 May 2022 02:52:10 GMT\r\nSet-Cookie: BIGipServerpool-djevpa-lfse.cegedim.cloud-HTTP=!5u09EoQWUW+kx/zkuunEfrOB80n4KRYAlS112Jjm1nC6GWLsY0TOJ8rhh9ZiEQvtTzPfMRyDgdad1EiyL/3knYClkMs=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\nWww-Authenticate: Basic realm=\"Password Required\"\r\nX-Content-Type-Options: nosniff\r\n\r\n401 ERROR",
+    "ip": "185.194.82.152",
+    "timestamp": "2022-05-22T02:52:10.839981202Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://extranet.lafrancesengage.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "access-control-max-age",
+    "type": "http",
+    "host": "https://extranet.lafrancesengage.fr",
+    "matched-at": "https://extranet.lafrancesengage.fr",
+    "request": "GET / HTTP/1.1\r\nHost: extranet.lafrancesengage.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 401 Authorization Required\r\nConnection: close\r\nContent-Length: 9\r\nContent-Security-Policy: upgrade-insecure-requests\r\nDate: Sun, 22 May 2022 02:52:10 GMT\r\nSet-Cookie: BIGipServerpool-djevpa-lfse.cegedim.cloud-HTTP=!5u09EoQWUW+kx/zkuunEfrOB80n4KRYAlS112Jjm1nC6GWLsY0TOJ8rhh9ZiEQvtTzPfMRyDgdad1EiyL/3knYClkMs=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\nWww-Authenticate: Basic realm=\"Password Required\"\r\nX-Content-Type-Options: nosniff\r\n\r\n401 ERROR",
+    "ip": "185.194.82.152",
+    "timestamp": "2022-05-22T02:52:10.839996501Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://extranet.lafrancesengage.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "x-frame-options",
+    "type": "http",
+    "host": "https://extranet.lafrancesengage.fr",
+    "matched-at": "https://extranet.lafrancesengage.fr",
+    "request": "GET / HTTP/1.1\r\nHost: extranet.lafrancesengage.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 401 Authorization Required\r\nConnection: close\r\nContent-Length: 9\r\nContent-Security-Policy: upgrade-insecure-requests\r\nDate: Sun, 22 May 2022 02:52:10 GMT\r\nSet-Cookie: BIGipServerpool-djevpa-lfse.cegedim.cloud-HTTP=!5u09EoQWUW+kx/zkuunEfrOB80n4KRYAlS112Jjm1nC6GWLsY0TOJ8rhh9ZiEQvtTzPfMRyDgdad1EiyL/3knYClkMs=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\nWww-Authenticate: Basic realm=\"Password Required\"\r\nX-Content-Type-Options: nosniff\r\n\r\n401 ERROR",
+    "ip": "185.194.82.152",
+    "timestamp": "2022-05-22T02:52:10.840013001Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://extranet.lafrancesengage.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "cross-origin-embedder-policy",
+    "type": "http",
+    "host": "https://extranet.lafrancesengage.fr",
+    "matched-at": "https://extranet.lafrancesengage.fr",
+    "request": "GET / HTTP/1.1\r\nHost: extranet.lafrancesengage.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 401 Authorization Required\r\nConnection: close\r\nContent-Length: 9\r\nContent-Security-Policy: upgrade-insecure-requests\r\nDate: Sun, 22 May 2022 02:52:10 GMT\r\nSet-Cookie: BIGipServerpool-djevpa-lfse.cegedim.cloud-HTTP=!5u09EoQWUW+kx/zkuunEfrOB80n4KRYAlS112Jjm1nC6GWLsY0TOJ8rhh9ZiEQvtTzPfMRyDgdad1EiyL/3knYClkMs=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\nWww-Authenticate: Basic realm=\"Password Required\"\r\nX-Content-Type-Options: nosniff\r\n\r\n401 ERROR",
+    "ip": "185.194.82.152",
+    "timestamp": "2022-05-22T02:52:10.840028501Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://extranet.lafrancesengage.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "access-control-expose-headers",
+    "type": "http",
+    "host": "https://extranet.lafrancesengage.fr",
+    "matched-at": "https://extranet.lafrancesengage.fr",
+    "request": "GET / HTTP/1.1\r\nHost: extranet.lafrancesengage.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 401 Authorization Required\r\nConnection: close\r\nContent-Length: 9\r\nContent-Security-Policy: upgrade-insecure-requests\r\nDate: Sun, 22 May 2022 02:52:10 GMT\r\nSet-Cookie: BIGipServerpool-djevpa-lfse.cegedim.cloud-HTTP=!5u09EoQWUW+kx/zkuunEfrOB80n4KRYAlS112Jjm1nC6GWLsY0TOJ8rhh9ZiEQvtTzPfMRyDgdad1EiyL/3knYClkMs=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\nWww-Authenticate: Basic realm=\"Password Required\"\r\nX-Content-Type-Options: nosniff\r\n\r\n401 ERROR",
+    "ip": "185.194.82.152",
+    "timestamp": "2022-05-22T02:52:10.840046001Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://extranet.lafrancesengage.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "permission-policy",
+    "type": "http",
+    "host": "https://extranet.lafrancesengage.fr",
+    "matched-at": "https://extranet.lafrancesengage.fr",
+    "request": "GET / HTTP/1.1\r\nHost: extranet.lafrancesengage.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 401 Authorization Required\r\nConnection: close\r\nContent-Length: 9\r\nContent-Security-Policy: upgrade-insecure-requests\r\nDate: Sun, 22 May 2022 02:52:10 GMT\r\nSet-Cookie: BIGipServerpool-djevpa-lfse.cegedim.cloud-HTTP=!5u09EoQWUW+kx/zkuunEfrOB80n4KRYAlS112Jjm1nC6GWLsY0TOJ8rhh9ZiEQvtTzPfMRyDgdad1EiyL/3knYClkMs=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\nWww-Authenticate: Basic realm=\"Password Required\"\r\nX-Content-Type-Options: nosniff\r\n\r\n401 ERROR",
+    "ip": "185.194.82.152",
+    "timestamp": "2022-05-22T02:52:10.840060401Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://extranet.lafrancesengage.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "clear-site-data",
+    "type": "http",
+    "host": "https://extranet.lafrancesengage.fr",
+    "matched-at": "https://extranet.lafrancesengage.fr",
+    "request": "GET / HTTP/1.1\r\nHost: extranet.lafrancesengage.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 401 Authorization Required\r\nConnection: close\r\nContent-Length: 9\r\nContent-Security-Policy: upgrade-insecure-requests\r\nDate: Sun, 22 May 2022 02:52:10 GMT\r\nSet-Cookie: BIGipServerpool-djevpa-lfse.cegedim.cloud-HTTP=!5u09EoQWUW+kx/zkuunEfrOB80n4KRYAlS112Jjm1nC6GWLsY0TOJ8rhh9ZiEQvtTzPfMRyDgdad1EiyL/3knYClkMs=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\nWww-Authenticate: Basic realm=\"Password Required\"\r\nX-Content-Type-Options: nosniff\r\n\r\n401 ERROR",
+    "ip": "185.194.82.152",
+    "timestamp": "2022-05-22T02:52:10.840075401Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://extranet.lafrancesengage.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "access-control-allow-origin",
+    "type": "http",
+    "host": "https://extranet.lafrancesengage.fr",
+    "matched-at": "https://extranet.lafrancesengage.fr",
+    "request": "GET / HTTP/1.1\r\nHost: extranet.lafrancesengage.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 401 Authorization Required\r\nConnection: close\r\nContent-Length: 9\r\nContent-Security-Policy: upgrade-insecure-requests\r\nDate: Sun, 22 May 2022 02:52:10 GMT\r\nSet-Cookie: BIGipServerpool-djevpa-lfse.cegedim.cloud-HTTP=!5u09EoQWUW+kx/zkuunEfrOB80n4KRYAlS112Jjm1nC6GWLsY0TOJ8rhh9ZiEQvtTzPfMRyDgdad1EiyL/3knYClkMs=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\nWww-Authenticate: Basic realm=\"Password Required\"\r\nX-Content-Type-Options: nosniff\r\n\r\n401 ERROR",
+    "ip": "185.194.82.152",
+    "timestamp": "2022-05-22T02:52:10.840092501Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://extranet.lafrancesengage.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "It searches for missing security headers, but obviously, could be so less generic and could be useless for Bug Bounty.",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "access-control-allow-headers",
+    "type": "http",
+    "host": "https://extranet.lafrancesengage.fr",
+    "matched-at": "https://extranet.lafrancesengage.fr",
+    "request": "GET / HTTP/1.1\r\nHost: extranet.lafrancesengage.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 401 Authorization Required\r\nConnection: close\r\nContent-Length: 9\r\nContent-Security-Policy: upgrade-insecure-requests\r\nDate: Sun, 22 May 2022 02:52:10 GMT\r\nSet-Cookie: BIGipServerpool-djevpa-lfse.cegedim.cloud-HTTP=!5u09EoQWUW+kx/zkuunEfrOB80n4KRYAlS112Jjm1nC6GWLsY0TOJ8rhh9ZiEQvtTzPfMRyDgdad1EiyL/3knYClkMs=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\nWww-Authenticate: Basic realm=\"Password Required\"\r\nX-Content-Type-Options: nosniff\r\n\r\n401 ERROR",
+    "ip": "185.194.82.152",
+    "timestamp": "2022-05-22T02:52:10.840107801Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://extranet.lafrancesengage.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "ssl/ssl-dns-names.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/ssl/ssl-dns-names.yaml",
+    "template-id": "ssl-dns-names",
+    "info": {
+      "name": "SSL DNS Names",
+      "author": [
+        "pdteam"
+      ],
+      "tags": [
+        "ssl"
+      ],
+      "reference": null,
+      "severity": "info"
+    },
+    "type": "ssl",
+    "host": "https://extranet.lafrancesengage.fr",
+    "matched-at": "https://extranet.lafrancesengage.fr",
+    "extracted-results": [
+      "extranet.lafrancesengage.fr"
+    ],
+    "ip": "185.194.82.152",
+    "timestamp": "2022-05-22T02:52:13.417144399Z",
     "matcher-status": true,
     "matched-line": null
   }
