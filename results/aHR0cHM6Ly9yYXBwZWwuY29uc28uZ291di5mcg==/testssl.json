@@ -346,7 +346,7 @@
               "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
               "port"         : "443",
               "severity"     : "OK",
-              "finding"      : "316 >= 60 days"
+              "finding"      : "309 >= 60 days"
           }
 ,         {
               "id"           : "cert_notBefore",
@@ -535,21 +535,21 @@
               "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "200 OK ('/')"
+              "finding"      : "307 Temporary Redirect ('/')"
           }
 ,         {
               "id"           : "HTTP_clock_skew",
               "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "-1 seconds from localtime"
+              "finding"      : "0 seconds from localtime"
           }
 ,         {
               "id"           : "HTTP_headerTime",
               "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "1653798428"
+              "finding"      : "1654402794"
           }
 ,         {
               "id"           : "HSTS",
@@ -570,7 +570,7 @@
               "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "webServer1"
+              "finding"      : "No Server banner line in header, interesting!"
           }
 ,         {
               "id"           : "banner_application",
@@ -584,77 +584,28 @@
               "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "2 at '/'"
+              "finding"      : "1 at '/' (30x detected, better try target URL of 30x)"
           }
 ,         {
               "id"           : "cookie_secure",
               "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "1/2 at '/' marked as secure"
+              "finding"      : "0/1 at '/' marked as secure"
           }
 ,         {
               "id"           : "cookie_httponly",
               "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
               "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "1/2 at '/' marked as HttpOnly"
-          }
-,         {
-              "id"           : "X-Frame-Options",
-              "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
-              "port"         : "443",
               "severity"     : "OK",
-              "finding"      : "SAMEORIGIN"
+              "finding"      : "All (1) at '/' marked as HttpOnly (30x detected, better try target URL of 30x)"
           }
 ,         {
-              "id"           : "X-Content-Type-Options",
-              "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
-              "port"         : "443",
-              "severity"     : "OK",
-              "finding"      : "nosniff"
-          }
-,         {
-              "id"           : "Content-Security-Policy_multiple",
+              "id"           : "security_headers",
               "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
               "port"         : "443",
               "severity"     : "MEDIUM",
-              "finding"      : "Multiple Content-Security-Policy headers. Using first header: upgrade-insecure-requests;"
-          }
-,         {
-              "id"           : "Content-Security-Policy",
-              "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
-              "port"         : "443",
-              "severity"     : "OK",
-              "finding"      : "upgrade-insecure-requests;"
-          }
-,         {
-              "id"           : "X-XSS-Protection",
-              "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "1; mode=block"
-          }
-,         {
-              "id"           : "Referrer-Policy",
-              "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "origin-when-cross-origin"
-          }
-,         {
-              "id"           : "Cache-Control",
-              "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "no-cache, no-store"
-          }
-,         {
-              "id"           : "Pragma",
-              "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "no-cache"
+              "finding"      : "--"
           }
 ,         {
               "id"           : "banner_reverseproxy",
@@ -730,10 +681,10 @@
               "id"           : "BREACH",
               "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
               "port"         : "443",
-              "severity"     : "MEDIUM",
+              "severity"     : "OK",
               "cve"          : "CVE-2013-3587",
               "cwe"          : "CWE-310",
-              "finding"      : "potentially VULNERABLE, gzip HTTP compression detected  - only supplied '/' tested"
+              "finding"      : "not vulnerable, no gzip/deflate/compress/br HTTP compression  - only supplied '/' tested"
           }
 ,         {
               "id"           : "POODLE_SSL",
@@ -842,20 +793,6 @@
               "finding"      : "not vulnerable"
           }
 ,         {
-              "id"           : "clientsimulation-android_442",
-              "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
-          }
-,         {
-              "id"           : "clientsimulation-android_500",
-              "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
-          }
-,         {
               "id"           : "clientsimulation-android_60",
               "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
               "port"         : "443",
@@ -891,7 +828,14 @@
               "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
           }
 ,         {
-              "id"           : "clientsimulation-chrome_74_win10",
+              "id"           : "clientsimulation-android_11",
+              "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+          }
+,         {
+              "id"           : "clientsimulation-android_12",
               "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
               "port"         : "443",
               "severity"     : "INFO",
@@ -905,6 +849,13 @@
               "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
           }
 ,         {
+              "id"           : "clientsimulation-chrome_101_win10",
+              "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+          }
+,         {
               "id"           : "clientsimulation-firefox_66_win81",
               "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
               "port"         : "443",
@@ -912,7 +863,7 @@
               "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
           }
 ,         {
-              "id"           : "clientsimulation-firefox_71_win10",
+              "id"           : "clientsimulation-firefox_100_win10",
               "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
               "port"         : "443",
               "severity"     : "INFO",
@@ -975,35 +926,7 @@
               "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
           }
 ,         {
-              "id"           : "clientsimulation-edge_17_win10",
-              "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
-          }
-,         {
-              "id"           : "clientsimulation-opera_66_win10",
-              "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
-          }
-,         {
-              "id"           : "clientsimulation-safari_9_ios9",
-              "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
-          }
-,         {
-              "id"           : "clientsimulation-safari_9_osx1011",
-              "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
-          }
-,         {
-              "id"           : "clientsimulation-safari_10_osx1012",
+              "id"           : "clientsimulation-edge_101_win10_21h2",
               "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
               "port"         : "443",
               "severity"     : "INFO",
@@ -1024,18 +947,11 @@
               "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
           }
 ,         {
-              "id"           : "clientsimulation-apple_ats_9_ios9",
+              "id"           : "clientsimulation-safari_154_osx_1231",
               "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
               "port"         : "443",
               "severity"     : "INFO",
               "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
-          }
-,         {
-              "id"           : "clientsimulation-java_6u45",
-              "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "No connection"
           }
 ,         {
               "id"           : "clientsimulation-java_7u25",
@@ -1059,7 +975,21 @@
               "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
           }
 ,         {
-              "id"           : "clientsimulation-java1201",
+              "id"           : "clientsimulation-java1703",
+              "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+          }
+,         {
+              "id"           : "clientsimulation-go_1178",
+              "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+          }
+,         {
+              "id"           : "clientsimulation-libressl_283",
               "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
               "port"         : "443",
               "severity"     : "INFO",
@@ -1087,7 +1017,21 @@
               "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
           }
 ,         {
-              "id"           : "clientsimulation-thunderbird_68_3_1",
+              "id"           : "clientsimulation-openssl_303",
+              "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+          }
+,         {
+              "id"           : "clientsimulation-apple_mail_16_0",
+              "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+          }
+,         {
+              "id"           : "clientsimulation-thunderbird_91_9",
               "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
               "port"         : "443",
               "severity"     : "INFO",
@@ -1175,6 +1119,6 @@
               "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "156"
+              "finding"      : "147"
           }
 ]
