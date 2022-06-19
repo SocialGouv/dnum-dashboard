@@ -1,31 +1,5 @@
 [
   {
-    "template": "ssl/tls-version.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/ssl/tls-version.yaml",
-    "template-id": "tls-version",
-    "info": {
-      "name": "TLS Version",
-      "author": [
-        "pdteam"
-      ],
-      "tags": [
-        "ssl"
-      ],
-      "reference": null,
-      "severity": "info"
-    },
-    "type": "ssl",
-    "host": "https://cns.sante.fr",
-    "matched-at": "https://cns.sante.fr",
-    "extracted-results": [
-      "TLS12"
-    ],
-    "ip": "185.194.82.158",
-    "timestamp": "2022-06-12T02:17:38.467081572Z",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
     "template": "ssl/ssl-dns-names.yaml",
     "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/ssl/ssl-dns-names.yaml",
     "template-id": "ssl-dns-names",
@@ -48,7 +22,48 @@
       "www.cns.sante.fr"
     ],
     "ip": "185.194.82.158",
-    "timestamp": "2022-06-12T02:17:40.874107619Z",
+    "timestamp": "2022-06-19T02:17:12.932392408Z",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "dns/mx-fingerprint.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/dns/mx-fingerprint.yaml",
+    "template-id": "mx-fingerprint",
+    "info": {
+      "name": "MX Record Detection",
+      "author": [
+        "pdteam"
+      ],
+      "tags": [
+        "dns",
+        "mx"
+      ],
+      "description": "An MX record was detected. MX records direct emails to a mail exchange server.",
+      "reference": [
+        "https://www.cloudflare.com/learning/dns/dns-records/dns-mx-record/",
+        "https://mxtoolbox.com/"
+      ],
+      "severity": "info",
+      "classification": {
+        "cve-id": null,
+        "cwe-id": [
+          "cwe-200"
+        ]
+      }
+    },
+    "type": "dns",
+    "host": "https://cns.sante.fr",
+    "matched-at": "https://cns.sante.fr",
+    "extracted-results": [
+      "10 pro093001app059.social.gouv.fr.",
+      "10 pro075001app063.social.gouv.fr.",
+      "10 pro075001app061.social.gouv.fr.",
+      "10 pro093001app060.social.gouv.fr."
+    ],
+    "request": ";; opcode: QUERY, status: NOERROR, id: 57876\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags: ; udp: 4096\n\n;; QUESTION SECTION:\n;cns.sante.fr.\tIN\t MX\n",
+    "response": ";; opcode: QUERY, status: NOERROR, id: 57876\n;; flags: qr rd ra; QUERY: 1, ANSWER: 4, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags: ; udp: 512\n\n;; QUESTION SECTION:\n;cns.sante.fr.\tIN\t MX\n\n;; ANSWER SECTION:\ncns.sante.fr.\t21600\tIN\tMX\t10 pro093001app059.social.gouv.fr.\ncns.sante.fr.\t21600\tIN\tMX\t10 pro075001app063.social.gouv.fr.\ncns.sante.fr.\t21600\tIN\tMX\t10 pro075001app061.social.gouv.fr.\ncns.sante.fr.\t21600\tIN\tMX\t10 pro093001app060.social.gouv.fr.\n",
+    "timestamp": "2022-06-19T02:17:52.578154127Z",
     "matcher-status": true,
     "matched-line": null
   }
