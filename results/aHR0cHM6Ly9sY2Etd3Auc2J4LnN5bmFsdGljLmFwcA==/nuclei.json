@@ -1,25 +1,66 @@
 [
   {
-    "template": "ssl/self-signed-ssl.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/ssl/self-signed-ssl.yaml",
-    "template-id": "self-signed-ssl",
+    "template": "technologies/waf-detect.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/technologies/waf-detect.yaml",
+    "template-id": "waf-detect",
     "info": {
-      "name": "Self Signed SSL Certificate",
+      "name": "WAF Detection",
       "author": [
-        "righettod",
+        "dwisiswant0",
+        "lu4nx"
+      ],
+      "tags": [
+        "waf",
+        "tech",
+        "misc"
+      ],
+      "description": "A web application firewall was detected.",
+      "reference": [
+        "https://github.com/ekultek/whatwaf"
+      ],
+      "severity": "info",
+      "classification": {
+        "cve-id": null,
+        "cwe-id": [
+          "cwe-200"
+        ]
+      }
+    },
+    "matcher-name": "nginxgeneric",
+    "type": "http",
+    "host": "https://lca-wp.sbx.synaltic.app",
+    "matched-at": "https://lca-wp.sbx.synaltic.app/",
+    "request": "POST / HTTP/1.1\r\nHost: lca-wp.sbx.synaltic.app\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nContent-Length: 27\r\nContent-Type: application/x-www-form-urlencoded\r\nAccept-Encoding: gzip\r\n\r\n_=<script>alert(1)</script>",
+    "response": "HTTP/1.1 404 Not Found\r\nConnection: close\r\nContent-Length: 146\r\nContent-Type: text/html\r\nDate: Sun, 19 Jun 2022 06:00:17 GMT\r\nStrict-Transport-Security: max-age=15724800; includeSubDomains\r\n\r\n<html>\r\n<head><title>404 Not Found</title></head>\r\n<body>\r\n<center><h1>404 Not Found</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n",
+    "ip": "135.125.84.250",
+    "timestamp": "2022-06-19T06:00:17.344964116Z",
+    "curl-command": "curl -X 'POST' -d '_=<script>alert(1)</script>' -H 'Content-Type: application/x-www-form-urlencoded' -H 'Host: lca-wp.sbx.synaltic.app' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://lca-wp.sbx.synaltic.app/'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "ssl/ssl-dns-names.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/ssl/ssl-dns-names.yaml",
+    "template-id": "ssl-dns-names",
+    "info": {
+      "name": "SSL DNS Names",
+      "author": [
         "pdteam"
       ],
       "tags": [
         "ssl"
       ],
       "reference": null,
-      "severity": "low"
+      "severity": "info"
     },
     "type": "ssl",
     "host": "https://lca-wp.sbx.synaltic.app",
     "matched-at": "https://lca-wp.sbx.synaltic.app",
+    "extracted-results": [
+      "ingress.local"
+    ],
     "ip": "135.125.84.250",
-    "timestamp": "2022-06-12T05:56:49.410680462Z",
+    "timestamp": "2022-06-19T06:00:23.049174069Z",
     "matcher-status": true,
     "matched-line": null
   },
@@ -45,7 +86,7 @@
       "TLS13"
     ],
     "ip": "135.125.84.250",
-    "timestamp": "2022-06-12T05:57:13.573141995Z",
+    "timestamp": "2022-06-19T06:00:46.404144831Z",
     "matcher-status": true,
     "matched-line": null
   }
