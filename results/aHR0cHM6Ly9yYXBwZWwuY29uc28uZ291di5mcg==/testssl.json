@@ -346,7 +346,7 @@
               "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
               "port"         : "443",
               "severity"     : "OK",
-              "finding"      : "295 >= 60 days"
+              "finding"      : "288 >= 60 days"
           }
 ,         {
               "id"           : "cert_notBefore",
@@ -535,21 +535,21 @@
               "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "307 Temporary Redirect ('/')"
+              "finding"      : "200 OK ('/')"
           }
 ,         {
               "id"           : "HTTP_clock_skew",
               "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "0 seconds from localtime"
+              "finding"      : "-1 seconds from localtime"
           }
 ,         {
               "id"           : "HTTP_headerTime",
               "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "1655613119"
+              "finding"      : "1656218639"
           }
 ,         {
               "id"           : "HSTS",
@@ -570,7 +570,7 @@
               "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "No Server banner line in header, interesting!"
+              "finding"      : "webServer1"
           }
 ,         {
               "id"           : "banner_application",
@@ -584,28 +584,77 @@
               "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "1 at '/' (30x detected, better try target URL of 30x)"
+              "finding"      : "2 at '/'"
           }
 ,         {
               "id"           : "cookie_secure",
               "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "0/1 at '/' marked as secure"
+              "finding"      : "1/2 at '/' marked as secure"
           }
 ,         {
               "id"           : "cookie_httponly",
               "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
               "port"         : "443",
-              "severity"     : "OK",
-              "finding"      : "All (1) at '/' marked as HttpOnly (30x detected, better try target URL of 30x)"
+              "severity"     : "INFO",
+              "finding"      : "1/2 at '/' marked as HttpOnly"
           }
 ,         {
-              "id"           : "security_headers",
+              "id"           : "X-Frame-Options",
+              "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "SAMEORIGIN"
+          }
+,         {
+              "id"           : "X-Content-Type-Options",
+              "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "nosniff"
+          }
+,         {
+              "id"           : "Content-Security-Policy_multiple",
               "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
               "port"         : "443",
               "severity"     : "MEDIUM",
-              "finding"      : "--"
+              "finding"      : "Multiple Content-Security-Policy headers. Using first header: upgrade-insecure-requests;"
+          }
+,         {
+              "id"           : "Content-Security-Policy",
+              "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "upgrade-insecure-requests;"
+          }
+,         {
+              "id"           : "X-XSS-Protection",
+              "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "1; mode=block"
+          }
+,         {
+              "id"           : "Referrer-Policy",
+              "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "origin-when-cross-origin"
+          }
+,         {
+              "id"           : "Cache-Control",
+              "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "no-cache, no-store"
+          }
+,         {
+              "id"           : "Pragma",
+              "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "no-cache"
           }
 ,         {
               "id"           : "banner_reverseproxy",
@@ -681,10 +730,10 @@
               "id"           : "BREACH",
               "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
               "port"         : "443",
-              "severity"     : "OK",
+              "severity"     : "MEDIUM",
               "cve"          : "CVE-2013-3587",
               "cwe"          : "CWE-310",
-              "finding"      : "not vulnerable, no gzip/deflate/compress/br HTTP compression  - only supplied '/' tested"
+              "finding"      : "potentially VULNERABLE, gzip HTTP compression detected  - only supplied '/' tested"
           }
 ,         {
               "id"           : "POODLE_SSL",
@@ -1119,6 +1168,6 @@
               "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "101"
+              "finding"      : "103"
           }
 ]
