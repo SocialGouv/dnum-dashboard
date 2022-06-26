@@ -1,10 +1,48 @@
 [
   {
-    "template": "ssl/expired-ssl.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/ssl/expired-ssl.yaml",
-    "template-id": "expired-ssl",
+    "template": "dns/cname-fingerprint.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/dns/cname-fingerprint.yaml",
+    "template-id": "cname-fingerprint",
     "info": {
-      "name": "Expired SSL Certificate",
+      "name": "CNAME Fingerprint",
+      "author": [
+        "pdteam"
+      ],
+      "tags": [
+        "dns",
+        "cname"
+      ],
+      "description": "A CNAME DNS record was discovered.",
+      "reference": [
+        "https://www.theregister.com/2021/02/24/dns_cname_tracking/",
+        "https://www.ionos.com/digitalguide/hosting/technical-matters/cname-record/"
+      ],
+      "severity": "info",
+      "classification": {
+        "cve-id": null,
+        "cwe-id": [
+          "cwe-200"
+        ]
+      }
+    },
+    "type": "dns",
+    "host": "https://election-tpe.travail.gouv.fr",
+    "matched-at": "https://election-tpe.travail.gouv.fr",
+    "extracted-results": [
+      "election-tpe.domaine-alias.com."
+    ],
+    "request": ";; opcode: QUERY, status: NOERROR, id: 54766\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags: ; udp: 4096\n\n;; QUESTION SECTION:\n;election-tpe.travail.gouv.fr.\tIN\t CNAME\n",
+    "response": ";; opcode: QUERY, status: NOERROR, id: 54766\n;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags: ; udp: 1232\n\n;; QUESTION SECTION:\n;election-tpe.travail.gouv.fr.\tIN\t CNAME\n\n;; ANSWER SECTION:\nelection-tpe.travail.gouv.fr.\t21600\tIN\tCNAME\telection-tpe.domaine-alias.com.\n",
+    "timestamp": "2022-06-26T03:10:27.127571226Z",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "ssl/tls-version.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/ssl/tls-version.yaml",
+    "template-id": "tls-version",
+    "info": {
+      "name": "TLS Version",
       "author": [
         "pdteam"
       ],
@@ -12,13 +50,16 @@
         "ssl"
       ],
       "reference": null,
-      "severity": "low"
+      "severity": "info"
     },
     "type": "ssl",
     "host": "https://election-tpe.travail.gouv.fr",
     "matched-at": "https://election-tpe.travail.gouv.fr",
+    "extracted-results": [
+      "TLS12"
+    ],
     "ip": "194.5.109.200",
-    "timestamp": "2022-06-19T02:59:16.016486835Z",
+    "timestamp": "2022-06-26T03:11:07.2058989Z",
     "matcher-status": true,
     "matched-line": null
   }
