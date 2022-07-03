@@ -1,5 +1,28 @@
 [
   {
+    "template": "ssl/expired-ssl.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/ssl/expired-ssl.yaml",
+    "template-id": "expired-ssl",
+    "info": {
+      "name": "Expired SSL Certificate",
+      "author": [
+        "pdteam"
+      ],
+      "tags": [
+        "ssl"
+      ],
+      "reference": null,
+      "severity": "low"
+    },
+    "type": "ssl",
+    "host": "https://election-tpe.travail.gouv.fr",
+    "matched-at": "https://election-tpe.travail.gouv.fr",
+    "ip": "194.5.109.200",
+    "timestamp": "2022-07-03T03:07:26.915157675Z",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
     "template": "dns/cname-fingerprint.yaml",
     "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/dns/cname-fingerprint.yaml",
     "template-id": "cname-fingerprint",
@@ -31,35 +54,9 @@
     "extracted-results": [
       "election-tpe.domaine-alias.com."
     ],
-    "request": ";; opcode: QUERY, status: NOERROR, id: 54766\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags: ; udp: 4096\n\n;; QUESTION SECTION:\n;election-tpe.travail.gouv.fr.\tIN\t CNAME\n",
-    "response": ";; opcode: QUERY, status: NOERROR, id: 54766\n;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags: ; udp: 1232\n\n;; QUESTION SECTION:\n;election-tpe.travail.gouv.fr.\tIN\t CNAME\n\n;; ANSWER SECTION:\nelection-tpe.travail.gouv.fr.\t21600\tIN\tCNAME\telection-tpe.domaine-alias.com.\n",
-    "timestamp": "2022-06-26T03:10:27.127571226Z",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
-    "template": "ssl/tls-version.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/ssl/tls-version.yaml",
-    "template-id": "tls-version",
-    "info": {
-      "name": "TLS Version",
-      "author": [
-        "pdteam"
-      ],
-      "tags": [
-        "ssl"
-      ],
-      "reference": null,
-      "severity": "info"
-    },
-    "type": "ssl",
-    "host": "https://election-tpe.travail.gouv.fr",
-    "matched-at": "https://election-tpe.travail.gouv.fr",
-    "extracted-results": [
-      "TLS12"
-    ],
-    "ip": "194.5.109.200",
-    "timestamp": "2022-06-26T03:11:07.2058989Z",
+    "request": ";; opcode: QUERY, status: NOERROR, id: 65492\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags: ; udp: 4096\n\n;; QUESTION SECTION:\n;election-tpe.travail.gouv.fr.\tIN\t CNAME\n",
+    "response": ";; opcode: QUERY, status: NOERROR, id: 65492\n;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags: ; udp: 512\n\n;; QUESTION SECTION:\n;election-tpe.travail.gouv.fr.\tIN\t CNAME\n\n;; ANSWER SECTION:\nelection-tpe.travail.gouv.fr.\t21559\tIN\tCNAME\telection-tpe.domaine-alias.com.\n",
+    "timestamp": "2022-07-03T03:08:02.751510415Z",
     "matcher-status": true,
     "matched-line": null
   }
