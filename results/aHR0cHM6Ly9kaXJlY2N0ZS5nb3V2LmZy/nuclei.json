@@ -1,28 +1,160 @@
 [
   {
-    "template": "miscellaneous/robots-txt.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/miscellaneous/robots-txt.yaml",
-    "template-id": "robots-txt",
+    "template": "dns/txt-fingerprint.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/dns/txt-fingerprint.yaml",
+    "template-id": "txt-fingerprint",
     "info": {
-      "name": "robots.txt file",
+      "name": "DNS TXT Record Detected",
       "author": [
-        "caspergn"
+        "pdteam"
       ],
       "tags": [
-        "misc",
-        "generic"
+        "dns",
+        "txt"
       ],
-      "reference": null,
-      "severity": "info"
+      "description": "A DNS TXT record was detected. The TXT record lets a domain admin leave notes on a DNS server.",
+      "reference": [
+        "https://www.netspi.com/blog/technical/network-penetration-testing/analyzing-dns-txt-records-to-fingerprint-service-providers/"
+      ],
+      "severity": "info",
+      "classification": {
+        "cve-id": null,
+        "cwe-id": [
+          "cwe-200"
+        ]
+      }
     },
+    "type": "dns",
+    "host": "https://direccte.gouv.fr",
+    "matched-at": "https://direccte.gouv.fr",
+    "extracted-results": [
+      "\"R+PuUwRUOuIkhtFtitRXWrMTFS6Au3xy7/TK7gHSDIMusO78eAv8a04QXuol8S0Nq4V7RMAvrbpSW29dddtPjg==\"",
+      "\"MS=ms10035681\"",
+      "\"v=spf1 include:_spf.sante.gouv.fr include:_spf.pfai.rie.gouv.fr include:_spf-njo.cegedim.fr ~all\"",
+      "\"cisco-ci-domain-verification=4f0dbd28841cdec33cfa3966c36911028ffbbcd90a6a9c4b34ecd75286ea17d2\""
+    ],
+    "request": ";; opcode: QUERY, status: NOERROR, id: 43398\n;; flags: rd ad; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags: ; udp: 4096\n\n;; QUESTION SECTION:\n;direccte.gouv.fr.\tIN\t TXT\n",
+    "response": ";; opcode: QUERY, status: NOERROR, id: 43398\n;; flags: qr rd ra; QUERY: 1, ANSWER: 4, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags: ; udp: 512\n\n;; QUESTION SECTION:\n;direccte.gouv.fr.\tIN\t TXT\n\n;; ANSWER SECTION:\ndireccte.gouv.fr.\t600\tIN\tTXT\t\"v=spf1 include:_spf.sante.gouv.fr include:_spf.pfai.rie.gouv.fr include:_spf-njo.cegedim.fr ~all\"\ndireccte.gouv.fr.\t600\tIN\tTXT\t\"cisco-ci-domain-verification=4f0dbd28841cdec33cfa3966c36911028ffbbcd90a6a9c4b34ecd75286ea17d2\"\ndireccte.gouv.fr.\t600\tIN\tTXT\t\"R+PuUwRUOuIkhtFtitRXWrMTFS6Au3xy7/TK7gHSDIMusO78eAv8a04QXuol8S0Nq4V7RMAvrbpSW29dddtPjg==\"\ndireccte.gouv.fr.\t600\tIN\tTXT\t\"MS=ms10035681\"\n",
+    "timestamp": "2022-07-03T02:39:51.772675116Z",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "dns/nameserver-fingerprint.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/dns/nameserver-fingerprint.yaml",
+    "template-id": "nameserver-fingerprint",
+    "info": {
+      "name": "NS Record Detection",
+      "author": [
+        "pdteam"
+      ],
+      "tags": [
+        "dns",
+        "ns"
+      ],
+      "description": "An NS record was detected. An NS record delegates a subdomain to a set of name servers.",
+      "reference": null,
+      "severity": "info",
+      "classification": {
+        "cve-id": null,
+        "cwe-id": [
+          "cwe-200"
+        ]
+      }
+    },
+    "type": "dns",
+    "host": "https://direccte.gouv.fr",
+    "matched-at": "https://direccte.gouv.fr",
+    "extracted-results": [
+      "ns4.perf1.de.",
+      "ns1.perf1.com.",
+      "ns5.perf1.asia.",
+      "b.ns.developpement-durable.gouv.fr.",
+      "ns3.perf1.eu.",
+      "ns2.perf1.fr.",
+      "a.ns.developpement-durable.gouv.fr."
+    ],
+    "request": ";; opcode: QUERY, status: NOERROR, id: 63391\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags: ; udp: 4096\n\n;; QUESTION SECTION:\n;direccte.gouv.fr.\tIN\t NS\n",
+    "response": ";; opcode: QUERY, status: NOERROR, id: 63391\n;; flags: qr rd ra; QUERY: 1, ANSWER: 7, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags: ; udp: 512\n\n;; QUESTION SECTION:\n;direccte.gouv.fr.\tIN\t NS\n\n;; ANSWER SECTION:\ndireccte.gouv.fr.\t3600\tIN\tNS\tns2.perf1.fr.\ndireccte.gouv.fr.\t3600\tIN\tNS\ta.ns.developpement-durable.gouv.fr.\ndireccte.gouv.fr.\t3600\tIN\tNS\tns4.perf1.de.\ndireccte.gouv.fr.\t3600\tIN\tNS\tns1.perf1.com.\ndireccte.gouv.fr.\t3600\tIN\tNS\tns5.perf1.asia.\ndireccte.gouv.fr.\t3600\tIN\tNS\tb.ns.developpement-durable.gouv.fr.\ndireccte.gouv.fr.\t3600\tIN\tNS\tns3.perf1.eu.\n",
+    "timestamp": "2022-07-03T02:40:12.083049074Z",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "technologies/waf-detect.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/technologies/waf-detect.yaml",
+    "template-id": "waf-detect",
+    "info": {
+      "name": "WAF Detection",
+      "author": [
+        "dwisiswant0",
+        "lu4nx"
+      ],
+      "tags": [
+        "waf",
+        "tech",
+        "misc"
+      ],
+      "description": "A web application firewall was detected.",
+      "reference": [
+        "https://github.com/ekultek/whatwaf"
+      ],
+      "severity": "info",
+      "classification": {
+        "cve-id": null,
+        "cwe-id": [
+          "cwe-200"
+        ]
+      }
+    },
+    "matcher-name": "bigip",
     "type": "http",
     "host": "https://direccte.gouv.fr",
-    "matched-at": "https://dreets.gouv.fr/robots.txt",
-    "request": "GET /robots.txt HTTP/1.1\r\nHost: direccte.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Type: text/plain; charset=utf-8\r\nDate: Sun, 26 Jun 2022 02:45:16 GMT\r\nLast-Modified: Sun, 26 Jun 2022 02:45:16 GMT\r\nSet-Cookie: BIGipServerpool-dreets.cegedim.cloud-HTTP=!ACW1Xzi4+yJTKLy057/oC+DRUtJHDH18to/1AaaQ6yPIM8LcqjoDOEa9up74T1tK2AX7uUc5cL3wp32FBdlDY/kJTpY=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\nX-Spip-Cache: 86400\r\n\r\n# robots.txt\n# @url: http://dreets.gouv.fr\n# @template: plugins/direccte/squelettes/robots.txt.html\n\nUser-agent: * \nAllow:    /local/cache-css/\nDisallow: /local/\nDisallow: /ecrire/\nDisallow: /plugins-dist/\nDisallow: /lib/\nDisallow: /plugins/\nDisallow: /prive/\nDisallow: /squelettes-dist/\nDisallow: /squelettes/\nDisallow: sites/dreets.gouv.fr/IMG/doc/Bop1.doc # 15924 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/doc/organigramme_direccte_pole_c_decembre_2014.doc # 46400 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/docx/110704_DIRECCTE_guide_formation_BO-2.docx # 7741 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/flv/creation_des_agences_regionales_de_sante.flv # 7744 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/gif/3939_gif_anime_sans_horaires-0171c-2.gif # 22552 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/gif/ANIMATION_ELBEUF.gif # 20068 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/gif/gastronomie249.gif # 176 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/gif/logoetat_hautevienne-5.gif # 1904 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/gif/PREF_AQUIT_80x60-2.gif # 2052 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/gif/TPE-bannieres180x150-2-1.gif # 16822 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/http://www.economie.gouv.fr/files/mediateur_credit_371.jpg # 2308 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/http://www.emploi.gouv.fr/ # 22430 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/http://www.simulateurap.emploi.gouv.fr/ # 22431 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/2010_05_00_Prefet_de_region-2.jpg # 1506 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/arton8799-03ada.jpg # 23317 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/aveugle-3.jpg # 7742 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/BandeauPubsiteEmploi-0c0b4.jpg # 26755 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/bonhomme-de-neige-jpg_reduit-2.jpg # 20681 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/Colbert-2.jpg # 30614 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/Commerce_ext.jpg # 15160 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/crack_eco-2.jpg # 161 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/crack_eco-3.jpg # 35 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/defenseurdesdroits-2.jpg # 29180 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/DG_TRESOR.jpg # 13061 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/direccte_689x385.jpg # 21454 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/DOETH.jpg # 20335 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/Economie-3.jpg # 7651 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/emploi-2.jpg # 8168 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/Etoile.jpg # 257 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/Europe-Centre.jpg # 2216 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/FL_marianne_croix.jpg # 18670 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/formation_18dec.jpg # 20679 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/Fotolia_22386036_tracteur-150x150-2.jpg # 2469 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/Fotolia_27616800_plombier-150x150-3.jpg # 2464 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/Image1_cc.jpg # 22745 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/Image_Ctre_Delgres-3.jpg # 39494 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/img002.jpg # 24363 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/Industrie-2.jpg # 15174 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/industrie-4.jpg # 7686 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/jean_paul_mimeur_large.jpg # 11004 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/le_code_du_travail_bleu-3.jpg # 2080 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/lien_jeunes_bleu.jpg # 1957 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/Logo-CP-valide.jpg # 35089 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/logo-ea-6.jpg # 23233 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/logo-mdt2a.jpg # 19753 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/logo-mediateur-3.jpg # 7496 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/logobercy_80x60_bleu-2-979c7-4.jpg # 751 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/logobercy_80x60_bleu.jpg # 622 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/logoconcours01.jpg # 6192 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/logoconcours02.jpg # 6193 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/LogoDREAL_petit-2.jpg # 7887 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/logoemploigouv.jpg # 11038 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/logoGEOLIMOUSIN_2.jpg # 7888 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/logoUE-3.jpg # 900 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/logoUE-4.jpg # 1905 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/Logo_Dares-3.jpg # 39491 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/Logo_emploi.jpg # 251 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/Logo_formation-60823-c7cba.jpg # 1138 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/Logo_IEDOM_Mque-3.jpg # 39493 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/Logo_Insee_Mque-3.jpg # 39492 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/Logo_MMP_vignette.jpg # 31091 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/logo_pole_emploi.jpg # 20700 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/logo_pour_site_EXPORTER_web.jpg # 13062 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/Logo_services_etat-2.jpg # 10615 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/Logo_services_etat-3.jpg # 22549 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/Logo_services_etat-en_region_site_pref_-2.jpg # 1146 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/Logo_services_etat.jpg # 258 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/Logo_travail.jpg # 250 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/Metiersdart.jpg # 33992 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/Michel-Sapin-Direcctes.jpg # 17001 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/Missions_locales_23_fevrier_12-_couv.jpg # 15137 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/Notre-reseau-international_logo_web.jpg # 13065 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/Nouvelle_image-2.jpg # 3037 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/Photo_002_recadree_sepia_light-2.jpg # 23242 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/Photo_002_recadree_sepia_light.jpg # 2325 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/Plan_UC_Gergovia_OK.jpg # 15445 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/Plan_UC_Pelissier_ok.jpg # 15444 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/Portail-de-l_industrie.jpg # 8173 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/Portailecofina.jpg # 8172 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/portail_consommation_8060_jaune3-1a6fd.jpg # 1698 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/portail_des_PME8060_vert-7ebb3.jpg # 1697 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/portail_de_l_industrie8060_violet-fb2e9.jpg # 1696 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/Portail_pref.jpg # 8174 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/Se-positionner-a-l_international_logo_web.jpg # 13063 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/travail80x60-3.jpg # 7605 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/UT37-2.jpg # 11424 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/vignette-emplois-d_avenir2-3.jpg # 23240 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/vignette_industrie_bleue.jpg # 23239 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/vignette_situation_de_travail_rose.jpg # 23237 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/vignette_travail_1_bleu.jpg # 23235 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/voeux_2013.jpg # 21348 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/jpg/Vous-aider-a-exporter_logo_web.jpg # 13064 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/mp3/DICOM_METIERS_ADOS_30S_22-02-12.mp3 # 10187 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/mp3/DICOM_METIERS_MERE_30S_22-02-12.mp3 # 10188 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/pdf/078_EPV_Expo_Manguin_carteHD.pdf # 13735 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/pdf/2012_BNI_fevrier.pdf # 11087 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/pdf/Annexe_emploi.pdf # 31563 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/pdf/Annexe_systeme_d_inspection_du_travail.pdf # 31564 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/pdf/Annuaire_Direccte-Dieccte-UT.pdf # 40561 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/pdf/arrete_2014_MDFSE.pdf # 45578 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/pdf/Arrete_liste_76_conseillers_du_salarie_2011-2014-3.pdf # 6458 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/pdf/Avis_du_CNIT.pdf # 31562 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/pdf/Barometre_demande_emploi_jeunes_numero_4_31_dec_2010b.pdf # 2474 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/pdf/Barometr_reclam_bilan2011.pdf # 9257 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/pdf/bat_c02-3.pdf # 7743 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/pdf/bat_c02.pdf # 2522 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/pdf/Bulletin_STMT_J_1_FEVRIER_2014.pdf # 36722 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/pdf/carte_mt_NOV_2012-2.pdf # 21136 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/pdf/Chiffres_cles_41_FEVRIER_2014.pdf # 36725 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/pdf/Chiffres_cles_54_FEVRIER_2014.pdf # 36726 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/pdf/Chiffres_cles_55_FEVRIER_2014.pdf # 36728 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/pdf/Chiffres_cles_57_FEVRIER_2014.pdf # 36729 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/pdf/Chiffres_cles_88_FEVRIER_2014.pdf # 36730 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/pdf/communique_de_presse_12_2012.pdf # 22229 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/pdf/communique_de_presse_2013_05.pdf # 28343 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/pdf/Communique_de_presse_26_mars_2014-2.pdf # 36723 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/pdf/Condamnation_Leclerc.pdf # 52185 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/pdf/Conjonctures-janvier2012-3.pdf # 10616 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/pdf/CONTRAT_DE_GENERATION_IDEES_RECUES.pdf # 30579 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/pdf/CPI_2013_affiche_IT.pdf # 23640 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/pdf/CPI_2013_depliant_3volets_IT.pdf # 23641 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/pdf/CPI_2013_IT_doss_inscrip.pdf # 23642 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/pdf/CPI_2013_IT_quest-reponses.pdf # 23643 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/pdf/cp_commission_europeenneJouets29112011.pdf # 3038 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/pdf/Decret_organisation_du_SIT.pdf # 36502 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/pdf/depliant_DEF.pdf # 8012 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/pdf/dgccrf_eco3_mars12.pdf # 12160 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/pdf/direccte-3_volets_apprentissage_bd_ok.pdf # 43409 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/pdf/DOETH2010.pdf # 20334 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/pdf/Dossier_de_presse.pdf # 15786 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/pdf/DP_CG_BAT.pdf # 20539 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/pdf/Fait_maison.pdf # 48540 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/pdf/Feuille_de_route_sociale_2013_VF.pdf # 27111 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/pdf/IDE_pays_de_la_Loire_2012.pdf # 27821 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/pdf/instruction_du_ministre_Ministere_fort.pdf # 31565 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/pdf/IRIS-CP-2010.pdf # 5392 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/pdf/Lettre_DIRECCTE_1_web-5.pdf # 8376 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/pdf/Lettre_Michel_SAPIN-2.pdf # 29761 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/pdf/Lettre_Michel_SAPIN.pdf # 29760 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/pdf/Le_contrat_de_travail_et_moi.pdf # 30564 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/pdf/LISTE_des_CS_au_20120312-2.pdf # 10753 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/pdf/Liste_SST_37.pdf # 10002 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/pdf/MAN_Manuel_Porteur_projet_Demande_subventionV1-4.pdf # 48244 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/pdf/note_Commex_PDL_2012.pdf # 23316 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/pdf/note_conjoncture_1403.pdf # 36724 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/pdf/notice_info_OI.pdf # 44681 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/pdf/PP.pdf # 21835 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/pdf/PREFECTURE_AP_2014_et_liste_personnes_habilitees.pdf # 43585 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/pdf/PremiereInfo-Fevrier2012.pdf # 10828 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/pdf/presentation_campagne_METIERS_Dicom.pdf # 10194 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/pdf/SE_05_2012-2.pdf # 13687 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/pdf/SE_05_2012.pdf # 13686 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/pdf/tableau_bord_41.pdf # 27530 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/pdf/tableau_bord_54.pdf # 27531 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/pdf/tableau_bord_55.pdf # 27532 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/pdf/tableau_bord_57.pdf # 27533 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/pdf/Tableau_bord_88.pdf # 27534 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/pdf/Tableau_GRPT_employeurs.pdf # 13807 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/png/3939-1.png # 12861 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/png/EA-3.png # 52013 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/png/image_portrait_socio_eco.png # 27529 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/png/LOGO_CG.png # 24121 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/png/vignette_3939-1.png # 23378 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/ppt/dossier_de_conception_sites_ARS_v0-03-2.ppt # 7745 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/ppt/Reseaux_sociaux2011_09_06.ppt # 2521 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/swf/180x150_Gouvernement-3.swf # 745 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/xls/table_FD_COMMUNE-3.xls # 7739 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/xls/table_FD_COMMUNE.xls # 2523 / prepa\nDisallow: sites/dreets.gouv.fr/IMG/zip/captures-site-travail.zip # 7740 / prepa\nCrawl-delay: 1\n\nSitemap: http://dreets.gouv.fr/sitemap.xml\n\n",
+    "matched-at": "https://direccte.gouv.fr/",
+    "request": "POST / HTTP/1.1\r\nHost: direccte.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nContent-Length: 27\r\nContent-Type: application/x-www-form-urlencoded\r\nAccept-Encoding: gzip\r\n\r\n_=<script>alert(1)</script>",
+    "response": "HTTP/1.1 301 Moved Permanently\r\nConnection: close\r\nContent-Length: 231\r\nContent-Type: text/html; charset=iso-8859-1\r\nDate: Sun, 03 Jul 2022 02:40:41 GMT\r\nLocation: https://dreets.gouv.fr/\r\nServer: Apache\r\nSet-Cookie: BIGipServerpool-direccte.cegedim.cloud-HTTP=950097930.20480.0000; path=/; Httponly; Secure\r\n\r\n<!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML 2.0//EN\">\n<html><head>\n<title>301 Moved Permanently</title>\n</head><body>\n<h1>Moved Permanently</h1>\n<p>The document has moved <a href=\"https://dreets.gouv.fr/\">here</a>.</p>\n</body></html>\n",
     "ip": "185.194.82.64",
-    "timestamp": "2022-06-26T02:45:16.519027429Z",
-    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'Referer: https://direccte.gouv.fr/robots.txt' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://dreets.gouv.fr/robots.txt'",
+    "timestamp": "2022-07-03T02:40:41.92739842Z",
+    "curl-command": "curl -X 'POST' -d '_=<script>alert(1)</script>' -H 'Content-Type: application/x-www-form-urlencoded' -H 'Host: direccte.gouv.fr' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://direccte.gouv.fr/'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "technologies/waf-detect.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/technologies/waf-detect.yaml",
+    "template-id": "waf-detect",
+    "info": {
+      "name": "WAF Detection",
+      "author": [
+        "dwisiswant0",
+        "lu4nx"
+      ],
+      "tags": [
+        "waf",
+        "tech",
+        "misc"
+      ],
+      "description": "A web application firewall was detected.",
+      "reference": [
+        "https://github.com/ekultek/whatwaf"
+      ],
+      "severity": "info",
+      "classification": {
+        "cve-id": null,
+        "cwe-id": [
+          "cwe-200"
+        ]
+      }
+    },
+    "matcher-name": "apachegeneric",
+    "type": "http",
+    "host": "https://direccte.gouv.fr",
+    "matched-at": "https://direccte.gouv.fr/",
+    "request": "POST / HTTP/1.1\r\nHost: direccte.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nContent-Length: 27\r\nContent-Type: application/x-www-form-urlencoded\r\nAccept-Encoding: gzip\r\n\r\n_=<script>alert(1)</script>",
+    "response": "HTTP/1.1 301 Moved Permanently\r\nConnection: close\r\nContent-Length: 231\r\nContent-Type: text/html; charset=iso-8859-1\r\nDate: Sun, 03 Jul 2022 02:40:41 GMT\r\nLocation: https://dreets.gouv.fr/\r\nServer: Apache\r\nSet-Cookie: BIGipServerpool-direccte.cegedim.cloud-HTTP=950097930.20480.0000; path=/; Httponly; Secure\r\n\r\n<!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML 2.0//EN\">\n<html><head>\n<title>301 Moved Permanently</title>\n</head><body>\n<h1>Moved Permanently</h1>\n<p>The document has moved <a href=\"https://dreets.gouv.fr/\">here</a>.</p>\n</body></html>\n",
+    "ip": "185.194.82.64",
+    "timestamp": "2022-07-03T02:40:41.927513221Z",
+    "curl-command": "curl -X 'POST' -d '_=<script>alert(1)</script>' -H 'Content-Type: application/x-www-form-urlencoded' -H 'Host: direccte.gouv.fr' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://direccte.gouv.fr/'",
     "matcher-status": true,
     "matched-line": null
   }
