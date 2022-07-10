@@ -1,44 +1,5 @@
 [
   {
-    "template": "technologies/waf-detect.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/technologies/waf-detect.yaml",
-    "template-id": "waf-detect",
-    "info": {
-      "name": "WAF Detection",
-      "author": [
-        "dwisiswant0",
-        "lu4nx"
-      ],
-      "tags": [
-        "waf",
-        "tech",
-        "misc"
-      ],
-      "description": "A web application firewall was detected.",
-      "reference": [
-        "https://github.com/ekultek/whatwaf"
-      ],
-      "severity": "info",
-      "classification": {
-        "cve-id": null,
-        "cwe-id": [
-          "cwe-200"
-        ]
-      }
-    },
-    "matcher-name": "bigip",
-    "type": "http",
-    "host": "https://sivss.sante.fr",
-    "matched-at": "https://sivss.sante.fr/",
-    "request": "POST / HTTP/1.1\r\nHost: sivss.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nContent-Length: 27\r\nContent-Type: application/x-www-form-urlencoded\r\nAccept-Encoding: gzip\r\n\r\n_=<script>alert(1)</script>",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 03 Jul 2022 05:06:30 GMT\r\nLast-Modified: Wed, 22 Jun 2022 16:47:44 GMT\r\nSet-Cookie: BIGipServerpool-sivss.cegedim.cloud-HTTP=!+ZTmwkM4vcg6r+K057/oC+DRUtJHDJ+flBpEnMG1gZLnOE1EbVlalRxY2SeQyBUNql2XLQ5KpJ7mFRB8CjqZMepzOTIX; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>SIVSS-V4</title>\n  <base href=\"/\">\n  <meta charset=\"utf-8\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=10\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=9\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"assets/img/logo-sivss.png\">\n\n<link rel=\"stylesheet\" href=\"styles.ada5b428cdafad758092.css\"></head>\n<body>\n  <app-root></app-root>\n<script src=\"runtime.c51bd5b1c616d9ffddc1.js\" defer></script><script src=\"polyfills-es5.e7013f96343b3660026b.js\" nomodule defer></script><script src=\"polyfills.a4329a3be59c3b830417.js\" defer></script><script src=\"scripts.68ffcfb5008f36f1fb2f.js\" defer></script><script src=\"main.af887c8f554379c1e9cf.js\" defer></script></body>\n</html>\n",
-    "ip": "185.194.82.118",
-    "timestamp": "2022-07-03T05:06:30.772963029Z",
-    "curl-command": "curl -X 'POST' -d '_=<script>alert(1)</script>' -H 'Content-Type: application/x-www-form-urlencoded' -H 'Host: sivss.sante.fr' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://sivss.sante.fr/'",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
     "template": "misconfiguration/http-missing-security-headers.yaml",
     "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
     "template-id": "http-missing-security-headers",
@@ -61,154 +22,14 @@
       "reference": null,
       "severity": "info"
     },
-    "matcher-name": "content-security-policy",
+    "matcher-name": "permission-policy",
     "type": "http",
     "host": "https://sivss.sante.fr",
     "matched-at": "https://sivss.sante.fr",
     "request": "GET / HTTP/1.1\r\nHost: sivss.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 03 Jul 2022 05:06:41 GMT\r\nLast-Modified: Wed, 22 Jun 2022 16:47:44 GMT\r\nSet-Cookie: BIGipServerpool-sivss.cegedim.cloud-HTTP=!ZGvrfclHUFaN6Jy057/oC+DRUtJHDOEQss269DE2QFzfBVgpNjneQ1dtiH3ShvJW67V+s2Kb9pVv3sDA7D39ut5/WjRF; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>SIVSS-V4</title>\n  <base href=\"/\">\n  <meta charset=\"utf-8\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=10\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=9\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"assets/img/logo-sivss.png\">\n\n<link rel=\"stylesheet\" href=\"styles.ada5b428cdafad758092.css\"></head>\n<body>\n  <app-root></app-root>\n<script src=\"runtime.c51bd5b1c616d9ffddc1.js\" defer></script><script src=\"polyfills-es5.e7013f96343b3660026b.js\" nomodule defer></script><script src=\"polyfills.a4329a3be59c3b830417.js\" defer></script><script src=\"scripts.68ffcfb5008f36f1fb2f.js\" defer></script><script src=\"main.af887c8f554379c1e9cf.js\" defer></script></body>\n</html>\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 10 Jul 2022 05:07:47 GMT\r\nLast-Modified: Wed, 22 Jun 2022 16:47:44 GMT\r\nSet-Cookie: BIGipServerpool-sivss.cegedim.cloud-HTTP=!G88942NfpZ1AZ6RnRzbxqujnleDLVrk1BEEbuKXBctI6cpHWPysOdwHOa4G7LHOxO+CHusVwskn8EendULVSM2SxPBB7; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>SIVSS-V4</title>\n  <base href=\"/\">\n  <meta charset=\"utf-8\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=10\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=9\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"assets/img/logo-sivss.png\">\n\n<link rel=\"stylesheet\" href=\"styles.ada5b428cdafad758092.css\"></head>\n<body>\n  <app-root></app-root>\n<script src=\"runtime.c51bd5b1c616d9ffddc1.js\" defer></script><script src=\"polyfills-es5.e7013f96343b3660026b.js\" nomodule defer></script><script src=\"polyfills.a4329a3be59c3b830417.js\" defer></script><script src=\"scripts.68ffcfb5008f36f1fb2f.js\" defer></script><script src=\"main.af887c8f554379c1e9cf.js\" defer></script></body>\n</html>\n",
     "ip": "185.194.82.118",
-    "timestamp": "2022-07-03T05:06:41.867792703Z",
-    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://sivss.sante.fr'",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
-    "template": "misconfiguration/http-missing-security-headers.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
-    "template-id": "http-missing-security-headers",
-    "info": {
-      "name": "HTTP Missing Security Headers",
-      "author": [
-        "socketz",
-        "geeknik",
-        "g4l1t0",
-        "convisoappsec",
-        "kurohost",
-        "dawid-czarnecki",
-        "forgedhallpass"
-      ],
-      "tags": [
-        "misconfig",
-        "generic"
-      ],
-      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-      "reference": null,
-      "severity": "info"
-    },
-    "matcher-name": "x-content-type-options",
-    "type": "http",
-    "host": "https://sivss.sante.fr",
-    "matched-at": "https://sivss.sante.fr",
-    "request": "GET / HTTP/1.1\r\nHost: sivss.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 03 Jul 2022 05:06:41 GMT\r\nLast-Modified: Wed, 22 Jun 2022 16:47:44 GMT\r\nSet-Cookie: BIGipServerpool-sivss.cegedim.cloud-HTTP=!ZGvrfclHUFaN6Jy057/oC+DRUtJHDOEQss269DE2QFzfBVgpNjneQ1dtiH3ShvJW67V+s2Kb9pVv3sDA7D39ut5/WjRF; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>SIVSS-V4</title>\n  <base href=\"/\">\n  <meta charset=\"utf-8\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=10\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=9\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"assets/img/logo-sivss.png\">\n\n<link rel=\"stylesheet\" href=\"styles.ada5b428cdafad758092.css\"></head>\n<body>\n  <app-root></app-root>\n<script src=\"runtime.c51bd5b1c616d9ffddc1.js\" defer></script><script src=\"polyfills-es5.e7013f96343b3660026b.js\" nomodule defer></script><script src=\"polyfills.a4329a3be59c3b830417.js\" defer></script><script src=\"scripts.68ffcfb5008f36f1fb2f.js\" defer></script><script src=\"main.af887c8f554379c1e9cf.js\" defer></script></body>\n</html>\n",
-    "ip": "185.194.82.118",
-    "timestamp": "2022-07-03T05:06:41.867911604Z",
-    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://sivss.sante.fr'",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
-    "template": "misconfiguration/http-missing-security-headers.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
-    "template-id": "http-missing-security-headers",
-    "info": {
-      "name": "HTTP Missing Security Headers",
-      "author": [
-        "socketz",
-        "geeknik",
-        "g4l1t0",
-        "convisoappsec",
-        "kurohost",
-        "dawid-czarnecki",
-        "forgedhallpass"
-      ],
-      "tags": [
-        "misconfig",
-        "generic"
-      ],
-      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-      "reference": null,
-      "severity": "info"
-    },
-    "matcher-name": "x-permitted-cross-domain-policies",
-    "type": "http",
-    "host": "https://sivss.sante.fr",
-    "matched-at": "https://sivss.sante.fr",
-    "request": "GET / HTTP/1.1\r\nHost: sivss.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 03 Jul 2022 05:06:41 GMT\r\nLast-Modified: Wed, 22 Jun 2022 16:47:44 GMT\r\nSet-Cookie: BIGipServerpool-sivss.cegedim.cloud-HTTP=!ZGvrfclHUFaN6Jy057/oC+DRUtJHDOEQss269DE2QFzfBVgpNjneQ1dtiH3ShvJW67V+s2Kb9pVv3sDA7D39ut5/WjRF; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>SIVSS-V4</title>\n  <base href=\"/\">\n  <meta charset=\"utf-8\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=10\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=9\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"assets/img/logo-sivss.png\">\n\n<link rel=\"stylesheet\" href=\"styles.ada5b428cdafad758092.css\"></head>\n<body>\n  <app-root></app-root>\n<script src=\"runtime.c51bd5b1c616d9ffddc1.js\" defer></script><script src=\"polyfills-es5.e7013f96343b3660026b.js\" nomodule defer></script><script src=\"polyfills.a4329a3be59c3b830417.js\" defer></script><script src=\"scripts.68ffcfb5008f36f1fb2f.js\" defer></script><script src=\"main.af887c8f554379c1e9cf.js\" defer></script></body>\n</html>\n",
-    "ip": "185.194.82.118",
-    "timestamp": "2022-07-03T05:06:41.867940204Z",
-    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://sivss.sante.fr'",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
-    "template": "misconfiguration/http-missing-security-headers.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
-    "template-id": "http-missing-security-headers",
-    "info": {
-      "name": "HTTP Missing Security Headers",
-      "author": [
-        "socketz",
-        "geeknik",
-        "g4l1t0",
-        "convisoappsec",
-        "kurohost",
-        "dawid-czarnecki",
-        "forgedhallpass"
-      ],
-      "tags": [
-        "misconfig",
-        "generic"
-      ],
-      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-      "reference": null,
-      "severity": "info"
-    },
-    "matcher-name": "access-control-max-age",
-    "type": "http",
-    "host": "https://sivss.sante.fr",
-    "matched-at": "https://sivss.sante.fr",
-    "request": "GET / HTTP/1.1\r\nHost: sivss.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 03 Jul 2022 05:06:41 GMT\r\nLast-Modified: Wed, 22 Jun 2022 16:47:44 GMT\r\nSet-Cookie: BIGipServerpool-sivss.cegedim.cloud-HTTP=!ZGvrfclHUFaN6Jy057/oC+DRUtJHDOEQss269DE2QFzfBVgpNjneQ1dtiH3ShvJW67V+s2Kb9pVv3sDA7D39ut5/WjRF; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>SIVSS-V4</title>\n  <base href=\"/\">\n  <meta charset=\"utf-8\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=10\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=9\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"assets/img/logo-sivss.png\">\n\n<link rel=\"stylesheet\" href=\"styles.ada5b428cdafad758092.css\"></head>\n<body>\n  <app-root></app-root>\n<script src=\"runtime.c51bd5b1c616d9ffddc1.js\" defer></script><script src=\"polyfills-es5.e7013f96343b3660026b.js\" nomodule defer></script><script src=\"polyfills.a4329a3be59c3b830417.js\" defer></script><script src=\"scripts.68ffcfb5008f36f1fb2f.js\" defer></script><script src=\"main.af887c8f554379c1e9cf.js\" defer></script></body>\n</html>\n",
-    "ip": "185.194.82.118",
-    "timestamp": "2022-07-03T05:06:41.868105906Z",
-    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://sivss.sante.fr'",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
-    "template": "misconfiguration/http-missing-security-headers.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
-    "template-id": "http-missing-security-headers",
-    "info": {
-      "name": "HTTP Missing Security Headers",
-      "author": [
-        "socketz",
-        "geeknik",
-        "g4l1t0",
-        "convisoappsec",
-        "kurohost",
-        "dawid-czarnecki",
-        "forgedhallpass"
-      ],
-      "tags": [
-        "misconfig",
-        "generic"
-      ],
-      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-      "reference": null,
-      "severity": "info"
-    },
-    "matcher-name": "x-frame-options",
-    "type": "http",
-    "host": "https://sivss.sante.fr",
-    "matched-at": "https://sivss.sante.fr",
-    "request": "GET / HTTP/1.1\r\nHost: sivss.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 03 Jul 2022 05:06:41 GMT\r\nLast-Modified: Wed, 22 Jun 2022 16:47:44 GMT\r\nSet-Cookie: BIGipServerpool-sivss.cegedim.cloud-HTTP=!ZGvrfclHUFaN6Jy057/oC+DRUtJHDOEQss269DE2QFzfBVgpNjneQ1dtiH3ShvJW67V+s2Kb9pVv3sDA7D39ut5/WjRF; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>SIVSS-V4</title>\n  <base href=\"/\">\n  <meta charset=\"utf-8\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=10\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=9\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"assets/img/logo-sivss.png\">\n\n<link rel=\"stylesheet\" href=\"styles.ada5b428cdafad758092.css\"></head>\n<body>\n  <app-root></app-root>\n<script src=\"runtime.c51bd5b1c616d9ffddc1.js\" defer></script><script src=\"polyfills-es5.e7013f96343b3660026b.js\" nomodule defer></script><script src=\"polyfills.a4329a3be59c3b830417.js\" defer></script><script src=\"scripts.68ffcfb5008f36f1fb2f.js\" defer></script><script src=\"main.af887c8f554379c1e9cf.js\" defer></script></body>\n</html>\n",
-    "ip": "185.194.82.118",
-    "timestamp": "2022-07-03T05:06:41.868131306Z",
+    "timestamp": "2022-07-10T05:07:47.903611316Z",
     "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://sivss.sante.fr'",
     "matcher-status": true,
     "matched-line": null
@@ -241,9 +62,9 @@
     "host": "https://sivss.sante.fr",
     "matched-at": "https://sivss.sante.fr",
     "request": "GET / HTTP/1.1\r\nHost: sivss.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 03 Jul 2022 05:06:41 GMT\r\nLast-Modified: Wed, 22 Jun 2022 16:47:44 GMT\r\nSet-Cookie: BIGipServerpool-sivss.cegedim.cloud-HTTP=!ZGvrfclHUFaN6Jy057/oC+DRUtJHDOEQss269DE2QFzfBVgpNjneQ1dtiH3ShvJW67V+s2Kb9pVv3sDA7D39ut5/WjRF; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>SIVSS-V4</title>\n  <base href=\"/\">\n  <meta charset=\"utf-8\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=10\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=9\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"assets/img/logo-sivss.png\">\n\n<link rel=\"stylesheet\" href=\"styles.ada5b428cdafad758092.css\"></head>\n<body>\n  <app-root></app-root>\n<script src=\"runtime.c51bd5b1c616d9ffddc1.js\" defer></script><script src=\"polyfills-es5.e7013f96343b3660026b.js\" nomodule defer></script><script src=\"polyfills.a4329a3be59c3b830417.js\" defer></script><script src=\"scripts.68ffcfb5008f36f1fb2f.js\" defer></script><script src=\"main.af887c8f554379c1e9cf.js\" defer></script></body>\n</html>\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 10 Jul 2022 05:07:47 GMT\r\nLast-Modified: Wed, 22 Jun 2022 16:47:44 GMT\r\nSet-Cookie: BIGipServerpool-sivss.cegedim.cloud-HTTP=!G88942NfpZ1AZ6RnRzbxqujnleDLVrk1BEEbuKXBctI6cpHWPysOdwHOa4G7LHOxO+CHusVwskn8EendULVSM2SxPBB7; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>SIVSS-V4</title>\n  <base href=\"/\">\n  <meta charset=\"utf-8\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=10\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=9\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"assets/img/logo-sivss.png\">\n\n<link rel=\"stylesheet\" href=\"styles.ada5b428cdafad758092.css\"></head>\n<body>\n  <app-root></app-root>\n<script src=\"runtime.c51bd5b1c616d9ffddc1.js\" defer></script><script src=\"polyfills-es5.e7013f96343b3660026b.js\" nomodule defer></script><script src=\"polyfills.a4329a3be59c3b830417.js\" defer></script><script src=\"scripts.68ffcfb5008f36f1fb2f.js\" defer></script><script src=\"main.af887c8f554379c1e9cf.js\" defer></script></body>\n</html>\n",
     "ip": "185.194.82.118",
-    "timestamp": "2022-07-03T05:06:41.868166906Z",
+    "timestamp": "2022-07-10T05:07:47.904051521Z",
     "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://sivss.sante.fr'",
     "matcher-status": true,
     "matched-line": null
@@ -276,114 +97,9 @@
     "host": "https://sivss.sante.fr",
     "matched-at": "https://sivss.sante.fr",
     "request": "GET / HTTP/1.1\r\nHost: sivss.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 03 Jul 2022 05:06:41 GMT\r\nLast-Modified: Wed, 22 Jun 2022 16:47:44 GMT\r\nSet-Cookie: BIGipServerpool-sivss.cegedim.cloud-HTTP=!ZGvrfclHUFaN6Jy057/oC+DRUtJHDOEQss269DE2QFzfBVgpNjneQ1dtiH3ShvJW67V+s2Kb9pVv3sDA7D39ut5/WjRF; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>SIVSS-V4</title>\n  <base href=\"/\">\n  <meta charset=\"utf-8\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=10\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=9\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"assets/img/logo-sivss.png\">\n\n<link rel=\"stylesheet\" href=\"styles.ada5b428cdafad758092.css\"></head>\n<body>\n  <app-root></app-root>\n<script src=\"runtime.c51bd5b1c616d9ffddc1.js\" defer></script><script src=\"polyfills-es5.e7013f96343b3660026b.js\" nomodule defer></script><script src=\"polyfills.a4329a3be59c3b830417.js\" defer></script><script src=\"scripts.68ffcfb5008f36f1fb2f.js\" defer></script><script src=\"main.af887c8f554379c1e9cf.js\" defer></script></body>\n</html>\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 10 Jul 2022 05:07:47 GMT\r\nLast-Modified: Wed, 22 Jun 2022 16:47:44 GMT\r\nSet-Cookie: BIGipServerpool-sivss.cegedim.cloud-HTTP=!G88942NfpZ1AZ6RnRzbxqujnleDLVrk1BEEbuKXBctI6cpHWPysOdwHOa4G7LHOxO+CHusVwskn8EendULVSM2SxPBB7; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>SIVSS-V4</title>\n  <base href=\"/\">\n  <meta charset=\"utf-8\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=10\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=9\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"assets/img/logo-sivss.png\">\n\n<link rel=\"stylesheet\" href=\"styles.ada5b428cdafad758092.css\"></head>\n<body>\n  <app-root></app-root>\n<script src=\"runtime.c51bd5b1c616d9ffddc1.js\" defer></script><script src=\"polyfills-es5.e7013f96343b3660026b.js\" nomodule defer></script><script src=\"polyfills.a4329a3be59c3b830417.js\" defer></script><script src=\"scripts.68ffcfb5008f36f1fb2f.js\" defer></script><script src=\"main.af887c8f554379c1e9cf.js\" defer></script></body>\n</html>\n",
     "ip": "185.194.82.118",
-    "timestamp": "2022-07-03T05:06:41.868186407Z",
-    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://sivss.sante.fr'",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
-    "template": "misconfiguration/http-missing-security-headers.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
-    "template-id": "http-missing-security-headers",
-    "info": {
-      "name": "HTTP Missing Security Headers",
-      "author": [
-        "socketz",
-        "geeknik",
-        "g4l1t0",
-        "convisoappsec",
-        "kurohost",
-        "dawid-czarnecki",
-        "forgedhallpass"
-      ],
-      "tags": [
-        "misconfig",
-        "generic"
-      ],
-      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-      "reference": null,
-      "severity": "info"
-    },
-    "matcher-name": "cross-origin-resource-policy",
-    "type": "http",
-    "host": "https://sivss.sante.fr",
-    "matched-at": "https://sivss.sante.fr",
-    "request": "GET / HTTP/1.1\r\nHost: sivss.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 03 Jul 2022 05:06:41 GMT\r\nLast-Modified: Wed, 22 Jun 2022 16:47:44 GMT\r\nSet-Cookie: BIGipServerpool-sivss.cegedim.cloud-HTTP=!ZGvrfclHUFaN6Jy057/oC+DRUtJHDOEQss269DE2QFzfBVgpNjneQ1dtiH3ShvJW67V+s2Kb9pVv3sDA7D39ut5/WjRF; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>SIVSS-V4</title>\n  <base href=\"/\">\n  <meta charset=\"utf-8\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=10\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=9\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"assets/img/logo-sivss.png\">\n\n<link rel=\"stylesheet\" href=\"styles.ada5b428cdafad758092.css\"></head>\n<body>\n  <app-root></app-root>\n<script src=\"runtime.c51bd5b1c616d9ffddc1.js\" defer></script><script src=\"polyfills-es5.e7013f96343b3660026b.js\" nomodule defer></script><script src=\"polyfills.a4329a3be59c3b830417.js\" defer></script><script src=\"scripts.68ffcfb5008f36f1fb2f.js\" defer></script><script src=\"main.af887c8f554379c1e9cf.js\" defer></script></body>\n</html>\n",
-    "ip": "185.194.82.118",
-    "timestamp": "2022-07-03T05:06:41.868212307Z",
-    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://sivss.sante.fr'",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
-    "template": "misconfiguration/http-missing-security-headers.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
-    "template-id": "http-missing-security-headers",
-    "info": {
-      "name": "HTTP Missing Security Headers",
-      "author": [
-        "socketz",
-        "geeknik",
-        "g4l1t0",
-        "convisoappsec",
-        "kurohost",
-        "dawid-czarnecki",
-        "forgedhallpass"
-      ],
-      "tags": [
-        "misconfig",
-        "generic"
-      ],
-      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-      "reference": null,
-      "severity": "info"
-    },
-    "matcher-name": "permission-policy",
-    "type": "http",
-    "host": "https://sivss.sante.fr",
-    "matched-at": "https://sivss.sante.fr",
-    "request": "GET / HTTP/1.1\r\nHost: sivss.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 03 Jul 2022 05:06:41 GMT\r\nLast-Modified: Wed, 22 Jun 2022 16:47:44 GMT\r\nSet-Cookie: BIGipServerpool-sivss.cegedim.cloud-HTTP=!ZGvrfclHUFaN6Jy057/oC+DRUtJHDOEQss269DE2QFzfBVgpNjneQ1dtiH3ShvJW67V+s2Kb9pVv3sDA7D39ut5/WjRF; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>SIVSS-V4</title>\n  <base href=\"/\">\n  <meta charset=\"utf-8\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=10\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=9\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"assets/img/logo-sivss.png\">\n\n<link rel=\"stylesheet\" href=\"styles.ada5b428cdafad758092.css\"></head>\n<body>\n  <app-root></app-root>\n<script src=\"runtime.c51bd5b1c616d9ffddc1.js\" defer></script><script src=\"polyfills-es5.e7013f96343b3660026b.js\" nomodule defer></script><script src=\"polyfills.a4329a3be59c3b830417.js\" defer></script><script src=\"scripts.68ffcfb5008f36f1fb2f.js\" defer></script><script src=\"main.af887c8f554379c1e9cf.js\" defer></script></body>\n</html>\n",
-    "ip": "185.194.82.118",
-    "timestamp": "2022-07-03T05:06:41.868235307Z",
-    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://sivss.sante.fr'",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
-    "template": "misconfiguration/http-missing-security-headers.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
-    "template-id": "http-missing-security-headers",
-    "info": {
-      "name": "HTTP Missing Security Headers",
-      "author": [
-        "socketz",
-        "geeknik",
-        "g4l1t0",
-        "convisoappsec",
-        "kurohost",
-        "dawid-czarnecki",
-        "forgedhallpass"
-      ],
-      "tags": [
-        "misconfig",
-        "generic"
-      ],
-      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-      "reference": null,
-      "severity": "info"
-    },
-    "matcher-name": "referrer-policy",
-    "type": "http",
-    "host": "https://sivss.sante.fr",
-    "matched-at": "https://sivss.sante.fr",
-    "request": "GET / HTTP/1.1\r\nHost: sivss.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 03 Jul 2022 05:06:41 GMT\r\nLast-Modified: Wed, 22 Jun 2022 16:47:44 GMT\r\nSet-Cookie: BIGipServerpool-sivss.cegedim.cloud-HTTP=!ZGvrfclHUFaN6Jy057/oC+DRUtJHDOEQss269DE2QFzfBVgpNjneQ1dtiH3ShvJW67V+s2Kb9pVv3sDA7D39ut5/WjRF; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>SIVSS-V4</title>\n  <base href=\"/\">\n  <meta charset=\"utf-8\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=10\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=9\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"assets/img/logo-sivss.png\">\n\n<link rel=\"stylesheet\" href=\"styles.ada5b428cdafad758092.css\"></head>\n<body>\n  <app-root></app-root>\n<script src=\"runtime.c51bd5b1c616d9ffddc1.js\" defer></script><script src=\"polyfills-es5.e7013f96343b3660026b.js\" nomodule defer></script><script src=\"polyfills.a4329a3be59c3b830417.js\" defer></script><script src=\"scripts.68ffcfb5008f36f1fb2f.js\" defer></script><script src=\"main.af887c8f554379c1e9cf.js\" defer></script></body>\n</html>\n",
-    "ip": "185.194.82.118",
-    "timestamp": "2022-07-03T05:06:41.868254607Z",
+    "timestamp": "2022-07-10T05:07:47.904079721Z",
     "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://sivss.sante.fr'",
     "matcher-status": true,
     "matched-line": null
@@ -416,79 +132,9 @@
     "host": "https://sivss.sante.fr",
     "matched-at": "https://sivss.sante.fr",
     "request": "GET / HTTP/1.1\r\nHost: sivss.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 03 Jul 2022 05:06:41 GMT\r\nLast-Modified: Wed, 22 Jun 2022 16:47:44 GMT\r\nSet-Cookie: BIGipServerpool-sivss.cegedim.cloud-HTTP=!ZGvrfclHUFaN6Jy057/oC+DRUtJHDOEQss269DE2QFzfBVgpNjneQ1dtiH3ShvJW67V+s2Kb9pVv3sDA7D39ut5/WjRF; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>SIVSS-V4</title>\n  <base href=\"/\">\n  <meta charset=\"utf-8\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=10\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=9\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"assets/img/logo-sivss.png\">\n\n<link rel=\"stylesheet\" href=\"styles.ada5b428cdafad758092.css\"></head>\n<body>\n  <app-root></app-root>\n<script src=\"runtime.c51bd5b1c616d9ffddc1.js\" defer></script><script src=\"polyfills-es5.e7013f96343b3660026b.js\" nomodule defer></script><script src=\"polyfills.a4329a3be59c3b830417.js\" defer></script><script src=\"scripts.68ffcfb5008f36f1fb2f.js\" defer></script><script src=\"main.af887c8f554379c1e9cf.js\" defer></script></body>\n</html>\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 10 Jul 2022 05:07:47 GMT\r\nLast-Modified: Wed, 22 Jun 2022 16:47:44 GMT\r\nSet-Cookie: BIGipServerpool-sivss.cegedim.cloud-HTTP=!G88942NfpZ1AZ6RnRzbxqujnleDLVrk1BEEbuKXBctI6cpHWPysOdwHOa4G7LHOxO+CHusVwskn8EendULVSM2SxPBB7; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>SIVSS-V4</title>\n  <base href=\"/\">\n  <meta charset=\"utf-8\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=10\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=9\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"assets/img/logo-sivss.png\">\n\n<link rel=\"stylesheet\" href=\"styles.ada5b428cdafad758092.css\"></head>\n<body>\n  <app-root></app-root>\n<script src=\"runtime.c51bd5b1c616d9ffddc1.js\" defer></script><script src=\"polyfills-es5.e7013f96343b3660026b.js\" nomodule defer></script><script src=\"polyfills.a4329a3be59c3b830417.js\" defer></script><script src=\"scripts.68ffcfb5008f36f1fb2f.js\" defer></script><script src=\"main.af887c8f554379c1e9cf.js\" defer></script></body>\n</html>\n",
     "ip": "185.194.82.118",
-    "timestamp": "2022-07-03T05:06:41.868276607Z",
-    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://sivss.sante.fr'",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
-    "template": "misconfiguration/http-missing-security-headers.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
-    "template-id": "http-missing-security-headers",
-    "info": {
-      "name": "HTTP Missing Security Headers",
-      "author": [
-        "socketz",
-        "geeknik",
-        "g4l1t0",
-        "convisoappsec",
-        "kurohost",
-        "dawid-czarnecki",
-        "forgedhallpass"
-      ],
-      "tags": [
-        "misconfig",
-        "generic"
-      ],
-      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-      "reference": null,
-      "severity": "info"
-    },
-    "matcher-name": "access-control-expose-headers",
-    "type": "http",
-    "host": "https://sivss.sante.fr",
-    "matched-at": "https://sivss.sante.fr",
-    "request": "GET / HTTP/1.1\r\nHost: sivss.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 03 Jul 2022 05:06:41 GMT\r\nLast-Modified: Wed, 22 Jun 2022 16:47:44 GMT\r\nSet-Cookie: BIGipServerpool-sivss.cegedim.cloud-HTTP=!ZGvrfclHUFaN6Jy057/oC+DRUtJHDOEQss269DE2QFzfBVgpNjneQ1dtiH3ShvJW67V+s2Kb9pVv3sDA7D39ut5/WjRF; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>SIVSS-V4</title>\n  <base href=\"/\">\n  <meta charset=\"utf-8\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=10\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=9\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"assets/img/logo-sivss.png\">\n\n<link rel=\"stylesheet\" href=\"styles.ada5b428cdafad758092.css\"></head>\n<body>\n  <app-root></app-root>\n<script src=\"runtime.c51bd5b1c616d9ffddc1.js\" defer></script><script src=\"polyfills-es5.e7013f96343b3660026b.js\" nomodule defer></script><script src=\"polyfills.a4329a3be59c3b830417.js\" defer></script><script src=\"scripts.68ffcfb5008f36f1fb2f.js\" defer></script><script src=\"main.af887c8f554379c1e9cf.js\" defer></script></body>\n</html>\n",
-    "ip": "185.194.82.118",
-    "timestamp": "2022-07-03T05:06:41.868300307Z",
-    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://sivss.sante.fr'",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
-    "template": "misconfiguration/http-missing-security-headers.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
-    "template-id": "http-missing-security-headers",
-    "info": {
-      "name": "HTTP Missing Security Headers",
-      "author": [
-        "socketz",
-        "geeknik",
-        "g4l1t0",
-        "convisoappsec",
-        "kurohost",
-        "dawid-czarnecki",
-        "forgedhallpass"
-      ],
-      "tags": [
-        "misconfig",
-        "generic"
-      ],
-      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-      "reference": null,
-      "severity": "info"
-    },
-    "matcher-name": "clear-site-data",
-    "type": "http",
-    "host": "https://sivss.sante.fr",
-    "matched-at": "https://sivss.sante.fr",
-    "request": "GET / HTTP/1.1\r\nHost: sivss.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 03 Jul 2022 05:06:41 GMT\r\nLast-Modified: Wed, 22 Jun 2022 16:47:44 GMT\r\nSet-Cookie: BIGipServerpool-sivss.cegedim.cloud-HTTP=!ZGvrfclHUFaN6Jy057/oC+DRUtJHDOEQss269DE2QFzfBVgpNjneQ1dtiH3ShvJW67V+s2Kb9pVv3sDA7D39ut5/WjRF; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>SIVSS-V4</title>\n  <base href=\"/\">\n  <meta charset=\"utf-8\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=10\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=9\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"assets/img/logo-sivss.png\">\n\n<link rel=\"stylesheet\" href=\"styles.ada5b428cdafad758092.css\"></head>\n<body>\n  <app-root></app-root>\n<script src=\"runtime.c51bd5b1c616d9ffddc1.js\" defer></script><script src=\"polyfills-es5.e7013f96343b3660026b.js\" nomodule defer></script><script src=\"polyfills.a4329a3be59c3b830417.js\" defer></script><script src=\"scripts.68ffcfb5008f36f1fb2f.js\" defer></script><script src=\"main.af887c8f554379c1e9cf.js\" defer></script></body>\n</html>\n",
-    "ip": "185.194.82.118",
-    "timestamp": "2022-07-03T05:06:41.868319508Z",
+    "timestamp": "2022-07-10T05:07:47.904103521Z",
     "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://sivss.sante.fr'",
     "matcher-status": true,
     "matched-line": null
@@ -521,9 +167,9 @@
     "host": "https://sivss.sante.fr",
     "matched-at": "https://sivss.sante.fr",
     "request": "GET / HTTP/1.1\r\nHost: sivss.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 03 Jul 2022 05:06:41 GMT\r\nLast-Modified: Wed, 22 Jun 2022 16:47:44 GMT\r\nSet-Cookie: BIGipServerpool-sivss.cegedim.cloud-HTTP=!ZGvrfclHUFaN6Jy057/oC+DRUtJHDOEQss269DE2QFzfBVgpNjneQ1dtiH3ShvJW67V+s2Kb9pVv3sDA7D39ut5/WjRF; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>SIVSS-V4</title>\n  <base href=\"/\">\n  <meta charset=\"utf-8\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=10\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=9\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"assets/img/logo-sivss.png\">\n\n<link rel=\"stylesheet\" href=\"styles.ada5b428cdafad758092.css\"></head>\n<body>\n  <app-root></app-root>\n<script src=\"runtime.c51bd5b1c616d9ffddc1.js\" defer></script><script src=\"polyfills-es5.e7013f96343b3660026b.js\" nomodule defer></script><script src=\"polyfills.a4329a3be59c3b830417.js\" defer></script><script src=\"scripts.68ffcfb5008f36f1fb2f.js\" defer></script><script src=\"main.af887c8f554379c1e9cf.js\" defer></script></body>\n</html>\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 10 Jul 2022 05:07:47 GMT\r\nLast-Modified: Wed, 22 Jun 2022 16:47:44 GMT\r\nSet-Cookie: BIGipServerpool-sivss.cegedim.cloud-HTTP=!G88942NfpZ1AZ6RnRzbxqujnleDLVrk1BEEbuKXBctI6cpHWPysOdwHOa4G7LHOxO+CHusVwskn8EendULVSM2SxPBB7; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>SIVSS-V4</title>\n  <base href=\"/\">\n  <meta charset=\"utf-8\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=10\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=9\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"assets/img/logo-sivss.png\">\n\n<link rel=\"stylesheet\" href=\"styles.ada5b428cdafad758092.css\"></head>\n<body>\n  <app-root></app-root>\n<script src=\"runtime.c51bd5b1c616d9ffddc1.js\" defer></script><script src=\"polyfills-es5.e7013f96343b3660026b.js\" nomodule defer></script><script src=\"polyfills.a4329a3be59c3b830417.js\" defer></script><script src=\"scripts.68ffcfb5008f36f1fb2f.js\" defer></script><script src=\"main.af887c8f554379c1e9cf.js\" defer></script></body>\n</html>\n",
     "ip": "185.194.82.118",
-    "timestamp": "2022-07-03T05:06:41.868347808Z",
+    "timestamp": "2022-07-10T05:07:47.904123122Z",
     "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://sivss.sante.fr'",
     "matcher-status": true,
     "matched-line": null
@@ -551,14 +197,84 @@
       "reference": null,
       "severity": "info"
     },
-    "matcher-name": "access-control-allow-methods",
+    "matcher-name": "access-control-expose-headers",
     "type": "http",
     "host": "https://sivss.sante.fr",
     "matched-at": "https://sivss.sante.fr",
     "request": "GET / HTTP/1.1\r\nHost: sivss.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 03 Jul 2022 05:06:41 GMT\r\nLast-Modified: Wed, 22 Jun 2022 16:47:44 GMT\r\nSet-Cookie: BIGipServerpool-sivss.cegedim.cloud-HTTP=!ZGvrfclHUFaN6Jy057/oC+DRUtJHDOEQss269DE2QFzfBVgpNjneQ1dtiH3ShvJW67V+s2Kb9pVv3sDA7D39ut5/WjRF; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>SIVSS-V4</title>\n  <base href=\"/\">\n  <meta charset=\"utf-8\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=10\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=9\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"assets/img/logo-sivss.png\">\n\n<link rel=\"stylesheet\" href=\"styles.ada5b428cdafad758092.css\"></head>\n<body>\n  <app-root></app-root>\n<script src=\"runtime.c51bd5b1c616d9ffddc1.js\" defer></script><script src=\"polyfills-es5.e7013f96343b3660026b.js\" nomodule defer></script><script src=\"polyfills.a4329a3be59c3b830417.js\" defer></script><script src=\"scripts.68ffcfb5008f36f1fb2f.js\" defer></script><script src=\"main.af887c8f554379c1e9cf.js\" defer></script></body>\n</html>\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 10 Jul 2022 05:07:47 GMT\r\nLast-Modified: Wed, 22 Jun 2022 16:47:44 GMT\r\nSet-Cookie: BIGipServerpool-sivss.cegedim.cloud-HTTP=!G88942NfpZ1AZ6RnRzbxqujnleDLVrk1BEEbuKXBctI6cpHWPysOdwHOa4G7LHOxO+CHusVwskn8EendULVSM2SxPBB7; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>SIVSS-V4</title>\n  <base href=\"/\">\n  <meta charset=\"utf-8\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=10\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=9\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"assets/img/logo-sivss.png\">\n\n<link rel=\"stylesheet\" href=\"styles.ada5b428cdafad758092.css\"></head>\n<body>\n  <app-root></app-root>\n<script src=\"runtime.c51bd5b1c616d9ffddc1.js\" defer></script><script src=\"polyfills-es5.e7013f96343b3660026b.js\" nomodule defer></script><script src=\"polyfills.a4329a3be59c3b830417.js\" defer></script><script src=\"scripts.68ffcfb5008f36f1fb2f.js\" defer></script><script src=\"main.af887c8f554379c1e9cf.js\" defer></script></body>\n</html>\n",
     "ip": "185.194.82.118",
-    "timestamp": "2022-07-03T05:06:41.868371008Z",
+    "timestamp": "2022-07-10T05:07:47.904145222Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://sivss.sante.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "clear-site-data",
+    "type": "http",
+    "host": "https://sivss.sante.fr",
+    "matched-at": "https://sivss.sante.fr",
+    "request": "GET / HTTP/1.1\r\nHost: sivss.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 10 Jul 2022 05:07:47 GMT\r\nLast-Modified: Wed, 22 Jun 2022 16:47:44 GMT\r\nSet-Cookie: BIGipServerpool-sivss.cegedim.cloud-HTTP=!G88942NfpZ1AZ6RnRzbxqujnleDLVrk1BEEbuKXBctI6cpHWPysOdwHOa4G7LHOxO+CHusVwskn8EendULVSM2SxPBB7; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>SIVSS-V4</title>\n  <base href=\"/\">\n  <meta charset=\"utf-8\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=10\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=9\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"assets/img/logo-sivss.png\">\n\n<link rel=\"stylesheet\" href=\"styles.ada5b428cdafad758092.css\"></head>\n<body>\n  <app-root></app-root>\n<script src=\"runtime.c51bd5b1c616d9ffddc1.js\" defer></script><script src=\"polyfills-es5.e7013f96343b3660026b.js\" nomodule defer></script><script src=\"polyfills.a4329a3be59c3b830417.js\" defer></script><script src=\"scripts.68ffcfb5008f36f1fb2f.js\" defer></script><script src=\"main.af887c8f554379c1e9cf.js\" defer></script></body>\n</html>\n",
+    "ip": "185.194.82.118",
+    "timestamp": "2022-07-10T05:07:47.904168522Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://sivss.sante.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "access-control-max-age",
+    "type": "http",
+    "host": "https://sivss.sante.fr",
+    "matched-at": "https://sivss.sante.fr",
+    "request": "GET / HTTP/1.1\r\nHost: sivss.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 10 Jul 2022 05:07:47 GMT\r\nLast-Modified: Wed, 22 Jun 2022 16:47:44 GMT\r\nSet-Cookie: BIGipServerpool-sivss.cegedim.cloud-HTTP=!G88942NfpZ1AZ6RnRzbxqujnleDLVrk1BEEbuKXBctI6cpHWPysOdwHOa4G7LHOxO+CHusVwskn8EendULVSM2SxPBB7; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>SIVSS-V4</title>\n  <base href=\"/\">\n  <meta charset=\"utf-8\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=10\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=9\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"assets/img/logo-sivss.png\">\n\n<link rel=\"stylesheet\" href=\"styles.ada5b428cdafad758092.css\"></head>\n<body>\n  <app-root></app-root>\n<script src=\"runtime.c51bd5b1c616d9ffddc1.js\" defer></script><script src=\"polyfills-es5.e7013f96343b3660026b.js\" nomodule defer></script><script src=\"polyfills.a4329a3be59c3b830417.js\" defer></script><script src=\"scripts.68ffcfb5008f36f1fb2f.js\" defer></script><script src=\"main.af887c8f554379c1e9cf.js\" defer></script></body>\n</html>\n",
+    "ip": "185.194.82.118",
+    "timestamp": "2022-07-10T05:07:47.904189922Z",
     "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://sivss.sante.fr'",
     "matcher-status": true,
     "matched-line": null
@@ -591,36 +307,294 @@
     "host": "https://sivss.sante.fr",
     "matched-at": "https://sivss.sante.fr",
     "request": "GET / HTTP/1.1\r\nHost: sivss.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 03 Jul 2022 05:06:41 GMT\r\nLast-Modified: Wed, 22 Jun 2022 16:47:44 GMT\r\nSet-Cookie: BIGipServerpool-sivss.cegedim.cloud-HTTP=!ZGvrfclHUFaN6Jy057/oC+DRUtJHDOEQss269DE2QFzfBVgpNjneQ1dtiH3ShvJW67V+s2Kb9pVv3sDA7D39ut5/WjRF; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>SIVSS-V4</title>\n  <base href=\"/\">\n  <meta charset=\"utf-8\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=10\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=9\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"assets/img/logo-sivss.png\">\n\n<link rel=\"stylesheet\" href=\"styles.ada5b428cdafad758092.css\"></head>\n<body>\n  <app-root></app-root>\n<script src=\"runtime.c51bd5b1c616d9ffddc1.js\" defer></script><script src=\"polyfills-es5.e7013f96343b3660026b.js\" nomodule defer></script><script src=\"polyfills.a4329a3be59c3b830417.js\" defer></script><script src=\"scripts.68ffcfb5008f36f1fb2f.js\" defer></script><script src=\"main.af887c8f554379c1e9cf.js\" defer></script></body>\n</html>\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 10 Jul 2022 05:07:47 GMT\r\nLast-Modified: Wed, 22 Jun 2022 16:47:44 GMT\r\nSet-Cookie: BIGipServerpool-sivss.cegedim.cloud-HTTP=!G88942NfpZ1AZ6RnRzbxqujnleDLVrk1BEEbuKXBctI6cpHWPysOdwHOa4G7LHOxO+CHusVwskn8EendULVSM2SxPBB7; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>SIVSS-V4</title>\n  <base href=\"/\">\n  <meta charset=\"utf-8\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=10\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=9\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"assets/img/logo-sivss.png\">\n\n<link rel=\"stylesheet\" href=\"styles.ada5b428cdafad758092.css\"></head>\n<body>\n  <app-root></app-root>\n<script src=\"runtime.c51bd5b1c616d9ffddc1.js\" defer></script><script src=\"polyfills-es5.e7013f96343b3660026b.js\" nomodule defer></script><script src=\"polyfills.a4329a3be59c3b830417.js\" defer></script><script src=\"scripts.68ffcfb5008f36f1fb2f.js\" defer></script><script src=\"main.af887c8f554379c1e9cf.js\" defer></script></body>\n</html>\n",
     "ip": "185.194.82.118",
-    "timestamp": "2022-07-03T05:06:41.868389808Z",
+    "timestamp": "2022-07-10T05:07:47.904211223Z",
     "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://sivss.sante.fr'",
     "matcher-status": true,
     "matched-line": null
   },
   {
-    "template": "ssl/tls-version.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/ssl/tls-version.yaml",
-    "template-id": "tls-version",
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
     "info": {
-      "name": "TLS Version",
+      "name": "HTTP Missing Security Headers",
       "author": [
-        "pdteam"
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
       ],
       "tags": [
-        "ssl"
+        "misconfig",
+        "generic"
       ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
       "reference": null,
       "severity": "info"
     },
-    "type": "ssl",
+    "matcher-name": "x-content-type-options",
+    "type": "http",
     "host": "https://sivss.sante.fr",
     "matched-at": "https://sivss.sante.fr",
-    "extracted-results": [
-      "TLS12"
-    ],
+    "request": "GET / HTTP/1.1\r\nHost: sivss.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 10 Jul 2022 05:07:47 GMT\r\nLast-Modified: Wed, 22 Jun 2022 16:47:44 GMT\r\nSet-Cookie: BIGipServerpool-sivss.cegedim.cloud-HTTP=!G88942NfpZ1AZ6RnRzbxqujnleDLVrk1BEEbuKXBctI6cpHWPysOdwHOa4G7LHOxO+CHusVwskn8EendULVSM2SxPBB7; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>SIVSS-V4</title>\n  <base href=\"/\">\n  <meta charset=\"utf-8\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=10\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=9\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"assets/img/logo-sivss.png\">\n\n<link rel=\"stylesheet\" href=\"styles.ada5b428cdafad758092.css\"></head>\n<body>\n  <app-root></app-root>\n<script src=\"runtime.c51bd5b1c616d9ffddc1.js\" defer></script><script src=\"polyfills-es5.e7013f96343b3660026b.js\" nomodule defer></script><script src=\"polyfills.a4329a3be59c3b830417.js\" defer></script><script src=\"scripts.68ffcfb5008f36f1fb2f.js\" defer></script><script src=\"main.af887c8f554379c1e9cf.js\" defer></script></body>\n</html>\n",
     "ip": "185.194.82.118",
-    "timestamp": "2022-07-03T05:07:27.532264058Z",
+    "timestamp": "2022-07-10T05:07:47.904232623Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://sivss.sante.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "x-permitted-cross-domain-policies",
+    "type": "http",
+    "host": "https://sivss.sante.fr",
+    "matched-at": "https://sivss.sante.fr",
+    "request": "GET / HTTP/1.1\r\nHost: sivss.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 10 Jul 2022 05:07:47 GMT\r\nLast-Modified: Wed, 22 Jun 2022 16:47:44 GMT\r\nSet-Cookie: BIGipServerpool-sivss.cegedim.cloud-HTTP=!G88942NfpZ1AZ6RnRzbxqujnleDLVrk1BEEbuKXBctI6cpHWPysOdwHOa4G7LHOxO+CHusVwskn8EendULVSM2SxPBB7; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>SIVSS-V4</title>\n  <base href=\"/\">\n  <meta charset=\"utf-8\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=10\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=9\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"assets/img/logo-sivss.png\">\n\n<link rel=\"stylesheet\" href=\"styles.ada5b428cdafad758092.css\"></head>\n<body>\n  <app-root></app-root>\n<script src=\"runtime.c51bd5b1c616d9ffddc1.js\" defer></script><script src=\"polyfills-es5.e7013f96343b3660026b.js\" nomodule defer></script><script src=\"polyfills.a4329a3be59c3b830417.js\" defer></script><script src=\"scripts.68ffcfb5008f36f1fb2f.js\" defer></script><script src=\"main.af887c8f554379c1e9cf.js\" defer></script></body>\n</html>\n",
+    "ip": "185.194.82.118",
+    "timestamp": "2022-07-10T05:07:47.904250523Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://sivss.sante.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "cross-origin-resource-policy",
+    "type": "http",
+    "host": "https://sivss.sante.fr",
+    "matched-at": "https://sivss.sante.fr",
+    "request": "GET / HTTP/1.1\r\nHost: sivss.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 10 Jul 2022 05:07:47 GMT\r\nLast-Modified: Wed, 22 Jun 2022 16:47:44 GMT\r\nSet-Cookie: BIGipServerpool-sivss.cegedim.cloud-HTTP=!G88942NfpZ1AZ6RnRzbxqujnleDLVrk1BEEbuKXBctI6cpHWPysOdwHOa4G7LHOxO+CHusVwskn8EendULVSM2SxPBB7; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>SIVSS-V4</title>\n  <base href=\"/\">\n  <meta charset=\"utf-8\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=10\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=9\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"assets/img/logo-sivss.png\">\n\n<link rel=\"stylesheet\" href=\"styles.ada5b428cdafad758092.css\"></head>\n<body>\n  <app-root></app-root>\n<script src=\"runtime.c51bd5b1c616d9ffddc1.js\" defer></script><script src=\"polyfills-es5.e7013f96343b3660026b.js\" nomodule defer></script><script src=\"polyfills.a4329a3be59c3b830417.js\" defer></script><script src=\"scripts.68ffcfb5008f36f1fb2f.js\" defer></script><script src=\"main.af887c8f554379c1e9cf.js\" defer></script></body>\n</html>\n",
+    "ip": "185.194.82.118",
+    "timestamp": "2022-07-10T05:07:47.904270823Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://sivss.sante.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "access-control-allow-methods",
+    "type": "http",
+    "host": "https://sivss.sante.fr",
+    "matched-at": "https://sivss.sante.fr",
+    "request": "GET / HTTP/1.1\r\nHost: sivss.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 10 Jul 2022 05:07:47 GMT\r\nLast-Modified: Wed, 22 Jun 2022 16:47:44 GMT\r\nSet-Cookie: BIGipServerpool-sivss.cegedim.cloud-HTTP=!G88942NfpZ1AZ6RnRzbxqujnleDLVrk1BEEbuKXBctI6cpHWPysOdwHOa4G7LHOxO+CHusVwskn8EendULVSM2SxPBB7; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>SIVSS-V4</title>\n  <base href=\"/\">\n  <meta charset=\"utf-8\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=10\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=9\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"assets/img/logo-sivss.png\">\n\n<link rel=\"stylesheet\" href=\"styles.ada5b428cdafad758092.css\"></head>\n<body>\n  <app-root></app-root>\n<script src=\"runtime.c51bd5b1c616d9ffddc1.js\" defer></script><script src=\"polyfills-es5.e7013f96343b3660026b.js\" nomodule defer></script><script src=\"polyfills.a4329a3be59c3b830417.js\" defer></script><script src=\"scripts.68ffcfb5008f36f1fb2f.js\" defer></script><script src=\"main.af887c8f554379c1e9cf.js\" defer></script></body>\n</html>\n",
+    "ip": "185.194.82.118",
+    "timestamp": "2022-07-10T05:07:47.904296124Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://sivss.sante.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "content-security-policy",
+    "type": "http",
+    "host": "https://sivss.sante.fr",
+    "matched-at": "https://sivss.sante.fr",
+    "request": "GET / HTTP/1.1\r\nHost: sivss.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 10 Jul 2022 05:07:47 GMT\r\nLast-Modified: Wed, 22 Jun 2022 16:47:44 GMT\r\nSet-Cookie: BIGipServerpool-sivss.cegedim.cloud-HTTP=!G88942NfpZ1AZ6RnRzbxqujnleDLVrk1BEEbuKXBctI6cpHWPysOdwHOa4G7LHOxO+CHusVwskn8EendULVSM2SxPBB7; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>SIVSS-V4</title>\n  <base href=\"/\">\n  <meta charset=\"utf-8\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=10\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=9\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"assets/img/logo-sivss.png\">\n\n<link rel=\"stylesheet\" href=\"styles.ada5b428cdafad758092.css\"></head>\n<body>\n  <app-root></app-root>\n<script src=\"runtime.c51bd5b1c616d9ffddc1.js\" defer></script><script src=\"polyfills-es5.e7013f96343b3660026b.js\" nomodule defer></script><script src=\"polyfills.a4329a3be59c3b830417.js\" defer></script><script src=\"scripts.68ffcfb5008f36f1fb2f.js\" defer></script><script src=\"main.af887c8f554379c1e9cf.js\" defer></script></body>\n</html>\n",
+    "ip": "185.194.82.118",
+    "timestamp": "2022-07-10T05:07:47.904313724Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://sivss.sante.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "x-frame-options",
+    "type": "http",
+    "host": "https://sivss.sante.fr",
+    "matched-at": "https://sivss.sante.fr",
+    "request": "GET / HTTP/1.1\r\nHost: sivss.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 10 Jul 2022 05:07:47 GMT\r\nLast-Modified: Wed, 22 Jun 2022 16:47:44 GMT\r\nSet-Cookie: BIGipServerpool-sivss.cegedim.cloud-HTTP=!G88942NfpZ1AZ6RnRzbxqujnleDLVrk1BEEbuKXBctI6cpHWPysOdwHOa4G7LHOxO+CHusVwskn8EendULVSM2SxPBB7; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>SIVSS-V4</title>\n  <base href=\"/\">\n  <meta charset=\"utf-8\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=10\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=9\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"assets/img/logo-sivss.png\">\n\n<link rel=\"stylesheet\" href=\"styles.ada5b428cdafad758092.css\"></head>\n<body>\n  <app-root></app-root>\n<script src=\"runtime.c51bd5b1c616d9ffddc1.js\" defer></script><script src=\"polyfills-es5.e7013f96343b3660026b.js\" nomodule defer></script><script src=\"polyfills.a4329a3be59c3b830417.js\" defer></script><script src=\"scripts.68ffcfb5008f36f1fb2f.js\" defer></script><script src=\"main.af887c8f554379c1e9cf.js\" defer></script></body>\n</html>\n",
+    "ip": "185.194.82.118",
+    "timestamp": "2022-07-10T05:07:47.904334724Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://sivss.sante.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "referrer-policy",
+    "type": "http",
+    "host": "https://sivss.sante.fr",
+    "matched-at": "https://sivss.sante.fr",
+    "request": "GET / HTTP/1.1\r\nHost: sivss.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 10 Jul 2022 05:07:47 GMT\r\nLast-Modified: Wed, 22 Jun 2022 16:47:44 GMT\r\nSet-Cookie: BIGipServerpool-sivss.cegedim.cloud-HTTP=!G88942NfpZ1AZ6RnRzbxqujnleDLVrk1BEEbuKXBctI6cpHWPysOdwHOa4G7LHOxO+CHusVwskn8EendULVSM2SxPBB7; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>SIVSS-V4</title>\n  <base href=\"/\">\n  <meta charset=\"utf-8\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=10\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=9\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"assets/img/logo-sivss.png\">\n\n<link rel=\"stylesheet\" href=\"styles.ada5b428cdafad758092.css\"></head>\n<body>\n  <app-root></app-root>\n<script src=\"runtime.c51bd5b1c616d9ffddc1.js\" defer></script><script src=\"polyfills-es5.e7013f96343b3660026b.js\" nomodule defer></script><script src=\"polyfills.a4329a3be59c3b830417.js\" defer></script><script src=\"scripts.68ffcfb5008f36f1fb2f.js\" defer></script><script src=\"main.af887c8f554379c1e9cf.js\" defer></script></body>\n</html>\n",
+    "ip": "185.194.82.118",
+    "timestamp": "2022-07-10T05:07:47.904359624Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://sivss.sante.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "technologies/waf-detect.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/technologies/waf-detect.yaml",
+    "template-id": "waf-detect",
+    "info": {
+      "name": "WAF Detection",
+      "author": [
+        "dwisiswant0",
+        "lu4nx"
+      ],
+      "tags": [
+        "waf",
+        "tech",
+        "misc"
+      ],
+      "description": "A web application firewall was detected.",
+      "reference": [
+        "https://github.com/ekultek/whatwaf"
+      ],
+      "severity": "info",
+      "classification": {
+        "cve-id": null,
+        "cwe-id": [
+          "cwe-200"
+        ]
+      }
+    },
+    "matcher-name": "bigip",
+    "type": "http",
+    "host": "https://sivss.sante.fr",
+    "matched-at": "https://sivss.sante.fr/",
+    "request": "POST / HTTP/1.1\r\nHost: sivss.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nContent-Length: 27\r\nContent-Type: application/x-www-form-urlencoded\r\nAccept-Encoding: gzip\r\n\r\n_=<script>alert(1)</script>",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 10 Jul 2022 05:10:02 GMT\r\nLast-Modified: Wed, 22 Jun 2022 16:47:44 GMT\r\nSet-Cookie: BIGipServerpool-sivss.cegedim.cloud-HTTP=!pVgA7sblqtjpXLhnRzbxqujnleDLVn5CF0degHXmf85mSOna+Rg21iCuxn9FOKkDrpWgzBHP0us118wkuh/fmriSqUS8; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: Accept-Encoding\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>SIVSS-V4</title>\n  <base href=\"/\">\n  <meta charset=\"utf-8\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=10\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=9\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"assets/img/logo-sivss.png\">\n\n<link rel=\"stylesheet\" href=\"styles.ada5b428cdafad758092.css\"></head>\n<body>\n  <app-root></app-root>\n<script src=\"runtime.c51bd5b1c616d9ffddc1.js\" defer></script><script src=\"polyfills-es5.e7013f96343b3660026b.js\" nomodule defer></script><script src=\"polyfills.a4329a3be59c3b830417.js\" defer></script><script src=\"scripts.68ffcfb5008f36f1fb2f.js\" defer></script><script src=\"main.af887c8f554379c1e9cf.js\" defer></script></body>\n</html>\n",
+    "ip": "185.194.82.118",
+    "timestamp": "2022-07-10T05:10:02.142764201Z",
+    "curl-command": "curl -X 'POST' -d '_=<script>alert(1)</script>' -H 'Content-Type: application/x-www-form-urlencoded' -H 'Host: sivss.sante.fr' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://sivss.sante.fr/'",
     "matcher-status": true,
     "matched-line": null
   }
