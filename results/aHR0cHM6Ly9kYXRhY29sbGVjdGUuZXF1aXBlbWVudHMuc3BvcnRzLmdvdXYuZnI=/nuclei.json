@@ -27,61 +27,49 @@
       "1; mode=block"
     ],
     "request": "GET / HTTP/1.1\r\nHost: datacollecte.equipements.sports.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 1033\r\nAccept-Ranges: bytes\r\nContent-Security-Policy: upgrade-insecure-requests\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 10 Jul 2022 02:32:55 GMT\r\nLast-Modified: Tue, 04 Dec 2018 13:15:53 GMT\r\nReferrer-Policy: strict-origin\r\nSet-Cookie: BIGipServerpool-dsb5-dataes.cegedim.cloud-HTTP=!Oc2F/r+jBsdyi/JnRzbxqujnleDLVmoq/JQtpDAZ5ojlF/H8FgmiIuWBrlr/HB4Q1e+R20inW7dOR2gqECv8U8YQs20=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\r\n<html>\r\n  <head>\r\n    <meta charset=\"utf-8\">\r\n    <title>Data ES : Recensement des équipements sportifs</title>\r\n    <base href=\"/\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\r\n    <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\r\n    <script src=\"https://www.google.com/recaptcha/api.js?render=explicit&onload=initRecaptcha\" async defer></script>  \r\n  </head>\r\n\r\n  <body>\r\n      <app-root>\r\n        <div class=\"chargement\">\r\n          <img class=\"loader\" src=\"assets/Images/loader.gif\" />\r\n          <p>Chargement...</p>\r\n        </div>\r\n      </app-root>\r\n  <script type=\"text/javascript\" src=\"inline.bundle.js\"></script><script type=\"text/javascript\" src=\"polyfills.bundle.js\"></script><script type=\"text/javascript\" src=\"scripts.bundle.js\"></script><script type=\"text/javascript\" src=\"styles.bundle.js\"></script><script type=\"text/javascript\" src=\"vendor.bundle.js\"></script><script type=\"text/javascript\" src=\"main.bundle.js\"></script></body>\r\n</html>\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 1033\r\nAccept-Ranges: bytes\r\nContent-Security-Policy: upgrade-insecure-requests\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 17 Jul 2022 02:32:17 GMT\r\nLast-Modified: Tue, 04 Dec 2018 13:15:53 GMT\r\nReferrer-Policy: strict-origin\r\nSet-Cookie: BIGipServerpool-dsb5-dataes.cegedim.cloud-HTTP=!WHyoieOP0T3qmklnRzbxqujnleDLVhQWZzucRKk5xiiEOmJdWPBZpbiheR14IBLoWTCOMyWp1P7ysW2DlOsMsGKEKZU=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\r\n<html>\r\n  <head>\r\n    <meta charset=\"utf-8\">\r\n    <title>Data ES : Recensement des équipements sportifs</title>\r\n    <base href=\"/\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\r\n    <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\r\n    <script src=\"https://www.google.com/recaptcha/api.js?render=explicit&onload=initRecaptcha\" async defer></script>  \r\n  </head>\r\n\r\n  <body>\r\n      <app-root>\r\n        <div class=\"chargement\">\r\n          <img class=\"loader\" src=\"assets/Images/loader.gif\" />\r\n          <p>Chargement...</p>\r\n        </div>\r\n      </app-root>\r\n  <script type=\"text/javascript\" src=\"inline.bundle.js\"></script><script type=\"text/javascript\" src=\"polyfills.bundle.js\"></script><script type=\"text/javascript\" src=\"scripts.bundle.js\"></script><script type=\"text/javascript\" src=\"styles.bundle.js\"></script><script type=\"text/javascript\" src=\"vendor.bundle.js\"></script><script type=\"text/javascript\" src=\"main.bundle.js\"></script></body>\r\n</html>\r\n",
     "ip": "185.194.82.176",
-    "timestamp": "2022-07-10T02:32:55.705850451Z",
+    "timestamp": "2022-07-17T02:32:17.656482072Z",
     "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://datacollecte.equipements.sports.gouv.fr'",
     "matcher-status": true,
     "matched-line": null
   },
   {
-    "template": "ssl/tls-version.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/ssl/tls-version.yaml",
-    "template-id": "tls-version",
+    "template": "technologies/waf-detect.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/technologies/waf-detect.yaml",
+    "template-id": "waf-detect",
     "info": {
-      "name": "TLS Version",
+      "name": "WAF Detection",
       "author": [
-        "pdteam"
+        "dwisiswant0",
+        "lu4nx"
       ],
       "tags": [
-        "ssl"
+        "waf",
+        "tech",
+        "misc"
       ],
-      "reference": null,
-      "severity": "info"
-    },
-    "type": "ssl",
-    "host": "https://datacollecte.equipements.sports.gouv.fr",
-    "matched-at": "https://datacollecte.equipements.sports.gouv.fr",
-    "extracted-results": [
-      "TLS12"
-    ],
-    "ip": "185.194.82.176",
-    "timestamp": "2022-07-10T02:32:56.648811173Z",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
-    "template": "miscellaneous/robots-txt-endpoint.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/miscellaneous/robots-txt-endpoint.yaml",
-    "template-id": "robots-txt-endpoint",
-    "info": {
-      "name": "robots.txt endpoint prober",
-      "author": [
-        "caspergn",
-        "pdteam"
+      "description": "A web application firewall was detected.",
+      "reference": [
+        "https://github.com/ekultek/whatwaf"
       ],
-      "tags": null,
-      "reference": null,
-      "severity": "info"
+      "severity": "info",
+      "classification": {
+        "cve-id": null,
+        "cwe-id": [
+          "cwe-200"
+        ]
+      }
     },
+    "matcher-name": "bigip",
     "type": "http",
     "host": "https://datacollecte.equipements.sports.gouv.fr",
-    "matched-at": "https://datacollecte.equipements.sports.gouv.fr/robots.txt",
-    "request": "GET /robots.txt HTTP/1.1\r\nHost: datacollecte.equipements.sports.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 1033\r\nAccept-Ranges: bytes\r\nContent-Security-Policy: upgrade-insecure-requests\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 10 Jul 2022 02:32:59 GMT\r\nLast-Modified: Tue, 04 Dec 2018 13:15:53 GMT\r\nReferrer-Policy: strict-origin\r\nSet-Cookie: BIGipServerpool-dsb5-dataes.cegedim.cloud-HTTP=!JWlOScaNZHPMUUxnRzbxqujnleDLVvW0JuFTWcHaBa6EoszNBjilOwef+wEYdNaeUv5cIexkuuZIrIkf3bcRx5tGLoA=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\r\n<html>\r\n  <head>\r\n    <meta charset=\"utf-8\">\r\n    <title>Data ES : Recensement des équipements sportifs</title>\r\n    <base href=\"/\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\r\n    <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\r\n    <script src=\"https://www.google.com/recaptcha/api.js?render=explicit&onload=initRecaptcha\" async defer></script>  \r\n  </head>\r\n\r\n  <body>\r\n      <app-root>\r\n        <div class=\"chargement\">\r\n          <img class=\"loader\" src=\"assets/Images/loader.gif\" />\r\n          <p>Chargement...</p>\r\n        </div>\r\n      </app-root>\r\n  <script type=\"text/javascript\" src=\"inline.bundle.js\"></script><script type=\"text/javascript\" src=\"polyfills.bundle.js\"></script><script type=\"text/javascript\" src=\"scripts.bundle.js\"></script><script type=\"text/javascript\" src=\"styles.bundle.js\"></script><script type=\"text/javascript\" src=\"vendor.bundle.js\"></script><script type=\"text/javascript\" src=\"main.bundle.js\"></script></body>\r\n</html>\r\n",
+    "matched-at": "https://datacollecte.equipements.sports.gouv.fr/",
+    "request": "POST / HTTP/1.1\r\nHost: datacollecte.equipements.sports.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nContent-Length: 27\r\nContent-Type: application/x-www-form-urlencoded\r\nAccept-Encoding: gzip\r\n\r\n_=<script>alert(1)</script>",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 1033\r\nAccept-Ranges: bytes\r\nContent-Security-Policy: upgrade-insecure-requests\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 17 Jul 2022 02:32:23 GMT\r\nLast-Modified: Tue, 04 Dec 2018 13:15:53 GMT\r\nReferrer-Policy: strict-origin\r\nSet-Cookie: BIGipServerpool-dsb5-dataes.cegedim.cloud-HTTP=!5Y2Q9bAt/dPm/VtnRzbxqujnleDLVqVFbfiO8iC00+I8tvHEZnlpoHHzuNtfbWT/gQYhNITiTCfGQmMN3cf8aCIkh78=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\r\n<html>\r\n  <head>\r\n    <meta charset=\"utf-8\">\r\n    <title>Data ES : Recensement des équipements sportifs</title>\r\n    <base href=\"/\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\r\n    <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\r\n    <script src=\"https://www.google.com/recaptcha/api.js?render=explicit&onload=initRecaptcha\" async defer></script>  \r\n  </head>\r\n\r\n  <body>\r\n      <app-root>\r\n        <div class=\"chargement\">\r\n          <img class=\"loader\" src=\"assets/Images/loader.gif\" />\r\n          <p>Chargement...</p>\r\n        </div>\r\n      </app-root>\r\n  <script type=\"text/javascript\" src=\"inline.bundle.js\"></script><script type=\"text/javascript\" src=\"polyfills.bundle.js\"></script><script type=\"text/javascript\" src=\"scripts.bundle.js\"></script><script type=\"text/javascript\" src=\"styles.bundle.js\"></script><script type=\"text/javascript\" src=\"vendor.bundle.js\"></script><script type=\"text/javascript\" src=\"main.bundle.js\"></script></body>\r\n</html>\r\n",
     "ip": "185.194.82.176",
-    "timestamp": "2022-07-10T02:32:59.953470962Z",
-    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://datacollecte.equipements.sports.gouv.fr/robots.txt'",
+    "timestamp": "2022-07-17T02:32:23.351123767Z",
+    "curl-command": "curl -X 'POST' -d '_=<script>alert(1)</script>' -H 'Content-Type: application/x-www-form-urlencoded' -H 'Host: datacollecte.equipements.sports.gouv.fr' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://datacollecte.equipements.sports.gouv.fr/'",
     "matcher-status": true,
     "matched-line": null
   },
@@ -108,14 +96,14 @@
       "reference": null,
       "severity": "info"
     },
-    "matcher-name": "access-control-allow-origin",
+    "matcher-name": "clear-site-data",
     "type": "http",
     "host": "https://datacollecte.equipements.sports.gouv.fr",
     "matched-at": "https://datacollecte.equipements.sports.gouv.fr",
     "request": "GET / HTTP/1.1\r\nHost: datacollecte.equipements.sports.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 1033\r\nAccept-Ranges: bytes\r\nContent-Security-Policy: upgrade-insecure-requests\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 10 Jul 2022 02:33:20 GMT\r\nLast-Modified: Tue, 04 Dec 2018 13:15:53 GMT\r\nReferrer-Policy: strict-origin\r\nSet-Cookie: BIGipServerpool-dsb5-dataes.cegedim.cloud-HTTP=!tBl3XHD/IKpE2jhnRzbxqujnleDLVulXJUCcMEFRCmpfw3y8lTAIyBu7j/kygGierqZkBIw0FaG/ru3vzxd2PnK4E5w=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\r\n<html>\r\n  <head>\r\n    <meta charset=\"utf-8\">\r\n    <title>Data ES : Recensement des équipements sportifs</title>\r\n    <base href=\"/\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\r\n    <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\r\n    <script src=\"https://www.google.com/recaptcha/api.js?render=explicit&onload=initRecaptcha\" async defer></script>  \r\n  </head>\r\n\r\n  <body>\r\n      <app-root>\r\n        <div class=\"chargement\">\r\n          <img class=\"loader\" src=\"assets/Images/loader.gif\" />\r\n          <p>Chargement...</p>\r\n        </div>\r\n      </app-root>\r\n  <script type=\"text/javascript\" src=\"inline.bundle.js\"></script><script type=\"text/javascript\" src=\"polyfills.bundle.js\"></script><script type=\"text/javascript\" src=\"scripts.bundle.js\"></script><script type=\"text/javascript\" src=\"styles.bundle.js\"></script><script type=\"text/javascript\" src=\"vendor.bundle.js\"></script><script type=\"text/javascript\" src=\"main.bundle.js\"></script></body>\r\n</html>\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 1033\r\nAccept-Ranges: bytes\r\nContent-Security-Policy: upgrade-insecure-requests\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 17 Jul 2022 02:32:33 GMT\r\nLast-Modified: Tue, 04 Dec 2018 13:15:53 GMT\r\nReferrer-Policy: strict-origin\r\nSet-Cookie: BIGipServerpool-dsb5-dataes.cegedim.cloud-HTTP=!jmEVWlwE6m9a+P1nRzbxqujnleDLVtS03ejTC58fpvVsuVEQvTRhw4UXDaSnPHXqvYGJdoAS7PZDMaxYIL9hWcQBzEs=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\r\n<html>\r\n  <head>\r\n    <meta charset=\"utf-8\">\r\n    <title>Data ES : Recensement des équipements sportifs</title>\r\n    <base href=\"/\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\r\n    <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\r\n    <script src=\"https://www.google.com/recaptcha/api.js?render=explicit&onload=initRecaptcha\" async defer></script>  \r\n  </head>\r\n\r\n  <body>\r\n      <app-root>\r\n        <div class=\"chargement\">\r\n          <img class=\"loader\" src=\"assets/Images/loader.gif\" />\r\n          <p>Chargement...</p>\r\n        </div>\r\n      </app-root>\r\n  <script type=\"text/javascript\" src=\"inline.bundle.js\"></script><script type=\"text/javascript\" src=\"polyfills.bundle.js\"></script><script type=\"text/javascript\" src=\"scripts.bundle.js\"></script><script type=\"text/javascript\" src=\"styles.bundle.js\"></script><script type=\"text/javascript\" src=\"vendor.bundle.js\"></script><script type=\"text/javascript\" src=\"main.bundle.js\"></script></body>\r\n</html>\r\n",
     "ip": "185.194.82.176",
-    "timestamp": "2022-07-10T02:33:20.229018341Z",
+    "timestamp": "2022-07-17T02:32:33.120773341Z",
     "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://datacollecte.equipements.sports.gouv.fr'",
     "matcher-status": true,
     "matched-line": null
@@ -148,79 +136,9 @@
     "host": "https://datacollecte.equipements.sports.gouv.fr",
     "matched-at": "https://datacollecte.equipements.sports.gouv.fr",
     "request": "GET / HTTP/1.1\r\nHost: datacollecte.equipements.sports.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 1033\r\nAccept-Ranges: bytes\r\nContent-Security-Policy: upgrade-insecure-requests\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 10 Jul 2022 02:33:20 GMT\r\nLast-Modified: Tue, 04 Dec 2018 13:15:53 GMT\r\nReferrer-Policy: strict-origin\r\nSet-Cookie: BIGipServerpool-dsb5-dataes.cegedim.cloud-HTTP=!tBl3XHD/IKpE2jhnRzbxqujnleDLVulXJUCcMEFRCmpfw3y8lTAIyBu7j/kygGierqZkBIw0FaG/ru3vzxd2PnK4E5w=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\r\n<html>\r\n  <head>\r\n    <meta charset=\"utf-8\">\r\n    <title>Data ES : Recensement des équipements sportifs</title>\r\n    <base href=\"/\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\r\n    <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\r\n    <script src=\"https://www.google.com/recaptcha/api.js?render=explicit&onload=initRecaptcha\" async defer></script>  \r\n  </head>\r\n\r\n  <body>\r\n      <app-root>\r\n        <div class=\"chargement\">\r\n          <img class=\"loader\" src=\"assets/Images/loader.gif\" />\r\n          <p>Chargement...</p>\r\n        </div>\r\n      </app-root>\r\n  <script type=\"text/javascript\" src=\"inline.bundle.js\"></script><script type=\"text/javascript\" src=\"polyfills.bundle.js\"></script><script type=\"text/javascript\" src=\"scripts.bundle.js\"></script><script type=\"text/javascript\" src=\"styles.bundle.js\"></script><script type=\"text/javascript\" src=\"vendor.bundle.js\"></script><script type=\"text/javascript\" src=\"main.bundle.js\"></script></body>\r\n</html>\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 1033\r\nAccept-Ranges: bytes\r\nContent-Security-Policy: upgrade-insecure-requests\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 17 Jul 2022 02:32:33 GMT\r\nLast-Modified: Tue, 04 Dec 2018 13:15:53 GMT\r\nReferrer-Policy: strict-origin\r\nSet-Cookie: BIGipServerpool-dsb5-dataes.cegedim.cloud-HTTP=!jmEVWlwE6m9a+P1nRzbxqujnleDLVtS03ejTC58fpvVsuVEQvTRhw4UXDaSnPHXqvYGJdoAS7PZDMaxYIL9hWcQBzEs=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\r\n<html>\r\n  <head>\r\n    <meta charset=\"utf-8\">\r\n    <title>Data ES : Recensement des équipements sportifs</title>\r\n    <base href=\"/\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\r\n    <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\r\n    <script src=\"https://www.google.com/recaptcha/api.js?render=explicit&onload=initRecaptcha\" async defer></script>  \r\n  </head>\r\n\r\n  <body>\r\n      <app-root>\r\n        <div class=\"chargement\">\r\n          <img class=\"loader\" src=\"assets/Images/loader.gif\" />\r\n          <p>Chargement...</p>\r\n        </div>\r\n      </app-root>\r\n  <script type=\"text/javascript\" src=\"inline.bundle.js\"></script><script type=\"text/javascript\" src=\"polyfills.bundle.js\"></script><script type=\"text/javascript\" src=\"scripts.bundle.js\"></script><script type=\"text/javascript\" src=\"styles.bundle.js\"></script><script type=\"text/javascript\" src=\"vendor.bundle.js\"></script><script type=\"text/javascript\" src=\"main.bundle.js\"></script></body>\r\n</html>\r\n",
     "ip": "185.194.82.176",
-    "timestamp": "2022-07-10T02:33:20.231412076Z",
-    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://datacollecte.equipements.sports.gouv.fr'",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
-    "template": "misconfiguration/http-missing-security-headers.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
-    "template-id": "http-missing-security-headers",
-    "info": {
-      "name": "HTTP Missing Security Headers",
-      "author": [
-        "socketz",
-        "geeknik",
-        "g4l1t0",
-        "convisoappsec",
-        "kurohost",
-        "dawid-czarnecki",
-        "forgedhallpass"
-      ],
-      "tags": [
-        "misconfig",
-        "generic"
-      ],
-      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-      "reference": null,
-      "severity": "info"
-    },
-    "matcher-name": "access-control-max-age",
-    "type": "http",
-    "host": "https://datacollecte.equipements.sports.gouv.fr",
-    "matched-at": "https://datacollecte.equipements.sports.gouv.fr",
-    "request": "GET / HTTP/1.1\r\nHost: datacollecte.equipements.sports.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 1033\r\nAccept-Ranges: bytes\r\nContent-Security-Policy: upgrade-insecure-requests\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 10 Jul 2022 02:33:20 GMT\r\nLast-Modified: Tue, 04 Dec 2018 13:15:53 GMT\r\nReferrer-Policy: strict-origin\r\nSet-Cookie: BIGipServerpool-dsb5-dataes.cegedim.cloud-HTTP=!tBl3XHD/IKpE2jhnRzbxqujnleDLVulXJUCcMEFRCmpfw3y8lTAIyBu7j/kygGierqZkBIw0FaG/ru3vzxd2PnK4E5w=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\r\n<html>\r\n  <head>\r\n    <meta charset=\"utf-8\">\r\n    <title>Data ES : Recensement des équipements sportifs</title>\r\n    <base href=\"/\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\r\n    <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\r\n    <script src=\"https://www.google.com/recaptcha/api.js?render=explicit&onload=initRecaptcha\" async defer></script>  \r\n  </head>\r\n\r\n  <body>\r\n      <app-root>\r\n        <div class=\"chargement\">\r\n          <img class=\"loader\" src=\"assets/Images/loader.gif\" />\r\n          <p>Chargement...</p>\r\n        </div>\r\n      </app-root>\r\n  <script type=\"text/javascript\" src=\"inline.bundle.js\"></script><script type=\"text/javascript\" src=\"polyfills.bundle.js\"></script><script type=\"text/javascript\" src=\"scripts.bundle.js\"></script><script type=\"text/javascript\" src=\"styles.bundle.js\"></script><script type=\"text/javascript\" src=\"vendor.bundle.js\"></script><script type=\"text/javascript\" src=\"main.bundle.js\"></script></body>\r\n</html>\r\n",
-    "ip": "185.194.82.176",
-    "timestamp": "2022-07-10T02:33:20.233458307Z",
-    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://datacollecte.equipements.sports.gouv.fr'",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
-    "template": "misconfiguration/http-missing-security-headers.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
-    "template-id": "http-missing-security-headers",
-    "info": {
-      "name": "HTTP Missing Security Headers",
-      "author": [
-        "socketz",
-        "geeknik",
-        "g4l1t0",
-        "convisoappsec",
-        "kurohost",
-        "dawid-czarnecki",
-        "forgedhallpass"
-      ],
-      "tags": [
-        "misconfig",
-        "generic"
-      ],
-      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-      "reference": null,
-      "severity": "info"
-    },
-    "matcher-name": "access-control-allow-methods",
-    "type": "http",
-    "host": "https://datacollecte.equipements.sports.gouv.fr",
-    "matched-at": "https://datacollecte.equipements.sports.gouv.fr",
-    "request": "GET / HTTP/1.1\r\nHost: datacollecte.equipements.sports.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 1033\r\nAccept-Ranges: bytes\r\nContent-Security-Policy: upgrade-insecure-requests\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 10 Jul 2022 02:33:20 GMT\r\nLast-Modified: Tue, 04 Dec 2018 13:15:53 GMT\r\nReferrer-Policy: strict-origin\r\nSet-Cookie: BIGipServerpool-dsb5-dataes.cegedim.cloud-HTTP=!tBl3XHD/IKpE2jhnRzbxqujnleDLVulXJUCcMEFRCmpfw3y8lTAIyBu7j/kygGierqZkBIw0FaG/ru3vzxd2PnK4E5w=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\r\n<html>\r\n  <head>\r\n    <meta charset=\"utf-8\">\r\n    <title>Data ES : Recensement des équipements sportifs</title>\r\n    <base href=\"/\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\r\n    <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\r\n    <script src=\"https://www.google.com/recaptcha/api.js?render=explicit&onload=initRecaptcha\" async defer></script>  \r\n  </head>\r\n\r\n  <body>\r\n      <app-root>\r\n        <div class=\"chargement\">\r\n          <img class=\"loader\" src=\"assets/Images/loader.gif\" />\r\n          <p>Chargement...</p>\r\n        </div>\r\n      </app-root>\r\n  <script type=\"text/javascript\" src=\"inline.bundle.js\"></script><script type=\"text/javascript\" src=\"polyfills.bundle.js\"></script><script type=\"text/javascript\" src=\"scripts.bundle.js\"></script><script type=\"text/javascript\" src=\"styles.bundle.js\"></script><script type=\"text/javascript\" src=\"vendor.bundle.js\"></script><script type=\"text/javascript\" src=\"main.bundle.js\"></script></body>\r\n</html>\r\n",
-    "ip": "185.194.82.176",
-    "timestamp": "2022-07-10T02:33:20.233495507Z",
+    "timestamp": "2022-07-17T02:32:33.120918452Z",
     "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://datacollecte.equipements.sports.gouv.fr'",
     "matcher-status": true,
     "matched-line": null
@@ -253,79 +171,9 @@
     "host": "https://datacollecte.equipements.sports.gouv.fr",
     "matched-at": "https://datacollecte.equipements.sports.gouv.fr",
     "request": "GET / HTTP/1.1\r\nHost: datacollecte.equipements.sports.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 1033\r\nAccept-Ranges: bytes\r\nContent-Security-Policy: upgrade-insecure-requests\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 10 Jul 2022 02:33:20 GMT\r\nLast-Modified: Tue, 04 Dec 2018 13:15:53 GMT\r\nReferrer-Policy: strict-origin\r\nSet-Cookie: BIGipServerpool-dsb5-dataes.cegedim.cloud-HTTP=!tBl3XHD/IKpE2jhnRzbxqujnleDLVulXJUCcMEFRCmpfw3y8lTAIyBu7j/kygGierqZkBIw0FaG/ru3vzxd2PnK4E5w=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\r\n<html>\r\n  <head>\r\n    <meta charset=\"utf-8\">\r\n    <title>Data ES : Recensement des équipements sportifs</title>\r\n    <base href=\"/\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\r\n    <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\r\n    <script src=\"https://www.google.com/recaptcha/api.js?render=explicit&onload=initRecaptcha\" async defer></script>  \r\n  </head>\r\n\r\n  <body>\r\n      <app-root>\r\n        <div class=\"chargement\">\r\n          <img class=\"loader\" src=\"assets/Images/loader.gif\" />\r\n          <p>Chargement...</p>\r\n        </div>\r\n      </app-root>\r\n  <script type=\"text/javascript\" src=\"inline.bundle.js\"></script><script type=\"text/javascript\" src=\"polyfills.bundle.js\"></script><script type=\"text/javascript\" src=\"scripts.bundle.js\"></script><script type=\"text/javascript\" src=\"styles.bundle.js\"></script><script type=\"text/javascript\" src=\"vendor.bundle.js\"></script><script type=\"text/javascript\" src=\"main.bundle.js\"></script></body>\r\n</html>\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 1033\r\nAccept-Ranges: bytes\r\nContent-Security-Policy: upgrade-insecure-requests\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 17 Jul 2022 02:32:33 GMT\r\nLast-Modified: Tue, 04 Dec 2018 13:15:53 GMT\r\nReferrer-Policy: strict-origin\r\nSet-Cookie: BIGipServerpool-dsb5-dataes.cegedim.cloud-HTTP=!jmEVWlwE6m9a+P1nRzbxqujnleDLVtS03ejTC58fpvVsuVEQvTRhw4UXDaSnPHXqvYGJdoAS7PZDMaxYIL9hWcQBzEs=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\r\n<html>\r\n  <head>\r\n    <meta charset=\"utf-8\">\r\n    <title>Data ES : Recensement des équipements sportifs</title>\r\n    <base href=\"/\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\r\n    <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\r\n    <script src=\"https://www.google.com/recaptcha/api.js?render=explicit&onload=initRecaptcha\" async defer></script>  \r\n  </head>\r\n\r\n  <body>\r\n      <app-root>\r\n        <div class=\"chargement\">\r\n          <img class=\"loader\" src=\"assets/Images/loader.gif\" />\r\n          <p>Chargement...</p>\r\n        </div>\r\n      </app-root>\r\n  <script type=\"text/javascript\" src=\"inline.bundle.js\"></script><script type=\"text/javascript\" src=\"polyfills.bundle.js\"></script><script type=\"text/javascript\" src=\"scripts.bundle.js\"></script><script type=\"text/javascript\" src=\"styles.bundle.js\"></script><script type=\"text/javascript\" src=\"vendor.bundle.js\"></script><script type=\"text/javascript\" src=\"main.bundle.js\"></script></body>\r\n</html>\r\n",
     "ip": "185.194.82.176",
-    "timestamp": "2022-07-10T02:33:20.237320764Z",
-    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://datacollecte.equipements.sports.gouv.fr'",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
-    "template": "misconfiguration/http-missing-security-headers.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
-    "template-id": "http-missing-security-headers",
-    "info": {
-      "name": "HTTP Missing Security Headers",
-      "author": [
-        "socketz",
-        "geeknik",
-        "g4l1t0",
-        "convisoappsec",
-        "kurohost",
-        "dawid-czarnecki",
-        "forgedhallpass"
-      ],
-      "tags": [
-        "misconfig",
-        "generic"
-      ],
-      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-      "reference": null,
-      "severity": "info"
-    },
-    "matcher-name": "x-permitted-cross-domain-policies",
-    "type": "http",
-    "host": "https://datacollecte.equipements.sports.gouv.fr",
-    "matched-at": "https://datacollecte.equipements.sports.gouv.fr",
-    "request": "GET / HTTP/1.1\r\nHost: datacollecte.equipements.sports.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 1033\r\nAccept-Ranges: bytes\r\nContent-Security-Policy: upgrade-insecure-requests\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 10 Jul 2022 02:33:20 GMT\r\nLast-Modified: Tue, 04 Dec 2018 13:15:53 GMT\r\nReferrer-Policy: strict-origin\r\nSet-Cookie: BIGipServerpool-dsb5-dataes.cegedim.cloud-HTTP=!tBl3XHD/IKpE2jhnRzbxqujnleDLVulXJUCcMEFRCmpfw3y8lTAIyBu7j/kygGierqZkBIw0FaG/ru3vzxd2PnK4E5w=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\r\n<html>\r\n  <head>\r\n    <meta charset=\"utf-8\">\r\n    <title>Data ES : Recensement des équipements sportifs</title>\r\n    <base href=\"/\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\r\n    <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\r\n    <script src=\"https://www.google.com/recaptcha/api.js?render=explicit&onload=initRecaptcha\" async defer></script>  \r\n  </head>\r\n\r\n  <body>\r\n      <app-root>\r\n        <div class=\"chargement\">\r\n          <img class=\"loader\" src=\"assets/Images/loader.gif\" />\r\n          <p>Chargement...</p>\r\n        </div>\r\n      </app-root>\r\n  <script type=\"text/javascript\" src=\"inline.bundle.js\"></script><script type=\"text/javascript\" src=\"polyfills.bundle.js\"></script><script type=\"text/javascript\" src=\"scripts.bundle.js\"></script><script type=\"text/javascript\" src=\"styles.bundle.js\"></script><script type=\"text/javascript\" src=\"vendor.bundle.js\"></script><script type=\"text/javascript\" src=\"main.bundle.js\"></script></body>\r\n</html>\r\n",
-    "ip": "185.194.82.176",
-    "timestamp": "2022-07-10T02:33:20.237360665Z",
-    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://datacollecte.equipements.sports.gouv.fr'",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
-    "template": "misconfiguration/http-missing-security-headers.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
-    "template-id": "http-missing-security-headers",
-    "info": {
-      "name": "HTTP Missing Security Headers",
-      "author": [
-        "socketz",
-        "geeknik",
-        "g4l1t0",
-        "convisoappsec",
-        "kurohost",
-        "dawid-czarnecki",
-        "forgedhallpass"
-      ],
-      "tags": [
-        "misconfig",
-        "generic"
-      ],
-      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-      "reference": null,
-      "severity": "info"
-    },
-    "matcher-name": "cross-origin-embedder-policy",
-    "type": "http",
-    "host": "https://datacollecte.equipements.sports.gouv.fr",
-    "matched-at": "https://datacollecte.equipements.sports.gouv.fr",
-    "request": "GET / HTTP/1.1\r\nHost: datacollecte.equipements.sports.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 1033\r\nAccept-Ranges: bytes\r\nContent-Security-Policy: upgrade-insecure-requests\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 10 Jul 2022 02:33:20 GMT\r\nLast-Modified: Tue, 04 Dec 2018 13:15:53 GMT\r\nReferrer-Policy: strict-origin\r\nSet-Cookie: BIGipServerpool-dsb5-dataes.cegedim.cloud-HTTP=!tBl3XHD/IKpE2jhnRzbxqujnleDLVulXJUCcMEFRCmpfw3y8lTAIyBu7j/kygGierqZkBIw0FaG/ru3vzxd2PnK4E5w=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\r\n<html>\r\n  <head>\r\n    <meta charset=\"utf-8\">\r\n    <title>Data ES : Recensement des équipements sportifs</title>\r\n    <base href=\"/\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\r\n    <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\r\n    <script src=\"https://www.google.com/recaptcha/api.js?render=explicit&onload=initRecaptcha\" async defer></script>  \r\n  </head>\r\n\r\n  <body>\r\n      <app-root>\r\n        <div class=\"chargement\">\r\n          <img class=\"loader\" src=\"assets/Images/loader.gif\" />\r\n          <p>Chargement...</p>\r\n        </div>\r\n      </app-root>\r\n  <script type=\"text/javascript\" src=\"inline.bundle.js\"></script><script type=\"text/javascript\" src=\"polyfills.bundle.js\"></script><script type=\"text/javascript\" src=\"scripts.bundle.js\"></script><script type=\"text/javascript\" src=\"styles.bundle.js\"></script><script type=\"text/javascript\" src=\"vendor.bundle.js\"></script><script type=\"text/javascript\" src=\"main.bundle.js\"></script></body>\r\n</html>\r\n",
-    "ip": "185.194.82.176",
-    "timestamp": "2022-07-10T02:33:20.237382365Z",
+    "timestamp": "2022-07-17T02:32:33.120966256Z",
     "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://datacollecte.equipements.sports.gouv.fr'",
     "matcher-status": true,
     "matched-line": null
@@ -358,9 +206,44 @@
     "host": "https://datacollecte.equipements.sports.gouv.fr",
     "matched-at": "https://datacollecte.equipements.sports.gouv.fr",
     "request": "GET / HTTP/1.1\r\nHost: datacollecte.equipements.sports.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 1033\r\nAccept-Ranges: bytes\r\nContent-Security-Policy: upgrade-insecure-requests\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 10 Jul 2022 02:33:20 GMT\r\nLast-Modified: Tue, 04 Dec 2018 13:15:53 GMT\r\nReferrer-Policy: strict-origin\r\nSet-Cookie: BIGipServerpool-dsb5-dataes.cegedim.cloud-HTTP=!tBl3XHD/IKpE2jhnRzbxqujnleDLVulXJUCcMEFRCmpfw3y8lTAIyBu7j/kygGierqZkBIw0FaG/ru3vzxd2PnK4E5w=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\r\n<html>\r\n  <head>\r\n    <meta charset=\"utf-8\">\r\n    <title>Data ES : Recensement des équipements sportifs</title>\r\n    <base href=\"/\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\r\n    <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\r\n    <script src=\"https://www.google.com/recaptcha/api.js?render=explicit&onload=initRecaptcha\" async defer></script>  \r\n  </head>\r\n\r\n  <body>\r\n      <app-root>\r\n        <div class=\"chargement\">\r\n          <img class=\"loader\" src=\"assets/Images/loader.gif\" />\r\n          <p>Chargement...</p>\r\n        </div>\r\n      </app-root>\r\n  <script type=\"text/javascript\" src=\"inline.bundle.js\"></script><script type=\"text/javascript\" src=\"polyfills.bundle.js\"></script><script type=\"text/javascript\" src=\"scripts.bundle.js\"></script><script type=\"text/javascript\" src=\"styles.bundle.js\"></script><script type=\"text/javascript\" src=\"vendor.bundle.js\"></script><script type=\"text/javascript\" src=\"main.bundle.js\"></script></body>\r\n</html>\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 1033\r\nAccept-Ranges: bytes\r\nContent-Security-Policy: upgrade-insecure-requests\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 17 Jul 2022 02:32:33 GMT\r\nLast-Modified: Tue, 04 Dec 2018 13:15:53 GMT\r\nReferrer-Policy: strict-origin\r\nSet-Cookie: BIGipServerpool-dsb5-dataes.cegedim.cloud-HTTP=!jmEVWlwE6m9a+P1nRzbxqujnleDLVtS03ejTC58fpvVsuVEQvTRhw4UXDaSnPHXqvYGJdoAS7PZDMaxYIL9hWcQBzEs=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\r\n<html>\r\n  <head>\r\n    <meta charset=\"utf-8\">\r\n    <title>Data ES : Recensement des équipements sportifs</title>\r\n    <base href=\"/\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\r\n    <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\r\n    <script src=\"https://www.google.com/recaptcha/api.js?render=explicit&onload=initRecaptcha\" async defer></script>  \r\n  </head>\r\n\r\n  <body>\r\n      <app-root>\r\n        <div class=\"chargement\">\r\n          <img class=\"loader\" src=\"assets/Images/loader.gif\" />\r\n          <p>Chargement...</p>\r\n        </div>\r\n      </app-root>\r\n  <script type=\"text/javascript\" src=\"inline.bundle.js\"></script><script type=\"text/javascript\" src=\"polyfills.bundle.js\"></script><script type=\"text/javascript\" src=\"scripts.bundle.js\"></script><script type=\"text/javascript\" src=\"styles.bundle.js\"></script><script type=\"text/javascript\" src=\"vendor.bundle.js\"></script><script type=\"text/javascript\" src=\"main.bundle.js\"></script></body>\r\n</html>\r\n",
     "ip": "185.194.82.176",
-    "timestamp": "2022-07-10T02:33:20.237404666Z",
+    "timestamp": "2022-07-17T02:32:33.12101646Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://datacollecte.equipements.sports.gouv.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "access-control-allow-origin",
+    "type": "http",
+    "host": "https://datacollecte.equipements.sports.gouv.fr",
+    "matched-at": "https://datacollecte.equipements.sports.gouv.fr",
+    "request": "GET / HTTP/1.1\r\nHost: datacollecte.equipements.sports.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 1033\r\nAccept-Ranges: bytes\r\nContent-Security-Policy: upgrade-insecure-requests\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 17 Jul 2022 02:32:33 GMT\r\nLast-Modified: Tue, 04 Dec 2018 13:15:53 GMT\r\nReferrer-Policy: strict-origin\r\nSet-Cookie: BIGipServerpool-dsb5-dataes.cegedim.cloud-HTTP=!jmEVWlwE6m9a+P1nRzbxqujnleDLVtS03ejTC58fpvVsuVEQvTRhw4UXDaSnPHXqvYGJdoAS7PZDMaxYIL9hWcQBzEs=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\r\n<html>\r\n  <head>\r\n    <meta charset=\"utf-8\">\r\n    <title>Data ES : Recensement des équipements sportifs</title>\r\n    <base href=\"/\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\r\n    <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\r\n    <script src=\"https://www.google.com/recaptcha/api.js?render=explicit&onload=initRecaptcha\" async defer></script>  \r\n  </head>\r\n\r\n  <body>\r\n      <app-root>\r\n        <div class=\"chargement\">\r\n          <img class=\"loader\" src=\"assets/Images/loader.gif\" />\r\n          <p>Chargement...</p>\r\n        </div>\r\n      </app-root>\r\n  <script type=\"text/javascript\" src=\"inline.bundle.js\"></script><script type=\"text/javascript\" src=\"polyfills.bundle.js\"></script><script type=\"text/javascript\" src=\"scripts.bundle.js\"></script><script type=\"text/javascript\" src=\"styles.bundle.js\"></script><script type=\"text/javascript\" src=\"vendor.bundle.js\"></script><script type=\"text/javascript\" src=\"main.bundle.js\"></script></body>\r\n</html>\r\n",
+    "ip": "185.194.82.176",
+    "timestamp": "2022-07-17T02:32:33.121058764Z",
     "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://datacollecte.equipements.sports.gouv.fr'",
     "matcher-status": true,
     "matched-line": null
@@ -393,9 +276,44 @@
     "host": "https://datacollecte.equipements.sports.gouv.fr",
     "matched-at": "https://datacollecte.equipements.sports.gouv.fr",
     "request": "GET / HTTP/1.1\r\nHost: datacollecte.equipements.sports.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 1033\r\nAccept-Ranges: bytes\r\nContent-Security-Policy: upgrade-insecure-requests\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 10 Jul 2022 02:33:20 GMT\r\nLast-Modified: Tue, 04 Dec 2018 13:15:53 GMT\r\nReferrer-Policy: strict-origin\r\nSet-Cookie: BIGipServerpool-dsb5-dataes.cegedim.cloud-HTTP=!tBl3XHD/IKpE2jhnRzbxqujnleDLVulXJUCcMEFRCmpfw3y8lTAIyBu7j/kygGierqZkBIw0FaG/ru3vzxd2PnK4E5w=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\r\n<html>\r\n  <head>\r\n    <meta charset=\"utf-8\">\r\n    <title>Data ES : Recensement des équipements sportifs</title>\r\n    <base href=\"/\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\r\n    <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\r\n    <script src=\"https://www.google.com/recaptcha/api.js?render=explicit&onload=initRecaptcha\" async defer></script>  \r\n  </head>\r\n\r\n  <body>\r\n      <app-root>\r\n        <div class=\"chargement\">\r\n          <img class=\"loader\" src=\"assets/Images/loader.gif\" />\r\n          <p>Chargement...</p>\r\n        </div>\r\n      </app-root>\r\n  <script type=\"text/javascript\" src=\"inline.bundle.js\"></script><script type=\"text/javascript\" src=\"polyfills.bundle.js\"></script><script type=\"text/javascript\" src=\"scripts.bundle.js\"></script><script type=\"text/javascript\" src=\"styles.bundle.js\"></script><script type=\"text/javascript\" src=\"vendor.bundle.js\"></script><script type=\"text/javascript\" src=\"main.bundle.js\"></script></body>\r\n</html>\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 1033\r\nAccept-Ranges: bytes\r\nContent-Security-Policy: upgrade-insecure-requests\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 17 Jul 2022 02:32:33 GMT\r\nLast-Modified: Tue, 04 Dec 2018 13:15:53 GMT\r\nReferrer-Policy: strict-origin\r\nSet-Cookie: BIGipServerpool-dsb5-dataes.cegedim.cloud-HTTP=!jmEVWlwE6m9a+P1nRzbxqujnleDLVtS03ejTC58fpvVsuVEQvTRhw4UXDaSnPHXqvYGJdoAS7PZDMaxYIL9hWcQBzEs=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\r\n<html>\r\n  <head>\r\n    <meta charset=\"utf-8\">\r\n    <title>Data ES : Recensement des équipements sportifs</title>\r\n    <base href=\"/\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\r\n    <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\r\n    <script src=\"https://www.google.com/recaptcha/api.js?render=explicit&onload=initRecaptcha\" async defer></script>  \r\n  </head>\r\n\r\n  <body>\r\n      <app-root>\r\n        <div class=\"chargement\">\r\n          <img class=\"loader\" src=\"assets/Images/loader.gif\" />\r\n          <p>Chargement...</p>\r\n        </div>\r\n      </app-root>\r\n  <script type=\"text/javascript\" src=\"inline.bundle.js\"></script><script type=\"text/javascript\" src=\"polyfills.bundle.js\"></script><script type=\"text/javascript\" src=\"scripts.bundle.js\"></script><script type=\"text/javascript\" src=\"styles.bundle.js\"></script><script type=\"text/javascript\" src=\"vendor.bundle.js\"></script><script type=\"text/javascript\" src=\"main.bundle.js\"></script></body>\r\n</html>\r\n",
     "ip": "185.194.82.176",
-    "timestamp": "2022-07-10T02:33:20.237427866Z",
+    "timestamp": "2022-07-17T02:32:33.121097067Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://datacollecte.equipements.sports.gouv.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "access-control-max-age",
+    "type": "http",
+    "host": "https://datacollecte.equipements.sports.gouv.fr",
+    "matched-at": "https://datacollecte.equipements.sports.gouv.fr",
+    "request": "GET / HTTP/1.1\r\nHost: datacollecte.equipements.sports.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 1033\r\nAccept-Ranges: bytes\r\nContent-Security-Policy: upgrade-insecure-requests\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 17 Jul 2022 02:32:33 GMT\r\nLast-Modified: Tue, 04 Dec 2018 13:15:53 GMT\r\nReferrer-Policy: strict-origin\r\nSet-Cookie: BIGipServerpool-dsb5-dataes.cegedim.cloud-HTTP=!jmEVWlwE6m9a+P1nRzbxqujnleDLVtS03ejTC58fpvVsuVEQvTRhw4UXDaSnPHXqvYGJdoAS7PZDMaxYIL9hWcQBzEs=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\r\n<html>\r\n  <head>\r\n    <meta charset=\"utf-8\">\r\n    <title>Data ES : Recensement des équipements sportifs</title>\r\n    <base href=\"/\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\r\n    <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\r\n    <script src=\"https://www.google.com/recaptcha/api.js?render=explicit&onload=initRecaptcha\" async defer></script>  \r\n  </head>\r\n\r\n  <body>\r\n      <app-root>\r\n        <div class=\"chargement\">\r\n          <img class=\"loader\" src=\"assets/Images/loader.gif\" />\r\n          <p>Chargement...</p>\r\n        </div>\r\n      </app-root>\r\n  <script type=\"text/javascript\" src=\"inline.bundle.js\"></script><script type=\"text/javascript\" src=\"polyfills.bundle.js\"></script><script type=\"text/javascript\" src=\"scripts.bundle.js\"></script><script type=\"text/javascript\" src=\"styles.bundle.js\"></script><script type=\"text/javascript\" src=\"vendor.bundle.js\"></script><script type=\"text/javascript\" src=\"main.bundle.js\"></script></body>\r\n</html>\r\n",
+    "ip": "185.194.82.176",
+    "timestamp": "2022-07-17T02:32:33.12113817Z",
     "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://datacollecte.equipements.sports.gouv.fr'",
     "matcher-status": true,
     "matched-line": null
@@ -428,9 +346,9 @@
     "host": "https://datacollecte.equipements.sports.gouv.fr",
     "matched-at": "https://datacollecte.equipements.sports.gouv.fr",
     "request": "GET / HTTP/1.1\r\nHost: datacollecte.equipements.sports.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 1033\r\nAccept-Ranges: bytes\r\nContent-Security-Policy: upgrade-insecure-requests\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 10 Jul 2022 02:33:20 GMT\r\nLast-Modified: Tue, 04 Dec 2018 13:15:53 GMT\r\nReferrer-Policy: strict-origin\r\nSet-Cookie: BIGipServerpool-dsb5-dataes.cegedim.cloud-HTTP=!tBl3XHD/IKpE2jhnRzbxqujnleDLVulXJUCcMEFRCmpfw3y8lTAIyBu7j/kygGierqZkBIw0FaG/ru3vzxd2PnK4E5w=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\r\n<html>\r\n  <head>\r\n    <meta charset=\"utf-8\">\r\n    <title>Data ES : Recensement des équipements sportifs</title>\r\n    <base href=\"/\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\r\n    <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\r\n    <script src=\"https://www.google.com/recaptcha/api.js?render=explicit&onload=initRecaptcha\" async defer></script>  \r\n  </head>\r\n\r\n  <body>\r\n      <app-root>\r\n        <div class=\"chargement\">\r\n          <img class=\"loader\" src=\"assets/Images/loader.gif\" />\r\n          <p>Chargement...</p>\r\n        </div>\r\n      </app-root>\r\n  <script type=\"text/javascript\" src=\"inline.bundle.js\"></script><script type=\"text/javascript\" src=\"polyfills.bundle.js\"></script><script type=\"text/javascript\" src=\"scripts.bundle.js\"></script><script type=\"text/javascript\" src=\"styles.bundle.js\"></script><script type=\"text/javascript\" src=\"vendor.bundle.js\"></script><script type=\"text/javascript\" src=\"main.bundle.js\"></script></body>\r\n</html>\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 1033\r\nAccept-Ranges: bytes\r\nContent-Security-Policy: upgrade-insecure-requests\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 17 Jul 2022 02:32:33 GMT\r\nLast-Modified: Tue, 04 Dec 2018 13:15:53 GMT\r\nReferrer-Policy: strict-origin\r\nSet-Cookie: BIGipServerpool-dsb5-dataes.cegedim.cloud-HTTP=!jmEVWlwE6m9a+P1nRzbxqujnleDLVtS03ejTC58fpvVsuVEQvTRhw4UXDaSnPHXqvYGJdoAS7PZDMaxYIL9hWcQBzEs=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\r\n<html>\r\n  <head>\r\n    <meta charset=\"utf-8\">\r\n    <title>Data ES : Recensement des équipements sportifs</title>\r\n    <base href=\"/\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\r\n    <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\r\n    <script src=\"https://www.google.com/recaptcha/api.js?render=explicit&onload=initRecaptcha\" async defer></script>  \r\n  </head>\r\n\r\n  <body>\r\n      <app-root>\r\n        <div class=\"chargement\">\r\n          <img class=\"loader\" src=\"assets/Images/loader.gif\" />\r\n          <p>Chargement...</p>\r\n        </div>\r\n      </app-root>\r\n  <script type=\"text/javascript\" src=\"inline.bundle.js\"></script><script type=\"text/javascript\" src=\"polyfills.bundle.js\"></script><script type=\"text/javascript\" src=\"scripts.bundle.js\"></script><script type=\"text/javascript\" src=\"styles.bundle.js\"></script><script type=\"text/javascript\" src=\"vendor.bundle.js\"></script><script type=\"text/javascript\" src=\"main.bundle.js\"></script></body>\r\n</html>\r\n",
     "ip": "185.194.82.176",
-    "timestamp": "2022-07-10T02:33:20.237448866Z",
+    "timestamp": "2022-07-17T02:32:33.121181273Z",
     "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://datacollecte.equipements.sports.gouv.fr'",
     "matcher-status": true,
     "matched-line": null
@@ -458,14 +376,49 @@
       "reference": null,
       "severity": "info"
     },
-    "matcher-name": "clear-site-data",
+    "matcher-name": "x-permitted-cross-domain-policies",
     "type": "http",
     "host": "https://datacollecte.equipements.sports.gouv.fr",
     "matched-at": "https://datacollecte.equipements.sports.gouv.fr",
     "request": "GET / HTTP/1.1\r\nHost: datacollecte.equipements.sports.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 1033\r\nAccept-Ranges: bytes\r\nContent-Security-Policy: upgrade-insecure-requests\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 10 Jul 2022 02:33:20 GMT\r\nLast-Modified: Tue, 04 Dec 2018 13:15:53 GMT\r\nReferrer-Policy: strict-origin\r\nSet-Cookie: BIGipServerpool-dsb5-dataes.cegedim.cloud-HTTP=!tBl3XHD/IKpE2jhnRzbxqujnleDLVulXJUCcMEFRCmpfw3y8lTAIyBu7j/kygGierqZkBIw0FaG/ru3vzxd2PnK4E5w=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\r\n<html>\r\n  <head>\r\n    <meta charset=\"utf-8\">\r\n    <title>Data ES : Recensement des équipements sportifs</title>\r\n    <base href=\"/\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\r\n    <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\r\n    <script src=\"https://www.google.com/recaptcha/api.js?render=explicit&onload=initRecaptcha\" async defer></script>  \r\n  </head>\r\n\r\n  <body>\r\n      <app-root>\r\n        <div class=\"chargement\">\r\n          <img class=\"loader\" src=\"assets/Images/loader.gif\" />\r\n          <p>Chargement...</p>\r\n        </div>\r\n      </app-root>\r\n  <script type=\"text/javascript\" src=\"inline.bundle.js\"></script><script type=\"text/javascript\" src=\"polyfills.bundle.js\"></script><script type=\"text/javascript\" src=\"scripts.bundle.js\"></script><script type=\"text/javascript\" src=\"styles.bundle.js\"></script><script type=\"text/javascript\" src=\"vendor.bundle.js\"></script><script type=\"text/javascript\" src=\"main.bundle.js\"></script></body>\r\n</html>\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 1033\r\nAccept-Ranges: bytes\r\nContent-Security-Policy: upgrade-insecure-requests\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 17 Jul 2022 02:32:33 GMT\r\nLast-Modified: Tue, 04 Dec 2018 13:15:53 GMT\r\nReferrer-Policy: strict-origin\r\nSet-Cookie: BIGipServerpool-dsb5-dataes.cegedim.cloud-HTTP=!jmEVWlwE6m9a+P1nRzbxqujnleDLVtS03ejTC58fpvVsuVEQvTRhw4UXDaSnPHXqvYGJdoAS7PZDMaxYIL9hWcQBzEs=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\r\n<html>\r\n  <head>\r\n    <meta charset=\"utf-8\">\r\n    <title>Data ES : Recensement des équipements sportifs</title>\r\n    <base href=\"/\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\r\n    <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\r\n    <script src=\"https://www.google.com/recaptcha/api.js?render=explicit&onload=initRecaptcha\" async defer></script>  \r\n  </head>\r\n\r\n  <body>\r\n      <app-root>\r\n        <div class=\"chargement\">\r\n          <img class=\"loader\" src=\"assets/Images/loader.gif\" />\r\n          <p>Chargement...</p>\r\n        </div>\r\n      </app-root>\r\n  <script type=\"text/javascript\" src=\"inline.bundle.js\"></script><script type=\"text/javascript\" src=\"polyfills.bundle.js\"></script><script type=\"text/javascript\" src=\"scripts.bundle.js\"></script><script type=\"text/javascript\" src=\"styles.bundle.js\"></script><script type=\"text/javascript\" src=\"vendor.bundle.js\"></script><script type=\"text/javascript\" src=\"main.bundle.js\"></script></body>\r\n</html>\r\n",
     "ip": "185.194.82.176",
-    "timestamp": "2022-07-10T02:33:20.237472067Z",
+    "timestamp": "2022-07-17T02:32:33.121220877Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://datacollecte.equipements.sports.gouv.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "cross-origin-embedder-policy",
+    "type": "http",
+    "host": "https://datacollecte.equipements.sports.gouv.fr",
+    "matched-at": "https://datacollecte.equipements.sports.gouv.fr",
+    "request": "GET / HTTP/1.1\r\nHost: datacollecte.equipements.sports.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 1033\r\nAccept-Ranges: bytes\r\nContent-Security-Policy: upgrade-insecure-requests\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 17 Jul 2022 02:32:33 GMT\r\nLast-Modified: Tue, 04 Dec 2018 13:15:53 GMT\r\nReferrer-Policy: strict-origin\r\nSet-Cookie: BIGipServerpool-dsb5-dataes.cegedim.cloud-HTTP=!jmEVWlwE6m9a+P1nRzbxqujnleDLVtS03ejTC58fpvVsuVEQvTRhw4UXDaSnPHXqvYGJdoAS7PZDMaxYIL9hWcQBzEs=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\r\n<html>\r\n  <head>\r\n    <meta charset=\"utf-8\">\r\n    <title>Data ES : Recensement des équipements sportifs</title>\r\n    <base href=\"/\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\r\n    <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\r\n    <script src=\"https://www.google.com/recaptcha/api.js?render=explicit&onload=initRecaptcha\" async defer></script>  \r\n  </head>\r\n\r\n  <body>\r\n      <app-root>\r\n        <div class=\"chargement\">\r\n          <img class=\"loader\" src=\"assets/Images/loader.gif\" />\r\n          <p>Chargement...</p>\r\n        </div>\r\n      </app-root>\r\n  <script type=\"text/javascript\" src=\"inline.bundle.js\"></script><script type=\"text/javascript\" src=\"polyfills.bundle.js\"></script><script type=\"text/javascript\" src=\"scripts.bundle.js\"></script><script type=\"text/javascript\" src=\"styles.bundle.js\"></script><script type=\"text/javascript\" src=\"vendor.bundle.js\"></script><script type=\"text/javascript\" src=\"main.bundle.js\"></script></body>\r\n</html>\r\n",
+    "ip": "185.194.82.176",
+    "timestamp": "2022-07-17T02:32:33.12126338Z",
     "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://datacollecte.equipements.sports.gouv.fr'",
     "matcher-status": true,
     "matched-line": null
@@ -498,9 +451,44 @@
     "host": "https://datacollecte.equipements.sports.gouv.fr",
     "matched-at": "https://datacollecte.equipements.sports.gouv.fr",
     "request": "GET / HTTP/1.1\r\nHost: datacollecte.equipements.sports.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 1033\r\nAccept-Ranges: bytes\r\nContent-Security-Policy: upgrade-insecure-requests\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 10 Jul 2022 02:33:20 GMT\r\nLast-Modified: Tue, 04 Dec 2018 13:15:53 GMT\r\nReferrer-Policy: strict-origin\r\nSet-Cookie: BIGipServerpool-dsb5-dataes.cegedim.cloud-HTTP=!tBl3XHD/IKpE2jhnRzbxqujnleDLVulXJUCcMEFRCmpfw3y8lTAIyBu7j/kygGierqZkBIw0FaG/ru3vzxd2PnK4E5w=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\r\n<html>\r\n  <head>\r\n    <meta charset=\"utf-8\">\r\n    <title>Data ES : Recensement des équipements sportifs</title>\r\n    <base href=\"/\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\r\n    <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\r\n    <script src=\"https://www.google.com/recaptcha/api.js?render=explicit&onload=initRecaptcha\" async defer></script>  \r\n  </head>\r\n\r\n  <body>\r\n      <app-root>\r\n        <div class=\"chargement\">\r\n          <img class=\"loader\" src=\"assets/Images/loader.gif\" />\r\n          <p>Chargement...</p>\r\n        </div>\r\n      </app-root>\r\n  <script type=\"text/javascript\" src=\"inline.bundle.js\"></script><script type=\"text/javascript\" src=\"polyfills.bundle.js\"></script><script type=\"text/javascript\" src=\"scripts.bundle.js\"></script><script type=\"text/javascript\" src=\"styles.bundle.js\"></script><script type=\"text/javascript\" src=\"vendor.bundle.js\"></script><script type=\"text/javascript\" src=\"main.bundle.js\"></script></body>\r\n</html>\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 1033\r\nAccept-Ranges: bytes\r\nContent-Security-Policy: upgrade-insecure-requests\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 17 Jul 2022 02:32:33 GMT\r\nLast-Modified: Tue, 04 Dec 2018 13:15:53 GMT\r\nReferrer-Policy: strict-origin\r\nSet-Cookie: BIGipServerpool-dsb5-dataes.cegedim.cloud-HTTP=!jmEVWlwE6m9a+P1nRzbxqujnleDLVtS03ejTC58fpvVsuVEQvTRhw4UXDaSnPHXqvYGJdoAS7PZDMaxYIL9hWcQBzEs=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\r\n<html>\r\n  <head>\r\n    <meta charset=\"utf-8\">\r\n    <title>Data ES : Recensement des équipements sportifs</title>\r\n    <base href=\"/\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\r\n    <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\r\n    <script src=\"https://www.google.com/recaptcha/api.js?render=explicit&onload=initRecaptcha\" async defer></script>  \r\n  </head>\r\n\r\n  <body>\r\n      <app-root>\r\n        <div class=\"chargement\">\r\n          <img class=\"loader\" src=\"assets/Images/loader.gif\" />\r\n          <p>Chargement...</p>\r\n        </div>\r\n      </app-root>\r\n  <script type=\"text/javascript\" src=\"inline.bundle.js\"></script><script type=\"text/javascript\" src=\"polyfills.bundle.js\"></script><script type=\"text/javascript\" src=\"scripts.bundle.js\"></script><script type=\"text/javascript\" src=\"styles.bundle.js\"></script><script type=\"text/javascript\" src=\"vendor.bundle.js\"></script><script type=\"text/javascript\" src=\"main.bundle.js\"></script></body>\r\n</html>\r\n",
     "ip": "185.194.82.176",
-    "timestamp": "2022-07-10T02:33:20.237492567Z",
+    "timestamp": "2022-07-17T02:32:33.121302483Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://datacollecte.equipements.sports.gouv.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "access-control-allow-methods",
+    "type": "http",
+    "host": "https://datacollecte.equipements.sports.gouv.fr",
+    "matched-at": "https://datacollecte.equipements.sports.gouv.fr",
+    "request": "GET / HTTP/1.1\r\nHost: datacollecte.equipements.sports.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 1033\r\nAccept-Ranges: bytes\r\nContent-Security-Policy: upgrade-insecure-requests\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 17 Jul 2022 02:32:33 GMT\r\nLast-Modified: Tue, 04 Dec 2018 13:15:53 GMT\r\nReferrer-Policy: strict-origin\r\nSet-Cookie: BIGipServerpool-dsb5-dataes.cegedim.cloud-HTTP=!jmEVWlwE6m9a+P1nRzbxqujnleDLVtS03ejTC58fpvVsuVEQvTRhw4UXDaSnPHXqvYGJdoAS7PZDMaxYIL9hWcQBzEs=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\r\n<html>\r\n  <head>\r\n    <meta charset=\"utf-8\">\r\n    <title>Data ES : Recensement des équipements sportifs</title>\r\n    <base href=\"/\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\r\n    <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\r\n    <script src=\"https://www.google.com/recaptcha/api.js?render=explicit&onload=initRecaptcha\" async defer></script>  \r\n  </head>\r\n\r\n  <body>\r\n      <app-root>\r\n        <div class=\"chargement\">\r\n          <img class=\"loader\" src=\"assets/Images/loader.gif\" />\r\n          <p>Chargement...</p>\r\n        </div>\r\n      </app-root>\r\n  <script type=\"text/javascript\" src=\"inline.bundle.js\"></script><script type=\"text/javascript\" src=\"polyfills.bundle.js\"></script><script type=\"text/javascript\" src=\"scripts.bundle.js\"></script><script type=\"text/javascript\" src=\"styles.bundle.js\"></script><script type=\"text/javascript\" src=\"vendor.bundle.js\"></script><script type=\"text/javascript\" src=\"main.bundle.js\"></script></body>\r\n</html>\r\n",
+    "ip": "185.194.82.176",
+    "timestamp": "2022-07-17T02:32:33.121345687Z",
     "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://datacollecte.equipements.sports.gouv.fr'",
     "matcher-status": true,
     "matched-line": null
