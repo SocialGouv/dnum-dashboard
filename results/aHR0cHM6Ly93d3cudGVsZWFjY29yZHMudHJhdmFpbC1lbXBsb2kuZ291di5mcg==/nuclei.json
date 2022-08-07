@@ -1,596 +1,28 @@
 [
   {
-    "template": "misconfiguration/http-missing-security-headers.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
-    "template-id": "http-missing-security-headers",
+    "template": "ssl/ssl-dns-names.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/ssl/ssl-dns-names.yaml",
+    "template-id": "ssl-dns-names",
     "info": {
-      "name": "HTTP Missing Security Headers",
+      "name": "SSL DNS Names",
       "author": [
-        "socketz",
-        "geeknik",
-        "g4l1t0",
-        "convisoappsec",
-        "kurohost",
-        "dawid-czarnecki",
-        "forgedhallpass"
+        "pdteam"
       ],
       "tags": [
-        "misconfig",
-        "generic"
+        "ssl"
       ],
-      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
       "reference": null,
       "severity": "info"
     },
-    "matcher-name": "permission-policy",
-    "type": "http",
+    "type": "ssl",
     "host": "https://www.teleaccords.travail-emploi.gouv.fr",
-    "matched-at": "https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/",
-    "request": "GET / HTTP/1.1\r\nHost: www.teleaccords.travail-emploi.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 200\r\nConnection: close\r\nContent-Length: 1344\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 31 Jul 2022 07:49:02 GMT\r\nEtag: W/\"1344-1609861740000\"\r\nLast-Modified: Tue, 05 Jan 2021 15:49:00 GMT\r\nSet-Cookie: TS019d9798=0171284ec36a618a86d99c28add2f9aafbe325357fa6c74908456a19b7cdc37b172b33a12167eeb024c2884e705a22b00a25f32adb; Path=/\r\n\r\n<!doctype html>\r\n<html>\r\n<head>\r\n<meta http-equiv=\"X-UA-Compatible\" content=\"IE=9; IE=8; IE=7\" />\r\n<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">\r\n<link href=\"favicon.ico\" type=\"image/x-icon\" rel=\"icon\" />\r\n<link type=\"text/css\" rel=\"stylesheet\" href=\"PortailTeleprocedures.css\">\r\n\r\n<title>Portail - Ministère du travail</title>\r\n\r\n<script type=\"text/javascript\" language=\"javascript\"\r\n\tsrc=\"portailteleprocedures/portailteleprocedures.nocache.js\"></script>\r\n<script\r\n\tsrc=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\r\n<script\r\n\tsrc=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js\"></script>\r\n<link rel=\"stylesheet\"\r\n\thref=\"https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css\">\r\n</head>\r\n\r\n<body>\r\n\t<iframe src=\"javascript:''\" id=\"__gwt_historyFrame\" tabIndex='-1'\r\n\t\tstyle=\"position: absolute; width: 0; height: 0; border: 0\"></iframe>\r\n\r\n\t<noscript>\r\n\t\t<div\r\n\t\t\tstyle=\"width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif\">\r\n\t\t\tLe JavaScript doit être activé sur votre navigateur afin que le\r\n\t\t\tportail des téléprocédures puisse s'afficher correctement.</div>\r\n\t</noscript>\r\n</body>\r\n</html>",
+    "matched-at": "https://www.teleaccords.travail-emploi.gouv.fr",
+    "extracted-results": [
+      "www.teleaccords.travail-emploi.gouv.fr",
+      "www.teleaccords.travail.gouv.fr"
+    ],
     "ip": "164.131.132.47",
-    "timestamp": "2022-07-31T07:49:02.809213031Z",
-    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'Referer: https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/'",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
-    "template": "misconfiguration/http-missing-security-headers.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
-    "template-id": "http-missing-security-headers",
-    "info": {
-      "name": "HTTP Missing Security Headers",
-      "author": [
-        "socketz",
-        "geeknik",
-        "g4l1t0",
-        "convisoappsec",
-        "kurohost",
-        "dawid-czarnecki",
-        "forgedhallpass"
-      ],
-      "tags": [
-        "misconfig",
-        "generic"
-      ],
-      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-      "reference": null,
-      "severity": "info"
-    },
-    "matcher-name": "x-permitted-cross-domain-policies",
-    "type": "http",
-    "host": "https://www.teleaccords.travail-emploi.gouv.fr",
-    "matched-at": "https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/",
-    "request": "GET / HTTP/1.1\r\nHost: www.teleaccords.travail-emploi.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 200\r\nConnection: close\r\nContent-Length: 1344\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 31 Jul 2022 07:49:02 GMT\r\nEtag: W/\"1344-1609861740000\"\r\nLast-Modified: Tue, 05 Jan 2021 15:49:00 GMT\r\nSet-Cookie: TS019d9798=0171284ec36a618a86d99c28add2f9aafbe325357fa6c74908456a19b7cdc37b172b33a12167eeb024c2884e705a22b00a25f32adb; Path=/\r\n\r\n<!doctype html>\r\n<html>\r\n<head>\r\n<meta http-equiv=\"X-UA-Compatible\" content=\"IE=9; IE=8; IE=7\" />\r\n<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">\r\n<link href=\"favicon.ico\" type=\"image/x-icon\" rel=\"icon\" />\r\n<link type=\"text/css\" rel=\"stylesheet\" href=\"PortailTeleprocedures.css\">\r\n\r\n<title>Portail - Ministère du travail</title>\r\n\r\n<script type=\"text/javascript\" language=\"javascript\"\r\n\tsrc=\"portailteleprocedures/portailteleprocedures.nocache.js\"></script>\r\n<script\r\n\tsrc=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\r\n<script\r\n\tsrc=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js\"></script>\r\n<link rel=\"stylesheet\"\r\n\thref=\"https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css\">\r\n</head>\r\n\r\n<body>\r\n\t<iframe src=\"javascript:''\" id=\"__gwt_historyFrame\" tabIndex='-1'\r\n\t\tstyle=\"position: absolute; width: 0; height: 0; border: 0\"></iframe>\r\n\r\n\t<noscript>\r\n\t\t<div\r\n\t\t\tstyle=\"width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif\">\r\n\t\t\tLe JavaScript doit être activé sur votre navigateur afin que le\r\n\t\t\tportail des téléprocédures puisse s'afficher correctement.</div>\r\n\t</noscript>\r\n</body>\r\n</html>",
-    "ip": "164.131.132.47",
-    "timestamp": "2022-07-31T07:49:02.809691635Z",
-    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'Referer: https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/'",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
-    "template": "misconfiguration/http-missing-security-headers.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
-    "template-id": "http-missing-security-headers",
-    "info": {
-      "name": "HTTP Missing Security Headers",
-      "author": [
-        "socketz",
-        "geeknik",
-        "g4l1t0",
-        "convisoappsec",
-        "kurohost",
-        "dawid-czarnecki",
-        "forgedhallpass"
-      ],
-      "tags": [
-        "misconfig",
-        "generic"
-      ],
-      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-      "reference": null,
-      "severity": "info"
-    },
-    "matcher-name": "clear-site-data",
-    "type": "http",
-    "host": "https://www.teleaccords.travail-emploi.gouv.fr",
-    "matched-at": "https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/",
-    "request": "GET / HTTP/1.1\r\nHost: www.teleaccords.travail-emploi.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 200\r\nConnection: close\r\nContent-Length: 1344\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 31 Jul 2022 07:49:02 GMT\r\nEtag: W/\"1344-1609861740000\"\r\nLast-Modified: Tue, 05 Jan 2021 15:49:00 GMT\r\nSet-Cookie: TS019d9798=0171284ec36a618a86d99c28add2f9aafbe325357fa6c74908456a19b7cdc37b172b33a12167eeb024c2884e705a22b00a25f32adb; Path=/\r\n\r\n<!doctype html>\r\n<html>\r\n<head>\r\n<meta http-equiv=\"X-UA-Compatible\" content=\"IE=9; IE=8; IE=7\" />\r\n<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">\r\n<link href=\"favicon.ico\" type=\"image/x-icon\" rel=\"icon\" />\r\n<link type=\"text/css\" rel=\"stylesheet\" href=\"PortailTeleprocedures.css\">\r\n\r\n<title>Portail - Ministère du travail</title>\r\n\r\n<script type=\"text/javascript\" language=\"javascript\"\r\n\tsrc=\"portailteleprocedures/portailteleprocedures.nocache.js\"></script>\r\n<script\r\n\tsrc=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\r\n<script\r\n\tsrc=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js\"></script>\r\n<link rel=\"stylesheet\"\r\n\thref=\"https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css\">\r\n</head>\r\n\r\n<body>\r\n\t<iframe src=\"javascript:''\" id=\"__gwt_historyFrame\" tabIndex='-1'\r\n\t\tstyle=\"position: absolute; width: 0; height: 0; border: 0\"></iframe>\r\n\r\n\t<noscript>\r\n\t\t<div\r\n\t\t\tstyle=\"width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif\">\r\n\t\t\tLe JavaScript doit être activé sur votre navigateur afin que le\r\n\t\t\tportail des téléprocédures puisse s'afficher correctement.</div>\r\n\t</noscript>\r\n</body>\r\n</html>",
-    "ip": "164.131.132.47",
-    "timestamp": "2022-07-31T07:49:02.809730736Z",
-    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'Referer: https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/'",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
-    "template": "misconfiguration/http-missing-security-headers.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
-    "template-id": "http-missing-security-headers",
-    "info": {
-      "name": "HTTP Missing Security Headers",
-      "author": [
-        "socketz",
-        "geeknik",
-        "g4l1t0",
-        "convisoappsec",
-        "kurohost",
-        "dawid-czarnecki",
-        "forgedhallpass"
-      ],
-      "tags": [
-        "misconfig",
-        "generic"
-      ],
-      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-      "reference": null,
-      "severity": "info"
-    },
-    "matcher-name": "access-control-allow-methods",
-    "type": "http",
-    "host": "https://www.teleaccords.travail-emploi.gouv.fr",
-    "matched-at": "https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/",
-    "request": "GET / HTTP/1.1\r\nHost: www.teleaccords.travail-emploi.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 200\r\nConnection: close\r\nContent-Length: 1344\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 31 Jul 2022 07:49:02 GMT\r\nEtag: W/\"1344-1609861740000\"\r\nLast-Modified: Tue, 05 Jan 2021 15:49:00 GMT\r\nSet-Cookie: TS019d9798=0171284ec36a618a86d99c28add2f9aafbe325357fa6c74908456a19b7cdc37b172b33a12167eeb024c2884e705a22b00a25f32adb; Path=/\r\n\r\n<!doctype html>\r\n<html>\r\n<head>\r\n<meta http-equiv=\"X-UA-Compatible\" content=\"IE=9; IE=8; IE=7\" />\r\n<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">\r\n<link href=\"favicon.ico\" type=\"image/x-icon\" rel=\"icon\" />\r\n<link type=\"text/css\" rel=\"stylesheet\" href=\"PortailTeleprocedures.css\">\r\n\r\n<title>Portail - Ministère du travail</title>\r\n\r\n<script type=\"text/javascript\" language=\"javascript\"\r\n\tsrc=\"portailteleprocedures/portailteleprocedures.nocache.js\"></script>\r\n<script\r\n\tsrc=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\r\n<script\r\n\tsrc=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js\"></script>\r\n<link rel=\"stylesheet\"\r\n\thref=\"https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css\">\r\n</head>\r\n\r\n<body>\r\n\t<iframe src=\"javascript:''\" id=\"__gwt_historyFrame\" tabIndex='-1'\r\n\t\tstyle=\"position: absolute; width: 0; height: 0; border: 0\"></iframe>\r\n\r\n\t<noscript>\r\n\t\t<div\r\n\t\t\tstyle=\"width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif\">\r\n\t\t\tLe JavaScript doit être activé sur votre navigateur afin que le\r\n\t\t\tportail des téléprocédures puisse s'afficher correctement.</div>\r\n\t</noscript>\r\n</body>\r\n</html>",
-    "ip": "164.131.132.47",
-    "timestamp": "2022-07-31T07:49:02.809880637Z",
-    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'Referer: https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/'",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
-    "template": "misconfiguration/http-missing-security-headers.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
-    "template-id": "http-missing-security-headers",
-    "info": {
-      "name": "HTTP Missing Security Headers",
-      "author": [
-        "socketz",
-        "geeknik",
-        "g4l1t0",
-        "convisoappsec",
-        "kurohost",
-        "dawid-czarnecki",
-        "forgedhallpass"
-      ],
-      "tags": [
-        "misconfig",
-        "generic"
-      ],
-      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-      "reference": null,
-      "severity": "info"
-    },
-    "matcher-name": "access-control-allow-headers",
-    "type": "http",
-    "host": "https://www.teleaccords.travail-emploi.gouv.fr",
-    "matched-at": "https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/",
-    "request": "GET / HTTP/1.1\r\nHost: www.teleaccords.travail-emploi.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 200\r\nConnection: close\r\nContent-Length: 1344\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 31 Jul 2022 07:49:02 GMT\r\nEtag: W/\"1344-1609861740000\"\r\nLast-Modified: Tue, 05 Jan 2021 15:49:00 GMT\r\nSet-Cookie: TS019d9798=0171284ec36a618a86d99c28add2f9aafbe325357fa6c74908456a19b7cdc37b172b33a12167eeb024c2884e705a22b00a25f32adb; Path=/\r\n\r\n<!doctype html>\r\n<html>\r\n<head>\r\n<meta http-equiv=\"X-UA-Compatible\" content=\"IE=9; IE=8; IE=7\" />\r\n<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">\r\n<link href=\"favicon.ico\" type=\"image/x-icon\" rel=\"icon\" />\r\n<link type=\"text/css\" rel=\"stylesheet\" href=\"PortailTeleprocedures.css\">\r\n\r\n<title>Portail - Ministère du travail</title>\r\n\r\n<script type=\"text/javascript\" language=\"javascript\"\r\n\tsrc=\"portailteleprocedures/portailteleprocedures.nocache.js\"></script>\r\n<script\r\n\tsrc=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\r\n<script\r\n\tsrc=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js\"></script>\r\n<link rel=\"stylesheet\"\r\n\thref=\"https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css\">\r\n</head>\r\n\r\n<body>\r\n\t<iframe src=\"javascript:''\" id=\"__gwt_historyFrame\" tabIndex='-1'\r\n\t\tstyle=\"position: absolute; width: 0; height: 0; border: 0\"></iframe>\r\n\r\n\t<noscript>\r\n\t\t<div\r\n\t\t\tstyle=\"width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif\">\r\n\t\t\tLe JavaScript doit être activé sur votre navigateur afin que le\r\n\t\t\tportail des téléprocédures puisse s'afficher correctement.</div>\r\n\t</noscript>\r\n</body>\r\n</html>",
-    "ip": "164.131.132.47",
-    "timestamp": "2022-07-31T07:49:02.809917337Z",
-    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'Referer: https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/'",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
-    "template": "misconfiguration/http-missing-security-headers.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
-    "template-id": "http-missing-security-headers",
-    "info": {
-      "name": "HTTP Missing Security Headers",
-      "author": [
-        "socketz",
-        "geeknik",
-        "g4l1t0",
-        "convisoappsec",
-        "kurohost",
-        "dawid-czarnecki",
-        "forgedhallpass"
-      ],
-      "tags": [
-        "misconfig",
-        "generic"
-      ],
-      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-      "reference": null,
-      "severity": "info"
-    },
-    "matcher-name": "x-frame-options",
-    "type": "http",
-    "host": "https://www.teleaccords.travail-emploi.gouv.fr",
-    "matched-at": "https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/",
-    "request": "GET / HTTP/1.1\r\nHost: www.teleaccords.travail-emploi.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 200\r\nConnection: close\r\nContent-Length: 1344\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 31 Jul 2022 07:49:02 GMT\r\nEtag: W/\"1344-1609861740000\"\r\nLast-Modified: Tue, 05 Jan 2021 15:49:00 GMT\r\nSet-Cookie: TS019d9798=0171284ec36a618a86d99c28add2f9aafbe325357fa6c74908456a19b7cdc37b172b33a12167eeb024c2884e705a22b00a25f32adb; Path=/\r\n\r\n<!doctype html>\r\n<html>\r\n<head>\r\n<meta http-equiv=\"X-UA-Compatible\" content=\"IE=9; IE=8; IE=7\" />\r\n<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">\r\n<link href=\"favicon.ico\" type=\"image/x-icon\" rel=\"icon\" />\r\n<link type=\"text/css\" rel=\"stylesheet\" href=\"PortailTeleprocedures.css\">\r\n\r\n<title>Portail - Ministère du travail</title>\r\n\r\n<script type=\"text/javascript\" language=\"javascript\"\r\n\tsrc=\"portailteleprocedures/portailteleprocedures.nocache.js\"></script>\r\n<script\r\n\tsrc=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\r\n<script\r\n\tsrc=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js\"></script>\r\n<link rel=\"stylesheet\"\r\n\thref=\"https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css\">\r\n</head>\r\n\r\n<body>\r\n\t<iframe src=\"javascript:''\" id=\"__gwt_historyFrame\" tabIndex='-1'\r\n\t\tstyle=\"position: absolute; width: 0; height: 0; border: 0\"></iframe>\r\n\r\n\t<noscript>\r\n\t\t<div\r\n\t\t\tstyle=\"width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif\">\r\n\t\t\tLe JavaScript doit être activé sur votre navigateur afin que le\r\n\t\t\tportail des téléprocédures puisse s'afficher correctement.</div>\r\n\t</noscript>\r\n</body>\r\n</html>",
-    "ip": "164.131.132.47",
-    "timestamp": "2022-07-31T07:49:02.809944338Z",
-    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'Referer: https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/'",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
-    "template": "misconfiguration/http-missing-security-headers.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
-    "template-id": "http-missing-security-headers",
-    "info": {
-      "name": "HTTP Missing Security Headers",
-      "author": [
-        "socketz",
-        "geeknik",
-        "g4l1t0",
-        "convisoappsec",
-        "kurohost",
-        "dawid-czarnecki",
-        "forgedhallpass"
-      ],
-      "tags": [
-        "misconfig",
-        "generic"
-      ],
-      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-      "reference": null,
-      "severity": "info"
-    },
-    "matcher-name": "cross-origin-resource-policy",
-    "type": "http",
-    "host": "https://www.teleaccords.travail-emploi.gouv.fr",
-    "matched-at": "https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/",
-    "request": "GET / HTTP/1.1\r\nHost: www.teleaccords.travail-emploi.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 200\r\nConnection: close\r\nContent-Length: 1344\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 31 Jul 2022 07:49:02 GMT\r\nEtag: W/\"1344-1609861740000\"\r\nLast-Modified: Tue, 05 Jan 2021 15:49:00 GMT\r\nSet-Cookie: TS019d9798=0171284ec36a618a86d99c28add2f9aafbe325357fa6c74908456a19b7cdc37b172b33a12167eeb024c2884e705a22b00a25f32adb; Path=/\r\n\r\n<!doctype html>\r\n<html>\r\n<head>\r\n<meta http-equiv=\"X-UA-Compatible\" content=\"IE=9; IE=8; IE=7\" />\r\n<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">\r\n<link href=\"favicon.ico\" type=\"image/x-icon\" rel=\"icon\" />\r\n<link type=\"text/css\" rel=\"stylesheet\" href=\"PortailTeleprocedures.css\">\r\n\r\n<title>Portail - Ministère du travail</title>\r\n\r\n<script type=\"text/javascript\" language=\"javascript\"\r\n\tsrc=\"portailteleprocedures/portailteleprocedures.nocache.js\"></script>\r\n<script\r\n\tsrc=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\r\n<script\r\n\tsrc=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js\"></script>\r\n<link rel=\"stylesheet\"\r\n\thref=\"https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css\">\r\n</head>\r\n\r\n<body>\r\n\t<iframe src=\"javascript:''\" id=\"__gwt_historyFrame\" tabIndex='-1'\r\n\t\tstyle=\"position: absolute; width: 0; height: 0; border: 0\"></iframe>\r\n\r\n\t<noscript>\r\n\t\t<div\r\n\t\t\tstyle=\"width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif\">\r\n\t\t\tLe JavaScript doit être activé sur votre navigateur afin que le\r\n\t\t\tportail des téléprocédures puisse s'afficher correctement.</div>\r\n\t</noscript>\r\n</body>\r\n</html>",
-    "ip": "164.131.132.47",
-    "timestamp": "2022-07-31T07:49:02.809972538Z",
-    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'Referer: https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/'",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
-    "template": "misconfiguration/http-missing-security-headers.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
-    "template-id": "http-missing-security-headers",
-    "info": {
-      "name": "HTTP Missing Security Headers",
-      "author": [
-        "socketz",
-        "geeknik",
-        "g4l1t0",
-        "convisoappsec",
-        "kurohost",
-        "dawid-czarnecki",
-        "forgedhallpass"
-      ],
-      "tags": [
-        "misconfig",
-        "generic"
-      ],
-      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-      "reference": null,
-      "severity": "info"
-    },
-    "matcher-name": "access-control-expose-headers",
-    "type": "http",
-    "host": "https://www.teleaccords.travail-emploi.gouv.fr",
-    "matched-at": "https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/",
-    "request": "GET / HTTP/1.1\r\nHost: www.teleaccords.travail-emploi.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 200\r\nConnection: close\r\nContent-Length: 1344\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 31 Jul 2022 07:49:02 GMT\r\nEtag: W/\"1344-1609861740000\"\r\nLast-Modified: Tue, 05 Jan 2021 15:49:00 GMT\r\nSet-Cookie: TS019d9798=0171284ec36a618a86d99c28add2f9aafbe325357fa6c74908456a19b7cdc37b172b33a12167eeb024c2884e705a22b00a25f32adb; Path=/\r\n\r\n<!doctype html>\r\n<html>\r\n<head>\r\n<meta http-equiv=\"X-UA-Compatible\" content=\"IE=9; IE=8; IE=7\" />\r\n<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">\r\n<link href=\"favicon.ico\" type=\"image/x-icon\" rel=\"icon\" />\r\n<link type=\"text/css\" rel=\"stylesheet\" href=\"PortailTeleprocedures.css\">\r\n\r\n<title>Portail - Ministère du travail</title>\r\n\r\n<script type=\"text/javascript\" language=\"javascript\"\r\n\tsrc=\"portailteleprocedures/portailteleprocedures.nocache.js\"></script>\r\n<script\r\n\tsrc=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\r\n<script\r\n\tsrc=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js\"></script>\r\n<link rel=\"stylesheet\"\r\n\thref=\"https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css\">\r\n</head>\r\n\r\n<body>\r\n\t<iframe src=\"javascript:''\" id=\"__gwt_historyFrame\" tabIndex='-1'\r\n\t\tstyle=\"position: absolute; width: 0; height: 0; border: 0\"></iframe>\r\n\r\n\t<noscript>\r\n\t\t<div\r\n\t\t\tstyle=\"width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif\">\r\n\t\t\tLe JavaScript doit être activé sur votre navigateur afin que le\r\n\t\t\tportail des téléprocédures puisse s'afficher correctement.</div>\r\n\t</noscript>\r\n</body>\r\n</html>",
-    "ip": "164.131.132.47",
-    "timestamp": "2022-07-31T07:49:02.809998938Z",
-    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'Referer: https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/'",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
-    "template": "misconfiguration/http-missing-security-headers.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
-    "template-id": "http-missing-security-headers",
-    "info": {
-      "name": "HTTP Missing Security Headers",
-      "author": [
-        "socketz",
-        "geeknik",
-        "g4l1t0",
-        "convisoappsec",
-        "kurohost",
-        "dawid-czarnecki",
-        "forgedhallpass"
-      ],
-      "tags": [
-        "misconfig",
-        "generic"
-      ],
-      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-      "reference": null,
-      "severity": "info"
-    },
-    "matcher-name": "strict-transport-security",
-    "type": "http",
-    "host": "https://www.teleaccords.travail-emploi.gouv.fr",
-    "matched-at": "https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/",
-    "request": "GET / HTTP/1.1\r\nHost: www.teleaccords.travail-emploi.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 200\r\nConnection: close\r\nContent-Length: 1344\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 31 Jul 2022 07:49:02 GMT\r\nEtag: W/\"1344-1609861740000\"\r\nLast-Modified: Tue, 05 Jan 2021 15:49:00 GMT\r\nSet-Cookie: TS019d9798=0171284ec36a618a86d99c28add2f9aafbe325357fa6c74908456a19b7cdc37b172b33a12167eeb024c2884e705a22b00a25f32adb; Path=/\r\n\r\n<!doctype html>\r\n<html>\r\n<head>\r\n<meta http-equiv=\"X-UA-Compatible\" content=\"IE=9; IE=8; IE=7\" />\r\n<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">\r\n<link href=\"favicon.ico\" type=\"image/x-icon\" rel=\"icon\" />\r\n<link type=\"text/css\" rel=\"stylesheet\" href=\"PortailTeleprocedures.css\">\r\n\r\n<title>Portail - Ministère du travail</title>\r\n\r\n<script type=\"text/javascript\" language=\"javascript\"\r\n\tsrc=\"portailteleprocedures/portailteleprocedures.nocache.js\"></script>\r\n<script\r\n\tsrc=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\r\n<script\r\n\tsrc=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js\"></script>\r\n<link rel=\"stylesheet\"\r\n\thref=\"https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css\">\r\n</head>\r\n\r\n<body>\r\n\t<iframe src=\"javascript:''\" id=\"__gwt_historyFrame\" tabIndex='-1'\r\n\t\tstyle=\"position: absolute; width: 0; height: 0; border: 0\"></iframe>\r\n\r\n\t<noscript>\r\n\t\t<div\r\n\t\t\tstyle=\"width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif\">\r\n\t\t\tLe JavaScript doit être activé sur votre navigateur afin que le\r\n\t\t\tportail des téléprocédures puisse s'afficher correctement.</div>\r\n\t</noscript>\r\n</body>\r\n</html>",
-    "ip": "164.131.132.47",
-    "timestamp": "2022-07-31T07:49:02.810025038Z",
-    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'Referer: https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/'",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
-    "template": "misconfiguration/http-missing-security-headers.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
-    "template-id": "http-missing-security-headers",
-    "info": {
-      "name": "HTTP Missing Security Headers",
-      "author": [
-        "socketz",
-        "geeknik",
-        "g4l1t0",
-        "convisoappsec",
-        "kurohost",
-        "dawid-czarnecki",
-        "forgedhallpass"
-      ],
-      "tags": [
-        "misconfig",
-        "generic"
-      ],
-      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-      "reference": null,
-      "severity": "info"
-    },
-    "matcher-name": "x-content-type-options",
-    "type": "http",
-    "host": "https://www.teleaccords.travail-emploi.gouv.fr",
-    "matched-at": "https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/",
-    "request": "GET / HTTP/1.1\r\nHost: www.teleaccords.travail-emploi.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 200\r\nConnection: close\r\nContent-Length: 1344\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 31 Jul 2022 07:49:02 GMT\r\nEtag: W/\"1344-1609861740000\"\r\nLast-Modified: Tue, 05 Jan 2021 15:49:00 GMT\r\nSet-Cookie: TS019d9798=0171284ec36a618a86d99c28add2f9aafbe325357fa6c74908456a19b7cdc37b172b33a12167eeb024c2884e705a22b00a25f32adb; Path=/\r\n\r\n<!doctype html>\r\n<html>\r\n<head>\r\n<meta http-equiv=\"X-UA-Compatible\" content=\"IE=9; IE=8; IE=7\" />\r\n<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">\r\n<link href=\"favicon.ico\" type=\"image/x-icon\" rel=\"icon\" />\r\n<link type=\"text/css\" rel=\"stylesheet\" href=\"PortailTeleprocedures.css\">\r\n\r\n<title>Portail - Ministère du travail</title>\r\n\r\n<script type=\"text/javascript\" language=\"javascript\"\r\n\tsrc=\"portailteleprocedures/portailteleprocedures.nocache.js\"></script>\r\n<script\r\n\tsrc=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\r\n<script\r\n\tsrc=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js\"></script>\r\n<link rel=\"stylesheet\"\r\n\thref=\"https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css\">\r\n</head>\r\n\r\n<body>\r\n\t<iframe src=\"javascript:''\" id=\"__gwt_historyFrame\" tabIndex='-1'\r\n\t\tstyle=\"position: absolute; width: 0; height: 0; border: 0\"></iframe>\r\n\r\n\t<noscript>\r\n\t\t<div\r\n\t\t\tstyle=\"width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif\">\r\n\t\t\tLe JavaScript doit être activé sur votre navigateur afin que le\r\n\t\t\tportail des téléprocédures puisse s'afficher correctement.</div>\r\n\t</noscript>\r\n</body>\r\n</html>",
-    "ip": "164.131.132.47",
-    "timestamp": "2022-07-31T07:49:02.810050938Z",
-    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'Referer: https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/'",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
-    "template": "misconfiguration/http-missing-security-headers.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
-    "template-id": "http-missing-security-headers",
-    "info": {
-      "name": "HTTP Missing Security Headers",
-      "author": [
-        "socketz",
-        "geeknik",
-        "g4l1t0",
-        "convisoappsec",
-        "kurohost",
-        "dawid-czarnecki",
-        "forgedhallpass"
-      ],
-      "tags": [
-        "misconfig",
-        "generic"
-      ],
-      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-      "reference": null,
-      "severity": "info"
-    },
-    "matcher-name": "referrer-policy",
-    "type": "http",
-    "host": "https://www.teleaccords.travail-emploi.gouv.fr",
-    "matched-at": "https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/",
-    "request": "GET / HTTP/1.1\r\nHost: www.teleaccords.travail-emploi.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 200\r\nConnection: close\r\nContent-Length: 1344\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 31 Jul 2022 07:49:02 GMT\r\nEtag: W/\"1344-1609861740000\"\r\nLast-Modified: Tue, 05 Jan 2021 15:49:00 GMT\r\nSet-Cookie: TS019d9798=0171284ec36a618a86d99c28add2f9aafbe325357fa6c74908456a19b7cdc37b172b33a12167eeb024c2884e705a22b00a25f32adb; Path=/\r\n\r\n<!doctype html>\r\n<html>\r\n<head>\r\n<meta http-equiv=\"X-UA-Compatible\" content=\"IE=9; IE=8; IE=7\" />\r\n<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">\r\n<link href=\"favicon.ico\" type=\"image/x-icon\" rel=\"icon\" />\r\n<link type=\"text/css\" rel=\"stylesheet\" href=\"PortailTeleprocedures.css\">\r\n\r\n<title>Portail - Ministère du travail</title>\r\n\r\n<script type=\"text/javascript\" language=\"javascript\"\r\n\tsrc=\"portailteleprocedures/portailteleprocedures.nocache.js\"></script>\r\n<script\r\n\tsrc=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\r\n<script\r\n\tsrc=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js\"></script>\r\n<link rel=\"stylesheet\"\r\n\thref=\"https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css\">\r\n</head>\r\n\r\n<body>\r\n\t<iframe src=\"javascript:''\" id=\"__gwt_historyFrame\" tabIndex='-1'\r\n\t\tstyle=\"position: absolute; width: 0; height: 0; border: 0\"></iframe>\r\n\r\n\t<noscript>\r\n\t\t<div\r\n\t\t\tstyle=\"width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif\">\r\n\t\t\tLe JavaScript doit être activé sur votre navigateur afin que le\r\n\t\t\tportail des téléprocédures puisse s'afficher correctement.</div>\r\n\t</noscript>\r\n</body>\r\n</html>",
-    "ip": "164.131.132.47",
-    "timestamp": "2022-07-31T07:49:02.810079139Z",
-    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'Referer: https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/'",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
-    "template": "misconfiguration/http-missing-security-headers.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
-    "template-id": "http-missing-security-headers",
-    "info": {
-      "name": "HTTP Missing Security Headers",
-      "author": [
-        "socketz",
-        "geeknik",
-        "g4l1t0",
-        "convisoappsec",
-        "kurohost",
-        "dawid-czarnecki",
-        "forgedhallpass"
-      ],
-      "tags": [
-        "misconfig",
-        "generic"
-      ],
-      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-      "reference": null,
-      "severity": "info"
-    },
-    "matcher-name": "access-control-allow-origin",
-    "type": "http",
-    "host": "https://www.teleaccords.travail-emploi.gouv.fr",
-    "matched-at": "https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/",
-    "request": "GET / HTTP/1.1\r\nHost: www.teleaccords.travail-emploi.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 200\r\nConnection: close\r\nContent-Length: 1344\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 31 Jul 2022 07:49:02 GMT\r\nEtag: W/\"1344-1609861740000\"\r\nLast-Modified: Tue, 05 Jan 2021 15:49:00 GMT\r\nSet-Cookie: TS019d9798=0171284ec36a618a86d99c28add2f9aafbe325357fa6c74908456a19b7cdc37b172b33a12167eeb024c2884e705a22b00a25f32adb; Path=/\r\n\r\n<!doctype html>\r\n<html>\r\n<head>\r\n<meta http-equiv=\"X-UA-Compatible\" content=\"IE=9; IE=8; IE=7\" />\r\n<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">\r\n<link href=\"favicon.ico\" type=\"image/x-icon\" rel=\"icon\" />\r\n<link type=\"text/css\" rel=\"stylesheet\" href=\"PortailTeleprocedures.css\">\r\n\r\n<title>Portail - Ministère du travail</title>\r\n\r\n<script type=\"text/javascript\" language=\"javascript\"\r\n\tsrc=\"portailteleprocedures/portailteleprocedures.nocache.js\"></script>\r\n<script\r\n\tsrc=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\r\n<script\r\n\tsrc=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js\"></script>\r\n<link rel=\"stylesheet\"\r\n\thref=\"https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css\">\r\n</head>\r\n\r\n<body>\r\n\t<iframe src=\"javascript:''\" id=\"__gwt_historyFrame\" tabIndex='-1'\r\n\t\tstyle=\"position: absolute; width: 0; height: 0; border: 0\"></iframe>\r\n\r\n\t<noscript>\r\n\t\t<div\r\n\t\t\tstyle=\"width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif\">\r\n\t\t\tLe JavaScript doit être activé sur votre navigateur afin que le\r\n\t\t\tportail des téléprocédures puisse s'afficher correctement.</div>\r\n\t</noscript>\r\n</body>\r\n</html>",
-    "ip": "164.131.132.47",
-    "timestamp": "2022-07-31T07:49:02.810105339Z",
-    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'Referer: https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/'",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
-    "template": "misconfiguration/http-missing-security-headers.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
-    "template-id": "http-missing-security-headers",
-    "info": {
-      "name": "HTTP Missing Security Headers",
-      "author": [
-        "socketz",
-        "geeknik",
-        "g4l1t0",
-        "convisoappsec",
-        "kurohost",
-        "dawid-czarnecki",
-        "forgedhallpass"
-      ],
-      "tags": [
-        "misconfig",
-        "generic"
-      ],
-      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-      "reference": null,
-      "severity": "info"
-    },
-    "matcher-name": "access-control-allow-credentials",
-    "type": "http",
-    "host": "https://www.teleaccords.travail-emploi.gouv.fr",
-    "matched-at": "https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/",
-    "request": "GET / HTTP/1.1\r\nHost: www.teleaccords.travail-emploi.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 200\r\nConnection: close\r\nContent-Length: 1344\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 31 Jul 2022 07:49:02 GMT\r\nEtag: W/\"1344-1609861740000\"\r\nLast-Modified: Tue, 05 Jan 2021 15:49:00 GMT\r\nSet-Cookie: TS019d9798=0171284ec36a618a86d99c28add2f9aafbe325357fa6c74908456a19b7cdc37b172b33a12167eeb024c2884e705a22b00a25f32adb; Path=/\r\n\r\n<!doctype html>\r\n<html>\r\n<head>\r\n<meta http-equiv=\"X-UA-Compatible\" content=\"IE=9; IE=8; IE=7\" />\r\n<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">\r\n<link href=\"favicon.ico\" type=\"image/x-icon\" rel=\"icon\" />\r\n<link type=\"text/css\" rel=\"stylesheet\" href=\"PortailTeleprocedures.css\">\r\n\r\n<title>Portail - Ministère du travail</title>\r\n\r\n<script type=\"text/javascript\" language=\"javascript\"\r\n\tsrc=\"portailteleprocedures/portailteleprocedures.nocache.js\"></script>\r\n<script\r\n\tsrc=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\r\n<script\r\n\tsrc=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js\"></script>\r\n<link rel=\"stylesheet\"\r\n\thref=\"https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css\">\r\n</head>\r\n\r\n<body>\r\n\t<iframe src=\"javascript:''\" id=\"__gwt_historyFrame\" tabIndex='-1'\r\n\t\tstyle=\"position: absolute; width: 0; height: 0; border: 0\"></iframe>\r\n\r\n\t<noscript>\r\n\t\t<div\r\n\t\t\tstyle=\"width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif\">\r\n\t\t\tLe JavaScript doit être activé sur votre navigateur afin que le\r\n\t\t\tportail des téléprocédures puisse s'afficher correctement.</div>\r\n\t</noscript>\r\n</body>\r\n</html>",
-    "ip": "164.131.132.47",
-    "timestamp": "2022-07-31T07:49:02.810132739Z",
-    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'Referer: https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/'",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
-    "template": "misconfiguration/http-missing-security-headers.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
-    "template-id": "http-missing-security-headers",
-    "info": {
-      "name": "HTTP Missing Security Headers",
-      "author": [
-        "socketz",
-        "geeknik",
-        "g4l1t0",
-        "convisoappsec",
-        "kurohost",
-        "dawid-czarnecki",
-        "forgedhallpass"
-      ],
-      "tags": [
-        "misconfig",
-        "generic"
-      ],
-      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-      "reference": null,
-      "severity": "info"
-    },
-    "matcher-name": "content-security-policy",
-    "type": "http",
-    "host": "https://www.teleaccords.travail-emploi.gouv.fr",
-    "matched-at": "https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/",
-    "request": "GET / HTTP/1.1\r\nHost: www.teleaccords.travail-emploi.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 200\r\nConnection: close\r\nContent-Length: 1344\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 31 Jul 2022 07:49:02 GMT\r\nEtag: W/\"1344-1609861740000\"\r\nLast-Modified: Tue, 05 Jan 2021 15:49:00 GMT\r\nSet-Cookie: TS019d9798=0171284ec36a618a86d99c28add2f9aafbe325357fa6c74908456a19b7cdc37b172b33a12167eeb024c2884e705a22b00a25f32adb; Path=/\r\n\r\n<!doctype html>\r\n<html>\r\n<head>\r\n<meta http-equiv=\"X-UA-Compatible\" content=\"IE=9; IE=8; IE=7\" />\r\n<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">\r\n<link href=\"favicon.ico\" type=\"image/x-icon\" rel=\"icon\" />\r\n<link type=\"text/css\" rel=\"stylesheet\" href=\"PortailTeleprocedures.css\">\r\n\r\n<title>Portail - Ministère du travail</title>\r\n\r\n<script type=\"text/javascript\" language=\"javascript\"\r\n\tsrc=\"portailteleprocedures/portailteleprocedures.nocache.js\"></script>\r\n<script\r\n\tsrc=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\r\n<script\r\n\tsrc=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js\"></script>\r\n<link rel=\"stylesheet\"\r\n\thref=\"https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css\">\r\n</head>\r\n\r\n<body>\r\n\t<iframe src=\"javascript:''\" id=\"__gwt_historyFrame\" tabIndex='-1'\r\n\t\tstyle=\"position: absolute; width: 0; height: 0; border: 0\"></iframe>\r\n\r\n\t<noscript>\r\n\t\t<div\r\n\t\t\tstyle=\"width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif\">\r\n\t\t\tLe JavaScript doit être activé sur votre navigateur afin que le\r\n\t\t\tportail des téléprocédures puisse s'afficher correctement.</div>\r\n\t</noscript>\r\n</body>\r\n</html>",
-    "ip": "164.131.132.47",
-    "timestamp": "2022-07-31T07:49:02.810158239Z",
-    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'Referer: https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/'",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
-    "template": "misconfiguration/http-missing-security-headers.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
-    "template-id": "http-missing-security-headers",
-    "info": {
-      "name": "HTTP Missing Security Headers",
-      "author": [
-        "socketz",
-        "geeknik",
-        "g4l1t0",
-        "convisoappsec",
-        "kurohost",
-        "dawid-czarnecki",
-        "forgedhallpass"
-      ],
-      "tags": [
-        "misconfig",
-        "generic"
-      ],
-      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-      "reference": null,
-      "severity": "info"
-    },
-    "matcher-name": "cross-origin-embedder-policy",
-    "type": "http",
-    "host": "https://www.teleaccords.travail-emploi.gouv.fr",
-    "matched-at": "https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/",
-    "request": "GET / HTTP/1.1\r\nHost: www.teleaccords.travail-emploi.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 200\r\nConnection: close\r\nContent-Length: 1344\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 31 Jul 2022 07:49:02 GMT\r\nEtag: W/\"1344-1609861740000\"\r\nLast-Modified: Tue, 05 Jan 2021 15:49:00 GMT\r\nSet-Cookie: TS019d9798=0171284ec36a618a86d99c28add2f9aafbe325357fa6c74908456a19b7cdc37b172b33a12167eeb024c2884e705a22b00a25f32adb; Path=/\r\n\r\n<!doctype html>\r\n<html>\r\n<head>\r\n<meta http-equiv=\"X-UA-Compatible\" content=\"IE=9; IE=8; IE=7\" />\r\n<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">\r\n<link href=\"favicon.ico\" type=\"image/x-icon\" rel=\"icon\" />\r\n<link type=\"text/css\" rel=\"stylesheet\" href=\"PortailTeleprocedures.css\">\r\n\r\n<title>Portail - Ministère du travail</title>\r\n\r\n<script type=\"text/javascript\" language=\"javascript\"\r\n\tsrc=\"portailteleprocedures/portailteleprocedures.nocache.js\"></script>\r\n<script\r\n\tsrc=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\r\n<script\r\n\tsrc=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js\"></script>\r\n<link rel=\"stylesheet\"\r\n\thref=\"https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css\">\r\n</head>\r\n\r\n<body>\r\n\t<iframe src=\"javascript:''\" id=\"__gwt_historyFrame\" tabIndex='-1'\r\n\t\tstyle=\"position: absolute; width: 0; height: 0; border: 0\"></iframe>\r\n\r\n\t<noscript>\r\n\t\t<div\r\n\t\t\tstyle=\"width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif\">\r\n\t\t\tLe JavaScript doit être activé sur votre navigateur afin que le\r\n\t\t\tportail des téléprocédures puisse s'afficher correctement.</div>\r\n\t</noscript>\r\n</body>\r\n</html>",
-    "ip": "164.131.132.47",
-    "timestamp": "2022-07-31T07:49:02.81018694Z",
-    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'Referer: https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/'",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
-    "template": "misconfiguration/http-missing-security-headers.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
-    "template-id": "http-missing-security-headers",
-    "info": {
-      "name": "HTTP Missing Security Headers",
-      "author": [
-        "socketz",
-        "geeknik",
-        "g4l1t0",
-        "convisoappsec",
-        "kurohost",
-        "dawid-czarnecki",
-        "forgedhallpass"
-      ],
-      "tags": [
-        "misconfig",
-        "generic"
-      ],
-      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-      "reference": null,
-      "severity": "info"
-    },
-    "matcher-name": "cross-origin-opener-policy",
-    "type": "http",
-    "host": "https://www.teleaccords.travail-emploi.gouv.fr",
-    "matched-at": "https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/",
-    "request": "GET / HTTP/1.1\r\nHost: www.teleaccords.travail-emploi.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 200\r\nConnection: close\r\nContent-Length: 1344\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 31 Jul 2022 07:49:02 GMT\r\nEtag: W/\"1344-1609861740000\"\r\nLast-Modified: Tue, 05 Jan 2021 15:49:00 GMT\r\nSet-Cookie: TS019d9798=0171284ec36a618a86d99c28add2f9aafbe325357fa6c74908456a19b7cdc37b172b33a12167eeb024c2884e705a22b00a25f32adb; Path=/\r\n\r\n<!doctype html>\r\n<html>\r\n<head>\r\n<meta http-equiv=\"X-UA-Compatible\" content=\"IE=9; IE=8; IE=7\" />\r\n<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">\r\n<link href=\"favicon.ico\" type=\"image/x-icon\" rel=\"icon\" />\r\n<link type=\"text/css\" rel=\"stylesheet\" href=\"PortailTeleprocedures.css\">\r\n\r\n<title>Portail - Ministère du travail</title>\r\n\r\n<script type=\"text/javascript\" language=\"javascript\"\r\n\tsrc=\"portailteleprocedures/portailteleprocedures.nocache.js\"></script>\r\n<script\r\n\tsrc=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\r\n<script\r\n\tsrc=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js\"></script>\r\n<link rel=\"stylesheet\"\r\n\thref=\"https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css\">\r\n</head>\r\n\r\n<body>\r\n\t<iframe src=\"javascript:''\" id=\"__gwt_historyFrame\" tabIndex='-1'\r\n\t\tstyle=\"position: absolute; width: 0; height: 0; border: 0\"></iframe>\r\n\r\n\t<noscript>\r\n\t\t<div\r\n\t\t\tstyle=\"width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif\">\r\n\t\t\tLe JavaScript doit être activé sur votre navigateur afin que le\r\n\t\t\tportail des téléprocédures puisse s'afficher correctement.</div>\r\n\t</noscript>\r\n</body>\r\n</html>",
-    "ip": "164.131.132.47",
-    "timestamp": "2022-07-31T07:49:02.81021584Z",
-    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'Referer: https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/'",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
-    "template": "misconfiguration/http-missing-security-headers.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
-    "template-id": "http-missing-security-headers",
-    "info": {
-      "name": "HTTP Missing Security Headers",
-      "author": [
-        "socketz",
-        "geeknik",
-        "g4l1t0",
-        "convisoappsec",
-        "kurohost",
-        "dawid-czarnecki",
-        "forgedhallpass"
-      ],
-      "tags": [
-        "misconfig",
-        "generic"
-      ],
-      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-      "reference": null,
-      "severity": "info"
-    },
-    "matcher-name": "access-control-max-age",
-    "type": "http",
-    "host": "https://www.teleaccords.travail-emploi.gouv.fr",
-    "matched-at": "https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/",
-    "request": "GET / HTTP/1.1\r\nHost: www.teleaccords.travail-emploi.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 200\r\nConnection: close\r\nContent-Length: 1344\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 31 Jul 2022 07:49:02 GMT\r\nEtag: W/\"1344-1609861740000\"\r\nLast-Modified: Tue, 05 Jan 2021 15:49:00 GMT\r\nSet-Cookie: TS019d9798=0171284ec36a618a86d99c28add2f9aafbe325357fa6c74908456a19b7cdc37b172b33a12167eeb024c2884e705a22b00a25f32adb; Path=/\r\n\r\n<!doctype html>\r\n<html>\r\n<head>\r\n<meta http-equiv=\"X-UA-Compatible\" content=\"IE=9; IE=8; IE=7\" />\r\n<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">\r\n<link href=\"favicon.ico\" type=\"image/x-icon\" rel=\"icon\" />\r\n<link type=\"text/css\" rel=\"stylesheet\" href=\"PortailTeleprocedures.css\">\r\n\r\n<title>Portail - Ministère du travail</title>\r\n\r\n<script type=\"text/javascript\" language=\"javascript\"\r\n\tsrc=\"portailteleprocedures/portailteleprocedures.nocache.js\"></script>\r\n<script\r\n\tsrc=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\r\n<script\r\n\tsrc=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js\"></script>\r\n<link rel=\"stylesheet\"\r\n\thref=\"https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css\">\r\n</head>\r\n\r\n<body>\r\n\t<iframe src=\"javascript:''\" id=\"__gwt_historyFrame\" tabIndex='-1'\r\n\t\tstyle=\"position: absolute; width: 0; height: 0; border: 0\"></iframe>\r\n\r\n\t<noscript>\r\n\t\t<div\r\n\t\t\tstyle=\"width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif\">\r\n\t\t\tLe JavaScript doit être activé sur votre navigateur afin que le\r\n\t\t\tportail des téléprocédures puisse s'afficher correctement.</div>\r\n\t</noscript>\r\n</body>\r\n</html>",
-    "ip": "164.131.132.47",
-    "timestamp": "2022-07-31T07:49:02.81023934Z",
-    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'Referer: https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/'",
+    "timestamp": "2022-08-07T07:40:05.977076349Z",
     "matcher-status": true,
     "matched-line": null
   },
@@ -624,7 +56,7 @@
       "TLS10"
     ],
     "ip": "164.131.132.47",
-    "timestamp": "2022-07-31T07:49:14.556667513Z",
+    "timestamp": "2022-08-07T07:40:09.937455586Z",
     "matcher-status": true,
     "matched-line": null
   },
@@ -658,33 +90,602 @@
       "TLS11"
     ],
     "ip": "164.131.132.47",
-    "timestamp": "2022-07-31T07:49:15.015510748Z",
+    "timestamp": "2022-08-07T07:40:10.405755035Z",
     "matcher-status": true,
     "matched-line": null
   },
   {
-    "template": "ssl/tls-version.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/ssl/tls-version.yaml",
-    "template-id": "tls-version",
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
     "info": {
-      "name": "TLS Version",
+      "name": "HTTP Missing Security Headers",
       "author": [
-        "pdteam"
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
       ],
       "tags": [
-        "ssl"
+        "misconfig",
+        "generic"
       ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
       "reference": null,
       "severity": "info"
     },
-    "type": "ssl",
+    "matcher-name": "permission-policy",
+    "type": "http",
     "host": "https://www.teleaccords.travail-emploi.gouv.fr",
-    "matched-at": "https://www.teleaccords.travail-emploi.gouv.fr",
-    "extracted-results": [
-      "TLS12"
-    ],
+    "matched-at": "https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/",
+    "request": "GET / HTTP/1.1\r\nHost: www.teleaccords.travail-emploi.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 200\r\nConnection: close\r\nContent-Length: 1344\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 07 Aug 2022 07:40:21 GMT\r\nEtag: W/\"1344-1609861740000\"\r\nLast-Modified: Tue, 05 Jan 2021 15:49:00 GMT\r\nSet-Cookie: TS019d9798=0171284ec370ac95574d9079154f249a51f37a7441161109b1443facf8557e9a1c1ea400095381e7cd063b50e3228f3b34adc3928b; Path=/\r\n\r\n<!doctype html>\r\n<html>\r\n<head>\r\n<meta http-equiv=\"X-UA-Compatible\" content=\"IE=9; IE=8; IE=7\" />\r\n<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">\r\n<link href=\"favicon.ico\" type=\"image/x-icon\" rel=\"icon\" />\r\n<link type=\"text/css\" rel=\"stylesheet\" href=\"PortailTeleprocedures.css\">\r\n\r\n<title>Portail - Ministère du travail</title>\r\n\r\n<script type=\"text/javascript\" language=\"javascript\"\r\n\tsrc=\"portailteleprocedures/portailteleprocedures.nocache.js\"></script>\r\n<script\r\n\tsrc=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\r\n<script\r\n\tsrc=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js\"></script>\r\n<link rel=\"stylesheet\"\r\n\thref=\"https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css\">\r\n</head>\r\n\r\n<body>\r\n\t<iframe src=\"javascript:''\" id=\"__gwt_historyFrame\" tabIndex='-1'\r\n\t\tstyle=\"position: absolute; width: 0; height: 0; border: 0\"></iframe>\r\n\r\n\t<noscript>\r\n\t\t<div\r\n\t\t\tstyle=\"width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif\">\r\n\t\t\tLe JavaScript doit être activé sur votre navigateur afin que le\r\n\t\t\tportail des téléprocédures puisse s'afficher correctement.</div>\r\n\t</noscript>\r\n</body>\r\n</html>",
     "ip": "164.131.132.47",
-    "timestamp": "2022-07-31T07:52:56.312681415Z",
+    "timestamp": "2022-08-07T07:40:21.659577811Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'Referer: https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "cross-origin-embedder-policy",
+    "type": "http",
+    "host": "https://www.teleaccords.travail-emploi.gouv.fr",
+    "matched-at": "https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/",
+    "request": "GET / HTTP/1.1\r\nHost: www.teleaccords.travail-emploi.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 200\r\nConnection: close\r\nContent-Length: 1344\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 07 Aug 2022 07:40:21 GMT\r\nEtag: W/\"1344-1609861740000\"\r\nLast-Modified: Tue, 05 Jan 2021 15:49:00 GMT\r\nSet-Cookie: TS019d9798=0171284ec370ac95574d9079154f249a51f37a7441161109b1443facf8557e9a1c1ea400095381e7cd063b50e3228f3b34adc3928b; Path=/\r\n\r\n<!doctype html>\r\n<html>\r\n<head>\r\n<meta http-equiv=\"X-UA-Compatible\" content=\"IE=9; IE=8; IE=7\" />\r\n<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">\r\n<link href=\"favicon.ico\" type=\"image/x-icon\" rel=\"icon\" />\r\n<link type=\"text/css\" rel=\"stylesheet\" href=\"PortailTeleprocedures.css\">\r\n\r\n<title>Portail - Ministère du travail</title>\r\n\r\n<script type=\"text/javascript\" language=\"javascript\"\r\n\tsrc=\"portailteleprocedures/portailteleprocedures.nocache.js\"></script>\r\n<script\r\n\tsrc=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\r\n<script\r\n\tsrc=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js\"></script>\r\n<link rel=\"stylesheet\"\r\n\thref=\"https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css\">\r\n</head>\r\n\r\n<body>\r\n\t<iframe src=\"javascript:''\" id=\"__gwt_historyFrame\" tabIndex='-1'\r\n\t\tstyle=\"position: absolute; width: 0; height: 0; border: 0\"></iframe>\r\n\r\n\t<noscript>\r\n\t\t<div\r\n\t\t\tstyle=\"width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif\">\r\n\t\t\tLe JavaScript doit être activé sur votre navigateur afin que le\r\n\t\t\tportail des téléprocédures puisse s'afficher correctement.</div>\r\n\t</noscript>\r\n</body>\r\n</html>",
+    "ip": "164.131.132.47",
+    "timestamp": "2022-08-07T07:40:21.659692518Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'Referer: https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "strict-transport-security",
+    "type": "http",
+    "host": "https://www.teleaccords.travail-emploi.gouv.fr",
+    "matched-at": "https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/",
+    "request": "GET / HTTP/1.1\r\nHost: www.teleaccords.travail-emploi.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 200\r\nConnection: close\r\nContent-Length: 1344\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 07 Aug 2022 07:40:21 GMT\r\nEtag: W/\"1344-1609861740000\"\r\nLast-Modified: Tue, 05 Jan 2021 15:49:00 GMT\r\nSet-Cookie: TS019d9798=0171284ec370ac95574d9079154f249a51f37a7441161109b1443facf8557e9a1c1ea400095381e7cd063b50e3228f3b34adc3928b; Path=/\r\n\r\n<!doctype html>\r\n<html>\r\n<head>\r\n<meta http-equiv=\"X-UA-Compatible\" content=\"IE=9; IE=8; IE=7\" />\r\n<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">\r\n<link href=\"favicon.ico\" type=\"image/x-icon\" rel=\"icon\" />\r\n<link type=\"text/css\" rel=\"stylesheet\" href=\"PortailTeleprocedures.css\">\r\n\r\n<title>Portail - Ministère du travail</title>\r\n\r\n<script type=\"text/javascript\" language=\"javascript\"\r\n\tsrc=\"portailteleprocedures/portailteleprocedures.nocache.js\"></script>\r\n<script\r\n\tsrc=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\r\n<script\r\n\tsrc=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js\"></script>\r\n<link rel=\"stylesheet\"\r\n\thref=\"https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css\">\r\n</head>\r\n\r\n<body>\r\n\t<iframe src=\"javascript:''\" id=\"__gwt_historyFrame\" tabIndex='-1'\r\n\t\tstyle=\"position: absolute; width: 0; height: 0; border: 0\"></iframe>\r\n\r\n\t<noscript>\r\n\t\t<div\r\n\t\t\tstyle=\"width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif\">\r\n\t\t\tLe JavaScript doit être activé sur votre navigateur afin que le\r\n\t\t\tportail des téléprocédures puisse s'afficher correctement.</div>\r\n\t</noscript>\r\n</body>\r\n</html>",
+    "ip": "164.131.132.47",
+    "timestamp": "2022-08-07T07:40:21.65972872Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'Referer: https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "cross-origin-resource-policy",
+    "type": "http",
+    "host": "https://www.teleaccords.travail-emploi.gouv.fr",
+    "matched-at": "https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/",
+    "request": "GET / HTTP/1.1\r\nHost: www.teleaccords.travail-emploi.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 200\r\nConnection: close\r\nContent-Length: 1344\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 07 Aug 2022 07:40:21 GMT\r\nEtag: W/\"1344-1609861740000\"\r\nLast-Modified: Tue, 05 Jan 2021 15:49:00 GMT\r\nSet-Cookie: TS019d9798=0171284ec370ac95574d9079154f249a51f37a7441161109b1443facf8557e9a1c1ea400095381e7cd063b50e3228f3b34adc3928b; Path=/\r\n\r\n<!doctype html>\r\n<html>\r\n<head>\r\n<meta http-equiv=\"X-UA-Compatible\" content=\"IE=9; IE=8; IE=7\" />\r\n<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">\r\n<link href=\"favicon.ico\" type=\"image/x-icon\" rel=\"icon\" />\r\n<link type=\"text/css\" rel=\"stylesheet\" href=\"PortailTeleprocedures.css\">\r\n\r\n<title>Portail - Ministère du travail</title>\r\n\r\n<script type=\"text/javascript\" language=\"javascript\"\r\n\tsrc=\"portailteleprocedures/portailteleprocedures.nocache.js\"></script>\r\n<script\r\n\tsrc=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\r\n<script\r\n\tsrc=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js\"></script>\r\n<link rel=\"stylesheet\"\r\n\thref=\"https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css\">\r\n</head>\r\n\r\n<body>\r\n\t<iframe src=\"javascript:''\" id=\"__gwt_historyFrame\" tabIndex='-1'\r\n\t\tstyle=\"position: absolute; width: 0; height: 0; border: 0\"></iframe>\r\n\r\n\t<noscript>\r\n\t\t<div\r\n\t\t\tstyle=\"width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif\">\r\n\t\t\tLe JavaScript doit être activé sur votre navigateur afin que le\r\n\t\t\tportail des téléprocédures puisse s'afficher correctement.</div>\r\n\t</noscript>\r\n</body>\r\n</html>",
+    "ip": "164.131.132.47",
+    "timestamp": "2022-08-07T07:40:21.663353323Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'Referer: https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "access-control-max-age",
+    "type": "http",
+    "host": "https://www.teleaccords.travail-emploi.gouv.fr",
+    "matched-at": "https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/",
+    "request": "GET / HTTP/1.1\r\nHost: www.teleaccords.travail-emploi.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 200\r\nConnection: close\r\nContent-Length: 1344\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 07 Aug 2022 07:40:21 GMT\r\nEtag: W/\"1344-1609861740000\"\r\nLast-Modified: Tue, 05 Jan 2021 15:49:00 GMT\r\nSet-Cookie: TS019d9798=0171284ec370ac95574d9079154f249a51f37a7441161109b1443facf8557e9a1c1ea400095381e7cd063b50e3228f3b34adc3928b; Path=/\r\n\r\n<!doctype html>\r\n<html>\r\n<head>\r\n<meta http-equiv=\"X-UA-Compatible\" content=\"IE=9; IE=8; IE=7\" />\r\n<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">\r\n<link href=\"favicon.ico\" type=\"image/x-icon\" rel=\"icon\" />\r\n<link type=\"text/css\" rel=\"stylesheet\" href=\"PortailTeleprocedures.css\">\r\n\r\n<title>Portail - Ministère du travail</title>\r\n\r\n<script type=\"text/javascript\" language=\"javascript\"\r\n\tsrc=\"portailteleprocedures/portailteleprocedures.nocache.js\"></script>\r\n<script\r\n\tsrc=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\r\n<script\r\n\tsrc=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js\"></script>\r\n<link rel=\"stylesheet\"\r\n\thref=\"https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css\">\r\n</head>\r\n\r\n<body>\r\n\t<iframe src=\"javascript:''\" id=\"__gwt_historyFrame\" tabIndex='-1'\r\n\t\tstyle=\"position: absolute; width: 0; height: 0; border: 0\"></iframe>\r\n\r\n\t<noscript>\r\n\t\t<div\r\n\t\t\tstyle=\"width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif\">\r\n\t\t\tLe JavaScript doit être activé sur votre navigateur afin que le\r\n\t\t\tportail des téléprocédures puisse s'afficher correctement.</div>\r\n\t</noscript>\r\n</body>\r\n</html>",
+    "ip": "164.131.132.47",
+    "timestamp": "2022-08-07T07:40:21.663427627Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'Referer: https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "access-control-allow-methods",
+    "type": "http",
+    "host": "https://www.teleaccords.travail-emploi.gouv.fr",
+    "matched-at": "https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/",
+    "request": "GET / HTTP/1.1\r\nHost: www.teleaccords.travail-emploi.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 200\r\nConnection: close\r\nContent-Length: 1344\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 07 Aug 2022 07:40:21 GMT\r\nEtag: W/\"1344-1609861740000\"\r\nLast-Modified: Tue, 05 Jan 2021 15:49:00 GMT\r\nSet-Cookie: TS019d9798=0171284ec370ac95574d9079154f249a51f37a7441161109b1443facf8557e9a1c1ea400095381e7cd063b50e3228f3b34adc3928b; Path=/\r\n\r\n<!doctype html>\r\n<html>\r\n<head>\r\n<meta http-equiv=\"X-UA-Compatible\" content=\"IE=9; IE=8; IE=7\" />\r\n<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">\r\n<link href=\"favicon.ico\" type=\"image/x-icon\" rel=\"icon\" />\r\n<link type=\"text/css\" rel=\"stylesheet\" href=\"PortailTeleprocedures.css\">\r\n\r\n<title>Portail - Ministère du travail</title>\r\n\r\n<script type=\"text/javascript\" language=\"javascript\"\r\n\tsrc=\"portailteleprocedures/portailteleprocedures.nocache.js\"></script>\r\n<script\r\n\tsrc=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\r\n<script\r\n\tsrc=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js\"></script>\r\n<link rel=\"stylesheet\"\r\n\thref=\"https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css\">\r\n</head>\r\n\r\n<body>\r\n\t<iframe src=\"javascript:''\" id=\"__gwt_historyFrame\" tabIndex='-1'\r\n\t\tstyle=\"position: absolute; width: 0; height: 0; border: 0\"></iframe>\r\n\r\n\t<noscript>\r\n\t\t<div\r\n\t\t\tstyle=\"width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif\">\r\n\t\t\tLe JavaScript doit être activé sur votre navigateur afin que le\r\n\t\t\tportail des téléprocédures puisse s'afficher correctement.</div>\r\n\t</noscript>\r\n</body>\r\n</html>",
+    "ip": "164.131.132.47",
+    "timestamp": "2022-08-07T07:40:21.66347953Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'Referer: https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "access-control-allow-headers",
+    "type": "http",
+    "host": "https://www.teleaccords.travail-emploi.gouv.fr",
+    "matched-at": "https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/",
+    "request": "GET / HTTP/1.1\r\nHost: www.teleaccords.travail-emploi.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 200\r\nConnection: close\r\nContent-Length: 1344\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 07 Aug 2022 07:40:21 GMT\r\nEtag: W/\"1344-1609861740000\"\r\nLast-Modified: Tue, 05 Jan 2021 15:49:00 GMT\r\nSet-Cookie: TS019d9798=0171284ec370ac95574d9079154f249a51f37a7441161109b1443facf8557e9a1c1ea400095381e7cd063b50e3228f3b34adc3928b; Path=/\r\n\r\n<!doctype html>\r\n<html>\r\n<head>\r\n<meta http-equiv=\"X-UA-Compatible\" content=\"IE=9; IE=8; IE=7\" />\r\n<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">\r\n<link href=\"favicon.ico\" type=\"image/x-icon\" rel=\"icon\" />\r\n<link type=\"text/css\" rel=\"stylesheet\" href=\"PortailTeleprocedures.css\">\r\n\r\n<title>Portail - Ministère du travail</title>\r\n\r\n<script type=\"text/javascript\" language=\"javascript\"\r\n\tsrc=\"portailteleprocedures/portailteleprocedures.nocache.js\"></script>\r\n<script\r\n\tsrc=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\r\n<script\r\n\tsrc=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js\"></script>\r\n<link rel=\"stylesheet\"\r\n\thref=\"https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css\">\r\n</head>\r\n\r\n<body>\r\n\t<iframe src=\"javascript:''\" id=\"__gwt_historyFrame\" tabIndex='-1'\r\n\t\tstyle=\"position: absolute; width: 0; height: 0; border: 0\"></iframe>\r\n\r\n\t<noscript>\r\n\t\t<div\r\n\t\t\tstyle=\"width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif\">\r\n\t\t\tLe JavaScript doit être activé sur votre navigateur afin que le\r\n\t\t\tportail des téléprocédures puisse s'afficher correctement.</div>\r\n\t</noscript>\r\n</body>\r\n</html>",
+    "ip": "164.131.132.47",
+    "timestamp": "2022-08-07T07:40:21.663538433Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'Referer: https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "x-permitted-cross-domain-policies",
+    "type": "http",
+    "host": "https://www.teleaccords.travail-emploi.gouv.fr",
+    "matched-at": "https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/",
+    "request": "GET / HTTP/1.1\r\nHost: www.teleaccords.travail-emploi.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 200\r\nConnection: close\r\nContent-Length: 1344\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 07 Aug 2022 07:40:21 GMT\r\nEtag: W/\"1344-1609861740000\"\r\nLast-Modified: Tue, 05 Jan 2021 15:49:00 GMT\r\nSet-Cookie: TS019d9798=0171284ec370ac95574d9079154f249a51f37a7441161109b1443facf8557e9a1c1ea400095381e7cd063b50e3228f3b34adc3928b; Path=/\r\n\r\n<!doctype html>\r\n<html>\r\n<head>\r\n<meta http-equiv=\"X-UA-Compatible\" content=\"IE=9; IE=8; IE=7\" />\r\n<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">\r\n<link href=\"favicon.ico\" type=\"image/x-icon\" rel=\"icon\" />\r\n<link type=\"text/css\" rel=\"stylesheet\" href=\"PortailTeleprocedures.css\">\r\n\r\n<title>Portail - Ministère du travail</title>\r\n\r\n<script type=\"text/javascript\" language=\"javascript\"\r\n\tsrc=\"portailteleprocedures/portailteleprocedures.nocache.js\"></script>\r\n<script\r\n\tsrc=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\r\n<script\r\n\tsrc=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js\"></script>\r\n<link rel=\"stylesheet\"\r\n\thref=\"https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css\">\r\n</head>\r\n\r\n<body>\r\n\t<iframe src=\"javascript:''\" id=\"__gwt_historyFrame\" tabIndex='-1'\r\n\t\tstyle=\"position: absolute; width: 0; height: 0; border: 0\"></iframe>\r\n\r\n\t<noscript>\r\n\t\t<div\r\n\t\t\tstyle=\"width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif\">\r\n\t\t\tLe JavaScript doit être activé sur votre navigateur afin que le\r\n\t\t\tportail des téléprocédures puisse s'afficher correctement.</div>\r\n\t</noscript>\r\n</body>\r\n</html>",
+    "ip": "164.131.132.47",
+    "timestamp": "2022-08-07T07:40:21.663594636Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'Referer: https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "referrer-policy",
+    "type": "http",
+    "host": "https://www.teleaccords.travail-emploi.gouv.fr",
+    "matched-at": "https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/",
+    "request": "GET / HTTP/1.1\r\nHost: www.teleaccords.travail-emploi.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 200\r\nConnection: close\r\nContent-Length: 1344\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 07 Aug 2022 07:40:21 GMT\r\nEtag: W/\"1344-1609861740000\"\r\nLast-Modified: Tue, 05 Jan 2021 15:49:00 GMT\r\nSet-Cookie: TS019d9798=0171284ec370ac95574d9079154f249a51f37a7441161109b1443facf8557e9a1c1ea400095381e7cd063b50e3228f3b34adc3928b; Path=/\r\n\r\n<!doctype html>\r\n<html>\r\n<head>\r\n<meta http-equiv=\"X-UA-Compatible\" content=\"IE=9; IE=8; IE=7\" />\r\n<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">\r\n<link href=\"favicon.ico\" type=\"image/x-icon\" rel=\"icon\" />\r\n<link type=\"text/css\" rel=\"stylesheet\" href=\"PortailTeleprocedures.css\">\r\n\r\n<title>Portail - Ministère du travail</title>\r\n\r\n<script type=\"text/javascript\" language=\"javascript\"\r\n\tsrc=\"portailteleprocedures/portailteleprocedures.nocache.js\"></script>\r\n<script\r\n\tsrc=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\r\n<script\r\n\tsrc=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js\"></script>\r\n<link rel=\"stylesheet\"\r\n\thref=\"https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css\">\r\n</head>\r\n\r\n<body>\r\n\t<iframe src=\"javascript:''\" id=\"__gwt_historyFrame\" tabIndex='-1'\r\n\t\tstyle=\"position: absolute; width: 0; height: 0; border: 0\"></iframe>\r\n\r\n\t<noscript>\r\n\t\t<div\r\n\t\t\tstyle=\"width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif\">\r\n\t\t\tLe JavaScript doit être activé sur votre navigateur afin que le\r\n\t\t\tportail des téléprocédures puisse s'afficher correctement.</div>\r\n\t</noscript>\r\n</body>\r\n</html>",
+    "ip": "164.131.132.47",
+    "timestamp": "2022-08-07T07:40:21.663756145Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'Referer: https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "clear-site-data",
+    "type": "http",
+    "host": "https://www.teleaccords.travail-emploi.gouv.fr",
+    "matched-at": "https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/",
+    "request": "GET / HTTP/1.1\r\nHost: www.teleaccords.travail-emploi.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 200\r\nConnection: close\r\nContent-Length: 1344\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 07 Aug 2022 07:40:21 GMT\r\nEtag: W/\"1344-1609861740000\"\r\nLast-Modified: Tue, 05 Jan 2021 15:49:00 GMT\r\nSet-Cookie: TS019d9798=0171284ec370ac95574d9079154f249a51f37a7441161109b1443facf8557e9a1c1ea400095381e7cd063b50e3228f3b34adc3928b; Path=/\r\n\r\n<!doctype html>\r\n<html>\r\n<head>\r\n<meta http-equiv=\"X-UA-Compatible\" content=\"IE=9; IE=8; IE=7\" />\r\n<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">\r\n<link href=\"favicon.ico\" type=\"image/x-icon\" rel=\"icon\" />\r\n<link type=\"text/css\" rel=\"stylesheet\" href=\"PortailTeleprocedures.css\">\r\n\r\n<title>Portail - Ministère du travail</title>\r\n\r\n<script type=\"text/javascript\" language=\"javascript\"\r\n\tsrc=\"portailteleprocedures/portailteleprocedures.nocache.js\"></script>\r\n<script\r\n\tsrc=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\r\n<script\r\n\tsrc=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js\"></script>\r\n<link rel=\"stylesheet\"\r\n\thref=\"https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css\">\r\n</head>\r\n\r\n<body>\r\n\t<iframe src=\"javascript:''\" id=\"__gwt_historyFrame\" tabIndex='-1'\r\n\t\tstyle=\"position: absolute; width: 0; height: 0; border: 0\"></iframe>\r\n\r\n\t<noscript>\r\n\t\t<div\r\n\t\t\tstyle=\"width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif\">\r\n\t\t\tLe JavaScript doit être activé sur votre navigateur afin que le\r\n\t\t\tportail des téléprocédures puisse s'afficher correctement.</div>\r\n\t</noscript>\r\n</body>\r\n</html>",
+    "ip": "164.131.132.47",
+    "timestamp": "2022-08-07T07:40:21.66383215Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'Referer: https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "access-control-allow-credentials",
+    "type": "http",
+    "host": "https://www.teleaccords.travail-emploi.gouv.fr",
+    "matched-at": "https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/",
+    "request": "GET / HTTP/1.1\r\nHost: www.teleaccords.travail-emploi.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 200\r\nConnection: close\r\nContent-Length: 1344\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 07 Aug 2022 07:40:21 GMT\r\nEtag: W/\"1344-1609861740000\"\r\nLast-Modified: Tue, 05 Jan 2021 15:49:00 GMT\r\nSet-Cookie: TS019d9798=0171284ec370ac95574d9079154f249a51f37a7441161109b1443facf8557e9a1c1ea400095381e7cd063b50e3228f3b34adc3928b; Path=/\r\n\r\n<!doctype html>\r\n<html>\r\n<head>\r\n<meta http-equiv=\"X-UA-Compatible\" content=\"IE=9; IE=8; IE=7\" />\r\n<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">\r\n<link href=\"favicon.ico\" type=\"image/x-icon\" rel=\"icon\" />\r\n<link type=\"text/css\" rel=\"stylesheet\" href=\"PortailTeleprocedures.css\">\r\n\r\n<title>Portail - Ministère du travail</title>\r\n\r\n<script type=\"text/javascript\" language=\"javascript\"\r\n\tsrc=\"portailteleprocedures/portailteleprocedures.nocache.js\"></script>\r\n<script\r\n\tsrc=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\r\n<script\r\n\tsrc=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js\"></script>\r\n<link rel=\"stylesheet\"\r\n\thref=\"https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css\">\r\n</head>\r\n\r\n<body>\r\n\t<iframe src=\"javascript:''\" id=\"__gwt_historyFrame\" tabIndex='-1'\r\n\t\tstyle=\"position: absolute; width: 0; height: 0; border: 0\"></iframe>\r\n\r\n\t<noscript>\r\n\t\t<div\r\n\t\t\tstyle=\"width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif\">\r\n\t\t\tLe JavaScript doit être activé sur votre navigateur afin que le\r\n\t\t\tportail des téléprocédures puisse s'afficher correctement.</div>\r\n\t</noscript>\r\n</body>\r\n</html>",
+    "ip": "164.131.132.47",
+    "timestamp": "2022-08-07T07:40:21.663891653Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'Referer: https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "access-control-allow-origin",
+    "type": "http",
+    "host": "https://www.teleaccords.travail-emploi.gouv.fr",
+    "matched-at": "https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/",
+    "request": "GET / HTTP/1.1\r\nHost: www.teleaccords.travail-emploi.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 200\r\nConnection: close\r\nContent-Length: 1344\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 07 Aug 2022 07:40:21 GMT\r\nEtag: W/\"1344-1609861740000\"\r\nLast-Modified: Tue, 05 Jan 2021 15:49:00 GMT\r\nSet-Cookie: TS019d9798=0171284ec370ac95574d9079154f249a51f37a7441161109b1443facf8557e9a1c1ea400095381e7cd063b50e3228f3b34adc3928b; Path=/\r\n\r\n<!doctype html>\r\n<html>\r\n<head>\r\n<meta http-equiv=\"X-UA-Compatible\" content=\"IE=9; IE=8; IE=7\" />\r\n<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">\r\n<link href=\"favicon.ico\" type=\"image/x-icon\" rel=\"icon\" />\r\n<link type=\"text/css\" rel=\"stylesheet\" href=\"PortailTeleprocedures.css\">\r\n\r\n<title>Portail - Ministère du travail</title>\r\n\r\n<script type=\"text/javascript\" language=\"javascript\"\r\n\tsrc=\"portailteleprocedures/portailteleprocedures.nocache.js\"></script>\r\n<script\r\n\tsrc=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\r\n<script\r\n\tsrc=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js\"></script>\r\n<link rel=\"stylesheet\"\r\n\thref=\"https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css\">\r\n</head>\r\n\r\n<body>\r\n\t<iframe src=\"javascript:''\" id=\"__gwt_historyFrame\" tabIndex='-1'\r\n\t\tstyle=\"position: absolute; width: 0; height: 0; border: 0\"></iframe>\r\n\r\n\t<noscript>\r\n\t\t<div\r\n\t\t\tstyle=\"width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif\">\r\n\t\t\tLe JavaScript doit être activé sur votre navigateur afin que le\r\n\t\t\tportail des téléprocédures puisse s'afficher correctement.</div>\r\n\t</noscript>\r\n</body>\r\n</html>",
+    "ip": "164.131.132.47",
+    "timestamp": "2022-08-07T07:40:21.663949356Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'Referer: https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "access-control-expose-headers",
+    "type": "http",
+    "host": "https://www.teleaccords.travail-emploi.gouv.fr",
+    "matched-at": "https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/",
+    "request": "GET / HTTP/1.1\r\nHost: www.teleaccords.travail-emploi.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 200\r\nConnection: close\r\nContent-Length: 1344\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 07 Aug 2022 07:40:21 GMT\r\nEtag: W/\"1344-1609861740000\"\r\nLast-Modified: Tue, 05 Jan 2021 15:49:00 GMT\r\nSet-Cookie: TS019d9798=0171284ec370ac95574d9079154f249a51f37a7441161109b1443facf8557e9a1c1ea400095381e7cd063b50e3228f3b34adc3928b; Path=/\r\n\r\n<!doctype html>\r\n<html>\r\n<head>\r\n<meta http-equiv=\"X-UA-Compatible\" content=\"IE=9; IE=8; IE=7\" />\r\n<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">\r\n<link href=\"favicon.ico\" type=\"image/x-icon\" rel=\"icon\" />\r\n<link type=\"text/css\" rel=\"stylesheet\" href=\"PortailTeleprocedures.css\">\r\n\r\n<title>Portail - Ministère du travail</title>\r\n\r\n<script type=\"text/javascript\" language=\"javascript\"\r\n\tsrc=\"portailteleprocedures/portailteleprocedures.nocache.js\"></script>\r\n<script\r\n\tsrc=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\r\n<script\r\n\tsrc=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js\"></script>\r\n<link rel=\"stylesheet\"\r\n\thref=\"https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css\">\r\n</head>\r\n\r\n<body>\r\n\t<iframe src=\"javascript:''\" id=\"__gwt_historyFrame\" tabIndex='-1'\r\n\t\tstyle=\"position: absolute; width: 0; height: 0; border: 0\"></iframe>\r\n\r\n\t<noscript>\r\n\t\t<div\r\n\t\t\tstyle=\"width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif\">\r\n\t\t\tLe JavaScript doit être activé sur votre navigateur afin que le\r\n\t\t\tportail des téléprocédures puisse s'afficher correctement.</div>\r\n\t</noscript>\r\n</body>\r\n</html>",
+    "ip": "164.131.132.47",
+    "timestamp": "2022-08-07T07:40:21.664008659Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'Referer: https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "content-security-policy",
+    "type": "http",
+    "host": "https://www.teleaccords.travail-emploi.gouv.fr",
+    "matched-at": "https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/",
+    "request": "GET / HTTP/1.1\r\nHost: www.teleaccords.travail-emploi.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 200\r\nConnection: close\r\nContent-Length: 1344\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 07 Aug 2022 07:40:21 GMT\r\nEtag: W/\"1344-1609861740000\"\r\nLast-Modified: Tue, 05 Jan 2021 15:49:00 GMT\r\nSet-Cookie: TS019d9798=0171284ec370ac95574d9079154f249a51f37a7441161109b1443facf8557e9a1c1ea400095381e7cd063b50e3228f3b34adc3928b; Path=/\r\n\r\n<!doctype html>\r\n<html>\r\n<head>\r\n<meta http-equiv=\"X-UA-Compatible\" content=\"IE=9; IE=8; IE=7\" />\r\n<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">\r\n<link href=\"favicon.ico\" type=\"image/x-icon\" rel=\"icon\" />\r\n<link type=\"text/css\" rel=\"stylesheet\" href=\"PortailTeleprocedures.css\">\r\n\r\n<title>Portail - Ministère du travail</title>\r\n\r\n<script type=\"text/javascript\" language=\"javascript\"\r\n\tsrc=\"portailteleprocedures/portailteleprocedures.nocache.js\"></script>\r\n<script\r\n\tsrc=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\r\n<script\r\n\tsrc=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js\"></script>\r\n<link rel=\"stylesheet\"\r\n\thref=\"https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css\">\r\n</head>\r\n\r\n<body>\r\n\t<iframe src=\"javascript:''\" id=\"__gwt_historyFrame\" tabIndex='-1'\r\n\t\tstyle=\"position: absolute; width: 0; height: 0; border: 0\"></iframe>\r\n\r\n\t<noscript>\r\n\t\t<div\r\n\t\t\tstyle=\"width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif\">\r\n\t\t\tLe JavaScript doit être activé sur votre navigateur afin que le\r\n\t\t\tportail des téléprocédures puisse s'afficher correctement.</div>\r\n\t</noscript>\r\n</body>\r\n</html>",
+    "ip": "164.131.132.47",
+    "timestamp": "2022-08-07T07:40:21.664173469Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'Referer: https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "x-frame-options",
+    "type": "http",
+    "host": "https://www.teleaccords.travail-emploi.gouv.fr",
+    "matched-at": "https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/",
+    "request": "GET / HTTP/1.1\r\nHost: www.teleaccords.travail-emploi.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 200\r\nConnection: close\r\nContent-Length: 1344\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 07 Aug 2022 07:40:21 GMT\r\nEtag: W/\"1344-1609861740000\"\r\nLast-Modified: Tue, 05 Jan 2021 15:49:00 GMT\r\nSet-Cookie: TS019d9798=0171284ec370ac95574d9079154f249a51f37a7441161109b1443facf8557e9a1c1ea400095381e7cd063b50e3228f3b34adc3928b; Path=/\r\n\r\n<!doctype html>\r\n<html>\r\n<head>\r\n<meta http-equiv=\"X-UA-Compatible\" content=\"IE=9; IE=8; IE=7\" />\r\n<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">\r\n<link href=\"favicon.ico\" type=\"image/x-icon\" rel=\"icon\" />\r\n<link type=\"text/css\" rel=\"stylesheet\" href=\"PortailTeleprocedures.css\">\r\n\r\n<title>Portail - Ministère du travail</title>\r\n\r\n<script type=\"text/javascript\" language=\"javascript\"\r\n\tsrc=\"portailteleprocedures/portailteleprocedures.nocache.js\"></script>\r\n<script\r\n\tsrc=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\r\n<script\r\n\tsrc=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js\"></script>\r\n<link rel=\"stylesheet\"\r\n\thref=\"https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css\">\r\n</head>\r\n\r\n<body>\r\n\t<iframe src=\"javascript:''\" id=\"__gwt_historyFrame\" tabIndex='-1'\r\n\t\tstyle=\"position: absolute; width: 0; height: 0; border: 0\"></iframe>\r\n\r\n\t<noscript>\r\n\t\t<div\r\n\t\t\tstyle=\"width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif\">\r\n\t\t\tLe JavaScript doit être activé sur votre navigateur afin que le\r\n\t\t\tportail des téléprocédures puisse s'afficher correctement.</div>\r\n\t</noscript>\r\n</body>\r\n</html>",
+    "ip": "164.131.132.47",
+    "timestamp": "2022-08-07T07:40:21.664245173Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'Referer: https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "x-content-type-options",
+    "type": "http",
+    "host": "https://www.teleaccords.travail-emploi.gouv.fr",
+    "matched-at": "https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/",
+    "request": "GET / HTTP/1.1\r\nHost: www.teleaccords.travail-emploi.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 200\r\nConnection: close\r\nContent-Length: 1344\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 07 Aug 2022 07:40:21 GMT\r\nEtag: W/\"1344-1609861740000\"\r\nLast-Modified: Tue, 05 Jan 2021 15:49:00 GMT\r\nSet-Cookie: TS019d9798=0171284ec370ac95574d9079154f249a51f37a7441161109b1443facf8557e9a1c1ea400095381e7cd063b50e3228f3b34adc3928b; Path=/\r\n\r\n<!doctype html>\r\n<html>\r\n<head>\r\n<meta http-equiv=\"X-UA-Compatible\" content=\"IE=9; IE=8; IE=7\" />\r\n<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">\r\n<link href=\"favicon.ico\" type=\"image/x-icon\" rel=\"icon\" />\r\n<link type=\"text/css\" rel=\"stylesheet\" href=\"PortailTeleprocedures.css\">\r\n\r\n<title>Portail - Ministère du travail</title>\r\n\r\n<script type=\"text/javascript\" language=\"javascript\"\r\n\tsrc=\"portailteleprocedures/portailteleprocedures.nocache.js\"></script>\r\n<script\r\n\tsrc=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\r\n<script\r\n\tsrc=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js\"></script>\r\n<link rel=\"stylesheet\"\r\n\thref=\"https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css\">\r\n</head>\r\n\r\n<body>\r\n\t<iframe src=\"javascript:''\" id=\"__gwt_historyFrame\" tabIndex='-1'\r\n\t\tstyle=\"position: absolute; width: 0; height: 0; border: 0\"></iframe>\r\n\r\n\t<noscript>\r\n\t\t<div\r\n\t\t\tstyle=\"width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif\">\r\n\t\t\tLe JavaScript doit être activé sur votre navigateur afin que le\r\n\t\t\tportail des téléprocédures puisse s'afficher correctement.</div>\r\n\t</noscript>\r\n</body>\r\n</html>",
+    "ip": "164.131.132.47",
+    "timestamp": "2022-08-07T07:40:21.664297376Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'Referer: https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "cross-origin-opener-policy",
+    "type": "http",
+    "host": "https://www.teleaccords.travail-emploi.gouv.fr",
+    "matched-at": "https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/",
+    "request": "GET / HTTP/1.1\r\nHost: www.teleaccords.travail-emploi.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 200\r\nConnection: close\r\nContent-Length: 1344\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 07 Aug 2022 07:40:21 GMT\r\nEtag: W/\"1344-1609861740000\"\r\nLast-Modified: Tue, 05 Jan 2021 15:49:00 GMT\r\nSet-Cookie: TS019d9798=0171284ec370ac95574d9079154f249a51f37a7441161109b1443facf8557e9a1c1ea400095381e7cd063b50e3228f3b34adc3928b; Path=/\r\n\r\n<!doctype html>\r\n<html>\r\n<head>\r\n<meta http-equiv=\"X-UA-Compatible\" content=\"IE=9; IE=8; IE=7\" />\r\n<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">\r\n<link href=\"favicon.ico\" type=\"image/x-icon\" rel=\"icon\" />\r\n<link type=\"text/css\" rel=\"stylesheet\" href=\"PortailTeleprocedures.css\">\r\n\r\n<title>Portail - Ministère du travail</title>\r\n\r\n<script type=\"text/javascript\" language=\"javascript\"\r\n\tsrc=\"portailteleprocedures/portailteleprocedures.nocache.js\"></script>\r\n<script\r\n\tsrc=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\r\n<script\r\n\tsrc=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js\"></script>\r\n<link rel=\"stylesheet\"\r\n\thref=\"https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css\">\r\n</head>\r\n\r\n<body>\r\n\t<iframe src=\"javascript:''\" id=\"__gwt_historyFrame\" tabIndex='-1'\r\n\t\tstyle=\"position: absolute; width: 0; height: 0; border: 0\"></iframe>\r\n\r\n\t<noscript>\r\n\t\t<div\r\n\t\t\tstyle=\"width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif\">\r\n\t\t\tLe JavaScript doit être activé sur votre navigateur afin que le\r\n\t\t\tportail des téléprocédures puisse s'afficher correctement.</div>\r\n\t</noscript>\r\n</body>\r\n</html>",
+    "ip": "164.131.132.47",
+    "timestamp": "2022-08-07T07:40:21.664362979Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'Referer: https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.teleaccords.travail-emploi.gouv.fr/PortailTeleprocedures/'",
     "matcher-status": true,
     "matched-line": null
   }
