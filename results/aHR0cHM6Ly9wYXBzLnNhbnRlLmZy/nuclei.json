@@ -23,9 +23,9 @@
       "Apache"
     ],
     "request": "GET / HTTP/1.1\r\nHost: paps.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=ISO-8859-1\r\nDate: Sun, 07 Aug 2022 05:33:33 GMT\r\nEtag: \"54-541e4bbe3b829-gzip\"\r\nLast-Modified: Tue, 22 Nov 2016 14:39:04 GMT\r\nServer: Apache\r\nSet-Cookie: BIGipServerpool-ars.cegedim.cloud-HTTP=834951434.49431.0000; path=/; Httponly; Secure\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\n\r\n<html><font color='white'>mtsfp-vm-sante-ars-front1.mtsfp.priv default vhost</html>\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=ISO-8859-1\r\nDate: Sun, 14 Aug 2022 05:17:56 GMT\r\nEtag: \"54-541e4bbe3b829-gzip\"\r\nLast-Modified: Tue, 22 Nov 2016 14:39:04 GMT\r\nServer: Apache\r\nSet-Cookie: BIGipServerpool-ars.cegedim.cloud-HTTP=851728650.49431.0000; path=/; Httponly; Secure\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\n\r\n<html><font color='white'>mtsfp-vm-sante-ars-front1.mtsfp.priv default vhost</html>\n",
     "ip": "185.194.82.45",
-    "timestamp": "2022-08-07T05:33:33.870481127Z",
+    "timestamp": "2022-08-14T05:17:56.770809881Z",
     "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://paps.sante.fr'",
     "matcher-status": true,
     "matched-line": null
@@ -53,10 +53,684 @@
       "HEAD,GET,POST,OPTIONS"
     ],
     "request": "OPTIONS / HTTP/1.1\r\nHost: paps.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAllow: HEAD,GET,POST,OPTIONS\r\nContent-Type: text/html; charset=ISO-8859-1\r\nDate: Sun, 07 Aug 2022 05:33:41 GMT\r\nServer: Apache\r\nSet-Cookie: BIGipServerpool-ars.cegedim.cloud-HTTP=834951434.49431.0000; path=/; Httponly; Secure\r\nX-Content-Type-Options: nosniff\r\nContent-Length: 0\r\n\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAllow: HEAD,GET,POST,OPTIONS\r\nContent-Type: text/html; charset=ISO-8859-1\r\nDate: Sun, 14 Aug 2022 05:18:16 GMT\r\nServer: Apache\r\nSet-Cookie: BIGipServerpool-ars.cegedim.cloud-HTTP=851728650.49431.0000; path=/; Httponly; Secure\r\nX-Content-Type-Options: nosniff\r\nContent-Length: 0\r\n\r\n",
     "ip": "185.194.82.45",
-    "timestamp": "2022-08-07T05:33:41.612496123Z",
+    "timestamp": "2022-08-14T05:18:16.302903642Z",
     "curl-command": "curl -X 'OPTIONS' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://paps.sante.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "vulnerabilities/generic/oob-header-based-interaction.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/vulnerabilities/generic/oob-header-based-interaction.yaml",
+    "template-id": "oob-header-based-interaction",
+    "info": {
+      "name": "Header Based Generic OOB Interaction",
+      "author": [
+        "pdteam"
+      ],
+      "tags": [
+        "oast",
+        "ssrf",
+        "generic"
+      ],
+      "description": "The remote server fetched a spoofed URL from the request headers.",
+      "reference": [
+        "https://github.com/portswigger/collaborator-everywhere"
+      ],
+      "severity": "info"
+    },
+    "matcher-name": "dns",
+    "type": "http",
+    "host": "https://paps.sante.fr",
+    "matched-at": "https://paps.sante.fr",
+    "request": "GET / HTTP/1.1\r\nHost: paps.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nCache-Control: no-transform\r\nCf-Connecting_ip: spoofed.cbs8b15dlv8fur68f20gt7dm9ua73p3wr.oast.pro\r\nClient-Ip: spoofed.cbs8b15dlv8fur68f20g3admzr14j6ya6.oast.pro\r\nContact: root@cbs8b15dlv8fur68f20g89n3s4mxyizk9.oast.pro\r\nForwarded: for=spoofed.cbs8b15dlv8fur68f20gf7bzooewoqc1y.oast.pro;by=spoofed.cbs8b15dlv8fur68f20gchheh3bpjscs8.oast.pro;host=spoofed.cbs8b15dlv8fur68f20grtgffcqk5qk98.oast.pro\r\nFrom: root@cbs8b15dlv8fur68f20g13xmch38ocof3.oast.pro\r\nReferer: http://cbs8b15dlv8fur68f20gernqd14xf48i8.oast.pro/ref\r\nTrue-Client-Ip: spoofed.cbs8b15dlv8fur68f20gqxr7xxt7nuu3h.oast.pro\r\nX-Client-Ip: spoofed.cbs8b15dlv8fur68f20g5te333uq9t4ft.oast.pro\r\nX-Forwarded-For: spoofed.cbs8b15dlv8fur68f20gojzwda6x4s6uu.oast.pro\r\nX-Forwarded-Host: spoofed.cbs8b15dlv8fur68f20gt3etziupn9xdi.oast.pro\r\nX-Forwarded-Server: spoofed.cbs8b15dlv8fur68f20gy5moadfegwn8x.oast.pro\r\nX-HTTP-Host-Override: spoofed.cbs8b15dlv8fur68f20grz1nefo5bbyr7.oast.pro\r\nX-Host: spoofed.cbs8b15dlv8fur68f20gd34qzomdiqgdu.oast.pro\r\nX-Originating-Ip: spoofed.cbs8b15dlv8fur68f20g3khqxwz953swa.oast.pro\r\nX-Real-Ip: spoofed.cbs8b15dlv8fur68f20gpkietrseg7inf.oast.pro\r\nX-Wap-Profile: http://cbs8b15dlv8fur68f20g9hnx3exhjaidk.oast.pro/wap.xml\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=ISO-8859-1\r\nDate: Sun, 14 Aug 2022 05:18:15 GMT\r\nEtag: \"54-541e4bbe3b829-gzip\"\r\nLast-Modified: Tue, 22 Nov 2016 14:39:04 GMT\r\nServer: Apache\r\nSet-Cookie: BIGipServerpool-ars.cegedim.cloud-HTTP=851728650.49431.0000; path=/; Httponly; Secure\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\n\r\n<html><font color='white'>mtsfp-vm-sante-ars-front1.mtsfp.priv default vhost</html>\n",
+    "ip": "185.194.82.45",
+    "timestamp": "2022-08-14T05:18:19.05290947Z",
+    "interaction": {
+      "protocol": "dns",
+      "unique-id": "cbs8b15dlv8fur68f20gojzwda6x4s6uu",
+      "full-id": "spoofed.cbs8b15dlv8fur68f20gojzwda6x4s6uu",
+      "q-type": "AAAA",
+      "raw-request": ";; opcode: QUERY, status: NOERROR, id: 37410\n;; flags:; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags: do; udp: 512\n; COOKIE: 6f5a2518d1aac38e\n\n;; QUESTION SECTION:\n;spoofed.cbs8b15dlv8fur68f20gojzwda6x4s6uu.oast.pro.\tIN\t AAAA\n",
+      "raw-response": ";; opcode: QUERY, status: NOERROR, id: 37410\n;; flags: qr aa; QUERY: 1, ANSWER: 1, AUTHORITY: 2, ADDITIONAL: 2\n\n;; QUESTION SECTION:\n;spoofed.cbs8b15dlv8fur68f20gojzwda6x4s6uu.oast.pro.\tIN\t AAAA\n\n;; ANSWER SECTION:\nspoofed.cbs8b15dlv8fur68f20gojzwda6x4s6uu.oast.pro.\t3600\tIN\tA\t178.128.212.209\n\n;; AUTHORITY SECTION:\nspoofed.cbs8b15dlv8fur68f20gojzwda6x4s6uu.oast.pro.\t3600\tIN\tNS\tns1.oast.pro.\nspoofed.cbs8b15dlv8fur68f20gojzwda6x4s6uu.oast.pro.\t3600\tIN\tNS\tns2.oast.pro.\n\n;; ADDITIONAL SECTION:\nns1.oast.pro.\t3600\tIN\tA\t178.128.212.209\nns2.oast.pro.\t3600\tIN\tA\t178.128.212.209\n",
+      "remote-address": "80.94.182.152",
+      "timestamp": "2022-08-14T05:18:14.224678855Z"
+    },
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'Cache-Control: no-transform' -H 'Cf-Connecting_ip: spoofed.cbs8b15dlv8fur68f20gt7dm9ua73p3wr.oast.pro' -H 'Client-Ip: spoofed.cbs8b15dlv8fur68f20g3admzr14j6ya6.oast.pro' -H 'Contact: root@cbs8b15dlv8fur68f20g89n3s4mxyizk9.oast.pro' -H 'Forwarded: for=spoofed.cbs8b15dlv8fur68f20gf7bzooewoqc1y.oast.pro;by=spoofed.cbs8b15dlv8fur68f20gchheh3bpjscs8.oast.pro;host=spoofed.cbs8b15dlv8fur68f20grtgffcqk5qk98.oast.pro' -H 'From: root@cbs8b15dlv8fur68f20g13xmch38ocof3.oast.pro' -H 'Referer: http://cbs8b15dlv8fur68f20gernqd14xf48i8.oast.pro/ref' -H 'True-Client-Ip: spoofed.cbs8b15dlv8fur68f20gqxr7xxt7nuu3h.oast.pro' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' -H 'X-Client-Ip: spoofed.cbs8b15dlv8fur68f20g5te333uq9t4ft.oast.pro' -H 'X-Forwarded-For: spoofed.cbs8b15dlv8fur68f20gojzwda6x4s6uu.oast.pro' -H 'X-Forwarded-Host: spoofed.cbs8b15dlv8fur68f20gt3etziupn9xdi.oast.pro' -H 'X-Forwarded-Server: spoofed.cbs8b15dlv8fur68f20gy5moadfegwn8x.oast.pro' -H 'X-HTTP-Host-Override: spoofed.cbs8b15dlv8fur68f20grz1nefo5bbyr7.oast.pro' -H 'X-Host: spoofed.cbs8b15dlv8fur68f20gd34qzomdiqgdu.oast.pro' -H 'X-Originating-Ip: spoofed.cbs8b15dlv8fur68f20g3khqxwz953swa.oast.pro' -H 'X-Real-Ip: spoofed.cbs8b15dlv8fur68f20gpkietrseg7inf.oast.pro' -H 'X-Wap-Profile: http://cbs8b15dlv8fur68f20g9hnx3exhjaidk.oast.pro/wap.xml' 'https://paps.sante.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "access-control-allow-credentials",
+    "type": "http",
+    "host": "https://paps.sante.fr",
+    "matched-at": "https://paps.sante.fr",
+    "request": "GET / HTTP/1.1\r\nHost: paps.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=ISO-8859-1\r\nDate: Sun, 14 Aug 2022 05:18:20 GMT\r\nEtag: \"54-541e4bbe3b829-gzip\"\r\nLast-Modified: Tue, 22 Nov 2016 14:39:04 GMT\r\nServer: Apache\r\nSet-Cookie: BIGipServerpool-ars.cegedim.cloud-HTTP=851728650.49431.0000; path=/; Httponly; Secure\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\n\r\n<html><font color='white'>mtsfp-vm-sante-ars-front1.mtsfp.priv default vhost</html>\n",
+    "ip": "185.194.82.45",
+    "timestamp": "2022-08-14T05:18:20.520428906Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://paps.sante.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "strict-transport-security",
+    "type": "http",
+    "host": "https://paps.sante.fr",
+    "matched-at": "https://paps.sante.fr",
+    "request": "GET / HTTP/1.1\r\nHost: paps.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=ISO-8859-1\r\nDate: Sun, 14 Aug 2022 05:18:20 GMT\r\nEtag: \"54-541e4bbe3b829-gzip\"\r\nLast-Modified: Tue, 22 Nov 2016 14:39:04 GMT\r\nServer: Apache\r\nSet-Cookie: BIGipServerpool-ars.cegedim.cloud-HTTP=851728650.49431.0000; path=/; Httponly; Secure\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\n\r\n<html><font color='white'>mtsfp-vm-sante-ars-front1.mtsfp.priv default vhost</html>\n",
+    "ip": "185.194.82.45",
+    "timestamp": "2022-08-14T05:18:20.520498707Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://paps.sante.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "content-security-policy",
+    "type": "http",
+    "host": "https://paps.sante.fr",
+    "matched-at": "https://paps.sante.fr",
+    "request": "GET / HTTP/1.1\r\nHost: paps.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=ISO-8859-1\r\nDate: Sun, 14 Aug 2022 05:18:20 GMT\r\nEtag: \"54-541e4bbe3b829-gzip\"\r\nLast-Modified: Tue, 22 Nov 2016 14:39:04 GMT\r\nServer: Apache\r\nSet-Cookie: BIGipServerpool-ars.cegedim.cloud-HTTP=851728650.49431.0000; path=/; Httponly; Secure\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\n\r\n<html><font color='white'>mtsfp-vm-sante-ars-front1.mtsfp.priv default vhost</html>\n",
+    "ip": "185.194.82.45",
+    "timestamp": "2022-08-14T05:18:20.520514907Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://paps.sante.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "cross-origin-embedder-policy",
+    "type": "http",
+    "host": "https://paps.sante.fr",
+    "matched-at": "https://paps.sante.fr",
+    "request": "GET / HTTP/1.1\r\nHost: paps.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=ISO-8859-1\r\nDate: Sun, 14 Aug 2022 05:18:20 GMT\r\nEtag: \"54-541e4bbe3b829-gzip\"\r\nLast-Modified: Tue, 22 Nov 2016 14:39:04 GMT\r\nServer: Apache\r\nSet-Cookie: BIGipServerpool-ars.cegedim.cloud-HTTP=851728650.49431.0000; path=/; Httponly; Secure\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\n\r\n<html><font color='white'>mtsfp-vm-sante-ars-front1.mtsfp.priv default vhost</html>\n",
+    "ip": "185.194.82.45",
+    "timestamp": "2022-08-14T05:18:20.520541808Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://paps.sante.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "cross-origin-opener-policy",
+    "type": "http",
+    "host": "https://paps.sante.fr",
+    "matched-at": "https://paps.sante.fr",
+    "request": "GET / HTTP/1.1\r\nHost: paps.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=ISO-8859-1\r\nDate: Sun, 14 Aug 2022 05:18:20 GMT\r\nEtag: \"54-541e4bbe3b829-gzip\"\r\nLast-Modified: Tue, 22 Nov 2016 14:39:04 GMT\r\nServer: Apache\r\nSet-Cookie: BIGipServerpool-ars.cegedim.cloud-HTTP=851728650.49431.0000; path=/; Httponly; Secure\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\n\r\n<html><font color='white'>mtsfp-vm-sante-ars-front1.mtsfp.priv default vhost</html>\n",
+    "ip": "185.194.82.45",
+    "timestamp": "2022-08-14T05:18:20.520556608Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://paps.sante.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "access-control-allow-headers",
+    "type": "http",
+    "host": "https://paps.sante.fr",
+    "matched-at": "https://paps.sante.fr",
+    "request": "GET / HTTP/1.1\r\nHost: paps.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=ISO-8859-1\r\nDate: Sun, 14 Aug 2022 05:18:20 GMT\r\nEtag: \"54-541e4bbe3b829-gzip\"\r\nLast-Modified: Tue, 22 Nov 2016 14:39:04 GMT\r\nServer: Apache\r\nSet-Cookie: BIGipServerpool-ars.cegedim.cloud-HTTP=851728650.49431.0000; path=/; Httponly; Secure\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\n\r\n<html><font color='white'>mtsfp-vm-sante-ars-front1.mtsfp.priv default vhost</html>\n",
+    "ip": "185.194.82.45",
+    "timestamp": "2022-08-14T05:18:20.520573808Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://paps.sante.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "permission-policy",
+    "type": "http",
+    "host": "https://paps.sante.fr",
+    "matched-at": "https://paps.sante.fr",
+    "request": "GET / HTTP/1.1\r\nHost: paps.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=ISO-8859-1\r\nDate: Sun, 14 Aug 2022 05:18:20 GMT\r\nEtag: \"54-541e4bbe3b829-gzip\"\r\nLast-Modified: Tue, 22 Nov 2016 14:39:04 GMT\r\nServer: Apache\r\nSet-Cookie: BIGipServerpool-ars.cegedim.cloud-HTTP=851728650.49431.0000; path=/; Httponly; Secure\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\n\r\n<html><font color='white'>mtsfp-vm-sante-ars-front1.mtsfp.priv default vhost</html>\n",
+    "ip": "185.194.82.45",
+    "timestamp": "2022-08-14T05:18:20.520587608Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://paps.sante.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "x-frame-options",
+    "type": "http",
+    "host": "https://paps.sante.fr",
+    "matched-at": "https://paps.sante.fr",
+    "request": "GET / HTTP/1.1\r\nHost: paps.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=ISO-8859-1\r\nDate: Sun, 14 Aug 2022 05:18:20 GMT\r\nEtag: \"54-541e4bbe3b829-gzip\"\r\nLast-Modified: Tue, 22 Nov 2016 14:39:04 GMT\r\nServer: Apache\r\nSet-Cookie: BIGipServerpool-ars.cegedim.cloud-HTTP=851728650.49431.0000; path=/; Httponly; Secure\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\n\r\n<html><font color='white'>mtsfp-vm-sante-ars-front1.mtsfp.priv default vhost</html>\n",
+    "ip": "185.194.82.45",
+    "timestamp": "2022-08-14T05:18:20.520603609Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://paps.sante.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "clear-site-data",
+    "type": "http",
+    "host": "https://paps.sante.fr",
+    "matched-at": "https://paps.sante.fr",
+    "request": "GET / HTTP/1.1\r\nHost: paps.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=ISO-8859-1\r\nDate: Sun, 14 Aug 2022 05:18:20 GMT\r\nEtag: \"54-541e4bbe3b829-gzip\"\r\nLast-Modified: Tue, 22 Nov 2016 14:39:04 GMT\r\nServer: Apache\r\nSet-Cookie: BIGipServerpool-ars.cegedim.cloud-HTTP=851728650.49431.0000; path=/; Httponly; Secure\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\n\r\n<html><font color='white'>mtsfp-vm-sante-ars-front1.mtsfp.priv default vhost</html>\n",
+    "ip": "185.194.82.45",
+    "timestamp": "2022-08-14T05:18:20.520617009Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://paps.sante.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "cross-origin-resource-policy",
+    "type": "http",
+    "host": "https://paps.sante.fr",
+    "matched-at": "https://paps.sante.fr",
+    "request": "GET / HTTP/1.1\r\nHost: paps.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=ISO-8859-1\r\nDate: Sun, 14 Aug 2022 05:18:20 GMT\r\nEtag: \"54-541e4bbe3b829-gzip\"\r\nLast-Modified: Tue, 22 Nov 2016 14:39:04 GMT\r\nServer: Apache\r\nSet-Cookie: BIGipServerpool-ars.cegedim.cloud-HTTP=851728650.49431.0000; path=/; Httponly; Secure\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\n\r\n<html><font color='white'>mtsfp-vm-sante-ars-front1.mtsfp.priv default vhost</html>\n",
+    "ip": "185.194.82.45",
+    "timestamp": "2022-08-14T05:18:20.520632709Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://paps.sante.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "access-control-max-age",
+    "type": "http",
+    "host": "https://paps.sante.fr",
+    "matched-at": "https://paps.sante.fr",
+    "request": "GET / HTTP/1.1\r\nHost: paps.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=ISO-8859-1\r\nDate: Sun, 14 Aug 2022 05:18:20 GMT\r\nEtag: \"54-541e4bbe3b829-gzip\"\r\nLast-Modified: Tue, 22 Nov 2016 14:39:04 GMT\r\nServer: Apache\r\nSet-Cookie: BIGipServerpool-ars.cegedim.cloud-HTTP=851728650.49431.0000; path=/; Httponly; Secure\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\n\r\n<html><font color='white'>mtsfp-vm-sante-ars-front1.mtsfp.priv default vhost</html>\n",
+    "ip": "185.194.82.45",
+    "timestamp": "2022-08-14T05:18:20.520649109Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://paps.sante.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "access-control-allow-methods",
+    "type": "http",
+    "host": "https://paps.sante.fr",
+    "matched-at": "https://paps.sante.fr",
+    "request": "GET / HTTP/1.1\r\nHost: paps.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=ISO-8859-1\r\nDate: Sun, 14 Aug 2022 05:18:20 GMT\r\nEtag: \"54-541e4bbe3b829-gzip\"\r\nLast-Modified: Tue, 22 Nov 2016 14:39:04 GMT\r\nServer: Apache\r\nSet-Cookie: BIGipServerpool-ars.cegedim.cloud-HTTP=851728650.49431.0000; path=/; Httponly; Secure\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\n\r\n<html><font color='white'>mtsfp-vm-sante-ars-front1.mtsfp.priv default vhost</html>\n",
+    "ip": "185.194.82.45",
+    "timestamp": "2022-08-14T05:18:20.52066161Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://paps.sante.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "x-permitted-cross-domain-policies",
+    "type": "http",
+    "host": "https://paps.sante.fr",
+    "matched-at": "https://paps.sante.fr",
+    "request": "GET / HTTP/1.1\r\nHost: paps.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=ISO-8859-1\r\nDate: Sun, 14 Aug 2022 05:18:20 GMT\r\nEtag: \"54-541e4bbe3b829-gzip\"\r\nLast-Modified: Tue, 22 Nov 2016 14:39:04 GMT\r\nServer: Apache\r\nSet-Cookie: BIGipServerpool-ars.cegedim.cloud-HTTP=851728650.49431.0000; path=/; Httponly; Secure\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\n\r\n<html><font color='white'>mtsfp-vm-sante-ars-front1.mtsfp.priv default vhost</html>\n",
+    "ip": "185.194.82.45",
+    "timestamp": "2022-08-14T05:18:20.52067871Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://paps.sante.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "referrer-policy",
+    "type": "http",
+    "host": "https://paps.sante.fr",
+    "matched-at": "https://paps.sante.fr",
+    "request": "GET / HTTP/1.1\r\nHost: paps.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=ISO-8859-1\r\nDate: Sun, 14 Aug 2022 05:18:20 GMT\r\nEtag: \"54-541e4bbe3b829-gzip\"\r\nLast-Modified: Tue, 22 Nov 2016 14:39:04 GMT\r\nServer: Apache\r\nSet-Cookie: BIGipServerpool-ars.cegedim.cloud-HTTP=851728650.49431.0000; path=/; Httponly; Secure\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\n\r\n<html><font color='white'>mtsfp-vm-sante-ars-front1.mtsfp.priv default vhost</html>\n",
+    "ip": "185.194.82.45",
+    "timestamp": "2022-08-14T05:18:20.52069121Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://paps.sante.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "access-control-allow-origin",
+    "type": "http",
+    "host": "https://paps.sante.fr",
+    "matched-at": "https://paps.sante.fr",
+    "request": "GET / HTTP/1.1\r\nHost: paps.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=ISO-8859-1\r\nDate: Sun, 14 Aug 2022 05:18:20 GMT\r\nEtag: \"54-541e4bbe3b829-gzip\"\r\nLast-Modified: Tue, 22 Nov 2016 14:39:04 GMT\r\nServer: Apache\r\nSet-Cookie: BIGipServerpool-ars.cegedim.cloud-HTTP=851728650.49431.0000; path=/; Httponly; Secure\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\n\r\n<html><font color='white'>mtsfp-vm-sante-ars-front1.mtsfp.priv default vhost</html>\n",
+    "ip": "185.194.82.45",
+    "timestamp": "2022-08-14T05:18:20.52070731Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://paps.sante.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "access-control-expose-headers",
+    "type": "http",
+    "host": "https://paps.sante.fr",
+    "matched-at": "https://paps.sante.fr",
+    "request": "GET / HTTP/1.1\r\nHost: paps.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=ISO-8859-1\r\nDate: Sun, 14 Aug 2022 05:18:20 GMT\r\nEtag: \"54-541e4bbe3b829-gzip\"\r\nLast-Modified: Tue, 22 Nov 2016 14:39:04 GMT\r\nServer: Apache\r\nSet-Cookie: BIGipServerpool-ars.cegedim.cloud-HTTP=851728650.49431.0000; path=/; Httponly; Secure\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\n\r\n<html><font color='white'>mtsfp-vm-sante-ars-front1.mtsfp.priv default vhost</html>\n",
+    "ip": "185.194.82.45",
+    "timestamp": "2022-08-14T05:18:20.520719611Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://paps.sante.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "ssl/tls-version.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/ssl/tls-version.yaml",
+    "template-id": "tls-version",
+    "info": {
+      "name": "TLS Version",
+      "author": [
+        "pdteam"
+      ],
+      "tags": [
+        "ssl"
+      ],
+      "reference": null,
+      "severity": "info"
+    },
+    "type": "ssl",
+    "host": "https://paps.sante.fr",
+    "matched-at": "https://paps.sante.fr",
+    "extracted-results": [
+      "TLS12"
+    ],
+    "ip": "185.194.82.45",
+    "timestamp": "2022-08-14T05:19:57.720476245Z",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "ssl/ssl-dns-names.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/ssl/ssl-dns-names.yaml",
+    "template-id": "ssl-dns-names",
+    "info": {
+      "name": "SSL DNS Names",
+      "author": [
+        "pdteam"
+      ],
+      "tags": [
+        "ssl"
+      ],
+      "reference": null,
+      "severity": "info"
+    },
+    "type": "ssl",
+    "host": "https://paps.sante.fr",
+    "matched-at": "https://paps.sante.fr",
+    "extracted-results": [
+      "lareunion.paps.sante.fr",
+      "normandie.paps.sante.fr",
+      "paysdelaloire.paps.sante.fr",
+      "guyane.paps.sante.fr",
+      "martinique.paps.sante.fr",
+      "auvergne-rhone-alpes.paps.sante.fr",
+      "centre-val-de-loire.paps.sante.fr",
+      "bretagne.paps.sante.fr",
+      "iledefrance.paps.sante.fr",
+      "grand-est.paps.sante.fr",
+      "corse.paps.sante.fr",
+      "ocean-indien.paps.sante.fr",
+      "mayotte.paps.sante.fr",
+      "nouvelle-aquitaine.paps.sante.fr",
+      "lareunion-mayotte.paps.sante.fr",
+      "hauts-de-france.paps.sante.fr",
+      "occitanie.paps.sante.fr",
+      "guadeloupe.paps.sante.fr",
+      "paps.sante.fr",
+      "bourgogne-franche-comte.paps.sante.fr",
+      "paca.paps.sante.fr"
+    ],
+    "ip": "185.194.82.45",
+    "timestamp": "2022-08-14T05:21:29.573998804Z",
     "matcher-status": true,
     "matched-line": null
   },
@@ -92,9 +766,9 @@
     "host": "https://paps.sante.fr",
     "matched-at": "https://paps.sante.fr/",
     "request": "POST / HTTP/1.1\r\nHost: paps.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nContent-Length: 27\r\nContent-Type: application/x-www-form-urlencoded\r\nAccept-Encoding: gzip\r\n\r\n_=<script>alert(1)</script>",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=ISO-8859-1\r\nDate: Sun, 07 Aug 2022 05:38:23 GMT\r\nEtag: \"54-541e4bbe3b829-gzip\"\r\nLast-Modified: Tue, 22 Nov 2016 14:39:04 GMT\r\nServer: Apache\r\nSet-Cookie: BIGipServerpool-ars.cegedim.cloud-HTTP=834951434.49431.0000; path=/; Httponly; Secure\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\n\r\n<html><font color='white'>mtsfp-vm-sante-ars-front1.mtsfp.priv default vhost</html>\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=ISO-8859-1\r\nDate: Sun, 14 Aug 2022 05:22:26 GMT\r\nEtag: \"54-541e4bbe3b829-gzip\"\r\nLast-Modified: Tue, 22 Nov 2016 14:39:04 GMT\r\nServer: Apache\r\nSet-Cookie: BIGipServerpool-ars.cegedim.cloud-HTTP=851728650.49431.0000; path=/; Httponly; Secure\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\n\r\n<html><font color='white'>mtsfp-vm-sante-ars-front1.mtsfp.priv default vhost</html>\n",
     "ip": "185.194.82.45",
-    "timestamp": "2022-08-07T05:38:23.176534757Z",
+    "timestamp": "2022-08-14T05:22:26.270034975Z",
     "curl-command": "curl -X 'POST' -d '_=<script>alert(1)</script>' -H 'Content-Type: application/x-www-form-urlencoded' -H 'Host: paps.sante.fr' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://paps.sante.fr/'",
     "matcher-status": true,
     "matched-line": null
@@ -131,9 +805,9 @@
     "host": "https://paps.sante.fr",
     "matched-at": "https://paps.sante.fr/",
     "request": "POST / HTTP/1.1\r\nHost: paps.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nContent-Length: 27\r\nContent-Type: application/x-www-form-urlencoded\r\nAccept-Encoding: gzip\r\n\r\n_=<script>alert(1)</script>",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=ISO-8859-1\r\nDate: Sun, 07 Aug 2022 05:38:23 GMT\r\nEtag: \"54-541e4bbe3b829-gzip\"\r\nLast-Modified: Tue, 22 Nov 2016 14:39:04 GMT\r\nServer: Apache\r\nSet-Cookie: BIGipServerpool-ars.cegedim.cloud-HTTP=834951434.49431.0000; path=/; Httponly; Secure\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\n\r\n<html><font color='white'>mtsfp-vm-sante-ars-front1.mtsfp.priv default vhost</html>\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=ISO-8859-1\r\nDate: Sun, 14 Aug 2022 05:22:26 GMT\r\nEtag: \"54-541e4bbe3b829-gzip\"\r\nLast-Modified: Tue, 22 Nov 2016 14:39:04 GMT\r\nServer: Apache\r\nSet-Cookie: BIGipServerpool-ars.cegedim.cloud-HTTP=851728650.49431.0000; path=/; Httponly; Secure\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\n\r\n<html><font color='white'>mtsfp-vm-sante-ars-front1.mtsfp.priv default vhost</html>\n",
     "ip": "185.194.82.45",
-    "timestamp": "2022-08-07T05:38:23.176651657Z",
+    "timestamp": "2022-08-14T05:22:26.270109276Z",
     "curl-command": "curl -X 'POST' -d '_=<script>alert(1)</script>' -H 'Content-Type: application/x-www-form-urlencoded' -H 'Host: paps.sante.fr' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://paps.sante.fr/'",
     "matcher-status": true,
     "matched-line": null
