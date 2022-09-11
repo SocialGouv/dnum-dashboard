@@ -346,7 +346,7 @@
               "ip"           : "siao-preprod.cegedim-hds.fr/185.113.40.47",
               "port"         : "443",
               "severity"     : "OK",
-              "finding"      : "152 >= 60 days"
+              "finding"      : "145 >= 60 days"
           }
 ,         {
               "id"           : "cert_notBefore",
@@ -492,43 +492,22 @@
               "id"           : "HTTP_status_code",
               "ip"           : "siao-preprod.cegedim-hds.fr/185.113.40.47",
               "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "200  ('/')"
+              "severity"     : "WARN",
+              "finding"      : "Unexpected 503 Service Unavailable @ '/'"
           }
 ,         {
               "id"           : "HTTP_clock_skew",
               "ip"           : "siao-preprod.cegedim-hds.fr/185.113.40.47",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "0 seconds from localtime"
+              "finding"      : "Got no HTTP time, maybe try different URL?"
           }
 ,         {
-              "id"           : "HTTP_headerTime",
+              "id"           : "HSTS",
               "ip"           : "siao-preprod.cegedim-hds.fr/185.113.40.47",
               "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "1662270594"
-          }
-,         {
-              "id"           : "HSTS_time",
-              "ip"           : "siao-preprod.cegedim-hds.fr/185.113.40.47",
-              "port"         : "443",
-              "severity"     : "OK",
-              "finding"      : "365 days (=31536000 seconds) > 15552000 seconds"
-          }
-,         {
-              "id"           : "HSTS_subdomains",
-              "ip"           : "siao-preprod.cegedim-hds.fr/185.113.40.47",
-              "port"         : "443",
-              "severity"     : "OK",
-              "finding"      : "includes subdomains"
-          }
-,         {
-              "id"           : "HSTS_preload",
-              "ip"           : "siao-preprod.cegedim-hds.fr/185.113.40.47",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "domain is NOT marked for preloading"
+              "severity"     : "LOW",
+              "finding"      : "not offered"
           }
 ,         {
               "id"           : "HPKP",
@@ -542,7 +521,7 @@
               "ip"           : "siao-preprod.cegedim-hds.fr/185.113.40.47",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "No Server banner line in header, interesting!"
+              "finding"      : "BigIP"
           }
 ,         {
               "id"           : "banner_application",
@@ -556,63 +535,14 @@
               "ip"           : "siao-preprod.cegedim-hds.fr/185.113.40.47",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "4 at '/'"
+              "finding"      : "0 at '/' (30x detected, better try target URL of 30x)"
           }
 ,         {
-              "id"           : "cookie_secure",
+              "id"           : "security_headers",
               "ip"           : "siao-preprod.cegedim-hds.fr/185.113.40.47",
               "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "3/4 at '/' marked as secure"
-          }
-,         {
-              "id"           : "cookie_httponly",
-              "ip"           : "siao-preprod.cegedim-hds.fr/185.113.40.47",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "3/4 at '/' marked as HttpOnly"
-          }
-,         {
-              "id"           : "X-Frame-Options",
-              "ip"           : "siao-preprod.cegedim-hds.fr/185.113.40.47",
-              "port"         : "443",
-              "severity"     : "OK",
-              "finding"      : "DENY"
-          }
-,         {
-              "id"           : "X-Content-Type-Options",
-              "ip"           : "siao-preprod.cegedim-hds.fr/185.113.40.47",
-              "port"         : "443",
-              "severity"     : "OK",
-              "finding"      : "nosniff"
-          }
-,         {
-              "id"           : "Content-Security-Policy",
-              "ip"           : "siao-preprod.cegedim-hds.fr/185.113.40.47",
-              "port"         : "443",
-              "severity"     : "OK",
-              "finding"      : "script-src 'self' code.jquery.com cdn.jsdelivr.net *.hs-scripts.com *.hs-banner.com *.hs-analytics.net *.hscollectedforms.net *.usemessages.com 'sha256-lIPLl/jk1slnucFam9l2EMVQjQ68UbeJVDmZ8lXK7e4=' 'report-sample';  object-src 'none'; frame-ancestors 'none'; report-uri /api/csp-report;"
-          }
-,         {
-              "id"           : "X-XSS-Protection",
-              "ip"           : "siao-preprod.cegedim-hds.fr/185.113.40.47",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "1; mode=block"
-          }
-,         {
-              "id"           : "Cache-Control",
-              "ip"           : "siao-preprod.cegedim-hds.fr/185.113.40.47",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "no-cache, no-store, max-age=0, must-revalidate"
-          }
-,         {
-              "id"           : "Pragma",
-              "ip"           : "siao-preprod.cegedim-hds.fr/185.113.40.47",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "no-cache"
+              "severity"     : "MEDIUM",
+              "finding"      : "--"
           }
 ,         {
               "id"           : "banner_reverseproxy",
@@ -688,10 +618,10 @@
               "id"           : "BREACH",
               "ip"           : "siao-preprod.cegedim-hds.fr/185.113.40.47",
               "port"         : "443",
-              "severity"     : "MEDIUM",
+              "severity"     : "OK",
               "cve"          : "CVE-2013-3587",
               "cwe"          : "CWE-310",
-              "finding"      : "potentially VULNERABLE, gzip HTTP compression detected  - only supplied '/' tested"
+              "finding"      : "not vulnerable, no gzip/deflate/compress/br HTTP compression  - only supplied '/' tested"
           }
 ,         {
               "id"           : "POODLE_SSL",
@@ -1112,13 +1042,20 @@
               "ip"           : "siao-preprod.cegedim-hds.fr/185.113.40.47",
               "port"         : "443",
               "severity"     : "OK",
-              "finding"      : "A+"
+              "finding"      : "A"
+          }
+,         {
+              "id"           : "grade_cap_reason_1",
+              "ip"           : "siao-preprod.cegedim-hds.fr/185.113.40.47",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "Grade capped to A. HSTS is not offered"
           }
 ,         {
               "id"           : "scanTime",
               "ip"           : "siao-preprod.cegedim-hds.fr/185.113.40.47",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "158"
+              "finding"      : "169"
           }
 ]
