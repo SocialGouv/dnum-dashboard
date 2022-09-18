@@ -1,40 +1,5 @@
 [
   {
-    "template": "misconfiguration/xss-deprecated-header.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/xss-deprecated-header.yaml",
-    "template-id": "xss-deprecated-header-detect",
-    "info": {
-      "name": "Detect Deprecated XSS Protection Header",
-      "author": [
-        "joshlarsen"
-      ],
-      "tags": [
-        "xss",
-        "misconfig",
-        "generic"
-      ],
-      "description": "Setting the XSS-Protection header is deprecated by most browsers. Setting the header to anything other than `0` can actually introduce an XSS vulnerability.",
-      "reference": [
-        "https://developer.mozilla.org/en-us/docs/web/http/headers/x-xss-protection",
-        "https://owasp.org/www-project-secure-headers/#x-xss-protection"
-      ],
-      "severity": "info"
-    },
-    "type": "http",
-    "host": "https://entreprises-transparence.sante.gouv.fr",
-    "matched-at": "https://entreprises-transparence.sante.gouv.fr",
-    "extracted-results": [
-      "1; mode=block"
-    ],
-    "request": "GET / HTTP/1.1\r\nHost: entreprises-transparence.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 11 Sep 2022 03:43:02 GMT\r\nEtag: \"32c-5e22d41dd9680-gzip\"\r\nLast-Modified: Fri, 24 Jun 2022 08:21:30 GMT\r\nServer: Apache/2.4.38 (Debian)\r\nSet-Cookie: BIGipServerpool-dgs-ts-v2.cegedim.cloud-HTTP=1237604618.20480.0000; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains; preload\r\nUpgrade: h2,h2c\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>Transparence-Santé</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\n  <link href=\"https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap\" rel=\"stylesheet\">\n  <link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">\n  <script src=\"/content/i18n/en.js\"></script>\n<link rel=\"stylesheet\" href=\"styles.29bc3aa5b6c9b6b2719a.css\"></head>\n<body class=\"mat-typography\">\n  <app-root></app-root>\n<script src=\"runtime.840fea7785fe951bc999.js\" defer></script><script src=\"polyfills.e51c557470a207a13f1d.js\" defer></script><script src=\"main.6a07bdd8141ad6d524ac.js\" defer></script></body>\n</html>\n",
-    "ip": "185.194.82.77",
-    "timestamp": "2022-09-11T03:43:02.219062037Z",
-    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://entreprises-transparence.sante.gouv.fr'",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
     "template": "cves/2020/CVE-2020-9490.yaml",
     "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/cves/2020/CVE-2020-9490.yaml",
     "template-id": "CVE-2020-9490",
@@ -71,9 +36,44 @@
     "host": "https://entreprises-transparence.sante.gouv.fr",
     "matched-at": "https://entreprises-transparence.sante.gouv.fr",
     "request": "GET / HTTP/1.1\r\nHost: entreprises-transparence.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 11 Sep 2022 03:43:02 GMT\r\nEtag: \"32c-5e22d41dd9680-gzip\"\r\nLast-Modified: Fri, 24 Jun 2022 08:21:30 GMT\r\nServer: Apache/2.4.38 (Debian)\r\nSet-Cookie: BIGipServerpool-dgs-ts-v2.cegedim.cloud-HTTP=1237604618.20480.0000; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains; preload\r\nUpgrade: h2,h2c\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>Transparence-Santé</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\n  <link href=\"https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap\" rel=\"stylesheet\">\n  <link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">\n  <script src=\"/content/i18n/en.js\"></script>\n<link rel=\"stylesheet\" href=\"styles.29bc3aa5b6c9b6b2719a.css\"></head>\n<body class=\"mat-typography\">\n  <app-root></app-root>\n<script src=\"runtime.840fea7785fe951bc999.js\" defer></script><script src=\"polyfills.e51c557470a207a13f1d.js\" defer></script><script src=\"main.6a07bdd8141ad6d524ac.js\" defer></script></body>\n</html>\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 18 Sep 2022 03:54:02 GMT\r\nEtag: \"32c-5e22d41dd9680-gzip\"\r\nLast-Modified: Fri, 24 Jun 2022 08:21:30 GMT\r\nServer: Apache/2.4.38 (Debian)\r\nSet-Cookie: BIGipServerpool-dgs-ts-v2.cegedim.cloud-HTTP=1237604618.20480.0000; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains; preload\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>Transparence-Santé</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\n  <link href=\"https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap\" rel=\"stylesheet\">\n  <link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">\n  <script src=\"/content/i18n/en.js\"></script>\n<link rel=\"stylesheet\" href=\"styles.29bc3aa5b6c9b6b2719a.css\"></head>\n<body class=\"mat-typography\">\n  <app-root></app-root>\n<script src=\"runtime.840fea7785fe951bc999.js\" defer></script><script src=\"polyfills.e51c557470a207a13f1d.js\" defer></script><script src=\"main.6a07bdd8141ad6d524ac.js\" defer></script></body>\n</html>\n",
     "ip": "185.194.82.77",
-    "timestamp": "2022-09-11T03:43:02.223014254Z",
+    "timestamp": "2022-09-18T03:54:02.839719351Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://entreprises-transparence.sante.gouv.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/xss-deprecated-header.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/xss-deprecated-header.yaml",
+    "template-id": "xss-deprecated-header-detect",
+    "info": {
+      "name": "Detect Deprecated XSS Protection Header",
+      "author": [
+        "joshlarsen"
+      ],
+      "tags": [
+        "xss",
+        "misconfig",
+        "generic"
+      ],
+      "description": "Setting the XSS-Protection header is deprecated by most browsers. Setting the header to anything other than `0` can actually introduce an XSS vulnerability.",
+      "reference": [
+        "https://developer.mozilla.org/en-us/docs/web/http/headers/x-xss-protection",
+        "https://owasp.org/www-project-secure-headers/#x-xss-protection"
+      ],
+      "severity": "info"
+    },
+    "type": "http",
+    "host": "https://entreprises-transparence.sante.gouv.fr",
+    "matched-at": "https://entreprises-transparence.sante.gouv.fr",
+    "extracted-results": [
+      "1; mode=block"
+    ],
+    "request": "GET / HTTP/1.1\r\nHost: entreprises-transparence.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 18 Sep 2022 03:54:02 GMT\r\nEtag: \"32c-5e22d41dd9680-gzip\"\r\nLast-Modified: Fri, 24 Jun 2022 08:21:30 GMT\r\nServer: Apache/2.4.38 (Debian)\r\nSet-Cookie: BIGipServerpool-dgs-ts-v2.cegedim.cloud-HTTP=1237604618.20480.0000; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains; preload\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>Transparence-Santé</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\n  <link href=\"https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap\" rel=\"stylesheet\">\n  <link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">\n  <script src=\"/content/i18n/en.js\"></script>\n<link rel=\"stylesheet\" href=\"styles.29bc3aa5b6c9b6b2719a.css\"></head>\n<body class=\"mat-typography\">\n  <app-root></app-root>\n<script src=\"runtime.840fea7785fe951bc999.js\" defer></script><script src=\"polyfills.e51c557470a207a13f1d.js\" defer></script><script src=\"main.6a07bdd8141ad6d524ac.js\" defer></script></body>\n</html>\n",
+    "ip": "185.194.82.77",
+    "timestamp": "2022-09-18T03:54:02.841521171Z",
     "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://entreprises-transparence.sante.gouv.fr'",
     "matcher-status": true,
     "matched-line": null
@@ -102,9 +102,9 @@
       "Apache/2.4.38 (Debian)"
     ],
     "request": "GET / HTTP/1.1\r\nHost: entreprises-transparence.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 11 Sep 2022 03:43:02 GMT\r\nEtag: \"32c-5e22d41dd9680-gzip\"\r\nLast-Modified: Fri, 24 Jun 2022 08:21:30 GMT\r\nServer: Apache/2.4.38 (Debian)\r\nSet-Cookie: BIGipServerpool-dgs-ts-v2.cegedim.cloud-HTTP=1237604618.20480.0000; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains; preload\r\nUpgrade: h2,h2c\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>Transparence-Santé</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\n  <link href=\"https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap\" rel=\"stylesheet\">\n  <link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">\n  <script src=\"/content/i18n/en.js\"></script>\n<link rel=\"stylesheet\" href=\"styles.29bc3aa5b6c9b6b2719a.css\"></head>\n<body class=\"mat-typography\">\n  <app-root></app-root>\n<script src=\"runtime.840fea7785fe951bc999.js\" defer></script><script src=\"polyfills.e51c557470a207a13f1d.js\" defer></script><script src=\"main.6a07bdd8141ad6d524ac.js\" defer></script></body>\n</html>\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 18 Sep 2022 03:54:02 GMT\r\nEtag: \"32c-5e22d41dd9680-gzip\"\r\nLast-Modified: Fri, 24 Jun 2022 08:21:30 GMT\r\nServer: Apache/2.4.38 (Debian)\r\nSet-Cookie: BIGipServerpool-dgs-ts-v2.cegedim.cloud-HTTP=1237604618.20480.0000; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains; preload\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>Transparence-Santé</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\n  <link href=\"https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap\" rel=\"stylesheet\">\n  <link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">\n  <script src=\"/content/i18n/en.js\"></script>\n<link rel=\"stylesheet\" href=\"styles.29bc3aa5b6c9b6b2719a.css\"></head>\n<body class=\"mat-typography\">\n  <app-root></app-root>\n<script src=\"runtime.840fea7785fe951bc999.js\" defer></script><script src=\"polyfills.e51c557470a207a13f1d.js\" defer></script><script src=\"main.6a07bdd8141ad6d524ac.js\" defer></script></body>\n</html>\n",
     "ip": "185.194.82.77",
-    "timestamp": "2022-09-11T03:43:02.225303663Z",
+    "timestamp": "2022-09-18T03:54:02.844732809Z",
     "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://entreprises-transparence.sante.gouv.fr'",
     "matcher-status": true,
     "matched-line": null
@@ -129,36 +129,40 @@
     "host": "https://entreprises-transparence.sante.gouv.fr",
     "matched-at": "https://entreprises-transparence.sante.gouv.fr",
     "request": "GET / HTTP/1.1\r\nHost: entreprises-transparence.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 11 Sep 2022 03:43:02 GMT\r\nEtag: \"32c-5e22d41dd9680-gzip\"\r\nLast-Modified: Fri, 24 Jun 2022 08:21:30 GMT\r\nServer: Apache/2.4.38 (Debian)\r\nSet-Cookie: BIGipServerpool-dgs-ts-v2.cegedim.cloud-HTTP=1237604618.20480.0000; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains; preload\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>Transparence-Santé</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\n  <link href=\"https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap\" rel=\"stylesheet\">\n  <link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">\n  <script src=\"/content/i18n/en.js\"></script>\n<link rel=\"stylesheet\" href=\"styles.29bc3aa5b6c9b6b2719a.css\"></head>\n<body class=\"mat-typography\">\n  <app-root></app-root>\n<script src=\"runtime.840fea7785fe951bc999.js\" defer></script><script src=\"polyfills.e51c557470a207a13f1d.js\" defer></script><script src=\"main.6a07bdd8141ad6d524ac.js\" defer></script></body>\n</html>\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 18 Sep 2022 03:54:03 GMT\r\nEtag: \"32c-5e22d41dd9680-gzip\"\r\nLast-Modified: Fri, 24 Jun 2022 08:21:30 GMT\r\nServer: Apache/2.4.38 (Debian)\r\nSet-Cookie: BIGipServerpool-dgs-ts-v2.cegedim.cloud-HTTP=1237604618.20480.0000; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains; preload\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>Transparence-Santé</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\n  <link href=\"https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap\" rel=\"stylesheet\">\n  <link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">\n  <script src=\"/content/i18n/en.js\"></script>\n<link rel=\"stylesheet\" href=\"styles.29bc3aa5b6c9b6b2719a.css\"></head>\n<body class=\"mat-typography\">\n  <app-root></app-root>\n<script src=\"runtime.840fea7785fe951bc999.js\" defer></script><script src=\"polyfills.e51c557470a207a13f1d.js\" defer></script><script src=\"main.6a07bdd8141ad6d524ac.js\" defer></script></body>\n</html>\n",
     "ip": "185.194.82.77",
-    "timestamp": "2022-09-11T03:43:02.957146011Z",
+    "timestamp": "2022-09-18T03:54:03.686804524Z",
     "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://entreprises-transparence.sante.gouv.fr'",
     "matcher-status": true,
     "matched-line": null
   },
   {
-    "template": "ssl/tls-version.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/ssl/tls-version.yaml",
-    "template-id": "tls-version",
+    "template": "miscellaneous/options-method.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/miscellaneous/options-method.yaml",
+    "template-id": "options-method",
     "info": {
-      "name": "TLS Version",
+      "name": "Allowed Options Method",
       "author": [
         "pdteam"
       ],
       "tags": [
-        "ssl"
+        "misc",
+        "generic"
       ],
       "reference": null,
       "severity": "info"
     },
-    "type": "ssl",
+    "type": "http",
     "host": "https://entreprises-transparence.sante.gouv.fr",
     "matched-at": "https://entreprises-transparence.sante.gouv.fr",
     "extracted-results": [
-      "TLS12"
+      "OPTIONS,HEAD,GET,POST"
     ],
+    "request": "OPTIONS / HTTP/1.1\r\nHost: entreprises-transparence.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAllow: OPTIONS,HEAD,GET,POST\r\nContent-Type: text/html\r\nDate: Sun, 18 Sep 2022 03:54:19 GMT\r\nServer: Apache/2.4.38 (Debian)\r\nSet-Cookie: BIGipServerpool-dgs-ts-v2.cegedim.cloud-HTTP=1237604618.20480.0000; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains; preload\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\nContent-Length: 0\r\n\r\n",
     "ip": "185.194.82.77",
-    "timestamp": "2022-09-11T03:43:30.04911795Z",
+    "timestamp": "2022-09-18T03:54:19.64855644Z",
+    "curl-command": "curl -X 'OPTIONS' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://entreprises-transparence.sante.gouv.fr'",
     "matcher-status": true,
     "matched-line": null
   },
@@ -185,259 +189,14 @@
       "reference": null,
       "severity": "info"
     },
-    "matcher-name": "access-control-allow-origin",
+    "matcher-name": "x-permitted-cross-domain-policies",
     "type": "http",
     "host": "https://entreprises-transparence.sante.gouv.fr",
     "matched-at": "https://entreprises-transparence.sante.gouv.fr",
     "request": "GET / HTTP/1.1\r\nHost: entreprises-transparence.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 11 Sep 2022 03:43:31 GMT\r\nEtag: \"32c-5e22d41dd9680-gzip\"\r\nLast-Modified: Fri, 24 Jun 2022 08:21:30 GMT\r\nServer: Apache/2.4.38 (Debian)\r\nSet-Cookie: BIGipServerpool-dgs-ts-v2.cegedim.cloud-HTTP=1237604618.20480.0000; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains; preload\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>Transparence-Santé</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\n  <link href=\"https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap\" rel=\"stylesheet\">\n  <link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">\n  <script src=\"/content/i18n/en.js\"></script>\n<link rel=\"stylesheet\" href=\"styles.29bc3aa5b6c9b6b2719a.css\"></head>\n<body class=\"mat-typography\">\n  <app-root></app-root>\n<script src=\"runtime.840fea7785fe951bc999.js\" defer></script><script src=\"polyfills.e51c557470a207a13f1d.js\" defer></script><script src=\"main.6a07bdd8141ad6d524ac.js\" defer></script></body>\n</html>\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 18 Sep 2022 03:54:49 GMT\r\nEtag: \"32c-5e22d41dd9680-gzip\"\r\nLast-Modified: Fri, 24 Jun 2022 08:21:30 GMT\r\nServer: Apache/2.4.38 (Debian)\r\nSet-Cookie: BIGipServerpool-dgs-ts-v2.cegedim.cloud-HTTP=1237604618.20480.0000; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains; preload\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>Transparence-Santé</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\n  <link href=\"https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap\" rel=\"stylesheet\">\n  <link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">\n  <script src=\"/content/i18n/en.js\"></script>\n<link rel=\"stylesheet\" href=\"styles.29bc3aa5b6c9b6b2719a.css\"></head>\n<body class=\"mat-typography\">\n  <app-root></app-root>\n<script src=\"runtime.840fea7785fe951bc999.js\" defer></script><script src=\"polyfills.e51c557470a207a13f1d.js\" defer></script><script src=\"main.6a07bdd8141ad6d524ac.js\" defer></script></body>\n</html>\n",
     "ip": "185.194.82.77",
-    "timestamp": "2022-09-11T03:43:31.239208523Z",
-    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://entreprises-transparence.sante.gouv.fr'",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
-    "template": "misconfiguration/http-missing-security-headers.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
-    "template-id": "http-missing-security-headers",
-    "info": {
-      "name": "HTTP Missing Security Headers",
-      "author": [
-        "socketz",
-        "geeknik",
-        "g4l1t0",
-        "convisoappsec",
-        "kurohost",
-        "dawid-czarnecki",
-        "forgedhallpass"
-      ],
-      "tags": [
-        "misconfig",
-        "generic"
-      ],
-      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-      "reference": null,
-      "severity": "info"
-    },
-    "matcher-name": "content-security-policy",
-    "type": "http",
-    "host": "https://entreprises-transparence.sante.gouv.fr",
-    "matched-at": "https://entreprises-transparence.sante.gouv.fr",
-    "request": "GET / HTTP/1.1\r\nHost: entreprises-transparence.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 11 Sep 2022 03:43:31 GMT\r\nEtag: \"32c-5e22d41dd9680-gzip\"\r\nLast-Modified: Fri, 24 Jun 2022 08:21:30 GMT\r\nServer: Apache/2.4.38 (Debian)\r\nSet-Cookie: BIGipServerpool-dgs-ts-v2.cegedim.cloud-HTTP=1237604618.20480.0000; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains; preload\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>Transparence-Santé</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\n  <link href=\"https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap\" rel=\"stylesheet\">\n  <link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">\n  <script src=\"/content/i18n/en.js\"></script>\n<link rel=\"stylesheet\" href=\"styles.29bc3aa5b6c9b6b2719a.css\"></head>\n<body class=\"mat-typography\">\n  <app-root></app-root>\n<script src=\"runtime.840fea7785fe951bc999.js\" defer></script><script src=\"polyfills.e51c557470a207a13f1d.js\" defer></script><script src=\"main.6a07bdd8141ad6d524ac.js\" defer></script></body>\n</html>\n",
-    "ip": "185.194.82.77",
-    "timestamp": "2022-09-11T03:43:31.239293724Z",
-    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://entreprises-transparence.sante.gouv.fr'",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
-    "template": "misconfiguration/http-missing-security-headers.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
-    "template-id": "http-missing-security-headers",
-    "info": {
-      "name": "HTTP Missing Security Headers",
-      "author": [
-        "socketz",
-        "geeknik",
-        "g4l1t0",
-        "convisoappsec",
-        "kurohost",
-        "dawid-czarnecki",
-        "forgedhallpass"
-      ],
-      "tags": [
-        "misconfig",
-        "generic"
-      ],
-      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-      "reference": null,
-      "severity": "info"
-    },
-    "matcher-name": "access-control-allow-credentials",
-    "type": "http",
-    "host": "https://entreprises-transparence.sante.gouv.fr",
-    "matched-at": "https://entreprises-transparence.sante.gouv.fr",
-    "request": "GET / HTTP/1.1\r\nHost: entreprises-transparence.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 11 Sep 2022 03:43:31 GMT\r\nEtag: \"32c-5e22d41dd9680-gzip\"\r\nLast-Modified: Fri, 24 Jun 2022 08:21:30 GMT\r\nServer: Apache/2.4.38 (Debian)\r\nSet-Cookie: BIGipServerpool-dgs-ts-v2.cegedim.cloud-HTTP=1237604618.20480.0000; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains; preload\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>Transparence-Santé</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\n  <link href=\"https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap\" rel=\"stylesheet\">\n  <link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">\n  <script src=\"/content/i18n/en.js\"></script>\n<link rel=\"stylesheet\" href=\"styles.29bc3aa5b6c9b6b2719a.css\"></head>\n<body class=\"mat-typography\">\n  <app-root></app-root>\n<script src=\"runtime.840fea7785fe951bc999.js\" defer></script><script src=\"polyfills.e51c557470a207a13f1d.js\" defer></script><script src=\"main.6a07bdd8141ad6d524ac.js\" defer></script></body>\n</html>\n",
-    "ip": "185.194.82.77",
-    "timestamp": "2022-09-11T03:43:31.239344424Z",
-    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://entreprises-transparence.sante.gouv.fr'",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
-    "template": "misconfiguration/http-missing-security-headers.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
-    "template-id": "http-missing-security-headers",
-    "info": {
-      "name": "HTTP Missing Security Headers",
-      "author": [
-        "socketz",
-        "geeknik",
-        "g4l1t0",
-        "convisoappsec",
-        "kurohost",
-        "dawid-czarnecki",
-        "forgedhallpass"
-      ],
-      "tags": [
-        "misconfig",
-        "generic"
-      ],
-      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-      "reference": null,
-      "severity": "info"
-    },
-    "matcher-name": "access-control-max-age",
-    "type": "http",
-    "host": "https://entreprises-transparence.sante.gouv.fr",
-    "matched-at": "https://entreprises-transparence.sante.gouv.fr",
-    "request": "GET / HTTP/1.1\r\nHost: entreprises-transparence.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 11 Sep 2022 03:43:31 GMT\r\nEtag: \"32c-5e22d41dd9680-gzip\"\r\nLast-Modified: Fri, 24 Jun 2022 08:21:30 GMT\r\nServer: Apache/2.4.38 (Debian)\r\nSet-Cookie: BIGipServerpool-dgs-ts-v2.cegedim.cloud-HTTP=1237604618.20480.0000; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains; preload\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>Transparence-Santé</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\n  <link href=\"https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap\" rel=\"stylesheet\">\n  <link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">\n  <script src=\"/content/i18n/en.js\"></script>\n<link rel=\"stylesheet\" href=\"styles.29bc3aa5b6c9b6b2719a.css\"></head>\n<body class=\"mat-typography\">\n  <app-root></app-root>\n<script src=\"runtime.840fea7785fe951bc999.js\" defer></script><script src=\"polyfills.e51c557470a207a13f1d.js\" defer></script><script src=\"main.6a07bdd8141ad6d524ac.js\" defer></script></body>\n</html>\n",
-    "ip": "185.194.82.77",
-    "timestamp": "2022-09-11T03:43:31.239369524Z",
-    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://entreprises-transparence.sante.gouv.fr'",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
-    "template": "misconfiguration/http-missing-security-headers.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
-    "template-id": "http-missing-security-headers",
-    "info": {
-      "name": "HTTP Missing Security Headers",
-      "author": [
-        "socketz",
-        "geeknik",
-        "g4l1t0",
-        "convisoappsec",
-        "kurohost",
-        "dawid-czarnecki",
-        "forgedhallpass"
-      ],
-      "tags": [
-        "misconfig",
-        "generic"
-      ],
-      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-      "reference": null,
-      "severity": "info"
-    },
-    "matcher-name": "permission-policy",
-    "type": "http",
-    "host": "https://entreprises-transparence.sante.gouv.fr",
-    "matched-at": "https://entreprises-transparence.sante.gouv.fr",
-    "request": "GET / HTTP/1.1\r\nHost: entreprises-transparence.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 11 Sep 2022 03:43:31 GMT\r\nEtag: \"32c-5e22d41dd9680-gzip\"\r\nLast-Modified: Fri, 24 Jun 2022 08:21:30 GMT\r\nServer: Apache/2.4.38 (Debian)\r\nSet-Cookie: BIGipServerpool-dgs-ts-v2.cegedim.cloud-HTTP=1237604618.20480.0000; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains; preload\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>Transparence-Santé</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\n  <link href=\"https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap\" rel=\"stylesheet\">\n  <link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">\n  <script src=\"/content/i18n/en.js\"></script>\n<link rel=\"stylesheet\" href=\"styles.29bc3aa5b6c9b6b2719a.css\"></head>\n<body class=\"mat-typography\">\n  <app-root></app-root>\n<script src=\"runtime.840fea7785fe951bc999.js\" defer></script><script src=\"polyfills.e51c557470a207a13f1d.js\" defer></script><script src=\"main.6a07bdd8141ad6d524ac.js\" defer></script></body>\n</html>\n",
-    "ip": "185.194.82.77",
-    "timestamp": "2022-09-11T03:43:31.239392324Z",
-    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://entreprises-transparence.sante.gouv.fr'",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
-    "template": "misconfiguration/http-missing-security-headers.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
-    "template-id": "http-missing-security-headers",
-    "info": {
-      "name": "HTTP Missing Security Headers",
-      "author": [
-        "socketz",
-        "geeknik",
-        "g4l1t0",
-        "convisoappsec",
-        "kurohost",
-        "dawid-czarnecki",
-        "forgedhallpass"
-      ],
-      "tags": [
-        "misconfig",
-        "generic"
-      ],
-      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-      "reference": null,
-      "severity": "info"
-    },
-    "matcher-name": "referrer-policy",
-    "type": "http",
-    "host": "https://entreprises-transparence.sante.gouv.fr",
-    "matched-at": "https://entreprises-transparence.sante.gouv.fr",
-    "request": "GET / HTTP/1.1\r\nHost: entreprises-transparence.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 11 Sep 2022 03:43:31 GMT\r\nEtag: \"32c-5e22d41dd9680-gzip\"\r\nLast-Modified: Fri, 24 Jun 2022 08:21:30 GMT\r\nServer: Apache/2.4.38 (Debian)\r\nSet-Cookie: BIGipServerpool-dgs-ts-v2.cegedim.cloud-HTTP=1237604618.20480.0000; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains; preload\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>Transparence-Santé</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\n  <link href=\"https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap\" rel=\"stylesheet\">\n  <link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">\n  <script src=\"/content/i18n/en.js\"></script>\n<link rel=\"stylesheet\" href=\"styles.29bc3aa5b6c9b6b2719a.css\"></head>\n<body class=\"mat-typography\">\n  <app-root></app-root>\n<script src=\"runtime.840fea7785fe951bc999.js\" defer></script><script src=\"polyfills.e51c557470a207a13f1d.js\" defer></script><script src=\"main.6a07bdd8141ad6d524ac.js\" defer></script></body>\n</html>\n",
-    "ip": "185.194.82.77",
-    "timestamp": "2022-09-11T03:43:31.239412024Z",
-    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://entreprises-transparence.sante.gouv.fr'",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
-    "template": "misconfiguration/http-missing-security-headers.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
-    "template-id": "http-missing-security-headers",
-    "info": {
-      "name": "HTTP Missing Security Headers",
-      "author": [
-        "socketz",
-        "geeknik",
-        "g4l1t0",
-        "convisoappsec",
-        "kurohost",
-        "dawid-czarnecki",
-        "forgedhallpass"
-      ],
-      "tags": [
-        "misconfig",
-        "generic"
-      ],
-      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-      "reference": null,
-      "severity": "info"
-    },
-    "matcher-name": "cross-origin-embedder-policy",
-    "type": "http",
-    "host": "https://entreprises-transparence.sante.gouv.fr",
-    "matched-at": "https://entreprises-transparence.sante.gouv.fr",
-    "request": "GET / HTTP/1.1\r\nHost: entreprises-transparence.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 11 Sep 2022 03:43:31 GMT\r\nEtag: \"32c-5e22d41dd9680-gzip\"\r\nLast-Modified: Fri, 24 Jun 2022 08:21:30 GMT\r\nServer: Apache/2.4.38 (Debian)\r\nSet-Cookie: BIGipServerpool-dgs-ts-v2.cegedim.cloud-HTTP=1237604618.20480.0000; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains; preload\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>Transparence-Santé</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\n  <link href=\"https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap\" rel=\"stylesheet\">\n  <link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">\n  <script src=\"/content/i18n/en.js\"></script>\n<link rel=\"stylesheet\" href=\"styles.29bc3aa5b6c9b6b2719a.css\"></head>\n<body class=\"mat-typography\">\n  <app-root></app-root>\n<script src=\"runtime.840fea7785fe951bc999.js\" defer></script><script src=\"polyfills.e51c557470a207a13f1d.js\" defer></script><script src=\"main.6a07bdd8141ad6d524ac.js\" defer></script></body>\n</html>\n",
-    "ip": "185.194.82.77",
-    "timestamp": "2022-09-11T03:43:31.239433124Z",
-    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://entreprises-transparence.sante.gouv.fr'",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
-    "template": "misconfiguration/http-missing-security-headers.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
-    "template-id": "http-missing-security-headers",
-    "info": {
-      "name": "HTTP Missing Security Headers",
-      "author": [
-        "socketz",
-        "geeknik",
-        "g4l1t0",
-        "convisoappsec",
-        "kurohost",
-        "dawid-czarnecki",
-        "forgedhallpass"
-      ],
-      "tags": [
-        "misconfig",
-        "generic"
-      ],
-      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-      "reference": null,
-      "severity": "info"
-    },
-    "matcher-name": "cross-origin-opener-policy",
-    "type": "http",
-    "host": "https://entreprises-transparence.sante.gouv.fr",
-    "matched-at": "https://entreprises-transparence.sante.gouv.fr",
-    "request": "GET / HTTP/1.1\r\nHost: entreprises-transparence.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 11 Sep 2022 03:43:31 GMT\r\nEtag: \"32c-5e22d41dd9680-gzip\"\r\nLast-Modified: Fri, 24 Jun 2022 08:21:30 GMT\r\nServer: Apache/2.4.38 (Debian)\r\nSet-Cookie: BIGipServerpool-dgs-ts-v2.cegedim.cloud-HTTP=1237604618.20480.0000; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains; preload\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>Transparence-Santé</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\n  <link href=\"https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap\" rel=\"stylesheet\">\n  <link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">\n  <script src=\"/content/i18n/en.js\"></script>\n<link rel=\"stylesheet\" href=\"styles.29bc3aa5b6c9b6b2719a.css\"></head>\n<body class=\"mat-typography\">\n  <app-root></app-root>\n<script src=\"runtime.840fea7785fe951bc999.js\" defer></script><script src=\"polyfills.e51c557470a207a13f1d.js\" defer></script><script src=\"main.6a07bdd8141ad6d524ac.js\" defer></script></body>\n</html>\n",
-    "ip": "185.194.82.77",
-    "timestamp": "2022-09-11T03:43:31.239456124Z",
+    "timestamp": "2022-09-18T03:54:50.030706261Z",
     "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://entreprises-transparence.sante.gouv.fr'",
     "matcher-status": true,
     "matched-line": null
@@ -470,9 +229,44 @@
     "host": "https://entreprises-transparence.sante.gouv.fr",
     "matched-at": "https://entreprises-transparence.sante.gouv.fr",
     "request": "GET / HTTP/1.1\r\nHost: entreprises-transparence.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 11 Sep 2022 03:43:31 GMT\r\nEtag: \"32c-5e22d41dd9680-gzip\"\r\nLast-Modified: Fri, 24 Jun 2022 08:21:30 GMT\r\nServer: Apache/2.4.38 (Debian)\r\nSet-Cookie: BIGipServerpool-dgs-ts-v2.cegedim.cloud-HTTP=1237604618.20480.0000; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains; preload\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>Transparence-Santé</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\n  <link href=\"https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap\" rel=\"stylesheet\">\n  <link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">\n  <script src=\"/content/i18n/en.js\"></script>\n<link rel=\"stylesheet\" href=\"styles.29bc3aa5b6c9b6b2719a.css\"></head>\n<body class=\"mat-typography\">\n  <app-root></app-root>\n<script src=\"runtime.840fea7785fe951bc999.js\" defer></script><script src=\"polyfills.e51c557470a207a13f1d.js\" defer></script><script src=\"main.6a07bdd8141ad6d524ac.js\" defer></script></body>\n</html>\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 18 Sep 2022 03:54:49 GMT\r\nEtag: \"32c-5e22d41dd9680-gzip\"\r\nLast-Modified: Fri, 24 Jun 2022 08:21:30 GMT\r\nServer: Apache/2.4.38 (Debian)\r\nSet-Cookie: BIGipServerpool-dgs-ts-v2.cegedim.cloud-HTTP=1237604618.20480.0000; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains; preload\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>Transparence-Santé</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\n  <link href=\"https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap\" rel=\"stylesheet\">\n  <link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">\n  <script src=\"/content/i18n/en.js\"></script>\n<link rel=\"stylesheet\" href=\"styles.29bc3aa5b6c9b6b2719a.css\"></head>\n<body class=\"mat-typography\">\n  <app-root></app-root>\n<script src=\"runtime.840fea7785fe951bc999.js\" defer></script><script src=\"polyfills.e51c557470a207a13f1d.js\" defer></script><script src=\"main.6a07bdd8141ad6d524ac.js\" defer></script></body>\n</html>\n",
     "ip": "185.194.82.77",
-    "timestamp": "2022-09-11T03:43:31.239477424Z",
+    "timestamp": "2022-09-18T03:54:50.030789362Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://entreprises-transparence.sante.gouv.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "access-control-allow-credentials",
+    "type": "http",
+    "host": "https://entreprises-transparence.sante.gouv.fr",
+    "matched-at": "https://entreprises-transparence.sante.gouv.fr",
+    "request": "GET / HTTP/1.1\r\nHost: entreprises-transparence.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 18 Sep 2022 03:54:49 GMT\r\nEtag: \"32c-5e22d41dd9680-gzip\"\r\nLast-Modified: Fri, 24 Jun 2022 08:21:30 GMT\r\nServer: Apache/2.4.38 (Debian)\r\nSet-Cookie: BIGipServerpool-dgs-ts-v2.cegedim.cloud-HTTP=1237604618.20480.0000; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains; preload\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>Transparence-Santé</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\n  <link href=\"https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap\" rel=\"stylesheet\">\n  <link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">\n  <script src=\"/content/i18n/en.js\"></script>\n<link rel=\"stylesheet\" href=\"styles.29bc3aa5b6c9b6b2719a.css\"></head>\n<body class=\"mat-typography\">\n  <app-root></app-root>\n<script src=\"runtime.840fea7785fe951bc999.js\" defer></script><script src=\"polyfills.e51c557470a207a13f1d.js\" defer></script><script src=\"main.6a07bdd8141ad6d524ac.js\" defer></script></body>\n</html>\n",
+    "ip": "185.194.82.77",
+    "timestamp": "2022-09-18T03:54:50.030810563Z",
     "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://entreprises-transparence.sante.gouv.fr'",
     "matcher-status": true,
     "matched-line": null
@@ -505,44 +299,9 @@
     "host": "https://entreprises-transparence.sante.gouv.fr",
     "matched-at": "https://entreprises-transparence.sante.gouv.fr",
     "request": "GET / HTTP/1.1\r\nHost: entreprises-transparence.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 11 Sep 2022 03:43:31 GMT\r\nEtag: \"32c-5e22d41dd9680-gzip\"\r\nLast-Modified: Fri, 24 Jun 2022 08:21:30 GMT\r\nServer: Apache/2.4.38 (Debian)\r\nSet-Cookie: BIGipServerpool-dgs-ts-v2.cegedim.cloud-HTTP=1237604618.20480.0000; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains; preload\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>Transparence-Santé</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\n  <link href=\"https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap\" rel=\"stylesheet\">\n  <link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">\n  <script src=\"/content/i18n/en.js\"></script>\n<link rel=\"stylesheet\" href=\"styles.29bc3aa5b6c9b6b2719a.css\"></head>\n<body class=\"mat-typography\">\n  <app-root></app-root>\n<script src=\"runtime.840fea7785fe951bc999.js\" defer></script><script src=\"polyfills.e51c557470a207a13f1d.js\" defer></script><script src=\"main.6a07bdd8141ad6d524ac.js\" defer></script></body>\n</html>\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 18 Sep 2022 03:54:49 GMT\r\nEtag: \"32c-5e22d41dd9680-gzip\"\r\nLast-Modified: Fri, 24 Jun 2022 08:21:30 GMT\r\nServer: Apache/2.4.38 (Debian)\r\nSet-Cookie: BIGipServerpool-dgs-ts-v2.cegedim.cloud-HTTP=1237604618.20480.0000; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains; preload\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>Transparence-Santé</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\n  <link href=\"https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap\" rel=\"stylesheet\">\n  <link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">\n  <script src=\"/content/i18n/en.js\"></script>\n<link rel=\"stylesheet\" href=\"styles.29bc3aa5b6c9b6b2719a.css\"></head>\n<body class=\"mat-typography\">\n  <app-root></app-root>\n<script src=\"runtime.840fea7785fe951bc999.js\" defer></script><script src=\"polyfills.e51c557470a207a13f1d.js\" defer></script><script src=\"main.6a07bdd8141ad6d524ac.js\" defer></script></body>\n</html>\n",
     "ip": "185.194.82.77",
-    "timestamp": "2022-09-11T03:43:31.239496725Z",
-    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://entreprises-transparence.sante.gouv.fr'",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
-    "template": "misconfiguration/http-missing-security-headers.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
-    "template-id": "http-missing-security-headers",
-    "info": {
-      "name": "HTTP Missing Security Headers",
-      "author": [
-        "socketz",
-        "geeknik",
-        "g4l1t0",
-        "convisoappsec",
-        "kurohost",
-        "dawid-czarnecki",
-        "forgedhallpass"
-      ],
-      "tags": [
-        "misconfig",
-        "generic"
-      ],
-      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-      "reference": null,
-      "severity": "info"
-    },
-    "matcher-name": "access-control-allow-methods",
-    "type": "http",
-    "host": "https://entreprises-transparence.sante.gouv.fr",
-    "matched-at": "https://entreprises-transparence.sante.gouv.fr",
-    "request": "GET / HTTP/1.1\r\nHost: entreprises-transparence.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 11 Sep 2022 03:43:31 GMT\r\nEtag: \"32c-5e22d41dd9680-gzip\"\r\nLast-Modified: Fri, 24 Jun 2022 08:21:30 GMT\r\nServer: Apache/2.4.38 (Debian)\r\nSet-Cookie: BIGipServerpool-dgs-ts-v2.cegedim.cloud-HTTP=1237604618.20480.0000; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains; preload\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>Transparence-Santé</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\n  <link href=\"https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap\" rel=\"stylesheet\">\n  <link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">\n  <script src=\"/content/i18n/en.js\"></script>\n<link rel=\"stylesheet\" href=\"styles.29bc3aa5b6c9b6b2719a.css\"></head>\n<body class=\"mat-typography\">\n  <app-root></app-root>\n<script src=\"runtime.840fea7785fe951bc999.js\" defer></script><script src=\"polyfills.e51c557470a207a13f1d.js\" defer></script><script src=\"main.6a07bdd8141ad6d524ac.js\" defer></script></body>\n</html>\n",
-    "ip": "185.194.82.77",
-    "timestamp": "2022-09-11T03:43:31.239517425Z",
+    "timestamp": "2022-09-18T03:54:50.034519804Z",
     "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://entreprises-transparence.sante.gouv.fr'",
     "matcher-status": true,
     "matched-line": null
@@ -575,9 +334,9 @@
     "host": "https://entreprises-transparence.sante.gouv.fr",
     "matched-at": "https://entreprises-transparence.sante.gouv.fr",
     "request": "GET / HTTP/1.1\r\nHost: entreprises-transparence.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 11 Sep 2022 03:43:31 GMT\r\nEtag: \"32c-5e22d41dd9680-gzip\"\r\nLast-Modified: Fri, 24 Jun 2022 08:21:30 GMT\r\nServer: Apache/2.4.38 (Debian)\r\nSet-Cookie: BIGipServerpool-dgs-ts-v2.cegedim.cloud-HTTP=1237604618.20480.0000; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains; preload\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>Transparence-Santé</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\n  <link href=\"https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap\" rel=\"stylesheet\">\n  <link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">\n  <script src=\"/content/i18n/en.js\"></script>\n<link rel=\"stylesheet\" href=\"styles.29bc3aa5b6c9b6b2719a.css\"></head>\n<body class=\"mat-typography\">\n  <app-root></app-root>\n<script src=\"runtime.840fea7785fe951bc999.js\" defer></script><script src=\"polyfills.e51c557470a207a13f1d.js\" defer></script><script src=\"main.6a07bdd8141ad6d524ac.js\" defer></script></body>\n</html>\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 18 Sep 2022 03:54:49 GMT\r\nEtag: \"32c-5e22d41dd9680-gzip\"\r\nLast-Modified: Fri, 24 Jun 2022 08:21:30 GMT\r\nServer: Apache/2.4.38 (Debian)\r\nSet-Cookie: BIGipServerpool-dgs-ts-v2.cegedim.cloud-HTTP=1237604618.20480.0000; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains; preload\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>Transparence-Santé</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\n  <link href=\"https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap\" rel=\"stylesheet\">\n  <link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">\n  <script src=\"/content/i18n/en.js\"></script>\n<link rel=\"stylesheet\" href=\"styles.29bc3aa5b6c9b6b2719a.css\"></head>\n<body class=\"mat-typography\">\n  <app-root></app-root>\n<script src=\"runtime.840fea7785fe951bc999.js\" defer></script><script src=\"polyfills.e51c557470a207a13f1d.js\" defer></script><script src=\"main.6a07bdd8141ad6d524ac.js\" defer></script></body>\n</html>\n",
     "ip": "185.194.82.77",
-    "timestamp": "2022-09-11T03:43:31.239538725Z",
+    "timestamp": "2022-09-18T03:54:50.036363725Z",
     "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://entreprises-transparence.sante.gouv.fr'",
     "matcher-status": true,
     "matched-line": null
@@ -605,14 +364,189 @@
       "reference": null,
       "severity": "info"
     },
-    "matcher-name": "x-permitted-cross-domain-policies",
+    "matcher-name": "permission-policy",
     "type": "http",
     "host": "https://entreprises-transparence.sante.gouv.fr",
     "matched-at": "https://entreprises-transparence.sante.gouv.fr",
     "request": "GET / HTTP/1.1\r\nHost: entreprises-transparence.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 11 Sep 2022 03:43:31 GMT\r\nEtag: \"32c-5e22d41dd9680-gzip\"\r\nLast-Modified: Fri, 24 Jun 2022 08:21:30 GMT\r\nServer: Apache/2.4.38 (Debian)\r\nSet-Cookie: BIGipServerpool-dgs-ts-v2.cegedim.cloud-HTTP=1237604618.20480.0000; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains; preload\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>Transparence-Santé</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\n  <link href=\"https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap\" rel=\"stylesheet\">\n  <link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">\n  <script src=\"/content/i18n/en.js\"></script>\n<link rel=\"stylesheet\" href=\"styles.29bc3aa5b6c9b6b2719a.css\"></head>\n<body class=\"mat-typography\">\n  <app-root></app-root>\n<script src=\"runtime.840fea7785fe951bc999.js\" defer></script><script src=\"polyfills.e51c557470a207a13f1d.js\" defer></script><script src=\"main.6a07bdd8141ad6d524ac.js\" defer></script></body>\n</html>\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 18 Sep 2022 03:54:49 GMT\r\nEtag: \"32c-5e22d41dd9680-gzip\"\r\nLast-Modified: Fri, 24 Jun 2022 08:21:30 GMT\r\nServer: Apache/2.4.38 (Debian)\r\nSet-Cookie: BIGipServerpool-dgs-ts-v2.cegedim.cloud-HTTP=1237604618.20480.0000; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains; preload\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>Transparence-Santé</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\n  <link href=\"https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap\" rel=\"stylesheet\">\n  <link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">\n  <script src=\"/content/i18n/en.js\"></script>\n<link rel=\"stylesheet\" href=\"styles.29bc3aa5b6c9b6b2719a.css\"></head>\n<body class=\"mat-typography\">\n  <app-root></app-root>\n<script src=\"runtime.840fea7785fe951bc999.js\" defer></script><script src=\"polyfills.e51c557470a207a13f1d.js\" defer></script><script src=\"main.6a07bdd8141ad6d524ac.js\" defer></script></body>\n</html>\n",
     "ip": "185.194.82.77",
-    "timestamp": "2022-09-11T03:43:31.239559925Z",
+    "timestamp": "2022-09-18T03:54:50.036389125Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://entreprises-transparence.sante.gouv.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "access-control-allow-origin",
+    "type": "http",
+    "host": "https://entreprises-transparence.sante.gouv.fr",
+    "matched-at": "https://entreprises-transparence.sante.gouv.fr",
+    "request": "GET / HTTP/1.1\r\nHost: entreprises-transparence.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 18 Sep 2022 03:54:49 GMT\r\nEtag: \"32c-5e22d41dd9680-gzip\"\r\nLast-Modified: Fri, 24 Jun 2022 08:21:30 GMT\r\nServer: Apache/2.4.38 (Debian)\r\nSet-Cookie: BIGipServerpool-dgs-ts-v2.cegedim.cloud-HTTP=1237604618.20480.0000; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains; preload\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>Transparence-Santé</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\n  <link href=\"https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap\" rel=\"stylesheet\">\n  <link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">\n  <script src=\"/content/i18n/en.js\"></script>\n<link rel=\"stylesheet\" href=\"styles.29bc3aa5b6c9b6b2719a.css\"></head>\n<body class=\"mat-typography\">\n  <app-root></app-root>\n<script src=\"runtime.840fea7785fe951bc999.js\" defer></script><script src=\"polyfills.e51c557470a207a13f1d.js\" defer></script><script src=\"main.6a07bdd8141ad6d524ac.js\" defer></script></body>\n</html>\n",
+    "ip": "185.194.82.77",
+    "timestamp": "2022-09-18T03:54:50.036406926Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://entreprises-transparence.sante.gouv.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "access-control-max-age",
+    "type": "http",
+    "host": "https://entreprises-transparence.sante.gouv.fr",
+    "matched-at": "https://entreprises-transparence.sante.gouv.fr",
+    "request": "GET / HTTP/1.1\r\nHost: entreprises-transparence.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 18 Sep 2022 03:54:49 GMT\r\nEtag: \"32c-5e22d41dd9680-gzip\"\r\nLast-Modified: Fri, 24 Jun 2022 08:21:30 GMT\r\nServer: Apache/2.4.38 (Debian)\r\nSet-Cookie: BIGipServerpool-dgs-ts-v2.cegedim.cloud-HTTP=1237604618.20480.0000; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains; preload\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>Transparence-Santé</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\n  <link href=\"https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap\" rel=\"stylesheet\">\n  <link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">\n  <script src=\"/content/i18n/en.js\"></script>\n<link rel=\"stylesheet\" href=\"styles.29bc3aa5b6c9b6b2719a.css\"></head>\n<body class=\"mat-typography\">\n  <app-root></app-root>\n<script src=\"runtime.840fea7785fe951bc999.js\" defer></script><script src=\"polyfills.e51c557470a207a13f1d.js\" defer></script><script src=\"main.6a07bdd8141ad6d524ac.js\" defer></script></body>\n</html>\n",
+    "ip": "185.194.82.77",
+    "timestamp": "2022-09-18T03:54:50.036448826Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://entreprises-transparence.sante.gouv.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "content-security-policy",
+    "type": "http",
+    "host": "https://entreprises-transparence.sante.gouv.fr",
+    "matched-at": "https://entreprises-transparence.sante.gouv.fr",
+    "request": "GET / HTTP/1.1\r\nHost: entreprises-transparence.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 18 Sep 2022 03:54:49 GMT\r\nEtag: \"32c-5e22d41dd9680-gzip\"\r\nLast-Modified: Fri, 24 Jun 2022 08:21:30 GMT\r\nServer: Apache/2.4.38 (Debian)\r\nSet-Cookie: BIGipServerpool-dgs-ts-v2.cegedim.cloud-HTTP=1237604618.20480.0000; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains; preload\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>Transparence-Santé</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\n  <link href=\"https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap\" rel=\"stylesheet\">\n  <link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">\n  <script src=\"/content/i18n/en.js\"></script>\n<link rel=\"stylesheet\" href=\"styles.29bc3aa5b6c9b6b2719a.css\"></head>\n<body class=\"mat-typography\">\n  <app-root></app-root>\n<script src=\"runtime.840fea7785fe951bc999.js\" defer></script><script src=\"polyfills.e51c557470a207a13f1d.js\" defer></script><script src=\"main.6a07bdd8141ad6d524ac.js\" defer></script></body>\n</html>\n",
+    "ip": "185.194.82.77",
+    "timestamp": "2022-09-18T03:54:50.036471926Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://entreprises-transparence.sante.gouv.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "cross-origin-embedder-policy",
+    "type": "http",
+    "host": "https://entreprises-transparence.sante.gouv.fr",
+    "matched-at": "https://entreprises-transparence.sante.gouv.fr",
+    "request": "GET / HTTP/1.1\r\nHost: entreprises-transparence.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 18 Sep 2022 03:54:49 GMT\r\nEtag: \"32c-5e22d41dd9680-gzip\"\r\nLast-Modified: Fri, 24 Jun 2022 08:21:30 GMT\r\nServer: Apache/2.4.38 (Debian)\r\nSet-Cookie: BIGipServerpool-dgs-ts-v2.cegedim.cloud-HTTP=1237604618.20480.0000; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains; preload\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>Transparence-Santé</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\n  <link href=\"https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap\" rel=\"stylesheet\">\n  <link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">\n  <script src=\"/content/i18n/en.js\"></script>\n<link rel=\"stylesheet\" href=\"styles.29bc3aa5b6c9b6b2719a.css\"></head>\n<body class=\"mat-typography\">\n  <app-root></app-root>\n<script src=\"runtime.840fea7785fe951bc999.js\" defer></script><script src=\"polyfills.e51c557470a207a13f1d.js\" defer></script><script src=\"main.6a07bdd8141ad6d524ac.js\" defer></script></body>\n</html>\n",
+    "ip": "185.194.82.77",
+    "timestamp": "2022-09-18T03:54:50.036490927Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://entreprises-transparence.sante.gouv.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
+    "info": {
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "cross-origin-opener-policy",
+    "type": "http",
+    "host": "https://entreprises-transparence.sante.gouv.fr",
+    "matched-at": "https://entreprises-transparence.sante.gouv.fr",
+    "request": "GET / HTTP/1.1\r\nHost: entreprises-transparence.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 18 Sep 2022 03:54:49 GMT\r\nEtag: \"32c-5e22d41dd9680-gzip\"\r\nLast-Modified: Fri, 24 Jun 2022 08:21:30 GMT\r\nServer: Apache/2.4.38 (Debian)\r\nSet-Cookie: BIGipServerpool-dgs-ts-v2.cegedim.cloud-HTTP=1237604618.20480.0000; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains; preload\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>Transparence-Santé</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\n  <link href=\"https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap\" rel=\"stylesheet\">\n  <link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">\n  <script src=\"/content/i18n/en.js\"></script>\n<link rel=\"stylesheet\" href=\"styles.29bc3aa5b6c9b6b2719a.css\"></head>\n<body class=\"mat-typography\">\n  <app-root></app-root>\n<script src=\"runtime.840fea7785fe951bc999.js\" defer></script><script src=\"polyfills.e51c557470a207a13f1d.js\" defer></script><script src=\"main.6a07bdd8141ad6d524ac.js\" defer></script></body>\n</html>\n",
+    "ip": "185.194.82.77",
+    "timestamp": "2022-09-18T03:54:50.036507427Z",
     "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://entreprises-transparence.sante.gouv.fr'",
     "matcher-status": true,
     "matched-line": null
@@ -645,44 +579,89 @@
     "host": "https://entreprises-transparence.sante.gouv.fr",
     "matched-at": "https://entreprises-transparence.sante.gouv.fr",
     "request": "GET / HTTP/1.1\r\nHost: entreprises-transparence.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 11 Sep 2022 03:43:31 GMT\r\nEtag: \"32c-5e22d41dd9680-gzip\"\r\nLast-Modified: Fri, 24 Jun 2022 08:21:30 GMT\r\nServer: Apache/2.4.38 (Debian)\r\nSet-Cookie: BIGipServerpool-dgs-ts-v2.cegedim.cloud-HTTP=1237604618.20480.0000; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains; preload\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>Transparence-Santé</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\n  <link href=\"https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap\" rel=\"stylesheet\">\n  <link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">\n  <script src=\"/content/i18n/en.js\"></script>\n<link rel=\"stylesheet\" href=\"styles.29bc3aa5b6c9b6b2719a.css\"></head>\n<body class=\"mat-typography\">\n  <app-root></app-root>\n<script src=\"runtime.840fea7785fe951bc999.js\" defer></script><script src=\"polyfills.e51c557470a207a13f1d.js\" defer></script><script src=\"main.6a07bdd8141ad6d524ac.js\" defer></script></body>\n</html>\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 18 Sep 2022 03:54:49 GMT\r\nEtag: \"32c-5e22d41dd9680-gzip\"\r\nLast-Modified: Fri, 24 Jun 2022 08:21:30 GMT\r\nServer: Apache/2.4.38 (Debian)\r\nSet-Cookie: BIGipServerpool-dgs-ts-v2.cegedim.cloud-HTTP=1237604618.20480.0000; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains; preload\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>Transparence-Santé</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\n  <link href=\"https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap\" rel=\"stylesheet\">\n  <link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">\n  <script src=\"/content/i18n/en.js\"></script>\n<link rel=\"stylesheet\" href=\"styles.29bc3aa5b6c9b6b2719a.css\"></head>\n<body class=\"mat-typography\">\n  <app-root></app-root>\n<script src=\"runtime.840fea7785fe951bc999.js\" defer></script><script src=\"polyfills.e51c557470a207a13f1d.js\" defer></script><script src=\"main.6a07bdd8141ad6d524ac.js\" defer></script></body>\n</html>\n",
     "ip": "185.194.82.77",
-    "timestamp": "2022-09-11T03:43:31.239577825Z",
+    "timestamp": "2022-09-18T03:54:50.036526427Z",
     "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://entreprises-transparence.sante.gouv.fr'",
     "matcher-status": true,
     "matched-line": null
   },
   {
-    "template": "miscellaneous/robots-txt-endpoint.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/miscellaneous/robots-txt-endpoint.yaml",
-    "template-id": "robots-txt-endpoint",
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
     "info": {
-      "name": "robots.txt endpoint prober",
+      "name": "HTTP Missing Security Headers",
       "author": [
-        "caspergn",
-        "pdteam"
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
       ],
-      "tags": null,
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
       "reference": null,
       "severity": "info"
     },
+    "matcher-name": "access-control-allow-methods",
     "type": "http",
     "host": "https://entreprises-transparence.sante.gouv.fr",
-    "matched-at": "https://entreprises-transparence.sante.gouv.fr/robots.txt",
-    "request": "GET /robots.txt HTTP/1.1\r\nHost: entreprises-transparence.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 11 Sep 2022 03:44:05 GMT\r\nEtag: \"32c-5e22d41dd9680-gzip\"\r\nLast-Modified: Fri, 24 Jun 2022 08:21:30 GMT\r\nServer: Apache/2.4.38 (Debian)\r\nSet-Cookie: BIGipServerpool-dgs-ts-v2.cegedim.cloud-HTTP=1237604618.20480.0000; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains; preload\r\nUpgrade: h2,h2c\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>Transparence-Santé</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\n  <link href=\"https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap\" rel=\"stylesheet\">\n  <link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">\n  <script src=\"/content/i18n/en.js\"></script>\n<link rel=\"stylesheet\" href=\"styles.29bc3aa5b6c9b6b2719a.css\"></head>\n<body class=\"mat-typography\">\n  <app-root></app-root>\n<script src=\"runtime.840fea7785fe951bc999.js\" defer></script><script src=\"polyfills.e51c557470a207a13f1d.js\" defer></script><script src=\"main.6a07bdd8141ad6d524ac.js\" defer></script></body>\n</html>\n",
+    "matched-at": "https://entreprises-transparence.sante.gouv.fr",
+    "request": "GET / HTTP/1.1\r\nHost: entreprises-transparence.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 18 Sep 2022 03:54:49 GMT\r\nEtag: \"32c-5e22d41dd9680-gzip\"\r\nLast-Modified: Fri, 24 Jun 2022 08:21:30 GMT\r\nServer: Apache/2.4.38 (Debian)\r\nSet-Cookie: BIGipServerpool-dgs-ts-v2.cegedim.cloud-HTTP=1237604618.20480.0000; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains; preload\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>Transparence-Santé</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\n  <link href=\"https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap\" rel=\"stylesheet\">\n  <link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">\n  <script src=\"/content/i18n/en.js\"></script>\n<link rel=\"stylesheet\" href=\"styles.29bc3aa5b6c9b6b2719a.css\"></head>\n<body class=\"mat-typography\">\n  <app-root></app-root>\n<script src=\"runtime.840fea7785fe951bc999.js\" defer></script><script src=\"polyfills.e51c557470a207a13f1d.js\" defer></script><script src=\"main.6a07bdd8141ad6d524ac.js\" defer></script></body>\n</html>\n",
     "ip": "185.194.82.77",
-    "timestamp": "2022-09-11T03:44:05.500922385Z",
-    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://entreprises-transparence.sante.gouv.fr/robots.txt'",
+    "timestamp": "2022-09-18T03:54:50.036545727Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://entreprises-transparence.sante.gouv.fr'",
     "matcher-status": true,
     "matched-line": null
   },
   {
-    "template": "ssl/ssl-dns-names.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/ssl/ssl-dns-names.yaml",
-    "template-id": "ssl-dns-names",
+    "template": "misconfiguration/http-missing-security-headers.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/misconfiguration/http-missing-security-headers.yaml",
+    "template-id": "http-missing-security-headers",
     "info": {
-      "name": "SSL DNS Names",
+      "name": "HTTP Missing Security Headers",
+      "author": [
+        "socketz",
+        "geeknik",
+        "g4l1t0",
+        "convisoappsec",
+        "kurohost",
+        "dawid-czarnecki",
+        "forgedhallpass"
+      ],
+      "tags": [
+        "misconfig",
+        "generic"
+      ],
+      "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+      "reference": null,
+      "severity": "info"
+    },
+    "matcher-name": "referrer-policy",
+    "type": "http",
+    "host": "https://entreprises-transparence.sante.gouv.fr",
+    "matched-at": "https://entreprises-transparence.sante.gouv.fr",
+    "request": "GET / HTTP/1.1\r\nHost: entreprises-transparence.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 18 Sep 2022 03:54:49 GMT\r\nEtag: \"32c-5e22d41dd9680-gzip\"\r\nLast-Modified: Fri, 24 Jun 2022 08:21:30 GMT\r\nServer: Apache/2.4.38 (Debian)\r\nSet-Cookie: BIGipServerpool-dgs-ts-v2.cegedim.cloud-HTTP=1237604618.20480.0000; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains; preload\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>Transparence-Santé</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\n  <link href=\"https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap\" rel=\"stylesheet\">\n  <link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">\n  <script src=\"/content/i18n/en.js\"></script>\n<link rel=\"stylesheet\" href=\"styles.29bc3aa5b6c9b6b2719a.css\"></head>\n<body class=\"mat-typography\">\n  <app-root></app-root>\n<script src=\"runtime.840fea7785fe951bc999.js\" defer></script><script src=\"polyfills.e51c557470a207a13f1d.js\" defer></script><script src=\"main.6a07bdd8141ad6d524ac.js\" defer></script></body>\n</html>\n",
+    "ip": "185.194.82.77",
+    "timestamp": "2022-09-18T03:54:50.036564627Z",
+    "curl-command": "curl -X 'GET' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://entreprises-transparence.sante.gouv.fr'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "ssl/tls-version.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/ssl/tls-version.yaml",
+    "template-id": "tls-version",
+    "info": {
+      "name": "TLS Version",
       "author": [
         "pdteam"
       ],
@@ -696,41 +675,10 @@
     "host": "https://entreprises-transparence.sante.gouv.fr",
     "matched-at": "https://entreprises-transparence.sante.gouv.fr",
     "extracted-results": [
-      "transparence.sante.gouv.fr",
-      "www.transparence.sante.gouv.fr"
+      "TLS12"
     ],
     "ip": "185.194.82.77",
-    "timestamp": "2022-09-11T03:44:07.875422779Z",
-    "matcher-status": true,
-    "matched-line": null
-  },
-  {
-    "template": "miscellaneous/options-method.yaml",
-    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/miscellaneous/options-method.yaml",
-    "template-id": "options-method",
-    "info": {
-      "name": "Allowed Options Method",
-      "author": [
-        "pdteam"
-      ],
-      "tags": [
-        "misc",
-        "generic"
-      ],
-      "reference": null,
-      "severity": "info"
-    },
-    "type": "http",
-    "host": "https://entreprises-transparence.sante.gouv.fr",
-    "matched-at": "https://entreprises-transparence.sante.gouv.fr",
-    "extracted-results": [
-      "HEAD,GET,POST,OPTIONS"
-    ],
-    "request": "OPTIONS / HTTP/1.1\r\nHost: entreprises-transparence.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAllow: HEAD,GET,POST,OPTIONS\r\nContent-Type: text/html\r\nDate: Sun, 11 Sep 2022 03:46:37 GMT\r\nServer: Apache/2.4.38 (Debian)\r\nSet-Cookie: BIGipServerpool-dgs-ts-v2.cegedim.cloud-HTTP=1237604618.20480.0000; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains; preload\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\nContent-Length: 0\r\n\r\n",
-    "ip": "185.194.82.77",
-    "timestamp": "2022-09-11T03:46:37.832467695Z",
-    "curl-command": "curl -X 'OPTIONS' -d '' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://entreprises-transparence.sante.gouv.fr'",
+    "timestamp": "2022-09-18T03:58:30.208599656Z",
     "matcher-status": true,
     "matched-line": null
   },
@@ -766,9 +714,9 @@
     "host": "https://entreprises-transparence.sante.gouv.fr",
     "matched-at": "https://entreprises-transparence.sante.gouv.fr/",
     "request": "POST / HTTP/1.1\r\nHost: entreprises-transparence.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nContent-Length: 27\r\nContent-Type: application/x-www-form-urlencoded\r\nAccept-Encoding: gzip\r\n\r\n_=<script>alert(1)</script>",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 11 Sep 2022 03:47:07 GMT\r\nEtag: \"32c-5e22d41dd9680-gzip\"\r\nLast-Modified: Fri, 24 Jun 2022 08:21:30 GMT\r\nServer: Apache/2.4.38 (Debian)\r\nSet-Cookie: BIGipServerpool-dgs-ts-v2.cegedim.cloud-HTTP=1237604618.20480.0000; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains; preload\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>Transparence-Santé</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\n  <link href=\"https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap\" rel=\"stylesheet\">\n  <link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">\n  <script src=\"/content/i18n/en.js\"></script>\n<link rel=\"stylesheet\" href=\"styles.29bc3aa5b6c9b6b2719a.css\"></head>\n<body class=\"mat-typography\">\n  <app-root></app-root>\n<script src=\"runtime.840fea7785fe951bc999.js\" defer></script><script src=\"polyfills.e51c557470a207a13f1d.js\" defer></script><script src=\"main.6a07bdd8141ad6d524ac.js\" defer></script></body>\n</html>\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 18 Sep 2022 03:58:39 GMT\r\nEtag: \"32c-5e22d41dd9680-gzip\"\r\nLast-Modified: Fri, 24 Jun 2022 08:21:30 GMT\r\nServer: Apache/2.4.38 (Debian)\r\nSet-Cookie: BIGipServerpool-dgs-ts-v2.cegedim.cloud-HTTP=1237604618.20480.0000; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains; preload\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>Transparence-Santé</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\n  <link href=\"https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap\" rel=\"stylesheet\">\n  <link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">\n  <script src=\"/content/i18n/en.js\"></script>\n<link rel=\"stylesheet\" href=\"styles.29bc3aa5b6c9b6b2719a.css\"></head>\n<body class=\"mat-typography\">\n  <app-root></app-root>\n<script src=\"runtime.840fea7785fe951bc999.js\" defer></script><script src=\"polyfills.e51c557470a207a13f1d.js\" defer></script><script src=\"main.6a07bdd8141ad6d524ac.js\" defer></script></body>\n</html>\n",
     "ip": "185.194.82.77",
-    "timestamp": "2022-09-11T03:47:07.252300595Z",
+    "timestamp": "2022-09-18T03:58:39.161317889Z",
     "curl-command": "curl -X 'POST' -d '_=<script>alert(1)</script>' -H 'Content-Type: application/x-www-form-urlencoded' -H 'Host: entreprises-transparence.sante.gouv.fr' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://entreprises-transparence.sante.gouv.fr/'",
     "matcher-status": true,
     "matched-line": null
@@ -805,10 +753,37 @@
     "host": "https://entreprises-transparence.sante.gouv.fr",
     "matched-at": "https://entreprises-transparence.sante.gouv.fr/",
     "request": "POST / HTTP/1.1\r\nHost: entreprises-transparence.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nContent-Length: 27\r\nContent-Type: application/x-www-form-urlencoded\r\nAccept-Encoding: gzip\r\n\r\n_=<script>alert(1)</script>",
-    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 11 Sep 2022 03:47:07 GMT\r\nEtag: \"32c-5e22d41dd9680-gzip\"\r\nLast-Modified: Fri, 24 Jun 2022 08:21:30 GMT\r\nServer: Apache/2.4.38 (Debian)\r\nSet-Cookie: BIGipServerpool-dgs-ts-v2.cegedim.cloud-HTTP=1237604618.20480.0000; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains; preload\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>Transparence-Santé</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\n  <link href=\"https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap\" rel=\"stylesheet\">\n  <link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">\n  <script src=\"/content/i18n/en.js\"></script>\n<link rel=\"stylesheet\" href=\"styles.29bc3aa5b6c9b6b2719a.css\"></head>\n<body class=\"mat-typography\">\n  <app-root></app-root>\n<script src=\"runtime.840fea7785fe951bc999.js\" defer></script><script src=\"polyfills.e51c557470a207a13f1d.js\" defer></script><script src=\"main.6a07bdd8141ad6d524ac.js\" defer></script></body>\n</html>\n",
+    "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccept-Ranges: bytes\r\nContent-Type: text/html\r\nDate: Sun, 18 Sep 2022 03:58:39 GMT\r\nEtag: \"32c-5e22d41dd9680-gzip\"\r\nLast-Modified: Fri, 24 Jun 2022 08:21:30 GMT\r\nServer: Apache/2.4.38 (Debian)\r\nSet-Cookie: BIGipServerpool-dgs-ts-v2.cegedim.cloud-HTTP=1237604618.20480.0000; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains; preload\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: sameorigin\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>Transparence-Santé</title>\n  <base href=\"/\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\n  <link href=\"https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap\" rel=\"stylesheet\">\n  <link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">\n  <script src=\"/content/i18n/en.js\"></script>\n<link rel=\"stylesheet\" href=\"styles.29bc3aa5b6c9b6b2719a.css\"></head>\n<body class=\"mat-typography\">\n  <app-root></app-root>\n<script src=\"runtime.840fea7785fe951bc999.js\" defer></script><script src=\"polyfills.e51c557470a207a13f1d.js\" defer></script><script src=\"main.6a07bdd8141ad6d524ac.js\" defer></script></body>\n</html>\n",
     "ip": "185.194.82.77",
-    "timestamp": "2022-09-11T03:47:07.252430596Z",
+    "timestamp": "2022-09-18T03:58:39.16141419Z",
     "curl-command": "curl -X 'POST' -d '_=<script>alert(1)</script>' -H 'Content-Type: application/x-www-form-urlencoded' -H 'Host: entreprises-transparence.sante.gouv.fr' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://entreprises-transparence.sante.gouv.fr/'",
+    "matcher-status": true,
+    "matched-line": null
+  },
+  {
+    "template": "ssl/ssl-dns-names.yaml",
+    "template-url": "https://github.com/projectdiscovery/nuclei-templates/blob/master/ssl/ssl-dns-names.yaml",
+    "template-id": "ssl-dns-names",
+    "info": {
+      "name": "SSL DNS Names",
+      "author": [
+        "pdteam"
+      ],
+      "tags": [
+        "ssl"
+      ],
+      "reference": null,
+      "severity": "info"
+    },
+    "type": "ssl",
+    "host": "https://entreprises-transparence.sante.gouv.fr",
+    "matched-at": "https://entreprises-transparence.sante.gouv.fr",
+    "extracted-results": [
+      "transparence.sante.gouv.fr",
+      "www.transparence.sante.gouv.fr"
+    ],
+    "ip": "185.194.82.77",
+    "timestamp": "2022-09-18T03:59:09.611123592Z",
     "matcher-status": true,
     "matched-line": null
   },
@@ -844,9 +819,9 @@
     "extracted-results": [
       "www.entreprises-transparence.sante.gouv.fr."
     ],
-    "request": ";; opcode: QUERY, status: NOERROR, id: 58901\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags: ; udp: 4096\n\n;; QUESTION SECTION:\n;entreprises-transparence.sante.gouv.fr.\tIN\t CNAME\n",
-    "response": ";; opcode: QUERY, status: NOERROR, id: 58901\n;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags: ; udp: 512\n\n;; QUESTION SECTION:\n;entreprises-transparence.sante.gouv.fr.\tIN\t CNAME\n\n;; ANSWER SECTION:\nentreprises-transparence.sante.gouv.fr.\t919\tIN\tCNAME\twww.entreprises-transparence.sante.gouv.fr.\n",
-    "timestamp": "2022-09-11T03:47:42.695656456Z",
+    "request": ";; opcode: QUERY, status: NOERROR, id: 5465\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags: ; udp: 4096\n\n;; QUESTION SECTION:\n;entreprises-transparence.sante.gouv.fr.\tIN\t CNAME\n",
+    "response": ";; opcode: QUERY, status: NOERROR, id: 5465\n;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags: ; udp: 1232\n\n;; QUESTION SECTION:\n;entreprises-transparence.sante.gouv.fr.\tIN\t CNAME\n\n;; ANSWER SECTION:\nentreprises-transparence.sante.gouv.fr.\t1200\tIN\tCNAME\twww.entreprises-transparence.sante.gouv.fr.\n",
+    "timestamp": "2022-09-18T03:59:21.155467162Z",
     "matcher-status": true,
     "matched-line": null
   }
