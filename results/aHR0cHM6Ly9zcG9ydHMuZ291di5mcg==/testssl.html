@@ -21,17 +21,57 @@
 ###########################################################</span>
 
  Using &quot;OpenSSL 1.0.2-bad (1.0.2k-dev)&quot; [~183 ciphers]
- on fv-az108-28:/home/testssl/bin/openssl.Linux.x86_64
+ on fv-az136-625:/home/testssl/bin/openssl.Linux.x86_64
  (built: &quot;Sep  1 14:03:44 2022&quot;, platform: &quot;linux-x86_64&quot;)
 
 
-<span style="color:white;background-color:black;"> Start 2022-11-06 04:38:27        --&gt;&gt; 185.75.143.93:443 (sports.gouv.fr) &lt;&lt;--</span>
+<span style="color:white;background-color:black;"> Start 2022-11-13 04:30:09        --&gt;&gt; 185.75.143.93:443 (sports.gouv.fr) &lt;&lt;--</span>
 
- rDNS (185.75.143.93):   men-tandem-lb-vip.dedie.ate.info.<span style="color:#cd00cd;"> Oops: TCP connect problem</span>
+ rDNS (185.75.143.93):   men-tandem-lb-vip.dedie.ate.info.
+<span style="color:#cd00cd;"> Oops: TCP connect problem</span>
 
-<span style="color:#cd00cd;">Unable to open a socket to 185.75.143.93:443. </span>
-<span style="color:#be32d0;font-weight:bold;">Fatal error: Can&apos;t connect to &quot;185.75.143.93:443&quot;
-Make sure a firewall is not between you and your scanning target!</span>
+<span style="color:#cd00cd;">Unable to open a socket to 185.75.143.93:443. </span> Service detected:       HTTP
+
+
+<span style="text-decoration:underline;font-weight:bold;"> Testing protocols </span><u>via sockets except NPN+ALPN </u>
+
+<span style="font-weight:bold;"> SSLv2      </span><span style="color:#008817;font-weight:bold;">not offered (OK)</span>
+<span style="font-weight:bold;"> SSLv3      </span><span style="color:#008817;font-weight:bold;">not offered (OK)</span>
+<span style="font-weight:bold;"> TLS 1      </span>not offered
+<span style="font-weight:bold;"> TLS 1.1    </span>not offered
+<span style="font-weight:bold;"> TLS 1.2    </span><span style="color:#008817;font-weight:bold;">offered (OK)</span>
+<span style="font-weight:bold;"> TLS 1.3    </span>not offered and downgraded to a weaker protocol
+<span style="font-weight:bold;"> ALPN/HTTP2 </span>http/1.1 (offered)
+
+<span style="text-decoration:underline;font-weight:bold;"> Testing cipher categories </span>
+
+<span style="font-weight:bold;"> NULL ciphers (no encryption)                      </span><span style="color:#008817;font-weight:bold;">not offered (OK)</span>
+<span style="font-weight:bold;"> Anonymous NULL Ciphers (no authentication)        </span><span style="color:#008817;font-weight:bold;">not offered (OK)</span>
+<span style="font-weight:bold;"> Export ciphers (w/o ADH+NULL)                     </span><span style="color:#008817;font-weight:bold;">not offered (OK)</span>
+<span style="font-weight:bold;"> LOW: 64 Bit + DES, RC[2,4], MD5 (w/o export)      </span><span style="color:#008817;">not offered (OK)</span>
+<span style="font-weight:bold;"> Triple DES Ciphers / IDEA                         </span>not offered
+<span style="font-weight:bold;"> Obsoleted CBC ciphers (AES, ARIA etc.)            </span>not offered
+<span style="font-weight:bold;"> Strong encryption (AEAD ciphers) with no FS       </span>not offered
+<span style="font-weight:bold;"> Forward Secrecy strong encryption (AEAD ciphers)  </span><span style="color:#008817;font-weight:bold;">offered (OK)</span>
+
+
+<span style="text-decoration:underline;font-weight:bold;"> Testing server&apos;s cipher preferences </span>
+
+<span style="color:#cd00cd;"> Oops: openssl s_client connect problem</span>
+<span style="color:#cd00cd;">no matching cipher in this list found (pls report this): </span>DHE-RSA-SEED-SHA:SEED-SHA:DES-CBC3-SHA:RC4-MD5:DES-CBC-SHA:RC4-SHA:AES128-SHA:AES128-SHA256:AES256-SHA:ECDHE-RSA-AES128-SHA:DHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA:ECDH-RSA-DES-CBC3-SHA:ECDH-RSA-AES128-SHA:ECDH-RSA-AES256-SHA:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:DHE-DSS-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:AES256-SHA256:ECDHE-RSA-DES-CBC3-SHA:ECDHE-RSA-AES128-SHA256:AES256-GCM-SHA384:AES128-GCM-SHA256:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-SHA256:ADH-AES256-GCM-SHA384:AECDH-AES128-SHA:ECDHE-RSA-RC4-SHA:ECDHE-ECDSA-AES128-SHA  . 
+Hexcode  Cipher Suite Name (OpenSSL)       KeyExch.   Encryption  Bits     Cipher Suite Name (IANA/RFC)
+-----------------------------------------------------------------------------------------------------------------------------
+<u>SSLv2</u>
+ - 
+<u>SSLv3</u>
+ - 
+<u>TLSv1</u>
+ - 
+<u>TLSv1.1</u>
+ - 
+<u>TLSv1.2</u>
+<span style="color:#be32d0;font-weight:bold;">Fatal error: repeated openssl s_client connect problem, doesn&apos;t make sense to continue</span>
+Consider increasing MAX_OSSL_FAIL (currently: 2)
 
 </pre>
 </body>
