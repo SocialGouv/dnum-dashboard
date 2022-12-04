@@ -332,7 +332,7 @@
               "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "mes-aides.1jeune1solution.beta.gouv.fr"
+              "finding"      : "mes-aides-preprod.incubateur.net"
           }
 ,         {
               "id"           : "cert_subjectAltName",
@@ -346,7 +346,7 @@
               "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
               "port"         : "443",
               "severity"     : "OK",
-              "finding"      : "Ok via SAN and CN (same w/o SNI)"
+              "finding"      : "Ok via SAN and CN (SNI mandatory)"
           }
 ,         {
               "id"           : "cert_chain_of_trust",
@@ -367,7 +367,7 @@
               "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
               "port"         : "443",
               "severity"     : "OK",
-              "finding"      : "72 >= 30 days"
+              "finding"      : "65 >= 30 days"
           }
 ,         {
               "id"           : "cert_notBefore",
@@ -570,14 +570,28 @@
               "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "1669524937"
+              "finding"      : "1670127335"
           }
 ,         {
-              "id"           : "HSTS",
+              "id"           : "HSTS_time",
               "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
               "port"         : "443",
-              "severity"     : "LOW",
-              "finding"      : "not offered"
+              "severity"     : "MEDIUM",
+              "finding"      : "max-age too short. 0 days (=300 seconds) < 15552000 seconds"
+          }
+,         {
+              "id"           : "HSTS_subdomains",
+              "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "includes subdomains"
+          }
+,         {
+              "id"           : "HSTS_preload",
+              "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "domain is NOT marked for preloading"
           }
 ,         {
               "id"           : "HPKP",
@@ -1142,13 +1156,13 @@
               "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "Grade capped to A. HSTS is not offered"
+              "finding"      : "Grade capped to A. HSTS max-age is too short"
           }
 ,         {
               "id"           : "scanTime",
               "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "152"
+              "finding"      : "176"
           }
 ]
