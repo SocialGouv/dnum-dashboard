@@ -1,5 +1,12 @@
 [
          {
+              "id"           : "engine_problem",
+              "ip"           : "simulateurap.emploi.gouv.fr/",
+              "port"         : "443",
+              "severity"     : "WARN",
+              "finding"      : "No engine or GOST support via engine with your /home/testssl/bin/openssl.Linux.x86_64"
+          }
+,         {
               "id"           : "service",
               "ip"           : "simulateurap.emploi.gouv.fr/185.194.82.153",
               "port"         : "443",
@@ -339,7 +346,7 @@
               "ip"           : "simulateurap.emploi.gouv.fr/185.194.82.153",
               "port"         : "443",
               "severity"     : "OK",
-              "finding"      : "310 >= 60 days"
+              "finding"      : "303 >= 60 days"
           }
 ,         {
               "id"           : "cert_notBefore",
@@ -500,7 +507,7 @@
               "ip"           : "simulateurap.emploi.gouv.fr/185.194.82.153",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "1674964540"
+              "finding"      : "1675568855"
           }
 ,         {
               "id"           : "HSTS_time",
@@ -566,11 +573,39 @@
               "finding"      : "All (1) at '/' marked as HttpOnly"
           }
 ,         {
-              "id"           : "security_headers",
+              "id"           : "X-Frame-Options",
               "ip"           : "simulateurap.emploi.gouv.fr/185.194.82.153",
               "port"         : "443",
-              "severity"     : "MEDIUM",
-              "finding"      : "--"
+              "severity"     : "OK",
+              "finding"      : "sameorigin"
+          }
+,         {
+              "id"           : "X-Content-Type-Options",
+              "ip"           : "simulateurap.emploi.gouv.fr/185.194.82.153",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "nosniff"
+          }
+,         {
+              "id"           : "Content-Security-Policy",
+              "ip"           : "simulateurap.emploi.gouv.fr/185.194.82.153",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "upgrade-insecure-requests"
+          }
+,         {
+              "id"           : "X-XSS-Protection",
+              "ip"           : "simulateurap.emploi.gouv.fr/185.194.82.153",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "1; mode=block"
+          }
+,         {
+              "id"           : "Referrer-Policy",
+              "ip"           : "simulateurap.emploi.gouv.fr/185.194.82.153",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "strict-origin"
           }
 ,         {
               "id"           : "banner_reverseproxy",
@@ -646,10 +681,10 @@
               "id"           : "BREACH",
               "ip"           : "simulateurap.emploi.gouv.fr/185.194.82.153",
               "port"         : "443",
-              "severity"     : "OK",
+              "severity"     : "MEDIUM",
               "cve"          : "CVE-2013-3587",
               "cwe"          : "CWE-310",
-              "finding"      : "not vulnerable, no gzip/deflate/compress/br HTTP compression  - only supplied '/' tested"
+              "finding"      : "potentially VULNERABLE, gzip HTTP compression detected  - only supplied '/' tested"
           }
 ,         {
               "id"           : "POODLE_SSL",
@@ -1084,6 +1119,6 @@
               "ip"           : "simulateurap.emploi.gouv.fr/185.194.82.153",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "123"
+              "finding"      : "82"
           }
 ]
