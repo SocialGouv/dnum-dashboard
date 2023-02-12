@@ -110,7 +110,7 @@
               "finding"      : "not offered"
           }
 ,         {
-              "id"           : "cipherlist_AVERAGE",
+              "id"           : "cipherlist_OBSOLETED",
               "ip"           : "idee.emploi.gouv.fr/185.194.82.153",
               "port"         : "443",
               "severity"     : "INFO",
@@ -118,14 +118,14 @@
               "finding"      : "not offered"
           }
 ,         {
-              "id"           : "cipherlist_GOOD",
+              "id"           : "cipherlist_STRONG_NOFS",
               "ip"           : "idee.emploi.gouv.fr/185.194.82.153",
               "port"         : "443",
               "severity"     : "INFO",
               "finding"      : "not offered"
           }
 ,         {
-              "id"           : "cipherlist_STRONG",
+              "id"           : "cipherlist_STRONG_FS",
               "ip"           : "idee.emploi.gouv.fr/185.194.82.153",
               "port"         : "443",
               "severity"     : "OK",
@@ -346,7 +346,7 @@
               "ip"           : "idee.emploi.gouv.fr/185.194.82.153",
               "port"         : "443",
               "severity"     : "OK",
-              "finding"      : "303 >= 60 days"
+              "finding"      : "296 >= 60 days"
           }
 ,         {
               "id"           : "cert_notBefore",
@@ -489,11 +489,18 @@
               "finding"      : "intermediate certificate(s) is/are ok"
           }
 ,         {
+              "id"           : "insecure_redirect",
+              "ip"           : "idee.emploi.gouv.fr/185.194.82.153",
+              "port"         : "443",
+              "severity"     : "HIGH",
+              "finding"      : "Redirect to insecure URL: 'http://idee.emploi.gouv.fr/PortailIDEE/jsp/site/Portal.jsp'"
+          }
+,         {
               "id"           : "HTTP_status_code",
               "ip"           : "idee.emploi.gouv.fr/185.194.82.153",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "200 OK ('/')"
+              "finding"      : "302 Moved Temporarily ('/')"
           }
 ,         {
               "id"           : "HTTP_clock_skew",
@@ -507,7 +514,7 @@
               "ip"           : "idee.emploi.gouv.fr/185.194.82.153",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "1675564786"
+              "finding"      : "1676169832"
           }
 ,         {
               "id"           : "HSTS_time",
@@ -556,56 +563,28 @@
               "ip"           : "idee.emploi.gouv.fr/185.194.82.153",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "1 at '/'"
+              "finding"      : "2 at '/' (30x detected, better try target URL of 30x)"
           }
 ,         {
               "id"           : "cookie_secure",
               "ip"           : "idee.emploi.gouv.fr/185.194.82.153",
               "port"         : "443",
               "severity"     : "OK",
-              "finding"      : "All (1) at '/' marked as secure"
+              "finding"      : "All (2) at '/' marked as secure"
           }
 ,         {
               "id"           : "cookie_httponly",
               "ip"           : "idee.emploi.gouv.fr/185.194.82.153",
               "port"         : "443",
               "severity"     : "OK",
-              "finding"      : "All (1) at '/' marked as HttpOnly"
+              "finding"      : "All (2) at '/' marked as HttpOnly (30x detected, better try target URL of 30x)"
           }
 ,         {
-              "id"           : "X-Frame-Options",
+              "id"           : "security_headers",
               "ip"           : "idee.emploi.gouv.fr/185.194.82.153",
               "port"         : "443",
-              "severity"     : "OK",
-              "finding"      : "sameorigin"
-          }
-,         {
-              "id"           : "X-Content-Type-Options",
-              "ip"           : "idee.emploi.gouv.fr/185.194.82.153",
-              "port"         : "443",
-              "severity"     : "OK",
-              "finding"      : "nosniff"
-          }
-,         {
-              "id"           : "Content-Security-Policy",
-              "ip"           : "idee.emploi.gouv.fr/185.194.82.153",
-              "port"         : "443",
-              "severity"     : "OK",
-              "finding"      : "upgrade-insecure-requests"
-          }
-,         {
-              "id"           : "X-XSS-Protection",
-              "ip"           : "idee.emploi.gouv.fr/185.194.82.153",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "1; mode=block"
-          }
-,         {
-              "id"           : "Referrer-Policy",
-              "ip"           : "idee.emploi.gouv.fr/185.194.82.153",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "strict-origin"
+              "severity"     : "MEDIUM",
+              "finding"      : "--"
           }
 ,         {
               "id"           : "banner_reverseproxy",
@@ -681,10 +660,10 @@
               "id"           : "BREACH",
               "ip"           : "idee.emploi.gouv.fr/185.194.82.153",
               "port"         : "443",
-              "severity"     : "MEDIUM",
+              "severity"     : "OK",
               "cve"          : "CVE-2013-3587",
               "cwe"          : "CWE-310",
-              "finding"      : "potentially VULNERABLE, gzip HTTP compression detected  - only supplied '/' tested"
+              "finding"      : "not vulnerable, no gzip/deflate/compress/br HTTP compression  - only supplied '/' tested"
           }
 ,         {
               "id"           : "POODLE_SSL",
@@ -1112,6 +1091,6 @@
               "ip"           : "idee.emploi.gouv.fr/185.194.82.153",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "83"
+              "finding"      : "82"
           }
 ]
