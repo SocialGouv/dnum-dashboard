@@ -21,15 +21,18 @@
 ###########################################################</span>
 
  Using &quot;OpenSSL 1.0.2-bad (1.0.2k-dev)&quot; [~179 ciphers]
- on fv-az349-247:/home/testssl/bin/openssl.Linux.x86_64
+ on fv-az574-447:/home/testssl/bin/openssl.Linux.x86_64
  (built: &quot;Sep  1 14:03:44 2022&quot;, platform: &quot;linux-x86_64&quot;)
 
 
-<span style="color:white;background-color:black;"> Start 2023-02-26 03:44:52        --&gt;&gt; 185.75.143.93:443 (preventionhiver.sports.gouv.fr) &lt;&lt;--</span>
+<span style="color:white;background-color:black;"> Start 2023-03-05 03:25:15        --&gt;&gt; 185.75.143.93:443 (preventionhiver.sports.gouv.fr) &lt;&lt;--</span>
 
  rDNS (185.75.143.93):   men-tandem-lb-vip.dedie.ate.info.
  Service detected:       HTTP
 
+<span style="color:#cd00cd;"> Oops: TCP connect problem</span>
+
+<span style="color:#cd00cd;">Unable to open a socket to 185.75.143.93:443. </span> Pre-test: <span style="color:#c05600;">128 cipher limit bug</span>
 
 <span style="text-decoration:underline;font-weight:bold;"> Testing protocols </span><u>via sockets except NPN+ALPN </u>
 
@@ -43,7 +46,8 @@
 
 <span style="text-decoration:underline;font-weight:bold;"> Testing cipher categories </span>
 
-<span style="font-weight:bold;"> NULL ciphers (no encryption)                      </span><span style="color:#008817;font-weight:bold;">not offered (OK)</span>
+<span style="font-weight:bold;"> NULL ciphers (no encryption)                      </span><span style="color:#cd00cd;"> Oops: openssl s_client connect problem</span>
+<span style="color:#008817;font-weight:bold;">not offered (OK)</span>
 <span style="font-weight:bold;"> Anonymous NULL Ciphers (no authentication)        </span><span style="color:#008817;font-weight:bold;">not offered (OK)</span>
 <span style="font-weight:bold;"> Export ciphers (w/o ADH+NULL)                     </span><span style="color:#008817;font-weight:bold;">not offered (OK)</span>
 <span style="font-weight:bold;"> LOW: 64 Bit + DES, RC[2,4], MD5 (w/o export)      </span><span style="color:#008817;">not offered (OK)</span>
@@ -65,11 +69,11 @@ Hexcode  Cipher Suite Name (OpenSSL)       KeyExch.   Encryption  Bits     Ciphe
  - 
 <u>TLSv1.1</u>
  - 
-<u>TLSv1.2</u><span style="color:#cd00cd;"> Oops: openssl s_client connect problem</span>
- (no server order, thus listed by strength)
+<u>TLSv1.2</u> (no server order, thus listed by strength)
  xc030   ECDHE-RSA-AES256-GCM-SHA384       ECDH<span style="color:#008817;"> 521</span>   AESGCM      256      TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384              
  x9f     DHE-RSA-AES256-GCM-SHA384         DH<span style="color:#008817;"> 2048</span>    AESGCM      256      TLS_DHE_RSA_WITH_AES_256_GCM_SHA384                
  xc02f   ECDHE-RSA-AES128-GCM-SHA256       ECDH<span style="color:#008817;"> 521</span>   AESGCM      128      TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256              
+ x9e     DHE-RSA-AES128-GCM-SHA256         DH<span style="color:#008817;"> 2048</span>    AESGCM      128      TLS_DHE_RSA_WITH_AES_128_GCM_SHA256                
 <u>TLSv1.3</u>
  - 
 
@@ -83,4 +87,33 @@ Hexcode  Cipher Suite Name (OpenSSL)       KeyExch.   Encryption  Bits     Ciphe
                               DHE-RSA-AES256-GCM-SHA384
                               ECDHE-RSA-AES128-GCM-SHA256
                               ECDHE-RSA-AES256-GCM-SHA384 
-<span style="font-weight:bold;"> Elliptic curves offered:     </span><span style="color:#008817;">secp256k1</span> <span style="color:#008817;">prime256v1</span> 
+<span style="font-weight:bold;"> Elliptic curves offered:     </span><span style="color:#008817;">secp256k1</span> <span style="color:#008817;">prime256v1</span> <span style="color:#008817;">secp384r1</span> <span style="color:#008817;">secp521r1</span> 
+
+<span style="text-decoration:underline;font-weight:bold;"> Testing server defaults (Server Hello) </span>
+
+<span style="font-weight:bold;"> TLS extensions (standard)    </span>(none)
+<span style="font-weight:bold;"> Session Ticket RFC 5077 hint </span>no -- no lifetime advertised
+<span style="font-weight:bold;"> SSL Session ID support       </span>yes
+<span style="font-weight:bold;"> Session Resumption           </span>Tickets no, ID: yes
+<span style="font-weight:bold;"> TLS clock skew</span>               Random values, no fingerprinting possible 
+<span style="font-weight:bold;"> Client Authentication        </span>none
+
+<span style="color:#be32d0;font-weight:bold;">Client problem: No server certificate could be retrieved. Thus we can&apos;t continue with &quot;server defaults&quot;.</span>
+
+
+<span style="text-decoration:underline;font-weight:bold;"> Testing HTTP header response @ &quot;/&quot; </span>
+
+<span style="font-weight:bold;"> HTTP Status Code           </span>  301 Moved Permanently, redirecting to &quot;<a href="https://www.sports.gouv.fr/pratiquer-l-hiver-102" style="color:black;text-decoration:none;">https://www.sports.gouv.fr/pratiquer-l-hiver-102</a>&quot;
+<span style="font-weight:bold;"> HTTP clock skew              </span>0 sec from localtime
+<span style="font-weight:bold;"> Strict Transport Security    </span><span style="color:#008817;">365 days</span>=31536000 s<span style="color:#008817;">, includeSubDomains</span>
+<span style="font-weight:bold;"> Public Key Pinning           </span>--
+<span style="font-weight:bold;"> Server banner                </span>nginx
+<span style="font-weight:bold;"> Application banner           </span>--
+<span style="font-weight:bold;"> Cookie(s)                    </span>(none issued at &quot;/&quot;) -- maybe better try target URL of 30x
+<span style="font-weight:bold;"> Security headers             </span><span style="color:#c05600;">--</span>
+<span style="font-weight:bold;"> Reverse Proxy banner         </span>--
+
+
+<span style="text-decoration:underline;font-weight:bold;"> Testing vulnerabilities </span>
+
+<span style="font-weight:bold;"> Heartbleed</span> (CVE-2014-0160)                
