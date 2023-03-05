@@ -346,7 +346,7 @@
               "ip"           : "www.egalite-femmes-hommes.gouv.fr/185.194.82.206",
               "port"         : "443",
               "severity"     : "OK",
-              "finding"      : "204 >= 60 days"
+              "finding"      : "197 >= 60 days"
           }
 ,         {
               "id"           : "cert_notBefore",
@@ -489,39 +489,32 @@
               "finding"      : "intermediate certificate(s) is/are ok"
           }
 ,         {
-              "id"           : "insecure_redirect",
-              "ip"           : "www.egalite-femmes-hommes.gouv.fr/185.194.82.206",
-              "port"         : "443",
-              "severity"     : "HIGH",
-              "finding"      : "Redirect to insecure URL: 'http://www.egalite-femmes-hommes.gouv.fr/accueil'"
-          }
-,         {
               "id"           : "HTTP_status_code",
               "ip"           : "www.egalite-femmes-hommes.gouv.fr/185.194.82.206",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "301 Moved Permanently ('/')"
+              "finding"      : "200 OK ('/')"
           }
 ,         {
               "id"           : "HTTP_clock_skew",
               "ip"           : "www.egalite-femmes-hommes.gouv.fr/185.194.82.206",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "0 seconds from localtime"
+              "finding"      : "-105187 seconds from localtime"
           }
 ,         {
               "id"           : "HTTP_headerTime",
               "ip"           : "www.egalite-femmes-hommes.gouv.fr/185.194.82.206",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "1677264536"
+              "finding"      : "1677884735"
           }
 ,         {
               "id"           : "HTTP_headerAge",
               "ip"           : "www.egalite-femmes-hommes.gouv.fr/185.194.82.206",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "121874 seconds"
+              "finding"      : "49 seconds"
           }
 ,         {
               "id"           : "HSTS_time",
@@ -570,7 +563,7 @@
               "ip"           : "www.egalite-femmes-hommes.gouv.fr/185.194.82.206",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "1 at '/' (30x detected, better try target URL of 30x)"
+              "finding"      : "1 at '/'"
           }
 ,         {
               "id"           : "cookie_secure",
@@ -584,7 +577,7 @@
               "ip"           : "www.egalite-femmes-hommes.gouv.fr/185.194.82.206",
               "port"         : "443",
               "severity"     : "OK",
-              "finding"      : "All (1) at '/' marked as HttpOnly (30x detected, better try target URL of 30x)"
+              "finding"      : "All (1) at '/' marked as HttpOnly"
           }
 ,         {
               "id"           : "X-Frame-Options",
@@ -608,13 +601,6 @@
               "finding"      : "nosniff"
           }
 ,         {
-              "id"           : "Permissions-Policy",
-              "ip"           : "www.egalite-femmes-hommes.gouv.fr/185.194.82.206",
-              "port"         : "443",
-              "severity"     : "OK",
-              "finding"      : "interest-cohort=()"
-          }
-,         {
               "id"           : "X-UA-Compatible",
               "ip"           : "www.egalite-femmes-hommes.gouv.fr/185.194.82.206",
               "port"         : "443",
@@ -622,12 +608,19 @@
               "finding"      : "IE=edge"
           }
 ,         {
+              "id"           : "Cache-Control",
+              "ip"           : "www.egalite-femmes-hommes.gouv.fr/185.194.82.206",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "max-age=3600, public"
+          }
+,         {
               "id"           : "banner_reverseproxy",
               "ip"           : "www.egalite-femmes-hommes.gouv.fr/185.194.82.206",
               "port"         : "443",
               "severity"     : "INFO",
               "cwe"          : "CWE-200",
-              "finding"      : "X-Cache: HITX-Cache-Hits: 609"
+              "finding"      : "X-Cache: HITX-Cache-Hits: 3"
           }
 ,         {
               "id"           : "heartbleed",
@@ -695,10 +688,10 @@
               "id"           : "BREACH",
               "ip"           : "www.egalite-femmes-hommes.gouv.fr/185.194.82.206",
               "port"         : "443",
-              "severity"     : "OK",
+              "severity"     : "MEDIUM",
               "cve"          : "CVE-2013-3587",
               "cwe"          : "CWE-310",
-              "finding"      : "not vulnerable, no gzip/deflate/compress/br HTTP compression  - only supplied '/' tested"
+              "finding"      : "potentially VULNERABLE, gzip HTTP compression detected  - only supplied '/' tested"
           }
 ,         {
               "id"           : "POODLE_SSL",
@@ -1126,6 +1119,6 @@
               "ip"           : "www.egalite-femmes-hommes.gouv.fr/185.194.82.206",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "124"
+              "finding"      : "78"
           }
 ]
