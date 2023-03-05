@@ -346,7 +346,7 @@
               "ip"           : "onpes.gouv.fr/185.194.82.143",
               "port"         : "443",
               "severity"     : "OK",
-              "finding"      : "388 >= 60 days"
+              "finding"      : "381 >= 60 days"
           }
 ,         {
               "id"           : "cert_notBefore",
@@ -493,7 +493,7 @@
               "ip"           : "onpes.gouv.fr/185.194.82.143",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "200 OK ('/')"
+              "finding"      : "301 Moved Permanently ('/')"
           }
 ,         {
               "id"           : "HTTP_clock_skew",
@@ -507,7 +507,7 @@
               "ip"           : "onpes.gouv.fr/185.194.82.143",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "1677380889"
+              "finding"      : "1677985837"
           }
 ,         {
               "id"           : "HSTS_time",
@@ -556,7 +556,7 @@
               "ip"           : "onpes.gouv.fr/185.194.82.143",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "1 at '/'"
+              "finding"      : "1 at '/' (30x detected, better try target URL of 30x)"
           }
 ,         {
               "id"           : "cookie_secure",
@@ -570,49 +570,14 @@
               "ip"           : "onpes.gouv.fr/185.194.82.143",
               "port"         : "443",
               "severity"     : "OK",
-              "finding"      : "All (1) at '/' marked as HttpOnly"
+              "finding"      : "All (1) at '/' marked as HttpOnly (30x detected, better try target URL of 30x)"
           }
 ,         {
-              "id"           : "X-Frame-Options",
+              "id"           : "security_headers",
               "ip"           : "onpes.gouv.fr/185.194.82.143",
               "port"         : "443",
-              "severity"     : "OK",
-              "finding"      : "sameorigin"
-          }
-,         {
-              "id"           : "X-Content-Type-Options",
-              "ip"           : "onpes.gouv.fr/185.194.82.143",
-              "port"         : "443",
-              "severity"     : "OK",
-              "finding"      : "nosniff"
-          }
-,         {
-              "id"           : "X-XSS-Protection",
-              "ip"           : "onpes.gouv.fr/185.194.82.143",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "1; mode=block"
-          }
-,         {
-              "id"           : "Referrer-Policy",
-              "ip"           : "onpes.gouv.fr/185.194.82.143",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "strict-origin"
-          }
-,         {
-              "id"           : "Cache-Control",
-              "ip"           : "onpes.gouv.fr/185.194.82.143",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "no-store, no-cache, must-revalidate"
-          }
-,         {
-              "id"           : "Pragma",
-              "ip"           : "onpes.gouv.fr/185.194.82.143",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "no-cache"
+              "severity"     : "MEDIUM",
+              "finding"      : "--"
           }
 ,         {
               "id"           : "banner_reverseproxy",
@@ -688,10 +653,10 @@
               "id"           : "BREACH",
               "ip"           : "onpes.gouv.fr/185.194.82.143",
               "port"         : "443",
-              "severity"     : "MEDIUM",
+              "severity"     : "OK",
               "cve"          : "CVE-2013-3587",
               "cwe"          : "CWE-310",
-              "finding"      : "potentially VULNERABLE, gzip HTTP compression detected  - only supplied '/' tested"
+              "finding"      : "not vulnerable, no gzip/deflate/compress/br HTTP compression  - only supplied '/' tested"
           }
 ,         {
               "id"           : "POODLE_SSL",
@@ -1119,6 +1084,6 @@
               "ip"           : "onpes.gouv.fr/185.194.82.143",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "108"
+              "finding"      : "162"
           }
 ]
