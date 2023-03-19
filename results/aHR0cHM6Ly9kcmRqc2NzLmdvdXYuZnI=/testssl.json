@@ -381,7 +381,7 @@
               "ip"           : "drdjscs.gouv.fr/185.75.143.22",
               "port"         : "443",
               "severity"     : "OK",
-              "finding"      : "93 >= 60 days"
+              "finding"      : "86 >= 60 days"
           }
 ,         {
               "id"           : "cert_notBefore",
@@ -618,15 +618,100 @@
               "id"           : "HTTP_status_code",
               "ip"           : "drdjscs.gouv.fr/185.75.143.22",
               "port"         : "443",
-              "severity"     : "WARN",
-              "finding"      : "HTTP header request failed"
+              "severity"     : "INFO",
+              "finding"      : "200 OK ('/')"
           }
 ,         {
-              "id"           : "scanProblem",
+              "id"           : "HTTP_clock_skew",
               "ip"           : "drdjscs.gouv.fr/185.75.143.22",
               "port"         : "443",
-              "severity"     : "WARN",
-              "finding"      : "HTTP header was repeatedly zero."
+              "severity"     : "INFO",
+              "finding"      : "0 seconds from localtime"
+          }
+,         {
+              "id"           : "HTTP_headerTime",
+              "ip"           : "drdjscs.gouv.fr/185.75.143.22",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "1679191335"
+          }
+,         {
+              "id"           : "HSTS_time",
+              "ip"           : "drdjscs.gouv.fr/185.75.143.22",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "365 days (=31536000 seconds) > 15552000 seconds"
+          }
+,         {
+              "id"           : "HSTS_subdomains",
+              "ip"           : "drdjscs.gouv.fr/185.75.143.22",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "includes subdomains"
+          }
+,         {
+              "id"           : "HSTS_preload",
+              "ip"           : "drdjscs.gouv.fr/185.75.143.22",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "domain IS marked for preloading"
+          }
+,         {
+              "id"           : "HPKP",
+              "ip"           : "drdjscs.gouv.fr/185.75.143.22",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "No support for HTTP Public Key Pinning"
+          }
+,         {
+              "id"           : "banner_server",
+              "ip"           : "drdjscs.gouv.fr/185.75.143.22",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "nginx"
+          }
+,         {
+              "id"           : "banner_application",
+              "ip"           : "drdjscs.gouv.fr/185.75.143.22",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "No application banner found"
+          }
+,         {
+              "id"           : "cookie_count",
+              "ip"           : "drdjscs.gouv.fr/185.75.143.22",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "0 at '/'"
+          }
+,         {
+              "id"           : "X-Frame-Options",
+              "ip"           : "drdjscs.gouv.fr/185.75.143.22",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "“SAMEORIGIN”"
+          }
+,         {
+              "id"           : "X-Content-Type-Options",
+              "ip"           : "drdjscs.gouv.fr/185.75.143.22",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "nosniff"
+          }
+,         {
+              "id"           : "X-XSS-Protection",
+              "ip"           : "drdjscs.gouv.fr/185.75.143.22",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "1; mode=block"
+          }
+,         {
+              "id"           : "banner_reverseproxy",
+              "ip"           : "drdjscs.gouv.fr/185.75.143.22",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "cwe"          : "CWE-200",
+              "finding"      : "--"
           }
 ,         {
               "id"           : "heartbleed",
@@ -668,9 +753,9 @@
               "id"           : "secure_renego",
               "ip"           : "drdjscs.gouv.fr/185.75.143.22",
               "port"         : "443",
-              "severity"     : "OK",
+              "severity"     : "WARN",
               "cwe"          : "CWE-310",
-              "finding"      : "supported"
+              "finding"      : "OpenSSL handshake didn't succeed"
           }
 ,         {
               "id"           : "secure_client_renego",
@@ -855,17 +940,72 @@
               "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
           }
 ,         {
-              "id"           : "scanProblem",
+              "id"           : "clientsimulation-chrome_79_win10",
               "ip"           : "drdjscs.gouv.fr/185.75.143.22",
               "port"         : "443",
-              "severity"     : "FATAL",
-              "finding"      : "repeated TCP connect problems, giving up"
+              "severity"     : "INFO",
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
           }
 ,         {
-              "id"           : "scanTime",
+              "id"           : "clientsimulation-chrome_101_win10",
               "ip"           : "drdjscs.gouv.fr/185.75.143.22",
               "port"         : "443",
-              "severity"     : "WARN",
-              "finding"      : "Scan interrupted"
+              "severity"     : "INFO",
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
           }
-]
+,         {
+              "id"           : "clientsimulation-firefox_66_win81",
+              "ip"           : "drdjscs.gouv.fr/185.75.143.22",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+          }
+,         {
+              "id"           : "clientsimulation-firefox_100_win10",
+              "ip"           : "drdjscs.gouv.fr/185.75.143.22",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "No connection"
+          }
+,         {
+              "id"           : "clientsimulation-ie_6_xp",
+              "ip"           : "drdjscs.gouv.fr/185.75.143.22",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "No connection"
+          }
+,         {
+              "id"           : "clientsimulation-ie_8_win7",
+              "ip"           : "drdjscs.gouv.fr/185.75.143.22",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "No connection"
+          }
+,         {
+              "id"           : "clientsimulation-ie_8_xp",
+              "ip"           : "drdjscs.gouv.fr/185.75.143.22",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "No connection"
+          }
+,         {
+              "id"           : "clientsimulation-ie_11_win7",
+              "ip"           : "drdjscs.gouv.fr/185.75.143.22",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLSv1.2 DHE-RSA-AES256-GCM-SHA384"
+          }
+,         {
+              "id"           : "clientsimulation-ie_11_win81",
+              "ip"           : "drdjscs.gouv.fr/185.75.143.22",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "No connection"
+          }
+,         {
+              "id"           : "clientsimulation-ie_11_winphone81",
+              "ip"           : "drdjscs.gouv.fr/185.75.143.22",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "No connection"
+          }
