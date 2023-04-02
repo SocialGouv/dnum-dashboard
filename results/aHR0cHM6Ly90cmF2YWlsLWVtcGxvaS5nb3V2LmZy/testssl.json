@@ -1,12 +1,5 @@
 [
          {
-              "id"           : "engine_problem",
-              "ip"           : "travail-emploi.gouv.fr/",
-              "port"         : "443",
-              "severity"     : "WARN",
-              "finding"      : "No engine or GOST support via engine with your /home/testssl/bin/openssl.Linux.x86_64"
-          }
-,         {
               "id"           : "service",
               "ip"           : "travail-emploi.gouv.fr/185.194.82.27",
               "port"         : "443",
@@ -113,16 +106,16 @@
               "id"           : "cipherlist_OBSOLETED",
               "ip"           : "travail-emploi.gouv.fr/185.194.82.27",
               "port"         : "443",
-              "severity"     : "LOW",
+              "severity"     : "INFO",
               "cwe"          : "CWE-310",
-              "finding"      : "offered"
+              "finding"      : "not offered"
           }
 ,         {
               "id"           : "cipherlist_STRONG_NOFS",
               "ip"           : "travail-emploi.gouv.fr/185.194.82.27",
               "port"         : "443",
-              "severity"     : "OK",
-              "finding"      : "offered"
+              "severity"     : "INFO",
+              "finding"      : "not offered"
           }
 ,         {
               "id"           : "cipherlist_STRONG_FS",
@@ -143,7 +136,7 @@
               "ip"           : "travail-emploi.gouv.fr/185.194.82.27",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "ECDHE-RSA-AES256-GCM-SHA384"
           }
 ,         {
               "id"           : "cipher_order",
@@ -164,7 +157,7 @@
               "ip"           : "travail-emploi.gouv.fr/185.194.82.27",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "ECDHE-RSA-AES128-GCM-SHA256 ECDHE-RSA-AES128-SHA256 ECDHE-RSA-AES128-SHA ECDHE-RSA-AES256-GCM-SHA384 ECDHE-RSA-AES256-SHA384 ECDHE-RSA-AES256-SHA"
+              "finding"      : "ECDHE-RSA-AES128-GCM-SHA256 ECDHE-RSA-AES256-GCM-SHA384"
           }
 ,         {
               "id"           : "FS_ECDHE_curves",
@@ -269,7 +262,7 @@
               "ip"           : "travail-emploi.gouv.fr/185.194.82.27",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "21A64A2BBB56960ED85684AAEFA0385D"
+              "finding"      : "177791262D8E13F96020915D36054DC2"
           }
 ,         {
               "id"           : "cert_serialNumberLen",
@@ -283,21 +276,21 @@
               "ip"           : "travail-emploi.gouv.fr/185.194.82.27",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "296355B1CF03F455010BF987A76D630D59DC82DA"
+              "finding"      : "8969D0EF92058BDF3BA74C04861D43F1AA312D9C"
           }
 ,         {
               "id"           : "cert_fingerprintSHA256",
               "ip"           : "travail-emploi.gouv.fr/185.194.82.27",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "F42F1D5BA8208F19019206321F0ED29835E8239BAF1B74996A26C1C0A7927ADB"
+              "finding"      : "D75E939EE0ED2DFABE3F21CF9AA2B9F3995A3FF28DFF33C539BA897B4A72DFE1"
           }
 ,         {
               "id"           : "cert",
               "ip"           : "travail-emploi.gouv.fr/185.194.82.27",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "-----BEGIN CERTIFICATE-----\n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\n-----END CERTIFICATE-----"
+              "finding"      : "-----BEGIN CERTIFICATE-----\n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\n-----END CERTIFICATE-----"
           }
 ,         {
               "id"           : "cert_commonName",
@@ -318,7 +311,7 @@
               "ip"           : "travail-emploi.gouv.fr/185.194.82.27",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "reforme-retraite.gouv.fr www.reforme-retraite.gouv.fr www.travail-emploi.gouv.fr travail-emploi.gouv.fr"
+              "finding"      : "www.travail-emploi.gouv.fr travail-emploi.gouv.fr www.reforme-retraite.gouv.fr reforme-retraite.gouv.fr"
           }
 ,         {
               "id"           : "cert_trust",
@@ -345,22 +338,22 @@
               "id"           : "cert_expirationStatus",
               "ip"           : "travail-emploi.gouv.fr/185.194.82.27",
               "port"         : "443",
-              "severity"     : "HIGH",
-              "finding"      : "expires < 30 days (11)"
+              "severity"     : "OK",
+              "finding"      : "368 >= 60 days"
           }
 ,         {
               "id"           : "cert_notBefore",
               "ip"           : "travail-emploi.gouv.fr/185.194.82.27",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "2022-04-06 22:00"
+              "finding"      : "2023-03-26 22:00"
           }
 ,         {
               "id"           : "cert_notAfter",
               "ip"           : "travail-emploi.gouv.fr/185.194.82.27",
               "port"         : "443",
-              "severity"     : "HIGH",
-              "finding"      : "2023-04-06 21:59"
+              "severity"     : "OK",
+              "finding"      : "2024-04-04 21:59"
           }
 ,         {
               "id"           : "cert_extlifeSpan",
@@ -500,21 +493,14 @@
               "ip"           : "travail-emploi.gouv.fr/185.194.82.27",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "+29 seconds from localtime"
+              "finding"      : "-1 seconds from localtime"
           }
 ,         {
               "id"           : "HTTP_headerTime",
               "ip"           : "travail-emploi.gouv.fr/185.194.82.27",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "1679802905"
-          }
-,         {
-              "id"           : "HTTP_headerAge",
-              "ip"           : "travail-emploi.gouv.fr/185.194.82.27",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "30 seconds"
+              "finding"      : "1680406590"
           }
 ,         {
               "id"           : "HSTS_time",
@@ -563,7 +549,21 @@
               "ip"           : "travail-emploi.gouv.fr/185.194.82.27",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "0 at '/'"
+              "finding"      : "1 at '/'"
+          }
+,         {
+              "id"           : "cookie_secure",
+              "ip"           : "travail-emploi.gouv.fr/185.194.82.27",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "All (1) at '/' marked as secure"
+          }
+,         {
+              "id"           : "cookie_httponly",
+              "ip"           : "travail-emploi.gouv.fr/185.194.82.27",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "All (1) at '/' marked as HttpOnly"
           }
 ,         {
               "id"           : "X-Frame-Options",
@@ -635,7 +635,7 @@
               "severity"     : "OK",
               "cve"          : "CVE-2017-17382 CVE-2017-17427 CVE-2017-17428 CVE-2017-13098 CVE-2017-1000385 CVE-2017-13099 CVE-2016-6883 CVE-2012-5081 CVE-2017-6168",
               "cwe"          : "CWE-203",
-              "finding"      : "not vulnerable"
+              "finding"      : "not vulnerable, no RSA key transport cipher"
           }
 ,         {
               "id"           : "secure_renego",
@@ -670,7 +670,7 @@
               "severity"     : "MEDIUM",
               "cve"          : "CVE-2013-3587",
               "cwe"          : "CWE-310",
-              "finding"      : "potentially VULNERABLE, gzip deflate HTTP compression detected  - only supplied '/' tested"
+              "finding"      : "potentially VULNERABLE, gzip HTTP compression detected  - only supplied '/' tested"
           }
 ,         {
               "id"           : "POODLE_SSL",
@@ -722,7 +722,7 @@
               "severity"     : "INFO",
               "cve"          : "CVE-2016-0800 CVE-2016-0703",
               "cwe"          : "CWE-310",
-              "finding"      : "Make sure you don't use this certificate elsewhere with SSLv2 enabled services, see https://search.censys.io/search?resource=hosts&virtual_hosts=INCLUDE&q=F42F1D5BA8208F19019206321F0ED29835E8239BAF1B74996A26C1C0A7927ADB"
+              "finding"      : "Make sure you don't use this certificate elsewhere with SSLv2 enabled services, see https://search.censys.io/search?resource=hosts&virtual_hosts=INCLUDE&q=D75E939EE0ED2DFABE3F21CF9AA2B9F3995A3FF28DFF33C539BA897B4A72DFE1"
           }
 ,         {
               "id"           : "LOGJAM",
@@ -755,10 +755,10 @@
               "id"           : "LUCKY13",
               "ip"           : "travail-emploi.gouv.fr/185.194.82.27",
               "port"         : "443",
-              "severity"     : "LOW",
+              "severity"     : "OK",
               "cve"          : "CVE-2013-0169",
               "cwe"          : "CWE-310",
-              "finding"      : "potentially vulnerable, uses TLS CBC ciphers"
+              "finding"      : "not vulnerable"
           }
 ,         {
               "id"           : "winshock",
@@ -790,70 +790,70 @@
               "ip"           : "travail-emploi.gouv.fr/185.194.82.27",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
           }
 ,         {
               "id"           : "clientsimulation-android_81",
               "ip"           : "travail-emploi.gouv.fr/185.194.82.27",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
           }
 ,         {
               "id"           : "clientsimulation-android_90",
               "ip"           : "travail-emploi.gouv.fr/185.194.82.27",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
           }
 ,         {
               "id"           : "clientsimulation-android_X",
               "ip"           : "travail-emploi.gouv.fr/185.194.82.27",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
           }
 ,         {
               "id"           : "clientsimulation-android_11",
               "ip"           : "travail-emploi.gouv.fr/185.194.82.27",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
           }
 ,         {
               "id"           : "clientsimulation-android_12",
               "ip"           : "travail-emploi.gouv.fr/185.194.82.27",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
           }
 ,         {
               "id"           : "clientsimulation-chrome_79_win10",
               "ip"           : "travail-emploi.gouv.fr/185.194.82.27",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
           }
 ,         {
               "id"           : "clientsimulation-chrome_101_win10",
               "ip"           : "travail-emploi.gouv.fr/185.194.82.27",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
           }
 ,         {
               "id"           : "clientsimulation-firefox_66_win81",
               "ip"           : "travail-emploi.gouv.fr/185.194.82.27",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
           }
 ,         {
               "id"           : "clientsimulation-firefox_100_win10",
               "ip"           : "travail-emploi.gouv.fr/185.194.82.27",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
           }
 ,         {
               "id"           : "clientsimulation-ie_6_xp",
@@ -881,63 +881,63 @@
               "ip"           : "travail-emploi.gouv.fr/185.194.82.27",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-SHA"
+              "finding"      : "No connection"
           }
 ,         {
               "id"           : "clientsimulation-ie_11_win81",
               "ip"           : "travail-emploi.gouv.fr/185.194.82.27",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-SHA"
+              "finding"      : "No connection"
           }
 ,         {
               "id"           : "clientsimulation-ie_11_winphone81",
               "ip"           : "travail-emploi.gouv.fr/185.194.82.27",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-SHA"
+              "finding"      : "No connection"
           }
 ,         {
               "id"           : "clientsimulation-ie_11_win10",
               "ip"           : "travail-emploi.gouv.fr/185.194.82.27",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
           }
 ,         {
               "id"           : "clientsimulation-edge_15_win10",
               "ip"           : "travail-emploi.gouv.fr/185.194.82.27",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
           }
 ,         {
               "id"           : "clientsimulation-edge_101_win10_21h2",
               "ip"           : "travail-emploi.gouv.fr/185.194.82.27",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
           }
 ,         {
               "id"           : "clientsimulation-safari_121_ios_122",
               "ip"           : "travail-emploi.gouv.fr/185.194.82.27",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
           }
 ,         {
               "id"           : "clientsimulation-safari_130_osx_10146",
               "ip"           : "travail-emploi.gouv.fr/185.194.82.27",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
           }
 ,         {
               "id"           : "clientsimulation-safari_154_osx_1231",
               "ip"           : "travail-emploi.gouv.fr/185.194.82.27",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
           }
 ,         {
               "id"           : "clientsimulation-java_7u25",
@@ -951,77 +951,77 @@
               "ip"           : "travail-emploi.gouv.fr/185.194.82.27",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
           }
 ,         {
               "id"           : "clientsimulation-java1102",
               "ip"           : "travail-emploi.gouv.fr/185.194.82.27",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
           }
 ,         {
               "id"           : "clientsimulation-java1703",
               "ip"           : "travail-emploi.gouv.fr/185.194.82.27",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
           }
 ,         {
               "id"           : "clientsimulation-go_1178",
               "ip"           : "travail-emploi.gouv.fr/185.194.82.27",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
           }
 ,         {
               "id"           : "clientsimulation-libressl_283",
               "ip"           : "travail-emploi.gouv.fr/185.194.82.27",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
           }
 ,         {
               "id"           : "clientsimulation-openssl_102e",
               "ip"           : "travail-emploi.gouv.fr/185.194.82.27",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
           }
 ,         {
               "id"           : "clientsimulation-openssl_110l",
               "ip"           : "travail-emploi.gouv.fr/185.194.82.27",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
           }
 ,         {
               "id"           : "clientsimulation-openssl_111d",
               "ip"           : "travail-emploi.gouv.fr/185.194.82.27",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
           }
 ,         {
               "id"           : "clientsimulation-openssl_303",
               "ip"           : "travail-emploi.gouv.fr/185.194.82.27",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
           }
 ,         {
               "id"           : "clientsimulation-apple_mail_16_0",
               "ip"           : "travail-emploi.gouv.fr/185.194.82.27",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
           }
 ,         {
               "id"           : "clientsimulation-thunderbird_91_9",
               "ip"           : "travail-emploi.gouv.fr/185.194.82.27",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
           }
 ,         {
               "id"           : "rating_spec",
@@ -1098,6 +1098,6 @@
               "ip"           : "travail-emploi.gouv.fr/185.194.82.27",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "113"
+              "finding"      : "94"
           }
 ]
