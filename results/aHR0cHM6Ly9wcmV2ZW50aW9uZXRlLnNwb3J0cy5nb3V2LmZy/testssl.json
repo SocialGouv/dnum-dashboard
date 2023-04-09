@@ -3,8 +3,8 @@
               "id"           : "service",
               "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
               "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "HTTP"
+              "severity"     : "DEBUG",
+              "finding"      : "Couldn't determine service, skipping all HTTP checks"
           }
 ,         {
               "id"           : "pre_128cipher",
@@ -374,7 +374,7 @@
               "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
               "port"         : "443",
               "severity"     : "OK",
-              "finding"      : "173 >= 60 days"
+              "finding"      : "166 >= 60 days"
           }
 ,         {
               "id"           : "cert_notBefore",
@@ -517,16 +517,493 @@
               "finding"      : "intermediate certificate(s) is/are ok"
           }
 ,         {
-              "id"           : "HTTP_status_code",
+              "id"           : "heartbleed",
               "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
               "port"         : "443",
-              "severity"     : "WARN",
-              "finding"      : "HTTP header request failed"
+              "severity"     : "OK",
+              "cve"          : "CVE-2014-0160",
+              "cwe"          : "CWE-119",
+              "finding"      : "not vulnerable"
           }
 ,         {
-              "id"           : "scanProblem",
+              "id"           : "CCS",
               "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
               "port"         : "443",
-              "severity"     : "WARN",
-              "finding"      : "HTTP header was repeatedly zero."
+              "severity"     : "OK",
+              "cve"          : "CVE-2014-0224",
+              "cwe"          : "CWE-310",
+              "finding"      : "not vulnerable"
           }
+,         {
+              "id"           : "ticketbleed",
+              "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "cve"          : "CVE-2016-9244",
+              "cwe"          : "CWE-200",
+              "finding"      : "not applicable, not HTTP"
+          }
+,         {
+              "id"           : "ROBOT",
+              "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cve"          : "CVE-2017-17382 CVE-2017-17427 CVE-2017-17428 CVE-2017-13098 CVE-2017-1000385 CVE-2017-13099 CVE-2016-6883 CVE-2012-5081 CVE-2017-6168",
+              "cwe"          : "CWE-203",
+              "finding"      : "not vulnerable, no RSA key transport cipher"
+          }
+,         {
+              "id"           : "secure_renego",
+              "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cwe"          : "CWE-310",
+              "finding"      : "supported"
+          }
+,         {
+              "id"           : "secure_client_renego",
+              "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cve"          : "CVE-2011-1473",
+              "cwe"          : "CWE-310",
+              "finding"      : "not vulnerable"
+          }
+,         {
+              "id"           : "CRIME_TLS",
+              "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cve"          : "CVE-2012-4929",
+              "cwe"          : "CWE-310",
+              "finding"      : "not vulnerable (not using HTTP anyway)"
+          }
+,         {
+              "id"           : "POODLE_SSL",
+              "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cve"          : "CVE-2014-3566",
+              "cwe"          : "CWE-310",
+              "finding"      : "not vulnerable, no SSLv3"
+          }
+,         {
+              "id"           : "fallback_SCSV",
+              "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "no protocol below TLS 1.2 offered"
+          }
+,         {
+              "id"           : "SWEET32",
+              "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cve"          : "CVE-2016-2183 CVE-2016-6329",
+              "cwe"          : "CWE-327",
+              "finding"      : "not vulnerable"
+          }
+,         {
+              "id"           : "FREAK",
+              "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cve"          : "CVE-2015-0204",
+              "cwe"          : "CWE-310",
+              "finding"      : "not vulnerable"
+          }
+,         {
+              "id"           : "DROWN",
+              "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cve"          : "CVE-2016-0800 CVE-2016-0703",
+              "cwe"          : "CWE-310",
+              "finding"      : "not vulnerable on this host and port"
+          }
+,         {
+              "id"           : "DROWN_hint",
+              "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "cve"          : "CVE-2016-0800 CVE-2016-0703",
+              "cwe"          : "CWE-310",
+              "finding"      : "Make sure you don't use this certificate elsewhere with SSLv2 enabled services, see https://search.censys.io/search?resource=hosts&virtual_hosts=INCLUDE&q=BF60ECC1F934C30084CE7B55A05E1DC577D275BB36E9960E51F36930D60CA67B"
+          }
+,         {
+              "id"           : "LOGJAM",
+              "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cve"          : "CVE-2015-4000",
+              "cwe"          : "CWE-310",
+              "finding"      : "not vulnerable, no DH EXPORT ciphers,"
+          }
+,         {
+              "id"           : "LOGJAM-common_primes",
+              "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cve"          : "CVE-2015-4000",
+              "cwe"          : "CWE-310",
+              "finding"      : "--"
+          }
+,         {
+              "id"           : "BEAST",
+              "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cve"          : "CVE-2011-3389",
+              "cwe"          : "CWE-20",
+              "finding"      : "not vulnerable, no SSL3 or TLS1"
+          }
+,         {
+              "id"           : "LUCKY13",
+              "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cve"          : "CVE-2013-0169",
+              "cwe"          : "CWE-310",
+              "finding"      : "not vulnerable"
+          }
+,         {
+              "id"           : "winshock",
+              "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cve"          : "CVE-2014-6321",
+              "cwe"          : "CWE-94",
+              "finding"      : "not vulnerable"
+          }
+,         {
+              "id"           : "RC4",
+              "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cve"          : "CVE-2013-2566 CVE-2015-2808",
+              "cwe"          : "CWE-310",
+              "finding"      : "not vulnerable"
+          }
+,         {
+              "id"           : "clientsimulation-android_60",
+              "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "No connection"
+          }
+,         {
+              "id"           : "clientsimulation-android_70",
+              "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+          }
+,         {
+              "id"           : "clientsimulation-android_81",
+              "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+          }
+,         {
+              "id"           : "clientsimulation-android_90",
+              "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+          }
+,         {
+              "id"           : "clientsimulation-android_X",
+              "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+          }
+,         {
+              "id"           : "clientsimulation-android_11",
+              "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+          }
+,         {
+              "id"           : "clientsimulation-android_12",
+              "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+          }
+,         {
+              "id"           : "clientsimulation-chrome_79_win10",
+              "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+          }
+,         {
+              "id"           : "clientsimulation-chrome_101_win10",
+              "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+          }
+,         {
+              "id"           : "clientsimulation-firefox_66_win81",
+              "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+          }
+,         {
+              "id"           : "clientsimulation-firefox_100_win10",
+              "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+          }
+,         {
+              "id"           : "clientsimulation-ie_6_xp",
+              "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "No connection"
+          }
+,         {
+              "id"           : "clientsimulation-ie_8_win7",
+              "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "No connection"
+          }
+,         {
+              "id"           : "clientsimulation-ie_8_xp",
+              "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "No connection"
+          }
+,         {
+              "id"           : "clientsimulation-ie_11_win7",
+              "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLSv1.2 DHE-RSA-AES256-GCM-SHA384"
+          }
+,         {
+              "id"           : "clientsimulation-ie_11_win81",
+              "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "No connection"
+          }
+,         {
+              "id"           : "clientsimulation-ie_11_winphone81",
+              "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "No connection"
+          }
+,         {
+              "id"           : "clientsimulation-ie_11_win10",
+              "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
+          }
+,         {
+              "id"           : "clientsimulation-edge_15_win10",
+              "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
+          }
+,         {
+              "id"           : "clientsimulation-edge_101_win10_21h2",
+              "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+          }
+,         {
+              "id"           : "clientsimulation-safari_121_ios_122",
+              "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "No connection"
+          }
+,         {
+              "id"           : "clientsimulation-safari_130_osx_10146",
+              "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "No connection"
+          }
+,         {
+              "id"           : "clientsimulation-safari_154_osx_1231",
+              "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
+          }
+,         {
+              "id"           : "clientsimulation-java_7u25",
+              "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "No connection"
+          }
+,         {
+              "id"           : "clientsimulation-java_8u161",
+              "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
+          }
+,         {
+              "id"           : "clientsimulation-java1102",
+              "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
+          }
+,         {
+              "id"           : "clientsimulation-java1703",
+              "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
+          }
+,         {
+              "id"           : "clientsimulation-go_1178",
+              "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+          }
+,         {
+              "id"           : "clientsimulation-libressl_283",
+              "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
+          }
+,         {
+              "id"           : "clientsimulation-openssl_102e",
+              "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
+          }
+,         {
+              "id"           : "clientsimulation-openssl_110l",
+              "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
+          }
+,         {
+              "id"           : "clientsimulation-openssl_111d",
+              "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
+          }
+,         {
+              "id"           : "clientsimulation-openssl_303",
+              "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
+          }
+,         {
+              "id"           : "clientsimulation-apple_mail_16_0",
+              "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
+          }
+,         {
+              "id"           : "clientsimulation-thunderbird_91_9",
+              "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+          }
+,         {
+              "id"           : "rating_spec",
+              "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "SSL Labs's 'SSL Server Rating Guide' (version 2009q from 2020-01-30)"
+          }
+,         {
+              "id"           : "rating_doc",
+              "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "https://github.com/ssllabs/research/wiki/SSL-Server-Rating-Guide"
+          }
+,         {
+              "id"           : "protocol_support_score",
+              "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "100"
+          }
+,         {
+              "id"           : "protocol_support_score_weighted",
+              "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "30"
+          }
+,         {
+              "id"           : "key_exchange_score",
+              "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "90"
+          }
+,         {
+              "id"           : "key_exchange_score_weighted",
+              "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "27"
+          }
+,         {
+              "id"           : "cipher_strength_score",
+              "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "90"
+          }
+,         {
+              "id"           : "cipher_strength_score_weighted",
+              "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "36"
+          }
+,         {
+              "id"           : "final_score",
+              "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "93"
+          }
+,         {
+              "id"           : "overall_grade",
+              "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "A+"
+          }
+,         {
+              "id"           : "scanTime",
+              "ip"           : "preventionete.sports.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "287"
+          }
+]
