@@ -146,11 +146,32 @@
               "finding"      : "TLSv1.2   xc030   ECDHE-RSA-AES256-GCM-SHA384       ECDH 521   AESGCM      256      TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384"
           }
 ,         {
+              "id"           : "cipher-tls1_2_x9f",
+              "ip"           : "jeunes.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "TLSv1.2   x9f     DHE-RSA-AES256-GCM-SHA384         DH 2048    AESGCM      256      TLS_DHE_RSA_WITH_AES_256_GCM_SHA384"
+          }
+,         {
+              "id"           : "cipher-tls1_2_xc02f",
+              "ip"           : "jeunes.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "TLSv1.2   xc02f   ECDHE-RSA-AES128-GCM-SHA256       ECDH 521   AESGCM      128      TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"
+          }
+,         {
+              "id"           : "cipher-tls1_2_x9e",
+              "ip"           : "jeunes.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "TLSv1.2   x9e     DHE-RSA-AES128-GCM-SHA256         DH 2048    AESGCM      128      TLS_DHE_RSA_WITH_AES_128_GCM_SHA256"
+          }
+,         {
               "id"           : "supportedciphers_TLSv1_2",
               "ip"           : "jeunes.gouv.fr/185.75.143.93",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "ECDHE-RSA-AES256-GCM-SHA384"
+              "finding"      : "ECDHE-RSA-AES256-GCM-SHA384 DHE-RSA-AES256-GCM-SHA384 ECDHE-RSA-AES128-GCM-SHA256 DHE-RSA-AES128-GCM-SHA256"
           }
 ,         {
               "id"           : "cipher_order",
@@ -163,22 +184,8 @@
               "id"           : "FS",
               "ip"           : "jeunes.gouv.fr/185.75.143.93",
               "port"         : "443",
-              "severity"     : "OK",
-              "finding"      : "offered"
-          }
-,         {
-              "id"           : "FS_ciphers",
-              "ip"           : "jeunes.gouv.fr/185.75.143.93",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "DHE-RSA-AES128-GCM-SHA256 DHE-RSA-AES256-GCM-SHA384 ECDHE-RSA-AES128-GCM-SHA256 ECDHE-RSA-AES256-GCM-SHA384"
-          }
-,         {
-              "id"           : "FS_ECDHE_curves",
-              "ip"           : "jeunes.gouv.fr/185.75.143.93",
-              "port"         : "443",
-              "severity"     : "OK",
-              "finding"      : "secp256k1 prime256v1 secp384r1 secp521r1"
+              "severity"     : "MEDIUM",
+              "finding"      : "No ciphers supporting Forward Secrecy offered"
           }
 ,         {
               "id"           : "TLS_extensions",
@@ -353,7 +360,7 @@
               "ip"           : "jeunes.gouv.fr/185.75.143.93",
               "port"         : "443",
               "severity"     : "OK",
-              "finding"      : "318 >= 60 days"
+              "finding"      : "311 >= 60 days"
           }
 ,         {
               "id"           : "cert_notBefore",
@@ -514,7 +521,7 @@
               "ip"           : "jeunes.gouv.fr/185.75.143.93",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "1680403458"
+              "finding"      : "1681008455"
           }
 ,         {
               "id"           : "HSTS_time",
@@ -597,4 +604,73 @@
               "cve"          : "CVE-2016-9244",
               "cwe"          : "CWE-200",
               "finding"      : "no session ticket extension"
+          }
+,         {
+              "id"           : "ROBOT",
+              "ip"           : "jeunes.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cve"          : "CVE-2017-17382 CVE-2017-17427 CVE-2017-17428 CVE-2017-13098 CVE-2017-1000385 CVE-2017-13099 CVE-2016-6883 CVE-2012-5081 CVE-2017-6168",
+              "cwe"          : "CWE-203",
+              "finding"      : "not vulnerable, no RSA key transport cipher"
+          }
+,         {
+              "id"           : "secure_renego",
+              "ip"           : "jeunes.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cwe"          : "CWE-310",
+              "finding"      : "supported"
+          }
+,         {
+              "id"           : "secure_client_renego",
+              "ip"           : "jeunes.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cve"          : "CVE-2011-1473",
+              "cwe"          : "CWE-310",
+              "finding"      : "not vulnerable"
+          }
+,         {
+              "id"           : "CRIME_TLS",
+              "ip"           : "jeunes.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "WARN",
+              "cve"          : "CVE-2012-4929",
+              "cwe"          : "CWE-310",
+              "finding"      : "Check failed, couldn't connect"
+          }
+,         {
+              "id"           : "BREACH",
+              "ip"           : "jeunes.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cve"          : "CVE-2013-3587",
+              "cwe"          : "CWE-310",
+              "finding"      : "not vulnerable, no gzip/deflate/compress/br HTTP compression  - only supplied '/' tested"
+          }
+,         {
+              "id"           : "POODLE_SSL",
+              "ip"           : "jeunes.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cve"          : "CVE-2014-3566",
+              "cwe"          : "CWE-310",
+              "finding"      : "not vulnerable, no SSLv3"
+          }
+,         {
+              "id"           : "fallback_SCSV",
+              "ip"           : "jeunes.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "no protocol below TLS 1.2 offered"
+          }
+,         {
+              "id"           : "SWEET32",
+              "ip"           : "jeunes.gouv.fr/185.75.143.93",
+              "port"         : "443",
+              "severity"     : "OK",
+              "cve"          : "CVE-2016-2183 CVE-2016-6329",
+              "cwe"          : "CWE-327",
+              "finding"      : "not vulnerable"
           }
