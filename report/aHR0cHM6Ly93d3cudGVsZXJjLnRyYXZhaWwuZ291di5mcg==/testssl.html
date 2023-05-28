@@ -21,13 +21,13 @@
 ###########################################################</span>
 
  Using &quot;OpenSSL 1.0.2-bad (1.0.2k-dev)&quot; [~183 ciphers]
- on fv-az255-268:/home/testssl/bin/openssl.Linux.x86_64
+ on fv-az397-676:/home/testssl/bin/openssl.Linux.x86_64
  (built: &quot;Sep  1 14:03:44 2022&quot;, platform: &quot;linux-x86_64&quot;)
 
 
-<span style="color:white;background-color:black;"> Start 2023-05-21 03:56:12                --&gt;&gt; 164.131.132.45:443 (www.telerc.travail.gouv.fr) &lt;&lt;--</span>
+<span style="color:white;background-color:black;"> Start 2023-05-28 04:09:21                --&gt;&gt; 164.131.124.212:443 (www.telerc.travail.gouv.fr) &lt;&lt;--</span>
 
- rDNS (164.131.132.45):  --
+ rDNS (164.131.124.212): --
  Service detected:       HTTP
 
 
@@ -35,8 +35,8 @@
 
 <span style="font-weight:bold;"> SSLv2      </span><span style="color:#008817;font-weight:bold;">not offered (OK)</span>
 <span style="font-weight:bold;"> SSLv3      </span><span style="color:#008817;font-weight:bold;">not offered (OK)</span>
-<span style="font-weight:bold;"> TLS 1      </span><span style="color:#a86437;">offered</span> (deprecated)
-<span style="font-weight:bold;"> TLS 1.1    </span><span style="color:#a86437;">offered</span> (deprecated)
+<span style="font-weight:bold;"> TLS 1      </span>not offered
+<span style="font-weight:bold;"> TLS 1.1    </span>not offered
 <span style="font-weight:bold;"> TLS 1.2    </span><span style="color:#008817;font-weight:bold;">offered (OK)</span>
 <span style="font-weight:bold;"> TLS 1.3    </span>not offered and downgraded to a weaker protocol
 <span style="font-weight:bold;"> ALPN/HTTP2 </span>not offered
@@ -49,7 +49,7 @@
 <span style="font-weight:bold;"> LOW: 64 Bit + DES, RC[2,4], MD5 (w/o export)      </span><span style="color:#008817;">not offered (OK)</span>
 <span style="font-weight:bold;"> Triple DES Ciphers / IDEA                         </span>not offered
 <span style="font-weight:bold;"> Obsoleted CBC ciphers (AES, ARIA etc.)            </span><span style="color:#a86437;">offered</span>
-<span style="font-weight:bold;"> Strong encryption (AEAD ciphers) with no FS       </span><span style="color:#008817;">offered (OK)</span>
+<span style="font-weight:bold;"> Strong encryption (AEAD ciphers) with no FS       </span>not offered
 <span style="font-weight:bold;"> Forward Secrecy strong encryption (AEAD ciphers)  </span><span style="color:#008817;font-weight:bold;">offered (OK)</span>
 
 
@@ -61,8 +61,10 @@ Hexcode  Cipher Suite Name (OpenSSL)       KeyExch.   Encryption  Bits     Ciphe
  - 
 <u>SSLv3</u>
  - 
-<u>TLSv1</u> (server order)
-<u>TLSv1.1</u> (server order)
+<u>TLSv1</u>
+ - 
+<u>TLSv1.1</u>
+ - 
 <u>TLSv1.2</u> (server order)
 <u>TLSv1.3</u>
  - 
@@ -73,14 +75,8 @@ Hexcode  Cipher Suite Name (OpenSSL)       KeyExch.   Encryption  Bits     Ciphe
 <span style="text-decoration:underline;font-weight:bold;"> Testing robust forward secrecy (FS)</span><u> -- omitting Null Authentication/Encryption, 3DES, RC4 </u>
 
 
-<span style="color:#008817;"> FS is offered (OK) </span>          DHE-RSA-AES128-GCM-SHA256 DHE-RSA-AES128-SHA256
-                              DHE-RSA-AES128-SHA DHE-RSA-AES256-GCM-SHA384
-                              DHE-RSA-AES256-SHA256 DHE-RSA-AES256-SHA
-                              DHE-RSA-CAMELLIA128-SHA DHE-RSA-CAMELLIA256-SHA
-                              ECDHE-RSA-AES128-GCM-SHA256
-                              ECDHE-RSA-AES128-SHA256 ECDHE-RSA-AES128-SHA
-                              ECDHE-RSA-AES256-GCM-SHA384
-                              ECDHE-RSA-AES256-SHA384 ECDHE-RSA-AES256-SHA 
+<span style="color:#008817;"> FS is offered (OK) </span>          ECDHE-RSA-AES128-GCM-SHA256 ECDHE-RSA-AES128-SHA
+                              ECDHE-RSA-AES256-GCM-SHA384 
 <span style="font-weight:bold;"> Elliptic curves offered:     </span><span style="color:#008817;">prime256v1</span> <span style="color:#008817;">secp384r1</span> 
 
 <span style="text-decoration:underline;font-weight:bold;"> Testing server defaults (Server Hello) </span>
@@ -104,10 +100,9 @@ Hexcode  Cipher Suite Name (OpenSSL)       KeyExch.   Encryption  Bits     Ciphe
 <span style="font-weight:bold;"> subjectAltName (SAN)         </span><i>www.telerc.travail.gouv.fr
                               www.telerc2.travail.gouv.fr </i>
 <span style="font-weight:bold;"> Trust (hostname)             </span><span style="color:#008817;">Ok via SAN and CN</span> (same w/o SNI)
-<span style="font-weight:bold;"> Chain of trust</span>               <span style="color:#e52207;font-weight:bold;">NOT ok</span><span style="color:#e52207;font-weight:bold;">:</span><span style="color:#e52207;"> Java </span>(chain incomplete)
-<span style="color:#008817;">OK: Mozilla Microsoft Linux Apple </span>
+<span style="font-weight:bold;"> Chain of trust</span>               <span style="color:#e52207;font-weight:bold;">NOT ok</span> (chain incomplete)
 <span style="font-weight:bold;"> EV cert</span> (experimental)       no 
-<span style="font-weight:bold;"> Certificate Validity (UTC)   </span><span style="color:#008817;">78 &gt;= 60 days</span> (2022-08-07 22:00 --&gt; 2023-08-07 21:59)
+<span style="font-weight:bold;"> Certificate Validity (UTC)   </span><span style="color:#008817;">71 &gt;= 60 days</span> (2022-08-07 22:00 --&gt; 2023-08-07 21:59)
 <span style="font-weight:bold;"> ETS/&quot;eTLS&quot;</span>, visibility info  not present
 <span style="font-weight:bold;"> Certificate Revocation List  </span>http://crl.certigna.fr/servicesca.crl
                               http://crl.dhimyotis.com/servicesca.crl
@@ -117,9 +112,8 @@ Hexcode  Cipher Suite Name (OpenSSL)       KeyExch.   Encryption  Bits     Ciphe
 <span style="font-weight:bold;"> OCSP must staple extension   </span>--
 <span style="font-weight:bold;"> DNS CAA RR</span> (experimental)    <span style="color:#a86437;">not offered</span>
 <span style="font-weight:bold;"> Certificate Transparency     </span><span style="color:#008817;">yes</span> (certificate extension)
-<span style="font-weight:bold;"> Certificates provided</span>        2
+<span style="font-weight:bold;"> Certificates provided</span>        1
 <span style="font-weight:bold;"> Issuer                       </span><i>Certigna Services CA</i> (<i>DHIMYOTIS</i> from <i>FR</i>)
-<span style="font-weight:bold;"> Intermediate cert validity   </span>#1: <span style="color:#008817;">ok &gt; 40 days</span> (2025-11-22 11:33). <i>Certigna Services CA</i> &lt;-- <i>Certigna</i>
 <span style="font-weight:bold;"> Intermediate Bad OCSP</span> (exp.) <span style="color:#008817;">Ok</span>
 
 
@@ -131,7 +125,8 @@ Hexcode  Cipher Suite Name (OpenSSL)       KeyExch.   Encryption  Bits     Ciphe
 <span style="font-weight:bold;"> Public Key Pinning           </span>--
 <span style="font-weight:bold;"> Server banner                </span>(no &quot;Server&quot; line in header, interesting!)
 <span style="font-weight:bold;"> Application banner           </span>--
-<span style="font-weight:bold;"> Cookie(s)                    </span>1 issued: <span style="color:#c05600;">NOT</span> secure, <span style="color:#c05600;">NOT</span> HttpOnly
+<span style="font-weight:bold;"> Cookie(s)                    </span>2 issued: <span style="color:#008817;">1/2</span> secure, <span style="color:#008817;">1/2</span> HttpOnly
+                              F5 cookie (default IPv4 pool member): <i>BIGipServerkQY2RpnJZK860UqoR6UVag </i><span style="color:#c05600;">10.200.106.170:443</span>
 <span style="font-weight:bold;"> Security headers             </span><span style="color:#c05600;">--</span>
 <span style="font-weight:bold;"> Reverse Proxy banner         </span>--
 
@@ -141,30 +136,20 @@ Hexcode  Cipher Suite Name (OpenSSL)       KeyExch.   Encryption  Bits     Ciphe
 <span style="font-weight:bold;"> Heartbleed</span> (CVE-2014-0160)                <span style="color:#008817;font-weight:bold;">not vulnerable (OK)</span>, no heartbeat extension
 <span style="font-weight:bold;"> CCS</span> (CVE-2014-0224)                       <span style="color:#008817;font-weight:bold;">not vulnerable (OK)</span>
 <span style="font-weight:bold;"> Ticketbleed</span> (CVE-2016-9244), experiment.  <span style="color:#008817;font-weight:bold;">not vulnerable (OK)</span>, no session ticket extension
-<span style="font-weight:bold;"> ROBOT                                     </span><span style="color:#008817;font-weight:bold;">not vulnerable (OK)</span>
+<span style="font-weight:bold;"> ROBOT                                     </span><span style="color:#008817;font-weight:bold;">Server does not support any cipher suites that use RSA key transport</span>
 <span style="font-weight:bold;"> Secure Renegotiation (RFC 5746)           </span><span style="color:#008817;font-weight:bold;">supported (OK)</span>
 <span style="font-weight:bold;"> Secure Client-Initiated Renegotiation     </span><span style="color:#008817;">not vulnerable (OK)</span> -- mitigated (disconnect within 6)
 <span style="font-weight:bold;"> CRIME, TLS </span>(CVE-2012-4929)                <span style="color:#008817;">not vulnerable (OK)</span>
 <span style="font-weight:bold;"> BREACH</span> (CVE-2013-3587)                    <span style="color:#008817;">no gzip/deflate/compress/br HTTP compression (OK) </span> - only supplied &quot;/&quot; tested
 <span style="font-weight:bold;"> POODLE, SSL</span> (CVE-2014-3566)               <span style="color:#008817;font-weight:bold;">not vulnerable (OK)</span>, no SSLv3 support
-<span style="font-weight:bold;"> TLS_FALLBACK_SCSV</span> (RFC 7507)              <span style="color:#008817;">Probably OK. </span><span style="color:#c05600;">But received non-RFC-compliant &quot;handshake failure&quot; instead of &quot;inappropriate fallback&quot;</span>
+<span style="font-weight:bold;"> TLS_FALLBACK_SCSV</span> (RFC 7507)              <span style="color:#008817;">No fallback possible (OK)</span>, no protocol below TLS 1.2 offered
 <span style="font-weight:bold;"> SWEET32</span> (CVE-2016-2183, CVE-2016-6329)    <span style="color:#008817;font-weight:bold;">not vulnerable (OK)</span>
 <span style="font-weight:bold;"> FREAK</span> (CVE-2015-0204)                     <span style="color:#008817;font-weight:bold;">not vulnerable (OK)</span>
 <span style="font-weight:bold;"> DROWN</span> (CVE-2016-0800, CVE-2016-0703)      <span style="color:#008817;font-weight:bold;">not vulnerable on this host and port (OK)</span>
                                            make sure you don&apos;t use this certificate elsewhere with SSLv2 enabled services, see
                                            <a href="https://search.censys.io/search?resource=hosts&virtual_hosts=INCLUDE&q=D30B064843ED2BDA9F3FE129389C089A0ED8B504BDC37DAD5C0A909187D5D9B1" style="color:black;text-decoration:none;">https://search.censys.io/search?resource=hosts&virtual_hosts=INCLUDE&q=D30B064843ED2BDA9F3FE129389C089A0ED8B504BDC37DAD5C0A909187D5D9B1</a>
-<span style="font-weight:bold;"> LOGJAM</span> (CVE-2015-4000), experimental      <span style="color:#008817;">not vulnerable (OK):</span> no DH EXPORT ciphers
-                                           But: <i>Unknown DH group</i> (<span style="color:#c05600;">1024 bits</span>)
-<span style="font-weight:bold;"> BEAST</span> (CVE-2011-3389)                     TLS1: <span style="color:#a86437;">ECDHE-RSA-AES128-SHA
-                                                 ECDHE-RSA-AES256-SHA
-                                                 AES128-SHA AES256-SHA
-                                                 CAMELLIA128-SHA
-                                                 CAMELLIA256-SHA
-                                                 DHE-RSA-AES128-SHA
-                                                 DHE-RSA-AES256-SHA
-                                                 DHE-RSA-CAMELLIA128-SHA
-                                                 DHE-RSA-CAMELLIA256-SHA </span>
-                                           <span style="color:#a86437;">VULNERABLE</span> -- but also supports higher protocols  TLSv1.1 TLSv1.2 (likely mitigated)
+<span style="font-weight:bold;"> LOGJAM</span> (CVE-2015-4000), experimental      <span style="color:#008817;">not vulnerable (OK):</span> no DH EXPORT ciphers, no DH key detected with &lt;= TLS 1.2
+<span style="font-weight:bold;"> BEAST</span> (CVE-2011-3389)                     <span style="color:#008817;">not vulnerable (OK)</span>, no SSL3 or TLS1
 <span style="font-weight:bold;"> LUCKY13</span> (CVE-2013-0169), experimental     potentially <span style="color:#a86437;">VULNERABLE</span>, uses cipher block chaining (CBC) ciphers with TLS. Check patches
 <span style="font-weight:bold;"> Winshock</span> (CVE-2014-6321), experimental    <span style="color:#008817;font-weight:bold;">not vulnerable (OK)</span> - CAMELLIA or ECDHE_RSA GCM ciphers found
 <span style="font-weight:bold;"> RC4</span> (CVE-2013-2566, CVE-2015-2808)        <span style="color:#008817;">no RC4 ciphers detected (OK)</span>
@@ -186,7 +171,7 @@ Hexcode  Cipher Suite Name (OpenSSL)       KeyExch.   Encryption  Bits     Ciphe
  Firefox 66 (Win 8.1/10)      TLSv1.2   ECDHE-RSA-AES128-GCM-SHA256       <span style="color:#008817;">256 bit ECDH (P-256)</span>
  Firefox 100 (Win 10)         TLSv1.2   ECDHE-RSA-AES128-GCM-SHA256       <span style="color:#008817;">256 bit ECDH (P-256)</span>
  IE 6 XP                      No connection
- IE 8 Win 7                   TLSv1.0   ECDHE-RSA-AES128-SHA              <span style="color:#008817;">256 bit ECDH (P-256)</span>
+ IE 8 Win 7                   No connection
  IE 8 XP                      No connection
  IE 11 Win 7                  TLSv1.2   ECDHE-RSA-AES128-SHA              <span style="color:#008817;">256 bit ECDH (P-256)</span>
  IE 11 Win 8.1                TLSv1.2   ECDHE-RSA-AES128-SHA              <span style="color:#008817;">256 bit ECDH (P-256)</span>
@@ -197,7 +182,7 @@ Hexcode  Cipher Suite Name (OpenSSL)       KeyExch.   Encryption  Bits     Ciphe
  Safari 12.1 (iOS 12.2)       TLSv1.2   ECDHE-RSA-AES128-GCM-SHA256       <span style="color:#008817;">256 bit ECDH (P-256)</span>
  Safari 13.0 (macOS 10.14.6)  TLSv1.2   ECDHE-RSA-AES128-GCM-SHA256       <span style="color:#008817;">256 bit ECDH (P-256)</span>
  Safari 15.4 (macOS 12.3.1)   TLSv1.2   ECDHE-RSA-AES128-GCM-SHA256       <span style="color:#008817;">256 bit ECDH (P-256)</span>
- Java 7u25                    TLSv1.0   ECDHE-RSA-AES128-SHA              <span style="color:#008817;">256 bit ECDH (P-256)</span>
+ Java 7u25                    No connection
  Java 8u161                   TLSv1.2   ECDHE-RSA-AES128-GCM-SHA256       <span style="color:#008817;">256 bit ECDH (P-256)</span>
  Java 11.0.2 (OpenJDK)        TLSv1.2   ECDHE-RSA-AES128-GCM-SHA256       <span style="color:#008817;">256 bit ECDH (P-256)</span>
  Java 17.0.3 (OpenJDK)        TLSv1.2   ECDHE-RSA-AES128-GCM-SHA256       <span style="color:#008817;">256 bit ECDH (P-256)</span>
@@ -215,16 +200,14 @@ Hexcode  Cipher Suite Name (OpenSSL)       KeyExch.   Encryption  Bits     Ciphe
 
 <span style="font-weight:bold;"> Rating specs</span> (not complete)  SSL Labs&apos;s &apos;SSL Server Rating Guide&apos; (version 2009q from 2020-01-30)
 <span style="font-weight:bold;"> Specification documentation  </span><a href="https://github.com/ssllabs/research/wiki/SSL-Server-Rating-Guide" style="color:black;text-decoration:none;">https://github.com/ssllabs/research/wiki/SSL-Server-Rating-Guide</a>
-<span style="font-weight:bold;"> Protocol Support </span>(weighted)  95 (28)
-<span style="font-weight:bold;"> Key Exchange </span>    (weighted)  80 (24)
-<span style="font-weight:bold;"> Cipher Strength </span> (weighted)  60 (24)
-<span style="font-weight:bold;"> Final Score                  </span>76
-<span style="font-weight:bold;"> Overall Grade                </span><span style="color:#c05600;">B</span>
-<span style="font-weight:bold;"> Grade cap reasons            </span>Grade capped to B. Using a weak public key and/or ephemeral key
-                              Grade capped to B. TLS 1.1 offered
-                              Grade capped to B. TLS 1.0 offered
+<span style="font-weight:bold;"> Protocol Support</span> (weighted)  0 (0)
+<span style="font-weight:bold;"> Key Exchange</span>     (weighted)  0 (0)
+<span style="font-weight:bold;"> Cipher Strength</span>  (weighted)  0 (0)
+<span style="font-weight:bold;"> Final Score                  </span>0
+<span style="font-weight:bold;"> Overall Grade                </span><span style="color:#e52207;font-weight:bold;">T</span>
+<span style="font-weight:bold;"> Grade cap reasons            </span>Grade capped to T. Issues with the chain of trust (chain incomplete)
 
-<span style="color:white;background-color:black;"> Done 2023-05-21 03:58:48 [ 158s] --&gt;&gt; 164.131.132.45:443 (www.telerc.travail.gouv.fr) &lt;&lt;--</span>
+<span style="color:white;background-color:black;"> Done 2023-05-28 04:10:43 [  84s] --&gt;&gt; 164.131.124.212:443 (www.telerc.travail.gouv.fr) &lt;&lt;--</span>
 
 
 </pre>
