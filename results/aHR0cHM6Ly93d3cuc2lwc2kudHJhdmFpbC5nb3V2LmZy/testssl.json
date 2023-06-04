@@ -31,15 +31,15 @@
               "id"           : "TLS1",
               "ip"           : "www.sipsi.travail.gouv.fr/164.131.131.49",
               "port"         : "443",
-              "severity"     : "LOW",
-              "finding"      : "offered (deprecated)"
+              "severity"     : "INFO",
+              "finding"      : "not offered"
           }
 ,         {
               "id"           : "TLS1_1",
               "ip"           : "www.sipsi.travail.gouv.fr/164.131.131.49",
               "port"         : "443",
-              "severity"     : "LOW",
-              "finding"      : "offered (deprecated)"
+              "severity"     : "INFO",
+              "finding"      : "not offered"
           }
 ,         {
               "id"           : "TLS1_2",
@@ -123,34 +123,6 @@
               "port"         : "443",
               "severity"     : "OK",
               "finding"      : "offered"
-          }
-,         {
-              "id"           : "cipher_order-tls1",
-              "ip"           : "www.sipsi.travail.gouv.fr/164.131.131.49",
-              "port"         : "443",
-              "severity"     : "OK",
-              "finding"      : "server"
-          }
-,         {
-              "id"           : "cipherorder_TLSv1",
-              "ip"           : "www.sipsi.travail.gouv.fr/164.131.131.49",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "DHE-RSA-AES256-SHA"
-          }
-,         {
-              "id"           : "cipher_order-tls1_1",
-              "ip"           : "www.sipsi.travail.gouv.fr/164.131.131.49",
-              "port"         : "443",
-              "severity"     : "OK",
-              "finding"      : "server"
-          }
-,         {
-              "id"           : "cipherorder_TLSv1_1",
-              "ip"           : "www.sipsi.travail.gouv.fr/164.131.131.49",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "DHE-RSA-AES256-SHA"
           }
 ,         {
               "id"           : "cipher_order-tls1_2",
@@ -367,7 +339,7 @@
               "ip"           : "www.sipsi.travail.gouv.fr/164.131.131.49",
               "port"         : "443",
               "severity"     : "OK",
-              "finding"      : "184 >= 60 days"
+              "finding"      : "177 >= 60 days"
           }
 ,         {
               "id"           : "cert_notBefore",
@@ -528,7 +500,7 @@
               "ip"           : "www.sipsi.travail.gouv.fr/164.131.131.49",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "1685246957"
+              "finding"      : "1685853019"
           }
 ,         {
               "id"           : "HSTS_time",
@@ -721,14 +693,7 @@
               "ip"           : "www.sipsi.travail.gouv.fr/164.131.131.49",
               "port"         : "443",
               "severity"     : "OK",
-              "finding"      : "Probably oK"
-          }
-,         {
-              "id"           : "fallback_SCSV",
-              "ip"           : "www.sipsi.travail.gouv.fr/164.131.131.49",
-              "port"         : "443",
-              "severity"     : "MEDIUM",
-              "finding"      : "received non-RFC-compliant 'handshake failure' instead of 'inappropriate fallback'"
+              "finding"      : "no protocol below TLS 1.2 offered"
           }
 ,         {
               "id"           : "SWEET32",
@@ -785,22 +750,13 @@
               "finding"      : "no DH EXPORT ciphers, no common prime but Unknown DH group has only 1024 bits,"
           }
 ,         {
-              "id"           : "BEAST_CBC_TLS1",
-              "ip"           : "www.sipsi.travail.gouv.fr/164.131.131.49",
-              "port"         : "443",
-              "severity"     : "MEDIUM",
-              "cve"          : "CVE-2011-3389",
-              "cwe"          : "CWE-20",
-              "finding"      : "DHE-RSA-AES256-SHA DHE-RSA-AES128-SHA EDH-RSA-DES-CBC3-SHA AES256-SHA AES128-SHA ECDHE-RSA-AES256-SHA ECDHE-RSA-AES128-SHA ECDHE-RSA-DES-CBC3-SHA"
-          }
-,         {
               "id"           : "BEAST",
               "ip"           : "www.sipsi.travail.gouv.fr/164.131.131.49",
               "port"         : "443",
-              "severity"     : "LOW",
+              "severity"     : "OK",
               "cve"          : "CVE-2011-3389",
               "cwe"          : "CWE-20",
-              "finding"      : "VULNERABLE -- but also supports higher protocols  TLSv1.1 TLSv1.2 (likely mitigated)"
+              "finding"      : "not vulnerable, no SSL3 or TLS1"
           }
 ,         {
               "id"           : "LUCKY13",
@@ -918,7 +874,7 @@
               "ip"           : "www.sipsi.travail.gouv.fr/164.131.131.49",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.0 AES256-SHA"
+              "finding"      : "No connection"
           }
 ,         {
               "id"           : "clientsimulation-ie_8_xp",
@@ -995,7 +951,7 @@
               "ip"           : "www.sipsi.travail.gouv.fr/164.131.131.49",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.0 DHE-RSA-AES128-SHA"
+              "finding"      : "No connection"
           }
 ,         {
               "id"           : "clientsimulation-java_8u161",
@@ -1093,14 +1049,14 @@
               "ip"           : "www.sipsi.travail.gouv.fr/164.131.131.49",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "95"
+              "finding"      : "100"
           }
 ,         {
               "id"           : "protocol_support_score_weighted",
               "ip"           : "www.sipsi.travail.gouv.fr/164.131.131.49",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "28"
+              "finding"      : "30"
           }
 ,         {
               "id"           : "key_exchange_score",
@@ -1135,7 +1091,7 @@
               "ip"           : "www.sipsi.travail.gouv.fr/164.131.131.49",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "76"
+              "finding"      : "78"
           }
 ,         {
               "id"           : "overall_grade",
@@ -1152,24 +1108,10 @@
               "finding"      : "Grade capped to B. Using a weak public key and/or ephemeral key"
           }
 ,         {
-              "id"           : "grade_cap_reason_2",
-              "ip"           : "www.sipsi.travail.gouv.fr/164.131.131.49",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "Grade capped to B. TLS 1.1 offered"
-          }
-,         {
-              "id"           : "grade_cap_reason_3",
-              "ip"           : "www.sipsi.travail.gouv.fr/164.131.131.49",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "Grade capped to B. TLS 1.0 offered"
-          }
-,         {
               "id"           : "scanTime",
               "ip"           : "www.sipsi.travail.gouv.fr/164.131.131.49",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "74"
+              "finding"      : "66"
           }
 ]
