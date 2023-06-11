@@ -10,8 +10,8 @@
               "id"           : "pre_128cipher",
               "ip"           : "certificationprofessionnelle.fr/217.70.184.55",
               "port"         : "443",
-              "severity"     : "MEDIUM",
-              "finding"      : "128 cipher limit bug"
+              "severity"     : "INFO",
+              "finding"      : "No 128 cipher limit bug"
           }
 ,         {
               "id"           : "SSLv2",
@@ -125,48 +125,6 @@
               "finding"      : "offered"
           }
 ,         {
-              "id"           : "cipher_order-tls1_2",
-              "ip"           : "certificationprofessionnelle.fr/217.70.184.55",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "NOT a cipher order configured"
-          }
-,         {
-              "id"           : "cipher-tls1_2_xc02c",
-              "ip"           : "certificationprofessionnelle.fr/217.70.184.55",
-              "port"         : "443",
-              "severity"     : "OK",
-              "finding"      : "TLSv1.2   xc02c   ECDHE-ECDSA-AES256-GCM-SHA384     ECDH 256   AESGCM      256      TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384"
-          }
-,         {
-              "id"           : "cipher-tls1_2_xc00a",
-              "ip"           : "certificationprofessionnelle.fr/217.70.184.55",
-              "port"         : "443",
-              "severity"     : "LOW",
-              "finding"      : "TLSv1.2   xc00a   ECDHE-ECDSA-AES256-SHA            ECDH 256   AES         256      TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA"
-          }
-,         {
-              "id"           : "cipher-tls1_2_xc02b",
-              "ip"           : "certificationprofessionnelle.fr/217.70.184.55",
-              "port"         : "443",
-              "severity"     : "OK",
-              "finding"      : "TLSv1.2   xc02b   ECDHE-ECDSA-AES128-GCM-SHA256     ECDH 256   AESGCM      128      TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256"
-          }
-,         {
-              "id"           : "cipher-tls1_2_xc009",
-              "ip"           : "certificationprofessionnelle.fr/217.70.184.55",
-              "port"         : "443",
-              "severity"     : "LOW",
-              "finding"      : "TLSv1.2   xc009   ECDHE-ECDSA-AES128-SHA            ECDH 256   AES         128      TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA"
-          }
-,         {
-              "id"           : "supportedciphers_TLSv1_2",
-              "ip"           : "certificationprofessionnelle.fr/217.70.184.55",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "ECDHE-ECDSA-AES256-GCM-SHA384 ECDHE-ECDSA-AES256-SHA ECDHE-ECDSA-AES128-GCM-SHA256 ECDHE-ECDSA-AES128-SHA"
-          }
-,         {
               "id"           : "cipher_order",
               "ip"           : "certificationprofessionnelle.fr/217.70.184.55",
               "port"         : "443",
@@ -185,7 +143,7 @@
               "ip"           : "certificationprofessionnelle.fr/217.70.184.55",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "ECDHE-ECDSA-AES128-GCM-SHA256 ECDHE-ECDSA-AES128-SHA ECDHE-ECDSA-AES256-GCM-SHA384 ECDHE-ECDSA-AES256-SHA"
+              "finding"      : "ECDHE-ECDSA-AES128-GCM-SHA256 ECDHE-ECDSA-AES256-GCM-SHA384"
           }
 ,         {
               "id"           : "FS_ECDHE_curves",
@@ -219,15 +177,15 @@
               "id"           : "sessionresumption_ticket",
               "ip"           : "certificationprofessionnelle.fr/217.70.184.55",
               "port"         : "443",
-              "severity"     : "WARN",
-              "finding"      : "check failed because of connect problem"
+              "severity"     : "INFO",
+              "finding"      : "supported"
           }
 ,         {
               "id"           : "sessionresumption_ID",
               "ip"           : "certificationprofessionnelle.fr/217.70.184.55",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "supported"
+              "finding"      : "not supported"
           }
 ,         {
               "id"           : "TLS_timestamp",
@@ -367,7 +325,7 @@
               "ip"           : "certificationprofessionnelle.fr/217.70.184.55",
               "port"         : "443",
               "severity"     : "OK",
-              "finding"      : "379 >= 60 days"
+              "finding"      : "372 >= 60 days"
           }
 ,         {
               "id"           : "cert_notBefore",
@@ -620,9 +578,9 @@
               "id"           : "secure_renego",
               "ip"           : "certificationprofessionnelle.fr/217.70.184.55",
               "port"         : "443",
-              "severity"     : "WARN",
+              "severity"     : "OK",
               "cwe"          : "CWE-310",
-              "finding"      : "OpenSSL handshake didn't succeed"
+              "finding"      : "supported"
           }
 ,         {
               "id"           : "secure_client_renego",
@@ -646,10 +604,10 @@
               "id"           : "BREACH",
               "ip"           : "certificationprofessionnelle.fr/217.70.184.55",
               "port"         : "443",
-              "severity"     : "WARN",
+              "severity"     : "OK",
               "cve"          : "CVE-2013-3587",
               "cwe"          : "CWE-310",
-              "finding"      : "Test failed as first HTTP request stalled and was terminated"
+              "finding"      : "not vulnerable, no gzip/deflate/compress/br HTTP compression  - only supplied '/' tested"
           }
 ,         {
               "id"           : "POODLE_SSL",
@@ -818,7 +776,7 @@
               "ip"           : "certificationprofessionnelle.fr/217.70.184.55",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.3 TLS_AES_128_GCM_SHA256"
+              "finding"      : "No connection"
           }
 ,         {
               "id"           : "clientsimulation-firefox_66_win81",
@@ -930,7 +888,7 @@
               "ip"           : "certificationprofessionnelle.fr/217.70.184.55",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "No connection"
+              "finding"      : "TLSv1.2 ECDHE-ECDSA-AES256-GCM-SHA384"
           }
 ,         {
               "id"           : "clientsimulation-java1102",
@@ -1049,21 +1007,21 @@
               "ip"           : "certificationprofessionnelle.fr/217.70.184.55",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "90"
+              "finding"      : "60"
           }
 ,         {
               "id"           : "cipher_strength_score_weighted",
               "ip"           : "certificationprofessionnelle.fr/217.70.184.55",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "36"
+              "finding"      : "24"
           }
 ,         {
               "id"           : "final_score",
               "ip"           : "certificationprofessionnelle.fr/217.70.184.55",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "96"
+              "finding"      : "84"
           }
 ,         {
               "id"           : "overall_grade",
@@ -1084,6 +1042,6 @@
               "ip"           : "certificationprofessionnelle.fr/217.70.184.55",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "106"
+              "finding"      : "53"
           }
 ]
