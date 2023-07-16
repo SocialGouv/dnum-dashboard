@@ -325,7 +325,7 @@
               "ip"           : "www.cng.sante.fr/185.194.83.19",
               "port"         : "443",
               "severity"     : "CRITICAL",
-              "finding"      : "Some certificate trust checks failed -> Java (chain incomplete)  , OK -> Mozilla Microsoft Linux Apple"
+              "finding"      : "Some certificate trust checks failed -> Java (self signed CA in chain)  , OK -> Mozilla Microsoft Linux Apple"
           }
 ,         {
               "id"           : "cert_certificatePolicies_EV",
@@ -339,7 +339,7 @@
               "ip"           : "www.cng.sante.fr/185.194.83.19",
               "port"         : "443",
               "severity"     : "OK",
-              "finding"      : "170 >= 60 days"
+              "finding"      : "163 >= 60 days"
           }
 ,         {
               "id"           : "cert_notBefore",
@@ -416,7 +416,7 @@
               "ip"           : "www.cng.sante.fr/185.194.83.19",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "2"
+              "finding"      : "3"
           }
 ,         {
               "id"           : "certs_list_ordering_problem",
@@ -475,6 +475,48 @@
               "finding"      : "Certigna Services CA <-- Certigna"
           }
 ,         {
+              "id"           : "intermediate_cert <#2>",
+              "ip"           : "www.cng.sante.fr/185.194.83.19",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "-----BEGIN CERTIFICATE-----\nMIIDqDCCApCgAwIBAgIJAP7c4wEPyUj/MA0GCSqGSIb3DQEBBQUAMDQxCzAJBgNVBAYTAkZSMRIwEAYDVQQKDAlEaGlteW90aXMxETAPBgNVBAMMCENlcnRpZ25hMB4XDTA3MDYyOTE1MTMwNVoXDTI3MDYyOTE1MTMwNVowNDELMAkGA1UEBhMCRlIxEjAQBgNVBAoMCURoaW15b3RpczERMA8GA1UEAwwIQ2VydGlnbmEwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDIaPHJ1tazNHUmgh7stL7qXOEm7RFHYeGifBZ4QCHkYJ5ayGPhxLGWkv8YbWkj4Sti993iNi+RB7lIzw7sebYs5zRLcAglozyHGxnygQcPOJAZ0xH+hrTy0V4eHpbNgGzOOzGTtvKg0KmVEn2lmsxryIRWijOp5yIVUxbwzBfsV1/pogqYCd7jX5xv3EjjhQsVWqa6n6xI4wmy9/Qy3l40vhx4XUJbzg4ij02Q130yGLMLLGq/jj8UEYkgDncUtT2UCIf3JR7VsmAA7G8qKCVuKj4YYxclPz5EIBb2JsglrgVKtOdjLPOMFlN+XPsRGgjBRmKfIrjxwo1p3Po6WAbfAgMBAAGjgbwwgbkwDwYDVR0TAQH/BAUwAwEB/zAdBgNVHQ4EFgQUGu3+QTmQtCRZvgHyUtVF9lo53BEwZAYDVR0jBF0wW4AUGu3+QTmQtCRZvgHyUtVF9lo53BGhOKQ2MDQxCzAJBgNVBAYTAkZSMRIwEAYDVQQKDAlEaGlteW90aXMxETAPBgNVBAMMCENlcnRpZ25hggkA/tzjAQ/JSP8wDgYDVR0PAQH/BAQDAgEGMBEGCWCGSAGG+EIBAQQEAwIABzANBgkqhkiG9w0BAQUFAAOCAQEAhQMeknH2Qq/ho2Ge6/PAD/Kl1NqV5ta+aDY9fm4fTIrv0Q8hbV6lUmPOEvjvKtpv6zf+EwLHyzs+ImvaYS5/1HI93TDhHkxAGYwP15zRgzB7mFncfca5DClMoTOi62c6ZYTTluLtdkVwj7Ur3vkj1kluPBS1xp81HlDQwY9qcEQCYsuuHWhBp6pX6FOqB9IG9tUUBguRA3UsbHK1YZWaDYu5Def131TN3ubY1gkIl2PlwS6wt0QmwCbAr1UwnjvVNioZBPRcHv/PLLf/0P2HQBHVESO7SMAhqaQoLf0V+LBOK/QwWyH8EZE0vkHve52Xdf+XlcCWWC/qu0bXu+TZLg==\n-----END CERTIFICATE-----"
+          }
+,         {
+              "id"           : "intermediate_cert_fingerprintSHA256 <#2>",
+              "ip"           : "www.cng.sante.fr/185.194.83.19",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "E3B6A2DB2ED7CE48842F7AC53241C7B71D54144BFB40C11F3F1D0B42F5EEA12D"
+          }
+,         {
+              "id"           : "intermediate_cert_notBefore <#2>",
+              "ip"           : "www.cng.sante.fr/185.194.83.19",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "2007-06-29 15:13"
+          }
+,         {
+              "id"           : "intermediate_cert_notAfter <#2>",
+              "ip"           : "www.cng.sante.fr/185.194.83.19",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "2027-06-29 15:13"
+          }
+,         {
+              "id"           : "intermediate_cert_expiration <#2>",
+              "ip"           : "www.cng.sante.fr/185.194.83.19",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "ok > 40 days"
+          }
+,         {
+              "id"           : "intermediate_cert_chain <#2>",
+              "ip"           : "www.cng.sante.fr/185.194.83.19",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "Certigna <-- Certigna"
+          }
+,         {
               "id"           : "intermediate_cert_badOCSP",
               "ip"           : "www.cng.sante.fr/185.194.83.19",
               "port"         : "443",
@@ -493,21 +535,21 @@
               "ip"           : "www.cng.sante.fr/185.194.83.19",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "-40 seconds from localtime"
+              "finding"      : "-2 seconds from localtime"
           }
 ,         {
               "id"           : "HTTP_headerTime",
               "ip"           : "www.cng.sante.fr/185.194.83.19",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "1688856928"
+              "finding"      : "1689457233"
           }
 ,         {
               "id"           : "HTTP_headerAge",
               "ip"           : "www.cng.sante.fr/185.194.83.19",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "19565 seconds"
+              "finding"      : "24712 seconds"
           }
 ,         {
               "id"           : "HSTS_time",
@@ -606,7 +648,7 @@
               "port"         : "443",
               "severity"     : "INFO",
               "cwe"          : "CWE-200",
-              "finding"      : "X-Varnish: 36646084 36872955X-Cache-Status: HITX-Cache-Hits: 162"
+              "finding"      : "X-Varnish: 79837863 48811532X-Cache-Status: HITX-Cache-Hits: 611"
           }
 ,         {
               "id"           : "heartbleed",
@@ -1105,6 +1147,6 @@
               "ip"           : "www.cng.sante.fr/185.194.83.19",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "58"
+              "finding"      : "106"
           }
 ]
