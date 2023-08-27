@@ -339,7 +339,7 @@
               "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
               "port"         : "443",
               "severity"     : "OK",
-              "finding"      : "227 >= 60 days"
+              "finding"      : "220 >= 60 days"
           }
 ,         {
               "id"           : "cert_notBefore",
@@ -528,28 +528,42 @@
               "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "403 Forbidden ('/')"
+              "finding"      : "200 OK ('/')"
           }
 ,         {
               "id"           : "HTTP_clock_skew",
               "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "0 seconds from localtime"
+              "finding"      : "-2 seconds from localtime"
           }
 ,         {
               "id"           : "HTTP_headerTime",
               "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "1692501218"
+              "finding"      : "1693105440"
           }
 ,         {
-              "id"           : "HSTS",
+              "id"           : "HSTS_time",
               "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
               "port"         : "443",
-              "severity"     : "LOW",
-              "finding"      : "not offered"
+              "severity"     : "OK",
+              "finding"      : "182 days (=15768000 seconds) > 15552000 seconds"
+          }
+,         {
+              "id"           : "HSTS_subdomains",
+              "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "includes subdomains"
+          }
+,         {
+              "id"           : "HSTS_preload",
+              "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "domain IS marked for preloading"
           }
 ,         {
               "id"           : "HPKP",
@@ -563,28 +577,91 @@
               "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "No Server banner line in header, interesting!"
+              "finding"      : "webServer1"
           }
 ,         {
               "id"           : "banner_application",
               "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "No application banner found"
+              "finding"      : "X-Powered-By: CCRF"
           }
 ,         {
               "id"           : "cookie_count",
               "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "0 at '/' (30x detected, better try target URL of 30x)"
+              "finding"      : "2 at '/'"
           }
 ,         {
-              "id"           : "security_headers",
+              "id"           : "cookie_secure",
+              "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "All (2) at '/' marked as secure"
+          }
+,         {
+              "id"           : "cookie_httponly",
+              "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "2/2 at '/' marked as HttpOnly"
+          }
+,         {
+              "id"           : "X-Frame-Options_multiple",
               "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
               "port"         : "443",
               "severity"     : "MEDIUM",
-              "finding"      : "--"
+              "finding"      : "Multiple X-Frame-Options headers. Using first header: SAMEORIGIN"
+          }
+,         {
+              "id"           : "X-Frame-Options",
+              "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "SAMEORIGIN"
+          }
+,         {
+              "id"           : "X-Content-Type-Options",
+              "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "nosniff"
+          }
+,         {
+              "id"           : "Content-Security-Policy",
+              "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "default-src 'none';script-src * 'self' 'nonce-n/fpT3SWw6vHGa+Hk16D4KD7HSq4sBPtAsOJ9O5AoA8=';style-src 'self' 'unsafe-inline';connect-src 'self';form-action 'self';img-src * 'self';frame-ancestors 'none';frame-src 'none';base-uri 'self'"
+          }
+,         {
+              "id"           : "X-XSS-Protection",
+              "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "1; mode=block"
+          }
+,         {
+              "id"           : "Referrer-Policy",
+              "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "Same-origin"
+          }
+,         {
+              "id"           : "Cache-Control",
+              "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "no-cache, no-store"
+          }
+,         {
+              "id"           : "Pragma",
+              "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "no-cache"
           }
 ,         {
               "id"           : "banner_reverseproxy",
@@ -660,10 +737,10 @@
               "id"           : "BREACH",
               "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
               "port"         : "443",
-              "severity"     : "OK",
+              "severity"     : "MEDIUM",
               "cve"          : "CVE-2013-3587",
               "cwe"          : "CWE-310",
-              "finding"      : "not vulnerable, no gzip/deflate/compress/br HTTP compression  - only supplied '/' tested"
+              "finding"      : "potentially VULNERABLE, gzip HTTP compression detected  - only supplied '/' tested"
           }
 ,         {
               "id"           : "POODLE_SSL",
@@ -1084,20 +1161,13 @@
               "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
               "port"         : "443",
               "severity"     : "OK",
-              "finding"      : "A"
-          }
-,         {
-              "id"           : "grade_cap_reason_1",
-              "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "Grade capped to A. HSTS is not offered"
+              "finding"      : "A+"
           }
 ,         {
               "id"           : "scanTime",
               "ip"           : "rappel.conso.gouv.fr/185.24.187.242",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "157"
+              "finding"      : "95"
           }
 ]
