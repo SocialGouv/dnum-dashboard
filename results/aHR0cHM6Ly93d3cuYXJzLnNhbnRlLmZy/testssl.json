@@ -3,8 +3,8 @@
               "id"           : "service",
               "ip"           : "www.ars.sante.fr/185.194.82.45",
               "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "HTTP"
+              "severity"     : "DEBUG",
+              "finding"      : "Couldn't determine service, skipping all HTTP checks"
           }
 ,         {
               "id"           : "pre_128cipher",
@@ -339,7 +339,7 @@
               "ip"           : "www.ars.sante.fr/185.194.82.45",
               "port"         : "443",
               "severity"     : "OK",
-              "finding"      : "324 >= 60 days"
+              "finding"      : "317 >= 60 days"
           }
 ,         {
               "id"           : "cert_notBefore",
@@ -482,134 +482,6 @@
               "finding"      : "intermediate certificate(s) is/are ok"
           }
 ,         {
-              "id"           : "HTTP_status_code",
-              "ip"           : "www.ars.sante.fr/185.194.82.45",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "200 OK ('/')"
-          }
-,         {
-              "id"           : "HTTP_clock_skew",
-              "ip"           : "www.ars.sante.fr/185.194.82.45",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "-2 seconds from localtime"
-          }
-,         {
-              "id"           : "HTTP_headerTime",
-              "ip"           : "www.ars.sante.fr/185.194.82.45",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "1693713254"
-          }
-,         {
-              "id"           : "HTTP_headerAge",
-              "ip"           : "www.ars.sante.fr/185.194.82.45",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "17 seconds"
-          }
-,         {
-              "id"           : "HSTS",
-              "ip"           : "www.ars.sante.fr/185.194.82.45",
-              "port"         : "443",
-              "severity"     : "LOW",
-              "finding"      : "not offered"
-          }
-,         {
-              "id"           : "HPKP",
-              "ip"           : "www.ars.sante.fr/185.194.82.45",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "No support for HTTP Public Key Pinning"
-          }
-,         {
-              "id"           : "banner_server",
-              "ip"           : "www.ars.sante.fr/185.194.82.45",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "No Server banner line in header, interesting!"
-          }
-,         {
-              "id"           : "banner_application",
-              "ip"           : "www.ars.sante.fr/185.194.82.45",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "No application banner found"
-          }
-,         {
-              "id"           : "cookie_count",
-              "ip"           : "www.ars.sante.fr/185.194.82.45",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "2 at '/'"
-          }
-,         {
-              "id"           : "cookie_secure",
-              "ip"           : "www.ars.sante.fr/185.194.82.45",
-              "port"         : "443",
-              "severity"     : "OK",
-              "finding"      : "All (2) at '/' marked as secure"
-          }
-,         {
-              "id"           : "cookie_httponly",
-              "ip"           : "www.ars.sante.fr/185.194.82.45",
-              "port"         : "443",
-              "severity"     : "OK",
-              "finding"      : "All (2) at '/' marked as HttpOnly"
-          }
-,         {
-              "id"           : "cookie_bigip_f5",
-              "ip"           : "www.ars.sante.fr/185.194.82.45",
-              "port"         : "443",
-              "severity"     : "MEDIUM",
-              "cwe"          : "CWE-212",
-              "finding"      : "Information leakage: F5 cookie BIGipServerpool-ars.cegedim.cloud-HTTP 834951434.49431.0000 is default IPv4 pool member 10.89.196.49:6081"
-          }
-,         {
-              "id"           : "X-Frame-Options",
-              "ip"           : "www.ars.sante.fr/185.194.82.45",
-              "port"         : "443",
-              "severity"     : "OK",
-              "finding"      : "SAMEORIGIN"
-          }
-,         {
-              "id"           : "X-Content-Type-Options_multiple",
-              "ip"           : "www.ars.sante.fr/185.194.82.45",
-              "port"         : "443",
-              "severity"     : "MEDIUM",
-              "finding"      : "Multiple X-Content-Type-Options headers. Using first header: nosniff"
-          }
-,         {
-              "id"           : "X-Content-Type-Options",
-              "ip"           : "www.ars.sante.fr/185.194.82.45",
-              "port"         : "443",
-              "severity"     : "OK",
-              "finding"      : "nosniff"
-          }
-,         {
-              "id"           : "X-UA-Compatible",
-              "ip"           : "www.ars.sante.fr/185.194.82.45",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "IE=edge"
-          }
-,         {
-              "id"           : "Cache-Control",
-              "ip"           : "www.ars.sante.fr/185.194.82.45",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "max-age=86400, public"
-          }
-,         {
-              "id"           : "banner_reverseproxy",
-              "ip"           : "www.ars.sante.fr/185.194.82.45",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "cwe"          : "CWE-200",
-              "finding"      : "X-Cache: HIT from pebarsvarn01.hosting.cegedim.cloudX-Cache-Hits: 2"
-          }
-,         {
               "id"           : "heartbleed",
               "ip"           : "www.ars.sante.fr/185.194.82.45",
               "port"         : "443",
@@ -631,10 +503,10 @@
               "id"           : "ticketbleed",
               "ip"           : "www.ars.sante.fr/185.194.82.45",
               "port"         : "443",
-              "severity"     : "OK",
+              "severity"     : "INFO",
               "cve"          : "CVE-2016-9244",
               "cwe"          : "CWE-200",
-              "finding"      : "no session ticket extension"
+              "finding"      : "not applicable, not HTTP"
           }
 ,         {
               "id"           : "ROBOT",
@@ -657,10 +529,10 @@
               "id"           : "secure_client_renego",
               "ip"           : "www.ars.sante.fr/185.194.82.45",
               "port"         : "443",
-              "severity"     : "OK",
+              "severity"     : "MEDIUM",
               "cve"          : "CVE-2011-1473",
               "cwe"          : "CWE-310",
-              "finding"      : "not vulnerable, mitigated"
+              "finding"      : "VULNERABLE, potential DoS threat"
           }
 ,         {
               "id"           : "CRIME_TLS",
@@ -669,16 +541,7 @@
               "severity"     : "OK",
               "cve"          : "CVE-2012-4929",
               "cwe"          : "CWE-310",
-              "finding"      : "not vulnerable"
-          }
-,         {
-              "id"           : "BREACH",
-              "ip"           : "www.ars.sante.fr/185.194.82.45",
-              "port"         : "443",
-              "severity"     : "MEDIUM",
-              "cve"          : "CVE-2013-3587",
-              "cwe"          : "CWE-310",
-              "finding"      : "potentially VULNERABLE, gzip HTTP compression detected  - only supplied '/' tested"
+              "finding"      : "not vulnerable (not using HTTP anyway)"
           }
 ,         {
               "id"           : "POODLE_SSL",
@@ -1099,20 +962,13 @@
               "ip"           : "www.ars.sante.fr/185.194.82.45",
               "port"         : "443",
               "severity"     : "OK",
-              "finding"      : "A"
-          }
-,         {
-              "id"           : "grade_cap_reason_1",
-              "ip"           : "www.ars.sante.fr/185.194.82.45",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "Grade capped to A. HSTS is not offered"
+              "finding"      : "A+"
           }
 ,         {
               "id"           : "scanTime",
               "ip"           : "www.ars.sante.fr/185.194.82.45",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "61"
+              "finding"      : "51"
           }
 ]
