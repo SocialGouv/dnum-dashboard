@@ -1,0 +1,135 @@
+[
+  [
+    {
+      "template": "http/technologies/waf-detect.yaml",
+      "template-url": "https://templates.nuclei.sh/public/waf-detect",
+      "template-id": "waf-detect",
+      "template-path": "/home/runner/nuclei-templates/http/technologies/waf-detect.yaml",
+      "info": {
+        "name": "WAF Detection",
+        "author": [
+          "dwisiswant0",
+          "lu4nx"
+        ],
+        "tags": [
+          "waf",
+          "tech",
+          "misc"
+        ],
+        "description": "A web application firewall was detected.",
+        "reference": [
+          "https://github.com/ekultek/whatwaf"
+        ],
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        },
+        "classification": {
+          "cve-id": null,
+          "cwe-id": [
+            "cwe-200"
+          ]
+        }
+      },
+      "matcher-name": "bigip",
+      "type": "http",
+      "host": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
+      "matched-at": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr/",
+      "request": "POST / HTTP/1.1\r\nHost: metiers-fonctionpubliquehospitaliere.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nContent-Length: 27\r\nContent-Type: application/x-www-form-urlencoded\r\nAccept-Encoding: gzip\r\n\r\n_=<script>alert(1)</script>",
+      "response": "HTTP/1.0 301 Moved Permanently\r\nContent-Length: 0\r\nConnection: close\r\nLocation: https://sante.gouv.fr/metiers-et-concours/les-metiers-de-la-sante/le-repertoire-des-metiers-de-la-sante-et-de-l-autonomie-fonction-publique\r\nServer: BigIP\r\n\r\n",
+      "ip": "185.194.82.144",
+      "timestamp": "2023-10-15T04:21:56.396020452Z",
+      "curl-command": "curl -X 'POST' -d '_=<script>alert(1)</script>' -H 'Content-Type: application/x-www-form-urlencoded' -H 'Host: metiers-fonctionpubliquehospitaliere.sante.gouv.fr' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr/'",
+      "matcher-status": true
+    },
+    {
+      "template": "ssl/tls-version.yaml",
+      "template-url": "https://templates.nuclei.sh/public/tls-version",
+      "template-id": "tls-version",
+      "template-path": "/home/runner/nuclei-templates/ssl/tls-version.yaml",
+      "info": {
+        "name": "TLS Version - Detect",
+        "author": [
+          "pdteam",
+          "pussycat0x"
+        ],
+        "tags": [
+          "ssl"
+        ],
+        "description": "TLS version detection is a security process used to determine the version of the Transport Layer Security (TLS) protocol used by a computer or server.\nIt is important to detect the TLS version in order to ensure secure communication between two computers or servers.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 4
+        }
+      },
+      "type": "ssl",
+      "host": "metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
+      "matched-at": "metiers-fonctionpubliquehospitaliere.sante.gouv.fr:443",
+      "extracted-results": [
+        "tls12"
+      ],
+      "ip": "185.194.82.144",
+      "timestamp": "2023-10-15T04:24:06.415014861Z",
+      "matcher-status": true
+    },
+    {
+      "template": "ssl/detect-ssl-issuer.yaml",
+      "template-url": "https://templates.nuclei.sh/public/ssl-issuer",
+      "template-id": "ssl-issuer",
+      "template-path": "/home/runner/nuclei-templates/ssl/detect-ssl-issuer.yaml",
+      "info": {
+        "name": "Detect SSL Certificate Issuer",
+        "author": [
+          "lingtren"
+        ],
+        "tags": [
+          "ssl"
+        ],
+        "description": "Extract the issuer's organization from the target's certificate. Issuers are entities which sign and distribute certificates.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "type": "ssl",
+      "host": "metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
+      "matched-at": "metiers-fonctionpubliquehospitaliere.sante.gouv.fr:443",
+      "extracted-results": [
+        "DHIMYOTIS"
+      ],
+      "ip": "185.194.82.144",
+      "timestamp": "2023-10-15T04:24:07.419089286Z",
+      "matcher-status": true
+    },
+    {
+      "template": "ssl/ssl-dns-names.yaml",
+      "template-url": "https://templates.nuclei.sh/public/ssl-dns-names",
+      "template-id": "ssl-dns-names",
+      "template-path": "/home/runner/nuclei-templates/ssl/ssl-dns-names.yaml",
+      "info": {
+        "name": "SSL DNS Names",
+        "author": [
+          "pdteam"
+        ],
+        "tags": [
+          "ssl"
+        ],
+        "description": "Extract the Subject Alternative Name (SAN) from the target's certificate. SAN facilitates the usage of additional hostnames with the same certificate.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "type": "ssl",
+      "host": "metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
+      "matched-at": "metiers-fonctionpubliquehospitaliere.sante.gouv.fr:443",
+      "extracted-results": [
+        "metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
+        "www.metiers-fonctionpubliquehospitaliere.sante.gouv.fr"
+      ],
+      "ip": "185.194.82.144",
+      "timestamp": "2023-10-15T04:24:07.419595593Z",
+      "matcher-status": true
+    }
+  ]
+]
