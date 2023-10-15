@@ -1,0 +1,779 @@
+[
+  [
+    {
+      "template": "dns/dns-saas-service-detection.yaml",
+      "template-url": "https://templates.nuclei.sh/public/dns-saas-service-detection",
+      "template-id": "dns-saas-service-detection",
+      "template-path": "/home/runner/nuclei-templates/dns/dns-saas-service-detection.yaml",
+      "info": {
+        "name": "DNS SaaS Service Detection",
+        "author": [
+          "noah @thesubtlety",
+          "pdteam"
+        ],
+        "tags": [
+          "dns",
+          "service"
+        ],
+        "description": "A CNAME DNS record was discovered",
+        "reference": [
+          "https://ns1.com/resources/cname",
+          "https://www.theregister.com/2021/02/24/dns_cname_tracking/",
+          "https://www.ionos.com/digitalguide/hosting/technical-matters/cname-record/"
+        ],
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "type": "dns",
+      "host": "siao-preprod.cegedim-hds.fr.",
+      "matched-at": "siao-preprod.cegedim-hds.fr",
+      "extracted-results": [
+        "ip-185-113-40-47.infra.cegedim.org."
+      ],
+      "request": ";; opcode: QUERY, status: NOERROR, id: 46742\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;siao-preprod.cegedim-hds.fr.\tIN\t CNAME\n",
+      "response": ";; opcode: QUERY, status: NOERROR, id: 46742\n;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 1232\n\n;; QUESTION SECTION:\n;siao-preprod.cegedim-hds.fr.\tIN\t CNAME\n\n;; ANSWER SECTION:\nsiao-preprod.cegedim-hds.fr.\t3600\tIN\tCNAME\tip-185-113-40-47.infra.cegedim.org.\n",
+      "timestamp": "2023-10-15T05:35:20.32638103Z",
+      "matcher-status": true
+    },
+    {
+      "template": "http/miscellaneous/options-method.yaml",
+      "template-url": "https://templates.nuclei.sh/public/options-method",
+      "template-id": "options-method",
+      "template-path": "/home/runner/nuclei-templates/http/miscellaneous/options-method.yaml",
+      "info": {
+        "name": "Allowed Options Method",
+        "author": [
+          "pdteam"
+        ],
+        "tags": [
+          "misc",
+          "generic"
+        ],
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "type": "http",
+      "host": "https://siao-preprod.cegedim-hds.fr",
+      "matched-at": "https://siao-preprod.cegedim-hds.fr",
+      "extracted-results": [
+        "GET,HEAD,OPTIONS"
+      ],
+      "request": "OPTIONS / HTTP/1.1\r\nHost: siao-preprod.cegedim-hds.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.1 200 \r\nConnection: close\r\nAllow: GET,HEAD,OPTIONS\r\nCache-Control: no-cache, no-store, max-age=0, must-revalidate\r\nContent-Security-Policy: script-src 'self' code.jquery.com cdn.jsdelivr.net *.hs-scripts.com *.hs-banner.com *.hs-analytics.net *.hscollectedforms.net *.usemessages.com *.developpement-durable.gouv.fr 'sha256-lIPLl/jk1slnucFam9l2EMVQjQ68UbeJVDmZ8lXK7e4=' 'nonce-matomo_js' 'nonce-matomo_piwik' 'report-sample';  object-src 'none'; frame-ancestors 'none'; report-uri /api/csp-report;\r\nDate: Sun, 15 Oct 2023 05:35:34 GMT\r\nExpires: 0\r\nPragma: no-cache\r\nSet-Cookie: XSRF-TOKEN=e7cccc5b-3001-476e-91e6-7863fe3e5a2d; Path=/; Secure\r\nSet-Cookie: JSESSIONID=B76A3515C09494DCDAD69CE192B67633; HttpOnly; Path=/; Secure; HttpOnly\r\nSet-Cookie: serverTime=1697348134934; Path=/; HttpOnly\r\nSet-Cookie: sessionExpiry=1697349934934; HttpOnly; Path=/; HttpOnly; Secure\r\nSet-Cookie: BIGipServerpool-siao-preprod.cegedim-hds.fr-HTTP=!yavd/1PsQXep4yIm0zi0rVXmcSp4PXa/vb77QBTbM32PbPoeepd0z1ZlOP3nihLJwkde/Ug12tY55VrO3KljnaIhaN0=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Content-Type-Options: nosniff\r\nX-Correlation-Id: 5f431ae4-8c17-455f-aafc-2a0753bf2550\r\nX-Frame-Options: DENY\r\nX-Request-Id: 2bfe112e-806e-43c2-90a7-ccae39933083\r\nX-Xss-Protection: 1; mode=block\r\nContent-Length: 0\r\n\r\n",
+      "ip": "185.113.40.47",
+      "timestamp": "2023-10-15T05:35:34.980396278Z",
+      "curl-command": "curl -X 'OPTIONS' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://siao-preprod.cegedim-hds.fr'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/httponly-cookie-detect.yaml",
+      "template-url": "https://templates.nuclei.sh/public/httponly-cookie-detect",
+      "template-id": "httponly-cookie-detect",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/httponly-cookie-detect.yaml",
+      "info": {
+        "name": "HttpOnly Cookie - Detect",
+        "author": [
+          "mr. bobo hp"
+        ],
+        "tags": [
+          "misconfig",
+          "http",
+          "cookie",
+          "generic"
+        ],
+        "description": "Checks whether cookies in the HTTP response contain the HttpOnly attribute. If the HttpOnly flag is set, it means that the cookie is HTTP-only\n",
+        "reference": [
+          "https://stackoverflow.com/questions/4316539/how-do-i-test-httponly-cookie-flag"
+        ],
+        "severity": "info",
+        "metadata": {
+          "max-request": 1,
+          "verified": true
+        },
+        "classification": {
+          "cve-id": null,
+          "cwe-id": null,
+          "cvss-metrics": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N"
+        }
+      },
+      "type": "http",
+      "host": "https://siao-preprod.cegedim-hds.fr",
+      "matched-at": "https://siao-preprod.cegedim-hds.fr",
+      "request": "GET / HTTP/1.1\r\nHost: siao-preprod.cegedim-hds.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.1 200 \r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAccept-Ranges: bytes\r\nCache-Control: no-cache, no-store, max-age=0, must-revalidate\r\nContent-Language: en\r\nContent-Security-Policy: script-src 'self' code.jquery.com cdn.jsdelivr.net *.hs-scripts.com *.hs-banner.com *.hs-analytics.net *.hscollectedforms.net *.usemessages.com *.developpement-durable.gouv.fr 'sha256-lIPLl/jk1slnucFam9l2EMVQjQ68UbeJVDmZ8lXK7e4=' 'nonce-matomo_js' 'nonce-matomo_piwik' 'report-sample';  object-src 'none'; frame-ancestors 'none'; report-uri /api/csp-report;\r\nContent-Type: text/html;charset=UTF-8\r\nDate: Sun, 15 Oct 2023 05:35:41 GMT\r\nExpires: 0\r\nLast-Modified: Thu, 21 Sep 2023 08:09:34 GMT\r\nPragma: no-cache\r\nSet-Cookie: XSRF-TOKEN=db51e152-f144-48bc-92fb-7761eee23457; Path=/; Secure\r\nSet-Cookie: JSESSIONID=E5629ECF70CBABE9EFCD696FD58E639A; HttpOnly; Path=/; Secure; HttpOnly\r\nSet-Cookie: serverTime=1697348142788; Path=/; HttpOnly\r\nSet-Cookie: sessionExpiry=1697349942788; HttpOnly; Path=/; HttpOnly; Secure\r\nSet-Cookie: BIGipServerpool-siao-preprod.cegedim-hds.fr-HTTP=!XgTqDYLdJAoQUKAm0zi0rVXmcSp4PWyzmB2/6BKb+VReiZYAO4CsVy2GlrilBYqZqudbK1HiDJPWBZ3NBe8hmsSr/R8=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: origin,access-control-request-method,access-control-request-headers,accept-encoding\r\nX-Content-Type-Options: nosniff\r\nX-Correlation-Id: 3d2dc595-4055-4d35-950f-51d39d8c7726\r\nX-Frame-Options: DENY\r\nX-Request-Id: 56bae20b-f7d4-499d-81ae-f21d87a29dcf\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!DOCTYPE html>\n<html lang=\"fr\">\n\n<head>\n  <meta charset=\"utf-8\"/>\n  <base href=\"/\"/>\n  <title>SIAO - 115</title>\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/>\n  <meta name=\"theme-color\" content=\"#000091\"/>\n\n  <link rel=\"shortcut icon\" type=\"image/x-icon\" href=\"/@gouvfr/favicon/favicon.ico\"/>\n\n  <link rel=\"apple-touch-icon\" href=\"/@gouvfr/favicon/apple-touch-icon.png\"><!-- 180×180 -->\n  <link rel=\"icon\" href=\"/@gouvfr/favicon/favicon.svg\" type=\"image/svg+xml\">\n  <link rel=\"shortcut icon\" href=\"/@gouvfr/favicon/favicon.ico\" type=\"image/x-icon\"><!-- 32×32 -->\n  <link rel=\"manifest\" href=\"manifest.webmanifest\" crossorigin=\"use-credentials\">\n\n  <link rel=\"preload\" href=\"./primeicons.ttf\" as=\"font\" type=\"font/ttf\" crossorigin=\"anonymous\"/>\n  <link rel=\"preload\" href=\"./fontawesome-webfont.woff2?v=4.7.0\" as=\"font\" type=\"font/woff2\" crossorigin=\"anonymous\"/>\n  <link rel=\"preload\" href=\"./assets/img/sprite.svg\" as=\"image\">\n\n  <script>\n    // Options disponibles a l initialisation du DSFR\n    window.dsfr = {\n      verbose: false,\n      mode: 'loaded'\n    };\n  </script>\n\n  <!--\n    Attention : toute modification de ce script doit faire l'objet d'un calcul du sha256 et être\n    reporté dans la propriété security.csp.directives du application.properties du module web.\n    SHA256 actuel : \"lIPLl/jk1slnucFam9l2EMVQjQ68UbeJVDmZ8lXK7e4=\"\n    Remarque : cet aspect CSP ne peut être testé avec \"ng serve\".\n  -->\n  <!-- Load the HubSpot tracking code -->\n  <script type=\"text/javascript\" id=\"hubspot-script-loader\" async=\"\" defer=\"\" src=\"https://js-eu1.hs-scripts.com/25326951.js\"></script>\n\n  <!-- Intégration Matomo -->\n  <!-- SHA-256 actulel : 6dd2931f23b5b52c64ea65b81c208a7b88263a88cdd51b9ffe340ffa90d1f83a  -->\n  <!-- A  rajouter dans la properties : -->\n  <script type=\"text/javascript\" nonce=\"matomo_js\">\n    var xhr = new XMLHttpRequest(), doc = document;\n    xhr.responseType = 'text';\n    xhr.onreadystatechange = () => {\n      if (xhr.readyState === 4 && xhr.status === 200) {\n        var script = doc.getElementById('matomo');\n        script.innerHTML = xhr.response;\n      }\n    }\n    xhr.open('GET', '/api/matomo', true);\n    xhr.send();\n  </script>\n  <script type=\"text/javascript\" id=\"matomo\" nonce=\"matomo_piwik\"></script>\n<link rel=\"stylesheet\" href=\"styles.9048f7caec99d745.css\"><link rel=\"stylesheet\" href=\"dsfr-core-style.2f8bce7a70008856.css\"><link rel=\"stylesheet\" href=\"dsfr-utility-style.29fb9ca44d797efb.css\"><link rel=\"stylesheet\" href=\"dsfr-form-style.9b52507507273915.css\"><link rel=\"stylesheet\" href=\"siao-style.c43cac11df1dd303.css\"><link rel=\"stylesheet\" href=\"siao-dsfr-style.6d49aad30f0b4d34.css\"><link rel=\"stylesheet\" href=\"font-awesome-style.613ef35f114300a3.css\"><link rel=\"stylesheet\" href=\"isteven-style.3cd6867cf8c0c4a1.css\"><link rel=\"stylesheet\" href=\"leaflet-style.4be52dced36ed588.css\"><link rel=\"stylesheet\" href=\"quill-core-style.2244696dc6befe02.css\"><link rel=\"stylesheet\" href=\"quill-snow-style.a4421021128f5425.css\"></head>\n\n<body>\n  <siao-app></siao-app>\n<script src=\"runtime.faa316a1abebe03a.js\" type=\"module\"></script><script src=\"polyfills.ab7d5be44af37264.js\" type=\"module\"></script><script src=\"scripts.62bebcf15f8f94da.js\" defer></script><script src=\"vendor.a9f0b0f17eeb0052.js\" type=\"module\"></script><script src=\"main.06f035c5340e3c60.js\" type=\"module\"></script></body>\n\n</html>\n",
+      "ip": "185.113.40.47",
+      "timestamp": "2023-10-15T05:35:42.856636805Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://siao-preprod.cegedim-hds.fr'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/xss-deprecated-header.yaml",
+      "template-url": "https://templates.nuclei.sh/public/xss-deprecated-header",
+      "template-id": "xss-deprecated-header",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/xss-deprecated-header.yaml",
+      "info": {
+        "name": "XSS-Protection Header - Cross-Site Scripting",
+        "author": [
+          "joshlarsen"
+        ],
+        "tags": [
+          "xss",
+          "misconfig",
+          "generic"
+        ],
+        "description": "Setting the XSS-Protection header is deprecated. Setting the header to anything other than `0` can actually introduce an XSS vulnerability.",
+        "reference": [
+          "https://developer.mozilla.org/en-us/docs/web/http/headers/x-xss-protection",
+          "https://owasp.org/www-project-secure-headers/#x-xss-protection"
+        ],
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        },
+        "classification": {
+          "cve-id": null,
+          "cwe-id": null,
+          "cvss-metrics": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N"
+        }
+      },
+      "type": "http",
+      "host": "https://siao-preprod.cegedim-hds.fr",
+      "matched-at": "https://siao-preprod.cegedim-hds.fr",
+      "extracted-results": [
+        "1; mode=block"
+      ],
+      "request": "GET / HTTP/1.1\r\nHost: siao-preprod.cegedim-hds.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.1 200 \r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAccept-Ranges: bytes\r\nCache-Control: no-cache, no-store, max-age=0, must-revalidate\r\nContent-Language: en\r\nContent-Security-Policy: script-src 'self' code.jquery.com cdn.jsdelivr.net *.hs-scripts.com *.hs-banner.com *.hs-analytics.net *.hscollectedforms.net *.usemessages.com *.developpement-durable.gouv.fr 'sha256-lIPLl/jk1slnucFam9l2EMVQjQ68UbeJVDmZ8lXK7e4=' 'nonce-matomo_js' 'nonce-matomo_piwik' 'report-sample';  object-src 'none'; frame-ancestors 'none'; report-uri /api/csp-report;\r\nContent-Type: text/html;charset=UTF-8\r\nDate: Sun, 15 Oct 2023 05:35:41 GMT\r\nExpires: 0\r\nLast-Modified: Thu, 21 Sep 2023 08:09:34 GMT\r\nPragma: no-cache\r\nSet-Cookie: XSRF-TOKEN=db51e152-f144-48bc-92fb-7761eee23457; Path=/; Secure\r\nSet-Cookie: JSESSIONID=E5629ECF70CBABE9EFCD696FD58E639A; HttpOnly; Path=/; Secure; HttpOnly\r\nSet-Cookie: serverTime=1697348142788; Path=/; HttpOnly\r\nSet-Cookie: sessionExpiry=1697349942788; HttpOnly; Path=/; HttpOnly; Secure\r\nSet-Cookie: BIGipServerpool-siao-preprod.cegedim-hds.fr-HTTP=!XgTqDYLdJAoQUKAm0zi0rVXmcSp4PWyzmB2/6BKb+VReiZYAO4CsVy2GlrilBYqZqudbK1HiDJPWBZ3NBe8hmsSr/R8=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: origin,access-control-request-method,access-control-request-headers,accept-encoding\r\nX-Content-Type-Options: nosniff\r\nX-Correlation-Id: 3d2dc595-4055-4d35-950f-51d39d8c7726\r\nX-Frame-Options: DENY\r\nX-Request-Id: 56bae20b-f7d4-499d-81ae-f21d87a29dcf\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!DOCTYPE html>\n<html lang=\"fr\">\n\n<head>\n  <meta charset=\"utf-8\"/>\n  <base href=\"/\"/>\n  <title>SIAO - 115</title>\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/>\n  <meta name=\"theme-color\" content=\"#000091\"/>\n\n  <link rel=\"shortcut icon\" type=\"image/x-icon\" href=\"/@gouvfr/favicon/favicon.ico\"/>\n\n  <link rel=\"apple-touch-icon\" href=\"/@gouvfr/favicon/apple-touch-icon.png\"><!-- 180×180 -->\n  <link rel=\"icon\" href=\"/@gouvfr/favicon/favicon.svg\" type=\"image/svg+xml\">\n  <link rel=\"shortcut icon\" href=\"/@gouvfr/favicon/favicon.ico\" type=\"image/x-icon\"><!-- 32×32 -->\n  <link rel=\"manifest\" href=\"manifest.webmanifest\" crossorigin=\"use-credentials\">\n\n  <link rel=\"preload\" href=\"./primeicons.ttf\" as=\"font\" type=\"font/ttf\" crossorigin=\"anonymous\"/>\n  <link rel=\"preload\" href=\"./fontawesome-webfont.woff2?v=4.7.0\" as=\"font\" type=\"font/woff2\" crossorigin=\"anonymous\"/>\n  <link rel=\"preload\" href=\"./assets/img/sprite.svg\" as=\"image\">\n\n  <script>\n    // Options disponibles a l initialisation du DSFR\n    window.dsfr = {\n      verbose: false,\n      mode: 'loaded'\n    };\n  </script>\n\n  <!--\n    Attention : toute modification de ce script doit faire l'objet d'un calcul du sha256 et être\n    reporté dans la propriété security.csp.directives du application.properties du module web.\n    SHA256 actuel : \"lIPLl/jk1slnucFam9l2EMVQjQ68UbeJVDmZ8lXK7e4=\"\n    Remarque : cet aspect CSP ne peut être testé avec \"ng serve\".\n  -->\n  <!-- Load the HubSpot tracking code -->\n  <script type=\"text/javascript\" id=\"hubspot-script-loader\" async=\"\" defer=\"\" src=\"https://js-eu1.hs-scripts.com/25326951.js\"></script>\n\n  <!-- Intégration Matomo -->\n  <!-- SHA-256 actulel : 6dd2931f23b5b52c64ea65b81c208a7b88263a88cdd51b9ffe340ffa90d1f83a  -->\n  <!-- A  rajouter dans la properties : -->\n  <script type=\"text/javascript\" nonce=\"matomo_js\">\n    var xhr = new XMLHttpRequest(), doc = document;\n    xhr.responseType = 'text';\n    xhr.onreadystatechange = () => {\n      if (xhr.readyState === 4 && xhr.status === 200) {\n        var script = doc.getElementById('matomo');\n        script.innerHTML = xhr.response;\n      }\n    }\n    xhr.open('GET', '/api/matomo', true);\n    xhr.send();\n  </script>\n  <script type=\"text/javascript\" id=\"matomo\" nonce=\"matomo_piwik\"></script>\n<link rel=\"stylesheet\" href=\"styles.9048f7caec99d745.css\"><link rel=\"stylesheet\" href=\"dsfr-core-style.2f8bce7a70008856.css\"><link rel=\"stylesheet\" href=\"dsfr-utility-style.29fb9ca44d797efb.css\"><link rel=\"stylesheet\" href=\"dsfr-form-style.9b52507507273915.css\"><link rel=\"stylesheet\" href=\"siao-style.c43cac11df1dd303.css\"><link rel=\"stylesheet\" href=\"siao-dsfr-style.6d49aad30f0b4d34.css\"><link rel=\"stylesheet\" href=\"font-awesome-style.613ef35f114300a3.css\"><link rel=\"stylesheet\" href=\"isteven-style.3cd6867cf8c0c4a1.css\"><link rel=\"stylesheet\" href=\"leaflet-style.4be52dced36ed588.css\"><link rel=\"stylesheet\" href=\"quill-core-style.2244696dc6befe02.css\"><link rel=\"stylesheet\" href=\"quill-snow-style.a4421021128f5425.css\"></head>\n\n<body>\n  <siao-app></siao-app>\n<script src=\"runtime.faa316a1abebe03a.js\" type=\"module\"></script><script src=\"polyfills.ab7d5be44af37264.js\" type=\"module\"></script><script src=\"scripts.62bebcf15f8f94da.js\" defer></script><script src=\"vendor.a9f0b0f17eeb0052.js\" type=\"module\"></script><script src=\"main.06f035c5340e3c60.js\" type=\"module\"></script></body>\n\n</html>\n",
+      "ip": "185.113.40.47",
+      "timestamp": "2023-10-15T05:35:42.860568673Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://siao-preprod.cegedim-hds.fr'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/technologies/tech-detect.yaml",
+      "template-url": "https://templates.nuclei.sh/public/tech-detect",
+      "template-id": "tech-detect",
+      "template-path": "/home/runner/nuclei-templates/http/technologies/tech-detect.yaml",
+      "info": {
+        "name": "Wappalyzer Technology Detection",
+        "author": [
+          "hakluke"
+        ],
+        "tags": [
+          "tech"
+        ],
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "font-awesome",
+      "type": "http",
+      "host": "https://siao-preprod.cegedim-hds.fr",
+      "matched-at": "https://siao-preprod.cegedim-hds.fr",
+      "request": "GET / HTTP/1.1\r\nHost: siao-preprod.cegedim-hds.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.1 200 \r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAccept-Ranges: bytes\r\nCache-Control: no-cache, no-store, max-age=0, must-revalidate\r\nContent-Language: en\r\nContent-Security-Policy: script-src 'self' code.jquery.com cdn.jsdelivr.net *.hs-scripts.com *.hs-banner.com *.hs-analytics.net *.hscollectedforms.net *.usemessages.com *.developpement-durable.gouv.fr 'sha256-lIPLl/jk1slnucFam9l2EMVQjQ68UbeJVDmZ8lXK7e4=' 'nonce-matomo_js' 'nonce-matomo_piwik' 'report-sample';  object-src 'none'; frame-ancestors 'none'; report-uri /api/csp-report;\r\nContent-Type: text/html;charset=UTF-8\r\nDate: Sun, 15 Oct 2023 05:36:15 GMT\r\nExpires: 0\r\nLast-Modified: Thu, 21 Sep 2023 08:09:34 GMT\r\nPragma: no-cache\r\nSet-Cookie: XSRF-TOKEN=04cd09b6-e1b4-470c-b824-640d61aa957d; Path=/; Secure\r\nSet-Cookie: JSESSIONID=411C179D7CC216725995A705EBAB8CC0; HttpOnly; Path=/; Secure; HttpOnly\r\nSet-Cookie: serverTime=1697348176108; Path=/; HttpOnly\r\nSet-Cookie: sessionExpiry=1697349976108; HttpOnly; Path=/; HttpOnly; Secure\r\nSet-Cookie: BIGipServerpool-siao-preprod.cegedim-hds.fr-HTTP=!yMElNjOOZ+Xt5mQm0zi0rVXmcSp4PWjohCJhzxKzZHzkXfM7Q2nRue06HtqNTxzKFKPJ0fvXaHtHKert2P1ePPzDdyk=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: origin,access-control-request-method,access-control-request-headers,accept-encoding\r\nX-Content-Type-Options: nosniff\r\nX-Correlation-Id: 5f87d73d-47c5-40a5-9c9a-0750729bbc7b\r\nX-Frame-Options: DENY\r\nX-Request-Id: 0165a183-0b74-4023-ae50-42751dca27c1\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!DOCTYPE html>\n<html lang=\"fr\">\n\n<head>\n  <meta charset=\"utf-8\"/>\n  <base href=\"/\"/>\n  <title>SIAO - 115</title>\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/>\n  <meta name=\"theme-color\" content=\"#000091\"/>\n\n  <link rel=\"shortcut icon\" type=\"image/x-icon\" href=\"/@gouvfr/favicon/favicon.ico\"/>\n\n  <link rel=\"apple-touch-icon\" href=\"/@gouvfr/favicon/apple-touch-icon.png\"><!-- 180×180 -->\n  <link rel=\"icon\" href=\"/@gouvfr/favicon/favicon.svg\" type=\"image/svg+xml\">\n  <link rel=\"shortcut icon\" href=\"/@gouvfr/favicon/favicon.ico\" type=\"image/x-icon\"><!-- 32×32 -->\n  <link rel=\"manifest\" href=\"manifest.webmanifest\" crossorigin=\"use-credentials\">\n\n  <link rel=\"preload\" href=\"./primeicons.ttf\" as=\"font\" type=\"font/ttf\" crossorigin=\"anonymous\"/>\n  <link rel=\"preload\" href=\"./fontawesome-webfont.woff2?v=4.7.0\" as=\"font\" type=\"font/woff2\" crossorigin=\"anonymous\"/>\n  <link rel=\"preload\" href=\"./assets/img/sprite.svg\" as=\"image\">\n\n  <script>\n    // Options disponibles a l initialisation du DSFR\n    window.dsfr = {\n      verbose: false,\n      mode: 'loaded'\n    };\n  </script>\n\n  <!--\n    Attention : toute modification de ce script doit faire l'objet d'un calcul du sha256 et être\n    reporté dans la propriété security.csp.directives du application.properties du module web.\n    SHA256 actuel : \"lIPLl/jk1slnucFam9l2EMVQjQ68UbeJVDmZ8lXK7e4=\"\n    Remarque : cet aspect CSP ne peut être testé avec \"ng serve\".\n  -->\n  <!-- Load the HubSpot tracking code -->\n  <script type=\"text/javascript\" id=\"hubspot-script-loader\" async=\"\" defer=\"\" src=\"https://js-eu1.hs-scripts.com/25326951.js\"></script>\n\n  <!-- Intégration Matomo -->\n  <!-- SHA-256 actulel : 6dd2931f23b5b52c64ea65b81c208a7b88263a88cdd51b9ffe340ffa90d1f83a  -->\n  <!-- A  rajouter dans la properties : -->\n  <script type=\"text/javascript\" nonce=\"matomo_js\">\n    var xhr = new XMLHttpRequest(), doc = document;\n    xhr.responseType = 'text';\n    xhr.onreadystatechange = () => {\n      if (xhr.readyState === 4 && xhr.status === 200) {\n        var script = doc.getElementById('matomo');\n        script.innerHTML = xhr.response;\n      }\n    }\n    xhr.open('GET', '/api/matomo', true);\n    xhr.send();\n  </script>\n  <script type=\"text/javascript\" id=\"matomo\" nonce=\"matomo_piwik\"></script>\n<link rel=\"stylesheet\" href=\"styles.9048f7caec99d745.css\"><link rel=\"stylesheet\" href=\"dsfr-core-style.2f8bce7a70008856.css\"><link rel=\"stylesheet\" href=\"dsfr-utility-style.29fb9ca44d797efb.css\"><link rel=\"stylesheet\" href=\"dsfr-form-style.9b52507507273915.css\"><link rel=\"stylesheet\" href=\"siao-style.c43cac11df1dd303.css\"><link rel=\"stylesheet\" href=\"siao-dsfr-style.6d49aad30f0b4d34.css\"><link rel=\"stylesheet\" href=\"font-awesome-style.613ef35f114300a3.css\"><link rel=\"stylesheet\" href=\"isteven-style.3cd6867cf8c0c4a1.css\"><link rel=\"stylesheet\" href=\"leaflet-style.4be52dced36ed588.css\"><link rel=\"stylesheet\" href=\"quill-core-style.2244696dc6befe02.css\"><link rel=\"stylesheet\" href=\"quill-snow-style.a4421021128f5425.css\"></head>\n\n<body>\n  <siao-app></siao-app>\n<script src=\"runtime.faa316a1abebe03a.js\" type=\"module\"></script><script src=\"polyfills.ab7d5be44af37264.js\" type=\"module\"></script><script src=\"scripts.62bebcf15f8f94da.js\" defer></script><script src=\"vendor.a9f0b0f17eeb0052.js\" type=\"module\"></script><script src=\"main.06f035c5340e3c60.js\" type=\"module\"></script></body>\n\n</html>\n",
+      "ip": "185.113.40.47",
+      "timestamp": "2023-10-15T05:36:16.340975852Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://siao-preprod.cegedim-hds.fr'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/exposed-panels/keycloak-admin-panel.yaml",
+      "template-url": "https://templates.nuclei.sh/public/keycloak-admin-panel",
+      "template-id": "keycloak-admin-panel",
+      "template-path": "/home/runner/nuclei-templates/http/exposed-panels/keycloak-admin-panel.yaml",
+      "info": {
+        "name": "Keycloak Admin Login Panel - Detect",
+        "author": [
+          "incogbyte",
+          "righettod",
+          "daffainfo"
+        ],
+        "tags": [
+          "panel",
+          "keycloak"
+        ],
+        "description": "Keycloak admin login panel was detected.",
+        "severity": "info",
+        "metadata": {
+          "max-request": 3,
+          "shodan-query": "http.favicon.hash:-1105083093",
+          "verified": true
+        },
+        "classification": {
+          "cve-id": null,
+          "cwe-id": [
+            "cwe-200"
+          ],
+          "cvss-metrics": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N"
+        }
+      },
+      "type": "http",
+      "host": "https://siao-preprod.cegedim-hds.fr",
+      "matched-at": "https://siao-preprod.cegedim-hds.fr/auth/admin/master/console/",
+      "request": "GET /auth/admin HTTP/1.1\r\nHost: siao-preprod.cegedim-hds.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 7360\r\nCache-Control: no-cache\r\nContent-Language: en\r\nContent-Security-Policy: frame-src 'self'; frame-ancestors 'self'; object-src 'none';\r\nContent-Type: text/html;charset=utf-8\r\nDate: Sun, 15 Oct 2023 05:36:24 GMT\r\nSet-Cookie: BIGipServerpool-siao-preprod.cegedim-hds.fr-TCP8180=!sJq6hU27Be65grEm0zi0rVXmcSp4Pb21o+WoYdiW8mvy6vCxn4p+z7IlTBQ5rRjYPoH9wnCYtjM+RycExa42xDUsIgY=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: SAMEORIGIN\r\nX-Robots-Tag: none\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!DOCTYPE html>\n<html>\n<head>\n    <title></title>\n\n    <meta charset=\"utf-8\">\n    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />\n    <meta name=\"robots\" content=\"noindex, nofollow\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n\n    <link rel=\"shortcut icon\" href=\"/auth/resources/xvtrm/admin/keycloak/img/favicon.ico\">\n    <link href=\"/auth/resources/xvtrm/admin/keycloak/node_modules/patternfly/dist/css/patternfly.min.css\" rel=\"stylesheet\" />\n    <link href=\"/auth/resources/xvtrm/admin/keycloak/node_modules/patternfly/dist/css/patternfly-additions.min.css\" rel=\"stylesheet\" />\n    <link href=\"/auth/resources/xvtrm/admin/keycloak/node_modules/select2/select2.css\" rel=\"stylesheet\" />\n    <link href=\"/auth/resources/xvtrm/admin/keycloak/css/styles.css\" rel=\"stylesheet\" />\n    <link href=\"/auth/resources/xvtrm/admin/keycloak/lib/angular/treeview/css/angular.treeview.css\" rel=\"stylesheet\" />\n    <link href=\"/auth/resources/xvtrm/admin/keycloak/node_modules/text-security/text-security.css\" rel=\"stylesheet\" />\n\n    <script type=\"text/javascript\">\n        var authServerUrl = 'https://siao-preprod.cegedim-hds.fr/auth';\n        var authUrl = 'https://siao-preprod.cegedim-hds.fr/auth';\n        var consoleBaseUrl = '/auth/admin/master/console/';\n        var resourceUrl = '/auth/resources/xvtrm/admin/keycloak';\n        var masterRealm = 'master';\n        var resourceVersion = 'xvtrm';\n    </script>\n\n    <!-- Minimized versions (for those that have one) -->\n    <script src=\"/auth/resources/xvtrm/admin/keycloak/node_modules/jquery/dist/jquery.min.js\" type=\"text/javascript\"></script>\n    <script src=\"/auth/resources/xvtrm/admin/keycloak/node_modules/select2/select2.js\" type=\"text/javascript\"></script>\n    <script src=\"/auth/resources/xvtrm/admin/keycloak/node_modules/angular/angular.min.js\"></script>\n    <script src=\"/auth/resources/xvtrm/admin/keycloak/node_modules/angular-resource/angular-resource.min.js\"></script>\n    <script src=\"/auth/resources/xvtrm/admin/keycloak/node_modules/angular-route/angular-route.min.js\"></script>\n    <script src=\"/auth/resources/xvtrm/admin/keycloak/node_modules/angular-cookies/angular-cookies.min.js\"></script>\n    <script src=\"/auth/resources/xvtrm/admin/keycloak/node_modules/angular-sanitize/angular-sanitize.min.js\"></script>\n    <script src=\"/auth/resources/xvtrm/admin/keycloak/node_modules/angular-translate/dist/angular-translate.min.js\"></script>\n    <script src=\"/auth/resources/xvtrm/admin/keycloak/node_modules/angular-translate-loader-url/angular-translate-loader-url.min.js\"></script>\n    <script src=\"/auth/resources/xvtrm/admin/keycloak/node_modules/angular-ui-select2/src/select2.js\" type=\"text/javascript\"></script>\n    <script src=\"/auth/resources/xvtrm/admin/keycloak/node_modules/autofill-event/autofill-event.js\"></script>\n    \n    \n    <!-- Unminimized versions\n    <script src=\"/auth/resources/xvtrm/admin/keycloak/node_modules/jquery/dist/jquery.js\" type=\"text/javascript\"></script>\n    <script src=\"/auth/resources/xvtrm/admin/keycloak/node_modules/select2/select2.js\" type=\"text/javascript\"></script>\n    <script src=\"/auth/resources/xvtrm/admin/keycloak/node_modules/angular/angular.js\"></script>\n    <script src=\"/auth/resources/xvtrm/admin/keycloak/node_modules/angular-resource/angular-resource.js\"></script>\n    <script src=\"/auth/resources/xvtrm/admin/keycloak/node_modules/angular-route/angular-route.js\"></script>\n    <script src=\"/auth/resources/xvtrm/admin/keycloak/node_modules/angular-cookies/angular-cookies.js\"></script>\n    <script src=\"/auth/resources/xvtrm/admin/keycloak/node_modules/angular-sanitize/angular-sanitize.js\"></script>\n    <script src=\"/auth/resources/xvtrm/admin/keycloak/node_modules/angular-translate/dist/angular-translate.js\"></script>\n    <script src=\"/auth/resources/xvtrm/admin/keycloak/node_modules/angular-translate-loader-url/angular-translate-loader-url.js\"></script>\n    <script src=\"/auth/resources/xvtrm/admin/keycloak/node_modules/angular-ui-select2/src/select2.js\" type=\"text/javascript\"></script>\n    <script src=\"/auth/resources/xvtrm/admin/keycloak/node_modules/autofill-event/autofill-event.js\"></script>\n    -->\n\n    <!-- Libraries not managed by yarn -->\n    <script src=\"/auth/resources/xvtrm/admin/keycloak/lib/angular/ui-bootstrap-tpls-0.11.0.js\"></script>\n    <script src=\"/auth/resources/xvtrm/admin/keycloak/lib/angular/treeview/angular.treeview.js\"></script>\n    <script src=\"/auth/resources/xvtrm/admin/keycloak/lib/fileupload/angular-file-upload.min.js\"></script>\n    <script src=\"/auth/resources/xvtrm/admin/keycloak/lib/filesaver/FileSaver.js\"></script>\n    <script src=\"/auth/resources/xvtrm/admin/keycloak/lib/ui-ace/min/ace.js\"></script>\n    <script src=\"/auth/resources/xvtrm/admin/keycloak/lib/ui-ace/ui-ace.min.js\"></script>\n\n    <script src=\"https://siao-preprod.cegedim-hds.fr/auth/js/keycloak.js?version=xvtrm\" type=\"text/javascript\"></script>\n\n    <script src=\"/auth/resources/xvtrm/admin/keycloak/js/app.js\" type=\"text/javascript\"></script>\n    <script src=\"/auth/resources/xvtrm/admin/keycloak/js/controllers/realm.js\" type=\"text/javascript\"></script>\n    <script src=\"/auth/resources/xvtrm/admin/keycloak/js/controllers/clients.js\" type=\"text/javascript\"></script>\n    <script src=\"/auth/resources/xvtrm/admin/keycloak/js/controllers/users.js\" type=\"text/javascript\"></script>\n    <script src=\"/auth/resources/xvtrm/admin/keycloak/js/controllers/groups.js\" type=\"text/javascript\"></script>\n    <script src=\"/auth/resources/xvtrm/admin/keycloak/js/controllers/roles.js\" type=\"text/javascript\"></script>\n    <script src=\"/auth/resources/xvtrm/admin/keycloak/js/loaders.js\" type=\"text/javascript\"></script>\n    <script src=\"/auth/resources/xvtrm/admin/keycloak/js/services.js\" type=\"text/javascript\"></script>\n\n    <!-- Authorization -->\n    <script src=\"/auth/resources/xvtrm/admin/keycloak/js/authz/authz-app.js\" type=\"text/javascript\"></script>\n    <script src=\"/auth/resources/xvtrm/admin/keycloak/js/authz/authz-controller.js\" type=\"text/javascript\"></script>\n    <script src=\"/auth/resources/xvtrm/admin/keycloak/js/authz/authz-services.js\" type=\"text/javascript\"></script>\n\n</head>\n<body data-ng-controller=\"GlobalCtrl\" data-ng-cloak data-ng-show=\"auth.user\">\n\n<nav class=\"navbar navbar-default navbar-pf\" role=\"navigation\" data-ng-include data-src=\"resourceUrl + '/partials/menu.html'\">\n</nav>\n\n<div class=\"container-fluid\">\n<div class=\"row\">\n    <div data-ng-view id=\"view\"></div>\n</div>\n</div>\n\n<div class=\"feedback-aligner\" data-ng-show=\"notification.display\">\n    <div class=\"alert alert-{{notification.type}} alert-dismissable\">\n        <button type=\"button\" class=\"close\" data-ng-click=\"notification.remove()\" id=\"notification-close\">\n            <span class=\"pficon pficon-close\"/>\n        </button>\n\n        <span class=\"pficon pficon-ok\" ng-show=\"notification.type == 'success'\"></span>\n        <span class=\"pficon pficon-info\" ng-show=\"notification.type == 'info'\"></span>\n        <span class=\"pficon pficon-warning-triangle-o\" ng-show=\"notification.type == 'warning'\"></span>\n        <span class=\"pficon pficon-error-circle-o\" ng-show=\"notification.type == 'danger'\"></span>\n        <strong>{{notification.header}}</strong> {{notification.message}}\n    </div>\n</div>\n\n<div id=\"loading\" class=\"loading\">Loading...</div>\n\n</body>\n</html>",
+      "ip": "185.113.40.47",
+      "timestamp": "2023-10-15T05:36:24.713347572Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://siao-preprod.cegedim-hds.fr/auth/admin'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/exposures/configs/keycloak-openid-config.yaml",
+      "template-url": "https://templates.nuclei.sh/public/keycloak-openid-config",
+      "template-id": "keycloak-openid-config",
+      "template-path": "/home/runner/nuclei-templates/http/exposures/configs/keycloak-openid-config.yaml",
+      "info": {
+        "name": "Keycloak OpenID Configuration - Detect",
+        "author": [
+          "rodnt"
+        ],
+        "tags": [
+          "keycloak",
+          "config",
+          "exposure"
+        ],
+        "description": "Keycloak Openid configuration information was detected.",
+        "reference": [
+          "https://issues.jboss.org/browse/keycloak-571"
+        ],
+        "severity": "info",
+        "metadata": {
+          "max-request": 2
+        },
+        "classification": {
+          "cve-id": null,
+          "cwe-id": [
+            "cwe-200"
+          ],
+          "cvss-metrics": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N"
+        }
+      },
+      "type": "http",
+      "host": "https://siao-preprod.cegedim-hds.fr",
+      "matched-at": "https://siao-preprod.cegedim-hds.fr/auth/realms/master/.well-known/openid-configuration",
+      "request": "GET /auth/realms/master/.well-known/openid-configuration HTTP/1.1\r\nHost: siao-preprod.cegedim-hds.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 2794\r\nCache-Control: no-cache, must-revalidate, no-transform, no-store\r\nContent-Type: application/json\r\nDate: Sun, 15 Oct 2023 05:36:35 GMT\r\nSet-Cookie: BIGipServerpool-siao-preprod.cegedim-hds.fr-TCP8180=!t+hLbc0YqmyPC5om0zi0rVXmcSp4PfXoer6xxwuqC1yeKg/WLXMYB1Mz8z8LAoKc+HPkX2wa+Sy7oH9yYS9Tg7cf+3g=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Content-Type-Options: nosniff\r\nX-Frame-Options: SAMEORIGIN\r\nX-Xss-Protection: 1; mode=block\r\n\r\n{\"issuer\":\"https://siao-preprod.cegedim-hds.fr/auth/realms/master\",\"authorization_endpoint\":\"https://siao-preprod.cegedim-hds.fr/auth/realms/master/protocol/openid-connect/auth\",\"token_endpoint\":\"https://siao-preprod.cegedim-hds.fr/auth/realms/master/protocol/openid-connect/token\",\"token_introspection_endpoint\":\"https://siao-preprod.cegedim-hds.fr/auth/realms/master/protocol/openid-connect/token/introspect\",\"userinfo_endpoint\":\"https://siao-preprod.cegedim-hds.fr/auth/realms/master/protocol/openid-connect/userinfo\",\"end_session_endpoint\":\"https://siao-preprod.cegedim-hds.fr/auth/realms/master/protocol/openid-connect/logout\",\"jwks_uri\":\"https://siao-preprod.cegedim-hds.fr/auth/realms/master/protocol/openid-connect/certs\",\"check_session_iframe\":\"https://siao-preprod.cegedim-hds.fr/auth/realms/master/protocol/openid-connect/login-status-iframe.html\",\"grant_types_supported\":[\"authorization_code\",\"implicit\",\"refresh_token\",\"password\",\"client_credentials\"],\"response_types_supported\":[\"code\",\"none\",\"id_token\",\"token\",\"id_token token\",\"code id_token\",\"code token\",\"code id_token token\"],\"subject_types_supported\":[\"public\",\"pairwise\"],\"id_token_signing_alg_values_supported\":[\"PS384\",\"ES384\",\"RS384\",\"HS256\",\"HS512\",\"ES256\",\"RS256\",\"HS384\",\"ES512\",\"PS256\",\"PS512\",\"RS512\"],\"id_token_encryption_alg_values_supported\":[\"RSA-OAEP\",\"RSA1_5\"],\"id_token_encryption_enc_values_supported\":[\"A128GCM\",\"A128CBC-HS256\"],\"userinfo_signing_alg_values_supported\":[\"PS384\",\"ES384\",\"RS384\",\"HS256\",\"HS512\",\"ES256\",\"RS256\",\"HS384\",\"ES512\",\"PS256\",\"PS512\",\"RS512\",\"none\"],\"request_object_signing_alg_values_supported\":[\"PS384\",\"ES384\",\"RS384\",\"HS256\",\"HS512\",\"ES256\",\"RS256\",\"HS384\",\"ES512\",\"PS256\",\"PS512\",\"RS512\",\"none\"],\"response_modes_supported\":[\"query\",\"fragment\",\"form_post\"],\"registration_endpoint\":\"https://siao-preprod.cegedim-hds.fr/auth/realms/master/clients-registrations/openid-connect\",\"token_endpoint_auth_methods_supported\":[\"private_key_jwt\",\"client_secret_basic\",\"client_secret_post\",\"tls_client_auth\",\"client_secret_jwt\"],\"token_endpoint_auth_signing_alg_values_supported\":[\"PS384\",\"ES384\",\"RS384\",\"HS256\",\"HS512\",\"ES256\",\"RS256\",\"HS384\",\"ES512\",\"PS256\",\"PS512\",\"RS512\"],\"claims_supported\":[\"aud\",\"sub\",\"iss\",\"auth_time\",\"name\",\"given_name\",\"family_name\",\"preferred_username\",\"email\",\"acr\"],\"claim_types_supported\":[\"normal\"],\"claims_parameter_supported\":false,\"scopes_supported\":[\"openid\",\"offline_access\",\"profile\",\"email\",\"address\",\"phone\",\"roles\",\"web-origins\",\"microprofile-jwt\"],\"request_parameter_supported\":true,\"request_uri_parameter_supported\":true,\"code_challenge_methods_supported\":[\"plain\",\"S256\"],\"tls_client_certificate_bound_access_tokens\":true,\"introspection_endpoint\":\"https://siao-preprod.cegedim-hds.fr/auth/realms/master/protocol/openid-connect/token/introspect\"}",
+      "ip": "185.113.40.47",
+      "timestamp": "2023-10-15T05:36:36.00172702Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://siao-preprod.cegedim-hds.fr/auth/realms/master/.well-known/openid-configuration'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "clear-site-data",
+      "type": "http",
+      "host": "https://siao-preprod.cegedim-hds.fr",
+      "matched-at": "https://siao-preprod.cegedim-hds.fr",
+      "request": "GET / HTTP/1.1\r\nHost: siao-preprod.cegedim-hds.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.1 200 \r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAccept-Ranges: bytes\r\nCache-Control: no-cache, no-store, max-age=0, must-revalidate\r\nContent-Language: en\r\nContent-Security-Policy: script-src 'self' code.jquery.com cdn.jsdelivr.net *.hs-scripts.com *.hs-banner.com *.hs-analytics.net *.hscollectedforms.net *.usemessages.com *.developpement-durable.gouv.fr 'sha256-lIPLl/jk1slnucFam9l2EMVQjQ68UbeJVDmZ8lXK7e4=' 'nonce-matomo_js' 'nonce-matomo_piwik' 'report-sample';  object-src 'none'; frame-ancestors 'none'; report-uri /api/csp-report;\r\nContent-Type: text/html;charset=UTF-8\r\nDate: Sun, 15 Oct 2023 05:36:46 GMT\r\nExpires: 0\r\nLast-Modified: Thu, 21 Sep 2023 08:09:33 GMT\r\nPragma: no-cache\r\nSet-Cookie: XSRF-TOKEN=e6041a30-6976-41a5-93de-f7a1d940384e; Path=/; Secure\r\nSet-Cookie: JSESSIONID=D24548E4FA4DC5485A2BA5A82BECA109; HttpOnly; Path=/; Secure; HttpOnly\r\nSet-Cookie: serverTime=1697348207056; Path=/; HttpOnly\r\nSet-Cookie: sessionExpiry=1697350007056; HttpOnly; Path=/; HttpOnly; Secure\r\nSet-Cookie: BIGipServerpool-siao-preprod.cegedim-hds.fr-HTTP=!jBnwOUY+TR8ZOS0m0zi0rVXmcSp4PZvmn3BQFY6kDN0XEYSymXcM+5MFFbqrZg/uY7QTsKoMblPTgaLN1riLnv0O/hI=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: origin,access-control-request-method,access-control-request-headers,accept-encoding\r\nX-Content-Type-Options: nosniff\r\nX-Correlation-Id: f8e1b5a4-2a49-458d-9846-6f23f1470336\r\nX-Frame-Options: DENY\r\nX-Request-Id: e688e29e-968b-48d2-944c-a0de70518add\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!DOCTYPE html>\n<html lang=\"fr\">\n\n<head>\n  <meta charset=\"utf-8\"/>\n  <base href=\"/\"/>\n  <title>SIAO - 115</title>\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/>\n  <meta name=\"theme-color\" content=\"#000091\"/>\n\n  <link rel=\"shortcut icon\" type=\"image/x-icon\" href=\"/@gouvfr/favicon/favicon.ico\"/>\n\n  <link rel=\"apple-touch-icon\" href=\"/@gouvfr/favicon/apple-touch-icon.png\"><!-- 180×180 -->\n  <link rel=\"icon\" href=\"/@gouvfr/favicon/favicon.svg\" type=\"image/svg+xml\">\n  <link rel=\"shortcut icon\" href=\"/@gouvfr/favicon/favicon.ico\" type=\"image/x-icon\"><!-- 32×32 -->\n  <link rel=\"manifest\" href=\"manifest.webmanifest\" crossorigin=\"use-credentials\">\n\n  <link rel=\"preload\" href=\"./primeicons.ttf\" as=\"font\" type=\"font/ttf\" crossorigin=\"anonymous\"/>\n  <link rel=\"preload\" href=\"./fontawesome-webfont.woff2?v=4.7.0\" as=\"font\" type=\"font/woff2\" crossorigin=\"anonymous\"/>\n  <link rel=\"preload\" href=\"./assets/img/sprite.svg\" as=\"image\">\n\n  <script>\n    // Options disponibles a l initialisation du DSFR\n    window.dsfr = {\n      verbose: false,\n      mode: 'loaded'\n    };\n  </script>\n\n  <!--\n    Attention : toute modification de ce script doit faire l'objet d'un calcul du sha256 et être\n    reporté dans la propriété security.csp.directives du application.properties du module web.\n    SHA256 actuel : \"lIPLl/jk1slnucFam9l2EMVQjQ68UbeJVDmZ8lXK7e4=\"\n    Remarque : cet aspect CSP ne peut être testé avec \"ng serve\".\n  -->\n  <!-- Load the HubSpot tracking code -->\n  <script type=\"text/javascript\" id=\"hubspot-script-loader\" async=\"\" defer=\"\" src=\"https://js-eu1.hs-scripts.com/25326951.js\"></script>\n\n  <!-- Intégration Matomo -->\n  <!-- SHA-256 actulel : 6dd2931f23b5b52c64ea65b81c208a7b88263a88cdd51b9ffe340ffa90d1f83a  -->\n  <!-- A  rajouter dans la properties : -->\n  <script type=\"text/javascript\" nonce=\"matomo_js\">\n    var xhr = new XMLHttpRequest(), doc = document;\n    xhr.responseType = 'text';\n    xhr.onreadystatechange = () => {\n      if (xhr.readyState === 4 && xhr.status === 200) {\n        var script = doc.getElementById('matomo');\n        script.innerHTML = xhr.response;\n      }\n    }\n    xhr.open('GET', '/api/matomo', true);\n    xhr.send();\n  </script>\n  <script type=\"text/javascript\" id=\"matomo\" nonce=\"matomo_piwik\"></script>\n<link rel=\"stylesheet\" href=\"styles.9048f7caec99d745.css\"><link rel=\"stylesheet\" href=\"dsfr-core-style.2f8bce7a70008856.css\"><link rel=\"stylesheet\" href=\"dsfr-utility-style.29fb9ca44d797efb.css\"><link rel=\"stylesheet\" href=\"dsfr-form-style.9b52507507273915.css\"><link rel=\"stylesheet\" href=\"siao-style.c43cac11df1dd303.css\"><link rel=\"stylesheet\" href=\"siao-dsfr-style.6d49aad30f0b4d34.css\"><link rel=\"stylesheet\" href=\"font-awesome-style.613ef35f114300a3.css\"><link rel=\"stylesheet\" href=\"isteven-style.3cd6867cf8c0c4a1.css\"><link rel=\"stylesheet\" href=\"leaflet-style.4be52dced36ed588.css\"><link rel=\"stylesheet\" href=\"quill-core-style.2244696dc6befe02.css\"><link rel=\"stylesheet\" href=\"quill-snow-style.a4421021128f5425.css\"></head>\n\n<body>\n  <siao-app></siao-app>\n<script src=\"runtime.faa316a1abebe03a.js\" type=\"module\"></script><script src=\"polyfills.ab7d5be44af37264.js\" type=\"module\"></script><script src=\"scripts.62bebcf15f8f94da.js\" defer></script><script src=\"vendor.a9f0b0f17eeb0052.js\" type=\"module\"></script><script src=\"main.06f035c5340e3c60.js\" type=\"module\"></script></body>\n\n</html>\n",
+      "ip": "185.113.40.47",
+      "timestamp": "2023-10-15T05:36:47.108776955Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://siao-preprod.cegedim-hds.fr'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "cross-origin-embedder-policy",
+      "type": "http",
+      "host": "https://siao-preprod.cegedim-hds.fr",
+      "matched-at": "https://siao-preprod.cegedim-hds.fr",
+      "request": "GET / HTTP/1.1\r\nHost: siao-preprod.cegedim-hds.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.1 200 \r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAccept-Ranges: bytes\r\nCache-Control: no-cache, no-store, max-age=0, must-revalidate\r\nContent-Language: en\r\nContent-Security-Policy: script-src 'self' code.jquery.com cdn.jsdelivr.net *.hs-scripts.com *.hs-banner.com *.hs-analytics.net *.hscollectedforms.net *.usemessages.com *.developpement-durable.gouv.fr 'sha256-lIPLl/jk1slnucFam9l2EMVQjQ68UbeJVDmZ8lXK7e4=' 'nonce-matomo_js' 'nonce-matomo_piwik' 'report-sample';  object-src 'none'; frame-ancestors 'none'; report-uri /api/csp-report;\r\nContent-Type: text/html;charset=UTF-8\r\nDate: Sun, 15 Oct 2023 05:36:46 GMT\r\nExpires: 0\r\nLast-Modified: Thu, 21 Sep 2023 08:09:33 GMT\r\nPragma: no-cache\r\nSet-Cookie: XSRF-TOKEN=e6041a30-6976-41a5-93de-f7a1d940384e; Path=/; Secure\r\nSet-Cookie: JSESSIONID=D24548E4FA4DC5485A2BA5A82BECA109; HttpOnly; Path=/; Secure; HttpOnly\r\nSet-Cookie: serverTime=1697348207056; Path=/; HttpOnly\r\nSet-Cookie: sessionExpiry=1697350007056; HttpOnly; Path=/; HttpOnly; Secure\r\nSet-Cookie: BIGipServerpool-siao-preprod.cegedim-hds.fr-HTTP=!jBnwOUY+TR8ZOS0m0zi0rVXmcSp4PZvmn3BQFY6kDN0XEYSymXcM+5MFFbqrZg/uY7QTsKoMblPTgaLN1riLnv0O/hI=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: origin,access-control-request-method,access-control-request-headers,accept-encoding\r\nX-Content-Type-Options: nosniff\r\nX-Correlation-Id: f8e1b5a4-2a49-458d-9846-6f23f1470336\r\nX-Frame-Options: DENY\r\nX-Request-Id: e688e29e-968b-48d2-944c-a0de70518add\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!DOCTYPE html>\n<html lang=\"fr\">\n\n<head>\n  <meta charset=\"utf-8\"/>\n  <base href=\"/\"/>\n  <title>SIAO - 115</title>\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/>\n  <meta name=\"theme-color\" content=\"#000091\"/>\n\n  <link rel=\"shortcut icon\" type=\"image/x-icon\" href=\"/@gouvfr/favicon/favicon.ico\"/>\n\n  <link rel=\"apple-touch-icon\" href=\"/@gouvfr/favicon/apple-touch-icon.png\"><!-- 180×180 -->\n  <link rel=\"icon\" href=\"/@gouvfr/favicon/favicon.svg\" type=\"image/svg+xml\">\n  <link rel=\"shortcut icon\" href=\"/@gouvfr/favicon/favicon.ico\" type=\"image/x-icon\"><!-- 32×32 -->\n  <link rel=\"manifest\" href=\"manifest.webmanifest\" crossorigin=\"use-credentials\">\n\n  <link rel=\"preload\" href=\"./primeicons.ttf\" as=\"font\" type=\"font/ttf\" crossorigin=\"anonymous\"/>\n  <link rel=\"preload\" href=\"./fontawesome-webfont.woff2?v=4.7.0\" as=\"font\" type=\"font/woff2\" crossorigin=\"anonymous\"/>\n  <link rel=\"preload\" href=\"./assets/img/sprite.svg\" as=\"image\">\n\n  <script>\n    // Options disponibles a l initialisation du DSFR\n    window.dsfr = {\n      verbose: false,\n      mode: 'loaded'\n    };\n  </script>\n\n  <!--\n    Attention : toute modification de ce script doit faire l'objet d'un calcul du sha256 et être\n    reporté dans la propriété security.csp.directives du application.properties du module web.\n    SHA256 actuel : \"lIPLl/jk1slnucFam9l2EMVQjQ68UbeJVDmZ8lXK7e4=\"\n    Remarque : cet aspect CSP ne peut être testé avec \"ng serve\".\n  -->\n  <!-- Load the HubSpot tracking code -->\n  <script type=\"text/javascript\" id=\"hubspot-script-loader\" async=\"\" defer=\"\" src=\"https://js-eu1.hs-scripts.com/25326951.js\"></script>\n\n  <!-- Intégration Matomo -->\n  <!-- SHA-256 actulel : 6dd2931f23b5b52c64ea65b81c208a7b88263a88cdd51b9ffe340ffa90d1f83a  -->\n  <!-- A  rajouter dans la properties : -->\n  <script type=\"text/javascript\" nonce=\"matomo_js\">\n    var xhr = new XMLHttpRequest(), doc = document;\n    xhr.responseType = 'text';\n    xhr.onreadystatechange = () => {\n      if (xhr.readyState === 4 && xhr.status === 200) {\n        var script = doc.getElementById('matomo');\n        script.innerHTML = xhr.response;\n      }\n    }\n    xhr.open('GET', '/api/matomo', true);\n    xhr.send();\n  </script>\n  <script type=\"text/javascript\" id=\"matomo\" nonce=\"matomo_piwik\"></script>\n<link rel=\"stylesheet\" href=\"styles.9048f7caec99d745.css\"><link rel=\"stylesheet\" href=\"dsfr-core-style.2f8bce7a70008856.css\"><link rel=\"stylesheet\" href=\"dsfr-utility-style.29fb9ca44d797efb.css\"><link rel=\"stylesheet\" href=\"dsfr-form-style.9b52507507273915.css\"><link rel=\"stylesheet\" href=\"siao-style.c43cac11df1dd303.css\"><link rel=\"stylesheet\" href=\"siao-dsfr-style.6d49aad30f0b4d34.css\"><link rel=\"stylesheet\" href=\"font-awesome-style.613ef35f114300a3.css\"><link rel=\"stylesheet\" href=\"isteven-style.3cd6867cf8c0c4a1.css\"><link rel=\"stylesheet\" href=\"leaflet-style.4be52dced36ed588.css\"><link rel=\"stylesheet\" href=\"quill-core-style.2244696dc6befe02.css\"><link rel=\"stylesheet\" href=\"quill-snow-style.a4421021128f5425.css\"></head>\n\n<body>\n  <siao-app></siao-app>\n<script src=\"runtime.faa316a1abebe03a.js\" type=\"module\"></script><script src=\"polyfills.ab7d5be44af37264.js\" type=\"module\"></script><script src=\"scripts.62bebcf15f8f94da.js\" defer></script><script src=\"vendor.a9f0b0f17eeb0052.js\" type=\"module\"></script><script src=\"main.06f035c5340e3c60.js\" type=\"module\"></script></body>\n\n</html>\n",
+      "ip": "185.113.40.47",
+      "timestamp": "2023-10-15T05:36:47.108860756Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://siao-preprod.cegedim-hds.fr'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "cross-origin-opener-policy",
+      "type": "http",
+      "host": "https://siao-preprod.cegedim-hds.fr",
+      "matched-at": "https://siao-preprod.cegedim-hds.fr",
+      "request": "GET / HTTP/1.1\r\nHost: siao-preprod.cegedim-hds.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.1 200 \r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAccept-Ranges: bytes\r\nCache-Control: no-cache, no-store, max-age=0, must-revalidate\r\nContent-Language: en\r\nContent-Security-Policy: script-src 'self' code.jquery.com cdn.jsdelivr.net *.hs-scripts.com *.hs-banner.com *.hs-analytics.net *.hscollectedforms.net *.usemessages.com *.developpement-durable.gouv.fr 'sha256-lIPLl/jk1slnucFam9l2EMVQjQ68UbeJVDmZ8lXK7e4=' 'nonce-matomo_js' 'nonce-matomo_piwik' 'report-sample';  object-src 'none'; frame-ancestors 'none'; report-uri /api/csp-report;\r\nContent-Type: text/html;charset=UTF-8\r\nDate: Sun, 15 Oct 2023 05:36:46 GMT\r\nExpires: 0\r\nLast-Modified: Thu, 21 Sep 2023 08:09:33 GMT\r\nPragma: no-cache\r\nSet-Cookie: XSRF-TOKEN=e6041a30-6976-41a5-93de-f7a1d940384e; Path=/; Secure\r\nSet-Cookie: JSESSIONID=D24548E4FA4DC5485A2BA5A82BECA109; HttpOnly; Path=/; Secure; HttpOnly\r\nSet-Cookie: serverTime=1697348207056; Path=/; HttpOnly\r\nSet-Cookie: sessionExpiry=1697350007056; HttpOnly; Path=/; HttpOnly; Secure\r\nSet-Cookie: BIGipServerpool-siao-preprod.cegedim-hds.fr-HTTP=!jBnwOUY+TR8ZOS0m0zi0rVXmcSp4PZvmn3BQFY6kDN0XEYSymXcM+5MFFbqrZg/uY7QTsKoMblPTgaLN1riLnv0O/hI=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: origin,access-control-request-method,access-control-request-headers,accept-encoding\r\nX-Content-Type-Options: nosniff\r\nX-Correlation-Id: f8e1b5a4-2a49-458d-9846-6f23f1470336\r\nX-Frame-Options: DENY\r\nX-Request-Id: e688e29e-968b-48d2-944c-a0de70518add\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!DOCTYPE html>\n<html lang=\"fr\">\n\n<head>\n  <meta charset=\"utf-8\"/>\n  <base href=\"/\"/>\n  <title>SIAO - 115</title>\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/>\n  <meta name=\"theme-color\" content=\"#000091\"/>\n\n  <link rel=\"shortcut icon\" type=\"image/x-icon\" href=\"/@gouvfr/favicon/favicon.ico\"/>\n\n  <link rel=\"apple-touch-icon\" href=\"/@gouvfr/favicon/apple-touch-icon.png\"><!-- 180×180 -->\n  <link rel=\"icon\" href=\"/@gouvfr/favicon/favicon.svg\" type=\"image/svg+xml\">\n  <link rel=\"shortcut icon\" href=\"/@gouvfr/favicon/favicon.ico\" type=\"image/x-icon\"><!-- 32×32 -->\n  <link rel=\"manifest\" href=\"manifest.webmanifest\" crossorigin=\"use-credentials\">\n\n  <link rel=\"preload\" href=\"./primeicons.ttf\" as=\"font\" type=\"font/ttf\" crossorigin=\"anonymous\"/>\n  <link rel=\"preload\" href=\"./fontawesome-webfont.woff2?v=4.7.0\" as=\"font\" type=\"font/woff2\" crossorigin=\"anonymous\"/>\n  <link rel=\"preload\" href=\"./assets/img/sprite.svg\" as=\"image\">\n\n  <script>\n    // Options disponibles a l initialisation du DSFR\n    window.dsfr = {\n      verbose: false,\n      mode: 'loaded'\n    };\n  </script>\n\n  <!--\n    Attention : toute modification de ce script doit faire l'objet d'un calcul du sha256 et être\n    reporté dans la propriété security.csp.directives du application.properties du module web.\n    SHA256 actuel : \"lIPLl/jk1slnucFam9l2EMVQjQ68UbeJVDmZ8lXK7e4=\"\n    Remarque : cet aspect CSP ne peut être testé avec \"ng serve\".\n  -->\n  <!-- Load the HubSpot tracking code -->\n  <script type=\"text/javascript\" id=\"hubspot-script-loader\" async=\"\" defer=\"\" src=\"https://js-eu1.hs-scripts.com/25326951.js\"></script>\n\n  <!-- Intégration Matomo -->\n  <!-- SHA-256 actulel : 6dd2931f23b5b52c64ea65b81c208a7b88263a88cdd51b9ffe340ffa90d1f83a  -->\n  <!-- A  rajouter dans la properties : -->\n  <script type=\"text/javascript\" nonce=\"matomo_js\">\n    var xhr = new XMLHttpRequest(), doc = document;\n    xhr.responseType = 'text';\n    xhr.onreadystatechange = () => {\n      if (xhr.readyState === 4 && xhr.status === 200) {\n        var script = doc.getElementById('matomo');\n        script.innerHTML = xhr.response;\n      }\n    }\n    xhr.open('GET', '/api/matomo', true);\n    xhr.send();\n  </script>\n  <script type=\"text/javascript\" id=\"matomo\" nonce=\"matomo_piwik\"></script>\n<link rel=\"stylesheet\" href=\"styles.9048f7caec99d745.css\"><link rel=\"stylesheet\" href=\"dsfr-core-style.2f8bce7a70008856.css\"><link rel=\"stylesheet\" href=\"dsfr-utility-style.29fb9ca44d797efb.css\"><link rel=\"stylesheet\" href=\"dsfr-form-style.9b52507507273915.css\"><link rel=\"stylesheet\" href=\"siao-style.c43cac11df1dd303.css\"><link rel=\"stylesheet\" href=\"siao-dsfr-style.6d49aad30f0b4d34.css\"><link rel=\"stylesheet\" href=\"font-awesome-style.613ef35f114300a3.css\"><link rel=\"stylesheet\" href=\"isteven-style.3cd6867cf8c0c4a1.css\"><link rel=\"stylesheet\" href=\"leaflet-style.4be52dced36ed588.css\"><link rel=\"stylesheet\" href=\"quill-core-style.2244696dc6befe02.css\"><link rel=\"stylesheet\" href=\"quill-snow-style.a4421021128f5425.css\"></head>\n\n<body>\n  <siao-app></siao-app>\n<script src=\"runtime.faa316a1abebe03a.js\" type=\"module\"></script><script src=\"polyfills.ab7d5be44af37264.js\" type=\"module\"></script><script src=\"scripts.62bebcf15f8f94da.js\" defer></script><script src=\"vendor.a9f0b0f17eeb0052.js\" type=\"module\"></script><script src=\"main.06f035c5340e3c60.js\" type=\"module\"></script></body>\n\n</html>\n",
+      "ip": "185.113.40.47",
+      "timestamp": "2023-10-15T05:36:47.108878957Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://siao-preprod.cegedim-hds.fr'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "cross-origin-resource-policy",
+      "type": "http",
+      "host": "https://siao-preprod.cegedim-hds.fr",
+      "matched-at": "https://siao-preprod.cegedim-hds.fr",
+      "request": "GET / HTTP/1.1\r\nHost: siao-preprod.cegedim-hds.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.1 200 \r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAccept-Ranges: bytes\r\nCache-Control: no-cache, no-store, max-age=0, must-revalidate\r\nContent-Language: en\r\nContent-Security-Policy: script-src 'self' code.jquery.com cdn.jsdelivr.net *.hs-scripts.com *.hs-banner.com *.hs-analytics.net *.hscollectedforms.net *.usemessages.com *.developpement-durable.gouv.fr 'sha256-lIPLl/jk1slnucFam9l2EMVQjQ68UbeJVDmZ8lXK7e4=' 'nonce-matomo_js' 'nonce-matomo_piwik' 'report-sample';  object-src 'none'; frame-ancestors 'none'; report-uri /api/csp-report;\r\nContent-Type: text/html;charset=UTF-8\r\nDate: Sun, 15 Oct 2023 05:36:46 GMT\r\nExpires: 0\r\nLast-Modified: Thu, 21 Sep 2023 08:09:33 GMT\r\nPragma: no-cache\r\nSet-Cookie: XSRF-TOKEN=e6041a30-6976-41a5-93de-f7a1d940384e; Path=/; Secure\r\nSet-Cookie: JSESSIONID=D24548E4FA4DC5485A2BA5A82BECA109; HttpOnly; Path=/; Secure; HttpOnly\r\nSet-Cookie: serverTime=1697348207056; Path=/; HttpOnly\r\nSet-Cookie: sessionExpiry=1697350007056; HttpOnly; Path=/; HttpOnly; Secure\r\nSet-Cookie: BIGipServerpool-siao-preprod.cegedim-hds.fr-HTTP=!jBnwOUY+TR8ZOS0m0zi0rVXmcSp4PZvmn3BQFY6kDN0XEYSymXcM+5MFFbqrZg/uY7QTsKoMblPTgaLN1riLnv0O/hI=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: origin,access-control-request-method,access-control-request-headers,accept-encoding\r\nX-Content-Type-Options: nosniff\r\nX-Correlation-Id: f8e1b5a4-2a49-458d-9846-6f23f1470336\r\nX-Frame-Options: DENY\r\nX-Request-Id: e688e29e-968b-48d2-944c-a0de70518add\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!DOCTYPE html>\n<html lang=\"fr\">\n\n<head>\n  <meta charset=\"utf-8\"/>\n  <base href=\"/\"/>\n  <title>SIAO - 115</title>\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/>\n  <meta name=\"theme-color\" content=\"#000091\"/>\n\n  <link rel=\"shortcut icon\" type=\"image/x-icon\" href=\"/@gouvfr/favicon/favicon.ico\"/>\n\n  <link rel=\"apple-touch-icon\" href=\"/@gouvfr/favicon/apple-touch-icon.png\"><!-- 180×180 -->\n  <link rel=\"icon\" href=\"/@gouvfr/favicon/favicon.svg\" type=\"image/svg+xml\">\n  <link rel=\"shortcut icon\" href=\"/@gouvfr/favicon/favicon.ico\" type=\"image/x-icon\"><!-- 32×32 -->\n  <link rel=\"manifest\" href=\"manifest.webmanifest\" crossorigin=\"use-credentials\">\n\n  <link rel=\"preload\" href=\"./primeicons.ttf\" as=\"font\" type=\"font/ttf\" crossorigin=\"anonymous\"/>\n  <link rel=\"preload\" href=\"./fontawesome-webfont.woff2?v=4.7.0\" as=\"font\" type=\"font/woff2\" crossorigin=\"anonymous\"/>\n  <link rel=\"preload\" href=\"./assets/img/sprite.svg\" as=\"image\">\n\n  <script>\n    // Options disponibles a l initialisation du DSFR\n    window.dsfr = {\n      verbose: false,\n      mode: 'loaded'\n    };\n  </script>\n\n  <!--\n    Attention : toute modification de ce script doit faire l'objet d'un calcul du sha256 et être\n    reporté dans la propriété security.csp.directives du application.properties du module web.\n    SHA256 actuel : \"lIPLl/jk1slnucFam9l2EMVQjQ68UbeJVDmZ8lXK7e4=\"\n    Remarque : cet aspect CSP ne peut être testé avec \"ng serve\".\n  -->\n  <!-- Load the HubSpot tracking code -->\n  <script type=\"text/javascript\" id=\"hubspot-script-loader\" async=\"\" defer=\"\" src=\"https://js-eu1.hs-scripts.com/25326951.js\"></script>\n\n  <!-- Intégration Matomo -->\n  <!-- SHA-256 actulel : 6dd2931f23b5b52c64ea65b81c208a7b88263a88cdd51b9ffe340ffa90d1f83a  -->\n  <!-- A  rajouter dans la properties : -->\n  <script type=\"text/javascript\" nonce=\"matomo_js\">\n    var xhr = new XMLHttpRequest(), doc = document;\n    xhr.responseType = 'text';\n    xhr.onreadystatechange = () => {\n      if (xhr.readyState === 4 && xhr.status === 200) {\n        var script = doc.getElementById('matomo');\n        script.innerHTML = xhr.response;\n      }\n    }\n    xhr.open('GET', '/api/matomo', true);\n    xhr.send();\n  </script>\n  <script type=\"text/javascript\" id=\"matomo\" nonce=\"matomo_piwik\"></script>\n<link rel=\"stylesheet\" href=\"styles.9048f7caec99d745.css\"><link rel=\"stylesheet\" href=\"dsfr-core-style.2f8bce7a70008856.css\"><link rel=\"stylesheet\" href=\"dsfr-utility-style.29fb9ca44d797efb.css\"><link rel=\"stylesheet\" href=\"dsfr-form-style.9b52507507273915.css\"><link rel=\"stylesheet\" href=\"siao-style.c43cac11df1dd303.css\"><link rel=\"stylesheet\" href=\"siao-dsfr-style.6d49aad30f0b4d34.css\"><link rel=\"stylesheet\" href=\"font-awesome-style.613ef35f114300a3.css\"><link rel=\"stylesheet\" href=\"isteven-style.3cd6867cf8c0c4a1.css\"><link rel=\"stylesheet\" href=\"leaflet-style.4be52dced36ed588.css\"><link rel=\"stylesheet\" href=\"quill-core-style.2244696dc6befe02.css\"><link rel=\"stylesheet\" href=\"quill-snow-style.a4421021128f5425.css\"></head>\n\n<body>\n  <siao-app></siao-app>\n<script src=\"runtime.faa316a1abebe03a.js\" type=\"module\"></script><script src=\"polyfills.ab7d5be44af37264.js\" type=\"module\"></script><script src=\"scripts.62bebcf15f8f94da.js\" defer></script><script src=\"vendor.a9f0b0f17eeb0052.js\" type=\"module\"></script><script src=\"main.06f035c5340e3c60.js\" type=\"module\"></script></body>\n\n</html>\n",
+      "ip": "185.113.40.47",
+      "timestamp": "2023-10-15T05:36:47.108892657Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://siao-preprod.cegedim-hds.fr'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "permissions-policy",
+      "type": "http",
+      "host": "https://siao-preprod.cegedim-hds.fr",
+      "matched-at": "https://siao-preprod.cegedim-hds.fr",
+      "request": "GET / HTTP/1.1\r\nHost: siao-preprod.cegedim-hds.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.1 200 \r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAccept-Ranges: bytes\r\nCache-Control: no-cache, no-store, max-age=0, must-revalidate\r\nContent-Language: en\r\nContent-Security-Policy: script-src 'self' code.jquery.com cdn.jsdelivr.net *.hs-scripts.com *.hs-banner.com *.hs-analytics.net *.hscollectedforms.net *.usemessages.com *.developpement-durable.gouv.fr 'sha256-lIPLl/jk1slnucFam9l2EMVQjQ68UbeJVDmZ8lXK7e4=' 'nonce-matomo_js' 'nonce-matomo_piwik' 'report-sample';  object-src 'none'; frame-ancestors 'none'; report-uri /api/csp-report;\r\nContent-Type: text/html;charset=UTF-8\r\nDate: Sun, 15 Oct 2023 05:36:46 GMT\r\nExpires: 0\r\nLast-Modified: Thu, 21 Sep 2023 08:09:33 GMT\r\nPragma: no-cache\r\nSet-Cookie: XSRF-TOKEN=e6041a30-6976-41a5-93de-f7a1d940384e; Path=/; Secure\r\nSet-Cookie: JSESSIONID=D24548E4FA4DC5485A2BA5A82BECA109; HttpOnly; Path=/; Secure; HttpOnly\r\nSet-Cookie: serverTime=1697348207056; Path=/; HttpOnly\r\nSet-Cookie: sessionExpiry=1697350007056; HttpOnly; Path=/; HttpOnly; Secure\r\nSet-Cookie: BIGipServerpool-siao-preprod.cegedim-hds.fr-HTTP=!jBnwOUY+TR8ZOS0m0zi0rVXmcSp4PZvmn3BQFY6kDN0XEYSymXcM+5MFFbqrZg/uY7QTsKoMblPTgaLN1riLnv0O/hI=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: origin,access-control-request-method,access-control-request-headers,accept-encoding\r\nX-Content-Type-Options: nosniff\r\nX-Correlation-Id: f8e1b5a4-2a49-458d-9846-6f23f1470336\r\nX-Frame-Options: DENY\r\nX-Request-Id: e688e29e-968b-48d2-944c-a0de70518add\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!DOCTYPE html>\n<html lang=\"fr\">\n\n<head>\n  <meta charset=\"utf-8\"/>\n  <base href=\"/\"/>\n  <title>SIAO - 115</title>\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/>\n  <meta name=\"theme-color\" content=\"#000091\"/>\n\n  <link rel=\"shortcut icon\" type=\"image/x-icon\" href=\"/@gouvfr/favicon/favicon.ico\"/>\n\n  <link rel=\"apple-touch-icon\" href=\"/@gouvfr/favicon/apple-touch-icon.png\"><!-- 180×180 -->\n  <link rel=\"icon\" href=\"/@gouvfr/favicon/favicon.svg\" type=\"image/svg+xml\">\n  <link rel=\"shortcut icon\" href=\"/@gouvfr/favicon/favicon.ico\" type=\"image/x-icon\"><!-- 32×32 -->\n  <link rel=\"manifest\" href=\"manifest.webmanifest\" crossorigin=\"use-credentials\">\n\n  <link rel=\"preload\" href=\"./primeicons.ttf\" as=\"font\" type=\"font/ttf\" crossorigin=\"anonymous\"/>\n  <link rel=\"preload\" href=\"./fontawesome-webfont.woff2?v=4.7.0\" as=\"font\" type=\"font/woff2\" crossorigin=\"anonymous\"/>\n  <link rel=\"preload\" href=\"./assets/img/sprite.svg\" as=\"image\">\n\n  <script>\n    // Options disponibles a l initialisation du DSFR\n    window.dsfr = {\n      verbose: false,\n      mode: 'loaded'\n    };\n  </script>\n\n  <!--\n    Attention : toute modification de ce script doit faire l'objet d'un calcul du sha256 et être\n    reporté dans la propriété security.csp.directives du application.properties du module web.\n    SHA256 actuel : \"lIPLl/jk1slnucFam9l2EMVQjQ68UbeJVDmZ8lXK7e4=\"\n    Remarque : cet aspect CSP ne peut être testé avec \"ng serve\".\n  -->\n  <!-- Load the HubSpot tracking code -->\n  <script type=\"text/javascript\" id=\"hubspot-script-loader\" async=\"\" defer=\"\" src=\"https://js-eu1.hs-scripts.com/25326951.js\"></script>\n\n  <!-- Intégration Matomo -->\n  <!-- SHA-256 actulel : 6dd2931f23b5b52c64ea65b81c208a7b88263a88cdd51b9ffe340ffa90d1f83a  -->\n  <!-- A  rajouter dans la properties : -->\n  <script type=\"text/javascript\" nonce=\"matomo_js\">\n    var xhr = new XMLHttpRequest(), doc = document;\n    xhr.responseType = 'text';\n    xhr.onreadystatechange = () => {\n      if (xhr.readyState === 4 && xhr.status === 200) {\n        var script = doc.getElementById('matomo');\n        script.innerHTML = xhr.response;\n      }\n    }\n    xhr.open('GET', '/api/matomo', true);\n    xhr.send();\n  </script>\n  <script type=\"text/javascript\" id=\"matomo\" nonce=\"matomo_piwik\"></script>\n<link rel=\"stylesheet\" href=\"styles.9048f7caec99d745.css\"><link rel=\"stylesheet\" href=\"dsfr-core-style.2f8bce7a70008856.css\"><link rel=\"stylesheet\" href=\"dsfr-utility-style.29fb9ca44d797efb.css\"><link rel=\"stylesheet\" href=\"dsfr-form-style.9b52507507273915.css\"><link rel=\"stylesheet\" href=\"siao-style.c43cac11df1dd303.css\"><link rel=\"stylesheet\" href=\"siao-dsfr-style.6d49aad30f0b4d34.css\"><link rel=\"stylesheet\" href=\"font-awesome-style.613ef35f114300a3.css\"><link rel=\"stylesheet\" href=\"isteven-style.3cd6867cf8c0c4a1.css\"><link rel=\"stylesheet\" href=\"leaflet-style.4be52dced36ed588.css\"><link rel=\"stylesheet\" href=\"quill-core-style.2244696dc6befe02.css\"><link rel=\"stylesheet\" href=\"quill-snow-style.a4421021128f5425.css\"></head>\n\n<body>\n  <siao-app></siao-app>\n<script src=\"runtime.faa316a1abebe03a.js\" type=\"module\"></script><script src=\"polyfills.ab7d5be44af37264.js\" type=\"module\"></script><script src=\"scripts.62bebcf15f8f94da.js\" defer></script><script src=\"vendor.a9f0b0f17eeb0052.js\" type=\"module\"></script><script src=\"main.06f035c5340e3c60.js\" type=\"module\"></script></body>\n\n</html>\n",
+      "ip": "185.113.40.47",
+      "timestamp": "2023-10-15T05:36:47.109027759Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://siao-preprod.cegedim-hds.fr'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "x-permitted-cross-domain-policies",
+      "type": "http",
+      "host": "https://siao-preprod.cegedim-hds.fr",
+      "matched-at": "https://siao-preprod.cegedim-hds.fr",
+      "request": "GET / HTTP/1.1\r\nHost: siao-preprod.cegedim-hds.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.1 200 \r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAccept-Ranges: bytes\r\nCache-Control: no-cache, no-store, max-age=0, must-revalidate\r\nContent-Language: en\r\nContent-Security-Policy: script-src 'self' code.jquery.com cdn.jsdelivr.net *.hs-scripts.com *.hs-banner.com *.hs-analytics.net *.hscollectedforms.net *.usemessages.com *.developpement-durable.gouv.fr 'sha256-lIPLl/jk1slnucFam9l2EMVQjQ68UbeJVDmZ8lXK7e4=' 'nonce-matomo_js' 'nonce-matomo_piwik' 'report-sample';  object-src 'none'; frame-ancestors 'none'; report-uri /api/csp-report;\r\nContent-Type: text/html;charset=UTF-8\r\nDate: Sun, 15 Oct 2023 05:36:46 GMT\r\nExpires: 0\r\nLast-Modified: Thu, 21 Sep 2023 08:09:33 GMT\r\nPragma: no-cache\r\nSet-Cookie: XSRF-TOKEN=e6041a30-6976-41a5-93de-f7a1d940384e; Path=/; Secure\r\nSet-Cookie: JSESSIONID=D24548E4FA4DC5485A2BA5A82BECA109; HttpOnly; Path=/; Secure; HttpOnly\r\nSet-Cookie: serverTime=1697348207056; Path=/; HttpOnly\r\nSet-Cookie: sessionExpiry=1697350007056; HttpOnly; Path=/; HttpOnly; Secure\r\nSet-Cookie: BIGipServerpool-siao-preprod.cegedim-hds.fr-HTTP=!jBnwOUY+TR8ZOS0m0zi0rVXmcSp4PZvmn3BQFY6kDN0XEYSymXcM+5MFFbqrZg/uY7QTsKoMblPTgaLN1riLnv0O/hI=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: origin,access-control-request-method,access-control-request-headers,accept-encoding\r\nX-Content-Type-Options: nosniff\r\nX-Correlation-Id: f8e1b5a4-2a49-458d-9846-6f23f1470336\r\nX-Frame-Options: DENY\r\nX-Request-Id: e688e29e-968b-48d2-944c-a0de70518add\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!DOCTYPE html>\n<html lang=\"fr\">\n\n<head>\n  <meta charset=\"utf-8\"/>\n  <base href=\"/\"/>\n  <title>SIAO - 115</title>\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/>\n  <meta name=\"theme-color\" content=\"#000091\"/>\n\n  <link rel=\"shortcut icon\" type=\"image/x-icon\" href=\"/@gouvfr/favicon/favicon.ico\"/>\n\n  <link rel=\"apple-touch-icon\" href=\"/@gouvfr/favicon/apple-touch-icon.png\"><!-- 180×180 -->\n  <link rel=\"icon\" href=\"/@gouvfr/favicon/favicon.svg\" type=\"image/svg+xml\">\n  <link rel=\"shortcut icon\" href=\"/@gouvfr/favicon/favicon.ico\" type=\"image/x-icon\"><!-- 32×32 -->\n  <link rel=\"manifest\" href=\"manifest.webmanifest\" crossorigin=\"use-credentials\">\n\n  <link rel=\"preload\" href=\"./primeicons.ttf\" as=\"font\" type=\"font/ttf\" crossorigin=\"anonymous\"/>\n  <link rel=\"preload\" href=\"./fontawesome-webfont.woff2?v=4.7.0\" as=\"font\" type=\"font/woff2\" crossorigin=\"anonymous\"/>\n  <link rel=\"preload\" href=\"./assets/img/sprite.svg\" as=\"image\">\n\n  <script>\n    // Options disponibles a l initialisation du DSFR\n    window.dsfr = {\n      verbose: false,\n      mode: 'loaded'\n    };\n  </script>\n\n  <!--\n    Attention : toute modification de ce script doit faire l'objet d'un calcul du sha256 et être\n    reporté dans la propriété security.csp.directives du application.properties du module web.\n    SHA256 actuel : \"lIPLl/jk1slnucFam9l2EMVQjQ68UbeJVDmZ8lXK7e4=\"\n    Remarque : cet aspect CSP ne peut être testé avec \"ng serve\".\n  -->\n  <!-- Load the HubSpot tracking code -->\n  <script type=\"text/javascript\" id=\"hubspot-script-loader\" async=\"\" defer=\"\" src=\"https://js-eu1.hs-scripts.com/25326951.js\"></script>\n\n  <!-- Intégration Matomo -->\n  <!-- SHA-256 actulel : 6dd2931f23b5b52c64ea65b81c208a7b88263a88cdd51b9ffe340ffa90d1f83a  -->\n  <!-- A  rajouter dans la properties : -->\n  <script type=\"text/javascript\" nonce=\"matomo_js\">\n    var xhr = new XMLHttpRequest(), doc = document;\n    xhr.responseType = 'text';\n    xhr.onreadystatechange = () => {\n      if (xhr.readyState === 4 && xhr.status === 200) {\n        var script = doc.getElementById('matomo');\n        script.innerHTML = xhr.response;\n      }\n    }\n    xhr.open('GET', '/api/matomo', true);\n    xhr.send();\n  </script>\n  <script type=\"text/javascript\" id=\"matomo\" nonce=\"matomo_piwik\"></script>\n<link rel=\"stylesheet\" href=\"styles.9048f7caec99d745.css\"><link rel=\"stylesheet\" href=\"dsfr-core-style.2f8bce7a70008856.css\"><link rel=\"stylesheet\" href=\"dsfr-utility-style.29fb9ca44d797efb.css\"><link rel=\"stylesheet\" href=\"dsfr-form-style.9b52507507273915.css\"><link rel=\"stylesheet\" href=\"siao-style.c43cac11df1dd303.css\"><link rel=\"stylesheet\" href=\"siao-dsfr-style.6d49aad30f0b4d34.css\"><link rel=\"stylesheet\" href=\"font-awesome-style.613ef35f114300a3.css\"><link rel=\"stylesheet\" href=\"isteven-style.3cd6867cf8c0c4a1.css\"><link rel=\"stylesheet\" href=\"leaflet-style.4be52dced36ed588.css\"><link rel=\"stylesheet\" href=\"quill-core-style.2244696dc6befe02.css\"><link rel=\"stylesheet\" href=\"quill-snow-style.a4421021128f5425.css\"></head>\n\n<body>\n  <siao-app></siao-app>\n<script src=\"runtime.faa316a1abebe03a.js\" type=\"module\"></script><script src=\"polyfills.ab7d5be44af37264.js\" type=\"module\"></script><script src=\"scripts.62bebcf15f8f94da.js\" defer></script><script src=\"vendor.a9f0b0f17eeb0052.js\" type=\"module\"></script><script src=\"main.06f035c5340e3c60.js\" type=\"module\"></script></body>\n\n</html>\n",
+      "ip": "185.113.40.47",
+      "timestamp": "2023-10-15T05:36:47.109044459Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://siao-preprod.cegedim-hds.fr'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "referrer-policy",
+      "type": "http",
+      "host": "https://siao-preprod.cegedim-hds.fr",
+      "matched-at": "https://siao-preprod.cegedim-hds.fr",
+      "request": "GET / HTTP/1.1\r\nHost: siao-preprod.cegedim-hds.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.1 200 \r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAccept-Ranges: bytes\r\nCache-Control: no-cache, no-store, max-age=0, must-revalidate\r\nContent-Language: en\r\nContent-Security-Policy: script-src 'self' code.jquery.com cdn.jsdelivr.net *.hs-scripts.com *.hs-banner.com *.hs-analytics.net *.hscollectedforms.net *.usemessages.com *.developpement-durable.gouv.fr 'sha256-lIPLl/jk1slnucFam9l2EMVQjQ68UbeJVDmZ8lXK7e4=' 'nonce-matomo_js' 'nonce-matomo_piwik' 'report-sample';  object-src 'none'; frame-ancestors 'none'; report-uri /api/csp-report;\r\nContent-Type: text/html;charset=UTF-8\r\nDate: Sun, 15 Oct 2023 05:36:46 GMT\r\nExpires: 0\r\nLast-Modified: Thu, 21 Sep 2023 08:09:33 GMT\r\nPragma: no-cache\r\nSet-Cookie: XSRF-TOKEN=e6041a30-6976-41a5-93de-f7a1d940384e; Path=/; Secure\r\nSet-Cookie: JSESSIONID=D24548E4FA4DC5485A2BA5A82BECA109; HttpOnly; Path=/; Secure; HttpOnly\r\nSet-Cookie: serverTime=1697348207056; Path=/; HttpOnly\r\nSet-Cookie: sessionExpiry=1697350007056; HttpOnly; Path=/; HttpOnly; Secure\r\nSet-Cookie: BIGipServerpool-siao-preprod.cegedim-hds.fr-HTTP=!jBnwOUY+TR8ZOS0m0zi0rVXmcSp4PZvmn3BQFY6kDN0XEYSymXcM+5MFFbqrZg/uY7QTsKoMblPTgaLN1riLnv0O/hI=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: origin,access-control-request-method,access-control-request-headers,accept-encoding\r\nX-Content-Type-Options: nosniff\r\nX-Correlation-Id: f8e1b5a4-2a49-458d-9846-6f23f1470336\r\nX-Frame-Options: DENY\r\nX-Request-Id: e688e29e-968b-48d2-944c-a0de70518add\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!DOCTYPE html>\n<html lang=\"fr\">\n\n<head>\n  <meta charset=\"utf-8\"/>\n  <base href=\"/\"/>\n  <title>SIAO - 115</title>\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/>\n  <meta name=\"theme-color\" content=\"#000091\"/>\n\n  <link rel=\"shortcut icon\" type=\"image/x-icon\" href=\"/@gouvfr/favicon/favicon.ico\"/>\n\n  <link rel=\"apple-touch-icon\" href=\"/@gouvfr/favicon/apple-touch-icon.png\"><!-- 180×180 -->\n  <link rel=\"icon\" href=\"/@gouvfr/favicon/favicon.svg\" type=\"image/svg+xml\">\n  <link rel=\"shortcut icon\" href=\"/@gouvfr/favicon/favicon.ico\" type=\"image/x-icon\"><!-- 32×32 -->\n  <link rel=\"manifest\" href=\"manifest.webmanifest\" crossorigin=\"use-credentials\">\n\n  <link rel=\"preload\" href=\"./primeicons.ttf\" as=\"font\" type=\"font/ttf\" crossorigin=\"anonymous\"/>\n  <link rel=\"preload\" href=\"./fontawesome-webfont.woff2?v=4.7.0\" as=\"font\" type=\"font/woff2\" crossorigin=\"anonymous\"/>\n  <link rel=\"preload\" href=\"./assets/img/sprite.svg\" as=\"image\">\n\n  <script>\n    // Options disponibles a l initialisation du DSFR\n    window.dsfr = {\n      verbose: false,\n      mode: 'loaded'\n    };\n  </script>\n\n  <!--\n    Attention : toute modification de ce script doit faire l'objet d'un calcul du sha256 et être\n    reporté dans la propriété security.csp.directives du application.properties du module web.\n    SHA256 actuel : \"lIPLl/jk1slnucFam9l2EMVQjQ68UbeJVDmZ8lXK7e4=\"\n    Remarque : cet aspect CSP ne peut être testé avec \"ng serve\".\n  -->\n  <!-- Load the HubSpot tracking code -->\n  <script type=\"text/javascript\" id=\"hubspot-script-loader\" async=\"\" defer=\"\" src=\"https://js-eu1.hs-scripts.com/25326951.js\"></script>\n\n  <!-- Intégration Matomo -->\n  <!-- SHA-256 actulel : 6dd2931f23b5b52c64ea65b81c208a7b88263a88cdd51b9ffe340ffa90d1f83a  -->\n  <!-- A  rajouter dans la properties : -->\n  <script type=\"text/javascript\" nonce=\"matomo_js\">\n    var xhr = new XMLHttpRequest(), doc = document;\n    xhr.responseType = 'text';\n    xhr.onreadystatechange = () => {\n      if (xhr.readyState === 4 && xhr.status === 200) {\n        var script = doc.getElementById('matomo');\n        script.innerHTML = xhr.response;\n      }\n    }\n    xhr.open('GET', '/api/matomo', true);\n    xhr.send();\n  </script>\n  <script type=\"text/javascript\" id=\"matomo\" nonce=\"matomo_piwik\"></script>\n<link rel=\"stylesheet\" href=\"styles.9048f7caec99d745.css\"><link rel=\"stylesheet\" href=\"dsfr-core-style.2f8bce7a70008856.css\"><link rel=\"stylesheet\" href=\"dsfr-utility-style.29fb9ca44d797efb.css\"><link rel=\"stylesheet\" href=\"dsfr-form-style.9b52507507273915.css\"><link rel=\"stylesheet\" href=\"siao-style.c43cac11df1dd303.css\"><link rel=\"stylesheet\" href=\"siao-dsfr-style.6d49aad30f0b4d34.css\"><link rel=\"stylesheet\" href=\"font-awesome-style.613ef35f114300a3.css\"><link rel=\"stylesheet\" href=\"isteven-style.3cd6867cf8c0c4a1.css\"><link rel=\"stylesheet\" href=\"leaflet-style.4be52dced36ed588.css\"><link rel=\"stylesheet\" href=\"quill-core-style.2244696dc6befe02.css\"><link rel=\"stylesheet\" href=\"quill-snow-style.a4421021128f5425.css\"></head>\n\n<body>\n  <siao-app></siao-app>\n<script src=\"runtime.faa316a1abebe03a.js\" type=\"module\"></script><script src=\"polyfills.ab7d5be44af37264.js\" type=\"module\"></script><script src=\"scripts.62bebcf15f8f94da.js\" defer></script><script src=\"vendor.a9f0b0f17eeb0052.js\" type=\"module\"></script><script src=\"main.06f035c5340e3c60.js\" type=\"module\"></script></body>\n\n</html>\n",
+      "ip": "185.113.40.47",
+      "timestamp": "2023-10-15T05:36:47.10905596Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://siao-preprod.cegedim-hds.fr'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/missing-sri.yaml",
+      "template-url": "https://templates.nuclei.sh/public/missing-sri",
+      "template-id": "missing-sri",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/missing-sri.yaml",
+      "info": {
+        "name": "Missing Subresource Integrity",
+        "author": [
+          "lucky0x0d",
+          "pulsesecurity.co.nz"
+        ],
+        "tags": [
+          "compliance",
+          "js",
+          "sri",
+          "misconfig"
+        ],
+        "description": "Checks if script tags within the HTML response have Subresource Integrity implemented via the integrity attribute\n",
+        "reference": [
+          "https://cheatsheetseries.owasp.org/cheatsheets/third_party_javascript_management_cheat_sheet.html#subresource-integrity"
+        ],
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "type": "http",
+      "host": "https://siao-preprod.cegedim-hds.fr",
+      "matched-at": "https://siao-preprod.cegedim-hds.fr/",
+      "extracted-results": [
+        "https://js-eu1.hs-scripts.com/25326951.js"
+      ],
+      "request": "GET / HTTP/1.1\r\nHost: siao-preprod.cegedim-hds.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.1 200 \r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAccept-Ranges: bytes\r\nCache-Control: no-cache, no-store, max-age=0, must-revalidate\r\nContent-Language: en-US\r\nContent-Security-Policy: script-src 'self' code.jquery.com cdn.jsdelivr.net *.hs-scripts.com *.hs-banner.com *.hs-analytics.net *.hscollectedforms.net *.usemessages.com *.developpement-durable.gouv.fr 'sha256-lIPLl/jk1slnucFam9l2EMVQjQ68UbeJVDmZ8lXK7e4=' 'nonce-matomo_js' 'nonce-matomo_piwik' 'report-sample';  object-src 'none'; frame-ancestors 'none'; report-uri /api/csp-report;\r\nContent-Type: text/html;charset=UTF-8\r\nDate: Sun, 15 Oct 2023 05:36:56 GMT\r\nExpires: 0\r\nLast-Modified: Thu, 21 Sep 2023 08:09:34 GMT\r\nPragma: no-cache\r\nSet-Cookie: XSRF-TOKEN=1d06fa6e-abc1-4dcc-bd71-a7460711a365; Path=/; Secure\r\nSet-Cookie: JSESSIONID=D49946A0CCA3A88A6FAA66A3DE8E2A9D; HttpOnly; Path=/; Secure; HttpOnly\r\nSet-Cookie: serverTime=1697348216275; Path=/; HttpOnly\r\nSet-Cookie: sessionExpiry=1697350016275; HttpOnly; Path=/; HttpOnly; Secure\r\nSet-Cookie: BIGipServerpool-siao-preprod.cegedim-hds.fr-HTTP=!ZlVxq9qh09yfWBMm0zi0rVXmcSp4PdcQ8eiPwcSAOmC2uJdTKakNDB7ZNtMkQlhZEBqiazDD3SITojFYDQf3Bw/IeRQ=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: origin,access-control-request-method,access-control-request-headers,accept-encoding\r\nX-Content-Type-Options: nosniff\r\nX-Correlation-Id: 443b7ef4-8665-485f-8653-3100b3657884\r\nX-Frame-Options: DENY\r\nX-Request-Id: 9c9b6f7d-d26b-4024-b8c5-3d067a6ebd1e\r\nX-Xss-Protection: 1; mode=block\r\n\r\n<!DOCTYPE html>\n<html lang=\"fr\">\n\n<head>\n  <meta charset=\"utf-8\"/>\n  <base href=\"/\"/>\n  <title>SIAO - 115</title>\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/>\n  <meta name=\"theme-color\" content=\"#000091\"/>\n\n  <link rel=\"shortcut icon\" type=\"image/x-icon\" href=\"/@gouvfr/favicon/favicon.ico\"/>\n\n  <link rel=\"apple-touch-icon\" href=\"/@gouvfr/favicon/apple-touch-icon.png\"><!-- 180×180 -->\n  <link rel=\"icon\" href=\"/@gouvfr/favicon/favicon.svg\" type=\"image/svg+xml\">\n  <link rel=\"shortcut icon\" href=\"/@gouvfr/favicon/favicon.ico\" type=\"image/x-icon\"><!-- 32×32 -->\n  <link rel=\"manifest\" href=\"manifest.webmanifest\" crossorigin=\"use-credentials\">\n\n  <link rel=\"preload\" href=\"./primeicons.ttf\" as=\"font\" type=\"font/ttf\" crossorigin=\"anonymous\"/>\n  <link rel=\"preload\" href=\"./fontawesome-webfont.woff2?v=4.7.0\" as=\"font\" type=\"font/woff2\" crossorigin=\"anonymous\"/>\n  <link rel=\"preload\" href=\"./assets/img/sprite.svg\" as=\"image\">\n\n  <script>\n    // Options disponibles a l initialisation du DSFR\n    window.dsfr = {\n      verbose: false,\n      mode: 'loaded'\n    };\n  </script>\n\n  <!--\n    Attention : toute modification de ce script doit faire l'objet d'un calcul du sha256 et être\n    reporté dans la propriété security.csp.directives du application.properties du module web.\n    SHA256 actuel : \"lIPLl/jk1slnucFam9l2EMVQjQ68UbeJVDmZ8lXK7e4=\"\n    Remarque : cet aspect CSP ne peut être testé avec \"ng serve\".\n  -->\n  <!-- Load the HubSpot tracking code -->\n  <script type=\"text/javascript\" id=\"hubspot-script-loader\" async=\"\" defer=\"\" src=\"https://js-eu1.hs-scripts.com/25326951.js\"></script>\n\n  <!-- Intégration Matomo -->\n  <!-- SHA-256 actulel : 6dd2931f23b5b52c64ea65b81c208a7b88263a88cdd51b9ffe340ffa90d1f83a  -->\n  <!-- A  rajouter dans la properties : -->\n  <script type=\"text/javascript\" nonce=\"matomo_js\">\n    var xhr = new XMLHttpRequest(), doc = document;\n    xhr.responseType = 'text';\n    xhr.onreadystatechange = () => {\n      if (xhr.readyState === 4 && xhr.status === 200) {\n        var script = doc.getElementById('matomo');\n        script.innerHTML = xhr.response;\n      }\n    }\n    xhr.open('GET', '/api/matomo', true);\n    xhr.send();\n  </script>\n  <script type=\"text/javascript\" id=\"matomo\" nonce=\"matomo_piwik\"></script>\n<link rel=\"stylesheet\" href=\"styles.9048f7caec99d745.css\"><link rel=\"stylesheet\" href=\"dsfr-core-style.2f8bce7a70008856.css\"><link rel=\"stylesheet\" href=\"dsfr-utility-style.29fb9ca44d797efb.css\"><link rel=\"stylesheet\" href=\"dsfr-form-style.9b52507507273915.css\"><link rel=\"stylesheet\" href=\"siao-style.c43cac11df1dd303.css\"><link rel=\"stylesheet\" href=\"siao-dsfr-style.6d49aad30f0b4d34.css\"><link rel=\"stylesheet\" href=\"font-awesome-style.613ef35f114300a3.css\"><link rel=\"stylesheet\" href=\"isteven-style.3cd6867cf8c0c4a1.css\"><link rel=\"stylesheet\" href=\"leaflet-style.4be52dced36ed588.css\"><link rel=\"stylesheet\" href=\"quill-core-style.2244696dc6befe02.css\"><link rel=\"stylesheet\" href=\"quill-snow-style.a4421021128f5425.css\"></head>\n\n<body>\n  <siao-app></siao-app>\n<script src=\"runtime.faa316a1abebe03a.js\" type=\"module\"></script><script src=\"polyfills.ab7d5be44af37264.js\" type=\"module\"></script><script src=\"scripts.62bebcf15f8f94da.js\" defer></script><script src=\"vendor.a9f0b0f17eeb0052.js\" type=\"module\"></script><script src=\"main.06f035c5340e3c60.js\" type=\"module\"></script></body>\n\n</html>\n",
+      "ip": "185.113.40.47",
+      "timestamp": "2023-10-15T05:36:56.320539267Z",
+      "curl-command": "curl -X 'GET' -d '' -H 'Host: siao-preprod.cegedim-hds.fr' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://siao-preprod.cegedim-hds.fr/'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/technologies/spring-detect.yaml",
+      "template-url": "https://templates.nuclei.sh/public/spring-detect",
+      "template-id": "spring-detect",
+      "template-path": "/home/runner/nuclei-templates/http/technologies/spring-detect.yaml",
+      "info": {
+        "name": "Java Spring Detection",
+        "author": [
+          "adam crosser"
+        ],
+        "tags": [
+          "tech",
+          "java",
+          "spring"
+        ],
+        "reference": [
+          "https://mkyong.com/spring-boot/spring-rest-error-handling-example/"
+        ],
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "type": "http",
+      "host": "https://siao-preprod.cegedim-hds.fr",
+      "matched-at": "https://siao-preprod.cegedim-hds.fr/error",
+      "request": "GET /error HTTP/1.1\r\nHost: siao-preprod.cegedim-hds.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.1 500 \r\nConnection: close\r\nTransfer-Encoding: chunked\r\nCache-Control: no-cache, no-store, max-age=0, must-revalidate\r\nContent-Security-Policy: script-src 'self' code.jquery.com cdn.jsdelivr.net *.hs-scripts.com *.hs-banner.com *.hs-analytics.net *.hscollectedforms.net *.usemessages.com *.developpement-durable.gouv.fr 'sha256-lIPLl/jk1slnucFam9l2EMVQjQ68UbeJVDmZ8lXK7e4=' 'nonce-matomo_js' 'nonce-matomo_piwik' 'report-sample';  object-src 'none'; frame-ancestors 'none'; report-uri /api/csp-report;\r\nContent-Type: application/json\r\nDate: Sun, 15 Oct 2023 05:37:06 GMT\r\nExpires: 0\r\nPragma: no-cache\r\nSet-Cookie: XSRF-TOKEN=604daa2e-6f4a-42f8-9248-d27ab2d07156; Path=/; Secure\r\nSet-Cookie: JSESSIONID=63E2594CB2CD045613A978710111ACA5; HttpOnly; Path=/; Secure; HttpOnly\r\nSet-Cookie: serverTime=1697348227159; Path=/; HttpOnly\r\nSet-Cookie: sessionExpiry=1697350027159; HttpOnly; Path=/; HttpOnly; Secure\r\nSet-Cookie: BIGipServerpool-siao-preprod.cegedim-hds.fr-HTTP=!jx4Ug9CvuxP0vigm0zi0rVXmcSp4PQJRuojoslG773SIyT7oXBCKZaeRJuwb7nEwYwY/hbRpzfHJstbiL6b3ryCgd+s=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: accept-encoding\r\nX-Content-Type-Options: nosniff\r\nX-Correlation-Id: 1cae9d28-256d-4395-ab13-0055c21f4080\r\nX-Frame-Options: DENY\r\nX-Request-Id: 38cb577f-e39c-4a71-831c-2372628180d5\r\nX-Xss-Protection: 1; mode=block\r\n\r\n{\"timestamp\":\"2023-10-15T05:37:07.159+00:00\",\"status\":999,\"error\":\"None\",\"message\":\"No message available\"}",
+      "ip": "185.113.40.47",
+      "timestamp": "2023-10-15T05:37:07.20886096Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://siao-preprod.cegedim-hds.fr/error'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/technologies/waf-detect.yaml",
+      "template-url": "https://templates.nuclei.sh/public/waf-detect",
+      "template-id": "waf-detect",
+      "template-path": "/home/runner/nuclei-templates/http/technologies/waf-detect.yaml",
+      "info": {
+        "name": "WAF Detection",
+        "author": [
+          "dwisiswant0",
+          "lu4nx"
+        ],
+        "tags": [
+          "waf",
+          "tech",
+          "misc"
+        ],
+        "description": "A web application firewall was detected.",
+        "reference": [
+          "https://github.com/ekultek/whatwaf"
+        ],
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        },
+        "classification": {
+          "cve-id": null,
+          "cwe-id": [
+            "cwe-200"
+          ]
+        }
+      },
+      "matcher-name": "bigip",
+      "type": "http",
+      "host": "https://siao-preprod.cegedim-hds.fr",
+      "matched-at": "https://siao-preprod.cegedim-hds.fr/",
+      "request": "POST / HTTP/1.1\r\nHost: siao-preprod.cegedim-hds.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nContent-Length: 27\r\nContent-Type: application/x-www-form-urlencoded\r\nAccept-Encoding: gzip\r\n\r\n_=<script>alert(1)</script>",
+      "response": "HTTP/1.1 403 \r\nConnection: close\r\nTransfer-Encoding: chunked\r\nCache-Control: no-cache, no-store, max-age=0, must-revalidate\r\nContent-Security-Policy: script-src 'self' code.jquery.com cdn.jsdelivr.net *.hs-scripts.com *.hs-banner.com *.hs-analytics.net *.hscollectedforms.net *.usemessages.com *.developpement-durable.gouv.fr 'sha256-lIPLl/jk1slnucFam9l2EMVQjQ68UbeJVDmZ8lXK7e4=' 'nonce-matomo_js' 'nonce-matomo_piwik' 'report-sample';  object-src 'none'; frame-ancestors 'none'; report-uri /api/csp-report;\r\nContent-Type: application/json\r\nDate: Sun, 15 Oct 2023 05:37:07 GMT\r\nExpires: 0\r\nPragma: no-cache\r\nSet-Cookie: XSRF-TOKEN=136c93db-223a-4e4e-987a-a5e627142acd; Path=/; Secure\r\nSet-Cookie: BIGipServerpool-siao-preprod.cegedim-hds.fr-HTTP=!8wBOooU5z7B+vu8m0zi0rVXmcSp4PdMi9ByZRxdChwpFAksxv4NBvcyj5CgVoXSmODCCc6bCpX4sI3jdoo9hATTXMgU=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nVary: accept-encoding\r\nX-Content-Type-Options: nosniff\r\nX-Correlation-Id: c2536a8b-abb6-420c-8b73-7dce7cfa5eee\r\nX-Frame-Options: DENY\r\nX-Request-Id: c5da2174-0682-4465-9b72-d475abf222c4\r\nX-Xss-Protection: 1; mode=block\r\n\r\n{\"timestamp\":\"2023-10-15T05:37:07.787+00:00\",\"status\":403,\"error\":\"Forbidden\",\"message\":\"Forbidden\",\"path\":\"/\"}",
+      "ip": "185.113.40.47",
+      "timestamp": "2023-10-15T05:37:07.838890722Z",
+      "curl-command": "curl -X 'POST' -d '_=<script>alert(1)</script>' -H 'Content-Type: application/x-www-form-urlencoded' -H 'Host: siao-preprod.cegedim-hds.fr' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://siao-preprod.cegedim-hds.fr/'",
+      "matcher-status": true
+    },
+    {
+      "template": "ssl/detect-ssl-issuer.yaml",
+      "template-url": "https://templates.nuclei.sh/public/ssl-issuer",
+      "template-id": "ssl-issuer",
+      "template-path": "/home/runner/nuclei-templates/ssl/detect-ssl-issuer.yaml",
+      "info": {
+        "name": "Detect SSL Certificate Issuer",
+        "author": [
+          "lingtren"
+        ],
+        "tags": [
+          "ssl"
+        ],
+        "description": "Extract the issuer's organization from the target's certificate. Issuers are entities which sign and distribute certificates.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "type": "ssl",
+      "host": "siao-preprod.cegedim-hds.fr",
+      "matched-at": "siao-preprod.cegedim-hds.fr:443",
+      "extracted-results": [
+        "DigiCert Inc"
+      ],
+      "ip": "185.113.40.47",
+      "timestamp": "2023-10-15T05:40:04.644895777Z",
+      "matcher-status": true
+    },
+    {
+      "template": "ssl/ssl-dns-names.yaml",
+      "template-url": "https://templates.nuclei.sh/public/ssl-dns-names",
+      "template-id": "ssl-dns-names",
+      "template-path": "/home/runner/nuclei-templates/ssl/ssl-dns-names.yaml",
+      "info": {
+        "name": "SSL DNS Names",
+        "author": [
+          "pdteam"
+        ],
+        "tags": [
+          "ssl"
+        ],
+        "description": "Extract the Subject Alternative Name (SAN) from the target's certificate. SAN facilitates the usage of additional hostnames with the same certificate.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "type": "ssl",
+      "host": "siao-preprod.cegedim-hds.fr",
+      "matched-at": "siao-preprod.cegedim-hds.fr:443",
+      "extracted-results": [
+        "*.cegedim-hds.fr",
+        "cegedim-hds.fr"
+      ],
+      "ip": "185.113.40.47",
+      "timestamp": "2023-10-15T05:40:04.645065279Z",
+      "matcher-status": true
+    },
+    {
+      "template": "ssl/wildcard-tls.yaml",
+      "template-url": "https://templates.nuclei.sh/public/wildcard-tls",
+      "template-id": "wildcard-tls",
+      "template-path": "/home/runner/nuclei-templates/ssl/wildcard-tls.yaml",
+      "info": {
+        "name": "Wildcard TLS Certificate",
+        "author": [
+          "lucky0x0d"
+        ],
+        "tags": [
+          "ssl",
+          "wildcard",
+          "tls"
+        ],
+        "description": "Checks a sites certificate to see if there are wildcard CN or SAN entries.\n",
+        "reference": [
+          "https://cheatsheetseries.owasp.org/cheatsheets/transport_layer_protection_cheat_sheet.html#carefully-consider-the-use-of-wildcard-certificates"
+        ],
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "type": "ssl",
+      "host": "siao-preprod.cegedim-hds.fr",
+      "matched-at": "siao-preprod.cegedim-hds.fr:443",
+      "extracted-results": [
+        "CN: *.cegedim-hds.fr",
+        " SAN: [*.cegedim-hds.fr cegedim-hds.fr]"
+      ],
+      "ip": "185.113.40.47",
+      "timestamp": "2023-10-15T05:40:04.645326582Z",
+      "matcher-status": true
+    },
+    {
+      "template": "ssl/tls-version.yaml",
+      "template-url": "https://templates.nuclei.sh/public/tls-version",
+      "template-id": "tls-version",
+      "template-path": "/home/runner/nuclei-templates/ssl/tls-version.yaml",
+      "info": {
+        "name": "TLS Version - Detect",
+        "author": [
+          "pdteam",
+          "pussycat0x"
+        ],
+        "tags": [
+          "ssl"
+        ],
+        "description": "TLS version detection is a security process used to determine the version of the Transport Layer Security (TLS) protocol used by a computer or server.\nIt is important to detect the TLS version in order to ensure secure communication between two computers or servers.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 4
+        }
+      },
+      "type": "ssl",
+      "host": "siao-preprod.cegedim-hds.fr",
+      "matched-at": "siao-preprod.cegedim-hds.fr:443",
+      "extracted-results": [
+        "tls12"
+      ],
+      "ip": "185.113.40.47",
+      "timestamp": "2023-10-15T05:40:18.503563Z",
+      "matcher-status": true
+    }
+  ]
+]
