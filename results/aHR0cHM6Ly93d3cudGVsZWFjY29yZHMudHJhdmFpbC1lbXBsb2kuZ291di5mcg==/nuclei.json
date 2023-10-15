@@ -1,0 +1,390 @@
+[
+  [
+    {
+      "template": "http/miscellaneous/external-service-interaction.yaml",
+      "template-url": "https://templates.nuclei.sh/public/external-service-interaction",
+      "template-id": "external-service-interaction",
+      "template-path": "/home/runner/nuclei-templates/http/miscellaneous/external-service-interaction.yaml",
+      "info": {
+        "name": "External Service Interaction",
+        "author": [
+          "andreluna"
+        ],
+        "tags": [
+          "http",
+          "misc",
+          "oast"
+        ],
+        "description": "External Service interaction via Host Header Injection.",
+        "reference": [
+          "https://portswigger.net/kb/issues/00300210_external-service-interaction-http",
+          "https://success.qualys.com/support/s/article/000006843",
+          "https://owasp.org/www-project-web-security-testing-guide/latest/4-web_application_security_testing/07-input_validation_testing/17-testing_for_host_header_injection"
+        ],
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        },
+        "classification": {
+          "cve-id": null,
+          "cwe-id": [
+            "cwe-918",
+            "cwe-406"
+          ]
+        }
+      },
+      "type": "http",
+      "host": "https://www.teleaccords.travail-emploi.gouv.fr",
+      "matched-at": "https://www.teleaccords.travail-emploi.gouv.fr",
+      "request": "GET / HTTP/1.1\r\nHost: cklot47ckp5oiferfau0e1qidfnd9jz85.oast.pro\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.1 302 Found\r\nConnection: close\r\nContent-Length: 256\r\nContent-Type: text/html; charset=iso-8859-1\r\nDate: Sun, 15 Oct 2023 07:04:03 GMT\r\nLocation: https://cklot47ckp5oiferfau0e1qidfnd9jz85.oast.pro/PortailTeleprocedures\r\nSet-Cookie: TS019d9798=0171284ec35029f24621e1be6888b31708aa222b5e7f507772fee825171247c031c0fc92c5a33f5cb6f6862dcc09ad527edb56c8d0; Path=/\r\n\r\n",
+      "ip": "164.131.132.47",
+      "timestamp": "2023-10-15T07:04:06.819394741Z",
+      "interaction": {
+        "protocol": "dns",
+        "unique-id": "cklot47ckp5oiferfau0e1qidfnd9jz85",
+        "full-id": "cklot47ckp5oiferfau0e1qidfnd9jz85",
+        "q-type": "A",
+        "raw-request": ";; opcode: QUERY, status: NOERROR, id: 41492\n;; flags:; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 0\n\n;; QUESTION SECTION:\n;cklot47ckp5oiferfau0e1qidfnd9jz85.oast.pro.\tIN\t A\n",
+        "raw-response": ";; opcode: QUERY, status: NOERROR, id: 41492\n;; flags: qr aa; QUERY: 1, ANSWER: 1, AUTHORITY: 2, ADDITIONAL: 2\n\n;; QUESTION SECTION:\n;cklot47ckp5oiferfau0e1qidfnd9jz85.oast.pro.\tIN\t A\n\n;; ANSWER SECTION:\ncklot47ckp5oiferfau0e1qidfnd9jz85.oast.pro.\t3600\tIN\tA\t178.128.212.209\n\n;; AUTHORITY SECTION:\ncklot47ckp5oiferfau0e1qidfnd9jz85.oast.pro.\t3600\tIN\tNS\tns1.oast.pro.\ncklot47ckp5oiferfau0e1qidfnd9jz85.oast.pro.\t3600\tIN\tNS\tns2.oast.pro.\n\n;; ADDITIONAL SECTION:\nns1.oast.pro.\t3600\tIN\tA\t178.128.212.209\nns2.oast.pro.\t3600\tIN\tA\t178.128.212.209\n",
+        "remote-address": "20.45.121.80",
+        "timestamp": "2023-10-15T07:04:04.130772688Z"
+      },
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'Host: cklot47ckp5oiferfau0e1qidfnd9jz85.oast.pro' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.teleaccords.travail-emploi.gouv.fr'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/technologies/waf-detect.yaml",
+      "template-url": "https://templates.nuclei.sh/public/waf-detect",
+      "template-id": "waf-detect",
+      "template-path": "/home/runner/nuclei-templates/http/technologies/waf-detect.yaml",
+      "info": {
+        "name": "WAF Detection",
+        "author": [
+          "dwisiswant0",
+          "lu4nx"
+        ],
+        "tags": [
+          "waf",
+          "tech",
+          "misc"
+        ],
+        "description": "A web application firewall was detected.",
+        "reference": [
+          "https://github.com/ekultek/whatwaf"
+        ],
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        },
+        "classification": {
+          "cve-id": null,
+          "cwe-id": [
+            "cwe-200"
+          ]
+        }
+      },
+      "matcher-name": "bigip",
+      "type": "http",
+      "host": "https://www.teleaccords.travail-emploi.gouv.fr",
+      "matched-at": "https://www.teleaccords.travail-emploi.gouv.fr/",
+      "request": "POST / HTTP/1.1\r\nHost: www.teleaccords.travail-emploi.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nContent-Length: 27\r\nContent-Type: application/x-www-form-urlencoded\r\nAccept-Encoding: gzip\r\n\r\n_=<script>alert(1)</script>",
+      "response": "HTTP/1.0 302 Found\r\nContent-Length: 0\r\nConnection: close\r\nLocation: https://accords-depot.travail.gouv.fr\r\nServer: BigIP\r\n\r\n",
+      "ip": "164.131.132.47",
+      "timestamp": "2023-10-15T07:04:25.869809566Z",
+      "curl-command": "curl -X 'POST' -d '_=<script>alert(1)</script>' -H 'Content-Type: application/x-www-form-urlencoded' -H 'Host: www.teleaccords.travail-emploi.gouv.fr' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.teleaccords.travail-emploi.gouv.fr/'",
+      "matcher-status": true
+    },
+    {
+      "template": "ssl/detect-ssl-issuer.yaml",
+      "template-url": "https://templates.nuclei.sh/public/ssl-issuer",
+      "template-id": "ssl-issuer",
+      "template-path": "/home/runner/nuclei-templates/ssl/detect-ssl-issuer.yaml",
+      "info": {
+        "name": "Detect SSL Certificate Issuer",
+        "author": [
+          "lingtren"
+        ],
+        "tags": [
+          "ssl"
+        ],
+        "description": "Extract the issuer's organization from the target's certificate. Issuers are entities which sign and distribute certificates.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "type": "ssl",
+      "host": "www.teleaccords.travail-emploi.gouv.fr",
+      "matched-at": "www.teleaccords.travail-emploi.gouv.fr:443",
+      "extracted-results": [
+        "DHIMYOTIS"
+      ],
+      "ip": "164.131.132.47",
+      "timestamp": "2023-10-15T07:08:18.764305239Z",
+      "matcher-status": true
+    },
+    {
+      "template": "ssl/ssl-dns-names.yaml",
+      "template-url": "https://templates.nuclei.sh/public/ssl-dns-names",
+      "template-id": "ssl-dns-names",
+      "template-path": "/home/runner/nuclei-templates/ssl/ssl-dns-names.yaml",
+      "info": {
+        "name": "SSL DNS Names",
+        "author": [
+          "pdteam"
+        ],
+        "tags": [
+          "ssl"
+        ],
+        "description": "Extract the Subject Alternative Name (SAN) from the target's certificate. SAN facilitates the usage of additional hostnames with the same certificate.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "type": "ssl",
+      "host": "www.teleaccords.travail-emploi.gouv.fr",
+      "matched-at": "www.teleaccords.travail-emploi.gouv.fr:443",
+      "extracted-results": [
+        "www.teleaccords.travail.gouv.fr",
+        "www.teleaccords.travail-emploi.gouv.fr"
+      ],
+      "ip": "164.131.132.47",
+      "timestamp": "2023-10-15T07:08:18.764446841Z",
+      "matcher-status": true
+    },
+    {
+      "template": "ssl/deprecated-tls.yaml",
+      "template-url": "https://templates.nuclei.sh/public/deprecated-tls",
+      "template-id": "deprecated-tls",
+      "template-path": "/home/runner/nuclei-templates/ssl/deprecated-tls.yaml",
+      "info": {
+        "name": "Deprecated TLS Detection (TLS 1.1 or SSLv3)",
+        "author": [
+          "righettod",
+          "forgedhallpass"
+        ],
+        "tags": [
+          "ssl"
+        ],
+        "description": "Both TLS 1.1 and SSLv3 are deprecated in favor of stronger encryption.\n",
+        "reference": [
+          "https://ssl-config.mozilla.org/#config=intermediate"
+        ],
+        "severity": "info",
+        "metadata": {
+          "max-request": 3,
+          "shodan-query": "ssl.version:sslv2 ssl.version:sslv3 ssl.version:tlsv1 ssl.version:tlsv1.1"
+        },
+        "remediation": "Update the web server's TLS configuration to disable TLS 1.1 and SSLv3.\n"
+      },
+      "type": "ssl",
+      "host": "www.teleaccords.travail-emploi.gouv.fr",
+      "matched-at": "www.teleaccords.travail-emploi.gouv.fr:443",
+      "extracted-results": [
+        "tls10"
+      ],
+      "ip": "164.131.132.47",
+      "timestamp": "2023-10-15T07:08:18.861572017Z",
+      "matcher-status": true
+    },
+    {
+      "template": "ssl/weak-cipher-suites.yaml",
+      "template-url": "https://templates.nuclei.sh/public/weak-cipher-suites",
+      "template-id": "weak-cipher-suites",
+      "template-path": "/home/runner/nuclei-templates/ssl/weak-cipher-suites.yaml",
+      "info": {
+        "name": "Weak Cipher Suites Detection",
+        "author": [
+          "pussycat0x"
+        ],
+        "tags": [
+          "ssl",
+          "tls",
+          "misconfig"
+        ],
+        "description": "A weak cipher is defined as an encryption/decryption algorithm that uses a key of insufficient length. Using an insufficient length for a key in an encryption/decryption algorithm opens up the possibility (or probability) that the encryption scheme could be broken.",
+        "reference": [
+          "https://www.acunetix.com/vulnerabilities/web/tls-ssl-weak-cipher-suites/",
+          "http://ciphersuite.info"
+        ],
+        "severity": "low",
+        "metadata": {
+          "max-request": 4
+        }
+      },
+      "matcher-name": "tls-1.0",
+      "type": "ssl",
+      "host": "www.teleaccords.travail-emploi.gouv.fr",
+      "matched-at": "www.teleaccords.travail-emploi.gouv.fr:443",
+      "extracted-results": [
+        "[tls10 TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA]"
+      ],
+      "ip": "164.131.132.47",
+      "timestamp": "2023-10-15T07:08:18.862694036Z",
+      "matcher-status": true
+    },
+    {
+      "template": "ssl/tls-version.yaml",
+      "template-url": "https://templates.nuclei.sh/public/tls-version",
+      "template-id": "tls-version",
+      "template-path": "/home/runner/nuclei-templates/ssl/tls-version.yaml",
+      "info": {
+        "name": "TLS Version - Detect",
+        "author": [
+          "pdteam",
+          "pussycat0x"
+        ],
+        "tags": [
+          "ssl"
+        ],
+        "description": "TLS version detection is a security process used to determine the version of the Transport Layer Security (TLS) protocol used by a computer or server.\nIt is important to detect the TLS version in order to ensure secure communication between two computers or servers.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 4
+        }
+      },
+      "type": "ssl",
+      "host": "www.teleaccords.travail-emploi.gouv.fr",
+      "matched-at": "www.teleaccords.travail-emploi.gouv.fr:443",
+      "extracted-results": [
+        "tls10"
+      ],
+      "ip": "164.131.132.47",
+      "timestamp": "2023-10-15T07:08:18.990200536Z",
+      "matcher-status": true
+    },
+    {
+      "template": "ssl/deprecated-tls.yaml",
+      "template-url": "https://templates.nuclei.sh/public/deprecated-tls",
+      "template-id": "deprecated-tls",
+      "template-path": "/home/runner/nuclei-templates/ssl/deprecated-tls.yaml",
+      "info": {
+        "name": "Deprecated TLS Detection (TLS 1.1 or SSLv3)",
+        "author": [
+          "righettod",
+          "forgedhallpass"
+        ],
+        "tags": [
+          "ssl"
+        ],
+        "description": "Both TLS 1.1 and SSLv3 are deprecated in favor of stronger encryption.\n",
+        "reference": [
+          "https://ssl-config.mozilla.org/#config=intermediate"
+        ],
+        "severity": "info",
+        "metadata": {
+          "max-request": 3,
+          "shodan-query": "ssl.version:sslv2 ssl.version:sslv3 ssl.version:tlsv1 ssl.version:tlsv1.1"
+        },
+        "remediation": "Update the web server's TLS configuration to disable TLS 1.1 and SSLv3.\n"
+      },
+      "type": "ssl",
+      "host": "www.teleaccords.travail-emploi.gouv.fr",
+      "matched-at": "www.teleaccords.travail-emploi.gouv.fr:443",
+      "extracted-results": [
+        "tls11"
+      ],
+      "ip": "164.131.132.47",
+      "timestamp": "2023-10-15T07:08:20.144174143Z",
+      "matcher-status": true
+    },
+    {
+      "template": "ssl/weak-cipher-suites.yaml",
+      "template-url": "https://templates.nuclei.sh/public/weak-cipher-suites",
+      "template-id": "weak-cipher-suites",
+      "template-path": "/home/runner/nuclei-templates/ssl/weak-cipher-suites.yaml",
+      "info": {
+        "name": "Weak Cipher Suites Detection",
+        "author": [
+          "pussycat0x"
+        ],
+        "tags": [
+          "ssl",
+          "tls",
+          "misconfig"
+        ],
+        "description": "A weak cipher is defined as an encryption/decryption algorithm that uses a key of insufficient length. Using an insufficient length for a key in an encryption/decryption algorithm opens up the possibility (or probability) that the encryption scheme could be broken.",
+        "reference": [
+          "https://www.acunetix.com/vulnerabilities/web/tls-ssl-weak-cipher-suites/",
+          "http://ciphersuite.info"
+        ],
+        "severity": "low",
+        "metadata": {
+          "max-request": 4
+        }
+      },
+      "matcher-name": "tls-1.1",
+      "type": "ssl",
+      "host": "www.teleaccords.travail-emploi.gouv.fr",
+      "matched-at": "www.teleaccords.travail-emploi.gouv.fr:443",
+      "extracted-results": [
+        "[tls11 TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA]"
+      ],
+      "ip": "164.131.132.47",
+      "timestamp": "2023-10-15T07:08:20.150258148Z",
+      "matcher-status": true
+    },
+    {
+      "template": "ssl/tls-version.yaml",
+      "template-url": "https://templates.nuclei.sh/public/tls-version",
+      "template-id": "tls-version",
+      "template-path": "/home/runner/nuclei-templates/ssl/tls-version.yaml",
+      "info": {
+        "name": "TLS Version - Detect",
+        "author": [
+          "pdteam",
+          "pussycat0x"
+        ],
+        "tags": [
+          "ssl"
+        ],
+        "description": "TLS version detection is a security process used to determine the version of the Transport Layer Security (TLS) protocol used by a computer or server.\nIt is important to detect the TLS version in order to ensure secure communication between two computers or servers.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 4
+        }
+      },
+      "type": "ssl",
+      "host": "www.teleaccords.travail-emploi.gouv.fr",
+      "matched-at": "www.teleaccords.travail-emploi.gouv.fr:443",
+      "extracted-results": [
+        "tls11"
+      ],
+      "ip": "164.131.132.47",
+      "timestamp": "2023-10-15T07:08:20.279904185Z",
+      "matcher-status": true
+    },
+    {
+      "template": "ssl/tls-version.yaml",
+      "template-url": "https://templates.nuclei.sh/public/tls-version",
+      "template-id": "tls-version",
+      "template-path": "/home/runner/nuclei-templates/ssl/tls-version.yaml",
+      "info": {
+        "name": "TLS Version - Detect",
+        "author": [
+          "pdteam",
+          "pussycat0x"
+        ],
+        "tags": [
+          "ssl"
+        ],
+        "description": "TLS version detection is a security process used to determine the version of the Transport Layer Security (TLS) protocol used by a computer or server.\nIt is important to detect the TLS version in order to ensure secure communication between two computers or servers.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 4
+        }
+      },
+      "type": "ssl",
+      "host": "www.teleaccords.travail-emploi.gouv.fr",
+      "matched-at": "www.teleaccords.travail-emploi.gouv.fr:443",
+      "extracted-results": [
+        "tls12"
+      ],
+      "ip": "164.131.132.47",
+      "timestamp": "2023-10-15T07:08:21.582896763Z",
+      "matcher-status": true
+    }
+  ]
+]
