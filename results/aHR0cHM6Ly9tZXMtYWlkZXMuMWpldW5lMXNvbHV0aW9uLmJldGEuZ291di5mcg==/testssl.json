@@ -31,15 +31,15 @@
               "id"           : "TLS1",
               "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
               "port"         : "443",
-              "severity"     : "LOW",
-              "finding"      : "offered (deprecated)"
+              "severity"     : "INFO",
+              "finding"      : "not offered"
           }
 ,         {
               "id"           : "TLS1_1",
               "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
               "port"         : "443",
-              "severity"     : "LOW",
-              "finding"      : "offered (deprecated)"
+              "severity"     : "INFO",
+              "finding"      : "not offered"
           }
 ,         {
               "id"           : "TLS1_2",
@@ -52,8 +52,15 @@
               "id"           : "TLS1_3",
               "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
               "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "not offered + downgraded to weaker protocol"
+              "severity"     : "OK",
+              "finding"      : "offered with final"
+          }
+,         {
+              "id"           : "ALPN_HTTP2",
+              "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "h2"
           }
 ,         {
               "id"           : "ALPN",
@@ -106,9 +113,9 @@
               "id"           : "cipherlist_OBSOLETED",
               "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
               "port"         : "443",
-              "severity"     : "LOW",
+              "severity"     : "INFO",
               "cwe"          : "CWE-310",
-              "finding"      : "offered"
+              "finding"      : "not offered"
           }
 ,         {
               "id"           : "cipherlist_STRONG_NOFS",
@@ -125,53 +132,53 @@
               "finding"      : "offered"
           }
 ,         {
-              "id"           : "cipher_order-tls1",
-              "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
-              "port"         : "443",
-              "severity"     : "OK",
-              "finding"      : "server"
-          }
-,         {
-              "id"           : "cipherorder_TLSv1",
-              "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "DHE-RSA-AES256-SHA"
-          }
-,         {
-              "id"           : "cipher_order-tls1_1",
-              "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
-              "port"         : "443",
-              "severity"     : "OK",
-              "finding"      : "server"
-          }
-,         {
-              "id"           : "cipherorder_TLSv1_1",
-              "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "DHE-RSA-AES256-SHA"
-          }
-,         {
               "id"           : "cipher_order-tls1_2",
               "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
               "port"         : "443",
-              "severity"     : "OK",
-              "finding"      : "server"
+              "severity"     : "INFO",
+              "finding"      : "NOT a cipher order configured"
           }
 ,         {
-              "id"           : "cipherorder_TLSv1_2",
+              "id"           : "cipher-tls1_2_xc030",
+              "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "TLSv1.2   xc030   ECDHE-RSA-AES256-GCM-SHA384       ECDH 521   AESGCM      256      TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384"
+          }
+,         {
+              "id"           : "cipher-tls1_2_x9f",
+              "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "TLSv1.2   x9f     DHE-RSA-AES256-GCM-SHA384         DH 2048    AESGCM      256      TLS_DHE_RSA_WITH_AES_256_GCM_SHA384"
+          }
+,         {
+              "id"           : "cipher-tls1_2_xc02f",
+              "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "TLSv1.2   xc02f   ECDHE-RSA-AES128-GCM-SHA256       ECDH 521   AESGCM      128      TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"
+          }
+,         {
+              "id"           : "cipher-tls1_2_x9e",
+              "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "TLSv1.2   x9e     DHE-RSA-AES128-GCM-SHA256         DH 2048    AESGCM      128      TLS_DHE_RSA_WITH_AES_128_GCM_SHA256"
+          }
+,         {
+              "id"           : "supportedciphers_TLSv1_2",
               "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "ECDHE-RSA-AES256-GCM-SHA384"
+              "finding"      : "ECDHE-RSA-AES256-GCM-SHA384 DHE-RSA-AES256-GCM-SHA384 ECDHE-RSA-AES128-GCM-SHA256 DHE-RSA-AES128-GCM-SHA256"
           }
 ,         {
               "id"           : "cipher_order",
               "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
               "port"         : "443",
-              "severity"     : "OK",
-              "finding"      : "server"
+              "severity"     : "INFO",
+              "finding"      : "NOT a cipher order configured"
           }
 ,         {
               "id"           : "FS",
@@ -185,7 +192,7 @@
               "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "DHE-RSA-AES128-GCM-SHA256 DHE-RSA-AES128-SHA256 DHE-RSA-AES128-SHA DHE-RSA-AES256-GCM-SHA384 DHE-RSA-AES256-SHA256 DHE-RSA-AES256-SHA DHE-RSA-CAMELLIA128-SHA256 DHE-RSA-CAMELLIA128-SHA DHE-RSA-CAMELLIA256-SHA256 DHE-RSA-CAMELLIA256-SHA DHE-RSA-SEED-SHA ECDHE-RSA-AES128-GCM-SHA256 ECDHE-RSA-AES128-SHA256 ECDHE-RSA-AES128-SHA ECDHE-RSA-AES256-GCM-SHA384 ECDHE-RSA-AES256-SHA384 ECDHE-RSA-AES256-SHA ECDHE-RSA-CAMELLIA128-SHA256 ECDHE-RSA-CAMELLIA256-SHA384"
+              "finding"      : "DHE-RSA-AES128-GCM-SHA256 DHE-RSA-AES256-GCM-SHA384 ECDHE-RSA-AES128-GCM-SHA256 ECDHE-RSA-AES256-GCM-SHA384"
           }
 ,         {
               "id"           : "FS_ECDHE_curves",
@@ -199,7 +206,7 @@
               "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "'renegotiation info/#65281' 'server name/#0' 'EC point formats/#11' 'session ticket/#35' 'next protocol/#13172' 'max fragment length/#1' 'application layer protocol negotiation/#16' 'encrypt-then-mac/#22' 'extended master secret/#23'"
+              "finding"      : "'renegotiation info/#65281' 'server name/#0' 'EC point formats/#11' 'session ticket/#35' 'next protocol/#13172' 'supported versions/#43' 'key share/#51' 'supported_groups/#10' 'max fragment length/#1' 'application layer protocol negotiation/#16' 'extended master secret/#23'"
           }
 ,         {
               "id"           : "TLS_session_ticket",
@@ -237,11 +244,11 @@
               "finding"      : "random"
           }
 ,         {
-              "id"           : "cert_compression",
+              "id"           : "certificate_compression",
               "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "N/A"
+              "finding"      : "none"
           }
 ,         {
               "id"           : "clientAuth",
@@ -367,7 +374,7 @@
               "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
               "port"         : "443",
               "severity"     : "OK",
-              "finding"      : "44 >= 30 days"
+              "finding"      : "37 >= 30 days"
           }
 ,         {
               "id"           : "cert_notBefore",
@@ -570,14 +577,14 @@
               "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "1697354030"
+              "finding"      : "1697958157"
           }
 ,         {
               "id"           : "HSTS_time",
               "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
               "port"         : "443",
               "severity"     : "MEDIUM",
-              "finding"      : "max-age too short. 0 days (=300 seconds) < 15552000 seconds"
+              "finding"      : "max-age too short. 7 days (=604800 seconds) < 15552000 seconds"
           }
 ,         {
               "id"           : "HSTS_subdomains",
@@ -721,7 +728,7 @@
               "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
               "port"         : "443",
               "severity"     : "OK",
-              "finding"      : "supported"
+              "finding"      : "no protocol below TLS 1.2 offered"
           }
 ,         {
               "id"           : "SWEET32",
@@ -778,31 +785,22 @@
               "finding"      : "--"
           }
 ,         {
-              "id"           : "BEAST_CBC_TLS1",
-              "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
-              "port"         : "443",
-              "severity"     : "MEDIUM",
-              "cve"          : "CVE-2011-3389",
-              "cwe"          : "CWE-20",
-              "finding"      : "DHE-RSA-AES256-SHA DHE-RSA-CAMELLIA256-SHA DHE-RSA-AES128-SHA DHE-RSA-SEED-SHA DHE-RSA-CAMELLIA128-SHA ECDHE-RSA-AES256-SHA ECDHE-RSA-AES128-SHA"
-          }
-,         {
               "id"           : "BEAST",
               "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
               "port"         : "443",
-              "severity"     : "LOW",
+              "severity"     : "OK",
               "cve"          : "CVE-2011-3389",
               "cwe"          : "CWE-20",
-              "finding"      : "VULNERABLE -- but also supports higher protocols  TLSv1.1 TLSv1.2 (likely mitigated)"
+              "finding"      : "not vulnerable, no SSL3 or TLS1"
           }
 ,         {
               "id"           : "LUCKY13",
               "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
               "port"         : "443",
-              "severity"     : "LOW",
+              "severity"     : "OK",
               "cve"          : "CVE-2013-0169",
               "cwe"          : "CWE-310",
-              "finding"      : "potentially vulnerable, uses TLS CBC ciphers"
+              "finding"      : "not vulnerable"
           }
 ,         {
               "id"           : "winshock",
@@ -834,70 +832,70 @@
               "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
           }
 ,         {
               "id"           : "clientsimulation-android_81",
               "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
           }
 ,         {
               "id"           : "clientsimulation-android_90",
               "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
+              "finding"      : "TLSv1.3 TLS_AES_128_GCM_SHA256"
           }
 ,         {
               "id"           : "clientsimulation-android_X",
               "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
+              "finding"      : "TLSv1.3 TLS_AES_128_GCM_SHA256"
           }
 ,         {
               "id"           : "clientsimulation-android_11",
               "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
+              "finding"      : "TLSv1.3 TLS_AES_128_GCM_SHA256"
           }
 ,         {
               "id"           : "clientsimulation-android_12",
               "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
+              "finding"      : "TLSv1.3 TLS_AES_128_GCM_SHA256"
           }
 ,         {
               "id"           : "clientsimulation-chrome_79_win10",
               "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
+              "finding"      : "TLSv1.3 TLS_AES_128_GCM_SHA256"
           }
 ,         {
               "id"           : "clientsimulation-chrome_101_win10",
               "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
+              "finding"      : "TLSv1.3 TLS_AES_128_GCM_SHA256"
           }
 ,         {
               "id"           : "clientsimulation-firefox_66_win81",
               "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
+              "finding"      : "TLSv1.3 TLS_AES_128_GCM_SHA256"
           }
 ,         {
               "id"           : "clientsimulation-firefox_100_win10",
               "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
+              "finding"      : "TLSv1.3 TLS_AES_128_GCM_SHA256"
           }
 ,         {
               "id"           : "clientsimulation-ie_6_xp",
@@ -911,7 +909,7 @@
               "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.0 ECDHE-RSA-AES256-SHA"
+              "finding"      : "No connection"
           }
 ,         {
               "id"           : "clientsimulation-ie_8_xp",
@@ -939,7 +937,7 @@
               "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-SHA256"
+              "finding"      : "No connection"
           }
 ,         {
               "id"           : "clientsimulation-ie_11_win10",
@@ -960,28 +958,28 @@
               "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
+              "finding"      : "TLSv1.3 TLS_AES_128_GCM_SHA256"
           }
 ,         {
               "id"           : "clientsimulation-safari_121_ios_122",
               "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
+              "finding"      : "TLSv1.3 TLS_CHACHA20_POLY1305_SHA256"
           }
 ,         {
               "id"           : "clientsimulation-safari_130_osx_10146",
               "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
+              "finding"      : "TLSv1.3 TLS_CHACHA20_POLY1305_SHA256"
           }
 ,         {
               "id"           : "clientsimulation-safari_154_osx_1231",
               "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
+              "finding"      : "TLSv1.3 TLS_AES_128_GCM_SHA256"
           }
 ,         {
               "id"           : "clientsimulation-java_7u25",
@@ -1002,28 +1000,28 @@
               "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
+              "finding"      : "TLSv1.3 TLS_AES_128_GCM_SHA256"
           }
 ,         {
               "id"           : "clientsimulation-java1703",
               "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
+              "finding"      : "TLSv1.3 TLS_AES_256_GCM_SHA384"
           }
 ,         {
               "id"           : "clientsimulation-go_1178",
               "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
+              "finding"      : "TLSv1.3 TLS_AES_128_GCM_SHA256"
           }
 ,         {
               "id"           : "clientsimulation-libressl_283",
               "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
+              "finding"      : "TLSv1.2 ECDHE-RSA-CHACHA20-POLY1305"
           }
 ,         {
               "id"           : "clientsimulation-openssl_102e",
@@ -1044,14 +1042,14 @@
               "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
+              "finding"      : "TLSv1.3 TLS_AES_256_GCM_SHA384"
           }
 ,         {
               "id"           : "clientsimulation-openssl_303",
               "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
+              "finding"      : "TLSv1.3 TLS_AES_256_GCM_SHA384"
           }
 ,         {
               "id"           : "clientsimulation-apple_mail_16_0",
@@ -1065,7 +1063,7 @@
               "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384"
+              "finding"      : "TLSv1.3 TLS_AES_128_GCM_SHA256"
           }
 ,         {
               "id"           : "rating_spec",
@@ -1086,14 +1084,14 @@
               "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "95"
+              "finding"      : "100"
           }
 ,         {
               "id"           : "protocol_support_score_weighted",
               "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "28"
+              "finding"      : "30"
           }
 ,         {
               "id"           : "key_exchange_score",
@@ -1114,45 +1112,31 @@
               "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "60"
+              "finding"      : "90"
           }
 ,         {
               "id"           : "cipher_strength_score_weighted",
               "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "24"
+              "finding"      : "36"
           }
 ,         {
               "id"           : "final_score",
               "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "79"
+              "finding"      : "93"
           }
 ,         {
               "id"           : "overall_grade",
               "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
               "port"         : "443",
-              "severity"     : "MEDIUM",
-              "finding"      : "B"
+              "severity"     : "OK",
+              "finding"      : "A"
           }
 ,         {
               "id"           : "grade_cap_reason_1",
-              "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "Grade capped to B. TLS 1.1 offered"
-          }
-,         {
-              "id"           : "grade_cap_reason_2",
-              "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "Grade capped to B. TLS 1.0 offered"
-          }
-,         {
-              "id"           : "grade_cap_reason_3",
               "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
               "port"         : "443",
               "severity"     : "INFO",
@@ -1163,6 +1147,6 @@
               "ip"           : "mes-aides.1jeune1solution.beta.gouv.fr/5.135.137.147",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "68"
+              "finding"      : "105"
           }
 ]
