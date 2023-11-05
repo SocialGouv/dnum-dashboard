@@ -1,6 +1,43 @@
 [
   [
     {
+      "template": "dns/caa-fingerprint.yaml",
+      "template-url": "https://templates.nuclei.sh/public/caa-fingerprint",
+      "template-id": "caa-fingerprint",
+      "template-path": "/home/runner/nuclei-templates/dns/caa-fingerprint.yaml",
+      "info": {
+        "name": "CAA Record",
+        "author": [
+          "pdteam"
+        ],
+        "tags": [
+          "dns",
+          "caa"
+        ],
+        "description": "A CAA record was discovered. A CAA record is used to specify which certificate authorities (CAs) are allowed to issue certificates for a domain.",
+        "reference": [
+          "https://support.dnsimple.com/articles/caa-record/#whats-a-caa-record"
+        ],
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        },
+        "classification": {
+          "cve-id": null,
+          "cwe-id": [
+            "cwe-200"
+          ]
+        }
+      },
+      "type": "dns",
+      "host": "www.1jeune1solution.gouv.fr.",
+      "matched-at": "www.1jeune1solution.gouv.fr",
+      "request": ";; opcode: QUERY, status: NOERROR, id: 16900\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;www.1jeune1solution.gouv.fr.\tIN\t CAA\n",
+      "response": ";; opcode: QUERY, status: NOERROR, id: 16900\n;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 1, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 512\n\n;; QUESTION SECTION:\n;www.1jeune1solution.gouv.fr.\tIN\t CAA\n\n;; ANSWER SECTION:\nwww.1jeune1solution.gouv.fr.\t120\tIN\tCNAME\twww.1jeune1solution.gouv.fr.cdn.cloudflare.net.\n\n;; AUTHORITY SECTION:\ncloudflare.net.\t1800\tIN\tSOA\tns1.cloudflare.net. dns.cloudflare.com. 2324138674 10000 2400 604800 1800\n",
+      "timestamp": "2023-11-05T06:13:55.973462952Z",
+      "matcher-status": true
+    },
+    {
       "template": "dns/dns-saas-service-detection.yaml",
       "template-url": "https://templates.nuclei.sh/public/dns-saas-service-detection",
       "template-id": "dns-saas-service-detection",
@@ -33,9 +70,9 @@
       "extracted-results": [
         "www.1jeune1solution.gouv.fr.cdn.cloudflare.net."
       ],
-      "request": ";; opcode: QUERY, status: NOERROR, id: 42947\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;www.1jeune1solution.gouv.fr.\tIN\t CNAME\n",
-      "response": ";; opcode: QUERY, status: NOERROR, id: 42947\n;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 1232\n\n;; QUESTION SECTION:\n;www.1jeune1solution.gouv.fr.\tIN\t CNAME\n\n;; ANSWER SECTION:\nwww.1jeune1solution.gouv.fr.\t120\tIN\tCNAME\twww.1jeune1solution.gouv.fr.cdn.cloudflare.net.\n",
-      "timestamp": "2023-10-29T06:22:32.568752598Z",
+      "request": ";; opcode: QUERY, status: NOERROR, id: 43012\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;www.1jeune1solution.gouv.fr.\tIN\t CNAME\n",
+      "response": ";; opcode: QUERY, status: NOERROR, id: 43012\n;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 1232\n\n;; QUESTION SECTION:\n;www.1jeune1solution.gouv.fr.\tIN\t CNAME\n\n;; ANSWER SECTION:\nwww.1jeune1solution.gouv.fr.\t120\tIN\tCNAME\twww.1jeune1solution.gouv.fr.cdn.cloudflare.net.\n",
+      "timestamp": "2023-11-05T06:13:55.998154445Z",
       "matcher-status": true
     },
     {
@@ -64,51 +101,38 @@
         "GET, HEAD"
       ],
       "request": "OPTIONS / HTTP/1.1\r\nHost: www.1jeune1solution.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.1 405 Method Not Allowed\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAllow: GET, HEAD\r\nAlt-Svc: h3=\":443\"; ma=86400\r\nCache-Control: no-cache, no-store, max-age=0, must-revalidate\r\nCf-Cache-Status: DYNAMIC\r\nCf-Ray: 81d953541e86092c-LAX\r\nContent-Security-Policy: default-src 'self' *.fabrique.social.gouv.fr *.meilisearch.io/multi-search 1j1s-front.osc-fr1.scalingo.io *.1jeune1solution.gouv.fr; script-src 'self' yssn.1jeune1solution.gouv.fr https://*.adform.net; img-src 'self' *.google.com data: cos-njord-dgefp-1j1s-prod.storage-eb4.cegedim.cloud yssn.1jeune1solution.gouv.fr img.youtube.com jedonnemonavis.numerique.gouv.fr; style-src 'self' 'unsafe-inline' yssn.1jeune1solution.gouv.fr; frame-ancestors 'none'; frame-src 'self' *.apprentissage.beta.gouv.fr immersion-facile.beta.gouv.fr deposer-offre.www.1jeune1solution.gouv.fr *.youtube-nocookie.com simulateur-alternance.1jeune1solution.gouv.fr https://*.adform.net; form-action 'self'; base-uri 'none';\r\nContent-Type: text/html; charset=utf-8\r\nDate: Sun, 29 Oct 2023 06:22:41 GMT\r\nReferrer-Policy: no-referrer, strict-origin-when-cross-origin\r\nServer: cloudflare\r\nStrict-Transport-Security: max-age=31536000\r\nStrict-Transport-Security: max-age=63072000; includeSubDomains; preload\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Dns-Prefetch-Control: on\r\nX-Request-Id: c2dd862c-2ac7-4432-9ce9-38b1d0921fbd\r\n\r\n<!DOCTYPE html><html lang=\"fr\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, height=device-height, initial-scale=1, viewport-fit=cover, minimum-scale=1.0\"/><meta name=\"description\" content=\"Toutes les solutions pour l‘avenir des jeunes\"/><meta name=\"next-head-count\" content=\"3\"/><meta name=\"author\" content=\"1jeune1solution\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"57x57\" href=\"/favicons/apple-touch-icon-57x57.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"114x114\" href=\"/favicons/apple-touch-icon-114x114.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"72x72\" href=\"/favicons/apple-touch-icon-72x72.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"144x144\" href=\"/favicons/apple-touch-icon-144x144.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"60x60\" href=\"/favicons/apple-touch-icon-60x60.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"120x120\" href=\"/favicons/apple-touch-icon-120x120.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"76x76\" href=\"/favicons/apple-touch-icon-76x76.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"152x152\" href=\"/favicons/apple-touch-icon-152x152.png\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-196x196.png\" sizes=\"196x196\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-96x96.png\" sizes=\"96x96\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-32x32.png\" sizes=\"32x32\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-16x16.png\" sizes=\"16x16\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-128x128.png\" sizes=\"128x128\"/><meta name=\"application-name\" content=\"1jeune1solution\"/><meta name=\"msapplication-TileColor\" content=\"#FFFFFF\"/><meta name=\"msapplication-TileImage\" content=\"/favicons/mstile-144x144.png\"/><meta name=\"msapplication-square70x70logo\" content=\"/favicons/mstile-70x70.png\"/><meta name=\"msapplication-square150x150logo\" content=\"/favicons/mstile-150x150.png\"/><meta name=\"msapplication-wide310x150logo\" content=\"/favicons/mstile-310x150.png\"/><meta name=\"msapplication-square310x310logo\" content=\"/favicons/mstile-310x310.png\"/><link rel=\"preload\" href=\"/_next/static/css/48eef73ea08f7ac8.css\" as=\"style\"/><link rel=\"stylesheet\" href=\"/_next/static/css/48eef73ea08f7ac8.css\" data-n-g=\"\"/><noscript data-n-css=\"\"></noscript><script defer=\"\" nomodule=\"\" src=\"/_next/static/chunks/polyfills-78c92fac7aa8fdd8.js\"></script><script src=\"/scripts/tarteaucitron.js?v=3.173.0\" defer=\"\" data-nscript=\"beforeInteractive\"></script><script id=\"eulerianAnalytics\" src=\"/scripts/eulerian.yssn.1jeune1solution.gouv.fr.js\" defer=\"\" data-nscript=\"beforeInteractive\"></script><script src=\"/_next/static/chunks/webpack-784575a5d37986bc.js\" defer=\"\"></script><script src=\"/_next/static/chunks/framework-2645a99191cfc5e9.js\" defer=\"\"></script><script src=\"/_next/static/chunks/main-f9d1ff5de2ae4299.js\" defer=\"\"></script><script src=\"/_next/static/chunks/pages/_app-4afcb64d721f23b7.js\" defer=\"\"></script><script src=\"/_next/static/chunks/pages/_error-240c82c23359c46a.js\" defer=\"\"></script><script src=\"/_next/static/6F_ePnYh5oywjp9-5IDYv/_buildManifest.js\" defer=\"\"></script><script src=\"/_next/static/6F_ePnYh5oywjp9-5IDYv/_ssgManifest.js\" defer=\"\"></script></head><body><div id=\"__next\"></div><script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{\"statusCode\":405,\"hasGetInitialPropsRun\":true,\"_sentryTraceData\":\"21cc6b8760ed43e3b7d2cf6e3721d7c7-bab273f1cf24d6f6-0\",\"_sentryBaggage\":\"sentry-environment=production,sentry-release=1j1s-front%403.173.0-server,sentry-public_key=b7bef1f25b5e4d8da63787bfbc3e336a,sentry-trace_id=21cc6b8760ed43e3b7d2cf6e3721d7c7,sentry-sample_rate=0.02,sentry-transaction=%2F_error,sentry-sampled=false\"}},\"page\":\"/_error\",\"query\":{},\"buildId\":\"6F_ePnYh5oywjp9-5IDYv\",\"isFallback\":false,\"gip\":true,\"scriptLoader\":[]}</script></body></html>",
+      "response": "HTTP/1.1 405 Method Not Allowed\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAllow: GET, HEAD\r\nAlt-Svc: h3=\":443\"; ma=86400\r\nCache-Control: no-cache, no-store, max-age=0, must-revalidate\r\nCf-Cache-Status: DYNAMIC\r\nCf-Ray: 8212f44278fe59c8-IAD\r\nContent-Security-Policy: default-src 'self' *.fabrique.social.gouv.fr *.meilisearch.io/multi-search 1j1s-front.osc-fr1.scalingo.io *.1jeune1solution.gouv.fr; script-src 'self' yssn.1jeune1solution.gouv.fr https://*.adform.net; img-src 'self' *.google.com data: cos-njord-dgefp-1j1s-prod.storage-eb4.cegedim.cloud yssn.1jeune1solution.gouv.fr img.youtube.com jedonnemonavis.numerique.gouv.fr; style-src 'self' 'unsafe-inline' yssn.1jeune1solution.gouv.fr; frame-ancestors 'none'; frame-src 'self' *.apprentissage.beta.gouv.fr immersion-facile.beta.gouv.fr deposer-offre.www.1jeune1solution.gouv.fr *.youtube-nocookie.com simulateur-alternance.1jeune1solution.gouv.fr https://*.adform.net; form-action 'self'; base-uri 'none';\r\nContent-Type: text/html; charset=utf-8\r\nDate: Sun, 05 Nov 2023 06:14:01 GMT\r\nReferrer-Policy: no-referrer, strict-origin-when-cross-origin\r\nServer: cloudflare\r\nStrict-Transport-Security: max-age=31536000\r\nStrict-Transport-Security: max-age=63072000; includeSubDomains; preload\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Dns-Prefetch-Control: on\r\nX-Request-Id: 7b902b43-de7b-4440-9695-361a6612f061\r\n\r\n<!DOCTYPE html><html lang=\"fr\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, height=device-height, initial-scale=1, viewport-fit=cover, minimum-scale=1.0\"/><meta name=\"description\" content=\"Toutes les solutions pour l‘avenir des jeunes\"/><meta name=\"next-head-count\" content=\"3\"/><meta name=\"author\" content=\"1jeune1solution\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"57x57\" href=\"/favicons/apple-touch-icon-57x57.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"114x114\" href=\"/favicons/apple-touch-icon-114x114.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"72x72\" href=\"/favicons/apple-touch-icon-72x72.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"144x144\" href=\"/favicons/apple-touch-icon-144x144.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"60x60\" href=\"/favicons/apple-touch-icon-60x60.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"120x120\" href=\"/favicons/apple-touch-icon-120x120.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"76x76\" href=\"/favicons/apple-touch-icon-76x76.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"152x152\" href=\"/favicons/apple-touch-icon-152x152.png\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-196x196.png\" sizes=\"196x196\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-96x96.png\" sizes=\"96x96\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-32x32.png\" sizes=\"32x32\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-16x16.png\" sizes=\"16x16\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-128x128.png\" sizes=\"128x128\"/><meta name=\"application-name\" content=\"1jeune1solution\"/><meta name=\"msapplication-TileColor\" content=\"#FFFFFF\"/><meta name=\"msapplication-TileImage\" content=\"/favicons/mstile-144x144.png\"/><meta name=\"msapplication-square70x70logo\" content=\"/favicons/mstile-70x70.png\"/><meta name=\"msapplication-square150x150logo\" content=\"/favicons/mstile-150x150.png\"/><meta name=\"msapplication-wide310x150logo\" content=\"/favicons/mstile-310x150.png\"/><meta name=\"msapplication-square310x310logo\" content=\"/favicons/mstile-310x310.png\"/><link rel=\"preload\" href=\"/_next/static/css/48eef73ea08f7ac8.css\" as=\"style\"/><link rel=\"stylesheet\" href=\"/_next/static/css/48eef73ea08f7ac8.css\" data-n-g=\"\"/><noscript data-n-css=\"\"></noscript><script defer=\"\" nomodule=\"\" src=\"/_next/static/chunks/polyfills-78c92fac7aa8fdd8.js\"></script><script src=\"/scripts/tarteaucitron.js?v=3.173.0\" defer=\"\" data-nscript=\"beforeInteractive\"></script><script id=\"eulerianAnalytics\" src=\"/scripts/eulerian.yssn.1jeune1solution.gouv.fr.js\" defer=\"\" data-nscript=\"beforeInteractive\"></script><script src=\"/_next/static/chunks/webpack-784575a5d37986bc.js\" defer=\"\"></script><script src=\"/_next/static/chunks/framework-2645a99191cfc5e9.js\" defer=\"\"></script><script src=\"/_next/static/chunks/main-f9d1ff5de2ae4299.js\" defer=\"\"></script><script src=\"/_next/static/chunks/pages/_app-4afcb64d721f23b7.js\" defer=\"\"></script><script src=\"/_next/static/chunks/pages/_error-240c82c23359c46a.js\" defer=\"\"></script><script src=\"/_next/static/6F_ePnYh5oywjp9-5IDYv/_buildManifest.js\" defer=\"\"></script><script src=\"/_next/static/6F_ePnYh5oywjp9-5IDYv/_ssgManifest.js\" defer=\"\"></script></head><body><div id=\"__next\"></div><script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{\"statusCode\":405,\"hasGetInitialPropsRun\":true,\"_sentryTraceData\":\"88eb3982b33f49409e375d90f33285c2-8765891c350fa020-0\",\"_sentryBaggage\":\"sentry-environment=production,sentry-release=1j1s-front%403.173.0-server,sentry-public_key=b7bef1f25b5e4d8da63787bfbc3e336a,sentry-trace_id=88eb3982b33f49409e375d90f33285c2,sentry-sample_rate=0.02,sentry-transaction=%2F_error,sentry-sampled=false\"}},\"page\":\"/_error\",\"query\":{},\"buildId\":\"6F_ePnYh5oywjp9-5IDYv\",\"isFallback\":false,\"gip\":true,\"scriptLoader\":[]}</script></body></html>",
       "ip": "172.67.40.181",
-      "timestamp": "2023-10-29T06:22:41.497411679Z",
+      "timestamp": "2023-11-05T06:14:01.667014774Z",
       "curl-command": "curl -X 'OPTIONS' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.1jeune1solution.gouv.fr'",
       "matcher-status": true
     },
     {
-      "template": "http/miscellaneous/addeventlistener-detect.yaml",
-      "template-url": "https://templates.nuclei.sh/public/addeventlistener-detect",
-      "template-id": "addeventlistener-detect",
-      "template-path": "/home/runner/nuclei-templates/http/miscellaneous/addeventlistener-detect.yaml",
+      "template": "http/technologies/tech-detect.yaml",
+      "template-url": "https://templates.nuclei.sh/public/tech-detect",
+      "template-id": "tech-detect",
+      "template-path": "/home/runner/nuclei-templates/http/technologies/tech-detect.yaml",
       "info": {
-        "name": "DOM EventListener - Cross-Site Scripting",
+        "name": "Wappalyzer Technology Detection",
         "author": [
-          "yavolo",
-          "dwisiswant0"
+          "hakluke"
         ],
         "tags": [
-          "xss",
-          "misc"
-        ],
-        "description": "EventListener contains a cross-site scripting vulnerability via the document object model (DOM). An attacker can execute arbitrary script which can then allow theft of cookie-based authentication credentials and launch of  other attacks.",
-        "reference": [
-          "https://portswigger.net/web-security/dom-based/controlling-the-web-message-source"
+          "tech"
         ],
         "severity": "info",
         "metadata": {
           "max-request": 1
-        },
-        "classification": {
-          "cve-id": null,
-          "cwe-id": [
-            "cwe-79"
-          ],
-          "cvss-metrics": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:N",
-          "cvss-score": 7.2
         }
       },
+      "matcher-name": "cloudflare",
       "type": "http",
       "host": "https://www.1jeune1solution.gouv.fr",
       "matched-at": "https://www.1jeune1solution.gouv.fr",
       "request": "GET / HTTP/1.1\r\nHost: www.1jeune1solution.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.1 502 Bad Gateway\r\nConnection: close\r\nContent-Length: 6403\r\nAlt-Svc: h3=\":443\"; ma=86400\r\nCache-Control: private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0\r\nCf-Ray: 81d9536caf4e2f10-LAX\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 29 Oct 2023 06:22:45 GMT\r\nExpires: Thu, 01 Jan 1970 00:00:01 GMT\r\nReferrer-Policy: same-origin\r\nServer: cloudflare\r\nX-Frame-Options: SAMEORIGIN\r\n\r\n<!DOCTYPE html>\n<!--[if lt IE 7]> <html class=\"no-js ie6 oldie\" lang=\"en-US\"> <![endif]-->\n<!--[if IE 7]>    <html class=\"no-js ie7 oldie\" lang=\"en-US\"> <![endif]-->\n<!--[if IE 8]>    <html class=\"no-js ie8 oldie\" lang=\"en-US\"> <![endif]-->\n<!--[if gt IE 8]><!--> <html class=\"no-js\" lang=\"en-US\"> <!--<![endif]-->\n<head>\n\n\n<title>www.1jeune1solution.gouv.fr | 502: Bad gateway</title>\n<meta charset=\"UTF-8\" />\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />\n<meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\" />\n<meta name=\"robots\" content=\"noindex, nofollow\" />\n<meta name=\"viewport\" content=\"width=device-width,initial-scale=1\" />\n<link rel=\"stylesheet\" id=\"cf_styles-css\" href=\"/cdn-cgi/styles/main.css\" />\n\n\n</head>\n<body>\n<div id=\"cf-wrapper\">\n    <div id=\"cf-error-details\" class=\"p-0\">\n        <header class=\"mx-auto pt-10 lg:pt-6 lg:px-8 w-240 lg:w-full mb-8\">\n            <h1 class=\"inline-block sm:block sm:mb-2 font-light text-60 lg:text-4xl text-black-dark leading-tight mr-2\">\n              <span class=\"inline-block\">Bad gateway</span>\n              <span class=\"code-label\">Error code 502</span>\n            </h1>\n            <div>\n               Visit <a href=\"https://www.cloudflare.com/5xx-error-landing?utm_source=errorcode_502&utm_campaign=www.1jeune1solution.gouv.fr\" target=\"_blank\" rel=\"noopener noreferrer\">cloudflare.com</a> for more information.\n            </div>\n            <div class=\"mt-3\">2023-10-29 06:22:45 UTC</div>\n        </header>\n        <div class=\"my-8 bg-gradient-gray\">\n            <div class=\"w-240 lg:w-full mx-auto\">\n                <div class=\"clearfix md:px-8\">\n                  \n<div id=\"cf-browser-status\" class=\" relative w-1/3 md:w-full py-15 md:p-0 md:py-8 md:text-left md:border-solid md:border-0 md:border-b md:border-gray-400 overflow-hidden float-left md:float-none text-center\">\n  <div class=\"relative mb-10 md:m-0\">\n    \n    <span class=\"cf-icon-browser block md:hidden h-20 bg-center bg-no-repeat\"></span>\n    <span class=\"cf-icon-ok w-12 h-12 absolute left-1/2 md:left-auto md:right-0 md:top-0 -ml-6 -bottom-4\"></span>\n    \n  </div>\n  <span class=\"md:block w-full truncate\">You</span>\n  <h3 class=\"md:inline-block mt-3 md:mt-0 text-2xl text-gray-600 font-light leading-1.3\">\n    \n    Browser\n    \n  </h3>\n  <span class=\"leading-1.3 text-2xl text-green-success\">Working</span>\n</div>\n\n<div id=\"cf-cloudflare-status\" class=\" relative w-1/3 md:w-full py-15 md:p-0 md:py-8 md:text-left md:border-solid md:border-0 md:border-b md:border-gray-400 overflow-hidden float-left md:float-none text-center\">\n  <div class=\"relative mb-10 md:m-0\">\n    <a href=\"https://www.cloudflare.com/5xx-error-landing?utm_source=errorcode_502&utm_campaign=www.1jeune1solution.gouv.fr\" target=\"_blank\" rel=\"noopener noreferrer\">\n    <span class=\"cf-icon-cloud block md:hidden h-20 bg-center bg-no-repeat\"></span>\n    <span class=\"cf-icon-ok w-12 h-12 absolute left-1/2 md:left-auto md:right-0 md:top-0 -ml-6 -bottom-4\"></span>\n    </a>\n  </div>\n  <span class=\"md:block w-full truncate\">Los Angeles</span>\n  <h3 class=\"md:inline-block mt-3 md:mt-0 text-2xl text-gray-600 font-light leading-1.3\">\n    <a href=\"https://www.cloudflare.com/5xx-error-landing?utm_source=errorcode_502&utm_campaign=www.1jeune1solution.gouv.fr\" target=\"_blank\" rel=\"noopener noreferrer\">\n    Cloudflare\n    </a>\n  </h3>\n  <span class=\"leading-1.3 text-2xl text-green-success\">Working</span>\n</div>\n\n<div id=\"cf-host-status\" class=\"cf-error-source relative w-1/3 md:w-full py-15 md:p-0 md:py-8 md:text-left md:border-solid md:border-0 md:border-b md:border-gray-400 overflow-hidden float-left md:float-none text-center\">\n  <div class=\"relative mb-10 md:m-0\">\n    \n    <span class=\"cf-icon-server block md:hidden h-20 bg-center bg-no-repeat\"></span>\n    <span class=\"cf-icon-error w-12 h-12 absolute left-1/2 md:left-auto md:right-0 md:top-0 -ml-6 -bottom-4\"></span>\n    \n  </div>\n  <span class=\"md:block w-full truncate\">www.1jeune1solution.gouv.fr</span>\n  <h3 class=\"md:inline-block mt-3 md:mt-0 text-2xl text-gray-600 font-light leading-1.3\">\n    \n    Host\n    \n  </h3>\n  <span class=\"leading-1.3 text-2xl text-red-error\">Error</span>\n</div>\n\n                </div>\n            </div>\n        </div>\n\n        <div class=\"w-240 lg:w-full mx-auto mb-8 lg:px-8\">\n            <div class=\"clearfix\">\n                <div class=\"w-1/2 md:w-full float-left pr-6 md:pb-10 md:pr-0 leading-relaxed\">\n                    <h2 class=\"text-3xl font-normal leading-1.3 mb-4\">What happened?</h2>\n                    <p>The web server reported a bad gateway error.</p>\n                </div>\n                <div class=\"w-1/2 md:w-full float-left leading-relaxed\">\n                    <h2 class=\"text-3xl font-normal leading-1.3 mb-4\">What can I do?</h2>\n                    <p class=\"mb-6\">Please try again in a few minutes.</p>\n                </div>\n            </div>\n        </div>\n\n        <div class=\"cf-error-footer cf-wrapper w-240 lg:w-full py-10 sm:py-4 sm:px-8 mx-auto text-center sm:text-left border-solid border-0 border-t border-gray-300\">\n  <p class=\"text-13\">\n    <span class=\"cf-footer-item sm:block sm:mb-1\">Cloudflare Ray ID: <strong class=\"font-semibold\">81d9536caf4e2f10</strong></span>\n    <span class=\"cf-footer-separator sm:hidden\">&bull;</span>\n    <span id=\"cf-footer-item-ip\" class=\"cf-footer-item hidden sm:block sm:mb-1\">\n      Your IP:\n      <button type=\"button\" id=\"cf-footer-ip-reveal\" class=\"cf-footer-ip-reveal-btn\">Click to reveal</button>\n      <span class=\"hidden\" id=\"cf-footer-ip\">4.227.9.26</span>\n      <span class=\"cf-footer-separator sm:hidden\">&bull;</span>\n    </span>\n    <span class=\"cf-footer-item sm:block sm:mb-1\"><span>Performance &amp; security by</span> <a rel=\"noopener noreferrer\" href=\"https://www.cloudflare.com/5xx-error-landing?utm_source=errorcode_502&utm_campaign=www.1jeune1solution.gouv.fr\" id=\"brand_link\" target=\"_blank\">Cloudflare</a></span>\n    \n  </p>\n  <script>(function(){function d(){var b=a.getElementById(\"cf-footer-item-ip\"),c=a.getElementById(\"cf-footer-ip-reveal\");b&&\"classList\"in b&&(b.classList.remove(\"hidden\"),c.addEventListener(\"click\",function(){c.classList.add(\"hidden\");a.getElementById(\"cf-footer-ip\").classList.remove(\"hidden\")}))}var a=document;document.addEventListener&&a.addEventListener(\"DOMContentLoaded\",d)})();</script>\n</div><!-- /.error-footer -->\n\n\n    </div>\n</div>\n</body>\n</html>\n",
+      "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAlt-Svc: h3=\":443\"; ma=86400\r\nCf-Cache-Status: DYNAMIC\r\nCf-Ray: 8212f4be0b122d1a-IAD\r\nContent-Security-Policy: default-src 'self' *.fabrique.social.gouv.fr *.meilisearch.io/multi-search 1j1s-front.osc-fr1.scalingo.io *.1jeune1solution.gouv.fr; script-src 'self' yssn.1jeune1solution.gouv.fr https://*.adform.net; img-src 'self' *.google.com data: cos-njord-dgefp-1j1s-prod.storage-eb4.cegedim.cloud yssn.1jeune1solution.gouv.fr img.youtube.com jedonnemonavis.numerique.gouv.fr; style-src 'self' 'unsafe-inline' yssn.1jeune1solution.gouv.fr; frame-ancestors 'none'; frame-src 'self' *.apprentissage.beta.gouv.fr immersion-facile.beta.gouv.fr deposer-offre.www.1jeune1solution.gouv.fr *.youtube-nocookie.com simulateur-alternance.1jeune1solution.gouv.fr https://*.adform.net; form-action 'self'; base-uri 'none';\r\nContent-Type: text/html; charset=utf-8\r\nDate: Sun, 05 Nov 2023 06:14:21 GMT\r\nReferrer-Policy: no-referrer, strict-origin-when-cross-origin\r\nServer: cloudflare\r\nStrict-Transport-Security: max-age=31536000\r\nStrict-Transport-Security: max-age=63072000; includeSubDomains; preload\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Dns-Prefetch-Control: on\r\nX-Request-Id: b797443f-7b51-4662-a984-c6aff10abf40\r\n\r\n<!DOCTYPE html><html lang=\"fr\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, height=device-height, initial-scale=1, viewport-fit=cover, minimum-scale=1.0\"/><meta name=\"description\" content=\"Toutes les solutions pour l‘avenir des jeunes\"/><meta name=\"next-head-count\" content=\"3\"/><meta name=\"author\" content=\"1jeune1solution\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"57x57\" href=\"/favicons/apple-touch-icon-57x57.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"114x114\" href=\"/favicons/apple-touch-icon-114x114.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"72x72\" href=\"/favicons/apple-touch-icon-72x72.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"144x144\" href=\"/favicons/apple-touch-icon-144x144.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"60x60\" href=\"/favicons/apple-touch-icon-60x60.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"120x120\" href=\"/favicons/apple-touch-icon-120x120.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"76x76\" href=\"/favicons/apple-touch-icon-76x76.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"152x152\" href=\"/favicons/apple-touch-icon-152x152.png\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-196x196.png\" sizes=\"196x196\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-96x96.png\" sizes=\"96x96\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-32x32.png\" sizes=\"32x32\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-16x16.png\" sizes=\"16x16\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-128x128.png\" sizes=\"128x128\"/><meta name=\"application-name\" content=\"1jeune1solution\"/><meta name=\"msapplication-TileColor\" content=\"#FFFFFF\"/><meta name=\"msapplication-TileImage\" content=\"/favicons/mstile-144x144.png\"/><meta name=\"msapplication-square70x70logo\" content=\"/favicons/mstile-70x70.png\"/><meta name=\"msapplication-square150x150logo\" content=\"/favicons/mstile-150x150.png\"/><meta name=\"msapplication-wide310x150logo\" content=\"/favicons/mstile-310x150.png\"/><meta name=\"msapplication-square310x310logo\" content=\"/favicons/mstile-310x310.png\"/><link rel=\"preload\" href=\"/_next/static/css/48eef73ea08f7ac8.css\" as=\"style\"/><link rel=\"stylesheet\" href=\"/_next/static/css/48eef73ea08f7ac8.css\" data-n-g=\"\"/><link rel=\"preload\" href=\"/_next/static/css/b8ff762256e5f26d.css\" as=\"style\"/><link rel=\"stylesheet\" href=\"/_next/static/css/b8ff762256e5f26d.css\" data-n-p=\"\"/><noscript data-n-css=\"\"></noscript><script defer=\"\" nomodule=\"\" src=\"/_next/static/chunks/polyfills-78c92fac7aa8fdd8.js\"></script><script src=\"/scripts/tarteaucitron.js?v=3.173.0\" defer=\"\" data-nscript=\"beforeInteractive\"></script><script id=\"eulerianAnalytics\" src=\"/scripts/eulerian.yssn.1jeune1solution.gouv.fr.js\" defer=\"\" data-nscript=\"beforeInteractive\"></script><script src=\"/_next/static/chunks/webpack-784575a5d37986bc.js\" defer=\"\"></script><script src=\"/_next/static/chunks/framework-2645a99191cfc5e9.js\" defer=\"\"></script><script src=\"/_next/static/chunks/main-f9d1ff5de2ae4299.js\" defer=\"\"></script><script src=\"/_next/static/chunks/pages/_app-4afcb64d721f23b7.js\" defer=\"\"></script><script src=\"/_next/static/chunks/pages/index-38b7cb3d9d2177f7.js\" defer=\"\"></script><script src=\"/_next/static/6F_ePnYh5oywjp9-5IDYv/_buildManifest.js\" defer=\"\"></script><script src=\"/_next/static/6F_ePnYh5oywjp9-5IDYv/_ssgManifest.js\" defer=\"\"></script></head><body><div id=\"__next\"></div><script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{}},\"page\":\"/\",\"query\":{},\"buildId\":\"6F_ePnYh5oywjp9-5IDYv\",\"nextExport\":true,\"autoExport\":true,\"isFallback\":false,\"scriptLoader\":[]}</script></body></html>",
       "ip": "172.67.40.181",
-      "timestamp": "2023-10-29T06:22:45.411064928Z",
+      "timestamp": "2023-11-05T06:14:21.422347753Z",
       "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.1jeune1solution.gouv.fr'",
       "matcher-status": true
     },
@@ -135,272 +159,9 @@
       "host": "https://www.1jeune1solution.gouv.fr",
       "matched-at": "https://www.1jeune1solution.gouv.fr",
       "request": "GET / HTTP/1.1\r\nHost: www.1jeune1solution.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAlt-Svc: h3=\":443\"; ma=86400\r\nCf-Cache-Status: DYNAMIC\r\nCf-Ray: 81d953f15f332b85-LAX\r\nContent-Security-Policy: default-src 'self' *.fabrique.social.gouv.fr *.meilisearch.io/multi-search 1j1s-front.osc-fr1.scalingo.io *.1jeune1solution.gouv.fr; script-src 'self' yssn.1jeune1solution.gouv.fr https://*.adform.net; img-src 'self' *.google.com data: cos-njord-dgefp-1j1s-prod.storage-eb4.cegedim.cloud yssn.1jeune1solution.gouv.fr img.youtube.com jedonnemonavis.numerique.gouv.fr; style-src 'self' 'unsafe-inline' yssn.1jeune1solution.gouv.fr; frame-ancestors 'none'; frame-src 'self' *.apprentissage.beta.gouv.fr immersion-facile.beta.gouv.fr deposer-offre.www.1jeune1solution.gouv.fr *.youtube-nocookie.com simulateur-alternance.1jeune1solution.gouv.fr https://*.adform.net; form-action 'self'; base-uri 'none';\r\nContent-Type: text/html; charset=utf-8\r\nDate: Sun, 29 Oct 2023 06:23:06 GMT\r\nReferrer-Policy: no-referrer, strict-origin-when-cross-origin\r\nServer: cloudflare\r\nStrict-Transport-Security: max-age=31536000\r\nStrict-Transport-Security: max-age=63072000; includeSubDomains; preload\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Dns-Prefetch-Control: on\r\nX-Request-Id: 6f405fb4-7adf-4649-9fa5-c26f3a4502b6\r\n\r\n<!DOCTYPE html><html lang=\"fr\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, height=device-height, initial-scale=1, viewport-fit=cover, minimum-scale=1.0\"/><meta name=\"description\" content=\"Toutes les solutions pour l‘avenir des jeunes\"/><meta name=\"next-head-count\" content=\"3\"/><meta name=\"author\" content=\"1jeune1solution\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"57x57\" href=\"/favicons/apple-touch-icon-57x57.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"114x114\" href=\"/favicons/apple-touch-icon-114x114.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"72x72\" href=\"/favicons/apple-touch-icon-72x72.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"144x144\" href=\"/favicons/apple-touch-icon-144x144.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"60x60\" href=\"/favicons/apple-touch-icon-60x60.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"120x120\" href=\"/favicons/apple-touch-icon-120x120.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"76x76\" href=\"/favicons/apple-touch-icon-76x76.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"152x152\" href=\"/favicons/apple-touch-icon-152x152.png\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-196x196.png\" sizes=\"196x196\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-96x96.png\" sizes=\"96x96\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-32x32.png\" sizes=\"32x32\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-16x16.png\" sizes=\"16x16\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-128x128.png\" sizes=\"128x128\"/><meta name=\"application-name\" content=\"1jeune1solution\"/><meta name=\"msapplication-TileColor\" content=\"#FFFFFF\"/><meta name=\"msapplication-TileImage\" content=\"/favicons/mstile-144x144.png\"/><meta name=\"msapplication-square70x70logo\" content=\"/favicons/mstile-70x70.png\"/><meta name=\"msapplication-square150x150logo\" content=\"/favicons/mstile-150x150.png\"/><meta name=\"msapplication-wide310x150logo\" content=\"/favicons/mstile-310x150.png\"/><meta name=\"msapplication-square310x310logo\" content=\"/favicons/mstile-310x310.png\"/><link rel=\"preload\" href=\"/_next/static/css/48eef73ea08f7ac8.css\" as=\"style\"/><link rel=\"stylesheet\" href=\"/_next/static/css/48eef73ea08f7ac8.css\" data-n-g=\"\"/><link rel=\"preload\" href=\"/_next/static/css/b8ff762256e5f26d.css\" as=\"style\"/><link rel=\"stylesheet\" href=\"/_next/static/css/b8ff762256e5f26d.css\" data-n-p=\"\"/><noscript data-n-css=\"\"></noscript><script defer=\"\" nomodule=\"\" src=\"/_next/static/chunks/polyfills-78c92fac7aa8fdd8.js\"></script><script src=\"/scripts/tarteaucitron.js?v=3.173.0\" defer=\"\" data-nscript=\"beforeInteractive\"></script><script id=\"eulerianAnalytics\" src=\"/scripts/eulerian.yssn.1jeune1solution.gouv.fr.js\" defer=\"\" data-nscript=\"beforeInteractive\"></script><script src=\"/_next/static/chunks/webpack-784575a5d37986bc.js\" defer=\"\"></script><script src=\"/_next/static/chunks/framework-2645a99191cfc5e9.js\" defer=\"\"></script><script src=\"/_next/static/chunks/main-f9d1ff5de2ae4299.js\" defer=\"\"></script><script src=\"/_next/static/chunks/pages/_app-4afcb64d721f23b7.js\" defer=\"\"></script><script src=\"/_next/static/chunks/pages/index-38b7cb3d9d2177f7.js\" defer=\"\"></script><script src=\"/_next/static/6F_ePnYh5oywjp9-5IDYv/_buildManifest.js\" defer=\"\"></script><script src=\"/_next/static/6F_ePnYh5oywjp9-5IDYv/_ssgManifest.js\" defer=\"\"></script></head><body><div id=\"__next\"></div><script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{}},\"page\":\"/\",\"query\":{},\"buildId\":\"6F_ePnYh5oywjp9-5IDYv\",\"nextExport\":true,\"autoExport\":true,\"isFallback\":false,\"scriptLoader\":[]}</script></body></html>",
+      "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAlt-Svc: h3=\":443\"; ma=86400\r\nCf-Cache-Status: DYNAMIC\r\nCf-Ray: 8212f4be0b122d1a-IAD\r\nContent-Security-Policy: default-src 'self' *.fabrique.social.gouv.fr *.meilisearch.io/multi-search 1j1s-front.osc-fr1.scalingo.io *.1jeune1solution.gouv.fr; script-src 'self' yssn.1jeune1solution.gouv.fr https://*.adform.net; img-src 'self' *.google.com data: cos-njord-dgefp-1j1s-prod.storage-eb4.cegedim.cloud yssn.1jeune1solution.gouv.fr img.youtube.com jedonnemonavis.numerique.gouv.fr; style-src 'self' 'unsafe-inline' yssn.1jeune1solution.gouv.fr; frame-ancestors 'none'; frame-src 'self' *.apprentissage.beta.gouv.fr immersion-facile.beta.gouv.fr deposer-offre.www.1jeune1solution.gouv.fr *.youtube-nocookie.com simulateur-alternance.1jeune1solution.gouv.fr https://*.adform.net; form-action 'self'; base-uri 'none';\r\nContent-Type: text/html; charset=utf-8\r\nDate: Sun, 05 Nov 2023 06:14:21 GMT\r\nReferrer-Policy: no-referrer, strict-origin-when-cross-origin\r\nServer: cloudflare\r\nStrict-Transport-Security: max-age=31536000\r\nStrict-Transport-Security: max-age=63072000; includeSubDomains; preload\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Dns-Prefetch-Control: on\r\nX-Request-Id: b797443f-7b51-4662-a984-c6aff10abf40\r\n\r\n<!DOCTYPE html><html lang=\"fr\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, height=device-height, initial-scale=1, viewport-fit=cover, minimum-scale=1.0\"/><meta name=\"description\" content=\"Toutes les solutions pour l‘avenir des jeunes\"/><meta name=\"next-head-count\" content=\"3\"/><meta name=\"author\" content=\"1jeune1solution\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"57x57\" href=\"/favicons/apple-touch-icon-57x57.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"114x114\" href=\"/favicons/apple-touch-icon-114x114.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"72x72\" href=\"/favicons/apple-touch-icon-72x72.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"144x144\" href=\"/favicons/apple-touch-icon-144x144.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"60x60\" href=\"/favicons/apple-touch-icon-60x60.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"120x120\" href=\"/favicons/apple-touch-icon-120x120.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"76x76\" href=\"/favicons/apple-touch-icon-76x76.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"152x152\" href=\"/favicons/apple-touch-icon-152x152.png\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-196x196.png\" sizes=\"196x196\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-96x96.png\" sizes=\"96x96\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-32x32.png\" sizes=\"32x32\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-16x16.png\" sizes=\"16x16\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-128x128.png\" sizes=\"128x128\"/><meta name=\"application-name\" content=\"1jeune1solution\"/><meta name=\"msapplication-TileColor\" content=\"#FFFFFF\"/><meta name=\"msapplication-TileImage\" content=\"/favicons/mstile-144x144.png\"/><meta name=\"msapplication-square70x70logo\" content=\"/favicons/mstile-70x70.png\"/><meta name=\"msapplication-square150x150logo\" content=\"/favicons/mstile-150x150.png\"/><meta name=\"msapplication-wide310x150logo\" content=\"/favicons/mstile-310x150.png\"/><meta name=\"msapplication-square310x310logo\" content=\"/favicons/mstile-310x310.png\"/><link rel=\"preload\" href=\"/_next/static/css/48eef73ea08f7ac8.css\" as=\"style\"/><link rel=\"stylesheet\" href=\"/_next/static/css/48eef73ea08f7ac8.css\" data-n-g=\"\"/><link rel=\"preload\" href=\"/_next/static/css/b8ff762256e5f26d.css\" as=\"style\"/><link rel=\"stylesheet\" href=\"/_next/static/css/b8ff762256e5f26d.css\" data-n-p=\"\"/><noscript data-n-css=\"\"></noscript><script defer=\"\" nomodule=\"\" src=\"/_next/static/chunks/polyfills-78c92fac7aa8fdd8.js\"></script><script src=\"/scripts/tarteaucitron.js?v=3.173.0\" defer=\"\" data-nscript=\"beforeInteractive\"></script><script id=\"eulerianAnalytics\" src=\"/scripts/eulerian.yssn.1jeune1solution.gouv.fr.js\" defer=\"\" data-nscript=\"beforeInteractive\"></script><script src=\"/_next/static/chunks/webpack-784575a5d37986bc.js\" defer=\"\"></script><script src=\"/_next/static/chunks/framework-2645a99191cfc5e9.js\" defer=\"\"></script><script src=\"/_next/static/chunks/main-f9d1ff5de2ae4299.js\" defer=\"\"></script><script src=\"/_next/static/chunks/pages/_app-4afcb64d721f23b7.js\" defer=\"\"></script><script src=\"/_next/static/chunks/pages/index-38b7cb3d9d2177f7.js\" defer=\"\"></script><script src=\"/_next/static/6F_ePnYh5oywjp9-5IDYv/_buildManifest.js\" defer=\"\"></script><script src=\"/_next/static/6F_ePnYh5oywjp9-5IDYv/_ssgManifest.js\" defer=\"\"></script></head><body><div id=\"__next\"></div><script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{}},\"page\":\"/\",\"query\":{},\"buildId\":\"6F_ePnYh5oywjp9-5IDYv\",\"nextExport\":true,\"autoExport\":true,\"isFallback\":false,\"scriptLoader\":[]}</script></body></html>",
       "ip": "172.67.40.181",
-      "timestamp": "2023-10-29T06:23:06.838012276Z",
-      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.1jeune1solution.gouv.fr'",
-      "matcher-status": true
-    },
-    {
-      "template": "http/technologies/tech-detect.yaml",
-      "template-url": "https://templates.nuclei.sh/public/tech-detect",
-      "template-id": "tech-detect",
-      "template-path": "/home/runner/nuclei-templates/http/technologies/tech-detect.yaml",
-      "info": {
-        "name": "Wappalyzer Technology Detection",
-        "author": [
-          "hakluke"
-        ],
-        "tags": [
-          "tech"
-        ],
-        "severity": "info",
-        "metadata": {
-          "max-request": 1
-        }
-      },
-      "matcher-name": "cloudflare",
-      "type": "http",
-      "host": "https://www.1jeune1solution.gouv.fr",
-      "matched-at": "https://www.1jeune1solution.gouv.fr",
-      "request": "GET / HTTP/1.1\r\nHost: www.1jeune1solution.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAlt-Svc: h3=\":443\"; ma=86400\r\nCf-Cache-Status: DYNAMIC\r\nCf-Ray: 81d953f15f332b85-LAX\r\nContent-Security-Policy: default-src 'self' *.fabrique.social.gouv.fr *.meilisearch.io/multi-search 1j1s-front.osc-fr1.scalingo.io *.1jeune1solution.gouv.fr; script-src 'self' yssn.1jeune1solution.gouv.fr https://*.adform.net; img-src 'self' *.google.com data: cos-njord-dgefp-1j1s-prod.storage-eb4.cegedim.cloud yssn.1jeune1solution.gouv.fr img.youtube.com jedonnemonavis.numerique.gouv.fr; style-src 'self' 'unsafe-inline' yssn.1jeune1solution.gouv.fr; frame-ancestors 'none'; frame-src 'self' *.apprentissage.beta.gouv.fr immersion-facile.beta.gouv.fr deposer-offre.www.1jeune1solution.gouv.fr *.youtube-nocookie.com simulateur-alternance.1jeune1solution.gouv.fr https://*.adform.net; form-action 'self'; base-uri 'none';\r\nContent-Type: text/html; charset=utf-8\r\nDate: Sun, 29 Oct 2023 06:23:06 GMT\r\nReferrer-Policy: no-referrer, strict-origin-when-cross-origin\r\nServer: cloudflare\r\nStrict-Transport-Security: max-age=31536000\r\nStrict-Transport-Security: max-age=63072000; includeSubDomains; preload\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Dns-Prefetch-Control: on\r\nX-Request-Id: 6f405fb4-7adf-4649-9fa5-c26f3a4502b6\r\n\r\n<!DOCTYPE html><html lang=\"fr\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, height=device-height, initial-scale=1, viewport-fit=cover, minimum-scale=1.0\"/><meta name=\"description\" content=\"Toutes les solutions pour l‘avenir des jeunes\"/><meta name=\"next-head-count\" content=\"3\"/><meta name=\"author\" content=\"1jeune1solution\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"57x57\" href=\"/favicons/apple-touch-icon-57x57.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"114x114\" href=\"/favicons/apple-touch-icon-114x114.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"72x72\" href=\"/favicons/apple-touch-icon-72x72.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"144x144\" href=\"/favicons/apple-touch-icon-144x144.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"60x60\" href=\"/favicons/apple-touch-icon-60x60.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"120x120\" href=\"/favicons/apple-touch-icon-120x120.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"76x76\" href=\"/favicons/apple-touch-icon-76x76.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"152x152\" href=\"/favicons/apple-touch-icon-152x152.png\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-196x196.png\" sizes=\"196x196\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-96x96.png\" sizes=\"96x96\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-32x32.png\" sizes=\"32x32\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-16x16.png\" sizes=\"16x16\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-128x128.png\" sizes=\"128x128\"/><meta name=\"application-name\" content=\"1jeune1solution\"/><meta name=\"msapplication-TileColor\" content=\"#FFFFFF\"/><meta name=\"msapplication-TileImage\" content=\"/favicons/mstile-144x144.png\"/><meta name=\"msapplication-square70x70logo\" content=\"/favicons/mstile-70x70.png\"/><meta name=\"msapplication-square150x150logo\" content=\"/favicons/mstile-150x150.png\"/><meta name=\"msapplication-wide310x150logo\" content=\"/favicons/mstile-310x150.png\"/><meta name=\"msapplication-square310x310logo\" content=\"/favicons/mstile-310x310.png\"/><link rel=\"preload\" href=\"/_next/static/css/48eef73ea08f7ac8.css\" as=\"style\"/><link rel=\"stylesheet\" href=\"/_next/static/css/48eef73ea08f7ac8.css\" data-n-g=\"\"/><link rel=\"preload\" href=\"/_next/static/css/b8ff762256e5f26d.css\" as=\"style\"/><link rel=\"stylesheet\" href=\"/_next/static/css/b8ff762256e5f26d.css\" data-n-p=\"\"/><noscript data-n-css=\"\"></noscript><script defer=\"\" nomodule=\"\" src=\"/_next/static/chunks/polyfills-78c92fac7aa8fdd8.js\"></script><script src=\"/scripts/tarteaucitron.js?v=3.173.0\" defer=\"\" data-nscript=\"beforeInteractive\"></script><script id=\"eulerianAnalytics\" src=\"/scripts/eulerian.yssn.1jeune1solution.gouv.fr.js\" defer=\"\" data-nscript=\"beforeInteractive\"></script><script src=\"/_next/static/chunks/webpack-784575a5d37986bc.js\" defer=\"\"></script><script src=\"/_next/static/chunks/framework-2645a99191cfc5e9.js\" defer=\"\"></script><script src=\"/_next/static/chunks/main-f9d1ff5de2ae4299.js\" defer=\"\"></script><script src=\"/_next/static/chunks/pages/_app-4afcb64d721f23b7.js\" defer=\"\"></script><script src=\"/_next/static/chunks/pages/index-38b7cb3d9d2177f7.js\" defer=\"\"></script><script src=\"/_next/static/6F_ePnYh5oywjp9-5IDYv/_buildManifest.js\" defer=\"\"></script><script src=\"/_next/static/6F_ePnYh5oywjp9-5IDYv/_ssgManifest.js\" defer=\"\"></script></head><body><div id=\"__next\"></div><script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{}},\"page\":\"/\",\"query\":{},\"buildId\":\"6F_ePnYh5oywjp9-5IDYv\",\"nextExport\":true,\"autoExport\":true,\"isFallback\":false,\"scriptLoader\":[]}</script></body></html>",
-      "ip": "172.67.40.181",
-      "timestamp": "2023-10-29T06:23:06.838601374Z",
-      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.1jeune1solution.gouv.fr'",
-      "matcher-status": true
-    },
-    {
-      "template": "http/misconfiguration/http-missing-security-headers.yaml",
-      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
-      "template-id": "http-missing-security-headers",
-      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
-      "info": {
-        "name": "HTTP Missing Security Headers",
-        "author": [
-          "socketz",
-          "geeknik",
-          "g4l1t0",
-          "convisoappsec",
-          "kurohost",
-          "dawid-czarnecki",
-          "forgedhallpass",
-          "jub0bs"
-        ],
-        "tags": [
-          "misconfig",
-          "headers",
-          "generic"
-        ],
-        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-        "severity": "info",
-        "metadata": {
-          "max-request": 1
-        }
-      },
-      "matcher-name": "cross-origin-resource-policy",
-      "type": "http",
-      "host": "https://www.1jeune1solution.gouv.fr",
-      "matched-at": "https://www.1jeune1solution.gouv.fr",
-      "request": "GET / HTTP/1.1\r\nHost: www.1jeune1solution.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAlt-Svc: h3=\":443\"; ma=86400\r\nCf-Cache-Status: DYNAMIC\r\nCf-Ray: 81d9541fae335269-LAX\r\nContent-Security-Policy: default-src 'self' *.fabrique.social.gouv.fr *.meilisearch.io/multi-search 1j1s-front.osc-fr1.scalingo.io *.1jeune1solution.gouv.fr; script-src 'self' yssn.1jeune1solution.gouv.fr https://*.adform.net; img-src 'self' *.google.com data: cos-njord-dgefp-1j1s-prod.storage-eb4.cegedim.cloud yssn.1jeune1solution.gouv.fr img.youtube.com jedonnemonavis.numerique.gouv.fr; style-src 'self' 'unsafe-inline' yssn.1jeune1solution.gouv.fr; frame-ancestors 'none'; frame-src 'self' *.apprentissage.beta.gouv.fr immersion-facile.beta.gouv.fr deposer-offre.www.1jeune1solution.gouv.fr *.youtube-nocookie.com simulateur-alternance.1jeune1solution.gouv.fr https://*.adform.net; form-action 'self'; base-uri 'none';\r\nContent-Type: text/html; charset=utf-8\r\nDate: Sun, 29 Oct 2023 06:23:14 GMT\r\nReferrer-Policy: no-referrer, strict-origin-when-cross-origin\r\nServer: cloudflare\r\nStrict-Transport-Security: max-age=31536000\r\nStrict-Transport-Security: max-age=63072000; includeSubDomains; preload\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Dns-Prefetch-Control: on\r\nX-Request-Id: b29cb317-8210-4a2d-a50a-ceab46fb5ab5\r\n\r\n<!DOCTYPE html><html lang=\"fr\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, height=device-height, initial-scale=1, viewport-fit=cover, minimum-scale=1.0\"/><meta name=\"description\" content=\"Toutes les solutions pour l‘avenir des jeunes\"/><meta name=\"next-head-count\" content=\"3\"/><meta name=\"author\" content=\"1jeune1solution\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"57x57\" href=\"/favicons/apple-touch-icon-57x57.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"114x114\" href=\"/favicons/apple-touch-icon-114x114.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"72x72\" href=\"/favicons/apple-touch-icon-72x72.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"144x144\" href=\"/favicons/apple-touch-icon-144x144.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"60x60\" href=\"/favicons/apple-touch-icon-60x60.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"120x120\" href=\"/favicons/apple-touch-icon-120x120.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"76x76\" href=\"/favicons/apple-touch-icon-76x76.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"152x152\" href=\"/favicons/apple-touch-icon-152x152.png\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-196x196.png\" sizes=\"196x196\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-96x96.png\" sizes=\"96x96\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-32x32.png\" sizes=\"32x32\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-16x16.png\" sizes=\"16x16\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-128x128.png\" sizes=\"128x128\"/><meta name=\"application-name\" content=\"1jeune1solution\"/><meta name=\"msapplication-TileColor\" content=\"#FFFFFF\"/><meta name=\"msapplication-TileImage\" content=\"/favicons/mstile-144x144.png\"/><meta name=\"msapplication-square70x70logo\" content=\"/favicons/mstile-70x70.png\"/><meta name=\"msapplication-square150x150logo\" content=\"/favicons/mstile-150x150.png\"/><meta name=\"msapplication-wide310x150logo\" content=\"/favicons/mstile-310x150.png\"/><meta name=\"msapplication-square310x310logo\" content=\"/favicons/mstile-310x310.png\"/><link rel=\"preload\" href=\"/_next/static/css/48eef73ea08f7ac8.css\" as=\"style\"/><link rel=\"stylesheet\" href=\"/_next/static/css/48eef73ea08f7ac8.css\" data-n-g=\"\"/><link rel=\"preload\" href=\"/_next/static/css/b8ff762256e5f26d.css\" as=\"style\"/><link rel=\"stylesheet\" href=\"/_next/static/css/b8ff762256e5f26d.css\" data-n-p=\"\"/><noscript data-n-css=\"\"></noscript><script defer=\"\" nomodule=\"\" src=\"/_next/static/chunks/polyfills-78c92fac7aa8fdd8.js\"></script><script src=\"/scripts/tarteaucitron.js?v=3.173.0\" defer=\"\" data-nscript=\"beforeInteractive\"></script><script id=\"eulerianAnalytics\" src=\"/scripts/eulerian.yssn.1jeune1solution.gouv.fr.js\" defer=\"\" data-nscript=\"beforeInteractive\"></script><script src=\"/_next/static/chunks/webpack-784575a5d37986bc.js\" defer=\"\"></script><script src=\"/_next/static/chunks/framework-2645a99191cfc5e9.js\" defer=\"\"></script><script src=\"/_next/static/chunks/main-f9d1ff5de2ae4299.js\" defer=\"\"></script><script src=\"/_next/static/chunks/pages/_app-4afcb64d721f23b7.js\" defer=\"\"></script><script src=\"/_next/static/chunks/pages/index-38b7cb3d9d2177f7.js\" defer=\"\"></script><script src=\"/_next/static/6F_ePnYh5oywjp9-5IDYv/_buildManifest.js\" defer=\"\"></script><script src=\"/_next/static/6F_ePnYh5oywjp9-5IDYv/_ssgManifest.js\" defer=\"\"></script></head><body><div id=\"__next\"></div><script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{}},\"page\":\"/\",\"query\":{},\"buildId\":\"6F_ePnYh5oywjp9-5IDYv\",\"nextExport\":true,\"autoExport\":true,\"isFallback\":false,\"scriptLoader\":[]}</script></body></html>",
-      "ip": "172.67.40.181",
-      "timestamp": "2023-10-29T06:23:14.033756534Z",
-      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.1jeune1solution.gouv.fr'",
-      "matcher-status": true
-    },
-    {
-      "template": "http/misconfiguration/http-missing-security-headers.yaml",
-      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
-      "template-id": "http-missing-security-headers",
-      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
-      "info": {
-        "name": "HTTP Missing Security Headers",
-        "author": [
-          "socketz",
-          "geeknik",
-          "g4l1t0",
-          "convisoappsec",
-          "kurohost",
-          "dawid-czarnecki",
-          "forgedhallpass",
-          "jub0bs"
-        ],
-        "tags": [
-          "misconfig",
-          "headers",
-          "generic"
-        ],
-        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-        "severity": "info",
-        "metadata": {
-          "max-request": 1
-        }
-      },
-      "matcher-name": "permissions-policy",
-      "type": "http",
-      "host": "https://www.1jeune1solution.gouv.fr",
-      "matched-at": "https://www.1jeune1solution.gouv.fr",
-      "request": "GET / HTTP/1.1\r\nHost: www.1jeune1solution.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAlt-Svc: h3=\":443\"; ma=86400\r\nCf-Cache-Status: DYNAMIC\r\nCf-Ray: 81d9541fae335269-LAX\r\nContent-Security-Policy: default-src 'self' *.fabrique.social.gouv.fr *.meilisearch.io/multi-search 1j1s-front.osc-fr1.scalingo.io *.1jeune1solution.gouv.fr; script-src 'self' yssn.1jeune1solution.gouv.fr https://*.adform.net; img-src 'self' *.google.com data: cos-njord-dgefp-1j1s-prod.storage-eb4.cegedim.cloud yssn.1jeune1solution.gouv.fr img.youtube.com jedonnemonavis.numerique.gouv.fr; style-src 'self' 'unsafe-inline' yssn.1jeune1solution.gouv.fr; frame-ancestors 'none'; frame-src 'self' *.apprentissage.beta.gouv.fr immersion-facile.beta.gouv.fr deposer-offre.www.1jeune1solution.gouv.fr *.youtube-nocookie.com simulateur-alternance.1jeune1solution.gouv.fr https://*.adform.net; form-action 'self'; base-uri 'none';\r\nContent-Type: text/html; charset=utf-8\r\nDate: Sun, 29 Oct 2023 06:23:14 GMT\r\nReferrer-Policy: no-referrer, strict-origin-when-cross-origin\r\nServer: cloudflare\r\nStrict-Transport-Security: max-age=31536000\r\nStrict-Transport-Security: max-age=63072000; includeSubDomains; preload\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Dns-Prefetch-Control: on\r\nX-Request-Id: b29cb317-8210-4a2d-a50a-ceab46fb5ab5\r\n\r\n<!DOCTYPE html><html lang=\"fr\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, height=device-height, initial-scale=1, viewport-fit=cover, minimum-scale=1.0\"/><meta name=\"description\" content=\"Toutes les solutions pour l‘avenir des jeunes\"/><meta name=\"next-head-count\" content=\"3\"/><meta name=\"author\" content=\"1jeune1solution\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"57x57\" href=\"/favicons/apple-touch-icon-57x57.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"114x114\" href=\"/favicons/apple-touch-icon-114x114.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"72x72\" href=\"/favicons/apple-touch-icon-72x72.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"144x144\" href=\"/favicons/apple-touch-icon-144x144.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"60x60\" href=\"/favicons/apple-touch-icon-60x60.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"120x120\" href=\"/favicons/apple-touch-icon-120x120.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"76x76\" href=\"/favicons/apple-touch-icon-76x76.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"152x152\" href=\"/favicons/apple-touch-icon-152x152.png\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-196x196.png\" sizes=\"196x196\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-96x96.png\" sizes=\"96x96\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-32x32.png\" sizes=\"32x32\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-16x16.png\" sizes=\"16x16\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-128x128.png\" sizes=\"128x128\"/><meta name=\"application-name\" content=\"1jeune1solution\"/><meta name=\"msapplication-TileColor\" content=\"#FFFFFF\"/><meta name=\"msapplication-TileImage\" content=\"/favicons/mstile-144x144.png\"/><meta name=\"msapplication-square70x70logo\" content=\"/favicons/mstile-70x70.png\"/><meta name=\"msapplication-square150x150logo\" content=\"/favicons/mstile-150x150.png\"/><meta name=\"msapplication-wide310x150logo\" content=\"/favicons/mstile-310x150.png\"/><meta name=\"msapplication-square310x310logo\" content=\"/favicons/mstile-310x310.png\"/><link rel=\"preload\" href=\"/_next/static/css/48eef73ea08f7ac8.css\" as=\"style\"/><link rel=\"stylesheet\" href=\"/_next/static/css/48eef73ea08f7ac8.css\" data-n-g=\"\"/><link rel=\"preload\" href=\"/_next/static/css/b8ff762256e5f26d.css\" as=\"style\"/><link rel=\"stylesheet\" href=\"/_next/static/css/b8ff762256e5f26d.css\" data-n-p=\"\"/><noscript data-n-css=\"\"></noscript><script defer=\"\" nomodule=\"\" src=\"/_next/static/chunks/polyfills-78c92fac7aa8fdd8.js\"></script><script src=\"/scripts/tarteaucitron.js?v=3.173.0\" defer=\"\" data-nscript=\"beforeInteractive\"></script><script id=\"eulerianAnalytics\" src=\"/scripts/eulerian.yssn.1jeune1solution.gouv.fr.js\" defer=\"\" data-nscript=\"beforeInteractive\"></script><script src=\"/_next/static/chunks/webpack-784575a5d37986bc.js\" defer=\"\"></script><script src=\"/_next/static/chunks/framework-2645a99191cfc5e9.js\" defer=\"\"></script><script src=\"/_next/static/chunks/main-f9d1ff5de2ae4299.js\" defer=\"\"></script><script src=\"/_next/static/chunks/pages/_app-4afcb64d721f23b7.js\" defer=\"\"></script><script src=\"/_next/static/chunks/pages/index-38b7cb3d9d2177f7.js\" defer=\"\"></script><script src=\"/_next/static/6F_ePnYh5oywjp9-5IDYv/_buildManifest.js\" defer=\"\"></script><script src=\"/_next/static/6F_ePnYh5oywjp9-5IDYv/_ssgManifest.js\" defer=\"\"></script></head><body><div id=\"__next\"></div><script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{}},\"page\":\"/\",\"query\":{},\"buildId\":\"6F_ePnYh5oywjp9-5IDYv\",\"nextExport\":true,\"autoExport\":true,\"isFallback\":false,\"scriptLoader\":[]}</script></body></html>",
-      "ip": "172.67.40.181",
-      "timestamp": "2023-10-29T06:23:14.033799334Z",
-      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.1jeune1solution.gouv.fr'",
-      "matcher-status": true
-    },
-    {
-      "template": "http/misconfiguration/http-missing-security-headers.yaml",
-      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
-      "template-id": "http-missing-security-headers",
-      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
-      "info": {
-        "name": "HTTP Missing Security Headers",
-        "author": [
-          "socketz",
-          "geeknik",
-          "g4l1t0",
-          "convisoappsec",
-          "kurohost",
-          "dawid-czarnecki",
-          "forgedhallpass",
-          "jub0bs"
-        ],
-        "tags": [
-          "misconfig",
-          "headers",
-          "generic"
-        ],
-        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-        "severity": "info",
-        "metadata": {
-          "max-request": 1
-        }
-      },
-      "matcher-name": "x-frame-options",
-      "type": "http",
-      "host": "https://www.1jeune1solution.gouv.fr",
-      "matched-at": "https://www.1jeune1solution.gouv.fr",
-      "request": "GET / HTTP/1.1\r\nHost: www.1jeune1solution.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAlt-Svc: h3=\":443\"; ma=86400\r\nCf-Cache-Status: DYNAMIC\r\nCf-Ray: 81d9541fae335269-LAX\r\nContent-Security-Policy: default-src 'self' *.fabrique.social.gouv.fr *.meilisearch.io/multi-search 1j1s-front.osc-fr1.scalingo.io *.1jeune1solution.gouv.fr; script-src 'self' yssn.1jeune1solution.gouv.fr https://*.adform.net; img-src 'self' *.google.com data: cos-njord-dgefp-1j1s-prod.storage-eb4.cegedim.cloud yssn.1jeune1solution.gouv.fr img.youtube.com jedonnemonavis.numerique.gouv.fr; style-src 'self' 'unsafe-inline' yssn.1jeune1solution.gouv.fr; frame-ancestors 'none'; frame-src 'self' *.apprentissage.beta.gouv.fr immersion-facile.beta.gouv.fr deposer-offre.www.1jeune1solution.gouv.fr *.youtube-nocookie.com simulateur-alternance.1jeune1solution.gouv.fr https://*.adform.net; form-action 'self'; base-uri 'none';\r\nContent-Type: text/html; charset=utf-8\r\nDate: Sun, 29 Oct 2023 06:23:14 GMT\r\nReferrer-Policy: no-referrer, strict-origin-when-cross-origin\r\nServer: cloudflare\r\nStrict-Transport-Security: max-age=31536000\r\nStrict-Transport-Security: max-age=63072000; includeSubDomains; preload\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Dns-Prefetch-Control: on\r\nX-Request-Id: b29cb317-8210-4a2d-a50a-ceab46fb5ab5\r\n\r\n<!DOCTYPE html><html lang=\"fr\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, height=device-height, initial-scale=1, viewport-fit=cover, minimum-scale=1.0\"/><meta name=\"description\" content=\"Toutes les solutions pour l‘avenir des jeunes\"/><meta name=\"next-head-count\" content=\"3\"/><meta name=\"author\" content=\"1jeune1solution\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"57x57\" href=\"/favicons/apple-touch-icon-57x57.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"114x114\" href=\"/favicons/apple-touch-icon-114x114.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"72x72\" href=\"/favicons/apple-touch-icon-72x72.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"144x144\" href=\"/favicons/apple-touch-icon-144x144.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"60x60\" href=\"/favicons/apple-touch-icon-60x60.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"120x120\" href=\"/favicons/apple-touch-icon-120x120.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"76x76\" href=\"/favicons/apple-touch-icon-76x76.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"152x152\" href=\"/favicons/apple-touch-icon-152x152.png\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-196x196.png\" sizes=\"196x196\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-96x96.png\" sizes=\"96x96\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-32x32.png\" sizes=\"32x32\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-16x16.png\" sizes=\"16x16\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-128x128.png\" sizes=\"128x128\"/><meta name=\"application-name\" content=\"1jeune1solution\"/><meta name=\"msapplication-TileColor\" content=\"#FFFFFF\"/><meta name=\"msapplication-TileImage\" content=\"/favicons/mstile-144x144.png\"/><meta name=\"msapplication-square70x70logo\" content=\"/favicons/mstile-70x70.png\"/><meta name=\"msapplication-square150x150logo\" content=\"/favicons/mstile-150x150.png\"/><meta name=\"msapplication-wide310x150logo\" content=\"/favicons/mstile-310x150.png\"/><meta name=\"msapplication-square310x310logo\" content=\"/favicons/mstile-310x310.png\"/><link rel=\"preload\" href=\"/_next/static/css/48eef73ea08f7ac8.css\" as=\"style\"/><link rel=\"stylesheet\" href=\"/_next/static/css/48eef73ea08f7ac8.css\" data-n-g=\"\"/><link rel=\"preload\" href=\"/_next/static/css/b8ff762256e5f26d.css\" as=\"style\"/><link rel=\"stylesheet\" href=\"/_next/static/css/b8ff762256e5f26d.css\" data-n-p=\"\"/><noscript data-n-css=\"\"></noscript><script defer=\"\" nomodule=\"\" src=\"/_next/static/chunks/polyfills-78c92fac7aa8fdd8.js\"></script><script src=\"/scripts/tarteaucitron.js?v=3.173.0\" defer=\"\" data-nscript=\"beforeInteractive\"></script><script id=\"eulerianAnalytics\" src=\"/scripts/eulerian.yssn.1jeune1solution.gouv.fr.js\" defer=\"\" data-nscript=\"beforeInteractive\"></script><script src=\"/_next/static/chunks/webpack-784575a5d37986bc.js\" defer=\"\"></script><script src=\"/_next/static/chunks/framework-2645a99191cfc5e9.js\" defer=\"\"></script><script src=\"/_next/static/chunks/main-f9d1ff5de2ae4299.js\" defer=\"\"></script><script src=\"/_next/static/chunks/pages/_app-4afcb64d721f23b7.js\" defer=\"\"></script><script src=\"/_next/static/chunks/pages/index-38b7cb3d9d2177f7.js\" defer=\"\"></script><script src=\"/_next/static/6F_ePnYh5oywjp9-5IDYv/_buildManifest.js\" defer=\"\"></script><script src=\"/_next/static/6F_ePnYh5oywjp9-5IDYv/_ssgManifest.js\" defer=\"\"></script></head><body><div id=\"__next\"></div><script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{}},\"page\":\"/\",\"query\":{},\"buildId\":\"6F_ePnYh5oywjp9-5IDYv\",\"nextExport\":true,\"autoExport\":true,\"isFallback\":false,\"scriptLoader\":[]}</script></body></html>",
-      "ip": "172.67.40.181",
-      "timestamp": "2023-10-29T06:23:14.033810833Z",
-      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.1jeune1solution.gouv.fr'",
-      "matcher-status": true
-    },
-    {
-      "template": "http/misconfiguration/http-missing-security-headers.yaml",
-      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
-      "template-id": "http-missing-security-headers",
-      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
-      "info": {
-        "name": "HTTP Missing Security Headers",
-        "author": [
-          "socketz",
-          "geeknik",
-          "g4l1t0",
-          "convisoappsec",
-          "kurohost",
-          "dawid-czarnecki",
-          "forgedhallpass",
-          "jub0bs"
-        ],
-        "tags": [
-          "misconfig",
-          "headers",
-          "generic"
-        ],
-        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-        "severity": "info",
-        "metadata": {
-          "max-request": 1
-        }
-      },
-      "matcher-name": "x-permitted-cross-domain-policies",
-      "type": "http",
-      "host": "https://www.1jeune1solution.gouv.fr",
-      "matched-at": "https://www.1jeune1solution.gouv.fr",
-      "request": "GET / HTTP/1.1\r\nHost: www.1jeune1solution.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAlt-Svc: h3=\":443\"; ma=86400\r\nCf-Cache-Status: DYNAMIC\r\nCf-Ray: 81d9541fae335269-LAX\r\nContent-Security-Policy: default-src 'self' *.fabrique.social.gouv.fr *.meilisearch.io/multi-search 1j1s-front.osc-fr1.scalingo.io *.1jeune1solution.gouv.fr; script-src 'self' yssn.1jeune1solution.gouv.fr https://*.adform.net; img-src 'self' *.google.com data: cos-njord-dgefp-1j1s-prod.storage-eb4.cegedim.cloud yssn.1jeune1solution.gouv.fr img.youtube.com jedonnemonavis.numerique.gouv.fr; style-src 'self' 'unsafe-inline' yssn.1jeune1solution.gouv.fr; frame-ancestors 'none'; frame-src 'self' *.apprentissage.beta.gouv.fr immersion-facile.beta.gouv.fr deposer-offre.www.1jeune1solution.gouv.fr *.youtube-nocookie.com simulateur-alternance.1jeune1solution.gouv.fr https://*.adform.net; form-action 'self'; base-uri 'none';\r\nContent-Type: text/html; charset=utf-8\r\nDate: Sun, 29 Oct 2023 06:23:14 GMT\r\nReferrer-Policy: no-referrer, strict-origin-when-cross-origin\r\nServer: cloudflare\r\nStrict-Transport-Security: max-age=31536000\r\nStrict-Transport-Security: max-age=63072000; includeSubDomains; preload\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Dns-Prefetch-Control: on\r\nX-Request-Id: b29cb317-8210-4a2d-a50a-ceab46fb5ab5\r\n\r\n<!DOCTYPE html><html lang=\"fr\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, height=device-height, initial-scale=1, viewport-fit=cover, minimum-scale=1.0\"/><meta name=\"description\" content=\"Toutes les solutions pour l‘avenir des jeunes\"/><meta name=\"next-head-count\" content=\"3\"/><meta name=\"author\" content=\"1jeune1solution\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"57x57\" href=\"/favicons/apple-touch-icon-57x57.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"114x114\" href=\"/favicons/apple-touch-icon-114x114.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"72x72\" href=\"/favicons/apple-touch-icon-72x72.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"144x144\" href=\"/favicons/apple-touch-icon-144x144.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"60x60\" href=\"/favicons/apple-touch-icon-60x60.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"120x120\" href=\"/favicons/apple-touch-icon-120x120.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"76x76\" href=\"/favicons/apple-touch-icon-76x76.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"152x152\" href=\"/favicons/apple-touch-icon-152x152.png\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-196x196.png\" sizes=\"196x196\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-96x96.png\" sizes=\"96x96\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-32x32.png\" sizes=\"32x32\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-16x16.png\" sizes=\"16x16\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-128x128.png\" sizes=\"128x128\"/><meta name=\"application-name\" content=\"1jeune1solution\"/><meta name=\"msapplication-TileColor\" content=\"#FFFFFF\"/><meta name=\"msapplication-TileImage\" content=\"/favicons/mstile-144x144.png\"/><meta name=\"msapplication-square70x70logo\" content=\"/favicons/mstile-70x70.png\"/><meta name=\"msapplication-square150x150logo\" content=\"/favicons/mstile-150x150.png\"/><meta name=\"msapplication-wide310x150logo\" content=\"/favicons/mstile-310x150.png\"/><meta name=\"msapplication-square310x310logo\" content=\"/favicons/mstile-310x310.png\"/><link rel=\"preload\" href=\"/_next/static/css/48eef73ea08f7ac8.css\" as=\"style\"/><link rel=\"stylesheet\" href=\"/_next/static/css/48eef73ea08f7ac8.css\" data-n-g=\"\"/><link rel=\"preload\" href=\"/_next/static/css/b8ff762256e5f26d.css\" as=\"style\"/><link rel=\"stylesheet\" href=\"/_next/static/css/b8ff762256e5f26d.css\" data-n-p=\"\"/><noscript data-n-css=\"\"></noscript><script defer=\"\" nomodule=\"\" src=\"/_next/static/chunks/polyfills-78c92fac7aa8fdd8.js\"></script><script src=\"/scripts/tarteaucitron.js?v=3.173.0\" defer=\"\" data-nscript=\"beforeInteractive\"></script><script id=\"eulerianAnalytics\" src=\"/scripts/eulerian.yssn.1jeune1solution.gouv.fr.js\" defer=\"\" data-nscript=\"beforeInteractive\"></script><script src=\"/_next/static/chunks/webpack-784575a5d37986bc.js\" defer=\"\"></script><script src=\"/_next/static/chunks/framework-2645a99191cfc5e9.js\" defer=\"\"></script><script src=\"/_next/static/chunks/main-f9d1ff5de2ae4299.js\" defer=\"\"></script><script src=\"/_next/static/chunks/pages/_app-4afcb64d721f23b7.js\" defer=\"\"></script><script src=\"/_next/static/chunks/pages/index-38b7cb3d9d2177f7.js\" defer=\"\"></script><script src=\"/_next/static/6F_ePnYh5oywjp9-5IDYv/_buildManifest.js\" defer=\"\"></script><script src=\"/_next/static/6F_ePnYh5oywjp9-5IDYv/_ssgManifest.js\" defer=\"\"></script></head><body><div id=\"__next\"></div><script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{}},\"page\":\"/\",\"query\":{},\"buildId\":\"6F_ePnYh5oywjp9-5IDYv\",\"nextExport\":true,\"autoExport\":true,\"isFallback\":false,\"scriptLoader\":[]}</script></body></html>",
-      "ip": "172.67.40.181",
-      "timestamp": "2023-10-29T06:23:14.034401731Z",
-      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.1jeune1solution.gouv.fr'",
-      "matcher-status": true
-    },
-    {
-      "template": "http/misconfiguration/http-missing-security-headers.yaml",
-      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
-      "template-id": "http-missing-security-headers",
-      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
-      "info": {
-        "name": "HTTP Missing Security Headers",
-        "author": [
-          "socketz",
-          "geeknik",
-          "g4l1t0",
-          "convisoappsec",
-          "kurohost",
-          "dawid-czarnecki",
-          "forgedhallpass",
-          "jub0bs"
-        ],
-        "tags": [
-          "misconfig",
-          "headers",
-          "generic"
-        ],
-        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-        "severity": "info",
-        "metadata": {
-          "max-request": 1
-        }
-      },
-      "matcher-name": "clear-site-data",
-      "type": "http",
-      "host": "https://www.1jeune1solution.gouv.fr",
-      "matched-at": "https://www.1jeune1solution.gouv.fr",
-      "request": "GET / HTTP/1.1\r\nHost: www.1jeune1solution.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAlt-Svc: h3=\":443\"; ma=86400\r\nCf-Cache-Status: DYNAMIC\r\nCf-Ray: 81d9541fae335269-LAX\r\nContent-Security-Policy: default-src 'self' *.fabrique.social.gouv.fr *.meilisearch.io/multi-search 1j1s-front.osc-fr1.scalingo.io *.1jeune1solution.gouv.fr; script-src 'self' yssn.1jeune1solution.gouv.fr https://*.adform.net; img-src 'self' *.google.com data: cos-njord-dgefp-1j1s-prod.storage-eb4.cegedim.cloud yssn.1jeune1solution.gouv.fr img.youtube.com jedonnemonavis.numerique.gouv.fr; style-src 'self' 'unsafe-inline' yssn.1jeune1solution.gouv.fr; frame-ancestors 'none'; frame-src 'self' *.apprentissage.beta.gouv.fr immersion-facile.beta.gouv.fr deposer-offre.www.1jeune1solution.gouv.fr *.youtube-nocookie.com simulateur-alternance.1jeune1solution.gouv.fr https://*.adform.net; form-action 'self'; base-uri 'none';\r\nContent-Type: text/html; charset=utf-8\r\nDate: Sun, 29 Oct 2023 06:23:14 GMT\r\nReferrer-Policy: no-referrer, strict-origin-when-cross-origin\r\nServer: cloudflare\r\nStrict-Transport-Security: max-age=31536000\r\nStrict-Transport-Security: max-age=63072000; includeSubDomains; preload\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Dns-Prefetch-Control: on\r\nX-Request-Id: b29cb317-8210-4a2d-a50a-ceab46fb5ab5\r\n\r\n<!DOCTYPE html><html lang=\"fr\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, height=device-height, initial-scale=1, viewport-fit=cover, minimum-scale=1.0\"/><meta name=\"description\" content=\"Toutes les solutions pour l‘avenir des jeunes\"/><meta name=\"next-head-count\" content=\"3\"/><meta name=\"author\" content=\"1jeune1solution\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"57x57\" href=\"/favicons/apple-touch-icon-57x57.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"114x114\" href=\"/favicons/apple-touch-icon-114x114.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"72x72\" href=\"/favicons/apple-touch-icon-72x72.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"144x144\" href=\"/favicons/apple-touch-icon-144x144.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"60x60\" href=\"/favicons/apple-touch-icon-60x60.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"120x120\" href=\"/favicons/apple-touch-icon-120x120.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"76x76\" href=\"/favicons/apple-touch-icon-76x76.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"152x152\" href=\"/favicons/apple-touch-icon-152x152.png\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-196x196.png\" sizes=\"196x196\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-96x96.png\" sizes=\"96x96\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-32x32.png\" sizes=\"32x32\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-16x16.png\" sizes=\"16x16\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-128x128.png\" sizes=\"128x128\"/><meta name=\"application-name\" content=\"1jeune1solution\"/><meta name=\"msapplication-TileColor\" content=\"#FFFFFF\"/><meta name=\"msapplication-TileImage\" content=\"/favicons/mstile-144x144.png\"/><meta name=\"msapplication-square70x70logo\" content=\"/favicons/mstile-70x70.png\"/><meta name=\"msapplication-square150x150logo\" content=\"/favicons/mstile-150x150.png\"/><meta name=\"msapplication-wide310x150logo\" content=\"/favicons/mstile-310x150.png\"/><meta name=\"msapplication-square310x310logo\" content=\"/favicons/mstile-310x310.png\"/><link rel=\"preload\" href=\"/_next/static/css/48eef73ea08f7ac8.css\" as=\"style\"/><link rel=\"stylesheet\" href=\"/_next/static/css/48eef73ea08f7ac8.css\" data-n-g=\"\"/><link rel=\"preload\" href=\"/_next/static/css/b8ff762256e5f26d.css\" as=\"style\"/><link rel=\"stylesheet\" href=\"/_next/static/css/b8ff762256e5f26d.css\" data-n-p=\"\"/><noscript data-n-css=\"\"></noscript><script defer=\"\" nomodule=\"\" src=\"/_next/static/chunks/polyfills-78c92fac7aa8fdd8.js\"></script><script src=\"/scripts/tarteaucitron.js?v=3.173.0\" defer=\"\" data-nscript=\"beforeInteractive\"></script><script id=\"eulerianAnalytics\" src=\"/scripts/eulerian.yssn.1jeune1solution.gouv.fr.js\" defer=\"\" data-nscript=\"beforeInteractive\"></script><script src=\"/_next/static/chunks/webpack-784575a5d37986bc.js\" defer=\"\"></script><script src=\"/_next/static/chunks/framework-2645a99191cfc5e9.js\" defer=\"\"></script><script src=\"/_next/static/chunks/main-f9d1ff5de2ae4299.js\" defer=\"\"></script><script src=\"/_next/static/chunks/pages/_app-4afcb64d721f23b7.js\" defer=\"\"></script><script src=\"/_next/static/chunks/pages/index-38b7cb3d9d2177f7.js\" defer=\"\"></script><script src=\"/_next/static/6F_ePnYh5oywjp9-5IDYv/_buildManifest.js\" defer=\"\"></script><script src=\"/_next/static/6F_ePnYh5oywjp9-5IDYv/_ssgManifest.js\" defer=\"\"></script></head><body><div id=\"__next\"></div><script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{}},\"page\":\"/\",\"query\":{},\"buildId\":\"6F_ePnYh5oywjp9-5IDYv\",\"nextExport\":true,\"autoExport\":true,\"isFallback\":false,\"scriptLoader\":[]}</script></body></html>",
-      "ip": "172.67.40.181",
-      "timestamp": "2023-10-29T06:23:14.03448753Z",
-      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.1jeune1solution.gouv.fr'",
-      "matcher-status": true
-    },
-    {
-      "template": "http/misconfiguration/http-missing-security-headers.yaml",
-      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
-      "template-id": "http-missing-security-headers",
-      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
-      "info": {
-        "name": "HTTP Missing Security Headers",
-        "author": [
-          "socketz",
-          "geeknik",
-          "g4l1t0",
-          "convisoappsec",
-          "kurohost",
-          "dawid-czarnecki",
-          "forgedhallpass",
-          "jub0bs"
-        ],
-        "tags": [
-          "misconfig",
-          "headers",
-          "generic"
-        ],
-        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-        "severity": "info",
-        "metadata": {
-          "max-request": 1
-        }
-      },
-      "matcher-name": "cross-origin-embedder-policy",
-      "type": "http",
-      "host": "https://www.1jeune1solution.gouv.fr",
-      "matched-at": "https://www.1jeune1solution.gouv.fr",
-      "request": "GET / HTTP/1.1\r\nHost: www.1jeune1solution.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAlt-Svc: h3=\":443\"; ma=86400\r\nCf-Cache-Status: DYNAMIC\r\nCf-Ray: 81d9541fae335269-LAX\r\nContent-Security-Policy: default-src 'self' *.fabrique.social.gouv.fr *.meilisearch.io/multi-search 1j1s-front.osc-fr1.scalingo.io *.1jeune1solution.gouv.fr; script-src 'self' yssn.1jeune1solution.gouv.fr https://*.adform.net; img-src 'self' *.google.com data: cos-njord-dgefp-1j1s-prod.storage-eb4.cegedim.cloud yssn.1jeune1solution.gouv.fr img.youtube.com jedonnemonavis.numerique.gouv.fr; style-src 'self' 'unsafe-inline' yssn.1jeune1solution.gouv.fr; frame-ancestors 'none'; frame-src 'self' *.apprentissage.beta.gouv.fr immersion-facile.beta.gouv.fr deposer-offre.www.1jeune1solution.gouv.fr *.youtube-nocookie.com simulateur-alternance.1jeune1solution.gouv.fr https://*.adform.net; form-action 'self'; base-uri 'none';\r\nContent-Type: text/html; charset=utf-8\r\nDate: Sun, 29 Oct 2023 06:23:14 GMT\r\nReferrer-Policy: no-referrer, strict-origin-when-cross-origin\r\nServer: cloudflare\r\nStrict-Transport-Security: max-age=31536000\r\nStrict-Transport-Security: max-age=63072000; includeSubDomains; preload\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Dns-Prefetch-Control: on\r\nX-Request-Id: b29cb317-8210-4a2d-a50a-ceab46fb5ab5\r\n\r\n<!DOCTYPE html><html lang=\"fr\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, height=device-height, initial-scale=1, viewport-fit=cover, minimum-scale=1.0\"/><meta name=\"description\" content=\"Toutes les solutions pour l‘avenir des jeunes\"/><meta name=\"next-head-count\" content=\"3\"/><meta name=\"author\" content=\"1jeune1solution\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"57x57\" href=\"/favicons/apple-touch-icon-57x57.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"114x114\" href=\"/favicons/apple-touch-icon-114x114.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"72x72\" href=\"/favicons/apple-touch-icon-72x72.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"144x144\" href=\"/favicons/apple-touch-icon-144x144.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"60x60\" href=\"/favicons/apple-touch-icon-60x60.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"120x120\" href=\"/favicons/apple-touch-icon-120x120.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"76x76\" href=\"/favicons/apple-touch-icon-76x76.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"152x152\" href=\"/favicons/apple-touch-icon-152x152.png\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-196x196.png\" sizes=\"196x196\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-96x96.png\" sizes=\"96x96\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-32x32.png\" sizes=\"32x32\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-16x16.png\" sizes=\"16x16\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-128x128.png\" sizes=\"128x128\"/><meta name=\"application-name\" content=\"1jeune1solution\"/><meta name=\"msapplication-TileColor\" content=\"#FFFFFF\"/><meta name=\"msapplication-TileImage\" content=\"/favicons/mstile-144x144.png\"/><meta name=\"msapplication-square70x70logo\" content=\"/favicons/mstile-70x70.png\"/><meta name=\"msapplication-square150x150logo\" content=\"/favicons/mstile-150x150.png\"/><meta name=\"msapplication-wide310x150logo\" content=\"/favicons/mstile-310x150.png\"/><meta name=\"msapplication-square310x310logo\" content=\"/favicons/mstile-310x310.png\"/><link rel=\"preload\" href=\"/_next/static/css/48eef73ea08f7ac8.css\" as=\"style\"/><link rel=\"stylesheet\" href=\"/_next/static/css/48eef73ea08f7ac8.css\" data-n-g=\"\"/><link rel=\"preload\" href=\"/_next/static/css/b8ff762256e5f26d.css\" as=\"style\"/><link rel=\"stylesheet\" href=\"/_next/static/css/b8ff762256e5f26d.css\" data-n-p=\"\"/><noscript data-n-css=\"\"></noscript><script defer=\"\" nomodule=\"\" src=\"/_next/static/chunks/polyfills-78c92fac7aa8fdd8.js\"></script><script src=\"/scripts/tarteaucitron.js?v=3.173.0\" defer=\"\" data-nscript=\"beforeInteractive\"></script><script id=\"eulerianAnalytics\" src=\"/scripts/eulerian.yssn.1jeune1solution.gouv.fr.js\" defer=\"\" data-nscript=\"beforeInteractive\"></script><script src=\"/_next/static/chunks/webpack-784575a5d37986bc.js\" defer=\"\"></script><script src=\"/_next/static/chunks/framework-2645a99191cfc5e9.js\" defer=\"\"></script><script src=\"/_next/static/chunks/main-f9d1ff5de2ae4299.js\" defer=\"\"></script><script src=\"/_next/static/chunks/pages/_app-4afcb64d721f23b7.js\" defer=\"\"></script><script src=\"/_next/static/chunks/pages/index-38b7cb3d9d2177f7.js\" defer=\"\"></script><script src=\"/_next/static/6F_ePnYh5oywjp9-5IDYv/_buildManifest.js\" defer=\"\"></script><script src=\"/_next/static/6F_ePnYh5oywjp9-5IDYv/_ssgManifest.js\" defer=\"\"></script></head><body><div id=\"__next\"></div><script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{}},\"page\":\"/\",\"query\":{},\"buildId\":\"6F_ePnYh5oywjp9-5IDYv\",\"nextExport\":true,\"autoExport\":true,\"isFallback\":false,\"scriptLoader\":[]}</script></body></html>",
-      "ip": "172.67.40.181",
-      "timestamp": "2023-10-29T06:23:14.03450093Z",
+      "timestamp": "2023-11-05T06:14:21.422512052Z",
       "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.1jeune1solution.gouv.fr'",
       "matcher-status": true
     },
@@ -437,9 +198,243 @@
       "host": "https://www.1jeune1solution.gouv.fr",
       "matched-at": "https://www.1jeune1solution.gouv.fr",
       "request": "GET / HTTP/1.1\r\nHost: www.1jeune1solution.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAlt-Svc: h3=\":443\"; ma=86400\r\nCf-Cache-Status: DYNAMIC\r\nCf-Ray: 81d9541fae335269-LAX\r\nContent-Security-Policy: default-src 'self' *.fabrique.social.gouv.fr *.meilisearch.io/multi-search 1j1s-front.osc-fr1.scalingo.io *.1jeune1solution.gouv.fr; script-src 'self' yssn.1jeune1solution.gouv.fr https://*.adform.net; img-src 'self' *.google.com data: cos-njord-dgefp-1j1s-prod.storage-eb4.cegedim.cloud yssn.1jeune1solution.gouv.fr img.youtube.com jedonnemonavis.numerique.gouv.fr; style-src 'self' 'unsafe-inline' yssn.1jeune1solution.gouv.fr; frame-ancestors 'none'; frame-src 'self' *.apprentissage.beta.gouv.fr immersion-facile.beta.gouv.fr deposer-offre.www.1jeune1solution.gouv.fr *.youtube-nocookie.com simulateur-alternance.1jeune1solution.gouv.fr https://*.adform.net; form-action 'self'; base-uri 'none';\r\nContent-Type: text/html; charset=utf-8\r\nDate: Sun, 29 Oct 2023 06:23:14 GMT\r\nReferrer-Policy: no-referrer, strict-origin-when-cross-origin\r\nServer: cloudflare\r\nStrict-Transport-Security: max-age=31536000\r\nStrict-Transport-Security: max-age=63072000; includeSubDomains; preload\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Dns-Prefetch-Control: on\r\nX-Request-Id: b29cb317-8210-4a2d-a50a-ceab46fb5ab5\r\n\r\n<!DOCTYPE html><html lang=\"fr\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, height=device-height, initial-scale=1, viewport-fit=cover, minimum-scale=1.0\"/><meta name=\"description\" content=\"Toutes les solutions pour l‘avenir des jeunes\"/><meta name=\"next-head-count\" content=\"3\"/><meta name=\"author\" content=\"1jeune1solution\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"57x57\" href=\"/favicons/apple-touch-icon-57x57.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"114x114\" href=\"/favicons/apple-touch-icon-114x114.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"72x72\" href=\"/favicons/apple-touch-icon-72x72.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"144x144\" href=\"/favicons/apple-touch-icon-144x144.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"60x60\" href=\"/favicons/apple-touch-icon-60x60.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"120x120\" href=\"/favicons/apple-touch-icon-120x120.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"76x76\" href=\"/favicons/apple-touch-icon-76x76.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"152x152\" href=\"/favicons/apple-touch-icon-152x152.png\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-196x196.png\" sizes=\"196x196\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-96x96.png\" sizes=\"96x96\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-32x32.png\" sizes=\"32x32\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-16x16.png\" sizes=\"16x16\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-128x128.png\" sizes=\"128x128\"/><meta name=\"application-name\" content=\"1jeune1solution\"/><meta name=\"msapplication-TileColor\" content=\"#FFFFFF\"/><meta name=\"msapplication-TileImage\" content=\"/favicons/mstile-144x144.png\"/><meta name=\"msapplication-square70x70logo\" content=\"/favicons/mstile-70x70.png\"/><meta name=\"msapplication-square150x150logo\" content=\"/favicons/mstile-150x150.png\"/><meta name=\"msapplication-wide310x150logo\" content=\"/favicons/mstile-310x150.png\"/><meta name=\"msapplication-square310x310logo\" content=\"/favicons/mstile-310x310.png\"/><link rel=\"preload\" href=\"/_next/static/css/48eef73ea08f7ac8.css\" as=\"style\"/><link rel=\"stylesheet\" href=\"/_next/static/css/48eef73ea08f7ac8.css\" data-n-g=\"\"/><link rel=\"preload\" href=\"/_next/static/css/b8ff762256e5f26d.css\" as=\"style\"/><link rel=\"stylesheet\" href=\"/_next/static/css/b8ff762256e5f26d.css\" data-n-p=\"\"/><noscript data-n-css=\"\"></noscript><script defer=\"\" nomodule=\"\" src=\"/_next/static/chunks/polyfills-78c92fac7aa8fdd8.js\"></script><script src=\"/scripts/tarteaucitron.js?v=3.173.0\" defer=\"\" data-nscript=\"beforeInteractive\"></script><script id=\"eulerianAnalytics\" src=\"/scripts/eulerian.yssn.1jeune1solution.gouv.fr.js\" defer=\"\" data-nscript=\"beforeInteractive\"></script><script src=\"/_next/static/chunks/webpack-784575a5d37986bc.js\" defer=\"\"></script><script src=\"/_next/static/chunks/framework-2645a99191cfc5e9.js\" defer=\"\"></script><script src=\"/_next/static/chunks/main-f9d1ff5de2ae4299.js\" defer=\"\"></script><script src=\"/_next/static/chunks/pages/_app-4afcb64d721f23b7.js\" defer=\"\"></script><script src=\"/_next/static/chunks/pages/index-38b7cb3d9d2177f7.js\" defer=\"\"></script><script src=\"/_next/static/6F_ePnYh5oywjp9-5IDYv/_buildManifest.js\" defer=\"\"></script><script src=\"/_next/static/6F_ePnYh5oywjp9-5IDYv/_ssgManifest.js\" defer=\"\"></script></head><body><div id=\"__next\"></div><script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{}},\"page\":\"/\",\"query\":{},\"buildId\":\"6F_ePnYh5oywjp9-5IDYv\",\"nextExport\":true,\"autoExport\":true,\"isFallback\":false,\"scriptLoader\":[]}</script></body></html>",
+      "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAlt-Svc: h3=\":443\"; ma=86400\r\nCf-Cache-Status: DYNAMIC\r\nCf-Ray: 8212f4e0fff781bd-IAD\r\nContent-Security-Policy: default-src 'self' *.fabrique.social.gouv.fr *.meilisearch.io/multi-search 1j1s-front.osc-fr1.scalingo.io *.1jeune1solution.gouv.fr; script-src 'self' yssn.1jeune1solution.gouv.fr https://*.adform.net; img-src 'self' *.google.com data: cos-njord-dgefp-1j1s-prod.storage-eb4.cegedim.cloud yssn.1jeune1solution.gouv.fr img.youtube.com jedonnemonavis.numerique.gouv.fr; style-src 'self' 'unsafe-inline' yssn.1jeune1solution.gouv.fr; frame-ancestors 'none'; frame-src 'self' *.apprentissage.beta.gouv.fr immersion-facile.beta.gouv.fr deposer-offre.www.1jeune1solution.gouv.fr *.youtube-nocookie.com simulateur-alternance.1jeune1solution.gouv.fr https://*.adform.net; form-action 'self'; base-uri 'none';\r\nContent-Type: text/html; charset=utf-8\r\nDate: Sun, 05 Nov 2023 06:14:26 GMT\r\nReferrer-Policy: no-referrer, strict-origin-when-cross-origin\r\nServer: cloudflare\r\nStrict-Transport-Security: max-age=31536000\r\nStrict-Transport-Security: max-age=63072000; includeSubDomains; preload\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Dns-Prefetch-Control: on\r\nX-Request-Id: 04a9e61a-15ea-4dde-b002-8bffc045af04\r\n\r\n<!DOCTYPE html><html lang=\"fr\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, height=device-height, initial-scale=1, viewport-fit=cover, minimum-scale=1.0\"/><meta name=\"description\" content=\"Toutes les solutions pour l‘avenir des jeunes\"/><meta name=\"next-head-count\" content=\"3\"/><meta name=\"author\" content=\"1jeune1solution\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"57x57\" href=\"/favicons/apple-touch-icon-57x57.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"114x114\" href=\"/favicons/apple-touch-icon-114x114.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"72x72\" href=\"/favicons/apple-touch-icon-72x72.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"144x144\" href=\"/favicons/apple-touch-icon-144x144.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"60x60\" href=\"/favicons/apple-touch-icon-60x60.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"120x120\" href=\"/favicons/apple-touch-icon-120x120.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"76x76\" href=\"/favicons/apple-touch-icon-76x76.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"152x152\" href=\"/favicons/apple-touch-icon-152x152.png\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-196x196.png\" sizes=\"196x196\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-96x96.png\" sizes=\"96x96\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-32x32.png\" sizes=\"32x32\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-16x16.png\" sizes=\"16x16\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-128x128.png\" sizes=\"128x128\"/><meta name=\"application-name\" content=\"1jeune1solution\"/><meta name=\"msapplication-TileColor\" content=\"#FFFFFF\"/><meta name=\"msapplication-TileImage\" content=\"/favicons/mstile-144x144.png\"/><meta name=\"msapplication-square70x70logo\" content=\"/favicons/mstile-70x70.png\"/><meta name=\"msapplication-square150x150logo\" content=\"/favicons/mstile-150x150.png\"/><meta name=\"msapplication-wide310x150logo\" content=\"/favicons/mstile-310x150.png\"/><meta name=\"msapplication-square310x310logo\" content=\"/favicons/mstile-310x310.png\"/><link rel=\"preload\" href=\"/_next/static/css/48eef73ea08f7ac8.css\" as=\"style\"/><link rel=\"stylesheet\" href=\"/_next/static/css/48eef73ea08f7ac8.css\" data-n-g=\"\"/><link rel=\"preload\" href=\"/_next/static/css/b8ff762256e5f26d.css\" as=\"style\"/><link rel=\"stylesheet\" href=\"/_next/static/css/b8ff762256e5f26d.css\" data-n-p=\"\"/><noscript data-n-css=\"\"></noscript><script defer=\"\" nomodule=\"\" src=\"/_next/static/chunks/polyfills-78c92fac7aa8fdd8.js\"></script><script src=\"/scripts/tarteaucitron.js?v=3.173.0\" defer=\"\" data-nscript=\"beforeInteractive\"></script><script id=\"eulerianAnalytics\" src=\"/scripts/eulerian.yssn.1jeune1solution.gouv.fr.js\" defer=\"\" data-nscript=\"beforeInteractive\"></script><script src=\"/_next/static/chunks/webpack-784575a5d37986bc.js\" defer=\"\"></script><script src=\"/_next/static/chunks/framework-2645a99191cfc5e9.js\" defer=\"\"></script><script src=\"/_next/static/chunks/main-f9d1ff5de2ae4299.js\" defer=\"\"></script><script src=\"/_next/static/chunks/pages/_app-4afcb64d721f23b7.js\" defer=\"\"></script><script src=\"/_next/static/chunks/pages/index-38b7cb3d9d2177f7.js\" defer=\"\"></script><script src=\"/_next/static/6F_ePnYh5oywjp9-5IDYv/_buildManifest.js\" defer=\"\"></script><script src=\"/_next/static/6F_ePnYh5oywjp9-5IDYv/_ssgManifest.js\" defer=\"\"></script></head><body><div id=\"__next\"></div><script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{}},\"page\":\"/\",\"query\":{},\"buildId\":\"6F_ePnYh5oywjp9-5IDYv\",\"nextExport\":true,\"autoExport\":true,\"isFallback\":false,\"scriptLoader\":[]}</script></body></html>",
       "ip": "172.67.40.181",
-      "timestamp": "2023-10-29T06:23:14.03451083Z",
+      "timestamp": "2023-11-05T06:14:26.814148476Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.1jeune1solution.gouv.fr'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "cross-origin-resource-policy",
+      "type": "http",
+      "host": "https://www.1jeune1solution.gouv.fr",
+      "matched-at": "https://www.1jeune1solution.gouv.fr",
+      "request": "GET / HTTP/1.1\r\nHost: www.1jeune1solution.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAlt-Svc: h3=\":443\"; ma=86400\r\nCf-Cache-Status: DYNAMIC\r\nCf-Ray: 8212f4e0fff781bd-IAD\r\nContent-Security-Policy: default-src 'self' *.fabrique.social.gouv.fr *.meilisearch.io/multi-search 1j1s-front.osc-fr1.scalingo.io *.1jeune1solution.gouv.fr; script-src 'self' yssn.1jeune1solution.gouv.fr https://*.adform.net; img-src 'self' *.google.com data: cos-njord-dgefp-1j1s-prod.storage-eb4.cegedim.cloud yssn.1jeune1solution.gouv.fr img.youtube.com jedonnemonavis.numerique.gouv.fr; style-src 'self' 'unsafe-inline' yssn.1jeune1solution.gouv.fr; frame-ancestors 'none'; frame-src 'self' *.apprentissage.beta.gouv.fr immersion-facile.beta.gouv.fr deposer-offre.www.1jeune1solution.gouv.fr *.youtube-nocookie.com simulateur-alternance.1jeune1solution.gouv.fr https://*.adform.net; form-action 'self'; base-uri 'none';\r\nContent-Type: text/html; charset=utf-8\r\nDate: Sun, 05 Nov 2023 06:14:26 GMT\r\nReferrer-Policy: no-referrer, strict-origin-when-cross-origin\r\nServer: cloudflare\r\nStrict-Transport-Security: max-age=31536000\r\nStrict-Transport-Security: max-age=63072000; includeSubDomains; preload\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Dns-Prefetch-Control: on\r\nX-Request-Id: 04a9e61a-15ea-4dde-b002-8bffc045af04\r\n\r\n<!DOCTYPE html><html lang=\"fr\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, height=device-height, initial-scale=1, viewport-fit=cover, minimum-scale=1.0\"/><meta name=\"description\" content=\"Toutes les solutions pour l‘avenir des jeunes\"/><meta name=\"next-head-count\" content=\"3\"/><meta name=\"author\" content=\"1jeune1solution\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"57x57\" href=\"/favicons/apple-touch-icon-57x57.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"114x114\" href=\"/favicons/apple-touch-icon-114x114.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"72x72\" href=\"/favicons/apple-touch-icon-72x72.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"144x144\" href=\"/favicons/apple-touch-icon-144x144.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"60x60\" href=\"/favicons/apple-touch-icon-60x60.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"120x120\" href=\"/favicons/apple-touch-icon-120x120.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"76x76\" href=\"/favicons/apple-touch-icon-76x76.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"152x152\" href=\"/favicons/apple-touch-icon-152x152.png\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-196x196.png\" sizes=\"196x196\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-96x96.png\" sizes=\"96x96\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-32x32.png\" sizes=\"32x32\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-16x16.png\" sizes=\"16x16\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-128x128.png\" sizes=\"128x128\"/><meta name=\"application-name\" content=\"1jeune1solution\"/><meta name=\"msapplication-TileColor\" content=\"#FFFFFF\"/><meta name=\"msapplication-TileImage\" content=\"/favicons/mstile-144x144.png\"/><meta name=\"msapplication-square70x70logo\" content=\"/favicons/mstile-70x70.png\"/><meta name=\"msapplication-square150x150logo\" content=\"/favicons/mstile-150x150.png\"/><meta name=\"msapplication-wide310x150logo\" content=\"/favicons/mstile-310x150.png\"/><meta name=\"msapplication-square310x310logo\" content=\"/favicons/mstile-310x310.png\"/><link rel=\"preload\" href=\"/_next/static/css/48eef73ea08f7ac8.css\" as=\"style\"/><link rel=\"stylesheet\" href=\"/_next/static/css/48eef73ea08f7ac8.css\" data-n-g=\"\"/><link rel=\"preload\" href=\"/_next/static/css/b8ff762256e5f26d.css\" as=\"style\"/><link rel=\"stylesheet\" href=\"/_next/static/css/b8ff762256e5f26d.css\" data-n-p=\"\"/><noscript data-n-css=\"\"></noscript><script defer=\"\" nomodule=\"\" src=\"/_next/static/chunks/polyfills-78c92fac7aa8fdd8.js\"></script><script src=\"/scripts/tarteaucitron.js?v=3.173.0\" defer=\"\" data-nscript=\"beforeInteractive\"></script><script id=\"eulerianAnalytics\" src=\"/scripts/eulerian.yssn.1jeune1solution.gouv.fr.js\" defer=\"\" data-nscript=\"beforeInteractive\"></script><script src=\"/_next/static/chunks/webpack-784575a5d37986bc.js\" defer=\"\"></script><script src=\"/_next/static/chunks/framework-2645a99191cfc5e9.js\" defer=\"\"></script><script src=\"/_next/static/chunks/main-f9d1ff5de2ae4299.js\" defer=\"\"></script><script src=\"/_next/static/chunks/pages/_app-4afcb64d721f23b7.js\" defer=\"\"></script><script src=\"/_next/static/chunks/pages/index-38b7cb3d9d2177f7.js\" defer=\"\"></script><script src=\"/_next/static/6F_ePnYh5oywjp9-5IDYv/_buildManifest.js\" defer=\"\"></script><script src=\"/_next/static/6F_ePnYh5oywjp9-5IDYv/_ssgManifest.js\" defer=\"\"></script></head><body><div id=\"__next\"></div><script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{}},\"page\":\"/\",\"query\":{},\"buildId\":\"6F_ePnYh5oywjp9-5IDYv\",\"nextExport\":true,\"autoExport\":true,\"isFallback\":false,\"scriptLoader\":[]}</script></body></html>",
+      "ip": "172.67.40.181",
+      "timestamp": "2023-11-05T06:14:26.814188076Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.1jeune1solution.gouv.fr'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "permissions-policy",
+      "type": "http",
+      "host": "https://www.1jeune1solution.gouv.fr",
+      "matched-at": "https://www.1jeune1solution.gouv.fr",
+      "request": "GET / HTTP/1.1\r\nHost: www.1jeune1solution.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAlt-Svc: h3=\":443\"; ma=86400\r\nCf-Cache-Status: DYNAMIC\r\nCf-Ray: 8212f4e0fff781bd-IAD\r\nContent-Security-Policy: default-src 'self' *.fabrique.social.gouv.fr *.meilisearch.io/multi-search 1j1s-front.osc-fr1.scalingo.io *.1jeune1solution.gouv.fr; script-src 'self' yssn.1jeune1solution.gouv.fr https://*.adform.net; img-src 'self' *.google.com data: cos-njord-dgefp-1j1s-prod.storage-eb4.cegedim.cloud yssn.1jeune1solution.gouv.fr img.youtube.com jedonnemonavis.numerique.gouv.fr; style-src 'self' 'unsafe-inline' yssn.1jeune1solution.gouv.fr; frame-ancestors 'none'; frame-src 'self' *.apprentissage.beta.gouv.fr immersion-facile.beta.gouv.fr deposer-offre.www.1jeune1solution.gouv.fr *.youtube-nocookie.com simulateur-alternance.1jeune1solution.gouv.fr https://*.adform.net; form-action 'self'; base-uri 'none';\r\nContent-Type: text/html; charset=utf-8\r\nDate: Sun, 05 Nov 2023 06:14:26 GMT\r\nReferrer-Policy: no-referrer, strict-origin-when-cross-origin\r\nServer: cloudflare\r\nStrict-Transport-Security: max-age=31536000\r\nStrict-Transport-Security: max-age=63072000; includeSubDomains; preload\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Dns-Prefetch-Control: on\r\nX-Request-Id: 04a9e61a-15ea-4dde-b002-8bffc045af04\r\n\r\n<!DOCTYPE html><html lang=\"fr\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, height=device-height, initial-scale=1, viewport-fit=cover, minimum-scale=1.0\"/><meta name=\"description\" content=\"Toutes les solutions pour l‘avenir des jeunes\"/><meta name=\"next-head-count\" content=\"3\"/><meta name=\"author\" content=\"1jeune1solution\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"57x57\" href=\"/favicons/apple-touch-icon-57x57.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"114x114\" href=\"/favicons/apple-touch-icon-114x114.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"72x72\" href=\"/favicons/apple-touch-icon-72x72.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"144x144\" href=\"/favicons/apple-touch-icon-144x144.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"60x60\" href=\"/favicons/apple-touch-icon-60x60.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"120x120\" href=\"/favicons/apple-touch-icon-120x120.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"76x76\" href=\"/favicons/apple-touch-icon-76x76.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"152x152\" href=\"/favicons/apple-touch-icon-152x152.png\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-196x196.png\" sizes=\"196x196\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-96x96.png\" sizes=\"96x96\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-32x32.png\" sizes=\"32x32\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-16x16.png\" sizes=\"16x16\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-128x128.png\" sizes=\"128x128\"/><meta name=\"application-name\" content=\"1jeune1solution\"/><meta name=\"msapplication-TileColor\" content=\"#FFFFFF\"/><meta name=\"msapplication-TileImage\" content=\"/favicons/mstile-144x144.png\"/><meta name=\"msapplication-square70x70logo\" content=\"/favicons/mstile-70x70.png\"/><meta name=\"msapplication-square150x150logo\" content=\"/favicons/mstile-150x150.png\"/><meta name=\"msapplication-wide310x150logo\" content=\"/favicons/mstile-310x150.png\"/><meta name=\"msapplication-square310x310logo\" content=\"/favicons/mstile-310x310.png\"/><link rel=\"preload\" href=\"/_next/static/css/48eef73ea08f7ac8.css\" as=\"style\"/><link rel=\"stylesheet\" href=\"/_next/static/css/48eef73ea08f7ac8.css\" data-n-g=\"\"/><link rel=\"preload\" href=\"/_next/static/css/b8ff762256e5f26d.css\" as=\"style\"/><link rel=\"stylesheet\" href=\"/_next/static/css/b8ff762256e5f26d.css\" data-n-p=\"\"/><noscript data-n-css=\"\"></noscript><script defer=\"\" nomodule=\"\" src=\"/_next/static/chunks/polyfills-78c92fac7aa8fdd8.js\"></script><script src=\"/scripts/tarteaucitron.js?v=3.173.0\" defer=\"\" data-nscript=\"beforeInteractive\"></script><script id=\"eulerianAnalytics\" src=\"/scripts/eulerian.yssn.1jeune1solution.gouv.fr.js\" defer=\"\" data-nscript=\"beforeInteractive\"></script><script src=\"/_next/static/chunks/webpack-784575a5d37986bc.js\" defer=\"\"></script><script src=\"/_next/static/chunks/framework-2645a99191cfc5e9.js\" defer=\"\"></script><script src=\"/_next/static/chunks/main-f9d1ff5de2ae4299.js\" defer=\"\"></script><script src=\"/_next/static/chunks/pages/_app-4afcb64d721f23b7.js\" defer=\"\"></script><script src=\"/_next/static/chunks/pages/index-38b7cb3d9d2177f7.js\" defer=\"\"></script><script src=\"/_next/static/6F_ePnYh5oywjp9-5IDYv/_buildManifest.js\" defer=\"\"></script><script src=\"/_next/static/6F_ePnYh5oywjp9-5IDYv/_ssgManifest.js\" defer=\"\"></script></head><body><div id=\"__next\"></div><script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{}},\"page\":\"/\",\"query\":{},\"buildId\":\"6F_ePnYh5oywjp9-5IDYv\",\"nextExport\":true,\"autoExport\":true,\"isFallback\":false,\"scriptLoader\":[]}</script></body></html>",
+      "ip": "172.67.40.181",
+      "timestamp": "2023-11-05T06:14:26.814198876Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.1jeune1solution.gouv.fr'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "x-frame-options",
+      "type": "http",
+      "host": "https://www.1jeune1solution.gouv.fr",
+      "matched-at": "https://www.1jeune1solution.gouv.fr",
+      "request": "GET / HTTP/1.1\r\nHost: www.1jeune1solution.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAlt-Svc: h3=\":443\"; ma=86400\r\nCf-Cache-Status: DYNAMIC\r\nCf-Ray: 8212f4e0fff781bd-IAD\r\nContent-Security-Policy: default-src 'self' *.fabrique.social.gouv.fr *.meilisearch.io/multi-search 1j1s-front.osc-fr1.scalingo.io *.1jeune1solution.gouv.fr; script-src 'self' yssn.1jeune1solution.gouv.fr https://*.adform.net; img-src 'self' *.google.com data: cos-njord-dgefp-1j1s-prod.storage-eb4.cegedim.cloud yssn.1jeune1solution.gouv.fr img.youtube.com jedonnemonavis.numerique.gouv.fr; style-src 'self' 'unsafe-inline' yssn.1jeune1solution.gouv.fr; frame-ancestors 'none'; frame-src 'self' *.apprentissage.beta.gouv.fr immersion-facile.beta.gouv.fr deposer-offre.www.1jeune1solution.gouv.fr *.youtube-nocookie.com simulateur-alternance.1jeune1solution.gouv.fr https://*.adform.net; form-action 'self'; base-uri 'none';\r\nContent-Type: text/html; charset=utf-8\r\nDate: Sun, 05 Nov 2023 06:14:26 GMT\r\nReferrer-Policy: no-referrer, strict-origin-when-cross-origin\r\nServer: cloudflare\r\nStrict-Transport-Security: max-age=31536000\r\nStrict-Transport-Security: max-age=63072000; includeSubDomains; preload\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Dns-Prefetch-Control: on\r\nX-Request-Id: 04a9e61a-15ea-4dde-b002-8bffc045af04\r\n\r\n<!DOCTYPE html><html lang=\"fr\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, height=device-height, initial-scale=1, viewport-fit=cover, minimum-scale=1.0\"/><meta name=\"description\" content=\"Toutes les solutions pour l‘avenir des jeunes\"/><meta name=\"next-head-count\" content=\"3\"/><meta name=\"author\" content=\"1jeune1solution\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"57x57\" href=\"/favicons/apple-touch-icon-57x57.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"114x114\" href=\"/favicons/apple-touch-icon-114x114.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"72x72\" href=\"/favicons/apple-touch-icon-72x72.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"144x144\" href=\"/favicons/apple-touch-icon-144x144.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"60x60\" href=\"/favicons/apple-touch-icon-60x60.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"120x120\" href=\"/favicons/apple-touch-icon-120x120.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"76x76\" href=\"/favicons/apple-touch-icon-76x76.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"152x152\" href=\"/favicons/apple-touch-icon-152x152.png\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-196x196.png\" sizes=\"196x196\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-96x96.png\" sizes=\"96x96\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-32x32.png\" sizes=\"32x32\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-16x16.png\" sizes=\"16x16\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-128x128.png\" sizes=\"128x128\"/><meta name=\"application-name\" content=\"1jeune1solution\"/><meta name=\"msapplication-TileColor\" content=\"#FFFFFF\"/><meta name=\"msapplication-TileImage\" content=\"/favicons/mstile-144x144.png\"/><meta name=\"msapplication-square70x70logo\" content=\"/favicons/mstile-70x70.png\"/><meta name=\"msapplication-square150x150logo\" content=\"/favicons/mstile-150x150.png\"/><meta name=\"msapplication-wide310x150logo\" content=\"/favicons/mstile-310x150.png\"/><meta name=\"msapplication-square310x310logo\" content=\"/favicons/mstile-310x310.png\"/><link rel=\"preload\" href=\"/_next/static/css/48eef73ea08f7ac8.css\" as=\"style\"/><link rel=\"stylesheet\" href=\"/_next/static/css/48eef73ea08f7ac8.css\" data-n-g=\"\"/><link rel=\"preload\" href=\"/_next/static/css/b8ff762256e5f26d.css\" as=\"style\"/><link rel=\"stylesheet\" href=\"/_next/static/css/b8ff762256e5f26d.css\" data-n-p=\"\"/><noscript data-n-css=\"\"></noscript><script defer=\"\" nomodule=\"\" src=\"/_next/static/chunks/polyfills-78c92fac7aa8fdd8.js\"></script><script src=\"/scripts/tarteaucitron.js?v=3.173.0\" defer=\"\" data-nscript=\"beforeInteractive\"></script><script id=\"eulerianAnalytics\" src=\"/scripts/eulerian.yssn.1jeune1solution.gouv.fr.js\" defer=\"\" data-nscript=\"beforeInteractive\"></script><script src=\"/_next/static/chunks/webpack-784575a5d37986bc.js\" defer=\"\"></script><script src=\"/_next/static/chunks/framework-2645a99191cfc5e9.js\" defer=\"\"></script><script src=\"/_next/static/chunks/main-f9d1ff5de2ae4299.js\" defer=\"\"></script><script src=\"/_next/static/chunks/pages/_app-4afcb64d721f23b7.js\" defer=\"\"></script><script src=\"/_next/static/chunks/pages/index-38b7cb3d9d2177f7.js\" defer=\"\"></script><script src=\"/_next/static/6F_ePnYh5oywjp9-5IDYv/_buildManifest.js\" defer=\"\"></script><script src=\"/_next/static/6F_ePnYh5oywjp9-5IDYv/_ssgManifest.js\" defer=\"\"></script></head><body><div id=\"__next\"></div><script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{}},\"page\":\"/\",\"query\":{},\"buildId\":\"6F_ePnYh5oywjp9-5IDYv\",\"nextExport\":true,\"autoExport\":true,\"isFallback\":false,\"scriptLoader\":[]}</script></body></html>",
+      "ip": "172.67.40.181",
+      "timestamp": "2023-11-05T06:14:26.814209376Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.1jeune1solution.gouv.fr'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "x-permitted-cross-domain-policies",
+      "type": "http",
+      "host": "https://www.1jeune1solution.gouv.fr",
+      "matched-at": "https://www.1jeune1solution.gouv.fr",
+      "request": "GET / HTTP/1.1\r\nHost: www.1jeune1solution.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAlt-Svc: h3=\":443\"; ma=86400\r\nCf-Cache-Status: DYNAMIC\r\nCf-Ray: 8212f4e0fff781bd-IAD\r\nContent-Security-Policy: default-src 'self' *.fabrique.social.gouv.fr *.meilisearch.io/multi-search 1j1s-front.osc-fr1.scalingo.io *.1jeune1solution.gouv.fr; script-src 'self' yssn.1jeune1solution.gouv.fr https://*.adform.net; img-src 'self' *.google.com data: cos-njord-dgefp-1j1s-prod.storage-eb4.cegedim.cloud yssn.1jeune1solution.gouv.fr img.youtube.com jedonnemonavis.numerique.gouv.fr; style-src 'self' 'unsafe-inline' yssn.1jeune1solution.gouv.fr; frame-ancestors 'none'; frame-src 'self' *.apprentissage.beta.gouv.fr immersion-facile.beta.gouv.fr deposer-offre.www.1jeune1solution.gouv.fr *.youtube-nocookie.com simulateur-alternance.1jeune1solution.gouv.fr https://*.adform.net; form-action 'self'; base-uri 'none';\r\nContent-Type: text/html; charset=utf-8\r\nDate: Sun, 05 Nov 2023 06:14:26 GMT\r\nReferrer-Policy: no-referrer, strict-origin-when-cross-origin\r\nServer: cloudflare\r\nStrict-Transport-Security: max-age=31536000\r\nStrict-Transport-Security: max-age=63072000; includeSubDomains; preload\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Dns-Prefetch-Control: on\r\nX-Request-Id: 04a9e61a-15ea-4dde-b002-8bffc045af04\r\n\r\n<!DOCTYPE html><html lang=\"fr\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, height=device-height, initial-scale=1, viewport-fit=cover, minimum-scale=1.0\"/><meta name=\"description\" content=\"Toutes les solutions pour l‘avenir des jeunes\"/><meta name=\"next-head-count\" content=\"3\"/><meta name=\"author\" content=\"1jeune1solution\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"57x57\" href=\"/favicons/apple-touch-icon-57x57.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"114x114\" href=\"/favicons/apple-touch-icon-114x114.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"72x72\" href=\"/favicons/apple-touch-icon-72x72.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"144x144\" href=\"/favicons/apple-touch-icon-144x144.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"60x60\" href=\"/favicons/apple-touch-icon-60x60.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"120x120\" href=\"/favicons/apple-touch-icon-120x120.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"76x76\" href=\"/favicons/apple-touch-icon-76x76.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"152x152\" href=\"/favicons/apple-touch-icon-152x152.png\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-196x196.png\" sizes=\"196x196\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-96x96.png\" sizes=\"96x96\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-32x32.png\" sizes=\"32x32\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-16x16.png\" sizes=\"16x16\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-128x128.png\" sizes=\"128x128\"/><meta name=\"application-name\" content=\"1jeune1solution\"/><meta name=\"msapplication-TileColor\" content=\"#FFFFFF\"/><meta name=\"msapplication-TileImage\" content=\"/favicons/mstile-144x144.png\"/><meta name=\"msapplication-square70x70logo\" content=\"/favicons/mstile-70x70.png\"/><meta name=\"msapplication-square150x150logo\" content=\"/favicons/mstile-150x150.png\"/><meta name=\"msapplication-wide310x150logo\" content=\"/favicons/mstile-310x150.png\"/><meta name=\"msapplication-square310x310logo\" content=\"/favicons/mstile-310x310.png\"/><link rel=\"preload\" href=\"/_next/static/css/48eef73ea08f7ac8.css\" as=\"style\"/><link rel=\"stylesheet\" href=\"/_next/static/css/48eef73ea08f7ac8.css\" data-n-g=\"\"/><link rel=\"preload\" href=\"/_next/static/css/b8ff762256e5f26d.css\" as=\"style\"/><link rel=\"stylesheet\" href=\"/_next/static/css/b8ff762256e5f26d.css\" data-n-p=\"\"/><noscript data-n-css=\"\"></noscript><script defer=\"\" nomodule=\"\" src=\"/_next/static/chunks/polyfills-78c92fac7aa8fdd8.js\"></script><script src=\"/scripts/tarteaucitron.js?v=3.173.0\" defer=\"\" data-nscript=\"beforeInteractive\"></script><script id=\"eulerianAnalytics\" src=\"/scripts/eulerian.yssn.1jeune1solution.gouv.fr.js\" defer=\"\" data-nscript=\"beforeInteractive\"></script><script src=\"/_next/static/chunks/webpack-784575a5d37986bc.js\" defer=\"\"></script><script src=\"/_next/static/chunks/framework-2645a99191cfc5e9.js\" defer=\"\"></script><script src=\"/_next/static/chunks/main-f9d1ff5de2ae4299.js\" defer=\"\"></script><script src=\"/_next/static/chunks/pages/_app-4afcb64d721f23b7.js\" defer=\"\"></script><script src=\"/_next/static/chunks/pages/index-38b7cb3d9d2177f7.js\" defer=\"\"></script><script src=\"/_next/static/6F_ePnYh5oywjp9-5IDYv/_buildManifest.js\" defer=\"\"></script><script src=\"/_next/static/6F_ePnYh5oywjp9-5IDYv/_ssgManifest.js\" defer=\"\"></script></head><body><div id=\"__next\"></div><script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{}},\"page\":\"/\",\"query\":{},\"buildId\":\"6F_ePnYh5oywjp9-5IDYv\",\"nextExport\":true,\"autoExport\":true,\"isFallback\":false,\"scriptLoader\":[]}</script></body></html>",
+      "ip": "172.67.40.181",
+      "timestamp": "2023-11-05T06:14:26.814221976Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.1jeune1solution.gouv.fr'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "clear-site-data",
+      "type": "http",
+      "host": "https://www.1jeune1solution.gouv.fr",
+      "matched-at": "https://www.1jeune1solution.gouv.fr",
+      "request": "GET / HTTP/1.1\r\nHost: www.1jeune1solution.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAlt-Svc: h3=\":443\"; ma=86400\r\nCf-Cache-Status: DYNAMIC\r\nCf-Ray: 8212f4e0fff781bd-IAD\r\nContent-Security-Policy: default-src 'self' *.fabrique.social.gouv.fr *.meilisearch.io/multi-search 1j1s-front.osc-fr1.scalingo.io *.1jeune1solution.gouv.fr; script-src 'self' yssn.1jeune1solution.gouv.fr https://*.adform.net; img-src 'self' *.google.com data: cos-njord-dgefp-1j1s-prod.storage-eb4.cegedim.cloud yssn.1jeune1solution.gouv.fr img.youtube.com jedonnemonavis.numerique.gouv.fr; style-src 'self' 'unsafe-inline' yssn.1jeune1solution.gouv.fr; frame-ancestors 'none'; frame-src 'self' *.apprentissage.beta.gouv.fr immersion-facile.beta.gouv.fr deposer-offre.www.1jeune1solution.gouv.fr *.youtube-nocookie.com simulateur-alternance.1jeune1solution.gouv.fr https://*.adform.net; form-action 'self'; base-uri 'none';\r\nContent-Type: text/html; charset=utf-8\r\nDate: Sun, 05 Nov 2023 06:14:26 GMT\r\nReferrer-Policy: no-referrer, strict-origin-when-cross-origin\r\nServer: cloudflare\r\nStrict-Transport-Security: max-age=31536000\r\nStrict-Transport-Security: max-age=63072000; includeSubDomains; preload\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Dns-Prefetch-Control: on\r\nX-Request-Id: 04a9e61a-15ea-4dde-b002-8bffc045af04\r\n\r\n<!DOCTYPE html><html lang=\"fr\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, height=device-height, initial-scale=1, viewport-fit=cover, minimum-scale=1.0\"/><meta name=\"description\" content=\"Toutes les solutions pour l‘avenir des jeunes\"/><meta name=\"next-head-count\" content=\"3\"/><meta name=\"author\" content=\"1jeune1solution\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"57x57\" href=\"/favicons/apple-touch-icon-57x57.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"114x114\" href=\"/favicons/apple-touch-icon-114x114.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"72x72\" href=\"/favicons/apple-touch-icon-72x72.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"144x144\" href=\"/favicons/apple-touch-icon-144x144.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"60x60\" href=\"/favicons/apple-touch-icon-60x60.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"120x120\" href=\"/favicons/apple-touch-icon-120x120.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"76x76\" href=\"/favicons/apple-touch-icon-76x76.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"152x152\" href=\"/favicons/apple-touch-icon-152x152.png\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-196x196.png\" sizes=\"196x196\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-96x96.png\" sizes=\"96x96\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-32x32.png\" sizes=\"32x32\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-16x16.png\" sizes=\"16x16\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-128x128.png\" sizes=\"128x128\"/><meta name=\"application-name\" content=\"1jeune1solution\"/><meta name=\"msapplication-TileColor\" content=\"#FFFFFF\"/><meta name=\"msapplication-TileImage\" content=\"/favicons/mstile-144x144.png\"/><meta name=\"msapplication-square70x70logo\" content=\"/favicons/mstile-70x70.png\"/><meta name=\"msapplication-square150x150logo\" content=\"/favicons/mstile-150x150.png\"/><meta name=\"msapplication-wide310x150logo\" content=\"/favicons/mstile-310x150.png\"/><meta name=\"msapplication-square310x310logo\" content=\"/favicons/mstile-310x310.png\"/><link rel=\"preload\" href=\"/_next/static/css/48eef73ea08f7ac8.css\" as=\"style\"/><link rel=\"stylesheet\" href=\"/_next/static/css/48eef73ea08f7ac8.css\" data-n-g=\"\"/><link rel=\"preload\" href=\"/_next/static/css/b8ff762256e5f26d.css\" as=\"style\"/><link rel=\"stylesheet\" href=\"/_next/static/css/b8ff762256e5f26d.css\" data-n-p=\"\"/><noscript data-n-css=\"\"></noscript><script defer=\"\" nomodule=\"\" src=\"/_next/static/chunks/polyfills-78c92fac7aa8fdd8.js\"></script><script src=\"/scripts/tarteaucitron.js?v=3.173.0\" defer=\"\" data-nscript=\"beforeInteractive\"></script><script id=\"eulerianAnalytics\" src=\"/scripts/eulerian.yssn.1jeune1solution.gouv.fr.js\" defer=\"\" data-nscript=\"beforeInteractive\"></script><script src=\"/_next/static/chunks/webpack-784575a5d37986bc.js\" defer=\"\"></script><script src=\"/_next/static/chunks/framework-2645a99191cfc5e9.js\" defer=\"\"></script><script src=\"/_next/static/chunks/main-f9d1ff5de2ae4299.js\" defer=\"\"></script><script src=\"/_next/static/chunks/pages/_app-4afcb64d721f23b7.js\" defer=\"\"></script><script src=\"/_next/static/chunks/pages/index-38b7cb3d9d2177f7.js\" defer=\"\"></script><script src=\"/_next/static/6F_ePnYh5oywjp9-5IDYv/_buildManifest.js\" defer=\"\"></script><script src=\"/_next/static/6F_ePnYh5oywjp9-5IDYv/_ssgManifest.js\" defer=\"\"></script></head><body><div id=\"__next\"></div><script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{}},\"page\":\"/\",\"query\":{},\"buildId\":\"6F_ePnYh5oywjp9-5IDYv\",\"nextExport\":true,\"autoExport\":true,\"isFallback\":false,\"scriptLoader\":[]}</script></body></html>",
+      "ip": "172.67.40.181",
+      "timestamp": "2023-11-05T06:14:26.814231876Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.1jeune1solution.gouv.fr'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "cross-origin-embedder-policy",
+      "type": "http",
+      "host": "https://www.1jeune1solution.gouv.fr",
+      "matched-at": "https://www.1jeune1solution.gouv.fr",
+      "request": "GET / HTTP/1.1\r\nHost: www.1jeune1solution.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAlt-Svc: h3=\":443\"; ma=86400\r\nCf-Cache-Status: DYNAMIC\r\nCf-Ray: 8212f4e0fff781bd-IAD\r\nContent-Security-Policy: default-src 'self' *.fabrique.social.gouv.fr *.meilisearch.io/multi-search 1j1s-front.osc-fr1.scalingo.io *.1jeune1solution.gouv.fr; script-src 'self' yssn.1jeune1solution.gouv.fr https://*.adform.net; img-src 'self' *.google.com data: cos-njord-dgefp-1j1s-prod.storage-eb4.cegedim.cloud yssn.1jeune1solution.gouv.fr img.youtube.com jedonnemonavis.numerique.gouv.fr; style-src 'self' 'unsafe-inline' yssn.1jeune1solution.gouv.fr; frame-ancestors 'none'; frame-src 'self' *.apprentissage.beta.gouv.fr immersion-facile.beta.gouv.fr deposer-offre.www.1jeune1solution.gouv.fr *.youtube-nocookie.com simulateur-alternance.1jeune1solution.gouv.fr https://*.adform.net; form-action 'self'; base-uri 'none';\r\nContent-Type: text/html; charset=utf-8\r\nDate: Sun, 05 Nov 2023 06:14:26 GMT\r\nReferrer-Policy: no-referrer, strict-origin-when-cross-origin\r\nServer: cloudflare\r\nStrict-Transport-Security: max-age=31536000\r\nStrict-Transport-Security: max-age=63072000; includeSubDomains; preload\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Dns-Prefetch-Control: on\r\nX-Request-Id: 04a9e61a-15ea-4dde-b002-8bffc045af04\r\n\r\n<!DOCTYPE html><html lang=\"fr\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, height=device-height, initial-scale=1, viewport-fit=cover, minimum-scale=1.0\"/><meta name=\"description\" content=\"Toutes les solutions pour l‘avenir des jeunes\"/><meta name=\"next-head-count\" content=\"3\"/><meta name=\"author\" content=\"1jeune1solution\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"57x57\" href=\"/favicons/apple-touch-icon-57x57.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"114x114\" href=\"/favicons/apple-touch-icon-114x114.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"72x72\" href=\"/favicons/apple-touch-icon-72x72.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"144x144\" href=\"/favicons/apple-touch-icon-144x144.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"60x60\" href=\"/favicons/apple-touch-icon-60x60.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"120x120\" href=\"/favicons/apple-touch-icon-120x120.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"76x76\" href=\"/favicons/apple-touch-icon-76x76.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"152x152\" href=\"/favicons/apple-touch-icon-152x152.png\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-196x196.png\" sizes=\"196x196\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-96x96.png\" sizes=\"96x96\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-32x32.png\" sizes=\"32x32\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-16x16.png\" sizes=\"16x16\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-128x128.png\" sizes=\"128x128\"/><meta name=\"application-name\" content=\"1jeune1solution\"/><meta name=\"msapplication-TileColor\" content=\"#FFFFFF\"/><meta name=\"msapplication-TileImage\" content=\"/favicons/mstile-144x144.png\"/><meta name=\"msapplication-square70x70logo\" content=\"/favicons/mstile-70x70.png\"/><meta name=\"msapplication-square150x150logo\" content=\"/favicons/mstile-150x150.png\"/><meta name=\"msapplication-wide310x150logo\" content=\"/favicons/mstile-310x150.png\"/><meta name=\"msapplication-square310x310logo\" content=\"/favicons/mstile-310x310.png\"/><link rel=\"preload\" href=\"/_next/static/css/48eef73ea08f7ac8.css\" as=\"style\"/><link rel=\"stylesheet\" href=\"/_next/static/css/48eef73ea08f7ac8.css\" data-n-g=\"\"/><link rel=\"preload\" href=\"/_next/static/css/b8ff762256e5f26d.css\" as=\"style\"/><link rel=\"stylesheet\" href=\"/_next/static/css/b8ff762256e5f26d.css\" data-n-p=\"\"/><noscript data-n-css=\"\"></noscript><script defer=\"\" nomodule=\"\" src=\"/_next/static/chunks/polyfills-78c92fac7aa8fdd8.js\"></script><script src=\"/scripts/tarteaucitron.js?v=3.173.0\" defer=\"\" data-nscript=\"beforeInteractive\"></script><script id=\"eulerianAnalytics\" src=\"/scripts/eulerian.yssn.1jeune1solution.gouv.fr.js\" defer=\"\" data-nscript=\"beforeInteractive\"></script><script src=\"/_next/static/chunks/webpack-784575a5d37986bc.js\" defer=\"\"></script><script src=\"/_next/static/chunks/framework-2645a99191cfc5e9.js\" defer=\"\"></script><script src=\"/_next/static/chunks/main-f9d1ff5de2ae4299.js\" defer=\"\"></script><script src=\"/_next/static/chunks/pages/_app-4afcb64d721f23b7.js\" defer=\"\"></script><script src=\"/_next/static/chunks/pages/index-38b7cb3d9d2177f7.js\" defer=\"\"></script><script src=\"/_next/static/6F_ePnYh5oywjp9-5IDYv/_buildManifest.js\" defer=\"\"></script><script src=\"/_next/static/6F_ePnYh5oywjp9-5IDYv/_ssgManifest.js\" defer=\"\"></script></head><body><div id=\"__next\"></div><script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{}},\"page\":\"/\",\"query\":{},\"buildId\":\"6F_ePnYh5oywjp9-5IDYv\",\"nextExport\":true,\"autoExport\":true,\"isFallback\":false,\"scriptLoader\":[]}</script></body></html>",
+      "ip": "172.67.40.181",
+      "timestamp": "2023-11-05T06:14:26.814365375Z",
       "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.1jeune1solution.gouv.fr'",
       "matcher-status": true
     },
@@ -479,10 +474,73 @@
       "host": "https://www.1jeune1solution.gouv.fr",
       "matched-at": "https://www.1jeune1solution.gouv.fr/",
       "request": "POST / HTTP/1.1\r\nHost: www.1jeune1solution.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nContent-Length: 27\r\nContent-Type: application/x-www-form-urlencoded\r\nAccept-Encoding: gzip\r\n\r\n_=<script>alert(1)</script>",
-      "response": "HTTP/1.1 405 Method Not Allowed\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAllow: GET, HEAD\r\nAlt-Svc: h3=\":443\"; ma=86400\r\nCache-Control: no-cache, no-store, max-age=0, must-revalidate\r\nCf-Cache-Status: DYNAMIC\r\nCf-Ray: 81d954974aee7d62-LAX\r\nContent-Security-Policy: default-src 'self' *.fabrique.social.gouv.fr *.meilisearch.io/multi-search 1j1s-front.osc-fr1.scalingo.io *.1jeune1solution.gouv.fr; script-src 'self' yssn.1jeune1solution.gouv.fr https://*.adform.net; img-src 'self' *.google.com data: cos-njord-dgefp-1j1s-prod.storage-eb4.cegedim.cloud yssn.1jeune1solution.gouv.fr img.youtube.com jedonnemonavis.numerique.gouv.fr; style-src 'self' 'unsafe-inline' yssn.1jeune1solution.gouv.fr; frame-ancestors 'none'; frame-src 'self' *.apprentissage.beta.gouv.fr immersion-facile.beta.gouv.fr deposer-offre.www.1jeune1solution.gouv.fr *.youtube-nocookie.com simulateur-alternance.1jeune1solution.gouv.fr https://*.adform.net; form-action 'self'; base-uri 'none';\r\nContent-Type: text/html; charset=utf-8\r\nDate: Sun, 29 Oct 2023 06:23:33 GMT\r\nReferrer-Policy: no-referrer, strict-origin-when-cross-origin\r\nServer: cloudflare\r\nStrict-Transport-Security: max-age=31536000\r\nStrict-Transport-Security: max-age=63072000; includeSubDomains; preload\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Dns-Prefetch-Control: on\r\nX-Request-Id: f1b77f5b-301c-40ee-a4db-bff9d97c9d0b\r\n\r\n<!DOCTYPE html><html lang=\"fr\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, height=device-height, initial-scale=1, viewport-fit=cover, minimum-scale=1.0\"/><meta name=\"description\" content=\"Toutes les solutions pour l‘avenir des jeunes\"/><meta name=\"next-head-count\" content=\"3\"/><meta name=\"author\" content=\"1jeune1solution\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"57x57\" href=\"/favicons/apple-touch-icon-57x57.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"114x114\" href=\"/favicons/apple-touch-icon-114x114.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"72x72\" href=\"/favicons/apple-touch-icon-72x72.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"144x144\" href=\"/favicons/apple-touch-icon-144x144.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"60x60\" href=\"/favicons/apple-touch-icon-60x60.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"120x120\" href=\"/favicons/apple-touch-icon-120x120.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"76x76\" href=\"/favicons/apple-touch-icon-76x76.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"152x152\" href=\"/favicons/apple-touch-icon-152x152.png\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-196x196.png\" sizes=\"196x196\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-96x96.png\" sizes=\"96x96\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-32x32.png\" sizes=\"32x32\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-16x16.png\" sizes=\"16x16\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-128x128.png\" sizes=\"128x128\"/><meta name=\"application-name\" content=\"1jeune1solution\"/><meta name=\"msapplication-TileColor\" content=\"#FFFFFF\"/><meta name=\"msapplication-TileImage\" content=\"/favicons/mstile-144x144.png\"/><meta name=\"msapplication-square70x70logo\" content=\"/favicons/mstile-70x70.png\"/><meta name=\"msapplication-square150x150logo\" content=\"/favicons/mstile-150x150.png\"/><meta name=\"msapplication-wide310x150logo\" content=\"/favicons/mstile-310x150.png\"/><meta name=\"msapplication-square310x310logo\" content=\"/favicons/mstile-310x310.png\"/><link rel=\"preload\" href=\"/_next/static/css/48eef73ea08f7ac8.css\" as=\"style\"/><link rel=\"stylesheet\" href=\"/_next/static/css/48eef73ea08f7ac8.css\" data-n-g=\"\"/><noscript data-n-css=\"\"></noscript><script defer=\"\" nomodule=\"\" src=\"/_next/static/chunks/polyfills-78c92fac7aa8fdd8.js\"></script><script src=\"/scripts/tarteaucitron.js?v=3.173.0\" defer=\"\" data-nscript=\"beforeInteractive\"></script><script id=\"eulerianAnalytics\" src=\"/scripts/eulerian.yssn.1jeune1solution.gouv.fr.js\" defer=\"\" data-nscript=\"beforeInteractive\"></script><script src=\"/_next/static/chunks/webpack-784575a5d37986bc.js\" defer=\"\"></script><script src=\"/_next/static/chunks/framework-2645a99191cfc5e9.js\" defer=\"\"></script><script src=\"/_next/static/chunks/main-f9d1ff5de2ae4299.js\" defer=\"\"></script><script src=\"/_next/static/chunks/pages/_app-4afcb64d721f23b7.js\" defer=\"\"></script><script src=\"/_next/static/chunks/pages/_error-240c82c23359c46a.js\" defer=\"\"></script><script src=\"/_next/static/6F_ePnYh5oywjp9-5IDYv/_buildManifest.js\" defer=\"\"></script><script src=\"/_next/static/6F_ePnYh5oywjp9-5IDYv/_ssgManifest.js\" defer=\"\"></script></head><body><div id=\"__next\"></div><script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{\"statusCode\":405,\"hasGetInitialPropsRun\":true,\"_sentryTraceData\":\"c2d454b5ef8f4aef81bdbdb328a4c337-ade749e14d8aec1b-0\",\"_sentryBaggage\":\"sentry-environment=production,sentry-release=1j1s-front%403.173.0-server,sentry-public_key=b7bef1f25b5e4d8da63787bfbc3e336a,sentry-trace_id=c2d454b5ef8f4aef81bdbdb328a4c337,sentry-sample_rate=0.02,sentry-transaction=%2F_error,sentry-sampled=false\"}},\"page\":\"/_error\",\"query\":{},\"buildId\":\"6F_ePnYh5oywjp9-5IDYv\",\"isFallback\":false,\"gip\":true,\"scriptLoader\":[]}</script></body></html>",
+      "response": "HTTP/1.1 405 Method Not Allowed\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAllow: GET, HEAD\r\nAlt-Svc: h3=\":443\"; ma=86400\r\nCache-Control: no-cache, no-store, max-age=0, must-revalidate\r\nCf-Cache-Status: DYNAMIC\r\nCf-Ray: 8212f5386a0b6fda-IAD\r\nContent-Security-Policy: default-src 'self' *.fabrique.social.gouv.fr *.meilisearch.io/multi-search 1j1s-front.osc-fr1.scalingo.io *.1jeune1solution.gouv.fr; script-src 'self' yssn.1jeune1solution.gouv.fr https://*.adform.net; img-src 'self' *.google.com data: cos-njord-dgefp-1j1s-prod.storage-eb4.cegedim.cloud yssn.1jeune1solution.gouv.fr img.youtube.com jedonnemonavis.numerique.gouv.fr; style-src 'self' 'unsafe-inline' yssn.1jeune1solution.gouv.fr; frame-ancestors 'none'; frame-src 'self' *.apprentissage.beta.gouv.fr immersion-facile.beta.gouv.fr deposer-offre.www.1jeune1solution.gouv.fr *.youtube-nocookie.com simulateur-alternance.1jeune1solution.gouv.fr https://*.adform.net; form-action 'self'; base-uri 'none';\r\nContent-Type: text/html; charset=utf-8\r\nDate: Sun, 05 Nov 2023 06:14:40 GMT\r\nReferrer-Policy: no-referrer, strict-origin-when-cross-origin\r\nServer: cloudflare\r\nStrict-Transport-Security: max-age=31536000\r\nStrict-Transport-Security: max-age=63072000; includeSubDomains; preload\r\nVary: Accept-Encoding\r\nX-Content-Type-Options: nosniff\r\nX-Dns-Prefetch-Control: on\r\nX-Request-Id: c1cbd7ac-d747-41ee-af26-8191636d358c\r\n\r\n<!DOCTYPE html><html lang=\"fr\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, height=device-height, initial-scale=1, viewport-fit=cover, minimum-scale=1.0\"/><meta name=\"description\" content=\"Toutes les solutions pour l‘avenir des jeunes\"/><meta name=\"next-head-count\" content=\"3\"/><meta name=\"author\" content=\"1jeune1solution\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"57x57\" href=\"/favicons/apple-touch-icon-57x57.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"114x114\" href=\"/favicons/apple-touch-icon-114x114.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"72x72\" href=\"/favicons/apple-touch-icon-72x72.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"144x144\" href=\"/favicons/apple-touch-icon-144x144.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"60x60\" href=\"/favicons/apple-touch-icon-60x60.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"120x120\" href=\"/favicons/apple-touch-icon-120x120.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"76x76\" href=\"/favicons/apple-touch-icon-76x76.png\"/><link rel=\"apple-touch-icon-precomposed\" sizes=\"152x152\" href=\"/favicons/apple-touch-icon-152x152.png\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-196x196.png\" sizes=\"196x196\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-96x96.png\" sizes=\"96x96\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-32x32.png\" sizes=\"32x32\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-16x16.png\" sizes=\"16x16\"/><link rel=\"icon\" type=\"image/png\" href=\"/favicons/favicon-128x128.png\" sizes=\"128x128\"/><meta name=\"application-name\" content=\"1jeune1solution\"/><meta name=\"msapplication-TileColor\" content=\"#FFFFFF\"/><meta name=\"msapplication-TileImage\" content=\"/favicons/mstile-144x144.png\"/><meta name=\"msapplication-square70x70logo\" content=\"/favicons/mstile-70x70.png\"/><meta name=\"msapplication-square150x150logo\" content=\"/favicons/mstile-150x150.png\"/><meta name=\"msapplication-wide310x150logo\" content=\"/favicons/mstile-310x150.png\"/><meta name=\"msapplication-square310x310logo\" content=\"/favicons/mstile-310x310.png\"/><link rel=\"preload\" href=\"/_next/static/css/48eef73ea08f7ac8.css\" as=\"style\"/><link rel=\"stylesheet\" href=\"/_next/static/css/48eef73ea08f7ac8.css\" data-n-g=\"\"/><noscript data-n-css=\"\"></noscript><script defer=\"\" nomodule=\"\" src=\"/_next/static/chunks/polyfills-78c92fac7aa8fdd8.js\"></script><script src=\"/scripts/tarteaucitron.js?v=3.173.0\" defer=\"\" data-nscript=\"beforeInteractive\"></script><script id=\"eulerianAnalytics\" src=\"/scripts/eulerian.yssn.1jeune1solution.gouv.fr.js\" defer=\"\" data-nscript=\"beforeInteractive\"></script><script src=\"/_next/static/chunks/webpack-784575a5d37986bc.js\" defer=\"\"></script><script src=\"/_next/static/chunks/framework-2645a99191cfc5e9.js\" defer=\"\"></script><script src=\"/_next/static/chunks/main-f9d1ff5de2ae4299.js\" defer=\"\"></script><script src=\"/_next/static/chunks/pages/_app-4afcb64d721f23b7.js\" defer=\"\"></script><script src=\"/_next/static/chunks/pages/_error-240c82c23359c46a.js\" defer=\"\"></script><script src=\"/_next/static/6F_ePnYh5oywjp9-5IDYv/_buildManifest.js\" defer=\"\"></script><script src=\"/_next/static/6F_ePnYh5oywjp9-5IDYv/_ssgManifest.js\" defer=\"\"></script></head><body><div id=\"__next\"></div><script id=\"__NEXT_DATA__\" type=\"application/json\">{\"props\":{\"pageProps\":{\"statusCode\":405,\"hasGetInitialPropsRun\":true,\"_sentryTraceData\":\"04b23988549640db94f614656cffd25c-aa51a85efcbd8d07-0\",\"_sentryBaggage\":\"sentry-environment=production,sentry-release=1j1s-front%403.173.0-server,sentry-public_key=b7bef1f25b5e4d8da63787bfbc3e336a,sentry-trace_id=04b23988549640db94f614656cffd25c,sentry-sample_rate=0.02,sentry-transaction=%2F_error,sentry-sampled=false\"}},\"page\":\"/_error\",\"query\":{},\"buildId\":\"6F_ePnYh5oywjp9-5IDYv\",\"isFallback\":false,\"gip\":true,\"scriptLoader\":[]}</script></body></html>",
       "ip": "172.67.40.181",
-      "timestamp": "2023-10-29T06:23:33.253064393Z",
+      "timestamp": "2023-11-05T06:14:40.8729864Z",
       "curl-command": "curl -X 'POST' -d '_=<script>alert(1)</script>' -H 'Content-Type: application/x-www-form-urlencoded' -H 'Host: www.1jeune1solution.gouv.fr' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.1jeune1solution.gouv.fr/'",
+      "matcher-status": true
+    },
+    {
+      "template": "ssl/detect-ssl-issuer.yaml",
+      "template-url": "https://templates.nuclei.sh/public/ssl-issuer",
+      "template-id": "ssl-issuer",
+      "template-path": "/home/runner/nuclei-templates/ssl/detect-ssl-issuer.yaml",
+      "info": {
+        "name": "Detect SSL Certificate Issuer",
+        "author": [
+          "lingtren"
+        ],
+        "tags": [
+          "ssl"
+        ],
+        "description": "Extract the issuer's organization from the target's certificate. Issuers are entities which sign and distribute certificates.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "type": "ssl",
+      "host": "www.1jeune1solution.gouv.fr",
+      "matched-at": "www.1jeune1solution.gouv.fr:443",
+      "extracted-results": [
+        "DHIMYOTIS"
+      ],
+      "ip": "172.67.40.181",
+      "timestamp": "2023-11-05T06:18:22.579758471Z",
+      "matcher-status": true
+    },
+    {
+      "template": "ssl/ssl-dns-names.yaml",
+      "template-url": "https://templates.nuclei.sh/public/ssl-dns-names",
+      "template-id": "ssl-dns-names",
+      "template-path": "/home/runner/nuclei-templates/ssl/ssl-dns-names.yaml",
+      "info": {
+        "name": "SSL DNS Names",
+        "author": [
+          "pdteam"
+        ],
+        "tags": [
+          "ssl"
+        ],
+        "description": "Extract the Subject Alternative Name (SAN) from the target's certificate. SAN facilitates the usage of additional hostnames with the same certificate.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "type": "ssl",
+      "host": "www.1jeune1solution.gouv.fr",
+      "matched-at": "www.1jeune1solution.gouv.fr:443",
+      "extracted-results": [
+        "recette.1jeune1solution.gouv.fr",
+        "sms.1jeune1solution.gouv.fr",
+        "edito.1jeune1solution.gouv.fr",
+        "stage.1jeune1solution.gouv.fr",
+        "www.1jeune1solution.gouv.fr",
+        "1jeune1solution.gouv.fr"
+      ],
+      "ip": "172.67.40.181",
+      "timestamp": "2023-11-05T06:18:22.579883171Z",
       "matcher-status": true
     },
     {
@@ -517,70 +575,7 @@
         "tls11"
       ],
       "ip": "172.67.40.181",
-      "timestamp": "2023-10-29T06:27:01.115131979Z",
-      "matcher-status": true
-    },
-    {
-      "template": "ssl/detect-ssl-issuer.yaml",
-      "template-url": "https://templates.nuclei.sh/public/ssl-issuer",
-      "template-id": "ssl-issuer",
-      "template-path": "/home/runner/nuclei-templates/ssl/detect-ssl-issuer.yaml",
-      "info": {
-        "name": "Detect SSL Certificate Issuer",
-        "author": [
-          "lingtren"
-        ],
-        "tags": [
-          "ssl"
-        ],
-        "description": "Extract the issuer's organization from the target's certificate. Issuers are entities which sign and distribute certificates.\n",
-        "severity": "info",
-        "metadata": {
-          "max-request": 1
-        }
-      },
-      "type": "ssl",
-      "host": "www.1jeune1solution.gouv.fr",
-      "matched-at": "www.1jeune1solution.gouv.fr:443",
-      "extracted-results": [
-        "DHIMYOTIS"
-      ],
-      "ip": "172.67.40.181",
-      "timestamp": "2023-10-29T06:27:01.201675081Z",
-      "matcher-status": true
-    },
-    {
-      "template": "ssl/ssl-dns-names.yaml",
-      "template-url": "https://templates.nuclei.sh/public/ssl-dns-names",
-      "template-id": "ssl-dns-names",
-      "template-path": "/home/runner/nuclei-templates/ssl/ssl-dns-names.yaml",
-      "info": {
-        "name": "SSL DNS Names",
-        "author": [
-          "pdteam"
-        ],
-        "tags": [
-          "ssl"
-        ],
-        "description": "Extract the Subject Alternative Name (SAN) from the target's certificate. SAN facilitates the usage of additional hostnames with the same certificate.\n",
-        "severity": "info",
-        "metadata": {
-          "max-request": 1
-        }
-      },
-      "type": "ssl",
-      "host": "www.1jeune1solution.gouv.fr",
-      "matched-at": "www.1jeune1solution.gouv.fr:443",
-      "extracted-results": [
-        "sms.1jeune1solution.gouv.fr",
-        "edito.1jeune1solution.gouv.fr",
-        "stage.1jeune1solution.gouv.fr",
-        "www.1jeune1solution.gouv.fr",
-        "1jeune1solution.gouv.fr",
-        "recette.1jeune1solution.gouv.fr"
-      ],
-      "ip": "172.67.40.181",
-      "timestamp": "2023-10-29T06:27:01.20189268Z",
+      "timestamp": "2023-11-05T06:18:23.432473155Z",
       "matcher-status": true
     },
     {
@@ -610,67 +605,7 @@
         "tls11"
       ],
       "ip": "172.67.40.181",
-      "timestamp": "2023-10-29T06:27:02.396550769Z",
-      "matcher-status": true
-    },
-    {
-      "template": "ssl/tls-version.yaml",
-      "template-url": "https://templates.nuclei.sh/public/tls-version",
-      "template-id": "tls-version",
-      "template-path": "/home/runner/nuclei-templates/ssl/tls-version.yaml",
-      "info": {
-        "name": "TLS Version - Detect",
-        "author": [
-          "pdteam",
-          "pussycat0x"
-        ],
-        "tags": [
-          "ssl"
-        ],
-        "description": "TLS version detection is a security process used to determine the version of the Transport Layer Security (TLS) protocol used by a computer or server.\nIt is important to detect the TLS version in order to ensure secure communication between two computers or servers.\n",
-        "severity": "info",
-        "metadata": {
-          "max-request": 4
-        }
-      },
-      "type": "ssl",
-      "host": "www.1jeune1solution.gouv.fr",
-      "matched-at": "www.1jeune1solution.gouv.fr:443",
-      "extracted-results": [
-        "tls12"
-      ],
-      "ip": "172.67.40.181",
-      "timestamp": "2023-10-29T06:27:03.507620946Z",
-      "matcher-status": true
-    },
-    {
-      "template": "ssl/tls-version.yaml",
-      "template-url": "https://templates.nuclei.sh/public/tls-version",
-      "template-id": "tls-version",
-      "template-path": "/home/runner/nuclei-templates/ssl/tls-version.yaml",
-      "info": {
-        "name": "TLS Version - Detect",
-        "author": [
-          "pdteam",
-          "pussycat0x"
-        ],
-        "tags": [
-          "ssl"
-        ],
-        "description": "TLS version detection is a security process used to determine the version of the Transport Layer Security (TLS) protocol used by a computer or server.\nIt is important to detect the TLS version in order to ensure secure communication between two computers or servers.\n",
-        "severity": "info",
-        "metadata": {
-          "max-request": 4
-        }
-      },
-      "type": "ssl",
-      "host": "www.1jeune1solution.gouv.fr",
-      "matched-at": "www.1jeune1solution.gouv.fr:443",
-      "extracted-results": [
-        "tls13"
-      ],
-      "ip": "172.67.40.181",
-      "timestamp": "2023-10-29T06:27:04.606324265Z",
+      "timestamp": "2023-11-05T06:18:26.555375211Z",
       "matcher-status": true
     },
     {
@@ -706,7 +641,67 @@
         "[tls11 TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA]"
       ],
       "ip": "172.67.40.181",
-      "timestamp": "2023-10-29T06:27:05.746203842Z",
+      "timestamp": "2023-11-05T06:18:26.842095596Z",
+      "matcher-status": true
+    },
+    {
+      "template": "ssl/tls-version.yaml",
+      "template-url": "https://templates.nuclei.sh/public/tls-version",
+      "template-id": "tls-version",
+      "template-path": "/home/runner/nuclei-templates/ssl/tls-version.yaml",
+      "info": {
+        "name": "TLS Version - Detect",
+        "author": [
+          "pdteam",
+          "pussycat0x"
+        ],
+        "tags": [
+          "ssl"
+        ],
+        "description": "TLS version detection is a security process used to determine the version of the Transport Layer Security (TLS) protocol used by a computer or server.\nIt is important to detect the TLS version in order to ensure secure communication between two computers or servers.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 4
+        }
+      },
+      "type": "ssl",
+      "host": "www.1jeune1solution.gouv.fr",
+      "matched-at": "www.1jeune1solution.gouv.fr:443",
+      "extracted-results": [
+        "tls12"
+      ],
+      "ip": "172.67.40.181",
+      "timestamp": "2023-11-05T06:18:27.301663408Z",
+      "matcher-status": true
+    },
+    {
+      "template": "ssl/tls-version.yaml",
+      "template-url": "https://templates.nuclei.sh/public/tls-version",
+      "template-id": "tls-version",
+      "template-path": "/home/runner/nuclei-templates/ssl/tls-version.yaml",
+      "info": {
+        "name": "TLS Version - Detect",
+        "author": [
+          "pdteam",
+          "pussycat0x"
+        ],
+        "tags": [
+          "ssl"
+        ],
+        "description": "TLS version detection is a security process used to determine the version of the Transport Layer Security (TLS) protocol used by a computer or server.\nIt is important to detect the TLS version in order to ensure secure communication between two computers or servers.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 4
+        }
+      },
+      "type": "ssl",
+      "host": "www.1jeune1solution.gouv.fr",
+      "matched-at": "www.1jeune1solution.gouv.fr:443",
+      "extracted-results": [
+        "tls13"
+      ],
+      "ip": "172.67.40.181",
+      "timestamp": "2023-11-05T06:18:28.048501604Z",
       "matcher-status": true
     }
   ]
