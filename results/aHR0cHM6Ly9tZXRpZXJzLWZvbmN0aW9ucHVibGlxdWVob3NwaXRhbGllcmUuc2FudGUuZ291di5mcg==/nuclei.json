@@ -1,6 +1,43 @@
 [
   [
     {
+      "template": "dns/caa-fingerprint.yaml",
+      "template-url": "https://templates.nuclei.sh/public/caa-fingerprint",
+      "template-id": "caa-fingerprint",
+      "template-path": "/home/runner/nuclei-templates/dns/caa-fingerprint.yaml",
+      "info": {
+        "name": "CAA Record",
+        "author": [
+          "pdteam"
+        ],
+        "tags": [
+          "dns",
+          "caa"
+        ],
+        "description": "A CAA record was discovered. A CAA record is used to specify which certificate authorities (CAs) are allowed to issue certificates for a domain.",
+        "reference": [
+          "https://support.dnsimple.com/articles/caa-record/#whats-a-caa-record"
+        ],
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        },
+        "classification": {
+          "cve-id": null,
+          "cwe-id": [
+            "cwe-200"
+          ]
+        }
+      },
+      "type": "dns",
+      "host": "metiers-fonctionpubliquehospitaliere.sante.gouv.fr.",
+      "matched-at": "metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
+      "request": ";; opcode: QUERY, status: NOERROR, id: 58534\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;metiers-fonctionpubliquehospitaliere.sante.gouv.fr.\tIN\t CAA\n",
+      "response": ";; opcode: QUERY, status: NOERROR, id: 58534\n;; flags: qr rd ra; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 512\n\n;; QUESTION SECTION:\n;metiers-fonctionpubliquehospitaliere.sante.gouv.fr.\tIN\t CAA\n\n;; AUTHORITY SECTION:\nsante.gouv.fr.\t1200\tIN\tSOA\ta.ns.developpement-durable.gouv.fr. dnsmaster.sante.gouv.fr. 2023101300 14400 1800 2592000 1200\n",
+      "timestamp": "2023-11-05T04:10:54.29342769Z",
+      "matcher-status": true
+    },
+    {
       "template": "http/technologies/waf-detect.yaml",
       "template-url": "https://templates.nuclei.sh/public/waf-detect",
       "template-id": "waf-detect",
@@ -38,7 +75,7 @@
       "request": "POST / HTTP/1.1\r\nHost: metiers-fonctionpubliquehospitaliere.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nContent-Length: 27\r\nContent-Type: application/x-www-form-urlencoded\r\nAccept-Encoding: gzip\r\n\r\n_=<script>alert(1)</script>",
       "response": "HTTP/1.0 301 Moved Permanently\r\nContent-Length: 0\r\nConnection: close\r\nLocation: https://sante.gouv.fr/metiers-et-concours/les-metiers-de-la-sante/le-repertoire-des-metiers-de-la-sante-et-de-l-autonomie-fonction-publique\r\nServer: BigIP\r\n\r\n",
       "ip": "185.194.82.144",
-      "timestamp": "2023-10-29T04:12:20.026053325Z",
+      "timestamp": "2023-11-05T04:12:24.521255793Z",
       "curl-command": "curl -X 'POST' -d '_=<script>alert(1)</script>' -H 'Content-Type: application/x-www-form-urlencoded' -H 'Host: metiers-fonctionpubliquehospitaliere.sante.gouv.fr' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr/'",
       "matcher-status": true
     },
@@ -68,7 +105,7 @@
         "DHIMYOTIS"
       ],
       "ip": "185.194.82.144",
-      "timestamp": "2023-10-29T04:15:19.57455298Z",
+      "timestamp": "2023-11-05T04:15:40.843738401Z",
       "matcher-status": true
     },
     {
@@ -94,11 +131,11 @@
       "host": "metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
       "matched-at": "metiers-fonctionpubliquehospitaliere.sante.gouv.fr:443",
       "extracted-results": [
-        "metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
-        "www.metiers-fonctionpubliquehospitaliere.sante.gouv.fr"
+        "www.metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
+        "metiers-fonctionpubliquehospitaliere.sante.gouv.fr"
       ],
       "ip": "185.194.82.144",
-      "timestamp": "2023-10-29T04:15:19.574704783Z",
+      "timestamp": "2023-11-05T04:15:40.843870727Z",
       "matcher-status": true
     },
     {
@@ -128,7 +165,7 @@
         "tls12"
       ],
       "ip": "185.194.82.144",
-      "timestamp": "2023-10-29T04:15:20.196373524Z",
+      "timestamp": "2023-11-05T04:15:40.943635014Z",
       "matcher-status": true
     }
   ]
