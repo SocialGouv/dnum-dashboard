@@ -1,6 +1,43 @@
 [
   [
     {
+      "template": "dns/caa-fingerprint.yaml",
+      "template-url": "https://templates.nuclei.sh/public/caa-fingerprint",
+      "template-id": "caa-fingerprint",
+      "template-path": "/home/runner/nuclei-templates/dns/caa-fingerprint.yaml",
+      "info": {
+        "name": "CAA Record",
+        "author": [
+          "pdteam"
+        ],
+        "tags": [
+          "dns",
+          "caa"
+        ],
+        "description": "A CAA record was discovered. A CAA record is used to specify which certificate authorities (CAs) are allowed to issue certificates for a domain.",
+        "reference": [
+          "https://support.dnsimple.com/articles/caa-record/#whats-a-caa-record"
+        ],
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        },
+        "classification": {
+          "cve-id": null,
+          "cwe-id": [
+            "cwe-200"
+          ]
+        }
+      },
+      "type": "dns",
+      "host": "siicea.ars.sante.fr.",
+      "matched-at": "siicea.ars.sante.fr",
+      "request": ";; opcode: QUERY, status: NOERROR, id: 45187\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;siicea.ars.sante.fr.\tIN\t CAA\n",
+      "response": ";; opcode: QUERY, status: NOERROR, id: 45187\n;; flags: qr rd ra; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 512\n\n;; QUESTION SECTION:\n;siicea.ars.sante.fr.\tIN\t CAA\n\n;; AUTHORITY SECTION:\nsante.fr.\t1200\tIN\tSOA\ta.ns.developpement-durable.gouv.fr. dnsmaster.sante.gouv.fr. 2023103100 14400 1800 2592000 1200\n",
+      "timestamp": "2023-11-05T05:26:16.467826701Z",
+      "matcher-status": true
+    },
+    {
       "template": "http/technologies/tech-detect.yaml",
       "template-url": "https://templates.nuclei.sh/public/tech-detect",
       "template-id": "tech-detect",
@@ -23,204 +60,9 @@
       "host": "https://siicea.ars.sante.fr/si-ice/",
       "matched-at": "https://siicea.ars.sante.fr/si-ice/",
       "request": "GET /si-ice/ HTTP/1.1\r\nHost: siicea.ars.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.1 403 Forbidden\r\nConnection: close\r\nContent-Length: 2592\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 29 Oct 2023 05:28:04 GMT\r\nLast-Modified: Fri, 03 Feb 2023 09:20:47 GMT\r\nSet-Cookie: SIICEA_COOKIE=e919dee933865f0cfe56d6e4983c15c3; path=/; secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Forwarded-Proto: https\r\n\r\n<!DOCTYPE html>\r\n<html lang=\"fr\">\r\n<head>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n  <title>Projet national d'outillage des missions IC</title>\r\n  <base href=\"/\">\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n  <!--<link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">-->\r\n  <script src=\"/login/ARSWEBAPP/jquery.min.js\"></script>\r\n  <link rel=\"stylesheet\" href=\"/login/ARSWEBAPP/bootstrap.css\">\r\n  <link rel=\"stylesheet\" href=\"/login/ARSWEBAPP/style.css\">\r\n  </head>\r\n<body>\r\n<div class=\"container\">\r\n  <nav class=\"navbar navbar-default\" role=\"navigation\">\r\n      <div class=\"container\" style=\"\">\r\n        \r\n        <div class=\"navbar-header\">\r\n          <button class=\"navbar-toggle\" data-target=\"#bs-example-navbar-collapse-1\" data-toggle=\"collapse\" type=\"button\">\r\n            <span class=\"sr-only\">Toggle navigation</span>\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n          </button>\r\n          <div class=\"navbar-left\">\r\n\t\t\t<img height=\"80px;\" src=\"/login/ARSWEBAPP/favicon.ico\">\r\n\t\t  </div>\r\n        </div>\r\n  \r\n        <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\" style=\"margin-right: 25px;\">\r\n          <ul class=\"nav navbar-nav navbar-right\">\r\n\t\t\t<li><b style=\"color: #002060;font-size: 5rem;\">SIICEA</b></li>\r\n\t\t  </ul>\r\n        </div>\r\n      </div>\r\n    </nav>\r\n    \r\n\r\n\r\n<div class=\"col-md-6 col-md-offset-3\">\r\n  <h2>Veuillez introduire vos codes de connexion</h2 align=center>\r\n  <p><br/>\r\n  \r\n<FORM METHOD=\"POST\" ACTION=\"\">\r\n<div class=\"form-group\">\r\n  <strong>Nom utilisateur :</strong>  <input type=\"text\" name=\"username\" size=\"10\" class=\"form-control\"> </div>\r\n  <div class=\"form-group\">\r\n  <strong>Mot de passe :</strong>  <input type=\"password\" name=\"password\" size=\"10\" class=\"form-control\" autocomplete=\"off\"><p/>\r\n  </div>\r\n  <!--\r\n  <div class=\"form-group\"><strong>Role :</strong> \r\n  <select name=\"role\" class=\"form-control\">\r\n  <option value=\"IC\" selected>Mission IC ARS</option> \r\n  <option value=\"AGENT\" >Agent</option>\r\n  <option value=\"NATIONAL\">Niveau national</option>\r\n</select> \r\n</div> -->\r\n\r\n<div class=\"form-group\" align=right>\r\n<a href=\"/si-ice/?/public/#/motdepasse/change_PWD\">Mot de passe oubli&eacute;</a>\r\n<br/>\r\n   <input type=\"submit\" value=\"Se connecter\" class=\"btn btn-primary\" >\r\n   </div>\r\n</FORM>\r\n\r\n</div>\r\n\r\n\r\n<footer id=\"myFooter\"> \r\n  <div class=\"footer-copyright col-md-12\">\r\n      <p>© 2023 Copyright ARS </p>\r\n  </div>\r\n</footer>\r\n</div>\r\n</body>\r\n</HTML>\r\n",
+      "response": "HTTP/1.1 403 Forbidden\r\nConnection: close\r\nContent-Length: 2592\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 05 Nov 2023 05:27:27 GMT\r\nLast-Modified: Fri, 03 Feb 2023 09:20:47 GMT\r\nSet-Cookie: SIICEA_COOKIE=93519ce344310f372401b1e8cd60aa54; path=/; secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Forwarded-Proto: https\r\n\r\n<!DOCTYPE html>\r\n<html lang=\"fr\">\r\n<head>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n  <title>Projet national d'outillage des missions IC</title>\r\n  <base href=\"/\">\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n  <!--<link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">-->\r\n  <script src=\"/login/ARSWEBAPP/jquery.min.js\"></script>\r\n  <link rel=\"stylesheet\" href=\"/login/ARSWEBAPP/bootstrap.css\">\r\n  <link rel=\"stylesheet\" href=\"/login/ARSWEBAPP/style.css\">\r\n  </head>\r\n<body>\r\n<div class=\"container\">\r\n  <nav class=\"navbar navbar-default\" role=\"navigation\">\r\n      <div class=\"container\" style=\"\">\r\n        \r\n        <div class=\"navbar-header\">\r\n          <button class=\"navbar-toggle\" data-target=\"#bs-example-navbar-collapse-1\" data-toggle=\"collapse\" type=\"button\">\r\n            <span class=\"sr-only\">Toggle navigation</span>\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n          </button>\r\n          <div class=\"navbar-left\">\r\n\t\t\t<img height=\"80px;\" src=\"/login/ARSWEBAPP/favicon.ico\">\r\n\t\t  </div>\r\n        </div>\r\n  \r\n        <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\" style=\"margin-right: 25px;\">\r\n          <ul class=\"nav navbar-nav navbar-right\">\r\n\t\t\t<li><b style=\"color: #002060;font-size: 5rem;\">SIICEA</b></li>\r\n\t\t  </ul>\r\n        </div>\r\n      </div>\r\n    </nav>\r\n    \r\n\r\n\r\n<div class=\"col-md-6 col-md-offset-3\">\r\n  <h2>Veuillez introduire vos codes de connexion</h2 align=center>\r\n  <p><br/>\r\n  \r\n<FORM METHOD=\"POST\" ACTION=\"\">\r\n<div class=\"form-group\">\r\n  <strong>Nom utilisateur :</strong>  <input type=\"text\" name=\"username\" size=\"10\" class=\"form-control\"> </div>\r\n  <div class=\"form-group\">\r\n  <strong>Mot de passe :</strong>  <input type=\"password\" name=\"password\" size=\"10\" class=\"form-control\" autocomplete=\"off\"><p/>\r\n  </div>\r\n  <!--\r\n  <div class=\"form-group\"><strong>Role :</strong> \r\n  <select name=\"role\" class=\"form-control\">\r\n  <option value=\"IC\" selected>Mission IC ARS</option> \r\n  <option value=\"AGENT\" >Agent</option>\r\n  <option value=\"NATIONAL\">Niveau national</option>\r\n</select> \r\n</div> -->\r\n\r\n<div class=\"form-group\" align=right>\r\n<a href=\"/si-ice/?/public/#/motdepasse/change_PWD\">Mot de passe oubli&eacute;</a>\r\n<br/>\r\n   <input type=\"submit\" value=\"Se connecter\" class=\"btn btn-primary\" >\r\n   </div>\r\n</FORM>\r\n\r\n</div>\r\n\r\n\r\n<footer id=\"myFooter\"> \r\n  <div class=\"footer-copyright col-md-12\">\r\n      <p>© 2023 Copyright ARS </p>\r\n  </div>\r\n</footer>\r\n</div>\r\n</body>\r\n</HTML>\r\n",
       "ip": "185.194.82.62",
-      "timestamp": "2023-10-29T05:28:04.47260927Z",
-      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://siicea.ars.sante.fr/si-ice/'",
-      "matcher-status": true
-    },
-    {
-      "template": "http/misconfiguration/http-missing-security-headers.yaml",
-      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
-      "template-id": "http-missing-security-headers",
-      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
-      "info": {
-        "name": "HTTP Missing Security Headers",
-        "author": [
-          "socketz",
-          "geeknik",
-          "g4l1t0",
-          "convisoappsec",
-          "kurohost",
-          "dawid-czarnecki",
-          "forgedhallpass",
-          "jub0bs"
-        ],
-        "tags": [
-          "misconfig",
-          "headers",
-          "generic"
-        ],
-        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-        "severity": "info",
-        "metadata": {
-          "max-request": 1
-        }
-      },
-      "matcher-name": "x-frame-options",
-      "type": "http",
-      "host": "https://siicea.ars.sante.fr/si-ice/",
-      "matched-at": "https://siicea.ars.sante.fr/si-ice/",
-      "request": "GET /si-ice/ HTTP/1.1\r\nHost: siicea.ars.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.1 403 Forbidden\r\nConnection: close\r\nContent-Length: 2592\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 29 Oct 2023 05:28:24 GMT\r\nLast-Modified: Fri, 03 Feb 2023 09:20:47 GMT\r\nSet-Cookie: SIICEA_COOKIE=333ba150e135854546d6971b5392fec5; path=/; secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Forwarded-Proto: https\r\n\r\n<!DOCTYPE html>\r\n<html lang=\"fr\">\r\n<head>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n  <title>Projet national d'outillage des missions IC</title>\r\n  <base href=\"/\">\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n  <!--<link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">-->\r\n  <script src=\"/login/ARSWEBAPP/jquery.min.js\"></script>\r\n  <link rel=\"stylesheet\" href=\"/login/ARSWEBAPP/bootstrap.css\">\r\n  <link rel=\"stylesheet\" href=\"/login/ARSWEBAPP/style.css\">\r\n  </head>\r\n<body>\r\n<div class=\"container\">\r\n  <nav class=\"navbar navbar-default\" role=\"navigation\">\r\n      <div class=\"container\" style=\"\">\r\n        \r\n        <div class=\"navbar-header\">\r\n          <button class=\"navbar-toggle\" data-target=\"#bs-example-navbar-collapse-1\" data-toggle=\"collapse\" type=\"button\">\r\n            <span class=\"sr-only\">Toggle navigation</span>\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n          </button>\r\n          <div class=\"navbar-left\">\r\n\t\t\t<img height=\"80px;\" src=\"/login/ARSWEBAPP/favicon.ico\">\r\n\t\t  </div>\r\n        </div>\r\n  \r\n        <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\" style=\"margin-right: 25px;\">\r\n          <ul class=\"nav navbar-nav navbar-right\">\r\n\t\t\t<li><b style=\"color: #002060;font-size: 5rem;\">SIICEA</b></li>\r\n\t\t  </ul>\r\n        </div>\r\n      </div>\r\n    </nav>\r\n    \r\n\r\n\r\n<div class=\"col-md-6 col-md-offset-3\">\r\n  <h2>Veuillez introduire vos codes de connexion</h2 align=center>\r\n  <p><br/>\r\n  \r\n<FORM METHOD=\"POST\" ACTION=\"\">\r\n<div class=\"form-group\">\r\n  <strong>Nom utilisateur :</strong>  <input type=\"text\" name=\"username\" size=\"10\" class=\"form-control\"> </div>\r\n  <div class=\"form-group\">\r\n  <strong>Mot de passe :</strong>  <input type=\"password\" name=\"password\" size=\"10\" class=\"form-control\" autocomplete=\"off\"><p/>\r\n  </div>\r\n  <!--\r\n  <div class=\"form-group\"><strong>Role :</strong> \r\n  <select name=\"role\" class=\"form-control\">\r\n  <option value=\"IC\" selected>Mission IC ARS</option> \r\n  <option value=\"AGENT\" >Agent</option>\r\n  <option value=\"NATIONAL\">Niveau national</option>\r\n</select> \r\n</div> -->\r\n\r\n<div class=\"form-group\" align=right>\r\n<a href=\"/si-ice/?/public/#/motdepasse/change_PWD\">Mot de passe oubli&eacute;</a>\r\n<br/>\r\n   <input type=\"submit\" value=\"Se connecter\" class=\"btn btn-primary\" >\r\n   </div>\r\n</FORM>\r\n\r\n</div>\r\n\r\n\r\n<footer id=\"myFooter\"> \r\n  <div class=\"footer-copyright col-md-12\">\r\n      <p>© 2023 Copyright ARS </p>\r\n  </div>\r\n</footer>\r\n</div>\r\n</body>\r\n</HTML>\r\n",
-      "ip": "185.194.82.62",
-      "timestamp": "2023-10-29T05:28:24.252347188Z",
-      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://siicea.ars.sante.fr/si-ice/'",
-      "matcher-status": true
-    },
-    {
-      "template": "http/misconfiguration/http-missing-security-headers.yaml",
-      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
-      "template-id": "http-missing-security-headers",
-      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
-      "info": {
-        "name": "HTTP Missing Security Headers",
-        "author": [
-          "socketz",
-          "geeknik",
-          "g4l1t0",
-          "convisoappsec",
-          "kurohost",
-          "dawid-czarnecki",
-          "forgedhallpass",
-          "jub0bs"
-        ],
-        "tags": [
-          "misconfig",
-          "headers",
-          "generic"
-        ],
-        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-        "severity": "info",
-        "metadata": {
-          "max-request": 1
-        }
-      },
-      "matcher-name": "x-content-type-options",
-      "type": "http",
-      "host": "https://siicea.ars.sante.fr/si-ice/",
-      "matched-at": "https://siicea.ars.sante.fr/si-ice/",
-      "request": "GET /si-ice/ HTTP/1.1\r\nHost: siicea.ars.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.1 403 Forbidden\r\nConnection: close\r\nContent-Length: 2592\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 29 Oct 2023 05:28:24 GMT\r\nLast-Modified: Fri, 03 Feb 2023 09:20:47 GMT\r\nSet-Cookie: SIICEA_COOKIE=333ba150e135854546d6971b5392fec5; path=/; secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Forwarded-Proto: https\r\n\r\n<!DOCTYPE html>\r\n<html lang=\"fr\">\r\n<head>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n  <title>Projet national d'outillage des missions IC</title>\r\n  <base href=\"/\">\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n  <!--<link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">-->\r\n  <script src=\"/login/ARSWEBAPP/jquery.min.js\"></script>\r\n  <link rel=\"stylesheet\" href=\"/login/ARSWEBAPP/bootstrap.css\">\r\n  <link rel=\"stylesheet\" href=\"/login/ARSWEBAPP/style.css\">\r\n  </head>\r\n<body>\r\n<div class=\"container\">\r\n  <nav class=\"navbar navbar-default\" role=\"navigation\">\r\n      <div class=\"container\" style=\"\">\r\n        \r\n        <div class=\"navbar-header\">\r\n          <button class=\"navbar-toggle\" data-target=\"#bs-example-navbar-collapse-1\" data-toggle=\"collapse\" type=\"button\">\r\n            <span class=\"sr-only\">Toggle navigation</span>\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n          </button>\r\n          <div class=\"navbar-left\">\r\n\t\t\t<img height=\"80px;\" src=\"/login/ARSWEBAPP/favicon.ico\">\r\n\t\t  </div>\r\n        </div>\r\n  \r\n        <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\" style=\"margin-right: 25px;\">\r\n          <ul class=\"nav navbar-nav navbar-right\">\r\n\t\t\t<li><b style=\"color: #002060;font-size: 5rem;\">SIICEA</b></li>\r\n\t\t  </ul>\r\n        </div>\r\n      </div>\r\n    </nav>\r\n    \r\n\r\n\r\n<div class=\"col-md-6 col-md-offset-3\">\r\n  <h2>Veuillez introduire vos codes de connexion</h2 align=center>\r\n  <p><br/>\r\n  \r\n<FORM METHOD=\"POST\" ACTION=\"\">\r\n<div class=\"form-group\">\r\n  <strong>Nom utilisateur :</strong>  <input type=\"text\" name=\"username\" size=\"10\" class=\"form-control\"> </div>\r\n  <div class=\"form-group\">\r\n  <strong>Mot de passe :</strong>  <input type=\"password\" name=\"password\" size=\"10\" class=\"form-control\" autocomplete=\"off\"><p/>\r\n  </div>\r\n  <!--\r\n  <div class=\"form-group\"><strong>Role :</strong> \r\n  <select name=\"role\" class=\"form-control\">\r\n  <option value=\"IC\" selected>Mission IC ARS</option> \r\n  <option value=\"AGENT\" >Agent</option>\r\n  <option value=\"NATIONAL\">Niveau national</option>\r\n</select> \r\n</div> -->\r\n\r\n<div class=\"form-group\" align=right>\r\n<a href=\"/si-ice/?/public/#/motdepasse/change_PWD\">Mot de passe oubli&eacute;</a>\r\n<br/>\r\n   <input type=\"submit\" value=\"Se connecter\" class=\"btn btn-primary\" >\r\n   </div>\r\n</FORM>\r\n\r\n</div>\r\n\r\n\r\n<footer id=\"myFooter\"> \r\n  <div class=\"footer-copyright col-md-12\">\r\n      <p>© 2023 Copyright ARS </p>\r\n  </div>\r\n</footer>\r\n</div>\r\n</body>\r\n</HTML>\r\n",
-      "ip": "185.194.82.62",
-      "timestamp": "2023-10-29T05:28:24.252392388Z",
-      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://siicea.ars.sante.fr/si-ice/'",
-      "matcher-status": true
-    },
-    {
-      "template": "http/misconfiguration/http-missing-security-headers.yaml",
-      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
-      "template-id": "http-missing-security-headers",
-      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
-      "info": {
-        "name": "HTTP Missing Security Headers",
-        "author": [
-          "socketz",
-          "geeknik",
-          "g4l1t0",
-          "convisoappsec",
-          "kurohost",
-          "dawid-czarnecki",
-          "forgedhallpass",
-          "jub0bs"
-        ],
-        "tags": [
-          "misconfig",
-          "headers",
-          "generic"
-        ],
-        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-        "severity": "info",
-        "metadata": {
-          "max-request": 1
-        }
-      },
-      "matcher-name": "x-permitted-cross-domain-policies",
-      "type": "http",
-      "host": "https://siicea.ars.sante.fr/si-ice/",
-      "matched-at": "https://siicea.ars.sante.fr/si-ice/",
-      "request": "GET /si-ice/ HTTP/1.1\r\nHost: siicea.ars.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.1 403 Forbidden\r\nConnection: close\r\nContent-Length: 2592\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 29 Oct 2023 05:28:24 GMT\r\nLast-Modified: Fri, 03 Feb 2023 09:20:47 GMT\r\nSet-Cookie: SIICEA_COOKIE=333ba150e135854546d6971b5392fec5; path=/; secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Forwarded-Proto: https\r\n\r\n<!DOCTYPE html>\r\n<html lang=\"fr\">\r\n<head>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n  <title>Projet national d'outillage des missions IC</title>\r\n  <base href=\"/\">\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n  <!--<link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">-->\r\n  <script src=\"/login/ARSWEBAPP/jquery.min.js\"></script>\r\n  <link rel=\"stylesheet\" href=\"/login/ARSWEBAPP/bootstrap.css\">\r\n  <link rel=\"stylesheet\" href=\"/login/ARSWEBAPP/style.css\">\r\n  </head>\r\n<body>\r\n<div class=\"container\">\r\n  <nav class=\"navbar navbar-default\" role=\"navigation\">\r\n      <div class=\"container\" style=\"\">\r\n        \r\n        <div class=\"navbar-header\">\r\n          <button class=\"navbar-toggle\" data-target=\"#bs-example-navbar-collapse-1\" data-toggle=\"collapse\" type=\"button\">\r\n            <span class=\"sr-only\">Toggle navigation</span>\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n          </button>\r\n          <div class=\"navbar-left\">\r\n\t\t\t<img height=\"80px;\" src=\"/login/ARSWEBAPP/favicon.ico\">\r\n\t\t  </div>\r\n        </div>\r\n  \r\n        <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\" style=\"margin-right: 25px;\">\r\n          <ul class=\"nav navbar-nav navbar-right\">\r\n\t\t\t<li><b style=\"color: #002060;font-size: 5rem;\">SIICEA</b></li>\r\n\t\t  </ul>\r\n        </div>\r\n      </div>\r\n    </nav>\r\n    \r\n\r\n\r\n<div class=\"col-md-6 col-md-offset-3\">\r\n  <h2>Veuillez introduire vos codes de connexion</h2 align=center>\r\n  <p><br/>\r\n  \r\n<FORM METHOD=\"POST\" ACTION=\"\">\r\n<div class=\"form-group\">\r\n  <strong>Nom utilisateur :</strong>  <input type=\"text\" name=\"username\" size=\"10\" class=\"form-control\"> </div>\r\n  <div class=\"form-group\">\r\n  <strong>Mot de passe :</strong>  <input type=\"password\" name=\"password\" size=\"10\" class=\"form-control\" autocomplete=\"off\"><p/>\r\n  </div>\r\n  <!--\r\n  <div class=\"form-group\"><strong>Role :</strong> \r\n  <select name=\"role\" class=\"form-control\">\r\n  <option value=\"IC\" selected>Mission IC ARS</option> \r\n  <option value=\"AGENT\" >Agent</option>\r\n  <option value=\"NATIONAL\">Niveau national</option>\r\n</select> \r\n</div> -->\r\n\r\n<div class=\"form-group\" align=right>\r\n<a href=\"/si-ice/?/public/#/motdepasse/change_PWD\">Mot de passe oubli&eacute;</a>\r\n<br/>\r\n   <input type=\"submit\" value=\"Se connecter\" class=\"btn btn-primary\" >\r\n   </div>\r\n</FORM>\r\n\r\n</div>\r\n\r\n\r\n<footer id=\"myFooter\"> \r\n  <div class=\"footer-copyright col-md-12\">\r\n      <p>© 2023 Copyright ARS </p>\r\n  </div>\r\n</footer>\r\n</div>\r\n</body>\r\n</HTML>\r\n",
-      "ip": "185.194.82.62",
-      "timestamp": "2023-10-29T05:28:24.252405187Z",
-      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://siicea.ars.sante.fr/si-ice/'",
-      "matcher-status": true
-    },
-    {
-      "template": "http/misconfiguration/http-missing-security-headers.yaml",
-      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
-      "template-id": "http-missing-security-headers",
-      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
-      "info": {
-        "name": "HTTP Missing Security Headers",
-        "author": [
-          "socketz",
-          "geeknik",
-          "g4l1t0",
-          "convisoappsec",
-          "kurohost",
-          "dawid-czarnecki",
-          "forgedhallpass",
-          "jub0bs"
-        ],
-        "tags": [
-          "misconfig",
-          "headers",
-          "generic"
-        ],
-        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-        "severity": "info",
-        "metadata": {
-          "max-request": 1
-        }
-      },
-      "matcher-name": "cross-origin-embedder-policy",
-      "type": "http",
-      "host": "https://siicea.ars.sante.fr/si-ice/",
-      "matched-at": "https://siicea.ars.sante.fr/si-ice/",
-      "request": "GET /si-ice/ HTTP/1.1\r\nHost: siicea.ars.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.1 403 Forbidden\r\nConnection: close\r\nContent-Length: 2592\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 29 Oct 2023 05:28:24 GMT\r\nLast-Modified: Fri, 03 Feb 2023 09:20:47 GMT\r\nSet-Cookie: SIICEA_COOKIE=333ba150e135854546d6971b5392fec5; path=/; secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Forwarded-Proto: https\r\n\r\n<!DOCTYPE html>\r\n<html lang=\"fr\">\r\n<head>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n  <title>Projet national d'outillage des missions IC</title>\r\n  <base href=\"/\">\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n  <!--<link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">-->\r\n  <script src=\"/login/ARSWEBAPP/jquery.min.js\"></script>\r\n  <link rel=\"stylesheet\" href=\"/login/ARSWEBAPP/bootstrap.css\">\r\n  <link rel=\"stylesheet\" href=\"/login/ARSWEBAPP/style.css\">\r\n  </head>\r\n<body>\r\n<div class=\"container\">\r\n  <nav class=\"navbar navbar-default\" role=\"navigation\">\r\n      <div class=\"container\" style=\"\">\r\n        \r\n        <div class=\"navbar-header\">\r\n          <button class=\"navbar-toggle\" data-target=\"#bs-example-navbar-collapse-1\" data-toggle=\"collapse\" type=\"button\">\r\n            <span class=\"sr-only\">Toggle navigation</span>\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n          </button>\r\n          <div class=\"navbar-left\">\r\n\t\t\t<img height=\"80px;\" src=\"/login/ARSWEBAPP/favicon.ico\">\r\n\t\t  </div>\r\n        </div>\r\n  \r\n        <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\" style=\"margin-right: 25px;\">\r\n          <ul class=\"nav navbar-nav navbar-right\">\r\n\t\t\t<li><b style=\"color: #002060;font-size: 5rem;\">SIICEA</b></li>\r\n\t\t  </ul>\r\n        </div>\r\n      </div>\r\n    </nav>\r\n    \r\n\r\n\r\n<div class=\"col-md-6 col-md-offset-3\">\r\n  <h2>Veuillez introduire vos codes de connexion</h2 align=center>\r\n  <p><br/>\r\n  \r\n<FORM METHOD=\"POST\" ACTION=\"\">\r\n<div class=\"form-group\">\r\n  <strong>Nom utilisateur :</strong>  <input type=\"text\" name=\"username\" size=\"10\" class=\"form-control\"> </div>\r\n  <div class=\"form-group\">\r\n  <strong>Mot de passe :</strong>  <input type=\"password\" name=\"password\" size=\"10\" class=\"form-control\" autocomplete=\"off\"><p/>\r\n  </div>\r\n  <!--\r\n  <div class=\"form-group\"><strong>Role :</strong> \r\n  <select name=\"role\" class=\"form-control\">\r\n  <option value=\"IC\" selected>Mission IC ARS</option> \r\n  <option value=\"AGENT\" >Agent</option>\r\n  <option value=\"NATIONAL\">Niveau national</option>\r\n</select> \r\n</div> -->\r\n\r\n<div class=\"form-group\" align=right>\r\n<a href=\"/si-ice/?/public/#/motdepasse/change_PWD\">Mot de passe oubli&eacute;</a>\r\n<br/>\r\n   <input type=\"submit\" value=\"Se connecter\" class=\"btn btn-primary\" >\r\n   </div>\r\n</FORM>\r\n\r\n</div>\r\n\r\n\r\n<footer id=\"myFooter\"> \r\n  <div class=\"footer-copyright col-md-12\">\r\n      <p>© 2023 Copyright ARS </p>\r\n  </div>\r\n</footer>\r\n</div>\r\n</body>\r\n</HTML>\r\n",
-      "ip": "185.194.82.62",
-      "timestamp": "2023-10-29T05:28:24.252415487Z",
-      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://siicea.ars.sante.fr/si-ice/'",
-      "matcher-status": true
-    },
-    {
-      "template": "http/misconfiguration/http-missing-security-headers.yaml",
-      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
-      "template-id": "http-missing-security-headers",
-      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
-      "info": {
-        "name": "HTTP Missing Security Headers",
-        "author": [
-          "socketz",
-          "geeknik",
-          "g4l1t0",
-          "convisoappsec",
-          "kurohost",
-          "dawid-czarnecki",
-          "forgedhallpass",
-          "jub0bs"
-        ],
-        "tags": [
-          "misconfig",
-          "headers",
-          "generic"
-        ],
-        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-        "severity": "info",
-        "metadata": {
-          "max-request": 1
-        }
-      },
-      "matcher-name": "cross-origin-opener-policy",
-      "type": "http",
-      "host": "https://siicea.ars.sante.fr/si-ice/",
-      "matched-at": "https://siicea.ars.sante.fr/si-ice/",
-      "request": "GET /si-ice/ HTTP/1.1\r\nHost: siicea.ars.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.1 403 Forbidden\r\nConnection: close\r\nContent-Length: 2592\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 29 Oct 2023 05:28:24 GMT\r\nLast-Modified: Fri, 03 Feb 2023 09:20:47 GMT\r\nSet-Cookie: SIICEA_COOKIE=333ba150e135854546d6971b5392fec5; path=/; secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Forwarded-Proto: https\r\n\r\n<!DOCTYPE html>\r\n<html lang=\"fr\">\r\n<head>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n  <title>Projet national d'outillage des missions IC</title>\r\n  <base href=\"/\">\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n  <!--<link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">-->\r\n  <script src=\"/login/ARSWEBAPP/jquery.min.js\"></script>\r\n  <link rel=\"stylesheet\" href=\"/login/ARSWEBAPP/bootstrap.css\">\r\n  <link rel=\"stylesheet\" href=\"/login/ARSWEBAPP/style.css\">\r\n  </head>\r\n<body>\r\n<div class=\"container\">\r\n  <nav class=\"navbar navbar-default\" role=\"navigation\">\r\n      <div class=\"container\" style=\"\">\r\n        \r\n        <div class=\"navbar-header\">\r\n          <button class=\"navbar-toggle\" data-target=\"#bs-example-navbar-collapse-1\" data-toggle=\"collapse\" type=\"button\">\r\n            <span class=\"sr-only\">Toggle navigation</span>\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n          </button>\r\n          <div class=\"navbar-left\">\r\n\t\t\t<img height=\"80px;\" src=\"/login/ARSWEBAPP/favicon.ico\">\r\n\t\t  </div>\r\n        </div>\r\n  \r\n        <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\" style=\"margin-right: 25px;\">\r\n          <ul class=\"nav navbar-nav navbar-right\">\r\n\t\t\t<li><b style=\"color: #002060;font-size: 5rem;\">SIICEA</b></li>\r\n\t\t  </ul>\r\n        </div>\r\n      </div>\r\n    </nav>\r\n    \r\n\r\n\r\n<div class=\"col-md-6 col-md-offset-3\">\r\n  <h2>Veuillez introduire vos codes de connexion</h2 align=center>\r\n  <p><br/>\r\n  \r\n<FORM METHOD=\"POST\" ACTION=\"\">\r\n<div class=\"form-group\">\r\n  <strong>Nom utilisateur :</strong>  <input type=\"text\" name=\"username\" size=\"10\" class=\"form-control\"> </div>\r\n  <div class=\"form-group\">\r\n  <strong>Mot de passe :</strong>  <input type=\"password\" name=\"password\" size=\"10\" class=\"form-control\" autocomplete=\"off\"><p/>\r\n  </div>\r\n  <!--\r\n  <div class=\"form-group\"><strong>Role :</strong> \r\n  <select name=\"role\" class=\"form-control\">\r\n  <option value=\"IC\" selected>Mission IC ARS</option> \r\n  <option value=\"AGENT\" >Agent</option>\r\n  <option value=\"NATIONAL\">Niveau national</option>\r\n</select> \r\n</div> -->\r\n\r\n<div class=\"form-group\" align=right>\r\n<a href=\"/si-ice/?/public/#/motdepasse/change_PWD\">Mot de passe oubli&eacute;</a>\r\n<br/>\r\n   <input type=\"submit\" value=\"Se connecter\" class=\"btn btn-primary\" >\r\n   </div>\r\n</FORM>\r\n\r\n</div>\r\n\r\n\r\n<footer id=\"myFooter\"> \r\n  <div class=\"footer-copyright col-md-12\">\r\n      <p>© 2023 Copyright ARS </p>\r\n  </div>\r\n</footer>\r\n</div>\r\n</body>\r\n</HTML>\r\n",
-      "ip": "185.194.82.62",
-      "timestamp": "2023-10-29T05:28:24.252426787Z",
+      "timestamp": "2023-11-05T05:27:27.595151602Z",
       "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://siicea.ars.sante.fr/si-ice/'",
       "matcher-status": true
     },
@@ -257,9 +99,9 @@
       "host": "https://siicea.ars.sante.fr/si-ice/",
       "matched-at": "https://siicea.ars.sante.fr/si-ice/",
       "request": "GET /si-ice/ HTTP/1.1\r\nHost: siicea.ars.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.1 403 Forbidden\r\nConnection: close\r\nContent-Length: 2592\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 29 Oct 2023 05:28:24 GMT\r\nLast-Modified: Fri, 03 Feb 2023 09:20:47 GMT\r\nSet-Cookie: SIICEA_COOKIE=333ba150e135854546d6971b5392fec5; path=/; secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Forwarded-Proto: https\r\n\r\n<!DOCTYPE html>\r\n<html lang=\"fr\">\r\n<head>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n  <title>Projet national d'outillage des missions IC</title>\r\n  <base href=\"/\">\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n  <!--<link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">-->\r\n  <script src=\"/login/ARSWEBAPP/jquery.min.js\"></script>\r\n  <link rel=\"stylesheet\" href=\"/login/ARSWEBAPP/bootstrap.css\">\r\n  <link rel=\"stylesheet\" href=\"/login/ARSWEBAPP/style.css\">\r\n  </head>\r\n<body>\r\n<div class=\"container\">\r\n  <nav class=\"navbar navbar-default\" role=\"navigation\">\r\n      <div class=\"container\" style=\"\">\r\n        \r\n        <div class=\"navbar-header\">\r\n          <button class=\"navbar-toggle\" data-target=\"#bs-example-navbar-collapse-1\" data-toggle=\"collapse\" type=\"button\">\r\n            <span class=\"sr-only\">Toggle navigation</span>\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n          </button>\r\n          <div class=\"navbar-left\">\r\n\t\t\t<img height=\"80px;\" src=\"/login/ARSWEBAPP/favicon.ico\">\r\n\t\t  </div>\r\n        </div>\r\n  \r\n        <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\" style=\"margin-right: 25px;\">\r\n          <ul class=\"nav navbar-nav navbar-right\">\r\n\t\t\t<li><b style=\"color: #002060;font-size: 5rem;\">SIICEA</b></li>\r\n\t\t  </ul>\r\n        </div>\r\n      </div>\r\n    </nav>\r\n    \r\n\r\n\r\n<div class=\"col-md-6 col-md-offset-3\">\r\n  <h2>Veuillez introduire vos codes de connexion</h2 align=center>\r\n  <p><br/>\r\n  \r\n<FORM METHOD=\"POST\" ACTION=\"\">\r\n<div class=\"form-group\">\r\n  <strong>Nom utilisateur :</strong>  <input type=\"text\" name=\"username\" size=\"10\" class=\"form-control\"> </div>\r\n  <div class=\"form-group\">\r\n  <strong>Mot de passe :</strong>  <input type=\"password\" name=\"password\" size=\"10\" class=\"form-control\" autocomplete=\"off\"><p/>\r\n  </div>\r\n  <!--\r\n  <div class=\"form-group\"><strong>Role :</strong> \r\n  <select name=\"role\" class=\"form-control\">\r\n  <option value=\"IC\" selected>Mission IC ARS</option> \r\n  <option value=\"AGENT\" >Agent</option>\r\n  <option value=\"NATIONAL\">Niveau national</option>\r\n</select> \r\n</div> -->\r\n\r\n<div class=\"form-group\" align=right>\r\n<a href=\"/si-ice/?/public/#/motdepasse/change_PWD\">Mot de passe oubli&eacute;</a>\r\n<br/>\r\n   <input type=\"submit\" value=\"Se connecter\" class=\"btn btn-primary\" >\r\n   </div>\r\n</FORM>\r\n\r\n</div>\r\n\r\n\r\n<footer id=\"myFooter\"> \r\n  <div class=\"footer-copyright col-md-12\">\r\n      <p>© 2023 Copyright ARS </p>\r\n  </div>\r\n</footer>\r\n</div>\r\n</body>\r\n</HTML>\r\n",
+      "response": "HTTP/1.1 403 Forbidden\r\nConnection: close\r\nContent-Length: 2592\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 05 Nov 2023 05:27:43 GMT\r\nLast-Modified: Fri, 03 Feb 2023 09:20:47 GMT\r\nSet-Cookie: SIICEA_COOKIE=5827559721c5750bb28ce7e1f86f2cf7; path=/; secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Forwarded-Proto: https\r\n\r\n<!DOCTYPE html>\r\n<html lang=\"fr\">\r\n<head>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n  <title>Projet national d'outillage des missions IC</title>\r\n  <base href=\"/\">\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n  <!--<link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">-->\r\n  <script src=\"/login/ARSWEBAPP/jquery.min.js\"></script>\r\n  <link rel=\"stylesheet\" href=\"/login/ARSWEBAPP/bootstrap.css\">\r\n  <link rel=\"stylesheet\" href=\"/login/ARSWEBAPP/style.css\">\r\n  </head>\r\n<body>\r\n<div class=\"container\">\r\n  <nav class=\"navbar navbar-default\" role=\"navigation\">\r\n      <div class=\"container\" style=\"\">\r\n        \r\n        <div class=\"navbar-header\">\r\n          <button class=\"navbar-toggle\" data-target=\"#bs-example-navbar-collapse-1\" data-toggle=\"collapse\" type=\"button\">\r\n            <span class=\"sr-only\">Toggle navigation</span>\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n          </button>\r\n          <div class=\"navbar-left\">\r\n\t\t\t<img height=\"80px;\" src=\"/login/ARSWEBAPP/favicon.ico\">\r\n\t\t  </div>\r\n        </div>\r\n  \r\n        <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\" style=\"margin-right: 25px;\">\r\n          <ul class=\"nav navbar-nav navbar-right\">\r\n\t\t\t<li><b style=\"color: #002060;font-size: 5rem;\">SIICEA</b></li>\r\n\t\t  </ul>\r\n        </div>\r\n      </div>\r\n    </nav>\r\n    \r\n\r\n\r\n<div class=\"col-md-6 col-md-offset-3\">\r\n  <h2>Veuillez introduire vos codes de connexion</h2 align=center>\r\n  <p><br/>\r\n  \r\n<FORM METHOD=\"POST\" ACTION=\"\">\r\n<div class=\"form-group\">\r\n  <strong>Nom utilisateur :</strong>  <input type=\"text\" name=\"username\" size=\"10\" class=\"form-control\"> </div>\r\n  <div class=\"form-group\">\r\n  <strong>Mot de passe :</strong>  <input type=\"password\" name=\"password\" size=\"10\" class=\"form-control\" autocomplete=\"off\"><p/>\r\n  </div>\r\n  <!--\r\n  <div class=\"form-group\"><strong>Role :</strong> \r\n  <select name=\"role\" class=\"form-control\">\r\n  <option value=\"IC\" selected>Mission IC ARS</option> \r\n  <option value=\"AGENT\" >Agent</option>\r\n  <option value=\"NATIONAL\">Niveau national</option>\r\n</select> \r\n</div> -->\r\n\r\n<div class=\"form-group\" align=right>\r\n<a href=\"/si-ice/?/public/#/motdepasse/change_PWD\">Mot de passe oubli&eacute;</a>\r\n<br/>\r\n   <input type=\"submit\" value=\"Se connecter\" class=\"btn btn-primary\" >\r\n   </div>\r\n</FORM>\r\n\r\n</div>\r\n\r\n\r\n<footer id=\"myFooter\"> \r\n  <div class=\"footer-copyright col-md-12\">\r\n      <p>© 2023 Copyright ARS </p>\r\n  </div>\r\n</footer>\r\n</div>\r\n</body>\r\n</HTML>\r\n",
       "ip": "185.194.82.62",
-      "timestamp": "2023-10-29T05:28:24.252436187Z",
+      "timestamp": "2023-11-05T05:27:43.410413149Z",
       "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://siicea.ars.sante.fr/si-ice/'",
       "matcher-status": true
     },
@@ -291,14 +133,14 @@
           "max-request": 1
         }
       },
-      "matcher-name": "permissions-policy",
+      "matcher-name": "x-frame-options",
       "type": "http",
       "host": "https://siicea.ars.sante.fr/si-ice/",
       "matched-at": "https://siicea.ars.sante.fr/si-ice/",
       "request": "GET /si-ice/ HTTP/1.1\r\nHost: siicea.ars.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.1 403 Forbidden\r\nConnection: close\r\nContent-Length: 2592\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 29 Oct 2023 05:28:24 GMT\r\nLast-Modified: Fri, 03 Feb 2023 09:20:47 GMT\r\nSet-Cookie: SIICEA_COOKIE=333ba150e135854546d6971b5392fec5; path=/; secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Forwarded-Proto: https\r\n\r\n<!DOCTYPE html>\r\n<html lang=\"fr\">\r\n<head>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n  <title>Projet national d'outillage des missions IC</title>\r\n  <base href=\"/\">\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n  <!--<link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">-->\r\n  <script src=\"/login/ARSWEBAPP/jquery.min.js\"></script>\r\n  <link rel=\"stylesheet\" href=\"/login/ARSWEBAPP/bootstrap.css\">\r\n  <link rel=\"stylesheet\" href=\"/login/ARSWEBAPP/style.css\">\r\n  </head>\r\n<body>\r\n<div class=\"container\">\r\n  <nav class=\"navbar navbar-default\" role=\"navigation\">\r\n      <div class=\"container\" style=\"\">\r\n        \r\n        <div class=\"navbar-header\">\r\n          <button class=\"navbar-toggle\" data-target=\"#bs-example-navbar-collapse-1\" data-toggle=\"collapse\" type=\"button\">\r\n            <span class=\"sr-only\">Toggle navigation</span>\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n          </button>\r\n          <div class=\"navbar-left\">\r\n\t\t\t<img height=\"80px;\" src=\"/login/ARSWEBAPP/favicon.ico\">\r\n\t\t  </div>\r\n        </div>\r\n  \r\n        <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\" style=\"margin-right: 25px;\">\r\n          <ul class=\"nav navbar-nav navbar-right\">\r\n\t\t\t<li><b style=\"color: #002060;font-size: 5rem;\">SIICEA</b></li>\r\n\t\t  </ul>\r\n        </div>\r\n      </div>\r\n    </nav>\r\n    \r\n\r\n\r\n<div class=\"col-md-6 col-md-offset-3\">\r\n  <h2>Veuillez introduire vos codes de connexion</h2 align=center>\r\n  <p><br/>\r\n  \r\n<FORM METHOD=\"POST\" ACTION=\"\">\r\n<div class=\"form-group\">\r\n  <strong>Nom utilisateur :</strong>  <input type=\"text\" name=\"username\" size=\"10\" class=\"form-control\"> </div>\r\n  <div class=\"form-group\">\r\n  <strong>Mot de passe :</strong>  <input type=\"password\" name=\"password\" size=\"10\" class=\"form-control\" autocomplete=\"off\"><p/>\r\n  </div>\r\n  <!--\r\n  <div class=\"form-group\"><strong>Role :</strong> \r\n  <select name=\"role\" class=\"form-control\">\r\n  <option value=\"IC\" selected>Mission IC ARS</option> \r\n  <option value=\"AGENT\" >Agent</option>\r\n  <option value=\"NATIONAL\">Niveau national</option>\r\n</select> \r\n</div> -->\r\n\r\n<div class=\"form-group\" align=right>\r\n<a href=\"/si-ice/?/public/#/motdepasse/change_PWD\">Mot de passe oubli&eacute;</a>\r\n<br/>\r\n   <input type=\"submit\" value=\"Se connecter\" class=\"btn btn-primary\" >\r\n   </div>\r\n</FORM>\r\n\r\n</div>\r\n\r\n\r\n<footer id=\"myFooter\"> \r\n  <div class=\"footer-copyright col-md-12\">\r\n      <p>© 2023 Copyright ARS </p>\r\n  </div>\r\n</footer>\r\n</div>\r\n</body>\r\n</HTML>\r\n",
+      "response": "HTTP/1.1 403 Forbidden\r\nConnection: close\r\nContent-Length: 2592\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 05 Nov 2023 05:27:43 GMT\r\nLast-Modified: Fri, 03 Feb 2023 09:20:47 GMT\r\nSet-Cookie: SIICEA_COOKIE=5827559721c5750bb28ce7e1f86f2cf7; path=/; secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Forwarded-Proto: https\r\n\r\n<!DOCTYPE html>\r\n<html lang=\"fr\">\r\n<head>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n  <title>Projet national d'outillage des missions IC</title>\r\n  <base href=\"/\">\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n  <!--<link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">-->\r\n  <script src=\"/login/ARSWEBAPP/jquery.min.js\"></script>\r\n  <link rel=\"stylesheet\" href=\"/login/ARSWEBAPP/bootstrap.css\">\r\n  <link rel=\"stylesheet\" href=\"/login/ARSWEBAPP/style.css\">\r\n  </head>\r\n<body>\r\n<div class=\"container\">\r\n  <nav class=\"navbar navbar-default\" role=\"navigation\">\r\n      <div class=\"container\" style=\"\">\r\n        \r\n        <div class=\"navbar-header\">\r\n          <button class=\"navbar-toggle\" data-target=\"#bs-example-navbar-collapse-1\" data-toggle=\"collapse\" type=\"button\">\r\n            <span class=\"sr-only\">Toggle navigation</span>\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n          </button>\r\n          <div class=\"navbar-left\">\r\n\t\t\t<img height=\"80px;\" src=\"/login/ARSWEBAPP/favicon.ico\">\r\n\t\t  </div>\r\n        </div>\r\n  \r\n        <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\" style=\"margin-right: 25px;\">\r\n          <ul class=\"nav navbar-nav navbar-right\">\r\n\t\t\t<li><b style=\"color: #002060;font-size: 5rem;\">SIICEA</b></li>\r\n\t\t  </ul>\r\n        </div>\r\n      </div>\r\n    </nav>\r\n    \r\n\r\n\r\n<div class=\"col-md-6 col-md-offset-3\">\r\n  <h2>Veuillez introduire vos codes de connexion</h2 align=center>\r\n  <p><br/>\r\n  \r\n<FORM METHOD=\"POST\" ACTION=\"\">\r\n<div class=\"form-group\">\r\n  <strong>Nom utilisateur :</strong>  <input type=\"text\" name=\"username\" size=\"10\" class=\"form-control\"> </div>\r\n  <div class=\"form-group\">\r\n  <strong>Mot de passe :</strong>  <input type=\"password\" name=\"password\" size=\"10\" class=\"form-control\" autocomplete=\"off\"><p/>\r\n  </div>\r\n  <!--\r\n  <div class=\"form-group\"><strong>Role :</strong> \r\n  <select name=\"role\" class=\"form-control\">\r\n  <option value=\"IC\" selected>Mission IC ARS</option> \r\n  <option value=\"AGENT\" >Agent</option>\r\n  <option value=\"NATIONAL\">Niveau national</option>\r\n</select> \r\n</div> -->\r\n\r\n<div class=\"form-group\" align=right>\r\n<a href=\"/si-ice/?/public/#/motdepasse/change_PWD\">Mot de passe oubli&eacute;</a>\r\n<br/>\r\n   <input type=\"submit\" value=\"Se connecter\" class=\"btn btn-primary\" >\r\n   </div>\r\n</FORM>\r\n\r\n</div>\r\n\r\n\r\n<footer id=\"myFooter\"> \r\n  <div class=\"footer-copyright col-md-12\">\r\n      <p>© 2023 Copyright ARS </p>\r\n  </div>\r\n</footer>\r\n</div>\r\n</body>\r\n</HTML>\r\n",
       "ip": "185.194.82.62",
-      "timestamp": "2023-10-29T05:28:24.252547586Z",
+      "timestamp": "2023-11-05T05:27:43.410487829Z",
       "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://siicea.ars.sante.fr/si-ice/'",
       "matcher-status": true
     },
@@ -335,9 +177,9 @@
       "host": "https://siicea.ars.sante.fr/si-ice/",
       "matched-at": "https://siicea.ars.sante.fr/si-ice/",
       "request": "GET /si-ice/ HTTP/1.1\r\nHost: siicea.ars.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.1 403 Forbidden\r\nConnection: close\r\nContent-Length: 2592\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 29 Oct 2023 05:28:24 GMT\r\nLast-Modified: Fri, 03 Feb 2023 09:20:47 GMT\r\nSet-Cookie: SIICEA_COOKIE=333ba150e135854546d6971b5392fec5; path=/; secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Forwarded-Proto: https\r\n\r\n<!DOCTYPE html>\r\n<html lang=\"fr\">\r\n<head>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n  <title>Projet national d'outillage des missions IC</title>\r\n  <base href=\"/\">\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n  <!--<link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">-->\r\n  <script src=\"/login/ARSWEBAPP/jquery.min.js\"></script>\r\n  <link rel=\"stylesheet\" href=\"/login/ARSWEBAPP/bootstrap.css\">\r\n  <link rel=\"stylesheet\" href=\"/login/ARSWEBAPP/style.css\">\r\n  </head>\r\n<body>\r\n<div class=\"container\">\r\n  <nav class=\"navbar navbar-default\" role=\"navigation\">\r\n      <div class=\"container\" style=\"\">\r\n        \r\n        <div class=\"navbar-header\">\r\n          <button class=\"navbar-toggle\" data-target=\"#bs-example-navbar-collapse-1\" data-toggle=\"collapse\" type=\"button\">\r\n            <span class=\"sr-only\">Toggle navigation</span>\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n          </button>\r\n          <div class=\"navbar-left\">\r\n\t\t\t<img height=\"80px;\" src=\"/login/ARSWEBAPP/favicon.ico\">\r\n\t\t  </div>\r\n        </div>\r\n  \r\n        <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\" style=\"margin-right: 25px;\">\r\n          <ul class=\"nav navbar-nav navbar-right\">\r\n\t\t\t<li><b style=\"color: #002060;font-size: 5rem;\">SIICEA</b></li>\r\n\t\t  </ul>\r\n        </div>\r\n      </div>\r\n    </nav>\r\n    \r\n\r\n\r\n<div class=\"col-md-6 col-md-offset-3\">\r\n  <h2>Veuillez introduire vos codes de connexion</h2 align=center>\r\n  <p><br/>\r\n  \r\n<FORM METHOD=\"POST\" ACTION=\"\">\r\n<div class=\"form-group\">\r\n  <strong>Nom utilisateur :</strong>  <input type=\"text\" name=\"username\" size=\"10\" class=\"form-control\"> </div>\r\n  <div class=\"form-group\">\r\n  <strong>Mot de passe :</strong>  <input type=\"password\" name=\"password\" size=\"10\" class=\"form-control\" autocomplete=\"off\"><p/>\r\n  </div>\r\n  <!--\r\n  <div class=\"form-group\"><strong>Role :</strong> \r\n  <select name=\"role\" class=\"form-control\">\r\n  <option value=\"IC\" selected>Mission IC ARS</option> \r\n  <option value=\"AGENT\" >Agent</option>\r\n  <option value=\"NATIONAL\">Niveau national</option>\r\n</select> \r\n</div> -->\r\n\r\n<div class=\"form-group\" align=right>\r\n<a href=\"/si-ice/?/public/#/motdepasse/change_PWD\">Mot de passe oubli&eacute;</a>\r\n<br/>\r\n   <input type=\"submit\" value=\"Se connecter\" class=\"btn btn-primary\" >\r\n   </div>\r\n</FORM>\r\n\r\n</div>\r\n\r\n\r\n<footer id=\"myFooter\"> \r\n  <div class=\"footer-copyright col-md-12\">\r\n      <p>© 2023 Copyright ARS </p>\r\n  </div>\r\n</footer>\r\n</div>\r\n</body>\r\n</HTML>\r\n",
+      "response": "HTTP/1.1 403 Forbidden\r\nConnection: close\r\nContent-Length: 2592\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 05 Nov 2023 05:27:43 GMT\r\nLast-Modified: Fri, 03 Feb 2023 09:20:47 GMT\r\nSet-Cookie: SIICEA_COOKIE=5827559721c5750bb28ce7e1f86f2cf7; path=/; secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Forwarded-Proto: https\r\n\r\n<!DOCTYPE html>\r\n<html lang=\"fr\">\r\n<head>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n  <title>Projet national d'outillage des missions IC</title>\r\n  <base href=\"/\">\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n  <!--<link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">-->\r\n  <script src=\"/login/ARSWEBAPP/jquery.min.js\"></script>\r\n  <link rel=\"stylesheet\" href=\"/login/ARSWEBAPP/bootstrap.css\">\r\n  <link rel=\"stylesheet\" href=\"/login/ARSWEBAPP/style.css\">\r\n  </head>\r\n<body>\r\n<div class=\"container\">\r\n  <nav class=\"navbar navbar-default\" role=\"navigation\">\r\n      <div class=\"container\" style=\"\">\r\n        \r\n        <div class=\"navbar-header\">\r\n          <button class=\"navbar-toggle\" data-target=\"#bs-example-navbar-collapse-1\" data-toggle=\"collapse\" type=\"button\">\r\n            <span class=\"sr-only\">Toggle navigation</span>\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n          </button>\r\n          <div class=\"navbar-left\">\r\n\t\t\t<img height=\"80px;\" src=\"/login/ARSWEBAPP/favicon.ico\">\r\n\t\t  </div>\r\n        </div>\r\n  \r\n        <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\" style=\"margin-right: 25px;\">\r\n          <ul class=\"nav navbar-nav navbar-right\">\r\n\t\t\t<li><b style=\"color: #002060;font-size: 5rem;\">SIICEA</b></li>\r\n\t\t  </ul>\r\n        </div>\r\n      </div>\r\n    </nav>\r\n    \r\n\r\n\r\n<div class=\"col-md-6 col-md-offset-3\">\r\n  <h2>Veuillez introduire vos codes de connexion</h2 align=center>\r\n  <p><br/>\r\n  \r\n<FORM METHOD=\"POST\" ACTION=\"\">\r\n<div class=\"form-group\">\r\n  <strong>Nom utilisateur :</strong>  <input type=\"text\" name=\"username\" size=\"10\" class=\"form-control\"> </div>\r\n  <div class=\"form-group\">\r\n  <strong>Mot de passe :</strong>  <input type=\"password\" name=\"password\" size=\"10\" class=\"form-control\" autocomplete=\"off\"><p/>\r\n  </div>\r\n  <!--\r\n  <div class=\"form-group\"><strong>Role :</strong> \r\n  <select name=\"role\" class=\"form-control\">\r\n  <option value=\"IC\" selected>Mission IC ARS</option> \r\n  <option value=\"AGENT\" >Agent</option>\r\n  <option value=\"NATIONAL\">Niveau national</option>\r\n</select> \r\n</div> -->\r\n\r\n<div class=\"form-group\" align=right>\r\n<a href=\"/si-ice/?/public/#/motdepasse/change_PWD\">Mot de passe oubli&eacute;</a>\r\n<br/>\r\n   <input type=\"submit\" value=\"Se connecter\" class=\"btn btn-primary\" >\r\n   </div>\r\n</FORM>\r\n\r\n</div>\r\n\r\n\r\n<footer id=\"myFooter\"> \r\n  <div class=\"footer-copyright col-md-12\">\r\n      <p>© 2023 Copyright ARS </p>\r\n  </div>\r\n</footer>\r\n</div>\r\n</body>\r\n</HTML>\r\n",
       "ip": "185.194.82.62",
-      "timestamp": "2023-10-29T05:28:24.252559986Z",
+      "timestamp": "2023-11-05T05:27:43.410612392Z",
       "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://siicea.ars.sante.fr/si-ice/'",
       "matcher-status": true
     },
@@ -374,9 +216,204 @@
       "host": "https://siicea.ars.sante.fr/si-ice/",
       "matched-at": "https://siicea.ars.sante.fr/si-ice/",
       "request": "GET /si-ice/ HTTP/1.1\r\nHost: siicea.ars.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.1 403 Forbidden\r\nConnection: close\r\nContent-Length: 2592\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 29 Oct 2023 05:28:24 GMT\r\nLast-Modified: Fri, 03 Feb 2023 09:20:47 GMT\r\nSet-Cookie: SIICEA_COOKIE=333ba150e135854546d6971b5392fec5; path=/; secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Forwarded-Proto: https\r\n\r\n<!DOCTYPE html>\r\n<html lang=\"fr\">\r\n<head>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n  <title>Projet national d'outillage des missions IC</title>\r\n  <base href=\"/\">\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n  <!--<link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">-->\r\n  <script src=\"/login/ARSWEBAPP/jquery.min.js\"></script>\r\n  <link rel=\"stylesheet\" href=\"/login/ARSWEBAPP/bootstrap.css\">\r\n  <link rel=\"stylesheet\" href=\"/login/ARSWEBAPP/style.css\">\r\n  </head>\r\n<body>\r\n<div class=\"container\">\r\n  <nav class=\"navbar navbar-default\" role=\"navigation\">\r\n      <div class=\"container\" style=\"\">\r\n        \r\n        <div class=\"navbar-header\">\r\n          <button class=\"navbar-toggle\" data-target=\"#bs-example-navbar-collapse-1\" data-toggle=\"collapse\" type=\"button\">\r\n            <span class=\"sr-only\">Toggle navigation</span>\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n          </button>\r\n          <div class=\"navbar-left\">\r\n\t\t\t<img height=\"80px;\" src=\"/login/ARSWEBAPP/favicon.ico\">\r\n\t\t  </div>\r\n        </div>\r\n  \r\n        <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\" style=\"margin-right: 25px;\">\r\n          <ul class=\"nav navbar-nav navbar-right\">\r\n\t\t\t<li><b style=\"color: #002060;font-size: 5rem;\">SIICEA</b></li>\r\n\t\t  </ul>\r\n        </div>\r\n      </div>\r\n    </nav>\r\n    \r\n\r\n\r\n<div class=\"col-md-6 col-md-offset-3\">\r\n  <h2>Veuillez introduire vos codes de connexion</h2 align=center>\r\n  <p><br/>\r\n  \r\n<FORM METHOD=\"POST\" ACTION=\"\">\r\n<div class=\"form-group\">\r\n  <strong>Nom utilisateur :</strong>  <input type=\"text\" name=\"username\" size=\"10\" class=\"form-control\"> </div>\r\n  <div class=\"form-group\">\r\n  <strong>Mot de passe :</strong>  <input type=\"password\" name=\"password\" size=\"10\" class=\"form-control\" autocomplete=\"off\"><p/>\r\n  </div>\r\n  <!--\r\n  <div class=\"form-group\"><strong>Role :</strong> \r\n  <select name=\"role\" class=\"form-control\">\r\n  <option value=\"IC\" selected>Mission IC ARS</option> \r\n  <option value=\"AGENT\" >Agent</option>\r\n  <option value=\"NATIONAL\">Niveau national</option>\r\n</select> \r\n</div> -->\r\n\r\n<div class=\"form-group\" align=right>\r\n<a href=\"/si-ice/?/public/#/motdepasse/change_PWD\">Mot de passe oubli&eacute;</a>\r\n<br/>\r\n   <input type=\"submit\" value=\"Se connecter\" class=\"btn btn-primary\" >\r\n   </div>\r\n</FORM>\r\n\r\n</div>\r\n\r\n\r\n<footer id=\"myFooter\"> \r\n  <div class=\"footer-copyright col-md-12\">\r\n      <p>© 2023 Copyright ARS </p>\r\n  </div>\r\n</footer>\r\n</div>\r\n</body>\r\n</HTML>\r\n",
+      "response": "HTTP/1.1 403 Forbidden\r\nConnection: close\r\nContent-Length: 2592\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 05 Nov 2023 05:27:43 GMT\r\nLast-Modified: Fri, 03 Feb 2023 09:20:47 GMT\r\nSet-Cookie: SIICEA_COOKIE=5827559721c5750bb28ce7e1f86f2cf7; path=/; secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Forwarded-Proto: https\r\n\r\n<!DOCTYPE html>\r\n<html lang=\"fr\">\r\n<head>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n  <title>Projet national d'outillage des missions IC</title>\r\n  <base href=\"/\">\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n  <!--<link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">-->\r\n  <script src=\"/login/ARSWEBAPP/jquery.min.js\"></script>\r\n  <link rel=\"stylesheet\" href=\"/login/ARSWEBAPP/bootstrap.css\">\r\n  <link rel=\"stylesheet\" href=\"/login/ARSWEBAPP/style.css\">\r\n  </head>\r\n<body>\r\n<div class=\"container\">\r\n  <nav class=\"navbar navbar-default\" role=\"navigation\">\r\n      <div class=\"container\" style=\"\">\r\n        \r\n        <div class=\"navbar-header\">\r\n          <button class=\"navbar-toggle\" data-target=\"#bs-example-navbar-collapse-1\" data-toggle=\"collapse\" type=\"button\">\r\n            <span class=\"sr-only\">Toggle navigation</span>\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n          </button>\r\n          <div class=\"navbar-left\">\r\n\t\t\t<img height=\"80px;\" src=\"/login/ARSWEBAPP/favicon.ico\">\r\n\t\t  </div>\r\n        </div>\r\n  \r\n        <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\" style=\"margin-right: 25px;\">\r\n          <ul class=\"nav navbar-nav navbar-right\">\r\n\t\t\t<li><b style=\"color: #002060;font-size: 5rem;\">SIICEA</b></li>\r\n\t\t  </ul>\r\n        </div>\r\n      </div>\r\n    </nav>\r\n    \r\n\r\n\r\n<div class=\"col-md-6 col-md-offset-3\">\r\n  <h2>Veuillez introduire vos codes de connexion</h2 align=center>\r\n  <p><br/>\r\n  \r\n<FORM METHOD=\"POST\" ACTION=\"\">\r\n<div class=\"form-group\">\r\n  <strong>Nom utilisateur :</strong>  <input type=\"text\" name=\"username\" size=\"10\" class=\"form-control\"> </div>\r\n  <div class=\"form-group\">\r\n  <strong>Mot de passe :</strong>  <input type=\"password\" name=\"password\" size=\"10\" class=\"form-control\" autocomplete=\"off\"><p/>\r\n  </div>\r\n  <!--\r\n  <div class=\"form-group\"><strong>Role :</strong> \r\n  <select name=\"role\" class=\"form-control\">\r\n  <option value=\"IC\" selected>Mission IC ARS</option> \r\n  <option value=\"AGENT\" >Agent</option>\r\n  <option value=\"NATIONAL\">Niveau national</option>\r\n</select> \r\n</div> -->\r\n\r\n<div class=\"form-group\" align=right>\r\n<a href=\"/si-ice/?/public/#/motdepasse/change_PWD\">Mot de passe oubli&eacute;</a>\r\n<br/>\r\n   <input type=\"submit\" value=\"Se connecter\" class=\"btn btn-primary\" >\r\n   </div>\r\n</FORM>\r\n\r\n</div>\r\n\r\n\r\n<footer id=\"myFooter\"> \r\n  <div class=\"footer-copyright col-md-12\">\r\n      <p>© 2023 Copyright ARS </p>\r\n  </div>\r\n</footer>\r\n</div>\r\n</body>\r\n</HTML>\r\n",
       "ip": "185.194.82.62",
-      "timestamp": "2023-10-29T05:28:24.252571486Z",
+      "timestamp": "2023-11-05T05:27:43.410642879Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://siicea.ars.sante.fr/si-ice/'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "cross-origin-embedder-policy",
+      "type": "http",
+      "host": "https://siicea.ars.sante.fr/si-ice/",
+      "matched-at": "https://siicea.ars.sante.fr/si-ice/",
+      "request": "GET /si-ice/ HTTP/1.1\r\nHost: siicea.ars.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.1 403 Forbidden\r\nConnection: close\r\nContent-Length: 2592\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 05 Nov 2023 05:27:43 GMT\r\nLast-Modified: Fri, 03 Feb 2023 09:20:47 GMT\r\nSet-Cookie: SIICEA_COOKIE=5827559721c5750bb28ce7e1f86f2cf7; path=/; secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Forwarded-Proto: https\r\n\r\n<!DOCTYPE html>\r\n<html lang=\"fr\">\r\n<head>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n  <title>Projet national d'outillage des missions IC</title>\r\n  <base href=\"/\">\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n  <!--<link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">-->\r\n  <script src=\"/login/ARSWEBAPP/jquery.min.js\"></script>\r\n  <link rel=\"stylesheet\" href=\"/login/ARSWEBAPP/bootstrap.css\">\r\n  <link rel=\"stylesheet\" href=\"/login/ARSWEBAPP/style.css\">\r\n  </head>\r\n<body>\r\n<div class=\"container\">\r\n  <nav class=\"navbar navbar-default\" role=\"navigation\">\r\n      <div class=\"container\" style=\"\">\r\n        \r\n        <div class=\"navbar-header\">\r\n          <button class=\"navbar-toggle\" data-target=\"#bs-example-navbar-collapse-1\" data-toggle=\"collapse\" type=\"button\">\r\n            <span class=\"sr-only\">Toggle navigation</span>\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n          </button>\r\n          <div class=\"navbar-left\">\r\n\t\t\t<img height=\"80px;\" src=\"/login/ARSWEBAPP/favicon.ico\">\r\n\t\t  </div>\r\n        </div>\r\n  \r\n        <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\" style=\"margin-right: 25px;\">\r\n          <ul class=\"nav navbar-nav navbar-right\">\r\n\t\t\t<li><b style=\"color: #002060;font-size: 5rem;\">SIICEA</b></li>\r\n\t\t  </ul>\r\n        </div>\r\n      </div>\r\n    </nav>\r\n    \r\n\r\n\r\n<div class=\"col-md-6 col-md-offset-3\">\r\n  <h2>Veuillez introduire vos codes de connexion</h2 align=center>\r\n  <p><br/>\r\n  \r\n<FORM METHOD=\"POST\" ACTION=\"\">\r\n<div class=\"form-group\">\r\n  <strong>Nom utilisateur :</strong>  <input type=\"text\" name=\"username\" size=\"10\" class=\"form-control\"> </div>\r\n  <div class=\"form-group\">\r\n  <strong>Mot de passe :</strong>  <input type=\"password\" name=\"password\" size=\"10\" class=\"form-control\" autocomplete=\"off\"><p/>\r\n  </div>\r\n  <!--\r\n  <div class=\"form-group\"><strong>Role :</strong> \r\n  <select name=\"role\" class=\"form-control\">\r\n  <option value=\"IC\" selected>Mission IC ARS</option> \r\n  <option value=\"AGENT\" >Agent</option>\r\n  <option value=\"NATIONAL\">Niveau national</option>\r\n</select> \r\n</div> -->\r\n\r\n<div class=\"form-group\" align=right>\r\n<a href=\"/si-ice/?/public/#/motdepasse/change_PWD\">Mot de passe oubli&eacute;</a>\r\n<br/>\r\n   <input type=\"submit\" value=\"Se connecter\" class=\"btn btn-primary\" >\r\n   </div>\r\n</FORM>\r\n\r\n</div>\r\n\r\n\r\n<footer id=\"myFooter\"> \r\n  <div class=\"footer-copyright col-md-12\">\r\n      <p>© 2023 Copyright ARS </p>\r\n  </div>\r\n</footer>\r\n</div>\r\n</body>\r\n</HTML>\r\n",
+      "ip": "185.194.82.62",
+      "timestamp": "2023-11-05T05:27:43.410657817Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://siicea.ars.sante.fr/si-ice/'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "permissions-policy",
+      "type": "http",
+      "host": "https://siicea.ars.sante.fr/si-ice/",
+      "matched-at": "https://siicea.ars.sante.fr/si-ice/",
+      "request": "GET /si-ice/ HTTP/1.1\r\nHost: siicea.ars.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.1 403 Forbidden\r\nConnection: close\r\nContent-Length: 2592\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 05 Nov 2023 05:27:43 GMT\r\nLast-Modified: Fri, 03 Feb 2023 09:20:47 GMT\r\nSet-Cookie: SIICEA_COOKIE=5827559721c5750bb28ce7e1f86f2cf7; path=/; secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Forwarded-Proto: https\r\n\r\n<!DOCTYPE html>\r\n<html lang=\"fr\">\r\n<head>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n  <title>Projet national d'outillage des missions IC</title>\r\n  <base href=\"/\">\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n  <!--<link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">-->\r\n  <script src=\"/login/ARSWEBAPP/jquery.min.js\"></script>\r\n  <link rel=\"stylesheet\" href=\"/login/ARSWEBAPP/bootstrap.css\">\r\n  <link rel=\"stylesheet\" href=\"/login/ARSWEBAPP/style.css\">\r\n  </head>\r\n<body>\r\n<div class=\"container\">\r\n  <nav class=\"navbar navbar-default\" role=\"navigation\">\r\n      <div class=\"container\" style=\"\">\r\n        \r\n        <div class=\"navbar-header\">\r\n          <button class=\"navbar-toggle\" data-target=\"#bs-example-navbar-collapse-1\" data-toggle=\"collapse\" type=\"button\">\r\n            <span class=\"sr-only\">Toggle navigation</span>\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n          </button>\r\n          <div class=\"navbar-left\">\r\n\t\t\t<img height=\"80px;\" src=\"/login/ARSWEBAPP/favicon.ico\">\r\n\t\t  </div>\r\n        </div>\r\n  \r\n        <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\" style=\"margin-right: 25px;\">\r\n          <ul class=\"nav navbar-nav navbar-right\">\r\n\t\t\t<li><b style=\"color: #002060;font-size: 5rem;\">SIICEA</b></li>\r\n\t\t  </ul>\r\n        </div>\r\n      </div>\r\n    </nav>\r\n    \r\n\r\n\r\n<div class=\"col-md-6 col-md-offset-3\">\r\n  <h2>Veuillez introduire vos codes de connexion</h2 align=center>\r\n  <p><br/>\r\n  \r\n<FORM METHOD=\"POST\" ACTION=\"\">\r\n<div class=\"form-group\">\r\n  <strong>Nom utilisateur :</strong>  <input type=\"text\" name=\"username\" size=\"10\" class=\"form-control\"> </div>\r\n  <div class=\"form-group\">\r\n  <strong>Mot de passe :</strong>  <input type=\"password\" name=\"password\" size=\"10\" class=\"form-control\" autocomplete=\"off\"><p/>\r\n  </div>\r\n  <!--\r\n  <div class=\"form-group\"><strong>Role :</strong> \r\n  <select name=\"role\" class=\"form-control\">\r\n  <option value=\"IC\" selected>Mission IC ARS</option> \r\n  <option value=\"AGENT\" >Agent</option>\r\n  <option value=\"NATIONAL\">Niveau national</option>\r\n</select> \r\n</div> -->\r\n\r\n<div class=\"form-group\" align=right>\r\n<a href=\"/si-ice/?/public/#/motdepasse/change_PWD\">Mot de passe oubli&eacute;</a>\r\n<br/>\r\n   <input type=\"submit\" value=\"Se connecter\" class=\"btn btn-primary\" >\r\n   </div>\r\n</FORM>\r\n\r\n</div>\r\n\r\n\r\n<footer id=\"myFooter\"> \r\n  <div class=\"footer-copyright col-md-12\">\r\n      <p>© 2023 Copyright ARS </p>\r\n  </div>\r\n</footer>\r\n</div>\r\n</body>\r\n</HTML>\r\n",
+      "ip": "185.194.82.62",
+      "timestamp": "2023-11-05T05:27:43.410671012Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://siicea.ars.sante.fr/si-ice/'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "x-content-type-options",
+      "type": "http",
+      "host": "https://siicea.ars.sante.fr/si-ice/",
+      "matched-at": "https://siicea.ars.sante.fr/si-ice/",
+      "request": "GET /si-ice/ HTTP/1.1\r\nHost: siicea.ars.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.1 403 Forbidden\r\nConnection: close\r\nContent-Length: 2592\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 05 Nov 2023 05:27:43 GMT\r\nLast-Modified: Fri, 03 Feb 2023 09:20:47 GMT\r\nSet-Cookie: SIICEA_COOKIE=5827559721c5750bb28ce7e1f86f2cf7; path=/; secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Forwarded-Proto: https\r\n\r\n<!DOCTYPE html>\r\n<html lang=\"fr\">\r\n<head>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n  <title>Projet national d'outillage des missions IC</title>\r\n  <base href=\"/\">\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n  <!--<link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">-->\r\n  <script src=\"/login/ARSWEBAPP/jquery.min.js\"></script>\r\n  <link rel=\"stylesheet\" href=\"/login/ARSWEBAPP/bootstrap.css\">\r\n  <link rel=\"stylesheet\" href=\"/login/ARSWEBAPP/style.css\">\r\n  </head>\r\n<body>\r\n<div class=\"container\">\r\n  <nav class=\"navbar navbar-default\" role=\"navigation\">\r\n      <div class=\"container\" style=\"\">\r\n        \r\n        <div class=\"navbar-header\">\r\n          <button class=\"navbar-toggle\" data-target=\"#bs-example-navbar-collapse-1\" data-toggle=\"collapse\" type=\"button\">\r\n            <span class=\"sr-only\">Toggle navigation</span>\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n          </button>\r\n          <div class=\"navbar-left\">\r\n\t\t\t<img height=\"80px;\" src=\"/login/ARSWEBAPP/favicon.ico\">\r\n\t\t  </div>\r\n        </div>\r\n  \r\n        <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\" style=\"margin-right: 25px;\">\r\n          <ul class=\"nav navbar-nav navbar-right\">\r\n\t\t\t<li><b style=\"color: #002060;font-size: 5rem;\">SIICEA</b></li>\r\n\t\t  </ul>\r\n        </div>\r\n      </div>\r\n    </nav>\r\n    \r\n\r\n\r\n<div class=\"col-md-6 col-md-offset-3\">\r\n  <h2>Veuillez introduire vos codes de connexion</h2 align=center>\r\n  <p><br/>\r\n  \r\n<FORM METHOD=\"POST\" ACTION=\"\">\r\n<div class=\"form-group\">\r\n  <strong>Nom utilisateur :</strong>  <input type=\"text\" name=\"username\" size=\"10\" class=\"form-control\"> </div>\r\n  <div class=\"form-group\">\r\n  <strong>Mot de passe :</strong>  <input type=\"password\" name=\"password\" size=\"10\" class=\"form-control\" autocomplete=\"off\"><p/>\r\n  </div>\r\n  <!--\r\n  <div class=\"form-group\"><strong>Role :</strong> \r\n  <select name=\"role\" class=\"form-control\">\r\n  <option value=\"IC\" selected>Mission IC ARS</option> \r\n  <option value=\"AGENT\" >Agent</option>\r\n  <option value=\"NATIONAL\">Niveau national</option>\r\n</select> \r\n</div> -->\r\n\r\n<div class=\"form-group\" align=right>\r\n<a href=\"/si-ice/?/public/#/motdepasse/change_PWD\">Mot de passe oubli&eacute;</a>\r\n<br/>\r\n   <input type=\"submit\" value=\"Se connecter\" class=\"btn btn-primary\" >\r\n   </div>\r\n</FORM>\r\n\r\n</div>\r\n\r\n\r\n<footer id=\"myFooter\"> \r\n  <div class=\"footer-copyright col-md-12\">\r\n      <p>© 2023 Copyright ARS </p>\r\n  </div>\r\n</footer>\r\n</div>\r\n</body>\r\n</HTML>\r\n",
+      "ip": "185.194.82.62",
+      "timestamp": "2023-11-05T05:27:43.410687783Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://siicea.ars.sante.fr/si-ice/'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "x-permitted-cross-domain-policies",
+      "type": "http",
+      "host": "https://siicea.ars.sante.fr/si-ice/",
+      "matched-at": "https://siicea.ars.sante.fr/si-ice/",
+      "request": "GET /si-ice/ HTTP/1.1\r\nHost: siicea.ars.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.1 403 Forbidden\r\nConnection: close\r\nContent-Length: 2592\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 05 Nov 2023 05:27:43 GMT\r\nLast-Modified: Fri, 03 Feb 2023 09:20:47 GMT\r\nSet-Cookie: SIICEA_COOKIE=5827559721c5750bb28ce7e1f86f2cf7; path=/; secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Forwarded-Proto: https\r\n\r\n<!DOCTYPE html>\r\n<html lang=\"fr\">\r\n<head>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n  <title>Projet national d'outillage des missions IC</title>\r\n  <base href=\"/\">\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n  <!--<link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">-->\r\n  <script src=\"/login/ARSWEBAPP/jquery.min.js\"></script>\r\n  <link rel=\"stylesheet\" href=\"/login/ARSWEBAPP/bootstrap.css\">\r\n  <link rel=\"stylesheet\" href=\"/login/ARSWEBAPP/style.css\">\r\n  </head>\r\n<body>\r\n<div class=\"container\">\r\n  <nav class=\"navbar navbar-default\" role=\"navigation\">\r\n      <div class=\"container\" style=\"\">\r\n        \r\n        <div class=\"navbar-header\">\r\n          <button class=\"navbar-toggle\" data-target=\"#bs-example-navbar-collapse-1\" data-toggle=\"collapse\" type=\"button\">\r\n            <span class=\"sr-only\">Toggle navigation</span>\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n          </button>\r\n          <div class=\"navbar-left\">\r\n\t\t\t<img height=\"80px;\" src=\"/login/ARSWEBAPP/favicon.ico\">\r\n\t\t  </div>\r\n        </div>\r\n  \r\n        <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\" style=\"margin-right: 25px;\">\r\n          <ul class=\"nav navbar-nav navbar-right\">\r\n\t\t\t<li><b style=\"color: #002060;font-size: 5rem;\">SIICEA</b></li>\r\n\t\t  </ul>\r\n        </div>\r\n      </div>\r\n    </nav>\r\n    \r\n\r\n\r\n<div class=\"col-md-6 col-md-offset-3\">\r\n  <h2>Veuillez introduire vos codes de connexion</h2 align=center>\r\n  <p><br/>\r\n  \r\n<FORM METHOD=\"POST\" ACTION=\"\">\r\n<div class=\"form-group\">\r\n  <strong>Nom utilisateur :</strong>  <input type=\"text\" name=\"username\" size=\"10\" class=\"form-control\"> </div>\r\n  <div class=\"form-group\">\r\n  <strong>Mot de passe :</strong>  <input type=\"password\" name=\"password\" size=\"10\" class=\"form-control\" autocomplete=\"off\"><p/>\r\n  </div>\r\n  <!--\r\n  <div class=\"form-group\"><strong>Role :</strong> \r\n  <select name=\"role\" class=\"form-control\">\r\n  <option value=\"IC\" selected>Mission IC ARS</option> \r\n  <option value=\"AGENT\" >Agent</option>\r\n  <option value=\"NATIONAL\">Niveau national</option>\r\n</select> \r\n</div> -->\r\n\r\n<div class=\"form-group\" align=right>\r\n<a href=\"/si-ice/?/public/#/motdepasse/change_PWD\">Mot de passe oubli&eacute;</a>\r\n<br/>\r\n   <input type=\"submit\" value=\"Se connecter\" class=\"btn btn-primary\" >\r\n   </div>\r\n</FORM>\r\n\r\n</div>\r\n\r\n\r\n<footer id=\"myFooter\"> \r\n  <div class=\"footer-copyright col-md-12\">\r\n      <p>© 2023 Copyright ARS </p>\r\n  </div>\r\n</footer>\r\n</div>\r\n</body>\r\n</HTML>\r\n",
+      "ip": "185.194.82.62",
+      "timestamp": "2023-11-05T05:27:43.410707019Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://siicea.ars.sante.fr/si-ice/'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "cross-origin-opener-policy",
+      "type": "http",
+      "host": "https://siicea.ars.sante.fr/si-ice/",
+      "matched-at": "https://siicea.ars.sante.fr/si-ice/",
+      "request": "GET /si-ice/ HTTP/1.1\r\nHost: siicea.ars.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.1 403 Forbidden\r\nConnection: close\r\nContent-Length: 2592\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 05 Nov 2023 05:27:43 GMT\r\nLast-Modified: Fri, 03 Feb 2023 09:20:47 GMT\r\nSet-Cookie: SIICEA_COOKIE=5827559721c5750bb28ce7e1f86f2cf7; path=/; secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Forwarded-Proto: https\r\n\r\n<!DOCTYPE html>\r\n<html lang=\"fr\">\r\n<head>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n  <title>Projet national d'outillage des missions IC</title>\r\n  <base href=\"/\">\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n  <!--<link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">-->\r\n  <script src=\"/login/ARSWEBAPP/jquery.min.js\"></script>\r\n  <link rel=\"stylesheet\" href=\"/login/ARSWEBAPP/bootstrap.css\">\r\n  <link rel=\"stylesheet\" href=\"/login/ARSWEBAPP/style.css\">\r\n  </head>\r\n<body>\r\n<div class=\"container\">\r\n  <nav class=\"navbar navbar-default\" role=\"navigation\">\r\n      <div class=\"container\" style=\"\">\r\n        \r\n        <div class=\"navbar-header\">\r\n          <button class=\"navbar-toggle\" data-target=\"#bs-example-navbar-collapse-1\" data-toggle=\"collapse\" type=\"button\">\r\n            <span class=\"sr-only\">Toggle navigation</span>\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n          </button>\r\n          <div class=\"navbar-left\">\r\n\t\t\t<img height=\"80px;\" src=\"/login/ARSWEBAPP/favicon.ico\">\r\n\t\t  </div>\r\n        </div>\r\n  \r\n        <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\" style=\"margin-right: 25px;\">\r\n          <ul class=\"nav navbar-nav navbar-right\">\r\n\t\t\t<li><b style=\"color: #002060;font-size: 5rem;\">SIICEA</b></li>\r\n\t\t  </ul>\r\n        </div>\r\n      </div>\r\n    </nav>\r\n    \r\n\r\n\r\n<div class=\"col-md-6 col-md-offset-3\">\r\n  <h2>Veuillez introduire vos codes de connexion</h2 align=center>\r\n  <p><br/>\r\n  \r\n<FORM METHOD=\"POST\" ACTION=\"\">\r\n<div class=\"form-group\">\r\n  <strong>Nom utilisateur :</strong>  <input type=\"text\" name=\"username\" size=\"10\" class=\"form-control\"> </div>\r\n  <div class=\"form-group\">\r\n  <strong>Mot de passe :</strong>  <input type=\"password\" name=\"password\" size=\"10\" class=\"form-control\" autocomplete=\"off\"><p/>\r\n  </div>\r\n  <!--\r\n  <div class=\"form-group\"><strong>Role :</strong> \r\n  <select name=\"role\" class=\"form-control\">\r\n  <option value=\"IC\" selected>Mission IC ARS</option> \r\n  <option value=\"AGENT\" >Agent</option>\r\n  <option value=\"NATIONAL\">Niveau national</option>\r\n</select> \r\n</div> -->\r\n\r\n<div class=\"form-group\" align=right>\r\n<a href=\"/si-ice/?/public/#/motdepasse/change_PWD\">Mot de passe oubli&eacute;</a>\r\n<br/>\r\n   <input type=\"submit\" value=\"Se connecter\" class=\"btn btn-primary\" >\r\n   </div>\r\n</FORM>\r\n\r\n</div>\r\n\r\n\r\n<footer id=\"myFooter\"> \r\n  <div class=\"footer-copyright col-md-12\">\r\n      <p>© 2023 Copyright ARS </p>\r\n  </div>\r\n</footer>\r\n</div>\r\n</body>\r\n</HTML>\r\n",
+      "ip": "185.194.82.62",
+      "timestamp": "2023-11-05T05:27:43.410724011Z",
       "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://siicea.ars.sante.fr/si-ice/'",
       "matcher-status": true
     },
@@ -413,9 +450,9 @@
       "host": "https://siicea.ars.sante.fr/si-ice/",
       "matched-at": "https://siicea.ars.sante.fr/si-ice/",
       "request": "GET /si-ice/ HTTP/1.1\r\nHost: siicea.ars.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.1 403 Forbidden\r\nConnection: close\r\nContent-Length: 2592\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 29 Oct 2023 05:28:24 GMT\r\nLast-Modified: Fri, 03 Feb 2023 09:20:47 GMT\r\nSet-Cookie: SIICEA_COOKIE=333ba150e135854546d6971b5392fec5; path=/; secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Forwarded-Proto: https\r\n\r\n<!DOCTYPE html>\r\n<html lang=\"fr\">\r\n<head>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n  <title>Projet national d'outillage des missions IC</title>\r\n  <base href=\"/\">\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n  <!--<link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">-->\r\n  <script src=\"/login/ARSWEBAPP/jquery.min.js\"></script>\r\n  <link rel=\"stylesheet\" href=\"/login/ARSWEBAPP/bootstrap.css\">\r\n  <link rel=\"stylesheet\" href=\"/login/ARSWEBAPP/style.css\">\r\n  </head>\r\n<body>\r\n<div class=\"container\">\r\n  <nav class=\"navbar navbar-default\" role=\"navigation\">\r\n      <div class=\"container\" style=\"\">\r\n        \r\n        <div class=\"navbar-header\">\r\n          <button class=\"navbar-toggle\" data-target=\"#bs-example-navbar-collapse-1\" data-toggle=\"collapse\" type=\"button\">\r\n            <span class=\"sr-only\">Toggle navigation</span>\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n          </button>\r\n          <div class=\"navbar-left\">\r\n\t\t\t<img height=\"80px;\" src=\"/login/ARSWEBAPP/favicon.ico\">\r\n\t\t  </div>\r\n        </div>\r\n  \r\n        <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\" style=\"margin-right: 25px;\">\r\n          <ul class=\"nav navbar-nav navbar-right\">\r\n\t\t\t<li><b style=\"color: #002060;font-size: 5rem;\">SIICEA</b></li>\r\n\t\t  </ul>\r\n        </div>\r\n      </div>\r\n    </nav>\r\n    \r\n\r\n\r\n<div class=\"col-md-6 col-md-offset-3\">\r\n  <h2>Veuillez introduire vos codes de connexion</h2 align=center>\r\n  <p><br/>\r\n  \r\n<FORM METHOD=\"POST\" ACTION=\"\">\r\n<div class=\"form-group\">\r\n  <strong>Nom utilisateur :</strong>  <input type=\"text\" name=\"username\" size=\"10\" class=\"form-control\"> </div>\r\n  <div class=\"form-group\">\r\n  <strong>Mot de passe :</strong>  <input type=\"password\" name=\"password\" size=\"10\" class=\"form-control\" autocomplete=\"off\"><p/>\r\n  </div>\r\n  <!--\r\n  <div class=\"form-group\"><strong>Role :</strong> \r\n  <select name=\"role\" class=\"form-control\">\r\n  <option value=\"IC\" selected>Mission IC ARS</option> \r\n  <option value=\"AGENT\" >Agent</option>\r\n  <option value=\"NATIONAL\">Niveau national</option>\r\n</select> \r\n</div> -->\r\n\r\n<div class=\"form-group\" align=right>\r\n<a href=\"/si-ice/?/public/#/motdepasse/change_PWD\">Mot de passe oubli&eacute;</a>\r\n<br/>\r\n   <input type=\"submit\" value=\"Se connecter\" class=\"btn btn-primary\" >\r\n   </div>\r\n</FORM>\r\n\r\n</div>\r\n\r\n\r\n<footer id=\"myFooter\"> \r\n  <div class=\"footer-copyright col-md-12\">\r\n      <p>© 2023 Copyright ARS </p>\r\n  </div>\r\n</footer>\r\n</div>\r\n</body>\r\n</HTML>\r\n",
+      "response": "HTTP/1.1 403 Forbidden\r\nConnection: close\r\nContent-Length: 2592\r\nAccept-Ranges: bytes\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 05 Nov 2023 05:27:43 GMT\r\nLast-Modified: Fri, 03 Feb 2023 09:20:47 GMT\r\nSet-Cookie: SIICEA_COOKIE=5827559721c5750bb28ce7e1f86f2cf7; path=/; secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\nX-Forwarded-Proto: https\r\n\r\n<!DOCTYPE html>\r\n<html lang=\"fr\">\r\n<head>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n  <title>Projet national d'outillage des missions IC</title>\r\n  <base href=\"/\">\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n  <!--<link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">-->\r\n  <script src=\"/login/ARSWEBAPP/jquery.min.js\"></script>\r\n  <link rel=\"stylesheet\" href=\"/login/ARSWEBAPP/bootstrap.css\">\r\n  <link rel=\"stylesheet\" href=\"/login/ARSWEBAPP/style.css\">\r\n  </head>\r\n<body>\r\n<div class=\"container\">\r\n  <nav class=\"navbar navbar-default\" role=\"navigation\">\r\n      <div class=\"container\" style=\"\">\r\n        \r\n        <div class=\"navbar-header\">\r\n          <button class=\"navbar-toggle\" data-target=\"#bs-example-navbar-collapse-1\" data-toggle=\"collapse\" type=\"button\">\r\n            <span class=\"sr-only\">Toggle navigation</span>\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n          </button>\r\n          <div class=\"navbar-left\">\r\n\t\t\t<img height=\"80px;\" src=\"/login/ARSWEBAPP/favicon.ico\">\r\n\t\t  </div>\r\n        </div>\r\n  \r\n        <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\" style=\"margin-right: 25px;\">\r\n          <ul class=\"nav navbar-nav navbar-right\">\r\n\t\t\t<li><b style=\"color: #002060;font-size: 5rem;\">SIICEA</b></li>\r\n\t\t  </ul>\r\n        </div>\r\n      </div>\r\n    </nav>\r\n    \r\n\r\n\r\n<div class=\"col-md-6 col-md-offset-3\">\r\n  <h2>Veuillez introduire vos codes de connexion</h2 align=center>\r\n  <p><br/>\r\n  \r\n<FORM METHOD=\"POST\" ACTION=\"\">\r\n<div class=\"form-group\">\r\n  <strong>Nom utilisateur :</strong>  <input type=\"text\" name=\"username\" size=\"10\" class=\"form-control\"> </div>\r\n  <div class=\"form-group\">\r\n  <strong>Mot de passe :</strong>  <input type=\"password\" name=\"password\" size=\"10\" class=\"form-control\" autocomplete=\"off\"><p/>\r\n  </div>\r\n  <!--\r\n  <div class=\"form-group\"><strong>Role :</strong> \r\n  <select name=\"role\" class=\"form-control\">\r\n  <option value=\"IC\" selected>Mission IC ARS</option> \r\n  <option value=\"AGENT\" >Agent</option>\r\n  <option value=\"NATIONAL\">Niveau national</option>\r\n</select> \r\n</div> -->\r\n\r\n<div class=\"form-group\" align=right>\r\n<a href=\"/si-ice/?/public/#/motdepasse/change_PWD\">Mot de passe oubli&eacute;</a>\r\n<br/>\r\n   <input type=\"submit\" value=\"Se connecter\" class=\"btn btn-primary\" >\r\n   </div>\r\n</FORM>\r\n\r\n</div>\r\n\r\n\r\n<footer id=\"myFooter\"> \r\n  <div class=\"footer-copyright col-md-12\">\r\n      <p>© 2023 Copyright ARS </p>\r\n  </div>\r\n</footer>\r\n</div>\r\n</body>\r\n</HTML>\r\n",
       "ip": "185.194.82.62",
-      "timestamp": "2023-10-29T05:28:24.252582086Z",
+      "timestamp": "2023-11-05T05:27:43.410738618Z",
       "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://siicea.ars.sante.fr/si-ice/'",
       "matcher-status": true
     },
@@ -445,7 +482,7 @@
         "DHIMYOTIS"
       ],
       "ip": "185.194.82.62",
-      "timestamp": "2023-10-29T05:32:19.396363062Z",
+      "timestamp": "2023-11-05T05:32:05.12853989Z",
       "matcher-status": true
     },
     {
@@ -474,7 +511,7 @@
         "siicea.ars.sante.fr"
       ],
       "ip": "185.194.82.62",
-      "timestamp": "2023-10-29T05:32:19.39658646Z",
+      "timestamp": "2023-11-05T05:32:05.128667999Z",
       "matcher-status": true
     },
     {
@@ -504,7 +541,7 @@
         "tls12"
       ],
       "ip": "185.194.82.62",
-      "timestamp": "2023-10-29T05:32:19.652619104Z",
+      "timestamp": "2023-11-05T05:32:05.941733671Z",
       "matcher-status": true
     }
   ]
