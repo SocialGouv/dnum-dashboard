@@ -21,22 +21,19 @@
 ###########################################################</span>
 
  Using &quot;OpenSSL 1.0.2-bad (1.0.2k-dev)&quot; [~183 ciphers]
- on fv-az700-90:/home/testssl/bin/openssl.Linux.x86_64
+ on fv-az1152-403:/home/testssl/bin/openssl.Linux.x86_64
  (built: &quot;Sep  1 14:03:44 2022&quot;, platform: &quot;linux-x86_64&quot;)
 
 
-<span style="color:white;background-color:black;"> Start 2023-11-26 05:31:39                --&gt;&gt; 185.75.143.93:443 (sports.gouv.fr) &lt;&lt;--</span>
+<span style="color:white;background-color:black;"> Start 2023-12-03 05:27:39                --&gt;&gt; 185.75.143.93:443 (sports.gouv.fr) &lt;&lt;--</span>
 
  rDNS (185.75.143.93):   men-tandem-lb-vip.dedie.ate.info.
  Service detected:       HTTP
 
- Pre-test: <span style="color:#c05600;">128 cipher limit bug</span>
 
 <span style="text-decoration:underline;font-weight:bold;"> Testing protocols </span><u>via sockets except NPN+ALPN </u>
 
-<span style="font-weight:bold;"> SSLv2      </span><span style="color:#cd00cd;"> Oops: TCP connect problem</span>
-
-<span style="color:#cd00cd;">Unable to open a socket to 185.75.143.93:443. </span><span style="color:#cd00cd;">Fixme: couldn&apos;t open socket</span>
+<span style="font-weight:bold;"> SSLv2      </span><span style="color:#008817;font-weight:bold;">not offered (OK)</span>
 <span style="font-weight:bold;"> SSLv3      </span><span style="color:#008817;font-weight:bold;">not offered (OK)</span>
 <span style="font-weight:bold;"> TLS 1      </span>not offered
 <span style="font-weight:bold;"> TLS 1.1    </span>not offered
@@ -58,10 +55,46 @@
 
 <span style="text-decoration:underline;font-weight:bold;"> Testing server&apos;s cipher preferences </span>
 
+Hexcode  Cipher Suite Name (OpenSSL)       KeyExch.   Encryption  Bits     Cipher Suite Name (IANA/RFC)
+-----------------------------------------------------------------------------------------------------------------------------
+<u>SSLv2</u>
+ - 
+<u>SSLv3</u>
+ - 
+<u>TLSv1</u>
+ - 
+<u>TLSv1.1</u>
+ - 
+<u>TLSv1.2</u> (no server order, thus listed by strength)
+ xc030   ECDHE-RSA-AES256-GCM-SHA384       ECDH<span style="color:#008817;"> 521</span>   AESGCM      256      TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384              
+ x9f     DHE-RSA-AES256-GCM-SHA384         DH<span style="color:#008817;"> 2048</span>    AESGCM      256      TLS_DHE_RSA_WITH_AES_256_GCM_SHA384                
+ xc02f   ECDHE-RSA-AES128-GCM-SHA256       ECDH<span style="color:#008817;"> 521</span>   AESGCM      128      TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256              
+ x9e     DHE-RSA-AES128-GCM-SHA256         DH<span style="color:#008817;"> 2048</span>    AESGCM      128      TLS_DHE_RSA_WITH_AES_128_GCM_SHA256                
+<u>TLSv1.3</u>
+<span style="color:#cd00cd;">Local problem: Your /home/testssl/bin/openssl.Linux.x86_64 does not support -tls1_3</span>
 
-<span style="color:#be32d0;font-weight:bold;">Fatal error: repeated TCP connect problems, giving up</span>
-Consider increasing MAX_SOCKET_FAIL (currently: 2)
+<span style="font-weight:bold;"> Has server cipher order?     </span>no
+ (limited sense as client will pick)
 
-</pre>
-</body>
-</html>
+<span style="text-decoration:underline;font-weight:bold;"> Testing robust forward secrecy (FS)</span><u> -- omitting Null Authentication/Encryption, 3DES, RC4 </u>
+
+
+<span style="color:#008817;"> FS is offered (OK) </span>          DHE-RSA-AES128-GCM-SHA256
+                              DHE-RSA-AES256-GCM-SHA384
+                              ECDHE-RSA-AES128-GCM-SHA256
+                              ECDHE-RSA-AES256-GCM-SHA384 
+<span style="font-weight:bold;"> Elliptic curves offered:     </span><span style="color:#008817;">prime256v1</span> <span style="color:#008817;">secp384r1</span> <span style="color:#008817;">secp521r1</span> 
+<span style="color:#cd00cd;"> Oops: openssl s_client connect problem</span>
+
+<span style="text-decoration:underline;font-weight:bold;"> Testing server defaults (Server Hello) </span>
+
+<span style="font-weight:bold;"> TLS extensions (standard)    </span>&quot;renegotiation info/#65281&quot; &quot;server name/#0&quot;
+                              &quot;EC point formats/#11&quot; &quot;next protocol/#13172&quot;
+                              &quot;supported versions/#43&quot; &quot;key share/#51&quot;
+                              &quot;supported_groups/#10&quot;
+<span style="font-weight:bold;"> Session Ticket RFC 5077 hint </span>no -- no lifetime advertised
+<span style="font-weight:bold;"> SSL Session ID support       </span>yes
+<span style="font-weight:bold;"> Session Resumption           </span>Tickets no, ID: yes
+<span style="font-weight:bold;"> TLS clock skew</span>               Random values, no fingerprinting possible 
+<span style="font-weight:bold;"> Certificate Compression      </span>none
+<span style="font-weight:bold;"> Client Authentication        </span>none
