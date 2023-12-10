@@ -32,9 +32,9 @@
       "type": "dns",
       "host": "lca-wp.sbx.synaltic.app.",
       "matched-at": "lca-wp.sbx.synaltic.app",
-      "request": ";; opcode: QUERY, status: NOERROR, id: 60452\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;lca-wp.sbx.synaltic.app.\tIN\t CAA\n",
-      "response": ";; opcode: QUERY, status: NOERROR, id: 60452\n;; flags: qr rd ra; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 1232\n\n;; QUESTION SECTION:\n;lca-wp.sbx.synaltic.app.\tIN\t CAA\n\n;; AUTHORITY SECTION:\nsynaltic.app.\t300\tIN\tSOA\tdns100.ovh.net. tech.ovh.net. 2023112801 86400 3600 3600000 300\n",
-      "timestamp": "2023-12-03T06:37:56.337125729Z",
+      "request": ";; opcode: QUERY, status: NOERROR, id: 17172\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;lca-wp.sbx.synaltic.app.\tIN\t CAA\n",
+      "response": ";; opcode: QUERY, status: NOERROR, id: 17172\n;; flags: qr rd ra; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 512\n\n;; QUESTION SECTION:\n;lca-wp.sbx.synaltic.app.\tIN\t CAA\n\n;; AUTHORITY SECTION:\nsynaltic.app.\t300\tIN\tSOA\tdns100.ovh.net. tech.ovh.net. 2023112801 86400 3600 3600000 300\n",
+      "timestamp": "2023-12-10T06:49:45.503730707Z",
       "matcher-status": true
     },
     {
@@ -65,53 +65,14 @@
           "max-request": 1
         }
       },
-      "matcher-name": "x-permitted-cross-domain-policies",
+      "matcher-name": "x-frame-options",
       "type": "http",
       "host": "https://lca-wp.sbx.synaltic.app",
       "matched-at": "https://lca-wp.sbx.synaltic.app",
       "request": "GET / HTTP/1.1\r\nHost: lca-wp.sbx.synaltic.app\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.1 404 Not Found\r\nConnection: close\r\nContent-Length: 146\r\nContent-Type: text/html\r\nDate: Sun, 03 Dec 2023 06:39:08 GMT\r\nStrict-Transport-Security: max-age=15724800; includeSubDomains\r\n\r\n<html>\r\n<head><title>404 Not Found</title></head>\r\n<body>\r\n<center><h1>404 Not Found</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n",
+      "response": "HTTP/1.1 404 Not Found\r\nConnection: close\r\nContent-Length: 146\r\nContent-Type: text/html\r\nDate: Sun, 10 Dec 2023 06:50:30 GMT\r\nStrict-Transport-Security: max-age=15724800; includeSubDomains\r\n\r\n<html>\r\n<head><title>404 Not Found</title></head>\r\n<body>\r\n<center><h1>404 Not Found</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n",
       "ip": "135.125.84.250",
-      "timestamp": "2023-12-03T06:39:08.875203001Z",
-      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://lca-wp.sbx.synaltic.app'",
-      "matcher-status": true
-    },
-    {
-      "template": "http/misconfiguration/http-missing-security-headers.yaml",
-      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
-      "template-id": "http-missing-security-headers",
-      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
-      "info": {
-        "name": "HTTP Missing Security Headers",
-        "author": [
-          "socketz",
-          "geeknik",
-          "g4l1t0",
-          "convisoappsec",
-          "kurohost",
-          "dawid-czarnecki",
-          "forgedhallpass",
-          "jub0bs"
-        ],
-        "tags": [
-          "misconfig",
-          "headers",
-          "generic"
-        ],
-        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-        "severity": "info",
-        "metadata": {
-          "max-request": 1
-        }
-      },
-      "matcher-name": "referrer-policy",
-      "type": "http",
-      "host": "https://lca-wp.sbx.synaltic.app",
-      "matched-at": "https://lca-wp.sbx.synaltic.app",
-      "request": "GET / HTTP/1.1\r\nHost: lca-wp.sbx.synaltic.app\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.1 404 Not Found\r\nConnection: close\r\nContent-Length: 146\r\nContent-Type: text/html\r\nDate: Sun, 03 Dec 2023 06:39:08 GMT\r\nStrict-Transport-Security: max-age=15724800; includeSubDomains\r\n\r\n<html>\r\n<head><title>404 Not Found</title></head>\r\n<body>\r\n<center><h1>404 Not Found</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n",
-      "ip": "135.125.84.250",
-      "timestamp": "2023-12-03T06:39:08.875251031Z",
+      "timestamp": "2023-12-10T06:50:30.274729353Z",
       "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://lca-wp.sbx.synaltic.app'",
       "matcher-status": true
     },
@@ -148,48 +109,9 @@
       "host": "https://lca-wp.sbx.synaltic.app",
       "matched-at": "https://lca-wp.sbx.synaltic.app",
       "request": "GET / HTTP/1.1\r\nHost: lca-wp.sbx.synaltic.app\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.1 404 Not Found\r\nConnection: close\r\nContent-Length: 146\r\nContent-Type: text/html\r\nDate: Sun, 03 Dec 2023 06:39:08 GMT\r\nStrict-Transport-Security: max-age=15724800; includeSubDomains\r\n\r\n<html>\r\n<head><title>404 Not Found</title></head>\r\n<body>\r\n<center><h1>404 Not Found</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n",
+      "response": "HTTP/1.1 404 Not Found\r\nConnection: close\r\nContent-Length: 146\r\nContent-Type: text/html\r\nDate: Sun, 10 Dec 2023 06:50:30 GMT\r\nStrict-Transport-Security: max-age=15724800; includeSubDomains\r\n\r\n<html>\r\n<head><title>404 Not Found</title></head>\r\n<body>\r\n<center><h1>404 Not Found</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n",
       "ip": "135.125.84.250",
-      "timestamp": "2023-12-03T06:39:08.875270507Z",
-      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://lca-wp.sbx.synaltic.app'",
-      "matcher-status": true
-    },
-    {
-      "template": "http/misconfiguration/http-missing-security-headers.yaml",
-      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
-      "template-id": "http-missing-security-headers",
-      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
-      "info": {
-        "name": "HTTP Missing Security Headers",
-        "author": [
-          "socketz",
-          "geeknik",
-          "g4l1t0",
-          "convisoappsec",
-          "kurohost",
-          "dawid-czarnecki",
-          "forgedhallpass",
-          "jub0bs"
-        ],
-        "tags": [
-          "misconfig",
-          "headers",
-          "generic"
-        ],
-        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-        "severity": "info",
-        "metadata": {
-          "max-request": 1
-        }
-      },
-      "matcher-name": "cross-origin-opener-policy",
-      "type": "http",
-      "host": "https://lca-wp.sbx.synaltic.app",
-      "matched-at": "https://lca-wp.sbx.synaltic.app",
-      "request": "GET / HTTP/1.1\r\nHost: lca-wp.sbx.synaltic.app\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.1 404 Not Found\r\nConnection: close\r\nContent-Length: 146\r\nContent-Type: text/html\r\nDate: Sun, 03 Dec 2023 06:39:08 GMT\r\nStrict-Transport-Security: max-age=15724800; includeSubDomains\r\n\r\n<html>\r\n<head><title>404 Not Found</title></head>\r\n<body>\r\n<center><h1>404 Not Found</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n",
-      "ip": "135.125.84.250",
-      "timestamp": "2023-12-03T06:39:08.875286036Z",
+      "timestamp": "2023-12-10T06:50:30.27479177Z",
       "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://lca-wp.sbx.synaltic.app'",
       "matcher-status": true
     },
@@ -226,165 +148,9 @@
       "host": "https://lca-wp.sbx.synaltic.app",
       "matched-at": "https://lca-wp.sbx.synaltic.app",
       "request": "GET / HTTP/1.1\r\nHost: lca-wp.sbx.synaltic.app\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.1 404 Not Found\r\nConnection: close\r\nContent-Length: 146\r\nContent-Type: text/html\r\nDate: Sun, 03 Dec 2023 06:39:08 GMT\r\nStrict-Transport-Security: max-age=15724800; includeSubDomains\r\n\r\n<html>\r\n<head><title>404 Not Found</title></head>\r\n<body>\r\n<center><h1>404 Not Found</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n",
+      "response": "HTTP/1.1 404 Not Found\r\nConnection: close\r\nContent-Length: 146\r\nContent-Type: text/html\r\nDate: Sun, 10 Dec 2023 06:50:30 GMT\r\nStrict-Transport-Security: max-age=15724800; includeSubDomains\r\n\r\n<html>\r\n<head><title>404 Not Found</title></head>\r\n<body>\r\n<center><h1>404 Not Found</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n",
       "ip": "135.125.84.250",
-      "timestamp": "2023-12-03T06:39:08.875301134Z",
-      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://lca-wp.sbx.synaltic.app'",
-      "matcher-status": true
-    },
-    {
-      "template": "http/misconfiguration/http-missing-security-headers.yaml",
-      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
-      "template-id": "http-missing-security-headers",
-      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
-      "info": {
-        "name": "HTTP Missing Security Headers",
-        "author": [
-          "socketz",
-          "geeknik",
-          "g4l1t0",
-          "convisoappsec",
-          "kurohost",
-          "dawid-czarnecki",
-          "forgedhallpass",
-          "jub0bs"
-        ],
-        "tags": [
-          "misconfig",
-          "headers",
-          "generic"
-        ],
-        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-        "severity": "info",
-        "metadata": {
-          "max-request": 1
-        }
-      },
-      "matcher-name": "x-content-type-options",
-      "type": "http",
-      "host": "https://lca-wp.sbx.synaltic.app",
-      "matched-at": "https://lca-wp.sbx.synaltic.app",
-      "request": "GET / HTTP/1.1\r\nHost: lca-wp.sbx.synaltic.app\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.1 404 Not Found\r\nConnection: close\r\nContent-Length: 146\r\nContent-Type: text/html\r\nDate: Sun, 03 Dec 2023 06:39:08 GMT\r\nStrict-Transport-Security: max-age=15724800; includeSubDomains\r\n\r\n<html>\r\n<head><title>404 Not Found</title></head>\r\n<body>\r\n<center><h1>404 Not Found</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n",
-      "ip": "135.125.84.250",
-      "timestamp": "2023-12-03T06:39:08.875314469Z",
-      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://lca-wp.sbx.synaltic.app'",
-      "matcher-status": true
-    },
-    {
-      "template": "http/misconfiguration/http-missing-security-headers.yaml",
-      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
-      "template-id": "http-missing-security-headers",
-      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
-      "info": {
-        "name": "HTTP Missing Security Headers",
-        "author": [
-          "socketz",
-          "geeknik",
-          "g4l1t0",
-          "convisoappsec",
-          "kurohost",
-          "dawid-czarnecki",
-          "forgedhallpass",
-          "jub0bs"
-        ],
-        "tags": [
-          "misconfig",
-          "headers",
-          "generic"
-        ],
-        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-        "severity": "info",
-        "metadata": {
-          "max-request": 1
-        }
-      },
-      "matcher-name": "permissions-policy",
-      "type": "http",
-      "host": "https://lca-wp.sbx.synaltic.app",
-      "matched-at": "https://lca-wp.sbx.synaltic.app",
-      "request": "GET / HTTP/1.1\r\nHost: lca-wp.sbx.synaltic.app\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.1 404 Not Found\r\nConnection: close\r\nContent-Length: 146\r\nContent-Type: text/html\r\nDate: Sun, 03 Dec 2023 06:39:08 GMT\r\nStrict-Transport-Security: max-age=15724800; includeSubDomains\r\n\r\n<html>\r\n<head><title>404 Not Found</title></head>\r\n<body>\r\n<center><h1>404 Not Found</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n",
-      "ip": "135.125.84.250",
-      "timestamp": "2023-12-03T06:39:08.875326522Z",
-      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://lca-wp.sbx.synaltic.app'",
-      "matcher-status": true
-    },
-    {
-      "template": "http/misconfiguration/http-missing-security-headers.yaml",
-      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
-      "template-id": "http-missing-security-headers",
-      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
-      "info": {
-        "name": "HTTP Missing Security Headers",
-        "author": [
-          "socketz",
-          "geeknik",
-          "g4l1t0",
-          "convisoappsec",
-          "kurohost",
-          "dawid-czarnecki",
-          "forgedhallpass",
-          "jub0bs"
-        ],
-        "tags": [
-          "misconfig",
-          "headers",
-          "generic"
-        ],
-        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-        "severity": "info",
-        "metadata": {
-          "max-request": 1
-        }
-      },
-      "matcher-name": "x-frame-options",
-      "type": "http",
-      "host": "https://lca-wp.sbx.synaltic.app",
-      "matched-at": "https://lca-wp.sbx.synaltic.app",
-      "request": "GET / HTTP/1.1\r\nHost: lca-wp.sbx.synaltic.app\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.1 404 Not Found\r\nConnection: close\r\nContent-Length: 146\r\nContent-Type: text/html\r\nDate: Sun, 03 Dec 2023 06:39:08 GMT\r\nStrict-Transport-Security: max-age=15724800; includeSubDomains\r\n\r\n<html>\r\n<head><title>404 Not Found</title></head>\r\n<body>\r\n<center><h1>404 Not Found</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n",
-      "ip": "135.125.84.250",
-      "timestamp": "2023-12-03T06:39:08.875339506Z",
-      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://lca-wp.sbx.synaltic.app'",
-      "matcher-status": true
-    },
-    {
-      "template": "http/misconfiguration/http-missing-security-headers.yaml",
-      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
-      "template-id": "http-missing-security-headers",
-      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
-      "info": {
-        "name": "HTTP Missing Security Headers",
-        "author": [
-          "socketz",
-          "geeknik",
-          "g4l1t0",
-          "convisoappsec",
-          "kurohost",
-          "dawid-czarnecki",
-          "forgedhallpass",
-          "jub0bs"
-        ],
-        "tags": [
-          "misconfig",
-          "headers",
-          "generic"
-        ],
-        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-        "severity": "info",
-        "metadata": {
-          "max-request": 1
-        }
-      },
-      "matcher-name": "cross-origin-embedder-policy",
-      "type": "http",
-      "host": "https://lca-wp.sbx.synaltic.app",
-      "matched-at": "https://lca-wp.sbx.synaltic.app",
-      "request": "GET / HTTP/1.1\r\nHost: lca-wp.sbx.synaltic.app\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.1 404 Not Found\r\nConnection: close\r\nContent-Length: 146\r\nContent-Type: text/html\r\nDate: Sun, 03 Dec 2023 06:39:08 GMT\r\nStrict-Transport-Security: max-age=15724800; includeSubDomains\r\n\r\n<html>\r\n<head><title>404 Not Found</title></head>\r\n<body>\r\n<center><h1>404 Not Found</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n",
-      "ip": "135.125.84.250",
-      "timestamp": "2023-12-03T06:39:08.875354063Z",
+      "timestamp": "2023-12-10T06:50:30.2748186Z",
       "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://lca-wp.sbx.synaltic.app'",
       "matcher-status": true
     },
@@ -421,9 +187,243 @@
       "host": "https://lca-wp.sbx.synaltic.app",
       "matched-at": "https://lca-wp.sbx.synaltic.app",
       "request": "GET / HTTP/1.1\r\nHost: lca-wp.sbx.synaltic.app\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.1 404 Not Found\r\nConnection: close\r\nContent-Length: 146\r\nContent-Type: text/html\r\nDate: Sun, 03 Dec 2023 06:39:08 GMT\r\nStrict-Transport-Security: max-age=15724800; includeSubDomains\r\n\r\n<html>\r\n<head><title>404 Not Found</title></head>\r\n<body>\r\n<center><h1>404 Not Found</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n",
+      "response": "HTTP/1.1 404 Not Found\r\nConnection: close\r\nContent-Length: 146\r\nContent-Type: text/html\r\nDate: Sun, 10 Dec 2023 06:50:30 GMT\r\nStrict-Transport-Security: max-age=15724800; includeSubDomains\r\n\r\n<html>\r\n<head><title>404 Not Found</title></head>\r\n<body>\r\n<center><h1>404 Not Found</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n",
       "ip": "135.125.84.250",
-      "timestamp": "2023-12-03T06:39:08.875367848Z",
+      "timestamp": "2023-12-10T06:50:30.274842955Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://lca-wp.sbx.synaltic.app'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "x-content-type-options",
+      "type": "http",
+      "host": "https://lca-wp.sbx.synaltic.app",
+      "matched-at": "https://lca-wp.sbx.synaltic.app",
+      "request": "GET / HTTP/1.1\r\nHost: lca-wp.sbx.synaltic.app\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.1 404 Not Found\r\nConnection: close\r\nContent-Length: 146\r\nContent-Type: text/html\r\nDate: Sun, 10 Dec 2023 06:50:30 GMT\r\nStrict-Transport-Security: max-age=15724800; includeSubDomains\r\n\r\n<html>\r\n<head><title>404 Not Found</title></head>\r\n<body>\r\n<center><h1>404 Not Found</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n",
+      "ip": "135.125.84.250",
+      "timestamp": "2023-12-10T06:50:30.274873412Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://lca-wp.sbx.synaltic.app'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "x-permitted-cross-domain-policies",
+      "type": "http",
+      "host": "https://lca-wp.sbx.synaltic.app",
+      "matched-at": "https://lca-wp.sbx.synaltic.app",
+      "request": "GET / HTTP/1.1\r\nHost: lca-wp.sbx.synaltic.app\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.1 404 Not Found\r\nConnection: close\r\nContent-Length: 146\r\nContent-Type: text/html\r\nDate: Sun, 10 Dec 2023 06:50:30 GMT\r\nStrict-Transport-Security: max-age=15724800; includeSubDomains\r\n\r\n<html>\r\n<head><title>404 Not Found</title></head>\r\n<body>\r\n<center><h1>404 Not Found</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n",
+      "ip": "135.125.84.250",
+      "timestamp": "2023-12-10T06:50:30.274905332Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://lca-wp.sbx.synaltic.app'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "referrer-policy",
+      "type": "http",
+      "host": "https://lca-wp.sbx.synaltic.app",
+      "matched-at": "https://lca-wp.sbx.synaltic.app",
+      "request": "GET / HTTP/1.1\r\nHost: lca-wp.sbx.synaltic.app\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.1 404 Not Found\r\nConnection: close\r\nContent-Length: 146\r\nContent-Type: text/html\r\nDate: Sun, 10 Dec 2023 06:50:30 GMT\r\nStrict-Transport-Security: max-age=15724800; includeSubDomains\r\n\r\n<html>\r\n<head><title>404 Not Found</title></head>\r\n<body>\r\n<center><h1>404 Not Found</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n",
+      "ip": "135.125.84.250",
+      "timestamp": "2023-12-10T06:50:30.274933685Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://lca-wp.sbx.synaltic.app'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "cross-origin-embedder-policy",
+      "type": "http",
+      "host": "https://lca-wp.sbx.synaltic.app",
+      "matched-at": "https://lca-wp.sbx.synaltic.app",
+      "request": "GET / HTTP/1.1\r\nHost: lca-wp.sbx.synaltic.app\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.1 404 Not Found\r\nConnection: close\r\nContent-Length: 146\r\nContent-Type: text/html\r\nDate: Sun, 10 Dec 2023 06:50:30 GMT\r\nStrict-Transport-Security: max-age=15724800; includeSubDomains\r\n\r\n<html>\r\n<head><title>404 Not Found</title></head>\r\n<body>\r\n<center><h1>404 Not Found</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n",
+      "ip": "135.125.84.250",
+      "timestamp": "2023-12-10T06:50:30.274958622Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://lca-wp.sbx.synaltic.app'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "cross-origin-opener-policy",
+      "type": "http",
+      "host": "https://lca-wp.sbx.synaltic.app",
+      "matched-at": "https://lca-wp.sbx.synaltic.app",
+      "request": "GET / HTTP/1.1\r\nHost: lca-wp.sbx.synaltic.app\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.1 404 Not Found\r\nConnection: close\r\nContent-Length: 146\r\nContent-Type: text/html\r\nDate: Sun, 10 Dec 2023 06:50:30 GMT\r\nStrict-Transport-Security: max-age=15724800; includeSubDomains\r\n\r\n<html>\r\n<head><title>404 Not Found</title></head>\r\n<body>\r\n<center><h1>404 Not Found</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n",
+      "ip": "135.125.84.250",
+      "timestamp": "2023-12-10T06:50:30.274986764Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://lca-wp.sbx.synaltic.app'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "permissions-policy",
+      "type": "http",
+      "host": "https://lca-wp.sbx.synaltic.app",
+      "matched-at": "https://lca-wp.sbx.synaltic.app",
+      "request": "GET / HTTP/1.1\r\nHost: lca-wp.sbx.synaltic.app\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.1 404 Not Found\r\nConnection: close\r\nContent-Length: 146\r\nContent-Type: text/html\r\nDate: Sun, 10 Dec 2023 06:50:30 GMT\r\nStrict-Transport-Security: max-age=15724800; includeSubDomains\r\n\r\n<html>\r\n<head><title>404 Not Found</title></head>\r\n<body>\r\n<center><h1>404 Not Found</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n",
+      "ip": "135.125.84.250",
+      "timestamp": "2023-12-10T06:50:30.275012292Z",
       "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://lca-wp.sbx.synaltic.app'",
       "matcher-status": true
     },
@@ -463,9 +463,9 @@
       "host": "https://lca-wp.sbx.synaltic.app",
       "matched-at": "https://lca-wp.sbx.synaltic.app/",
       "request": "POST / HTTP/1.1\r\nHost: lca-wp.sbx.synaltic.app\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nContent-Length: 27\r\nContent-Type: application/x-www-form-urlencoded\r\nAccept-Encoding: gzip\r\n\r\n_=<script>alert(1)</script>",
-      "response": "HTTP/1.1 404 Not Found\r\nConnection: close\r\nContent-Length: 146\r\nContent-Type: text/html\r\nDate: Sun, 03 Dec 2023 06:39:46 GMT\r\nStrict-Transport-Security: max-age=15724800; includeSubDomains\r\n\r\n<html>\r\n<head><title>404 Not Found</title></head>\r\n<body>\r\n<center><h1>404 Not Found</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n",
+      "response": "HTTP/1.1 404 Not Found\r\nConnection: close\r\nContent-Length: 146\r\nContent-Type: text/html\r\nDate: Sun, 10 Dec 2023 06:50:52 GMT\r\nStrict-Transport-Security: max-age=15724800; includeSubDomains\r\n\r\n<html>\r\n<head><title>404 Not Found</title></head>\r\n<body>\r\n<center><h1>404 Not Found</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n",
       "ip": "135.125.84.250",
-      "timestamp": "2023-12-03T06:39:46.922928539Z",
+      "timestamp": "2023-12-10T06:50:52.453495391Z",
       "curl-command": "curl -X 'POST' -d '_=<script>alert(1)</script>' -H 'Content-Type: application/x-www-form-urlencoded' -H 'Host: lca-wp.sbx.synaltic.app' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://lca-wp.sbx.synaltic.app/'",
       "matcher-status": true
     },
@@ -495,7 +495,7 @@
         "Acme Co"
       ],
       "ip": "135.125.84.250",
-      "timestamp": "2023-12-03T06:40:22.203286084Z",
+      "timestamp": "2023-12-10T06:51:13.891843026Z",
       "matcher-status": true
     },
     {
@@ -533,7 +533,7 @@
         "Issuer: Kubernetes Ingress Controller Fake Certificate"
       ],
       "ip": "135.125.84.250",
-      "timestamp": "2023-12-03T06:40:22.203355874Z",
+      "timestamp": "2023-12-10T06:51:13.89189866Z",
       "matcher-status": true
     },
     {
@@ -567,7 +567,7 @@
         "CN: Kubernetes Ingress Controller Fake Certificate"
       ],
       "ip": "135.125.84.250",
-      "timestamp": "2023-12-03T06:40:22.203406208Z",
+      "timestamp": "2023-12-10T06:51:13.891932383Z",
       "matcher-status": true
     },
     {
@@ -598,7 +598,7 @@
       "host": "lca-wp.sbx.synaltic.app",
       "matched-at": "lca-wp.sbx.synaltic.app:443",
       "ip": "135.125.84.250",
-      "timestamp": "2023-12-03T06:40:22.203439911Z",
+      "timestamp": "2023-12-10T06:51:13.891961978Z",
       "matcher-status": true
     },
     {
@@ -627,7 +627,7 @@
         "ingress.local"
       ],
       "ip": "135.125.84.250",
-      "timestamp": "2023-12-03T06:40:22.203486428Z",
+      "timestamp": "2023-12-10T06:51:13.892008054Z",
       "matcher-status": true
     },
     {
@@ -657,7 +657,7 @@
         "tls12"
       ],
       "ip": "135.125.84.250",
-      "timestamp": "2023-12-03T06:40:25.046807482Z",
+      "timestamp": "2023-12-10T06:51:15.444493484Z",
       "matcher-status": true
     },
     {
@@ -687,7 +687,7 @@
         "tls13"
       ],
       "ip": "135.125.84.250",
-      "timestamp": "2023-12-03T06:40:25.348903083Z",
+      "timestamp": "2023-12-10T06:51:15.622767824Z",
       "matcher-status": true
     }
   ]
