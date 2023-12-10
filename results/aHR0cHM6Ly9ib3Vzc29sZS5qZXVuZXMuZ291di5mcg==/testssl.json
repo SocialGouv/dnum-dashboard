@@ -339,7 +339,7 @@
               "ip"           : "boussole.jeunes.gouv.fr/185.194.82.191",
               "port"         : "443",
               "severity"     : "OK",
-              "finding"      : "155 >= 60 days"
+              "finding"      : "148 >= 60 days"
           }
 ,         {
               "id"           : "cert_notBefore",
@@ -485,22 +485,22 @@
               "id"           : "HTTP_status_code",
               "ip"           : "boussole.jeunes.gouv.fr/185.194.82.191",
               "port"         : "443",
-              "severity"     : "WARN",
-              "finding"      : "Unexpected 503 Service Unavailable @ '/'"
+              "severity"     : "INFO",
+              "finding"      : "200 OK ('/')"
           }
 ,         {
               "id"           : "HTTP_clock_skew",
               "ip"           : "boussole.jeunes.gouv.fr/185.194.82.191",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "0 seconds from localtime"
+              "finding"      : "-1 seconds from localtime"
           }
 ,         {
               "id"           : "HTTP_headerTime",
               "ip"           : "boussole.jeunes.gouv.fr/185.194.82.191",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "1701566659"
+              "finding"      : "1702171469"
           }
 ,         {
               "id"           : "HSTS_time",
@@ -549,21 +549,21 @@
               "ip"           : "boussole.jeunes.gouv.fr/185.194.82.191",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "1 at '/' (30x detected, better try target URL of 30x)"
+              "finding"      : "2 at '/'"
           }
 ,         {
               "id"           : "cookie_secure",
               "ip"           : "boussole.jeunes.gouv.fr/185.194.82.191",
               "port"         : "443",
               "severity"     : "OK",
-              "finding"      : "All (1) at '/' marked as secure"
+              "finding"      : "All (2) at '/' marked as secure"
           }
 ,         {
               "id"           : "cookie_httponly",
               "ip"           : "boussole.jeunes.gouv.fr/185.194.82.191",
               "port"         : "443",
               "severity"     : "OK",
-              "finding"      : "All (1) at '/' marked as HttpOnly (30x detected, better try target URL of 30x)"
+              "finding"      : "All (2) at '/' marked as HttpOnly"
           }
 ,         {
               "id"           : "Content-Security-Policy",
@@ -571,6 +571,13 @@
               "port"         : "443",
               "severity"     : "OK",
               "finding"      : "upgrade-insecure-requests;"
+          }
+,         {
+              "id"           : "Cache-Control",
+              "ip"           : "boussole.jeunes.gouv.fr/185.194.82.191",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "max-age=0, must-revalidate, private"
           }
 ,         {
               "id"           : "banner_reverseproxy",
@@ -646,10 +653,10 @@
               "id"           : "BREACH",
               "ip"           : "boussole.jeunes.gouv.fr/185.194.82.191",
               "port"         : "443",
-              "severity"     : "OK",
+              "severity"     : "MEDIUM",
               "cve"          : "CVE-2013-3587",
               "cwe"          : "CWE-310",
-              "finding"      : "not vulnerable, no gzip/deflate/compress/br HTTP compression  - only supplied '/' tested"
+              "finding"      : "potentially VULNERABLE, gzip HTTP compression detected  - only supplied '/' tested"
           }
 ,         {
               "id"           : "POODLE_SSL",
@@ -1077,6 +1084,6 @@
               "ip"           : "boussole.jeunes.gouv.fr/185.194.82.191",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "56"
+              "finding"      : "63"
           }
 ]
