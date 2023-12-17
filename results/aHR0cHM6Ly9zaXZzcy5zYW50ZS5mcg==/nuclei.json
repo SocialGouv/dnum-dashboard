@@ -32,9 +32,9 @@
       "type": "dns",
       "host": "sivss.sante.fr.",
       "matched-at": "sivss.sante.fr",
-      "request": ";; opcode: QUERY, status: NOERROR, id: 58918\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;sivss.sante.fr.\tIN\t CAA\n",
-      "response": ";; opcode: QUERY, status: NOERROR, id: 58918\n;; flags: qr rd ra; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 1232\n\n;; QUESTION SECTION:\n;sivss.sante.fr.\tIN\t CAA\n\n;; AUTHORITY SECTION:\nsante.fr.\t1200\tIN\tSOA\ta.ns.developpement-durable.gouv.fr. dnsmaster.sante.gouv.fr. 2023120702 14400 1800 2592000 1200\n",
-      "timestamp": "2023-12-10T05:15:09.630744459Z",
+      "request": ";; opcode: QUERY, status: NOERROR, id: 43988\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;sivss.sante.fr.\tIN\t CAA\n",
+      "response": ";; opcode: QUERY, status: NOERROR, id: 43988\n;; flags: qr rd ra; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 512\n\n;; QUESTION SECTION:\n;sivss.sante.fr.\tIN\t CAA\n\n;; AUTHORITY SECTION:\nsante.fr.\t1200\tIN\tSOA\ta.ns.developpement-durable.gouv.fr. dnsmaster.sante.gouv.fr. 2023120702 14400 1800 2592000 1200\n",
+      "timestamp": "2023-12-17T05:31:26.689504759Z",
       "matcher-status": true
     },
     {
@@ -72,163 +72,7 @@
       "request": "GET / HTTP/1.1\r\nHost: sivss.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
       "response": "HTTP/1.0 403 Forbidden\r\nContent-Length: 119\r\nConnection: close\r\nServer: BigIP\r\n\r\n<html><head><title>Acc&#232;s Refus&#233;</title></head><body>La page demand&#233;e est inaccessible.<br></body></html>",
       "ip": "185.194.82.118",
-      "timestamp": "2023-12-10T05:16:36.395373583Z",
-      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://sivss.sante.fr'",
-      "matcher-status": true
-    },
-    {
-      "template": "http/misconfiguration/http-missing-security-headers.yaml",
-      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
-      "template-id": "http-missing-security-headers",
-      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
-      "info": {
-        "name": "HTTP Missing Security Headers",
-        "author": [
-          "socketz",
-          "geeknik",
-          "g4l1t0",
-          "convisoappsec",
-          "kurohost",
-          "dawid-czarnecki",
-          "forgedhallpass",
-          "jub0bs"
-        ],
-        "tags": [
-          "misconfig",
-          "headers",
-          "generic"
-        ],
-        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-        "severity": "info",
-        "metadata": {
-          "max-request": 1
-        }
-      },
-      "matcher-name": "content-security-policy",
-      "type": "http",
-      "host": "https://sivss.sante.fr",
-      "matched-at": "https://sivss.sante.fr",
-      "request": "GET / HTTP/1.1\r\nHost: sivss.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.0 403 Forbidden\r\nContent-Length: 119\r\nConnection: close\r\nServer: BigIP\r\n\r\n<html><head><title>Acc&#232;s Refus&#233;</title></head><body>La page demand&#233;e est inaccessible.<br></body></html>",
-      "ip": "185.194.82.118",
-      "timestamp": "2023-12-10T05:16:36.395421543Z",
-      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://sivss.sante.fr'",
-      "matcher-status": true
-    },
-    {
-      "template": "http/misconfiguration/http-missing-security-headers.yaml",
-      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
-      "template-id": "http-missing-security-headers",
-      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
-      "info": {
-        "name": "HTTP Missing Security Headers",
-        "author": [
-          "socketz",
-          "geeknik",
-          "g4l1t0",
-          "convisoappsec",
-          "kurohost",
-          "dawid-czarnecki",
-          "forgedhallpass",
-          "jub0bs"
-        ],
-        "tags": [
-          "misconfig",
-          "headers",
-          "generic"
-        ],
-        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-        "severity": "info",
-        "metadata": {
-          "max-request": 1
-        }
-      },
-      "matcher-name": "x-permitted-cross-domain-policies",
-      "type": "http",
-      "host": "https://sivss.sante.fr",
-      "matched-at": "https://sivss.sante.fr",
-      "request": "GET / HTTP/1.1\r\nHost: sivss.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.0 403 Forbidden\r\nContent-Length: 119\r\nConnection: close\r\nServer: BigIP\r\n\r\n<html><head><title>Acc&#232;s Refus&#233;</title></head><body>La page demand&#233;e est inaccessible.<br></body></html>",
-      "ip": "185.194.82.118",
-      "timestamp": "2023-12-10T05:16:36.395438465Z",
-      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://sivss.sante.fr'",
-      "matcher-status": true
-    },
-    {
-      "template": "http/misconfiguration/http-missing-security-headers.yaml",
-      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
-      "template-id": "http-missing-security-headers",
-      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
-      "info": {
-        "name": "HTTP Missing Security Headers",
-        "author": [
-          "socketz",
-          "geeknik",
-          "g4l1t0",
-          "convisoappsec",
-          "kurohost",
-          "dawid-czarnecki",
-          "forgedhallpass",
-          "jub0bs"
-        ],
-        "tags": [
-          "misconfig",
-          "headers",
-          "generic"
-        ],
-        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-        "severity": "info",
-        "metadata": {
-          "max-request": 1
-        }
-      },
-      "matcher-name": "referrer-policy",
-      "type": "http",
-      "host": "https://sivss.sante.fr",
-      "matched-at": "https://sivss.sante.fr",
-      "request": "GET / HTTP/1.1\r\nHost: sivss.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.0 403 Forbidden\r\nContent-Length: 119\r\nConnection: close\r\nServer: BigIP\r\n\r\n<html><head><title>Acc&#232;s Refus&#233;</title></head><body>La page demand&#233;e est inaccessible.<br></body></html>",
-      "ip": "185.194.82.118",
-      "timestamp": "2023-12-10T05:16:36.395452581Z",
-      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://sivss.sante.fr'",
-      "matcher-status": true
-    },
-    {
-      "template": "http/misconfiguration/http-missing-security-headers.yaml",
-      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
-      "template-id": "http-missing-security-headers",
-      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
-      "info": {
-        "name": "HTTP Missing Security Headers",
-        "author": [
-          "socketz",
-          "geeknik",
-          "g4l1t0",
-          "convisoappsec",
-          "kurohost",
-          "dawid-czarnecki",
-          "forgedhallpass",
-          "jub0bs"
-        ],
-        "tags": [
-          "misconfig",
-          "headers",
-          "generic"
-        ],
-        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-        "severity": "info",
-        "metadata": {
-          "max-request": 1
-        }
-      },
-      "matcher-name": "cross-origin-opener-policy",
-      "type": "http",
-      "host": "https://sivss.sante.fr",
-      "matched-at": "https://sivss.sante.fr",
-      "request": "GET / HTTP/1.1\r\nHost: sivss.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.0 403 Forbidden\r\nContent-Length: 119\r\nConnection: close\r\nServer: BigIP\r\n\r\n<html><head><title>Acc&#232;s Refus&#233;</title></head><body>La page demand&#233;e est inaccessible.<br></body></html>",
-      "ip": "185.194.82.118",
-      "timestamp": "2023-12-10T05:16:36.395466698Z",
+      "timestamp": "2023-12-17T05:32:27.451690552Z",
       "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://sivss.sante.fr'",
       "matcher-status": true
     },
@@ -267,85 +111,7 @@
       "request": "GET / HTTP/1.1\r\nHost: sivss.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
       "response": "HTTP/1.0 403 Forbidden\r\nContent-Length: 119\r\nConnection: close\r\nServer: BigIP\r\n\r\n<html><head><title>Acc&#232;s Refus&#233;</title></head><body>La page demand&#233;e est inaccessible.<br></body></html>",
       "ip": "185.194.82.118",
-      "timestamp": "2023-12-10T05:16:36.395480293Z",
-      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://sivss.sante.fr'",
-      "matcher-status": true
-    },
-    {
-      "template": "http/misconfiguration/http-missing-security-headers.yaml",
-      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
-      "template-id": "http-missing-security-headers",
-      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
-      "info": {
-        "name": "HTTP Missing Security Headers",
-        "author": [
-          "socketz",
-          "geeknik",
-          "g4l1t0",
-          "convisoappsec",
-          "kurohost",
-          "dawid-czarnecki",
-          "forgedhallpass",
-          "jub0bs"
-        ],
-        "tags": [
-          "misconfig",
-          "headers",
-          "generic"
-        ],
-        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-        "severity": "info",
-        "metadata": {
-          "max-request": 1
-        }
-      },
-      "matcher-name": "x-frame-options",
-      "type": "http",
-      "host": "https://sivss.sante.fr",
-      "matched-at": "https://sivss.sante.fr",
-      "request": "GET / HTTP/1.1\r\nHost: sivss.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.0 403 Forbidden\r\nContent-Length: 119\r\nConnection: close\r\nServer: BigIP\r\n\r\n<html><head><title>Acc&#232;s Refus&#233;</title></head><body>La page demand&#233;e est inaccessible.<br></body></html>",
-      "ip": "185.194.82.118",
-      "timestamp": "2023-12-10T05:16:36.395496614Z",
-      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://sivss.sante.fr'",
-      "matcher-status": true
-    },
-    {
-      "template": "http/misconfiguration/http-missing-security-headers.yaml",
-      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
-      "template-id": "http-missing-security-headers",
-      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
-      "info": {
-        "name": "HTTP Missing Security Headers",
-        "author": [
-          "socketz",
-          "geeknik",
-          "g4l1t0",
-          "convisoappsec",
-          "kurohost",
-          "dawid-czarnecki",
-          "forgedhallpass",
-          "jub0bs"
-        ],
-        "tags": [
-          "misconfig",
-          "headers",
-          "generic"
-        ],
-        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-        "severity": "info",
-        "metadata": {
-          "max-request": 1
-        }
-      },
-      "matcher-name": "x-content-type-options",
-      "type": "http",
-      "host": "https://sivss.sante.fr",
-      "matched-at": "https://sivss.sante.fr",
-      "request": "GET / HTTP/1.1\r\nHost: sivss.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.0 403 Forbidden\r\nContent-Length: 119\r\nConnection: close\r\nServer: BigIP\r\n\r\n<html><head><title>Acc&#232;s Refus&#233;</title></head><body>La page demand&#233;e est inaccessible.<br></body></html>",
-      "ip": "185.194.82.118",
-      "timestamp": "2023-12-10T05:16:36.395517854Z",
+      "timestamp": "2023-12-17T05:32:27.451749722Z",
       "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://sivss.sante.fr'",
       "matcher-status": true
     },
@@ -384,7 +150,7 @@
       "request": "GET / HTTP/1.1\r\nHost: sivss.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
       "response": "HTTP/1.0 403 Forbidden\r\nContent-Length: 119\r\nConnection: close\r\nServer: BigIP\r\n\r\n<html><head><title>Acc&#232;s Refus&#233;</title></head><body>La page demand&#233;e est inaccessible.<br></body></html>",
       "ip": "185.194.82.118",
-      "timestamp": "2023-12-10T05:16:36.395538562Z",
+      "timestamp": "2023-12-17T05:32:27.451764059Z",
       "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://sivss.sante.fr'",
       "matcher-status": true
     },
@@ -423,7 +189,46 @@
       "request": "GET / HTTP/1.1\r\nHost: sivss.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
       "response": "HTTP/1.0 403 Forbidden\r\nContent-Length: 119\r\nConnection: close\r\nServer: BigIP\r\n\r\n<html><head><title>Acc&#232;s Refus&#233;</title></head><body>La page demand&#233;e est inaccessible.<br></body></html>",
       "ip": "185.194.82.118",
-      "timestamp": "2023-12-10T05:16:36.395560944Z",
+      "timestamp": "2023-12-17T05:32:27.451779568Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://sivss.sante.fr'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "cross-origin-opener-policy",
+      "type": "http",
+      "host": "https://sivss.sante.fr",
+      "matched-at": "https://sivss.sante.fr",
+      "request": "GET / HTTP/1.1\r\nHost: sivss.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.0 403 Forbidden\r\nContent-Length: 119\r\nConnection: close\r\nServer: BigIP\r\n\r\n<html><head><title>Acc&#232;s Refus&#233;</title></head><body>La page demand&#233;e est inaccessible.<br></body></html>",
+      "ip": "185.194.82.118",
+      "timestamp": "2023-12-17T05:32:27.451801128Z",
       "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://sivss.sante.fr'",
       "matcher-status": true
     },
@@ -462,7 +267,202 @@
       "request": "GET / HTTP/1.1\r\nHost: sivss.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
       "response": "HTTP/1.0 403 Forbidden\r\nContent-Length: 119\r\nConnection: close\r\nServer: BigIP\r\n\r\n<html><head><title>Acc&#232;s Refus&#233;</title></head><body>La page demand&#233;e est inaccessible.<br></body></html>",
       "ip": "185.194.82.118",
-      "timestamp": "2023-12-10T05:16:36.395580581Z",
+      "timestamp": "2023-12-17T05:32:27.451819673Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://sivss.sante.fr'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "content-security-policy",
+      "type": "http",
+      "host": "https://sivss.sante.fr",
+      "matched-at": "https://sivss.sante.fr",
+      "request": "GET / HTTP/1.1\r\nHost: sivss.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.0 403 Forbidden\r\nContent-Length: 119\r\nConnection: close\r\nServer: BigIP\r\n\r\n<html><head><title>Acc&#232;s Refus&#233;</title></head><body>La page demand&#233;e est inaccessible.<br></body></html>",
+      "ip": "185.194.82.118",
+      "timestamp": "2023-12-17T05:32:27.451836394Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://sivss.sante.fr'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "x-frame-options",
+      "type": "http",
+      "host": "https://sivss.sante.fr",
+      "matched-at": "https://sivss.sante.fr",
+      "request": "GET / HTTP/1.1\r\nHost: sivss.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.0 403 Forbidden\r\nContent-Length: 119\r\nConnection: close\r\nServer: BigIP\r\n\r\n<html><head><title>Acc&#232;s Refus&#233;</title></head><body>La page demand&#233;e est inaccessible.<br></body></html>",
+      "ip": "185.194.82.118",
+      "timestamp": "2023-12-17T05:32:27.451852023Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://sivss.sante.fr'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "x-content-type-options",
+      "type": "http",
+      "host": "https://sivss.sante.fr",
+      "matched-at": "https://sivss.sante.fr",
+      "request": "GET / HTTP/1.1\r\nHost: sivss.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.0 403 Forbidden\r\nContent-Length: 119\r\nConnection: close\r\nServer: BigIP\r\n\r\n<html><head><title>Acc&#232;s Refus&#233;</title></head><body>La page demand&#233;e est inaccessible.<br></body></html>",
+      "ip": "185.194.82.118",
+      "timestamp": "2023-12-17T05:32:27.451870327Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://sivss.sante.fr'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "x-permitted-cross-domain-policies",
+      "type": "http",
+      "host": "https://sivss.sante.fr",
+      "matched-at": "https://sivss.sante.fr",
+      "request": "GET / HTTP/1.1\r\nHost: sivss.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.0 403 Forbidden\r\nContent-Length: 119\r\nConnection: close\r\nServer: BigIP\r\n\r\n<html><head><title>Acc&#232;s Refus&#233;</title></head><body>La page demand&#233;e est inaccessible.<br></body></html>",
+      "ip": "185.194.82.118",
+      "timestamp": "2023-12-17T05:32:27.451887008Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://sivss.sante.fr'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "referrer-policy",
+      "type": "http",
+      "host": "https://sivss.sante.fr",
+      "matched-at": "https://sivss.sante.fr",
+      "request": "GET / HTTP/1.1\r\nHost: sivss.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.0 403 Forbidden\r\nContent-Length: 119\r\nConnection: close\r\nServer: BigIP\r\n\r\n<html><head><title>Acc&#232;s Refus&#233;</title></head><body>La page demand&#233;e est inaccessible.<br></body></html>",
+      "ip": "185.194.82.118",
+      "timestamp": "2023-12-17T05:32:27.451902957Z",
       "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://sivss.sante.fr'",
       "matcher-status": true
     },
@@ -497,7 +497,7 @@
       "request": "GET / HTTP/1.1\r\nHost: sivss.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
       "response": "HTTP/1.0 403 Forbidden\r\nContent-Length: 119\r\nConnection: close\r\nServer: BigIP\r\n\r\n<html><head><title>Acc&#232;s Refus&#233;</title></head><body>La page demand&#233;e est inaccessible.<br></body></html>",
       "ip": "185.194.82.118",
-      "timestamp": "2023-12-10T05:17:16.838716199Z",
+      "timestamp": "2023-12-17T05:32:55.139939146Z",
       "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://sivss.sante.fr'",
       "matcher-status": true
     },
@@ -539,8 +539,66 @@
       "request": "POST / HTTP/1.1\r\nHost: sivss.sante.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nContent-Length: 27\r\nContent-Type: application/x-www-form-urlencoded\r\nAccept-Encoding: gzip\r\n\r\n_=<script>alert(1)</script>",
       "response": "HTTP/1.0 403 Forbidden\r\nContent-Length: 119\r\nConnection: close\r\nServer: BigIP\r\n\r\n<html><head><title>Acc&#232;s Refus&#233;</title></head><body>La page demand&#233;e est inaccessible.<br></body></html>",
       "ip": "185.194.82.118",
-      "timestamp": "2023-12-10T05:17:22.959448182Z",
+      "timestamp": "2023-12-17T05:32:59.461674214Z",
       "curl-command": "curl -X 'POST' -d '_=<script>alert(1)</script>' -H 'Content-Type: application/x-www-form-urlencoded' -H 'Host: sivss.sante.fr' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://sivss.sante.fr/'",
+      "matcher-status": true
+    },
+    {
+      "template": "ssl/detect-ssl-issuer.yaml",
+      "template-url": "https://templates.nuclei.sh/public/ssl-issuer",
+      "template-id": "ssl-issuer",
+      "template-path": "/home/runner/nuclei-templates/ssl/detect-ssl-issuer.yaml",
+      "info": {
+        "name": "Detect SSL Certificate Issuer",
+        "author": [
+          "lingtren"
+        ],
+        "tags": [
+          "ssl"
+        ],
+        "description": "Extract the issuer's organization from the target's certificate. Issuers are entities which sign and distribute certificates.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "type": "ssl",
+      "host": "sivss.sante.fr",
+      "matched-at": "sivss.sante.fr:443",
+      "extracted-results": [
+        "DHIMYOTIS"
+      ],
+      "ip": "185.194.82.118",
+      "timestamp": "2023-12-17T05:35:00.053420355Z",
+      "matcher-status": true
+    },
+    {
+      "template": "ssl/ssl-dns-names.yaml",
+      "template-url": "https://templates.nuclei.sh/public/ssl-dns-names",
+      "template-id": "ssl-dns-names",
+      "template-path": "/home/runner/nuclei-templates/ssl/ssl-dns-names.yaml",
+      "info": {
+        "name": "SSL DNS Names",
+        "author": [
+          "pdteam"
+        ],
+        "tags": [
+          "ssl"
+        ],
+        "description": "Extract the Subject Alternative Name (SAN) from the target's certificate. SAN facilitates the usage of additional hostnames with the same certificate.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "type": "ssl",
+      "host": "sivss.sante.fr",
+      "matched-at": "sivss.sante.fr:443",
+      "extracted-results": [
+        "sivss.sante.fr"
+      ],
+      "ip": "185.194.82.118",
+      "timestamp": "2023-12-17T05:35:00.053556137Z",
       "matcher-status": true
     },
     {
@@ -570,65 +628,7 @@
         "tls12"
       ],
       "ip": "185.194.82.118",
-      "timestamp": "2023-12-10T05:19:56.921992783Z",
-      "matcher-status": true
-    },
-    {
-      "template": "ssl/detect-ssl-issuer.yaml",
-      "template-url": "https://templates.nuclei.sh/public/ssl-issuer",
-      "template-id": "ssl-issuer",
-      "template-path": "/home/runner/nuclei-templates/ssl/detect-ssl-issuer.yaml",
-      "info": {
-        "name": "Detect SSL Certificate Issuer",
-        "author": [
-          "lingtren"
-        ],
-        "tags": [
-          "ssl"
-        ],
-        "description": "Extract the issuer's organization from the target's certificate. Issuers are entities which sign and distribute certificates.\n",
-        "severity": "info",
-        "metadata": {
-          "max-request": 1
-        }
-      },
-      "type": "ssl",
-      "host": "sivss.sante.fr",
-      "matched-at": "sivss.sante.fr:443",
-      "extracted-results": [
-        "DHIMYOTIS"
-      ],
-      "ip": "185.194.82.118",
-      "timestamp": "2023-12-10T05:19:57.087685841Z",
-      "matcher-status": true
-    },
-    {
-      "template": "ssl/ssl-dns-names.yaml",
-      "template-url": "https://templates.nuclei.sh/public/ssl-dns-names",
-      "template-id": "ssl-dns-names",
-      "template-path": "/home/runner/nuclei-templates/ssl/ssl-dns-names.yaml",
-      "info": {
-        "name": "SSL DNS Names",
-        "author": [
-          "pdteam"
-        ],
-        "tags": [
-          "ssl"
-        ],
-        "description": "Extract the Subject Alternative Name (SAN) from the target's certificate. SAN facilitates the usage of additional hostnames with the same certificate.\n",
-        "severity": "info",
-        "metadata": {
-          "max-request": 1
-        }
-      },
-      "type": "ssl",
-      "host": "sivss.sante.fr",
-      "matched-at": "sivss.sante.fr:443",
-      "extracted-results": [
-        "sivss.sante.fr"
-      ],
-      "ip": "185.194.82.118",
-      "timestamp": "2023-12-10T05:19:57.087801478Z",
+      "timestamp": "2023-12-17T05:35:00.179197204Z",
       "matcher-status": true
     }
   ]
