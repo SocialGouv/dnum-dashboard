@@ -1,43 +1,6 @@
 [
   [
     {
-      "template": "dns/caa-fingerprint.yaml",
-      "template-url": "https://templates.nuclei.sh/public/caa-fingerprint",
-      "template-id": "caa-fingerprint",
-      "template-path": "/home/runner/nuclei-templates/dns/caa-fingerprint.yaml",
-      "info": {
-        "name": "CAA Record",
-        "author": [
-          "pdteam"
-        ],
-        "tags": [
-          "dns",
-          "caa"
-        ],
-        "description": "A CAA record was discovered. A CAA record is used to specify which certificate authorities (CAs) are allowed to issue certificates for a domain.",
-        "reference": [
-          "https://support.dnsimple.com/articles/caa-record/#whats-a-caa-record"
-        ],
-        "severity": "info",
-        "metadata": {
-          "max-request": 1
-        },
-        "classification": {
-          "cve-id": null,
-          "cwe-id": [
-            "cwe-200"
-          ]
-        }
-      },
-      "type": "dns",
-      "host": "www.teleaccords.travail-emploi.gouv.fr.",
-      "matched-at": "www.teleaccords.travail-emploi.gouv.fr",
-      "request": ";; opcode: QUERY, status: NOERROR, id: 60336\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;www.teleaccords.travail-emploi.gouv.fr.\tIN\t CAA\n",
-      "response": ";; opcode: QUERY, status: NOERROR, id: 60336\n;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 1, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 512\n\n;; QUESTION SECTION:\n;www.teleaccords.travail-emploi.gouv.fr.\tIN\t CAA\n\n;; ANSWER SECTION:\nwww.teleaccords.travail-emploi.gouv.fr.\t300\tIN\tCNAME\twww.teleaccords.travail.gouv.fr.\n\n;; AUTHORITY SECTION:\ntravail.gouv.fr.\t1800\tIN\tSOA\ta.ns.developpement-durable.gouv.fr. dnsmaster.sante.gouv.fr. 2023121904 14400 3600 3000000 3600\n",
-      "timestamp": "2023-12-31T06:29:18.015212288Z",
-      "matcher-status": true
-    },
-    {
       "template": "dns/dns-saas-service-detection.yaml",
       "template-url": "https://templates.nuclei.sh/public/dns-saas-service-detection",
       "template-id": "dns-saas-service-detection",
@@ -69,31 +32,28 @@
       "extracted-results": [
         "www.teleaccords.travail.gouv.fr."
       ],
-      "request": ";; opcode: QUERY, status: NOERROR, id: 29286\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;www.teleaccords.travail-emploi.gouv.fr.\tIN\t CNAME\n",
-      "response": ";; opcode: QUERY, status: NOERROR, id: 29286\n;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 1232\n\n;; QUESTION SECTION:\n;www.teleaccords.travail-emploi.gouv.fr.\tIN\t CNAME\n\n;; ANSWER SECTION:\nwww.teleaccords.travail-emploi.gouv.fr.\t300\tIN\tCNAME\twww.teleaccords.travail.gouv.fr.\n",
-      "timestamp": "2023-12-31T06:29:18.146688697Z",
+      "request": ";; opcode: QUERY, status: NOERROR, id: 5093\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;www.teleaccords.travail-emploi.gouv.fr.\tIN\t CNAME\n",
+      "response": ";; opcode: QUERY, status: NOERROR, id: 5093\n;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 512\n\n;; QUESTION SECTION:\n;www.teleaccords.travail-emploi.gouv.fr.\tIN\t CNAME\n\n;; ANSWER SECTION:\nwww.teleaccords.travail-emploi.gouv.fr.\t300\tIN\tCNAME\twww.teleaccords.travail.gouv.fr.\n",
+      "timestamp": "2024-01-14T06:37:46.046660152Z",
       "matcher-status": true
     },
     {
-      "template": "http/miscellaneous/external-service-interaction.yaml",
-      "template-url": "https://templates.nuclei.sh/public/external-service-interaction",
-      "template-id": "external-service-interaction",
-      "template-path": "/home/runner/nuclei-templates/http/miscellaneous/external-service-interaction.yaml",
+      "template": "dns/caa-fingerprint.yaml",
+      "template-url": "https://templates.nuclei.sh/public/caa-fingerprint",
+      "template-id": "caa-fingerprint",
+      "template-path": "/home/runner/nuclei-templates/dns/caa-fingerprint.yaml",
       "info": {
-        "name": "External Service Interaction",
+        "name": "CAA Record",
         "author": [
-          "andreluna"
+          "pdteam"
         ],
         "tags": [
-          "http",
-          "misc",
-          "oast"
+          "dns",
+          "caa"
         ],
-        "description": "External Service interaction via Host Header Injection.",
+        "description": "A CAA record was discovered. A CAA record is used to specify which certificate authorities (CAs) are allowed to issue certificates for a domain.",
         "reference": [
-          "https://portswigger.net/kb/issues/00300210_external-service-interaction-http",
-          "https://success.qualys.com/support/s/article/000006843",
-          "https://owasp.org/www-project-web-security-testing-guide/latest/4-web_application_security_testing/07-input_validation_testing/17-testing_for_host_header_injection"
+          "https://support.dnsimple.com/articles/caa-record/#whats-a-caa-record"
         ],
         "severity": "info",
         "metadata": {
@@ -102,29 +62,16 @@
         "classification": {
           "cve-id": null,
           "cwe-id": [
-            "cwe-918",
-            "cwe-406"
+            "cwe-200"
           ]
         }
       },
-      "type": "http",
-      "host": "https://www.teleaccords.travail-emploi.gouv.fr",
-      "matched-at": "https://cm8gkfmc4pgo9t0ac490itb75u533sqh4.oast.online/PortailTeleprocedures",
-      "request": "GET / HTTP/1.1\r\nHost: cm8gkfmc4pgo9t0ac490itb75u533sqh4.oast.online\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 72\r\nAccess-Control-Allow-Credentials: true\r\nAccess-Control-Allow-Headers: Content-Type, Authorization\r\nAccess-Control-Allow-Origin: *\r\nContent-Type: text/html; charset=utf-8\r\nDate: Sun, 31 Dec 2023 06:30:25 GMT\r\nServer: oast.online\r\nX-Interactsh-Version: 1.1.8\r\n\r\n<html><head></head><body>4hqs335u57bti094ca0t9ogp4cmfkg8mc</body></html>",
-      "ip": "164.131.124.217",
-      "timestamp": "2023-12-31T06:30:25.998917983Z",
-      "interaction": {
-        "protocol": "dns",
-        "unique-id": "cm8gkfmc4pgo9t0ac490itb75u533sqh4",
-        "full-id": "cm8gkfmc4pgo9t0ac490itb75u533sqh4",
-        "q-type": "A",
-        "raw-request": ";; opcode: QUERY, status: NOERROR, id: 39557\n;; flags:; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags: do; udp: 1452\n\n;; QUESTION SECTION:\n;cm8gkfmc4pgo9t0ac490itb75u533sqh4.oast.online.\tIN\t A\n",
-        "raw-response": ";; opcode: QUERY, status: NOERROR, id: 39557\n;; flags: qr aa; QUERY: 1, ANSWER: 1, AUTHORITY: 2, ADDITIONAL: 2\n\n;; QUESTION SECTION:\n;cm8gkfmc4pgo9t0ac490itb75u533sqh4.oast.online.\tIN\t A\n\n;; ANSWER SECTION:\ncm8gkfmc4pgo9t0ac490itb75u533sqh4.oast.online.\t3600\tIN\tA\t167.99.69.236\n\n;; AUTHORITY SECTION:\ncm8gkfmc4pgo9t0ac490itb75u533sqh4.oast.online.\t3600\tIN\tNS\tns1.oast.online.\ncm8gkfmc4pgo9t0ac490itb75u533sqh4.oast.online.\t3600\tIN\tNS\tns2.oast.online.\n\n;; ADDITIONAL SECTION:\nns1.oast.online.\t3600\tIN\tA\t167.99.69.236\nns2.oast.online.\t3600\tIN\tA\t167.99.69.236\n",
-        "remote-address": "172.70.41.58",
-        "timestamp": "2023-12-31T06:30:24.72057993Z"
-      },
-      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'Host: cm8gkfmc4pgo9t0ac490itb75u533sqh4.oast.online' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.teleaccords.travail-emploi.gouv.fr'",
+      "type": "dns",
+      "host": "www.teleaccords.travail-emploi.gouv.fr.",
+      "matched-at": "www.teleaccords.travail-emploi.gouv.fr",
+      "request": ";; opcode: QUERY, status: NOERROR, id: 65312\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;www.teleaccords.travail-emploi.gouv.fr.\tIN\t CAA\n",
+      "response": ";; opcode: QUERY, status: NOERROR, id: 65312\n;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 1, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 1232\n\n;; QUESTION SECTION:\n;www.teleaccords.travail-emploi.gouv.fr.\tIN\t CAA\n\n;; ANSWER SECTION:\nwww.teleaccords.travail-emploi.gouv.fr.\t300\tIN\tCNAME\twww.teleaccords.travail.gouv.fr.\n\n;; AUTHORITY SECTION:\ntravail.gouv.fr.\t3600\tIN\tSOA\ta.ns.developpement-durable.gouv.fr. dnsmaster.sante.gouv.fr. 2024011200 14400 3600 3000000 3600\n",
+      "timestamp": "2024-01-14T06:37:46.786787301Z",
       "matcher-status": true
     },
     {
@@ -163,20 +110,82 @@
       "type": "http",
       "host": "https://www.teleaccords.travail-emploi.gouv.fr",
       "matched-at": "https://www.teleaccords.travail-emploi.gouv.fr",
-      "request": "GET / HTTP/1.1\r\nHost: cm8gkfmc4pgo9t0ac490itb75u533sqh4.oast.online\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.1 302 Found\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nContent-Type: text/html; charset=iso-8859-1\r\nDate: Sun, 31 Dec 2023 06:30:24 GMT\r\nLocation: https://cm8gkfmc4pgo9t0ac490itb75u533sqh4.oast.online/PortailTeleprocedures\r\nSet-Cookie: BIGipServer0/AffYlI2jx1cdwngIMRhw=711706634.47873.0000; path=/; Httponly; Secure\r\nSet-Cookie: TS019d9798=0171284ec30855362758f65a32e78295e8f591f2cc68c84475b2b33a08e78efaea332fe04d167c3d57f172474403ec4d63eacca1df083efbf9b3b884d5890b19d7443e3f87; Path=/;\r\n\r\n",
+      "request": "GET / HTTP/1.1\r\nHost: cmho2eum7tio9nmpsehghjz3nmnfjxp9y.oast.live\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.1 302 Found\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nContent-Type: text/html; charset=iso-8859-1\r\nDate: Sun, 14 Jan 2024 06:39:33 GMT\r\nLocation: https://cmho2eum7tio9nmpsehghjz3nmnfjxp9y.oast.live/PortailTeleprocedures\r\nSet-Cookie: BIGipServer0/AffYlI2jx1cdwngIMRhw=711706634.47873.0000; path=/; Httponly; Secure\r\nSet-Cookie: TS019d9798=0171284ec35fc4be8a7dce3890f4135bbf6fe9af66c0dfee6cfea1801defbdbec62483adaaa4ff4e9bb5986909cc4180311c9771dac2815c23b7b0c13a4adffce0c3ca9a11; Path=/;\r\n\r\n",
       "ip": "164.131.124.217",
-      "timestamp": "2023-12-31T06:30:30.449121372Z",
+      "timestamp": "2024-01-14T06:39:38.122308288Z",
       "interaction": {
-        "protocol": "http",
-        "unique-id": "cm8gkfmc4pgo9t0ac490itb75u533sqh4",
-        "full-id": "cm8gkfmc4pgo9t0ac490itb75u533sqh4",
-        "raw-request": "GET /PortailTeleprocedures HTTP/1.1\r\nHost: cm8gkfmc4pgo9t0ac490itb75u533sqh4.oast.online\r\nAccept: */*\r\nAccept-Encoding: gzip\r\nAccept-Language: en\r\nConnection: close\r\nReferer: https://www.teleaccords.travail-emploi.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\n\r\n",
-        "raw-response": "HTTP/1.1 200 OK\r\nConnection: close\r\nAccess-Control-Allow-Credentials: true\r\nAccess-Control-Allow-Headers: Content-Type, Authorization\r\nAccess-Control-Allow-Origin: *\r\nContent-Type: text/html; charset=utf-8\r\nServer: oast.online\r\nX-Interactsh-Version: 1.1.8\r\n\r\n<html><head></head><body>4hqs335u57bti094ca0t9ogp4cmfkg8mc</body></html>",
-        "remote-address": "20.185.156.197",
-        "timestamp": "2023-12-31T06:30:25.882294169Z"
+        "protocol": "dns",
+        "unique-id": "cmho2eum7tio9nmpsehghjz3nmnfjxp9y",
+        "full-id": "cmho2eum7tio9nmpsehghjz3nmnfjxp9y",
+        "q-type": "A",
+        "raw-request": ";; opcode: QUERY, status: NOERROR, id: 61540\n;; flags:; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags: do; udp: 1224\n\n;; QUESTION SECTION:\n;cmho2eum7tio9nmpsehghjz3nmnfjxp9y.oast.live.\tIN\t A\n",
+        "raw-response": ";; opcode: QUERY, status: NOERROR, id: 61540\n;; flags: qr aa; QUERY: 1, ANSWER: 1, AUTHORITY: 2, ADDITIONAL: 2\n\n;; QUESTION SECTION:\n;cmho2eum7tio9nmpsehghjz3nmnfjxp9y.oast.live.\tIN\t A\n\n;; ANSWER SECTION:\ncmho2eum7tio9nmpsehghjz3nmnfjxp9y.oast.live.\t3600\tIN\tA\t178.128.210.172\n\n;; AUTHORITY SECTION:\ncmho2eum7tio9nmpsehghjz3nmnfjxp9y.oast.live.\t3600\tIN\tNS\tns1.oast.live.\ncmho2eum7tio9nmpsehghjz3nmnfjxp9y.oast.live.\t3600\tIN\tNS\tns2.oast.live.\n\n;; ADDITIONAL SECTION:\nns1.oast.live.\t3600\tIN\tA\t178.128.210.172\nns2.oast.live.\t3600\tIN\tA\t178.128.210.172\n",
+        "remote-address": "20.150.226.6",
+        "timestamp": "2024-01-14T06:39:33.540812366Z"
       },
-      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'Host: cm8gkfmc4pgo9t0ac490itb75u533sqh4.oast.online' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.teleaccords.travail-emploi.gouv.fr'",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'Host: cmho2eum7tio9nmpsehghjz3nmnfjxp9y.oast.live' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.teleaccords.travail-emploi.gouv.fr'",
+      "matcher-status": true
+    },
+    {
+      "template": "ssl/detect-ssl-issuer.yaml",
+      "template-url": "https://templates.nuclei.sh/public/ssl-issuer",
+      "template-id": "ssl-issuer",
+      "template-path": "/home/runner/nuclei-templates/ssl/detect-ssl-issuer.yaml",
+      "info": {
+        "name": "Detect SSL Certificate Issuer",
+        "author": [
+          "lingtren"
+        ],
+        "tags": [
+          "ssl",
+          "tls"
+        ],
+        "description": "Extract the issuer's organization from the target's certificate. Issuers are entities which sign and distribute certificates.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "type": "ssl",
+      "host": "www.teleaccords.travail-emploi.gouv.fr",
+      "matched-at": "www.teleaccords.travail-emploi.gouv.fr:443",
+      "extracted-results": [
+        "DHIMYOTIS"
+      ],
+      "ip": "164.131.124.217",
+      "timestamp": "2024-01-14T06:42:14.379172998Z",
+      "matcher-status": true
+    },
+    {
+      "template": "ssl/ssl-dns-names.yaml",
+      "template-url": "https://templates.nuclei.sh/public/ssl-dns-names",
+      "template-id": "ssl-dns-names",
+      "template-path": "/home/runner/nuclei-templates/ssl/ssl-dns-names.yaml",
+      "info": {
+        "name": "SSL DNS Names",
+        "author": [
+          "pdteam"
+        ],
+        "tags": [
+          "ssl",
+          "tls"
+        ],
+        "description": "Extract the Subject Alternative Name (SAN) from the target's certificate. SAN facilitates the usage of additional hostnames with the same certificate.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "type": "ssl",
+      "host": "www.teleaccords.travail-emploi.gouv.fr",
+      "matched-at": "www.teleaccords.travail-emploi.gouv.fr:443",
+      "extracted-results": [
+        "www.teleaccords.travail-emploi.gouv.fr",
+        "www.teleaccords.travail.gouv.fr"
+      ],
+      "ip": "164.131.124.217",
+      "timestamp": "2024-01-14T06:42:14.379323667Z",
       "matcher-status": true
     },
     {
@@ -207,68 +216,7 @@
         "tls12"
       ],
       "ip": "164.131.124.217",
-      "timestamp": "2023-12-31T06:33:51.875925665Z",
-      "matcher-status": true
-    },
-    {
-      "template": "ssl/detect-ssl-issuer.yaml",
-      "template-url": "https://templates.nuclei.sh/public/ssl-issuer",
-      "template-id": "ssl-issuer",
-      "template-path": "/home/runner/nuclei-templates/ssl/detect-ssl-issuer.yaml",
-      "info": {
-        "name": "Detect SSL Certificate Issuer",
-        "author": [
-          "lingtren"
-        ],
-        "tags": [
-          "ssl",
-          "tls"
-        ],
-        "description": "Extract the issuer's organization from the target's certificate. Issuers are entities which sign and distribute certificates.\n",
-        "severity": "info",
-        "metadata": {
-          "max-request": 1
-        }
-      },
-      "type": "ssl",
-      "host": "www.teleaccords.travail-emploi.gouv.fr",
-      "matched-at": "www.teleaccords.travail-emploi.gouv.fr:443",
-      "extracted-results": [
-        "DHIMYOTIS"
-      ],
-      "ip": "164.131.124.217",
-      "timestamp": "2023-12-31T06:33:52.121488212Z",
-      "matcher-status": true
-    },
-    {
-      "template": "ssl/ssl-dns-names.yaml",
-      "template-url": "https://templates.nuclei.sh/public/ssl-dns-names",
-      "template-id": "ssl-dns-names",
-      "template-path": "/home/runner/nuclei-templates/ssl/ssl-dns-names.yaml",
-      "info": {
-        "name": "SSL DNS Names",
-        "author": [
-          "pdteam"
-        ],
-        "tags": [
-          "ssl",
-          "tls"
-        ],
-        "description": "Extract the Subject Alternative Name (SAN) from the target's certificate. SAN facilitates the usage of additional hostnames with the same certificate.\n",
-        "severity": "info",
-        "metadata": {
-          "max-request": 1
-        }
-      },
-      "type": "ssl",
-      "host": "www.teleaccords.travail-emploi.gouv.fr",
-      "matched-at": "www.teleaccords.travail-emploi.gouv.fr:443",
-      "extracted-results": [
-        "www.teleaccords.travail.gouv.fr",
-        "www.teleaccords.travail-emploi.gouv.fr"
-      ],
-      "ip": "164.131.124.217",
-      "timestamp": "2023-12-31T06:33:52.121617794Z",
+      "timestamp": "2024-01-14T06:42:14.715236383Z",
       "matcher-status": true
     }
   ]
