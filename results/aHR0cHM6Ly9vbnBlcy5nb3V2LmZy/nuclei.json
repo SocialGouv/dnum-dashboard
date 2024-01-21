@@ -32,9 +32,50 @@
       "type": "dns",
       "host": "onpes.gouv.fr.",
       "matched-at": "onpes.gouv.fr",
-      "request": ";; opcode: QUERY, status: NOERROR, id: 31126\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;onpes.gouv.fr.\tIN\t CAA\n",
-      "response": ";; opcode: QUERY, status: NOERROR, id: 31126\n;; flags: qr rd ra; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 512\n\n;; QUESTION SECTION:\n;onpes.gouv.fr.\tIN\t CAA\n\n;; AUTHORITY SECTION:\nonpes.gouv.fr.\t1800\tIN\tSOA\ta.ns.developpement-durable.gouv.fr. dnsmaster.sante.gouv.fr. 2022111700 21600 1200 3600000 86400\n",
-      "timestamp": "2024-01-14T04:22:39.972181876Z",
+      "request": ";; opcode: QUERY, status: NOERROR, id: 63562\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;onpes.gouv.fr.\tIN\t CAA\n",
+      "response": ";; opcode: QUERY, status: NOERROR, id: 63562\n;; flags: qr rd ra; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 512\n\n;; QUESTION SECTION:\n;onpes.gouv.fr.\tIN\t CAA\n\n;; AUTHORITY SECTION:\nonpes.gouv.fr.\t1800\tIN\tSOA\ta.ns.developpement-durable.gouv.fr. dnsmaster.sante.gouv.fr. 2022111700 21600 1200 3600000 86400\n",
+      "timestamp": "2024-01-21T04:24:08.86560902Z",
+      "matcher-status": true
+    },
+    {
+      "template": "dns/nameserver-fingerprint.yaml",
+      "template-url": "https://templates.nuclei.sh/public/nameserver-fingerprint",
+      "template-id": "nameserver-fingerprint",
+      "template-path": "/home/runner/nuclei-templates/dns/nameserver-fingerprint.yaml",
+      "info": {
+        "name": "NS Record Detection",
+        "author": [
+          "pdteam"
+        ],
+        "tags": [
+          "dns",
+          "ns"
+        ],
+        "description": "An NS record was detected. An NS record delegates a subdomain to a set of name servers.",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        },
+        "classification": {
+          "cve-id": null,
+          "cwe-id": [
+            "cwe-200"
+          ]
+        }
+      },
+      "type": "dns",
+      "host": "onpes.gouv.fr.",
+      "matched-at": "onpes.gouv.fr",
+      "extracted-results": [
+        "nsb.perf1.com.",
+        "nsc.perf1.com.",
+        "nsa.perf1.fr.",
+        "a.ns.developpement-durable.gouv.fr.",
+        "b.ns.developpement-durable.gouv.fr."
+      ],
+      "request": ";; opcode: QUERY, status: NOERROR, id: 32400\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;onpes.gouv.fr.\tIN\t NS\n",
+      "response": ";; opcode: QUERY, status: NOERROR, id: 32400\n;; flags: qr rd ra; QUERY: 1, ANSWER: 5, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 512\n\n;; QUESTION SECTION:\n;onpes.gouv.fr.\tIN\t NS\n\n;; ANSWER SECTION:\nonpes.gouv.fr.\t3600\tIN\tNS\tnsb.perf1.com.\nonpes.gouv.fr.\t3600\tIN\tNS\tnsc.perf1.com.\nonpes.gouv.fr.\t3600\tIN\tNS\tnsa.perf1.fr.\nonpes.gouv.fr.\t3600\tIN\tNS\ta.ns.developpement-durable.gouv.fr.\nonpes.gouv.fr.\t3600\tIN\tNS\tb.ns.developpement-durable.gouv.fr.\n",
+      "timestamp": "2024-01-21T04:24:08.872500881Z",
       "matcher-status": true
     },
     {
@@ -72,54 +113,13 @@
       "matched-at": "onpes.gouv.fr",
       "extracted-results": [
         "10 pro075001app410.social.gouv.fr.",
-        "10 pro093001app412.social.gouv.fr.",
         "10 pro075001app411.social.gouv.fr.",
+        "10 pro093001app412.social.gouv.fr.",
         "10 pro093001app413.social.gouv.fr."
       ],
-      "request": ";; opcode: QUERY, status: NOERROR, id: 43960\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;onpes.gouv.fr.\tIN\t MX\n",
-      "response": ";; opcode: QUERY, status: NOERROR, id: 43960\n;; flags: qr rd ra; QUERY: 1, ANSWER: 4, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 512\n\n;; QUESTION SECTION:\n;onpes.gouv.fr.\tIN\t MX\n\n;; ANSWER SECTION:\nonpes.gouv.fr.\t1200\tIN\tMX\t10 pro075001app410.social.gouv.fr.\nonpes.gouv.fr.\t1200\tIN\tMX\t10 pro093001app412.social.gouv.fr.\nonpes.gouv.fr.\t1200\tIN\tMX\t10 pro075001app411.social.gouv.fr.\nonpes.gouv.fr.\t1200\tIN\tMX\t10 pro093001app413.social.gouv.fr.\n",
-      "timestamp": "2024-01-14T04:22:40.968701438Z",
-      "matcher-status": true
-    },
-    {
-      "template": "dns/nameserver-fingerprint.yaml",
-      "template-url": "https://templates.nuclei.sh/public/nameserver-fingerprint",
-      "template-id": "nameserver-fingerprint",
-      "template-path": "/home/runner/nuclei-templates/dns/nameserver-fingerprint.yaml",
-      "info": {
-        "name": "NS Record Detection",
-        "author": [
-          "pdteam"
-        ],
-        "tags": [
-          "dns",
-          "ns"
-        ],
-        "description": "An NS record was detected. An NS record delegates a subdomain to a set of name servers.",
-        "severity": "info",
-        "metadata": {
-          "max-request": 1
-        },
-        "classification": {
-          "cve-id": null,
-          "cwe-id": [
-            "cwe-200"
-          ]
-        }
-      },
-      "type": "dns",
-      "host": "onpes.gouv.fr.",
-      "matched-at": "onpes.gouv.fr",
-      "extracted-results": [
-        "nsa.perf1.fr.",
-        "a.ns.developpement-durable.gouv.fr.",
-        "nsc.perf1.com.",
-        "b.ns.developpement-durable.gouv.fr.",
-        "nsb.perf1.com."
-      ],
-      "request": ";; opcode: QUERY, status: NOERROR, id: 37351\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;onpes.gouv.fr.\tIN\t NS\n",
-      "response": ";; opcode: QUERY, status: NOERROR, id: 37351\n;; flags: qr rd ra; QUERY: 1, ANSWER: 5, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 1232\n\n;; QUESTION SECTION:\n;onpes.gouv.fr.\tIN\t NS\n\n;; ANSWER SECTION:\nonpes.gouv.fr.\t3600\tIN\tNS\tnsb.perf1.com.\nonpes.gouv.fr.\t3600\tIN\tNS\tnsa.perf1.fr.\nonpes.gouv.fr.\t3600\tIN\tNS\ta.ns.developpement-durable.gouv.fr.\nonpes.gouv.fr.\t3600\tIN\tNS\tnsc.perf1.com.\nonpes.gouv.fr.\t3600\tIN\tNS\tb.ns.developpement-durable.gouv.fr.\n",
-      "timestamp": "2024-01-14T04:22:41.105985144Z",
+      "request": ";; opcode: QUERY, status: NOERROR, id: 45822\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;onpes.gouv.fr.\tIN\t MX\n",
+      "response": ";; opcode: QUERY, status: NOERROR, id: 45822\n;; flags: qr rd ra; QUERY: 1, ANSWER: 4, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 512\n\n;; QUESTION SECTION:\n;onpes.gouv.fr.\tIN\t MX\n\n;; ANSWER SECTION:\nonpes.gouv.fr.\t1200\tIN\tMX\t10 pro075001app410.social.gouv.fr.\nonpes.gouv.fr.\t1200\tIN\tMX\t10 pro075001app411.social.gouv.fr.\nonpes.gouv.fr.\t1200\tIN\tMX\t10 pro093001app412.social.gouv.fr.\nonpes.gouv.fr.\t1200\tIN\tMX\t10 pro093001app413.social.gouv.fr.\n",
+      "timestamp": "2024-01-21T04:24:09.864526686Z",
       "matcher-status": true
     },
     {
@@ -141,6 +141,7 @@
           "apache"
         ],
         "description": "Apache Tomcat versions prior to 9.0.12, 8.5.34, and 7.0.91 are prone to an open-redirection vulnerability because it fails to properly sanitize user-supplied input.\n",
+        "impact": "An attacker can redirect users to malicious websites, leading to phishing attacks or the download of malware.\n",
         "reference": [
           "https://lists.apache.org/thread.html/23134c9b5a23892a205dc140cdd8c9c0add233600f76b313dda6bd75@%3cannounce.tomcat.apache.org%3e",
           "https://nvd.nist.gov/vuln/detail/cve-2018-11784",
@@ -164,8 +165,8 @@
           ],
           "cvss-metrics": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:L/A:N",
           "cvss-score": 4.3,
-          "epss-score": 0.86178,
-          "epss-percentile": 0.98277,
+          "epss-score": 0.83718,
+          "epss-percentile": 0.98183,
           "cpe": "cpe:2.3:a:apache:tomcat:*:*:*:*:*:*:*:*"
         },
         "remediation": "Upgrade to Apache Tomcat version 9.0.12 or later, or apply the relevant patch provided by the Apache Software Foundation.\n"
@@ -174,51 +175,10 @@
       "host": "https://onpes.gouv.fr",
       "matched-at": "https://onpes.gouv.fr//interact.sh",
       "request": "GET //interact.sh HTTP/1.1\r\nHost: onpes.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.1 301 Moved Permanently\r\nConnection: close\r\nContent-Length: 239\r\nContent-Type: text/html; charset=iso-8859-1\r\nDate: Sun, 14 Jan 2024 04:22:55 GMT\r\nLocation: https://cnle.gouv.frinteract.sh\r\nSet-Cookie: BIGipServerpool-dicom-onpes-preprod.cegedim.cloud-HTTP=!oncYkrb3HK79qHlWDPlD0yXzT0UGhg9GzCsbooA7oEuzJzFe4DcW4oFNbX2DBEXZKyTrseFnYxI0fqtqsGVo5ZcgPqE=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\n\r\n<!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML 2.0//EN\">\n<html><head>\n<title>301 Moved Permanently</title>\n</head><body>\n<h1>Moved Permanently</h1>\n<p>The document has moved <a href=\"https://cnle.gouv.frinteract.sh\">here</a>.</p>\n</body></html>\n",
+      "response": "HTTP/1.1 301 Moved Permanently\r\nConnection: close\r\nContent-Length: 239\r\nContent-Type: text/html; charset=iso-8859-1\r\nDate: Sun, 21 Jan 2024 04:24:23 GMT\r\nLocation: https://cnle.gouv.frinteract.sh\r\nSet-Cookie: BIGipServerpool-dicom-onpes-preprod.cegedim.cloud-HTTP=!7BuM45m5+/kH0ltWDPlD0yXzT0UGhuIu/v9R8Lt7uRL1VSOyhgdirRSu2kMAHZNo+i3xNAB+xk+lUR9hzq7w1oS1nt0=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\n\r\n<!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML 2.0//EN\">\n<html><head>\n<title>301 Moved Permanently</title>\n</head><body>\n<h1>Moved Permanently</h1>\n<p>The document has moved <a href=\"https://cnle.gouv.frinteract.sh\">here</a>.</p>\n</body></html>\n",
       "ip": "185.194.82.143",
-      "timestamp": "2024-01-14T04:22:55.705830944Z",
+      "timestamp": "2024-01-21T04:24:23.459747073Z",
       "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://onpes.gouv.fr//interact.sh'",
-      "matcher-status": true
-    },
-    {
-      "template": "http/misconfiguration/httponly-cookie-detect.yaml",
-      "template-url": "https://templates.nuclei.sh/public/httponly-cookie-detect",
-      "template-id": "httponly-cookie-detect",
-      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/httponly-cookie-detect.yaml",
-      "info": {
-        "name": "HttpOnly Cookie - Detect",
-        "author": [
-          "mr. bobo hp"
-        ],
-        "tags": [
-          "misconfig",
-          "http",
-          "cookie",
-          "generic"
-        ],
-        "description": "Checks whether cookies in the HTTP response contain the HttpOnly attribute. If the HttpOnly flag is set, it means that the cookie is HTTP-only\n",
-        "reference": [
-          "https://stackoverflow.com/questions/4316539/how-do-i-test-httponly-cookie-flag"
-        ],
-        "severity": "info",
-        "metadata": {
-          "max-request": 1,
-          "verified": true
-        },
-        "classification": {
-          "cve-id": null,
-          "cwe-id": null,
-          "cvss-metrics": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N"
-        }
-      },
-      "type": "http",
-      "host": "https://onpes.gouv.fr",
-      "matched-at": "https://onpes.gouv.fr",
-      "request": "GET / HTTP/1.1\r\nHost: onpes.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.1 301 Moved Permanently\r\nConnection: close\r\nContent-Length: 228\r\nContent-Type: text/html; charset=iso-8859-1\r\nDate: Sun, 14 Jan 2024 04:23:04 GMT\r\nLocation: https://cnle.gouv.fr\r\nSet-Cookie: BIGipServerpool-dicom-onpes-preprod.cegedim.cloud-HTTP=!+VdzKDokUzrkAk9WDPlD0yXzT0UGhp6F9wzDflK23evLFDilF/Fauoh6RitLHIi1NbM6mXlFbNKAZZ0+0BaCIBzgcVw=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\n\r\n<!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML 2.0//EN\">\n<html><head>\n<title>301 Moved Permanently</title>\n</head><body>\n<h1>Moved Permanently</h1>\n<p>The document has moved <a href=\"https://cnle.gouv.fr\">here</a>.</p>\n</body></html>\n",
-      "ip": "185.194.82.143",
-      "timestamp": "2024-01-14T04:23:04.8848016Z",
-      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://onpes.gouv.fr'",
       "matcher-status": true
     }
   ]
