@@ -32,9 +32,9 @@
       "type": "dns",
       "host": "experimentation-fej.injep.fr.",
       "matched-at": "experimentation-fej.injep.fr",
-      "request": ";; opcode: QUERY, status: NOERROR, id: 64297\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;experimentation-fej.injep.fr.\tIN\t CAA\n",
-      "response": ";; opcode: QUERY, status: NOERROR, id: 64297\n;; flags: qr rd ra; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 512\n\n;; QUESTION SECTION:\n;experimentation-fej.injep.fr.\tIN\t CAA\n\n;; AUTHORITY SECTION:\ninjep.fr.\t1200\tIN\tSOA\ta.ns.developpement-durable.gouv.fr. dnsmaster.sante.gouv.fr. 2023052300 14400 1800 2592000 1200\n",
-      "timestamp": "2024-01-14T02:55:45.860760371Z",
+      "request": ";; opcode: QUERY, status: NOERROR, id: 62809\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;experimentation-fej.injep.fr.\tIN\t CAA\n",
+      "response": ";; opcode: QUERY, status: NOERROR, id: 62809\n;; flags: qr rd ra; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 512\n\n;; QUESTION SECTION:\n;experimentation-fej.injep.fr.\tIN\t CAA\n\n;; AUTHORITY SECTION:\ninjep.fr.\t1200\tIN\tSOA\ta.ns.developpement-durable.gouv.fr. dnsmaster.sante.gouv.fr. 2023052300 14400 1800 2592000 1200\n",
+      "timestamp": "2024-01-21T02:52:54.759807939Z",
       "matcher-status": true
     },
     {
@@ -68,163 +68,7 @@
       "request": "GET / HTTP/1.1\r\nHost: experimentation-fej.injep.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
       "response": "HTTP/1.0 401 Unauthorized\r\nContent-Length: 9\r\nConnection: close\r\nWww-Authenticate: Basic realm=\"\"\r\n\r\n401 ERROR",
       "ip": "185.194.83.121",
-      "timestamp": "2024-01-14T02:56:00.095844334Z",
-      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://experimentation-fej.injep.fr'",
-      "matcher-status": true
-    },
-    {
-      "template": "http/misconfiguration/http-missing-security-headers.yaml",
-      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
-      "template-id": "http-missing-security-headers",
-      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
-      "info": {
-        "name": "HTTP Missing Security Headers",
-        "author": [
-          "socketz",
-          "geeknik",
-          "g4l1t0",
-          "convisoappsec",
-          "kurohost",
-          "dawid-czarnecki",
-          "forgedhallpass",
-          "jub0bs"
-        ],
-        "tags": [
-          "misconfig",
-          "headers",
-          "generic"
-        ],
-        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-        "severity": "info",
-        "metadata": {
-          "max-request": 1
-        }
-      },
-      "matcher-name": "x-permitted-cross-domain-policies",
-      "type": "http",
-      "host": "https://experimentation-fej.injep.fr",
-      "matched-at": "https://experimentation-fej.injep.fr",
-      "request": "GET / HTTP/1.1\r\nHost: experimentation-fej.injep.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.0 401 Unauthorized\r\nContent-Length: 9\r\nConnection: close\r\nWww-Authenticate: Basic realm=\"\"\r\n\r\n401 ERROR",
-      "ip": "185.194.83.121",
-      "timestamp": "2024-01-14T02:56:39.40976604Z",
-      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://experimentation-fej.injep.fr'",
-      "matcher-status": true
-    },
-    {
-      "template": "http/misconfiguration/http-missing-security-headers.yaml",
-      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
-      "template-id": "http-missing-security-headers",
-      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
-      "info": {
-        "name": "HTTP Missing Security Headers",
-        "author": [
-          "socketz",
-          "geeknik",
-          "g4l1t0",
-          "convisoappsec",
-          "kurohost",
-          "dawid-czarnecki",
-          "forgedhallpass",
-          "jub0bs"
-        ],
-        "tags": [
-          "misconfig",
-          "headers",
-          "generic"
-        ],
-        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-        "severity": "info",
-        "metadata": {
-          "max-request": 1
-        }
-      },
-      "matcher-name": "clear-site-data",
-      "type": "http",
-      "host": "https://experimentation-fej.injep.fr",
-      "matched-at": "https://experimentation-fej.injep.fr",
-      "request": "GET / HTTP/1.1\r\nHost: experimentation-fej.injep.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.0 401 Unauthorized\r\nContent-Length: 9\r\nConnection: close\r\nWww-Authenticate: Basic realm=\"\"\r\n\r\n401 ERROR",
-      "ip": "185.194.83.121",
-      "timestamp": "2024-01-14T02:56:39.40981982Z",
-      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://experimentation-fej.injep.fr'",
-      "matcher-status": true
-    },
-    {
-      "template": "http/misconfiguration/http-missing-security-headers.yaml",
-      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
-      "template-id": "http-missing-security-headers",
-      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
-      "info": {
-        "name": "HTTP Missing Security Headers",
-        "author": [
-          "socketz",
-          "geeknik",
-          "g4l1t0",
-          "convisoappsec",
-          "kurohost",
-          "dawid-czarnecki",
-          "forgedhallpass",
-          "jub0bs"
-        ],
-        "tags": [
-          "misconfig",
-          "headers",
-          "generic"
-        ],
-        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-        "severity": "info",
-        "metadata": {
-          "max-request": 1
-        }
-      },
-      "matcher-name": "cross-origin-resource-policy",
-      "type": "http",
-      "host": "https://experimentation-fej.injep.fr",
-      "matched-at": "https://experimentation-fej.injep.fr",
-      "request": "GET / HTTP/1.1\r\nHost: experimentation-fej.injep.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.0 401 Unauthorized\r\nContent-Length: 9\r\nConnection: close\r\nWww-Authenticate: Basic realm=\"\"\r\n\r\n401 ERROR",
-      "ip": "185.194.83.121",
-      "timestamp": "2024-01-14T02:56:39.409837423Z",
-      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://experimentation-fej.injep.fr'",
-      "matcher-status": true
-    },
-    {
-      "template": "http/misconfiguration/http-missing-security-headers.yaml",
-      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
-      "template-id": "http-missing-security-headers",
-      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
-      "info": {
-        "name": "HTTP Missing Security Headers",
-        "author": [
-          "socketz",
-          "geeknik",
-          "g4l1t0",
-          "convisoappsec",
-          "kurohost",
-          "dawid-czarnecki",
-          "forgedhallpass",
-          "jub0bs"
-        ],
-        "tags": [
-          "misconfig",
-          "headers",
-          "generic"
-        ],
-        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-        "severity": "info",
-        "metadata": {
-          "max-request": 1
-        }
-      },
-      "matcher-name": "cross-origin-opener-policy",
-      "type": "http",
-      "host": "https://experimentation-fej.injep.fr",
-      "matched-at": "https://experimentation-fej.injep.fr",
-      "request": "GET / HTTP/1.1\r\nHost: experimentation-fej.injep.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.0 401 Unauthorized\r\nContent-Length: 9\r\nConnection: close\r\nWww-Authenticate: Basic realm=\"\"\r\n\r\n401 ERROR",
-      "ip": "185.194.83.121",
-      "timestamp": "2024-01-14T02:56:39.40985175Z",
+      "timestamp": "2024-01-21T02:53:09.051477867Z",
       "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://experimentation-fej.injep.fr'",
       "matcher-status": true
     },
@@ -263,7 +107,7 @@
       "request": "GET / HTTP/1.1\r\nHost: experimentation-fej.injep.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
       "response": "HTTP/1.0 401 Unauthorized\r\nContent-Length: 9\r\nConnection: close\r\nWww-Authenticate: Basic realm=\"\"\r\n\r\n401 ERROR",
       "ip": "185.194.83.121",
-      "timestamp": "2024-01-14T02:56:39.409864042Z",
+      "timestamp": "2024-01-21T02:53:49.032050204Z",
       "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://experimentation-fej.injep.fr'",
       "matcher-status": true
     },
@@ -302,7 +146,7 @@
       "request": "GET / HTTP/1.1\r\nHost: experimentation-fej.injep.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
       "response": "HTTP/1.0 401 Unauthorized\r\nContent-Length: 9\r\nConnection: close\r\nWww-Authenticate: Basic realm=\"\"\r\n\r\n401 ERROR",
       "ip": "185.194.83.121",
-      "timestamp": "2024-01-14T02:56:39.409883449Z",
+      "timestamp": "2024-01-21T02:53:49.032106619Z",
       "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://experimentation-fej.injep.fr'",
       "matcher-status": true
     },
@@ -341,124 +185,7 @@
       "request": "GET / HTTP/1.1\r\nHost: experimentation-fej.injep.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
       "response": "HTTP/1.0 401 Unauthorized\r\nContent-Length: 9\r\nConnection: close\r\nWww-Authenticate: Basic realm=\"\"\r\n\r\n401 ERROR",
       "ip": "185.194.83.121",
-      "timestamp": "2024-01-14T02:56:39.409897965Z",
-      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://experimentation-fej.injep.fr'",
-      "matcher-status": true
-    },
-    {
-      "template": "http/misconfiguration/http-missing-security-headers.yaml",
-      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
-      "template-id": "http-missing-security-headers",
-      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
-      "info": {
-        "name": "HTTP Missing Security Headers",
-        "author": [
-          "socketz",
-          "geeknik",
-          "g4l1t0",
-          "convisoappsec",
-          "kurohost",
-          "dawid-czarnecki",
-          "forgedhallpass",
-          "jub0bs"
-        ],
-        "tags": [
-          "misconfig",
-          "headers",
-          "generic"
-        ],
-        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-        "severity": "info",
-        "metadata": {
-          "max-request": 1
-        }
-      },
-      "matcher-name": "x-frame-options",
-      "type": "http",
-      "host": "https://experimentation-fej.injep.fr",
-      "matched-at": "https://experimentation-fej.injep.fr",
-      "request": "GET / HTTP/1.1\r\nHost: experimentation-fej.injep.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.0 401 Unauthorized\r\nContent-Length: 9\r\nConnection: close\r\nWww-Authenticate: Basic realm=\"\"\r\n\r\n401 ERROR",
-      "ip": "185.194.83.121",
-      "timestamp": "2024-01-14T02:56:39.409912523Z",
-      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://experimentation-fej.injep.fr'",
-      "matcher-status": true
-    },
-    {
-      "template": "http/misconfiguration/http-missing-security-headers.yaml",
-      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
-      "template-id": "http-missing-security-headers",
-      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
-      "info": {
-        "name": "HTTP Missing Security Headers",
-        "author": [
-          "socketz",
-          "geeknik",
-          "g4l1t0",
-          "convisoappsec",
-          "kurohost",
-          "dawid-czarnecki",
-          "forgedhallpass",
-          "jub0bs"
-        ],
-        "tags": [
-          "misconfig",
-          "headers",
-          "generic"
-        ],
-        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-        "severity": "info",
-        "metadata": {
-          "max-request": 1
-        }
-      },
-      "matcher-name": "x-content-type-options",
-      "type": "http",
-      "host": "https://experimentation-fej.injep.fr",
-      "matched-at": "https://experimentation-fej.injep.fr",
-      "request": "GET / HTTP/1.1\r\nHost: experimentation-fej.injep.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.0 401 Unauthorized\r\nContent-Length: 9\r\nConnection: close\r\nWww-Authenticate: Basic realm=\"\"\r\n\r\n401 ERROR",
-      "ip": "185.194.83.121",
-      "timestamp": "2024-01-14T02:56:39.409926358Z",
-      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://experimentation-fej.injep.fr'",
-      "matcher-status": true
-    },
-    {
-      "template": "http/misconfiguration/http-missing-security-headers.yaml",
-      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
-      "template-id": "http-missing-security-headers",
-      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
-      "info": {
-        "name": "HTTP Missing Security Headers",
-        "author": [
-          "socketz",
-          "geeknik",
-          "g4l1t0",
-          "convisoappsec",
-          "kurohost",
-          "dawid-czarnecki",
-          "forgedhallpass",
-          "jub0bs"
-        ],
-        "tags": [
-          "misconfig",
-          "headers",
-          "generic"
-        ],
-        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
-        "severity": "info",
-        "metadata": {
-          "max-request": 1
-        }
-      },
-      "matcher-name": "referrer-policy",
-      "type": "http",
-      "host": "https://experimentation-fej.injep.fr",
-      "matched-at": "https://experimentation-fej.injep.fr",
-      "request": "GET / HTTP/1.1\r\nHost: experimentation-fej.injep.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.0 401 Unauthorized\r\nContent-Length: 9\r\nConnection: close\r\nWww-Authenticate: Basic realm=\"\"\r\n\r\n401 ERROR",
-      "ip": "185.194.83.121",
-      "timestamp": "2024-01-14T02:56:39.410036864Z",
+      "timestamp": "2024-01-21T02:53:49.032122709Z",
       "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://experimentation-fej.injep.fr'",
       "matcher-status": true
     },
@@ -497,39 +224,281 @@
       "request": "GET / HTTP/1.1\r\nHost: experimentation-fej.injep.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
       "response": "HTTP/1.0 401 Unauthorized\r\nContent-Length: 9\r\nConnection: close\r\nWww-Authenticate: Basic realm=\"\"\r\n\r\n401 ERROR",
       "ip": "185.194.83.121",
-      "timestamp": "2024-01-14T02:56:39.41005637Z",
+      "timestamp": "2024-01-21T02:53:49.032140903Z",
       "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://experimentation-fej.injep.fr'",
       "matcher-status": true
     },
     {
-      "template": "ssl/tls-version.yaml",
-      "template-url": "https://templates.nuclei.sh/public/tls-version",
-      "template-id": "tls-version",
-      "template-path": "/home/runner/nuclei-templates/ssl/tls-version.yaml",
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
       "info": {
-        "name": "TLS Version - Detect",
+        "name": "HTTP Missing Security Headers",
         "author": [
-          "pdteam",
-          "pussycat0x"
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs"
         ],
         "tags": [
-          "ssl",
-          "tls"
+          "misconfig",
+          "headers",
+          "generic"
         ],
-        "description": "TLS version detection is a security process used to determine the version of the Transport Layer Security (TLS) protocol used by a computer or server.\nIt is important to detect the TLS version in order to ensure secure communication between two computers or servers.\n",
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
         "severity": "info",
         "metadata": {
-          "max-request": 4
+          "max-request": 1
         }
       },
-      "type": "ssl",
-      "host": "experimentation-fej.injep.fr",
-      "matched-at": "experimentation-fej.injep.fr:443",
-      "extracted-results": [
-        "tls12"
-      ],
+      "matcher-name": "cross-origin-resource-policy",
+      "type": "http",
+      "host": "https://experimentation-fej.injep.fr",
+      "matched-at": "https://experimentation-fej.injep.fr",
+      "request": "GET / HTTP/1.1\r\nHost: experimentation-fej.injep.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.0 401 Unauthorized\r\nContent-Length: 9\r\nConnection: close\r\nWww-Authenticate: Basic realm=\"\"\r\n\r\n401 ERROR",
       "ip": "185.194.83.121",
-      "timestamp": "2024-01-14T03:01:14.497111417Z",
+      "timestamp": "2024-01-21T02:53:49.032156612Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://experimentation-fej.injep.fr'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "cross-origin-opener-policy",
+      "type": "http",
+      "host": "https://experimentation-fej.injep.fr",
+      "matched-at": "https://experimentation-fej.injep.fr",
+      "request": "GET / HTTP/1.1\r\nHost: experimentation-fej.injep.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.0 401 Unauthorized\r\nContent-Length: 9\r\nConnection: close\r\nWww-Authenticate: Basic realm=\"\"\r\n\r\n401 ERROR",
+      "ip": "185.194.83.121",
+      "timestamp": "2024-01-21T02:53:49.032169516Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://experimentation-fej.injep.fr'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "x-frame-options",
+      "type": "http",
+      "host": "https://experimentation-fej.injep.fr",
+      "matched-at": "https://experimentation-fej.injep.fr",
+      "request": "GET / HTTP/1.1\r\nHost: experimentation-fej.injep.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.0 401 Unauthorized\r\nContent-Length: 9\r\nConnection: close\r\nWww-Authenticate: Basic realm=\"\"\r\n\r\n401 ERROR",
+      "ip": "185.194.83.121",
+      "timestamp": "2024-01-21T02:53:49.032181398Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://experimentation-fej.injep.fr'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "x-content-type-options",
+      "type": "http",
+      "host": "https://experimentation-fej.injep.fr",
+      "matched-at": "https://experimentation-fej.injep.fr",
+      "request": "GET / HTTP/1.1\r\nHost: experimentation-fej.injep.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.0 401 Unauthorized\r\nContent-Length: 9\r\nConnection: close\r\nWww-Authenticate: Basic realm=\"\"\r\n\r\n401 ERROR",
+      "ip": "185.194.83.121",
+      "timestamp": "2024-01-21T02:53:49.032196065Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://experimentation-fej.injep.fr'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "x-permitted-cross-domain-policies",
+      "type": "http",
+      "host": "https://experimentation-fej.injep.fr",
+      "matched-at": "https://experimentation-fej.injep.fr",
+      "request": "GET / HTTP/1.1\r\nHost: experimentation-fej.injep.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.0 401 Unauthorized\r\nContent-Length: 9\r\nConnection: close\r\nWww-Authenticate: Basic realm=\"\"\r\n\r\n401 ERROR",
+      "ip": "185.194.83.121",
+      "timestamp": "2024-01-21T02:53:49.032209981Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://experimentation-fej.injep.fr'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "referrer-policy",
+      "type": "http",
+      "host": "https://experimentation-fej.injep.fr",
+      "matched-at": "https://experimentation-fej.injep.fr",
+      "request": "GET / HTTP/1.1\r\nHost: experimentation-fej.injep.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.0 401 Unauthorized\r\nContent-Length: 9\r\nConnection: close\r\nWww-Authenticate: Basic realm=\"\"\r\n\r\n401 ERROR",
+      "ip": "185.194.83.121",
+      "timestamp": "2024-01-21T02:53:49.032221793Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://experimentation-fej.injep.fr'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "clear-site-data",
+      "type": "http",
+      "host": "https://experimentation-fej.injep.fr",
+      "matched-at": "https://experimentation-fej.injep.fr",
+      "request": "GET / HTTP/1.1\r\nHost: experimentation-fej.injep.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.0 401 Unauthorized\r\nContent-Length: 9\r\nConnection: close\r\nWww-Authenticate: Basic realm=\"\"\r\n\r\n401 ERROR",
+      "ip": "185.194.83.121",
+      "timestamp": "2024-01-21T02:53:49.032233906Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://experimentation-fej.injep.fr'",
       "matcher-status": true
     },
     {
@@ -559,7 +528,7 @@
         "DHIMYOTIS"
       ],
       "ip": "185.194.83.121",
-      "timestamp": "2024-01-14T03:01:15.152899395Z",
+      "timestamp": "2024-01-21T02:57:15.691771637Z",
       "matcher-status": true
     },
     {
@@ -590,7 +559,38 @@
         "experimentation-fej.injep.fr"
       ],
       "ip": "185.194.83.121",
-      "timestamp": "2024-01-14T03:01:15.153015291Z",
+      "timestamp": "2024-01-21T02:57:15.691891109Z",
+      "matcher-status": true
+    },
+    {
+      "template": "ssl/tls-version.yaml",
+      "template-url": "https://templates.nuclei.sh/public/tls-version",
+      "template-id": "tls-version",
+      "template-path": "/home/runner/nuclei-templates/ssl/tls-version.yaml",
+      "info": {
+        "name": "TLS Version - Detect",
+        "author": [
+          "pdteam",
+          "pussycat0x"
+        ],
+        "tags": [
+          "ssl",
+          "tls"
+        ],
+        "description": "TLS version detection is a security process used to determine the version of the Transport Layer Security (TLS) protocol used by a computer or server.\nIt is important to detect the TLS version in order to ensure secure communication between two computers or servers.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 4
+        }
+      },
+      "type": "ssl",
+      "host": "experimentation-fej.injep.fr",
+      "matched-at": "experimentation-fej.injep.fr:443",
+      "extracted-results": [
+        "tls12"
+      ],
+      "ip": "185.194.83.121",
+      "timestamp": "2024-01-21T02:57:20.469198471Z",
       "matcher-status": true
     }
   ]
