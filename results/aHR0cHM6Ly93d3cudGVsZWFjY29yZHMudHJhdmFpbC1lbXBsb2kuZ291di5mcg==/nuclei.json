@@ -1,43 +1,6 @@
 [
   [
     {
-      "template": "dns/caa-fingerprint.yaml",
-      "template-url": "https://templates.nuclei.sh/public/caa-fingerprint",
-      "template-id": "caa-fingerprint",
-      "template-path": "/home/runner/nuclei-templates/dns/caa-fingerprint.yaml",
-      "info": {
-        "name": "CAA Record",
-        "author": [
-          "pdteam"
-        ],
-        "tags": [
-          "dns",
-          "caa"
-        ],
-        "description": "A CAA record was discovered. A CAA record is used to specify which certificate authorities (CAs) are allowed to issue certificates for a domain.",
-        "reference": [
-          "https://support.dnsimple.com/articles/caa-record/#whats-a-caa-record"
-        ],
-        "severity": "info",
-        "metadata": {
-          "max-request": 1
-        },
-        "classification": {
-          "cve-id": null,
-          "cwe-id": [
-            "cwe-200"
-          ]
-        }
-      },
-      "type": "dns",
-      "host": "www.teleaccords.travail-emploi.gouv.fr.",
-      "matched-at": "www.teleaccords.travail-emploi.gouv.fr",
-      "request": ";; opcode: QUERY, status: NOERROR, id: 2270\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;www.teleaccords.travail-emploi.gouv.fr.\tIN\t CAA\n",
-      "response": ";; opcode: QUERY, status: NOERROR, id: 2270\n;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 1, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 512\n\n;; QUESTION SECTION:\n;www.teleaccords.travail-emploi.gouv.fr.\tIN\t CAA\n\n;; ANSWER SECTION:\nwww.teleaccords.travail-emploi.gouv.fr.\t299\tIN\tCNAME\twww.teleaccords.travail.gouv.fr.\n\n;; AUTHORITY SECTION:\ntravail.gouv.fr.\t1800\tIN\tSOA\ta.ns.developpement-durable.gouv.fr. dnsmaster.sante.gouv.fr. 2024011600 14400 3600 3000000 3600\n",
-      "timestamp": "2024-01-21T07:17:23.265866309Z",
-      "matcher-status": true
-    },
-    {
       "template": "dns/dns-saas-service-detection.yaml",
       "template-url": "https://templates.nuclei.sh/public/dns-saas-service-detection",
       "template-id": "dns-saas-service-detection",
@@ -69,31 +32,28 @@
       "extracted-results": [
         "www.teleaccords.travail.gouv.fr."
       ],
-      "request": ";; opcode: QUERY, status: NOERROR, id: 15831\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;www.teleaccords.travail-emploi.gouv.fr.\tIN\t CNAME\n",
-      "response": ";; opcode: QUERY, status: NOERROR, id: 15831\n;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 1232\n\n;; QUESTION SECTION:\n;www.teleaccords.travail-emploi.gouv.fr.\tIN\t CNAME\n\n;; ANSWER SECTION:\nwww.teleaccords.travail-emploi.gouv.fr.\t300\tIN\tCNAME\twww.teleaccords.travail.gouv.fr.\n",
-      "timestamp": "2024-01-21T07:17:23.420190705Z",
+      "request": ";; opcode: QUERY, status: NOERROR, id: 43114\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;www.teleaccords.travail-emploi.gouv.fr.\tIN\t CNAME\n",
+      "response": ";; opcode: QUERY, status: NOERROR, id: 43114\n;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 1232\n\n;; QUESTION SECTION:\n;www.teleaccords.travail-emploi.gouv.fr.\tIN\t CNAME\n\n;; ANSWER SECTION:\nwww.teleaccords.travail-emploi.gouv.fr.\t300\tIN\tCNAME\twww.teleaccords.travail.gouv.fr.\n",
+      "timestamp": "2024-01-28T06:31:58.931158092Z",
       "matcher-status": true
     },
     {
-      "template": "http/miscellaneous/external-service-interaction.yaml",
-      "template-url": "https://templates.nuclei.sh/public/external-service-interaction",
-      "template-id": "external-service-interaction",
-      "template-path": "/home/runner/nuclei-templates/http/miscellaneous/external-service-interaction.yaml",
+      "template": "dns/caa-fingerprint.yaml",
+      "template-url": "https://templates.nuclei.sh/public/caa-fingerprint",
+      "template-id": "caa-fingerprint",
+      "template-path": "/home/runner/nuclei-templates/dns/caa-fingerprint.yaml",
       "info": {
-        "name": "External Service Interaction",
+        "name": "CAA Record",
         "author": [
-          "andreluna"
+          "pdteam"
         ],
         "tags": [
-          "http",
-          "misc",
-          "oast"
+          "dns",
+          "caa"
         ],
-        "description": "External Service interaction via Host Header Injection.",
+        "description": "A CAA record was discovered. A CAA record is used to specify which certificate authorities (CAs) are allowed to issue certificates for a domain.",
         "reference": [
-          "https://portswigger.net/kb/issues/00300210_external-service-interaction-http",
-          "https://success.qualys.com/support/s/article/000006843",
-          "https://owasp.org/www-project-web-security-testing-guide/latest/4-web_application_security_testing/07-input_validation_testing/17-testing_for_host_header_injection"
+          "https://support.dnsimple.com/articles/caa-record/#whats-a-caa-record"
         ],
         "severity": "info",
         "metadata": {
@@ -102,29 +62,16 @@
         "classification": {
           "cve-id": null,
           "cwe-id": [
-            "cwe-918",
-            "cwe-406"
+            "cwe-200"
           ]
         }
       },
-      "type": "http",
-      "host": "https://www.teleaccords.travail-emploi.gouv.fr",
-      "matched-at": "https://cmmca0sp596oalmad4qggk4n6e8fpztkb.oast.pro/PortailTeleprocedures",
-      "request": "GET / HTTP/1.1\r\nHost: cmmca0sp596oalmad4qggk4n6e8fpztkb.oast.pro\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 72\r\nAccess-Control-Allow-Credentials: true\r\nAccess-Control-Allow-Headers: Content-Type, Authorization\r\nAccess-Control-Allow-Origin: *\r\nContent-Type: text/html; charset=utf-8\r\nDate: Sun, 21 Jan 2024 07:19:24 GMT\r\nServer: oast.pro\r\nX-Interactsh-Version: 1.1.8\r\n\r\n<html><head></head><body>bktzpf8e6n4kggq4damlao695ps0acmmc</body></html>",
-      "ip": "164.131.124.217",
-      "timestamp": "2024-01-21T07:19:25.049344515Z",
-      "interaction": {
-        "protocol": "dns",
-        "unique-id": "cmmca0sp596oalmad4qggk4n6e8fpztkb",
-        "full-id": "cmmca0sp596oalmad4qggk4n6e8fpztkb",
-        "q-type": "A",
-        "raw-request": ";; opcode: QUERY, status: NOERROR, id: 44628\n;; flags:; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags: do; udp: 1452\n\n;; QUESTION SECTION:\n;cmmca0sp596oalmad4qggk4n6e8fpztkb.oast.pro.\tIN\t A\n",
-        "raw-response": ";; opcode: QUERY, status: NOERROR, id: 44628\n;; flags: qr aa; QUERY: 1, ANSWER: 1, AUTHORITY: 2, ADDITIONAL: 2\n\n;; QUESTION SECTION:\n;cmmca0sp596oalmad4qggk4n6e8fpztkb.oast.pro.\tIN\t A\n\n;; ANSWER SECTION:\ncmmca0sp596oalmad4qggk4n6e8fpztkb.oast.pro.\t3600\tIN\tA\t178.128.212.209\n\n;; AUTHORITY SECTION:\ncmmca0sp596oalmad4qggk4n6e8fpztkb.oast.pro.\t3600\tIN\tNS\tns1.oast.pro.\ncmmca0sp596oalmad4qggk4n6e8fpztkb.oast.pro.\t3600\tIN\tNS\tns2.oast.pro.\n\n;; ADDITIONAL SECTION:\nns1.oast.pro.\t3600\tIN\tA\t178.128.212.209\nns2.oast.pro.\t3600\tIN\tA\t178.128.212.209\n",
-        "remote-address": "172.71.157.98",
-        "timestamp": "2024-01-21T07:19:21.645278677Z"
-      },
-      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'Host: cmmca0sp596oalmad4qggk4n6e8fpztkb.oast.pro' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.teleaccords.travail-emploi.gouv.fr'",
+      "type": "dns",
+      "host": "www.teleaccords.travail-emploi.gouv.fr.",
+      "matched-at": "www.teleaccords.travail-emploi.gouv.fr",
+      "request": ";; opcode: QUERY, status: NOERROR, id: 35764\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;www.teleaccords.travail-emploi.gouv.fr.\tIN\t CAA\n",
+      "response": ";; opcode: QUERY, status: NOERROR, id: 35764\n;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 1, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 1232\n\n;; QUESTION SECTION:\n;www.teleaccords.travail-emploi.gouv.fr.\tIN\t CAA\n\n;; ANSWER SECTION:\nwww.teleaccords.travail-emploi.gouv.fr.\t300\tIN\tCNAME\twww.teleaccords.travail.gouv.fr.\n\n;; AUTHORITY SECTION:\ntravail.gouv.fr.\t3600\tIN\tSOA\ta.ns.developpement-durable.gouv.fr. dnsmaster.sante.gouv.fr. 2024011600 14400 3600 3000000 3600\n",
+      "timestamp": "2024-01-28T06:31:59.158096058Z",
       "matcher-status": true
     },
     {
@@ -163,21 +110,21 @@
       "type": "http",
       "host": "https://www.teleaccords.travail-emploi.gouv.fr",
       "matched-at": "https://www.teleaccords.travail-emploi.gouv.fr",
-      "request": "GET / HTTP/1.1\r\nHost: cmmca0sp596oalmad4qggk4n6e8fpztkb.oast.pro\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.1 302 Found\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nContent-Type: text/html; charset=iso-8859-1\r\nDate: Sun, 21 Jan 2024 07:19:21 GMT\r\nLocation: https://cmmca0sp596oalmad4qggk4n6e8fpztkb.oast.pro/PortailTeleprocedures\r\nSet-Cookie: BIGipServer0/AffYlI2jx1cdwngIMRhw=711706634.47873.0000; path=/; Httponly; Secure\r\nSet-Cookie: TS019d9798=0171284ec3b02cace371525b78be512fd349aa3fd190fe3d306368c809a6fa49443062280d6f7308a346568a26b6664d0c6bf7b1735f6602afe8ff9a92a1da2dbd05386225; Path=/;\r\n\r\n",
+      "request": "GET / HTTP/1.1\r\nHost: cmqv9npf877o8cv7m0kg3ahtwdgp9wwxh.oast.fun\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.1 302 Found\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nContent-Type: text/html; charset=iso-8859-1\r\nDate: Sun, 28 Jan 2024 06:33:38 GMT\r\nLocation: https://cmqv9npf877o8cv7m0kg3ahtwdgp9wwxh.oast.fun/PortailTeleprocedures\r\nSet-Cookie: BIGipServer0/AffYlI2jx1cdwngIMRhw=711706634.47873.0000; path=/; Httponly; Secure\r\nSet-Cookie: TS019d9798=0171284ec38373839ccee350b1b4cfb4c5063cb57d60d365b995f5f7b18178ba71d5e11bb364e8ef0ebe2b126ea97989b7d1342b209afe1563f4bbf3ef0441a9047fb6db52; Path=/;\r\n\r\n",
       "ip": "164.131.124.217",
-      "timestamp": "2024-01-21T07:19:29.301893373Z",
+      "timestamp": "2024-01-28T06:33:41.556428781Z",
       "interaction": {
         "protocol": "dns",
-        "unique-id": "cmmca0sp596oalmad4qggk4n6e8fpztkb",
-        "full-id": "cmmca0sp596oalmad4qggk4n6e8fpztkb",
-        "q-type": "AAAA",
-        "raw-request": ";; opcode: QUERY, status: NOERROR, id: 64971\n;; flags:; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags: do; udp: 1224\n\n;; QUESTION SECTION:\n;cmmca0sp596oalmad4qggk4n6e8fpztkb.oast.pro.\tIN\t AAAA\n",
-        "raw-response": ";; opcode: QUERY, status: NOERROR, id: 64971\n;; flags: qr aa; QUERY: 1, ANSWER: 1, AUTHORITY: 2, ADDITIONAL: 2\n\n;; QUESTION SECTION:\n;cmmca0sp596oalmad4qggk4n6e8fpztkb.oast.pro.\tIN\t AAAA\n\n;; ANSWER SECTION:\ncmmca0sp596oalmad4qggk4n6e8fpztkb.oast.pro.\t3600\tIN\tA\t178.128.212.209\n\n;; AUTHORITY SECTION:\ncmmca0sp596oalmad4qggk4n6e8fpztkb.oast.pro.\t3600\tIN\tNS\tns1.oast.pro.\ncmmca0sp596oalmad4qggk4n6e8fpztkb.oast.pro.\t3600\tIN\tNS\tns2.oast.pro.\n\n;; ADDITIONAL SECTION:\nns1.oast.pro.\t3600\tIN\tA\t178.128.212.209\nns2.oast.pro.\t3600\tIN\tA\t178.128.212.209\n",
-        "remote-address": "40.112.240.177",
-        "timestamp": "2024-01-21T07:19:24.240144609Z"
+        "unique-id": "cmqv9npf877o8cv7m0kg3ahtwdgp9wwxh",
+        "full-id": "CMqv9npf877O8Cv7m0kG3AHtwdgp9wWxH",
+        "q-type": "A",
+        "raw-request": ";; opcode: QUERY, status: NOERROR, id: 26538\n;; flags: cd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 0\n\n;; QUESTION SECTION:\n;CMqv9npf877O8Cv7m0kG3AHtwdgp9wWxH.oaST.Fun.\tIN\t A\n",
+        "raw-response": ";; opcode: QUERY, status: NOERROR, id: 26538\n;; flags: qr aa cd; QUERY: 1, ANSWER: 1, AUTHORITY: 2, ADDITIONAL: 2\n\n;; QUESTION SECTION:\n;CMqv9npf877O8Cv7m0kG3AHtwdgp9wWxH.oaST.Fun.\tIN\t A\n\n;; ANSWER SECTION:\nCMqv9npf877O8Cv7m0kG3AHtwdgp9wWxH.oaST.Fun.\t3600\tIN\tA\t206.189.156.69\n\n;; AUTHORITY SECTION:\nCMqv9npf877O8Cv7m0kG3AHtwdgp9wWxH.oaST.Fun.\t3600\tIN\tNS\tns1.oast.fun.\nCMqv9npf877O8Cv7m0kG3AHtwdgp9wWxH.oaST.Fun.\t3600\tIN\tNS\tns2.oast.fun.\n\n;; ADDITIONAL SECTION:\nns1.oast.fun.\t3600\tIN\tA\t206.189.156.69\nns2.oast.fun.\t3600\tIN\tA\t206.189.156.69\n",
+        "remote-address": "172.253.223.193",
+        "timestamp": "2024-01-28T06:33:38.865925817Z"
       },
-      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'Host: cmmca0sp596oalmad4qggk4n6e8fpztkb.oast.pro' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.teleaccords.travail-emploi.gouv.fr'",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'Host: cmqv9npf877o8cv7m0kg3ahtwdgp9wwxh.oast.fun' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.teleaccords.travail-emploi.gouv.fr'",
       "matcher-status": true
     },
     {
@@ -207,7 +154,7 @@
         "DHIMYOTIS"
       ],
       "ip": "164.131.124.217",
-      "timestamp": "2024-01-21T07:23:21.219294114Z",
+      "timestamp": "2024-01-28T06:36:29.989991703Z",
       "matcher-status": true
     },
     {
@@ -238,7 +185,7 @@
         "www.teleaccords.travail-emploi.gouv.fr"
       ],
       "ip": "164.131.124.217",
-      "timestamp": "2024-01-21T07:23:21.219418727Z",
+      "timestamp": "2024-01-28T06:36:29.990114421Z",
       "matcher-status": true
     },
     {
@@ -269,7 +216,7 @@
         "tls12"
       ],
       "ip": "164.131.124.217",
-      "timestamp": "2024-01-21T07:23:21.360163083Z",
+      "timestamp": "2024-01-28T06:36:33.149401906Z",
       "matcher-status": true
     }
   ]
