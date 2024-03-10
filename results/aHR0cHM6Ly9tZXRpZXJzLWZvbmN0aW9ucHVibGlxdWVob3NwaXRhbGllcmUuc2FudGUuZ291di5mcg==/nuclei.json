@@ -1,0 +1,668 @@
+[
+  [
+    {
+      "template": "dns/caa-fingerprint.yaml",
+      "template-url": "https://templates.nuclei.sh/public/caa-fingerprint",
+      "template-id": "caa-fingerprint",
+      "template-path": "/home/runner/nuclei-templates/dns/caa-fingerprint.yaml",
+      "info": {
+        "name": "CAA Record",
+        "author": [
+          "pdteam"
+        ],
+        "tags": [
+          "dns",
+          "caa"
+        ],
+        "description": "A CAA record was discovered. A CAA record is used to specify which certificate authorities (CAs) are allowed to issue certificates for a domain.",
+        "reference": [
+          "https://support.dnsimple.com/articles/caa-record/#whats-a-caa-record"
+        ],
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        },
+        "classification": {
+          "cve-id": null,
+          "cwe-id": [
+            "cwe-200"
+          ]
+        }
+      },
+      "type": "dns",
+      "host": "metiers-fonctionpubliquehospitaliere.sante.gouv.fr.",
+      "matched-at": "metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
+      "request": ";; opcode: QUERY, status: NOERROR, id: 21706\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;metiers-fonctionpubliquehospitaliere.sante.gouv.fr.\tIN\t CAA\n",
+      "response": ";; opcode: QUERY, status: NOERROR, id: 21706\n;; flags: qr rd ra; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 1232\n\n;; QUESTION SECTION:\n;metiers-fonctionpubliquehospitaliere.sante.gouv.fr.\tIN\t CAA\n\n;; AUTHORITY SECTION:\nsante.gouv.fr.\t1200\tIN\tSOA\ta.ns.developpement-durable.gouv.fr. dnsmaster.sante.gouv.fr. 2024022802 14400 1800 2592000 1200\n",
+      "timestamp": "2024-03-10T04:16:26.746421252Z",
+      "matcher-status": true
+    },
+    {
+      "template": "http/technologies/tech-detect.yaml",
+      "template-url": "https://templates.nuclei.sh/public/tech-detect",
+      "template-id": "tech-detect",
+      "template-path": "/home/runner/nuclei-templates/http/technologies/tech-detect.yaml",
+      "info": {
+        "name": "Wappalyzer Technology Detection",
+        "author": [
+          "hakluke"
+        ],
+        "tags": [
+          "tech"
+        ],
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "google-font-api",
+      "type": "http",
+      "host": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
+      "matched-at": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
+      "request": "GET / HTTP/1.1\r\nHost: metiers-fonctionpubliquehospitaliere.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.0 503 Service Unavailable\r\nContent-Length: 3551\r\nConnection: close\r\nContent-Type: text/html\r\nRetry-After: 300\r\nServer: BigIP\r\n\r\n<!DOCTYPE html>\r\n<html lang=\"fr\">\r\n    <head>\r\n        <meta charset=\"utf-8\">\r\n        <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n        <meta name=\"author\" content=\"Cegedim\">\r\n\r\n        <title>Cegedim</title>\r\n\r\n        <script>\r\n        /* Script */\r\n\r\n        </script>\r\n\r\n        <link href=\"https://fonts.googleapis.com/css?family=Open+Sans\" rel=\"stylesheet\">\r\n        <style>\r\n            body, html {\r\n                font-family: 'Open Sans', sans-serif;\r\n                padding: 0;\r\n                margin: 0;\r\n                font-size: 13px;\r\n                height: 100%;\r\n                color: #fafafa;\r\n            }\r\n\r\n            header {\r\n                max-width: 500px;\r\n                width: 90%;\r\n                margin:0 auto;\r\n                text-align: center;\r\n                padding-top: 30px;\r\n                z-index: 2;\r\n                position: relative;\r\n            }\r\n\r\n            h1.logo {\r\n                width:300px;\r\n                height: 100px;\r\n                background: url('/maintenance.png') no-repeat 0px 0px;\r\n                display: inline-block;\r\n                margin-left: auto;\r\n                margin-right: auto;\r\n            }\r\n            h1 span {\r\n                display: none;\r\n            }\r\n\r\n            #wrapper {\r\n                max-width: 500px;\r\n                width: 90%;\r\n                margin:0 auto;\r\n                padding: 20px 0;\r\n                text-align: center;\r\n                z-index: 2;\r\n            }\r\n            #wrapper .icon-maintenance {\r\n                width:300px;\r\n                height:220px;\r\n                background: url('/maintenance.png') no-repeat 0px -100px;\r\n                display: inline-block;\r\n                margin:10px auto;\r\n            }\r\n            #wrapper h3 {\r\n                font-size:2.4em;\r\n                color: #0072c6;\r\n            }\r\n\r\n            #wrapper h4 {\r\n                font-size:1.4em;\r\n                color: #0092d0;\r\n            }\r\n\r\n            footer {\r\n                background-color: #363636;\r\n                color: #999999;\r\n                text-align: center;\r\n                font-size: 0.8em;\r\n                position: fixed;\r\n                bottom: 0;\r\n                width: 100%;\r\n                min-height: 60px;\r\n                padding: 10px 0 20px;\r\n                z-index: 2;\r\n            }\r\n\r\n            .network a {\r\n                width:50px;\r\n                height:50px;\r\n                display: inline-block;\r\n            }\r\n            \r\n\r\n\r\n            @media screen and (max-width:400px) {\r\n                header { padding-top: 10px; }\r\n                #wrapper { padding-top:20px; }\r\n                footer { position: relative; }\r\n            }\r\n        </style>\r\n    </head>\r\n\r\n    <body>\r\n\r\n        <header>\r\n            <h1 class=\"logo\"><span>Cegedim</span></h1>\r\n        </header>\r\n\r\n        <section id=\"wrapper\">\r\n                <i class=\"icon-maintenance\"></i>\r\n                <h4>Ce site est actuellement en maintenance et sera bientôt disponible. Nous vous remercions pour votre patience.\r\n                <br/><br/>\r\n                This site is currently under maintenance and should be available shortly. Thank you for your patience.</h4>\r\n        </section>\r\n\r\n\r\n\r\n\r\n        <footer>\r\n            <div class=\"copyright\">\r\n                &copy; Cegedim 2017 - Tous droits réservés\r\n            </div>\r\n        </footer>\r\n\r\n    </body>\r\n</html>\r\n",
+      "ip": "185.194.82.144",
+      "timestamp": "2024-03-10T04:17:10.271759987Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "x-permitted-cross-domain-policies",
+      "type": "http",
+      "host": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
+      "matched-at": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
+      "request": "GET / HTTP/1.1\r\nHost: metiers-fonctionpubliquehospitaliere.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.0 503 Service Unavailable\r\nContent-Length: 3551\r\nConnection: close\r\nContent-Type: text/html\r\nRetry-After: 300\r\nServer: BigIP\r\n\r\n<!DOCTYPE html>\r\n<html lang=\"fr\">\r\n    <head>\r\n        <meta charset=\"utf-8\">\r\n        <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n        <meta name=\"author\" content=\"Cegedim\">\r\n\r\n        <title>Cegedim</title>\r\n\r\n        <script>\r\n        /* Script */\r\n\r\n        </script>\r\n\r\n        <link href=\"https://fonts.googleapis.com/css?family=Open+Sans\" rel=\"stylesheet\">\r\n        <style>\r\n            body, html {\r\n                font-family: 'Open Sans', sans-serif;\r\n                padding: 0;\r\n                margin: 0;\r\n                font-size: 13px;\r\n                height: 100%;\r\n                color: #fafafa;\r\n            }\r\n\r\n            header {\r\n                max-width: 500px;\r\n                width: 90%;\r\n                margin:0 auto;\r\n                text-align: center;\r\n                padding-top: 30px;\r\n                z-index: 2;\r\n                position: relative;\r\n            }\r\n\r\n            h1.logo {\r\n                width:300px;\r\n                height: 100px;\r\n                background: url('/maintenance.png') no-repeat 0px 0px;\r\n                display: inline-block;\r\n                margin-left: auto;\r\n                margin-right: auto;\r\n            }\r\n            h1 span {\r\n                display: none;\r\n            }\r\n\r\n            #wrapper {\r\n                max-width: 500px;\r\n                width: 90%;\r\n                margin:0 auto;\r\n                padding: 20px 0;\r\n                text-align: center;\r\n                z-index: 2;\r\n            }\r\n            #wrapper .icon-maintenance {\r\n                width:300px;\r\n                height:220px;\r\n                background: url('/maintenance.png') no-repeat 0px -100px;\r\n                display: inline-block;\r\n                margin:10px auto;\r\n            }\r\n            #wrapper h3 {\r\n                font-size:2.4em;\r\n                color: #0072c6;\r\n            }\r\n\r\n            #wrapper h4 {\r\n                font-size:1.4em;\r\n                color: #0092d0;\r\n            }\r\n\r\n            footer {\r\n                background-color: #363636;\r\n                color: #999999;\r\n                text-align: center;\r\n                font-size: 0.8em;\r\n                position: fixed;\r\n                bottom: 0;\r\n                width: 100%;\r\n                min-height: 60px;\r\n                padding: 10px 0 20px;\r\n                z-index: 2;\r\n            }\r\n\r\n            .network a {\r\n                width:50px;\r\n                height:50px;\r\n                display: inline-block;\r\n            }\r\n            \r\n\r\n\r\n            @media screen and (max-width:400px) {\r\n                header { padding-top: 10px; }\r\n                #wrapper { padding-top:20px; }\r\n                footer { position: relative; }\r\n            }\r\n        </style>\r\n    </head>\r\n\r\n    <body>\r\n\r\n        <header>\r\n            <h1 class=\"logo\"><span>Cegedim</span></h1>\r\n        </header>\r\n\r\n        <section id=\"wrapper\">\r\n                <i class=\"icon-maintenance\"></i>\r\n                <h4>Ce site est actuellement en maintenance et sera bientôt disponible. Nous vous remercions pour votre patience.\r\n                <br/><br/>\r\n                This site is currently under maintenance and should be available shortly. Thank you for your patience.</h4>\r\n        </section>\r\n\r\n\r\n\r\n\r\n        <footer>\r\n            <div class=\"copyright\">\r\n                &copy; Cegedim 2017 - Tous droits réservés\r\n            </div>\r\n        </footer>\r\n\r\n    </body>\r\n</html>\r\n",
+      "ip": "185.194.82.144",
+      "timestamp": "2024-03-10T04:17:21.91672011Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "referrer-policy",
+      "type": "http",
+      "host": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
+      "matched-at": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
+      "request": "GET / HTTP/1.1\r\nHost: metiers-fonctionpubliquehospitaliere.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.0 503 Service Unavailable\r\nContent-Length: 3551\r\nConnection: close\r\nContent-Type: text/html\r\nRetry-After: 300\r\nServer: BigIP\r\n\r\n<!DOCTYPE html>\r\n<html lang=\"fr\">\r\n    <head>\r\n        <meta charset=\"utf-8\">\r\n        <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n        <meta name=\"author\" content=\"Cegedim\">\r\n\r\n        <title>Cegedim</title>\r\n\r\n        <script>\r\n        /* Script */\r\n\r\n        </script>\r\n\r\n        <link href=\"https://fonts.googleapis.com/css?family=Open+Sans\" rel=\"stylesheet\">\r\n        <style>\r\n            body, html {\r\n                font-family: 'Open Sans', sans-serif;\r\n                padding: 0;\r\n                margin: 0;\r\n                font-size: 13px;\r\n                height: 100%;\r\n                color: #fafafa;\r\n            }\r\n\r\n            header {\r\n                max-width: 500px;\r\n                width: 90%;\r\n                margin:0 auto;\r\n                text-align: center;\r\n                padding-top: 30px;\r\n                z-index: 2;\r\n                position: relative;\r\n            }\r\n\r\n            h1.logo {\r\n                width:300px;\r\n                height: 100px;\r\n                background: url('/maintenance.png') no-repeat 0px 0px;\r\n                display: inline-block;\r\n                margin-left: auto;\r\n                margin-right: auto;\r\n            }\r\n            h1 span {\r\n                display: none;\r\n            }\r\n\r\n            #wrapper {\r\n                max-width: 500px;\r\n                width: 90%;\r\n                margin:0 auto;\r\n                padding: 20px 0;\r\n                text-align: center;\r\n                z-index: 2;\r\n            }\r\n            #wrapper .icon-maintenance {\r\n                width:300px;\r\n                height:220px;\r\n                background: url('/maintenance.png') no-repeat 0px -100px;\r\n                display: inline-block;\r\n                margin:10px auto;\r\n            }\r\n            #wrapper h3 {\r\n                font-size:2.4em;\r\n                color: #0072c6;\r\n            }\r\n\r\n            #wrapper h4 {\r\n                font-size:1.4em;\r\n                color: #0092d0;\r\n            }\r\n\r\n            footer {\r\n                background-color: #363636;\r\n                color: #999999;\r\n                text-align: center;\r\n                font-size: 0.8em;\r\n                position: fixed;\r\n                bottom: 0;\r\n                width: 100%;\r\n                min-height: 60px;\r\n                padding: 10px 0 20px;\r\n                z-index: 2;\r\n            }\r\n\r\n            .network a {\r\n                width:50px;\r\n                height:50px;\r\n                display: inline-block;\r\n            }\r\n            \r\n\r\n\r\n            @media screen and (max-width:400px) {\r\n                header { padding-top: 10px; }\r\n                #wrapper { padding-top:20px; }\r\n                footer { position: relative; }\r\n            }\r\n        </style>\r\n    </head>\r\n\r\n    <body>\r\n\r\n        <header>\r\n            <h1 class=\"logo\"><span>Cegedim</span></h1>\r\n        </header>\r\n\r\n        <section id=\"wrapper\">\r\n                <i class=\"icon-maintenance\"></i>\r\n                <h4>Ce site est actuellement en maintenance et sera bientôt disponible. Nous vous remercions pour votre patience.\r\n                <br/><br/>\r\n                This site is currently under maintenance and should be available shortly. Thank you for your patience.</h4>\r\n        </section>\r\n\r\n\r\n\r\n\r\n        <footer>\r\n            <div class=\"copyright\">\r\n                &copy; Cegedim 2017 - Tous droits réservés\r\n            </div>\r\n        </footer>\r\n\r\n    </body>\r\n</html>\r\n",
+      "ip": "185.194.82.144",
+      "timestamp": "2024-03-10T04:17:21.916765985Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "content-security-policy",
+      "type": "http",
+      "host": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
+      "matched-at": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
+      "request": "GET / HTTP/1.1\r\nHost: metiers-fonctionpubliquehospitaliere.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.0 503 Service Unavailable\r\nContent-Length: 3551\r\nConnection: close\r\nContent-Type: text/html\r\nRetry-After: 300\r\nServer: BigIP\r\n\r\n<!DOCTYPE html>\r\n<html lang=\"fr\">\r\n    <head>\r\n        <meta charset=\"utf-8\">\r\n        <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n        <meta name=\"author\" content=\"Cegedim\">\r\n\r\n        <title>Cegedim</title>\r\n\r\n        <script>\r\n        /* Script */\r\n\r\n        </script>\r\n\r\n        <link href=\"https://fonts.googleapis.com/css?family=Open+Sans\" rel=\"stylesheet\">\r\n        <style>\r\n            body, html {\r\n                font-family: 'Open Sans', sans-serif;\r\n                padding: 0;\r\n                margin: 0;\r\n                font-size: 13px;\r\n                height: 100%;\r\n                color: #fafafa;\r\n            }\r\n\r\n            header {\r\n                max-width: 500px;\r\n                width: 90%;\r\n                margin:0 auto;\r\n                text-align: center;\r\n                padding-top: 30px;\r\n                z-index: 2;\r\n                position: relative;\r\n            }\r\n\r\n            h1.logo {\r\n                width:300px;\r\n                height: 100px;\r\n                background: url('/maintenance.png') no-repeat 0px 0px;\r\n                display: inline-block;\r\n                margin-left: auto;\r\n                margin-right: auto;\r\n            }\r\n            h1 span {\r\n                display: none;\r\n            }\r\n\r\n            #wrapper {\r\n                max-width: 500px;\r\n                width: 90%;\r\n                margin:0 auto;\r\n                padding: 20px 0;\r\n                text-align: center;\r\n                z-index: 2;\r\n            }\r\n            #wrapper .icon-maintenance {\r\n                width:300px;\r\n                height:220px;\r\n                background: url('/maintenance.png') no-repeat 0px -100px;\r\n                display: inline-block;\r\n                margin:10px auto;\r\n            }\r\n            #wrapper h3 {\r\n                font-size:2.4em;\r\n                color: #0072c6;\r\n            }\r\n\r\n            #wrapper h4 {\r\n                font-size:1.4em;\r\n                color: #0092d0;\r\n            }\r\n\r\n            footer {\r\n                background-color: #363636;\r\n                color: #999999;\r\n                text-align: center;\r\n                font-size: 0.8em;\r\n                position: fixed;\r\n                bottom: 0;\r\n                width: 100%;\r\n                min-height: 60px;\r\n                padding: 10px 0 20px;\r\n                z-index: 2;\r\n            }\r\n\r\n            .network a {\r\n                width:50px;\r\n                height:50px;\r\n                display: inline-block;\r\n            }\r\n            \r\n\r\n\r\n            @media screen and (max-width:400px) {\r\n                header { padding-top: 10px; }\r\n                #wrapper { padding-top:20px; }\r\n                footer { position: relative; }\r\n            }\r\n        </style>\r\n    </head>\r\n\r\n    <body>\r\n\r\n        <header>\r\n            <h1 class=\"logo\"><span>Cegedim</span></h1>\r\n        </header>\r\n\r\n        <section id=\"wrapper\">\r\n                <i class=\"icon-maintenance\"></i>\r\n                <h4>Ce site est actuellement en maintenance et sera bientôt disponible. Nous vous remercions pour votre patience.\r\n                <br/><br/>\r\n                This site is currently under maintenance and should be available shortly. Thank you for your patience.</h4>\r\n        </section>\r\n\r\n\r\n\r\n\r\n        <footer>\r\n            <div class=\"copyright\">\r\n                &copy; Cegedim 2017 - Tous droits réservés\r\n            </div>\r\n        </footer>\r\n\r\n    </body>\r\n</html>\r\n",
+      "ip": "185.194.82.144",
+      "timestamp": "2024-03-10T04:17:21.916783959Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "x-frame-options",
+      "type": "http",
+      "host": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
+      "matched-at": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
+      "request": "GET / HTTP/1.1\r\nHost: metiers-fonctionpubliquehospitaliere.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.0 503 Service Unavailable\r\nContent-Length: 3551\r\nConnection: close\r\nContent-Type: text/html\r\nRetry-After: 300\r\nServer: BigIP\r\n\r\n<!DOCTYPE html>\r\n<html lang=\"fr\">\r\n    <head>\r\n        <meta charset=\"utf-8\">\r\n        <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n        <meta name=\"author\" content=\"Cegedim\">\r\n\r\n        <title>Cegedim</title>\r\n\r\n        <script>\r\n        /* Script */\r\n\r\n        </script>\r\n\r\n        <link href=\"https://fonts.googleapis.com/css?family=Open+Sans\" rel=\"stylesheet\">\r\n        <style>\r\n            body, html {\r\n                font-family: 'Open Sans', sans-serif;\r\n                padding: 0;\r\n                margin: 0;\r\n                font-size: 13px;\r\n                height: 100%;\r\n                color: #fafafa;\r\n            }\r\n\r\n            header {\r\n                max-width: 500px;\r\n                width: 90%;\r\n                margin:0 auto;\r\n                text-align: center;\r\n                padding-top: 30px;\r\n                z-index: 2;\r\n                position: relative;\r\n            }\r\n\r\n            h1.logo {\r\n                width:300px;\r\n                height: 100px;\r\n                background: url('/maintenance.png') no-repeat 0px 0px;\r\n                display: inline-block;\r\n                margin-left: auto;\r\n                margin-right: auto;\r\n            }\r\n            h1 span {\r\n                display: none;\r\n            }\r\n\r\n            #wrapper {\r\n                max-width: 500px;\r\n                width: 90%;\r\n                margin:0 auto;\r\n                padding: 20px 0;\r\n                text-align: center;\r\n                z-index: 2;\r\n            }\r\n            #wrapper .icon-maintenance {\r\n                width:300px;\r\n                height:220px;\r\n                background: url('/maintenance.png') no-repeat 0px -100px;\r\n                display: inline-block;\r\n                margin:10px auto;\r\n            }\r\n            #wrapper h3 {\r\n                font-size:2.4em;\r\n                color: #0072c6;\r\n            }\r\n\r\n            #wrapper h4 {\r\n                font-size:1.4em;\r\n                color: #0092d0;\r\n            }\r\n\r\n            footer {\r\n                background-color: #363636;\r\n                color: #999999;\r\n                text-align: center;\r\n                font-size: 0.8em;\r\n                position: fixed;\r\n                bottom: 0;\r\n                width: 100%;\r\n                min-height: 60px;\r\n                padding: 10px 0 20px;\r\n                z-index: 2;\r\n            }\r\n\r\n            .network a {\r\n                width:50px;\r\n                height:50px;\r\n                display: inline-block;\r\n            }\r\n            \r\n\r\n\r\n            @media screen and (max-width:400px) {\r\n                header { padding-top: 10px; }\r\n                #wrapper { padding-top:20px; }\r\n                footer { position: relative; }\r\n            }\r\n        </style>\r\n    </head>\r\n\r\n    <body>\r\n\r\n        <header>\r\n            <h1 class=\"logo\"><span>Cegedim</span></h1>\r\n        </header>\r\n\r\n        <section id=\"wrapper\">\r\n                <i class=\"icon-maintenance\"></i>\r\n                <h4>Ce site est actuellement en maintenance et sera bientôt disponible. Nous vous remercions pour votre patience.\r\n                <br/><br/>\r\n                This site is currently under maintenance and should be available shortly. Thank you for your patience.</h4>\r\n        </section>\r\n\r\n\r\n\r\n\r\n        <footer>\r\n            <div class=\"copyright\">\r\n                &copy; Cegedim 2017 - Tous droits réservés\r\n            </div>\r\n        </footer>\r\n\r\n    </body>\r\n</html>\r\n",
+      "ip": "185.194.82.144",
+      "timestamp": "2024-03-10T04:17:21.916803896Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "x-content-type-options",
+      "type": "http",
+      "host": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
+      "matched-at": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
+      "request": "GET / HTTP/1.1\r\nHost: metiers-fonctionpubliquehospitaliere.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.0 503 Service Unavailable\r\nContent-Length: 3551\r\nConnection: close\r\nContent-Type: text/html\r\nRetry-After: 300\r\nServer: BigIP\r\n\r\n<!DOCTYPE html>\r\n<html lang=\"fr\">\r\n    <head>\r\n        <meta charset=\"utf-8\">\r\n        <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n        <meta name=\"author\" content=\"Cegedim\">\r\n\r\n        <title>Cegedim</title>\r\n\r\n        <script>\r\n        /* Script */\r\n\r\n        </script>\r\n\r\n        <link href=\"https://fonts.googleapis.com/css?family=Open+Sans\" rel=\"stylesheet\">\r\n        <style>\r\n            body, html {\r\n                font-family: 'Open Sans', sans-serif;\r\n                padding: 0;\r\n                margin: 0;\r\n                font-size: 13px;\r\n                height: 100%;\r\n                color: #fafafa;\r\n            }\r\n\r\n            header {\r\n                max-width: 500px;\r\n                width: 90%;\r\n                margin:0 auto;\r\n                text-align: center;\r\n                padding-top: 30px;\r\n                z-index: 2;\r\n                position: relative;\r\n            }\r\n\r\n            h1.logo {\r\n                width:300px;\r\n                height: 100px;\r\n                background: url('/maintenance.png') no-repeat 0px 0px;\r\n                display: inline-block;\r\n                margin-left: auto;\r\n                margin-right: auto;\r\n            }\r\n            h1 span {\r\n                display: none;\r\n            }\r\n\r\n            #wrapper {\r\n                max-width: 500px;\r\n                width: 90%;\r\n                margin:0 auto;\r\n                padding: 20px 0;\r\n                text-align: center;\r\n                z-index: 2;\r\n            }\r\n            #wrapper .icon-maintenance {\r\n                width:300px;\r\n                height:220px;\r\n                background: url('/maintenance.png') no-repeat 0px -100px;\r\n                display: inline-block;\r\n                margin:10px auto;\r\n            }\r\n            #wrapper h3 {\r\n                font-size:2.4em;\r\n                color: #0072c6;\r\n            }\r\n\r\n            #wrapper h4 {\r\n                font-size:1.4em;\r\n                color: #0092d0;\r\n            }\r\n\r\n            footer {\r\n                background-color: #363636;\r\n                color: #999999;\r\n                text-align: center;\r\n                font-size: 0.8em;\r\n                position: fixed;\r\n                bottom: 0;\r\n                width: 100%;\r\n                min-height: 60px;\r\n                padding: 10px 0 20px;\r\n                z-index: 2;\r\n            }\r\n\r\n            .network a {\r\n                width:50px;\r\n                height:50px;\r\n                display: inline-block;\r\n            }\r\n            \r\n\r\n\r\n            @media screen and (max-width:400px) {\r\n                header { padding-top: 10px; }\r\n                #wrapper { padding-top:20px; }\r\n                footer { position: relative; }\r\n            }\r\n        </style>\r\n    </head>\r\n\r\n    <body>\r\n\r\n        <header>\r\n            <h1 class=\"logo\"><span>Cegedim</span></h1>\r\n        </header>\r\n\r\n        <section id=\"wrapper\">\r\n                <i class=\"icon-maintenance\"></i>\r\n                <h4>Ce site est actuellement en maintenance et sera bientôt disponible. Nous vous remercions pour votre patience.\r\n                <br/><br/>\r\n                This site is currently under maintenance and should be available shortly. Thank you for your patience.</h4>\r\n        </section>\r\n\r\n\r\n\r\n\r\n        <footer>\r\n            <div class=\"copyright\">\r\n                &copy; Cegedim 2017 - Tous droits réservés\r\n            </div>\r\n        </footer>\r\n\r\n    </body>\r\n</html>\r\n",
+      "ip": "185.194.82.144",
+      "timestamp": "2024-03-10T04:17:21.916821519Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "cross-origin-embedder-policy",
+      "type": "http",
+      "host": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
+      "matched-at": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
+      "request": "GET / HTTP/1.1\r\nHost: metiers-fonctionpubliquehospitaliere.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.0 503 Service Unavailable\r\nContent-Length: 3551\r\nConnection: close\r\nContent-Type: text/html\r\nRetry-After: 300\r\nServer: BigIP\r\n\r\n<!DOCTYPE html>\r\n<html lang=\"fr\">\r\n    <head>\r\n        <meta charset=\"utf-8\">\r\n        <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n        <meta name=\"author\" content=\"Cegedim\">\r\n\r\n        <title>Cegedim</title>\r\n\r\n        <script>\r\n        /* Script */\r\n\r\n        </script>\r\n\r\n        <link href=\"https://fonts.googleapis.com/css?family=Open+Sans\" rel=\"stylesheet\">\r\n        <style>\r\n            body, html {\r\n                font-family: 'Open Sans', sans-serif;\r\n                padding: 0;\r\n                margin: 0;\r\n                font-size: 13px;\r\n                height: 100%;\r\n                color: #fafafa;\r\n            }\r\n\r\n            header {\r\n                max-width: 500px;\r\n                width: 90%;\r\n                margin:0 auto;\r\n                text-align: center;\r\n                padding-top: 30px;\r\n                z-index: 2;\r\n                position: relative;\r\n            }\r\n\r\n            h1.logo {\r\n                width:300px;\r\n                height: 100px;\r\n                background: url('/maintenance.png') no-repeat 0px 0px;\r\n                display: inline-block;\r\n                margin-left: auto;\r\n                margin-right: auto;\r\n            }\r\n            h1 span {\r\n                display: none;\r\n            }\r\n\r\n            #wrapper {\r\n                max-width: 500px;\r\n                width: 90%;\r\n                margin:0 auto;\r\n                padding: 20px 0;\r\n                text-align: center;\r\n                z-index: 2;\r\n            }\r\n            #wrapper .icon-maintenance {\r\n                width:300px;\r\n                height:220px;\r\n                background: url('/maintenance.png') no-repeat 0px -100px;\r\n                display: inline-block;\r\n                margin:10px auto;\r\n            }\r\n            #wrapper h3 {\r\n                font-size:2.4em;\r\n                color: #0072c6;\r\n            }\r\n\r\n            #wrapper h4 {\r\n                font-size:1.4em;\r\n                color: #0092d0;\r\n            }\r\n\r\n            footer {\r\n                background-color: #363636;\r\n                color: #999999;\r\n                text-align: center;\r\n                font-size: 0.8em;\r\n                position: fixed;\r\n                bottom: 0;\r\n                width: 100%;\r\n                min-height: 60px;\r\n                padding: 10px 0 20px;\r\n                z-index: 2;\r\n            }\r\n\r\n            .network a {\r\n                width:50px;\r\n                height:50px;\r\n                display: inline-block;\r\n            }\r\n            \r\n\r\n\r\n            @media screen and (max-width:400px) {\r\n                header { padding-top: 10px; }\r\n                #wrapper { padding-top:20px; }\r\n                footer { position: relative; }\r\n            }\r\n        </style>\r\n    </head>\r\n\r\n    <body>\r\n\r\n        <header>\r\n            <h1 class=\"logo\"><span>Cegedim</span></h1>\r\n        </header>\r\n\r\n        <section id=\"wrapper\">\r\n                <i class=\"icon-maintenance\"></i>\r\n                <h4>Ce site est actuellement en maintenance et sera bientôt disponible. Nous vous remercions pour votre patience.\r\n                <br/><br/>\r\n                This site is currently under maintenance and should be available shortly. Thank you for your patience.</h4>\r\n        </section>\r\n\r\n\r\n\r\n\r\n        <footer>\r\n            <div class=\"copyright\">\r\n                &copy; Cegedim 2017 - Tous droits réservés\r\n            </div>\r\n        </footer>\r\n\r\n    </body>\r\n</html>\r\n",
+      "ip": "185.194.82.144",
+      "timestamp": "2024-03-10T04:17:21.91683843Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "cross-origin-opener-policy",
+      "type": "http",
+      "host": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
+      "matched-at": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
+      "request": "GET / HTTP/1.1\r\nHost: metiers-fonctionpubliquehospitaliere.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.0 503 Service Unavailable\r\nContent-Length: 3551\r\nConnection: close\r\nContent-Type: text/html\r\nRetry-After: 300\r\nServer: BigIP\r\n\r\n<!DOCTYPE html>\r\n<html lang=\"fr\">\r\n    <head>\r\n        <meta charset=\"utf-8\">\r\n        <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n        <meta name=\"author\" content=\"Cegedim\">\r\n\r\n        <title>Cegedim</title>\r\n\r\n        <script>\r\n        /* Script */\r\n\r\n        </script>\r\n\r\n        <link href=\"https://fonts.googleapis.com/css?family=Open+Sans\" rel=\"stylesheet\">\r\n        <style>\r\n            body, html {\r\n                font-family: 'Open Sans', sans-serif;\r\n                padding: 0;\r\n                margin: 0;\r\n                font-size: 13px;\r\n                height: 100%;\r\n                color: #fafafa;\r\n            }\r\n\r\n            header {\r\n                max-width: 500px;\r\n                width: 90%;\r\n                margin:0 auto;\r\n                text-align: center;\r\n                padding-top: 30px;\r\n                z-index: 2;\r\n                position: relative;\r\n            }\r\n\r\n            h1.logo {\r\n                width:300px;\r\n                height: 100px;\r\n                background: url('/maintenance.png') no-repeat 0px 0px;\r\n                display: inline-block;\r\n                margin-left: auto;\r\n                margin-right: auto;\r\n            }\r\n            h1 span {\r\n                display: none;\r\n            }\r\n\r\n            #wrapper {\r\n                max-width: 500px;\r\n                width: 90%;\r\n                margin:0 auto;\r\n                padding: 20px 0;\r\n                text-align: center;\r\n                z-index: 2;\r\n            }\r\n            #wrapper .icon-maintenance {\r\n                width:300px;\r\n                height:220px;\r\n                background: url('/maintenance.png') no-repeat 0px -100px;\r\n                display: inline-block;\r\n                margin:10px auto;\r\n            }\r\n            #wrapper h3 {\r\n                font-size:2.4em;\r\n                color: #0072c6;\r\n            }\r\n\r\n            #wrapper h4 {\r\n                font-size:1.4em;\r\n                color: #0092d0;\r\n            }\r\n\r\n            footer {\r\n                background-color: #363636;\r\n                color: #999999;\r\n                text-align: center;\r\n                font-size: 0.8em;\r\n                position: fixed;\r\n                bottom: 0;\r\n                width: 100%;\r\n                min-height: 60px;\r\n                padding: 10px 0 20px;\r\n                z-index: 2;\r\n            }\r\n\r\n            .network a {\r\n                width:50px;\r\n                height:50px;\r\n                display: inline-block;\r\n            }\r\n            \r\n\r\n\r\n            @media screen and (max-width:400px) {\r\n                header { padding-top: 10px; }\r\n                #wrapper { padding-top:20px; }\r\n                footer { position: relative; }\r\n            }\r\n        </style>\r\n    </head>\r\n\r\n    <body>\r\n\r\n        <header>\r\n            <h1 class=\"logo\"><span>Cegedim</span></h1>\r\n        </header>\r\n\r\n        <section id=\"wrapper\">\r\n                <i class=\"icon-maintenance\"></i>\r\n                <h4>Ce site est actuellement en maintenance et sera bientôt disponible. Nous vous remercions pour votre patience.\r\n                <br/><br/>\r\n                This site is currently under maintenance and should be available shortly. Thank you for your patience.</h4>\r\n        </section>\r\n\r\n\r\n\r\n\r\n        <footer>\r\n            <div class=\"copyright\">\r\n                &copy; Cegedim 2017 - Tous droits réservés\r\n            </div>\r\n        </footer>\r\n\r\n    </body>\r\n</html>\r\n",
+      "ip": "185.194.82.144",
+      "timestamp": "2024-03-10T04:17:21.916853829Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "cross-origin-resource-policy",
+      "type": "http",
+      "host": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
+      "matched-at": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
+      "request": "GET / HTTP/1.1\r\nHost: metiers-fonctionpubliquehospitaliere.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.0 503 Service Unavailable\r\nContent-Length: 3551\r\nConnection: close\r\nContent-Type: text/html\r\nRetry-After: 300\r\nServer: BigIP\r\n\r\n<!DOCTYPE html>\r\n<html lang=\"fr\">\r\n    <head>\r\n        <meta charset=\"utf-8\">\r\n        <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n        <meta name=\"author\" content=\"Cegedim\">\r\n\r\n        <title>Cegedim</title>\r\n\r\n        <script>\r\n        /* Script */\r\n\r\n        </script>\r\n\r\n        <link href=\"https://fonts.googleapis.com/css?family=Open+Sans\" rel=\"stylesheet\">\r\n        <style>\r\n            body, html {\r\n                font-family: 'Open Sans', sans-serif;\r\n                padding: 0;\r\n                margin: 0;\r\n                font-size: 13px;\r\n                height: 100%;\r\n                color: #fafafa;\r\n            }\r\n\r\n            header {\r\n                max-width: 500px;\r\n                width: 90%;\r\n                margin:0 auto;\r\n                text-align: center;\r\n                padding-top: 30px;\r\n                z-index: 2;\r\n                position: relative;\r\n            }\r\n\r\n            h1.logo {\r\n                width:300px;\r\n                height: 100px;\r\n                background: url('/maintenance.png') no-repeat 0px 0px;\r\n                display: inline-block;\r\n                margin-left: auto;\r\n                margin-right: auto;\r\n            }\r\n            h1 span {\r\n                display: none;\r\n            }\r\n\r\n            #wrapper {\r\n                max-width: 500px;\r\n                width: 90%;\r\n                margin:0 auto;\r\n                padding: 20px 0;\r\n                text-align: center;\r\n                z-index: 2;\r\n            }\r\n            #wrapper .icon-maintenance {\r\n                width:300px;\r\n                height:220px;\r\n                background: url('/maintenance.png') no-repeat 0px -100px;\r\n                display: inline-block;\r\n                margin:10px auto;\r\n            }\r\n            #wrapper h3 {\r\n                font-size:2.4em;\r\n                color: #0072c6;\r\n            }\r\n\r\n            #wrapper h4 {\r\n                font-size:1.4em;\r\n                color: #0092d0;\r\n            }\r\n\r\n            footer {\r\n                background-color: #363636;\r\n                color: #999999;\r\n                text-align: center;\r\n                font-size: 0.8em;\r\n                position: fixed;\r\n                bottom: 0;\r\n                width: 100%;\r\n                min-height: 60px;\r\n                padding: 10px 0 20px;\r\n                z-index: 2;\r\n            }\r\n\r\n            .network a {\r\n                width:50px;\r\n                height:50px;\r\n                display: inline-block;\r\n            }\r\n            \r\n\r\n\r\n            @media screen and (max-width:400px) {\r\n                header { padding-top: 10px; }\r\n                #wrapper { padding-top:20px; }\r\n                footer { position: relative; }\r\n            }\r\n        </style>\r\n    </head>\r\n\r\n    <body>\r\n\r\n        <header>\r\n            <h1 class=\"logo\"><span>Cegedim</span></h1>\r\n        </header>\r\n\r\n        <section id=\"wrapper\">\r\n                <i class=\"icon-maintenance\"></i>\r\n                <h4>Ce site est actuellement en maintenance et sera bientôt disponible. Nous vous remercions pour votre patience.\r\n                <br/><br/>\r\n                This site is currently under maintenance and should be available shortly. Thank you for your patience.</h4>\r\n        </section>\r\n\r\n\r\n\r\n\r\n        <footer>\r\n            <div class=\"copyright\">\r\n                &copy; Cegedim 2017 - Tous droits réservés\r\n            </div>\r\n        </footer>\r\n\r\n    </body>\r\n</html>\r\n",
+      "ip": "185.194.82.144",
+      "timestamp": "2024-03-10T04:17:21.916871091Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "strict-transport-security",
+      "type": "http",
+      "host": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
+      "matched-at": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
+      "request": "GET / HTTP/1.1\r\nHost: metiers-fonctionpubliquehospitaliere.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.0 503 Service Unavailable\r\nContent-Length: 3551\r\nConnection: close\r\nContent-Type: text/html\r\nRetry-After: 300\r\nServer: BigIP\r\n\r\n<!DOCTYPE html>\r\n<html lang=\"fr\">\r\n    <head>\r\n        <meta charset=\"utf-8\">\r\n        <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n        <meta name=\"author\" content=\"Cegedim\">\r\n\r\n        <title>Cegedim</title>\r\n\r\n        <script>\r\n        /* Script */\r\n\r\n        </script>\r\n\r\n        <link href=\"https://fonts.googleapis.com/css?family=Open+Sans\" rel=\"stylesheet\">\r\n        <style>\r\n            body, html {\r\n                font-family: 'Open Sans', sans-serif;\r\n                padding: 0;\r\n                margin: 0;\r\n                font-size: 13px;\r\n                height: 100%;\r\n                color: #fafafa;\r\n            }\r\n\r\n            header {\r\n                max-width: 500px;\r\n                width: 90%;\r\n                margin:0 auto;\r\n                text-align: center;\r\n                padding-top: 30px;\r\n                z-index: 2;\r\n                position: relative;\r\n            }\r\n\r\n            h1.logo {\r\n                width:300px;\r\n                height: 100px;\r\n                background: url('/maintenance.png') no-repeat 0px 0px;\r\n                display: inline-block;\r\n                margin-left: auto;\r\n                margin-right: auto;\r\n            }\r\n            h1 span {\r\n                display: none;\r\n            }\r\n\r\n            #wrapper {\r\n                max-width: 500px;\r\n                width: 90%;\r\n                margin:0 auto;\r\n                padding: 20px 0;\r\n                text-align: center;\r\n                z-index: 2;\r\n            }\r\n            #wrapper .icon-maintenance {\r\n                width:300px;\r\n                height:220px;\r\n                background: url('/maintenance.png') no-repeat 0px -100px;\r\n                display: inline-block;\r\n                margin:10px auto;\r\n            }\r\n            #wrapper h3 {\r\n                font-size:2.4em;\r\n                color: #0072c6;\r\n            }\r\n\r\n            #wrapper h4 {\r\n                font-size:1.4em;\r\n                color: #0092d0;\r\n            }\r\n\r\n            footer {\r\n                background-color: #363636;\r\n                color: #999999;\r\n                text-align: center;\r\n                font-size: 0.8em;\r\n                position: fixed;\r\n                bottom: 0;\r\n                width: 100%;\r\n                min-height: 60px;\r\n                padding: 10px 0 20px;\r\n                z-index: 2;\r\n            }\r\n\r\n            .network a {\r\n                width:50px;\r\n                height:50px;\r\n                display: inline-block;\r\n            }\r\n            \r\n\r\n\r\n            @media screen and (max-width:400px) {\r\n                header { padding-top: 10px; }\r\n                #wrapper { padding-top:20px; }\r\n                footer { position: relative; }\r\n            }\r\n        </style>\r\n    </head>\r\n\r\n    <body>\r\n\r\n        <header>\r\n            <h1 class=\"logo\"><span>Cegedim</span></h1>\r\n        </header>\r\n\r\n        <section id=\"wrapper\">\r\n                <i class=\"icon-maintenance\"></i>\r\n                <h4>Ce site est actuellement en maintenance et sera bientôt disponible. Nous vous remercions pour votre patience.\r\n                <br/><br/>\r\n                This site is currently under maintenance and should be available shortly. Thank you for your patience.</h4>\r\n        </section>\r\n\r\n\r\n\r\n\r\n        <footer>\r\n            <div class=\"copyright\">\r\n                &copy; Cegedim 2017 - Tous droits réservés\r\n            </div>\r\n        </footer>\r\n\r\n    </body>\r\n</html>\r\n",
+      "ip": "185.194.82.144",
+      "timestamp": "2024-03-10T04:17:21.916887652Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "permissions-policy",
+      "type": "http",
+      "host": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
+      "matched-at": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
+      "request": "GET / HTTP/1.1\r\nHost: metiers-fonctionpubliquehospitaliere.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.0 503 Service Unavailable\r\nContent-Length: 3551\r\nConnection: close\r\nContent-Type: text/html\r\nRetry-After: 300\r\nServer: BigIP\r\n\r\n<!DOCTYPE html>\r\n<html lang=\"fr\">\r\n    <head>\r\n        <meta charset=\"utf-8\">\r\n        <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n        <meta name=\"author\" content=\"Cegedim\">\r\n\r\n        <title>Cegedim</title>\r\n\r\n        <script>\r\n        /* Script */\r\n\r\n        </script>\r\n\r\n        <link href=\"https://fonts.googleapis.com/css?family=Open+Sans\" rel=\"stylesheet\">\r\n        <style>\r\n            body, html {\r\n                font-family: 'Open Sans', sans-serif;\r\n                padding: 0;\r\n                margin: 0;\r\n                font-size: 13px;\r\n                height: 100%;\r\n                color: #fafafa;\r\n            }\r\n\r\n            header {\r\n                max-width: 500px;\r\n                width: 90%;\r\n                margin:0 auto;\r\n                text-align: center;\r\n                padding-top: 30px;\r\n                z-index: 2;\r\n                position: relative;\r\n            }\r\n\r\n            h1.logo {\r\n                width:300px;\r\n                height: 100px;\r\n                background: url('/maintenance.png') no-repeat 0px 0px;\r\n                display: inline-block;\r\n                margin-left: auto;\r\n                margin-right: auto;\r\n            }\r\n            h1 span {\r\n                display: none;\r\n            }\r\n\r\n            #wrapper {\r\n                max-width: 500px;\r\n                width: 90%;\r\n                margin:0 auto;\r\n                padding: 20px 0;\r\n                text-align: center;\r\n                z-index: 2;\r\n            }\r\n            #wrapper .icon-maintenance {\r\n                width:300px;\r\n                height:220px;\r\n                background: url('/maintenance.png') no-repeat 0px -100px;\r\n                display: inline-block;\r\n                margin:10px auto;\r\n            }\r\n            #wrapper h3 {\r\n                font-size:2.4em;\r\n                color: #0072c6;\r\n            }\r\n\r\n            #wrapper h4 {\r\n                font-size:1.4em;\r\n                color: #0092d0;\r\n            }\r\n\r\n            footer {\r\n                background-color: #363636;\r\n                color: #999999;\r\n                text-align: center;\r\n                font-size: 0.8em;\r\n                position: fixed;\r\n                bottom: 0;\r\n                width: 100%;\r\n                min-height: 60px;\r\n                padding: 10px 0 20px;\r\n                z-index: 2;\r\n            }\r\n\r\n            .network a {\r\n                width:50px;\r\n                height:50px;\r\n                display: inline-block;\r\n            }\r\n            \r\n\r\n\r\n            @media screen and (max-width:400px) {\r\n                header { padding-top: 10px; }\r\n                #wrapper { padding-top:20px; }\r\n                footer { position: relative; }\r\n            }\r\n        </style>\r\n    </head>\r\n\r\n    <body>\r\n\r\n        <header>\r\n            <h1 class=\"logo\"><span>Cegedim</span></h1>\r\n        </header>\r\n\r\n        <section id=\"wrapper\">\r\n                <i class=\"icon-maintenance\"></i>\r\n                <h4>Ce site est actuellement en maintenance et sera bientôt disponible. Nous vous remercions pour votre patience.\r\n                <br/><br/>\r\n                This site is currently under maintenance and should be available shortly. Thank you for your patience.</h4>\r\n        </section>\r\n\r\n\r\n\r\n\r\n        <footer>\r\n            <div class=\"copyright\">\r\n                &copy; Cegedim 2017 - Tous droits réservés\r\n            </div>\r\n        </footer>\r\n\r\n    </body>\r\n</html>\r\n",
+      "ip": "185.194.82.144",
+      "timestamp": "2024-03-10T04:17:21.916904052Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "clear-site-data",
+      "type": "http",
+      "host": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
+      "matched-at": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
+      "request": "GET / HTTP/1.1\r\nHost: metiers-fonctionpubliquehospitaliere.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.0 503 Service Unavailable\r\nContent-Length: 3551\r\nConnection: close\r\nContent-Type: text/html\r\nRetry-After: 300\r\nServer: BigIP\r\n\r\n<!DOCTYPE html>\r\n<html lang=\"fr\">\r\n    <head>\r\n        <meta charset=\"utf-8\">\r\n        <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n        <meta name=\"author\" content=\"Cegedim\">\r\n\r\n        <title>Cegedim</title>\r\n\r\n        <script>\r\n        /* Script */\r\n\r\n        </script>\r\n\r\n        <link href=\"https://fonts.googleapis.com/css?family=Open+Sans\" rel=\"stylesheet\">\r\n        <style>\r\n            body, html {\r\n                font-family: 'Open Sans', sans-serif;\r\n                padding: 0;\r\n                margin: 0;\r\n                font-size: 13px;\r\n                height: 100%;\r\n                color: #fafafa;\r\n            }\r\n\r\n            header {\r\n                max-width: 500px;\r\n                width: 90%;\r\n                margin:0 auto;\r\n                text-align: center;\r\n                padding-top: 30px;\r\n                z-index: 2;\r\n                position: relative;\r\n            }\r\n\r\n            h1.logo {\r\n                width:300px;\r\n                height: 100px;\r\n                background: url('/maintenance.png') no-repeat 0px 0px;\r\n                display: inline-block;\r\n                margin-left: auto;\r\n                margin-right: auto;\r\n            }\r\n            h1 span {\r\n                display: none;\r\n            }\r\n\r\n            #wrapper {\r\n                max-width: 500px;\r\n                width: 90%;\r\n                margin:0 auto;\r\n                padding: 20px 0;\r\n                text-align: center;\r\n                z-index: 2;\r\n            }\r\n            #wrapper .icon-maintenance {\r\n                width:300px;\r\n                height:220px;\r\n                background: url('/maintenance.png') no-repeat 0px -100px;\r\n                display: inline-block;\r\n                margin:10px auto;\r\n            }\r\n            #wrapper h3 {\r\n                font-size:2.4em;\r\n                color: #0072c6;\r\n            }\r\n\r\n            #wrapper h4 {\r\n                font-size:1.4em;\r\n                color: #0092d0;\r\n            }\r\n\r\n            footer {\r\n                background-color: #363636;\r\n                color: #999999;\r\n                text-align: center;\r\n                font-size: 0.8em;\r\n                position: fixed;\r\n                bottom: 0;\r\n                width: 100%;\r\n                min-height: 60px;\r\n                padding: 10px 0 20px;\r\n                z-index: 2;\r\n            }\r\n\r\n            .network a {\r\n                width:50px;\r\n                height:50px;\r\n                display: inline-block;\r\n            }\r\n            \r\n\r\n\r\n            @media screen and (max-width:400px) {\r\n                header { padding-top: 10px; }\r\n                #wrapper { padding-top:20px; }\r\n                footer { position: relative; }\r\n            }\r\n        </style>\r\n    </head>\r\n\r\n    <body>\r\n\r\n        <header>\r\n            <h1 class=\"logo\"><span>Cegedim</span></h1>\r\n        </header>\r\n\r\n        <section id=\"wrapper\">\r\n                <i class=\"icon-maintenance\"></i>\r\n                <h4>Ce site est actuellement en maintenance et sera bientôt disponible. Nous vous remercions pour votre patience.\r\n                <br/><br/>\r\n                This site is currently under maintenance and should be available shortly. Thank you for your patience.</h4>\r\n        </section>\r\n\r\n\r\n\r\n\r\n        <footer>\r\n            <div class=\"copyright\">\r\n                &copy; Cegedim 2017 - Tous droits réservés\r\n            </div>\r\n        </footer>\r\n\r\n    </body>\r\n</html>\r\n",
+      "ip": "185.194.82.144",
+      "timestamp": "2024-03-10T04:17:21.91691871Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/technologies/bigip-detect.yaml",
+      "template-url": "https://templates.nuclei.sh/public/bigip-detect",
+      "template-id": "bigip-detect",
+      "template-path": "/home/runner/nuclei-templates/http/technologies/bigip-detect.yaml",
+      "info": {
+        "name": "BIGIP - Detection",
+        "author": [
+          "pr3r00t",
+          "0x240x23elu"
+        ],
+        "tags": [
+          "bigip",
+          "tech",
+          "f5"
+        ],
+        "reference": [
+          "https://www.intelisecure.com/how-to-decode-big-ip-f5-persistence-cookie-values",
+          "https://support.f5.com/csp/article/k23254150"
+        ],
+        "severity": "info",
+        "metadata": {
+          "max-request": 2
+        }
+      },
+      "type": "http",
+      "host": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
+      "matched-at": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
+      "request": "GET / HTTP/1.1\r\nHost: metiers-fonctionpubliquehospitaliere.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.0 503 Service Unavailable\r\nContent-Length: 3551\r\nConnection: close\r\nContent-Type: text/html\r\nRetry-After: 300\r\nServer: BigIP\r\n\r\n<!DOCTYPE html>\r\n<html lang=\"fr\">\r\n    <head>\r\n        <meta charset=\"utf-8\">\r\n        <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n        <meta name=\"author\" content=\"Cegedim\">\r\n\r\n        <title>Cegedim</title>\r\n\r\n        <script>\r\n        /* Script */\r\n\r\n        </script>\r\n\r\n        <link href=\"https://fonts.googleapis.com/css?family=Open+Sans\" rel=\"stylesheet\">\r\n        <style>\r\n            body, html {\r\n                font-family: 'Open Sans', sans-serif;\r\n                padding: 0;\r\n                margin: 0;\r\n                font-size: 13px;\r\n                height: 100%;\r\n                color: #fafafa;\r\n            }\r\n\r\n            header {\r\n                max-width: 500px;\r\n                width: 90%;\r\n                margin:0 auto;\r\n                text-align: center;\r\n                padding-top: 30px;\r\n                z-index: 2;\r\n                position: relative;\r\n            }\r\n\r\n            h1.logo {\r\n                width:300px;\r\n                height: 100px;\r\n                background: url('/maintenance.png') no-repeat 0px 0px;\r\n                display: inline-block;\r\n                margin-left: auto;\r\n                margin-right: auto;\r\n            }\r\n            h1 span {\r\n                display: none;\r\n            }\r\n\r\n            #wrapper {\r\n                max-width: 500px;\r\n                width: 90%;\r\n                margin:0 auto;\r\n                padding: 20px 0;\r\n                text-align: center;\r\n                z-index: 2;\r\n            }\r\n            #wrapper .icon-maintenance {\r\n                width:300px;\r\n                height:220px;\r\n                background: url('/maintenance.png') no-repeat 0px -100px;\r\n                display: inline-block;\r\n                margin:10px auto;\r\n            }\r\n            #wrapper h3 {\r\n                font-size:2.4em;\r\n                color: #0072c6;\r\n            }\r\n\r\n            #wrapper h4 {\r\n                font-size:1.4em;\r\n                color: #0092d0;\r\n            }\r\n\r\n            footer {\r\n                background-color: #363636;\r\n                color: #999999;\r\n                text-align: center;\r\n                font-size: 0.8em;\r\n                position: fixed;\r\n                bottom: 0;\r\n                width: 100%;\r\n                min-height: 60px;\r\n                padding: 10px 0 20px;\r\n                z-index: 2;\r\n            }\r\n\r\n            .network a {\r\n                width:50px;\r\n                height:50px;\r\n                display: inline-block;\r\n            }\r\n            \r\n\r\n\r\n            @media screen and (max-width:400px) {\r\n                header { padding-top: 10px; }\r\n                #wrapper { padding-top:20px; }\r\n                footer { position: relative; }\r\n            }\r\n        </style>\r\n    </head>\r\n\r\n    <body>\r\n\r\n        <header>\r\n            <h1 class=\"logo\"><span>Cegedim</span></h1>\r\n        </header>\r\n\r\n        <section id=\"wrapper\">\r\n                <i class=\"icon-maintenance\"></i>\r\n                <h4>Ce site est actuellement en maintenance et sera bientôt disponible. Nous vous remercions pour votre patience.\r\n                <br/><br/>\r\n                This site is currently under maintenance and should be available shortly. Thank you for your patience.</h4>\r\n        </section>\r\n\r\n\r\n\r\n\r\n        <footer>\r\n            <div class=\"copyright\">\r\n                &copy; Cegedim 2017 - Tous droits réservés\r\n            </div>\r\n        </footer>\r\n\r\n    </body>\r\n</html>\r\n",
+      "ip": "185.194.82.144",
+      "timestamp": "2024-03-10T04:17:46.777853669Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/technologies/waf-detect.yaml",
+      "template-url": "https://templates.nuclei.sh/public/waf-detect",
+      "template-id": "waf-detect",
+      "template-path": "/home/runner/nuclei-templates/http/technologies/waf-detect.yaml",
+      "info": {
+        "name": "WAF Detection",
+        "author": [
+          "dwisiswant0",
+          "lu4nx"
+        ],
+        "tags": [
+          "waf",
+          "tech",
+          "misc"
+        ],
+        "description": "A web application firewall was detected.",
+        "reference": [
+          "https://github.com/ekultek/whatwaf"
+        ],
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        },
+        "classification": {
+          "cve-id": null,
+          "cwe-id": [
+            "cwe-200"
+          ]
+        }
+      },
+      "matcher-name": "bigip",
+      "type": "http",
+      "host": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
+      "matched-at": "https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr/",
+      "request": "POST / HTTP/1.1\r\nHost: metiers-fonctionpubliquehospitaliere.sante.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nContent-Length: 27\r\nContent-Type: application/x-www-form-urlencoded\r\nAccept-Encoding: gzip\r\n\r\n_=<script>alert(1)</script>",
+      "response": "HTTP/1.0 503 Service Unavailable\r\nContent-Length: 3551\r\nConnection: close\r\nContent-Type: text/html\r\nRetry-After: 300\r\nServer: BigIP\r\n\r\n<!DOCTYPE html>\r\n<html lang=\"fr\">\r\n    <head>\r\n        <meta charset=\"utf-8\">\r\n        <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n        <meta name=\"author\" content=\"Cegedim\">\r\n\r\n        <title>Cegedim</title>\r\n\r\n        <script>\r\n        /* Script */\r\n\r\n        </script>\r\n\r\n        <link href=\"https://fonts.googleapis.com/css?family=Open+Sans\" rel=\"stylesheet\">\r\n        <style>\r\n            body, html {\r\n                font-family: 'Open Sans', sans-serif;\r\n                padding: 0;\r\n                margin: 0;\r\n                font-size: 13px;\r\n                height: 100%;\r\n                color: #fafafa;\r\n            }\r\n\r\n            header {\r\n                max-width: 500px;\r\n                width: 90%;\r\n                margin:0 auto;\r\n                text-align: center;\r\n                padding-top: 30px;\r\n                z-index: 2;\r\n                position: relative;\r\n            }\r\n\r\n            h1.logo {\r\n                width:300px;\r\n                height: 100px;\r\n                background: url('/maintenance.png') no-repeat 0px 0px;\r\n                display: inline-block;\r\n                margin-left: auto;\r\n                margin-right: auto;\r\n            }\r\n            h1 span {\r\n                display: none;\r\n            }\r\n\r\n            #wrapper {\r\n                max-width: 500px;\r\n                width: 90%;\r\n                margin:0 auto;\r\n                padding: 20px 0;\r\n                text-align: center;\r\n                z-index: 2;\r\n            }\r\n            #wrapper .icon-maintenance {\r\n                width:300px;\r\n                height:220px;\r\n                background: url('/maintenance.png') no-repeat 0px -100px;\r\n                display: inline-block;\r\n                margin:10px auto;\r\n            }\r\n            #wrapper h3 {\r\n                font-size:2.4em;\r\n                color: #0072c6;\r\n            }\r\n\r\n            #wrapper h4 {\r\n                font-size:1.4em;\r\n                color: #0092d0;\r\n            }\r\n\r\n            footer {\r\n                background-color: #363636;\r\n                color: #999999;\r\n                text-align: center;\r\n                font-size: 0.8em;\r\n                position: fixed;\r\n                bottom: 0;\r\n                width: 100%;\r\n                min-height: 60px;\r\n                padding: 10px 0 20px;\r\n                z-index: 2;\r\n            }\r\n\r\n            .network a {\r\n                width:50px;\r\n                height:50px;\r\n                display: inline-block;\r\n            }\r\n            \r\n\r\n\r\n            @media screen and (max-width:400px) {\r\n                header { padding-top: 10px; }\r\n                #wrapper { padding-top:20px; }\r\n                footer { position: relative; }\r\n            }\r\n        </style>\r\n    </head>\r\n\r\n    <body>\r\n\r\n        <header>\r\n            <h1 class=\"logo\"><span>Cegedim</span></h1>\r\n        </header>\r\n\r\n        <section id=\"wrapper\">\r\n                <i class=\"icon-maintenance\"></i>\r\n                <h4>Ce site est actuellement en maintenance et sera bientôt disponible. Nous vous remercions pour votre patience.\r\n                <br/><br/>\r\n                This site is currently under maintenance and should be available shortly. Thank you for your patience.</h4>\r\n        </section>\r\n\r\n\r\n\r\n\r\n        <footer>\r\n            <div class=\"copyright\">\r\n                &copy; Cegedim 2017 - Tous droits réservés\r\n            </div>\r\n        </footer>\r\n\r\n    </body>\r\n</html>\r\n",
+      "ip": "185.194.82.144",
+      "timestamp": "2024-03-10T04:17:50.655752664Z",
+      "curl-command": "curl -X 'POST' -d '_=<script>alert(1)</script>' -H 'Content-Type: application/x-www-form-urlencoded' -H 'Host: metiers-fonctionpubliquehospitaliere.sante.gouv.fr' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://metiers-fonctionpubliquehospitaliere.sante.gouv.fr/'",
+      "matcher-status": true
+    },
+    {
+      "template": "ssl/detect-ssl-issuer.yaml",
+      "template-url": "https://templates.nuclei.sh/public/ssl-issuer",
+      "template-id": "ssl-issuer",
+      "template-path": "/home/runner/nuclei-templates/ssl/detect-ssl-issuer.yaml",
+      "info": {
+        "name": "Detect SSL Certificate Issuer",
+        "author": [
+          "lingtren"
+        ],
+        "tags": [
+          "ssl",
+          "tls"
+        ],
+        "description": "Extract the issuer's organization from the target's certificate. Issuers are entities which sign and distribute certificates.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "type": "ssl",
+      "host": "metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
+      "matched-at": "metiers-fonctionpubliquehospitaliere.sante.gouv.fr:443",
+      "extracted-results": [
+        "DHIMYOTIS"
+      ],
+      "ip": "185.194.82.144",
+      "timestamp": "2024-03-10T04:19:48.310644428Z",
+      "matcher-status": true
+    },
+    {
+      "template": "ssl/ssl-dns-names.yaml",
+      "template-url": "https://templates.nuclei.sh/public/ssl-dns-names",
+      "template-id": "ssl-dns-names",
+      "template-path": "/home/runner/nuclei-templates/ssl/ssl-dns-names.yaml",
+      "info": {
+        "name": "SSL DNS Names",
+        "author": [
+          "pdteam"
+        ],
+        "tags": [
+          "ssl",
+          "tls"
+        ],
+        "description": "Extract the Subject Alternative Name (SAN) from the target's certificate. SAN facilitates the usage of additional hostnames with the same certificate.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "type": "ssl",
+      "host": "metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
+      "matched-at": "metiers-fonctionpubliquehospitaliere.sante.gouv.fr:443",
+      "extracted-results": [
+        "metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
+        "www.metiers-fonctionpubliquehospitaliere.sante.gouv.fr"
+      ],
+      "ip": "185.194.82.144",
+      "timestamp": "2024-03-10T04:19:48.310767177Z",
+      "matcher-status": true
+    },
+    {
+      "template": "ssl/tls-version.yaml",
+      "template-url": "https://templates.nuclei.sh/public/tls-version",
+      "template-id": "tls-version",
+      "template-path": "/home/runner/nuclei-templates/ssl/tls-version.yaml",
+      "info": {
+        "name": "TLS Version - Detect",
+        "author": [
+          "pdteam",
+          "pussycat0x"
+        ],
+        "tags": [
+          "ssl",
+          "tls"
+        ],
+        "description": "TLS version detection is a security process used to determine the version of the Transport Layer Security (TLS) protocol used by a computer or server.\nIt is important to detect the TLS version in order to ensure secure communication between two computers or servers.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 4
+        }
+      },
+      "type": "ssl",
+      "host": "metiers-fonctionpubliquehospitaliere.sante.gouv.fr",
+      "matched-at": "metiers-fonctionpubliquehospitaliere.sante.gouv.fr:443",
+      "extracted-results": [
+        "tls12"
+      ],
+      "ip": "185.194.82.144",
+      "timestamp": "2024-03-10T04:19:48.440318327Z",
+      "matcher-status": true
+    }
+  ]
+]
