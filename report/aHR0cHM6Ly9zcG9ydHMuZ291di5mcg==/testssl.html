@@ -21,17 +21,144 @@
 ###########################################################</span>
 
  Using &quot;OpenSSL 1.0.2-bad (1.0.2k-dev)&quot; [~183 ciphers]
- on fv-az1240-264:/home/testssl/bin/openssl.Linux.x86_64
+ on fv-az1383-388:/home/testssl/bin/openssl.Linux.x86_64
  (built: &quot;Sep  1 14:03:44 2022&quot;, platform: &quot;linux-x86_64&quot;)
 
 
-<span style="color:white;background-color:black;"> Start 2024-06-16 05:49:09                --&gt;&gt; 185.75.143.93:443 (sports.gouv.fr) &lt;&lt;--</span>
+<span style="color:white;background-color:black;"> Start 2024-06-23 05:39:07                --&gt;&gt; 185.75.143.93:443 (sports.gouv.fr) &lt;&lt;--</span>
 
- rDNS (185.75.143.93):   men-tandem-lb-vip.dedie.ate.info.<span style="color:#cd00cd;"> Oops: TCP connect problem</span>
+ rDNS (185.75.143.93):   men-tandem-lb-vip.dedie.ate.info.
+<span style="color:#cd00cd;"> Oops: TCP connect problem</span>
 
-<span style="color:#cd00cd;">Unable to open a socket to 185.75.143.93:443. </span>
-<span style="color:#be32d0;font-weight:bold;">Fatal error: Can&apos;t connect to &quot;185.75.143.93:443&quot;
-Make sure a firewall is not between you and your scanning target!</span>
+<span style="color:#cd00cd;">Unable to open a socket to 185.75.143.93:443. </span> Service detected:       HTTP
+
+
+<span style="text-decoration:underline;font-weight:bold;"> Testing protocols </span><u>via sockets except NPN+ALPN </u>
+
+<span style="font-weight:bold;"> SSLv2      </span><span style="color:#008817;font-weight:bold;">not offered (OK)</span>
+<span style="font-weight:bold;"> SSLv3      </span><span style="color:#008817;font-weight:bold;">not offered (OK)</span>
+<span style="font-weight:bold;"> TLS 1      </span>not offered
+<span style="font-weight:bold;"> TLS 1.1    </span>not offered
+<span style="font-weight:bold;"> TLS 1.2    </span><span style="color:#008817;font-weight:bold;">offered (OK)</span>
+<span style="font-weight:bold;"> TLS 1.3    </span><span style="color:#008817;font-weight:bold;">offered (OK)</span>: final
+<span style="font-weight:bold;"> ALPN/HTTP2 </span><span style="color:#008817;">h2</span>, http/1.1 (offered)
+
+<span style="text-decoration:underline;font-weight:bold;"> Testing cipher categories </span>
+
+<span style="font-weight:bold;"> NULL ciphers (no encryption)                      </span><span style="color:#008817;font-weight:bold;">not offered (OK)</span>
+<span style="font-weight:bold;"> Anonymous NULL Ciphers (no authentication)        </span><span style="color:#008817;font-weight:bold;">not offered (OK)</span>
+<span style="font-weight:bold;"> Export ciphers (w/o ADH+NULL)                     </span><span style="color:#cd00cd;"> Oops: openssl s_client connect problem</span>
+<span style="color:#008817;font-weight:bold;">not offered (OK)</span>
+<span style="font-weight:bold;"> LOW: 64 Bit + DES, RC[2,4], MD5 (w/o export)      </span><span style="color:#008817;">not offered (OK)</span>
+<span style="font-weight:bold;"> Triple DES Ciphers / IDEA                         </span>not offered
+<span style="font-weight:bold;"> Obsoleted CBC ciphers (AES, ARIA etc.)            </span>not offered
+<span style="font-weight:bold;"> Strong encryption (AEAD ciphers) with no FS       </span>not offered
+<span style="font-weight:bold;"> Forward Secrecy strong encryption (AEAD ciphers)  </span><span style="color:#008817;font-weight:bold;">offered (OK)</span>
+
+
+<span style="text-decoration:underline;font-weight:bold;"> Testing server&apos;s cipher preferences </span>
+
+Hexcode  Cipher Suite Name (OpenSSL)       KeyExch.   Encryption  Bits     Cipher Suite Name (IANA/RFC)
+-----------------------------------------------------------------------------------------------------------------------------
+<u>SSLv2</u>
+ - 
+<u>SSLv3</u>
+ - 
+<u>TLSv1</u>
+ - 
+<u>TLSv1.1</u>
+ - 
+<u>TLSv1.2</u> (no server order, thus listed by strength)
+ xc030   ECDHE-RSA-AES256-GCM-SHA384       ECDH<span style="color:#008817;"> 521</span>   AESGCM      256      TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384              
+ x9f     DHE-RSA-AES256-GCM-SHA384         DH<span style="color:#008817;"> 2048</span>    AESGCM      256      TLS_DHE_RSA_WITH_AES_256_GCM_SHA384                
+ xc02f   ECDHE-RSA-AES128-GCM-SHA256       ECDH<span style="color:#008817;"> 521</span>   AESGCM      128      TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256              
+ x9e     DHE-RSA-AES128-GCM-SHA256         DH<span style="color:#008817;"> 2048</span>    AESGCM      128      TLS_DHE_RSA_WITH_AES_128_GCM_SHA256                
+<u>TLSv1.3</u>
+<span style="color:#cd00cd;">Local problem: Your /home/testssl/bin/openssl.Linux.x86_64 does not support -tls1_3</span>
+
+<span style="font-weight:bold;"> Has server cipher order?     </span>no
+ (limited sense as client will pick)
+
+<span style="text-decoration:underline;font-weight:bold;"> Testing robust forward secrecy (FS)</span><u> -- omitting Null Authentication/Encryption, 3DES, RC4 </u>
+
+
+<span style="color:#008817;"> FS is offered (OK) </span>          DHE-RSA-AES128-GCM-SHA256
+                              DHE-RSA-AES256-GCM-SHA384
+                              ECDHE-RSA-AES128-GCM-SHA256
+                              ECDHE-RSA-AES256-GCM-SHA384 
+<span style="font-weight:bold;"> Elliptic curves offered:     </span><span style="color:#008817;">prime256v1</span> 
+
+<span style="text-decoration:underline;font-weight:bold;"> Testing server defaults (Server Hello) </span>
+
+<span style="font-weight:bold;"> TLS extensions (standard)    </span>&quot;renegotiation info/#65281&quot; &quot;server name/#0&quot;
+                              &quot;EC point formats/#11&quot; &quot;next protocol/#13172&quot;
+                              &quot;supported versions/#43&quot; &quot;key share/#51&quot;
+                              &quot;supported_groups/#10&quot;
+<span style="font-weight:bold;"> Session Ticket RFC 5077 hint </span>no -- no lifetime advertised
+<span style="font-weight:bold;"> SSL Session ID support       </span>yes
+<span style="font-weight:bold;"> Session Resumption           </span>Tickets no, <span style="color:#cd00cd;">ID resumption test failed</span>
+<span style="font-weight:bold;"> TLS clock skew</span>               Random values, no fingerprinting possible 
+<span style="font-weight:bold;"> Certificate Compression      </span>none
+<span style="font-weight:bold;"> Client Authentication        </span>none
+<span style="font-weight:bold;"> Signature Algorithm          </span><span style="color:#008817;">SHA256 with RSA</span>
+<span style="font-weight:bold;"> Server key size              </span>RSA 2048 bits (exponent is 65537)
+<span style="font-weight:bold;"> Server key usage             </span>Digital Signature, Key Encipherment
+<span style="font-weight:bold;"> Server extended key usage    </span>TLS Web Server Authentication
+<span style="font-weight:bold;"> Serial                       </span>EBEDBB618D65BD46B5DA2AFD805997B2 (OK: length 16)
+<span style="font-weight:bold;"> Fingerprints                 </span>SHA1 4C161C7DA3A3BA96BC1A38C73D76A0231A74394C
+                              SHA256 3BE2A1645EFEE42B10B4F2B64ED56743B49417D9606B4D5F2389064DDA5B3DAE
+<span style="font-weight:bold;"> Common Name (CN)             </span><i>www.sports.gouv.fr </i> (CN in response to request w/o SNI: <i>*.dedie.ate.info </i>)
+<span style="font-weight:bold;"> subjectAltName (SAN)         </span><i>back.sports.gouv.fr isoprod.back.sports.gouv.fr
+                              www.lebonsportpourmoi.sports.gouv.fr
+                              preventionete.sports.gouv.fr
+                              www.preventionhiver.sports.gouv.fr sports.gouv.fr
+                              www.developpement-durable.sports.gouv.fr
+                              lebonsportpourmoi.sports.gouv.fr
+                              www.sports.gouv.fr test.back.sports.gouv.fr
+                              developpement-durable.sports.gouv.fr
+                              www.preventionete.sports.gouv.fr
+                              preventionhiver.sports.gouv.fr
+                              isoprod.sports.gouv.fr test.sports.gouv.fr </i>
+<span style="font-weight:bold;"> Trust (hostname)             </span><span style="color:#008817;">Ok via SAN</span> (SNI mandatory)
+<span style="font-weight:bold;"> Chain of trust</span>               <span style="color:#008817;">Ok   </span><span style="color:#cd00cd;"></span>
+<span style="font-weight:bold;"> EV cert</span> (experimental)       no 
+<span style="font-weight:bold;"> Certificate Validity (UTC)   </span><span style="color:#008817;">302 &gt;= 60 days</span> (2024-04-21 22:00 --&gt; 2025-04-21 21:59)
+<span style="font-weight:bold;"> ETS/&quot;eTLS&quot;</span>, visibility info  not present
+<span style="font-weight:bold;"> Certificate Revocation List  </span>http://crl.dhimyotis.com/servicesca.crl
+                              http://crl.certigna.fr/servicesca.crl
+<span style="font-weight:bold;"> OCSP URI                     </span>http://servicesca.ocsp.certigna.fr
+                              http://servicesca.ocsp.dhimyotis.com
+<span style="font-weight:bold;"> OCSP stapling                </span><span style="color:#a86437;">not offered</span>
+<span style="font-weight:bold;"> OCSP must staple extension   </span>--
+<span style="font-weight:bold;"> DNS CAA RR</span> (experimental)    <span style="color:#a86437;">not offered</span>
+<span style="font-weight:bold;"> Certificate Transparency     </span><span style="color:#008817;">yes</span> (certificate extension)
+<span style="font-weight:bold;"> Certificates provided</span>        2
+<span style="font-weight:bold;"> Issuer                       </span><i>Certigna Services CA</i> (<i>DHIMYOTIS</i> from <i>FR</i>)
+<span style="font-weight:bold;"> Intermediate cert validity   </span>#1: <span style="color:#008817;">ok &gt; 40 days</span> (2025-11-22 11:33). <i>Certigna Services CA</i> &lt;-- <i>Certigna</i>
+<span style="font-weight:bold;"> Intermediate Bad OCSP</span> (exp.) <span style="color:#008817;">Ok</span>
+
+
+<span style="text-decoration:underline;font-weight:bold;"> Testing HTTP header response @ &quot;/&quot; </span>
+
+<span style="font-weight:bold;"> HTTP Status Code           </span>  301 Moved Permanently, redirecting to &quot;<a href="https://www.sports.gouv.fr/" style="color:black;text-decoration:none;">https://www.sports.gouv.fr/</a>&quot;
+<span style="font-weight:bold;"> HTTP clock skew              </span>0 sec from localtime
+<span style="font-weight:bold;"> Strict Transport Security    </span><span style="color:#008817;">365 days</span>=31536000 s<span style="color:#008817;">, includeSubDomains</span>
+<span style="font-weight:bold;"> Public Key Pinning           </span>--
+<span style="font-weight:bold;"> Server banner                </span>nginx
+<span style="font-weight:bold;"> Application banner           </span>--
+<span style="font-weight:bold;"> Cookie(s)                    </span>(none issued at &quot;/&quot;) -- maybe better try target URL of 30x
+<span style="font-weight:bold;"> Security headers             </span><span style="color:#c05600;">--</span>
+<span style="font-weight:bold;"> Reverse Proxy banner         </span>--
+
+
+<span style="text-decoration:underline;font-weight:bold;"> Testing vulnerabilities </span>
+
+<span style="font-weight:bold;"> Heartbleed</span> (CVE-2014-0160)                <span style="color:#008817;font-weight:bold;">not vulnerable (OK)</span>, no heartbeat extension
+<span style="font-weight:bold;"> CCS</span> (CVE-2014-0224)                       <span style="color:#008817;font-weight:bold;">not vulnerable (OK)</span>
+<span style="font-weight:bold;"> Ticketbleed</span> (CVE-2016-9244), experiment.  <span style="color:#008817;font-weight:bold;">not vulnerable (OK)</span>, no session ticket extension
+<span style="font-weight:bold;"> ROBOT                                     </span>
+<span style="color:#be32d0;font-weight:bold;">Fatal error: repeated TCP connect problems, giving up</span>
+Consider increasing MAX_SOCKET_FAIL (currently: 2)
 
 </pre>
 </body>
