@@ -339,7 +339,7 @@
               "ip"           : "www.agencedusport.fr/185.194.82.230",
               "port"         : "443",
               "severity"     : "OK",
-              "finding"      : "253 >= 60 days"
+              "finding"      : "246 >= 60 days"
           }
 ,         {
               "id"           : "cert_notBefore",
@@ -493,35 +493,14 @@
               "ip"           : "www.agencedusport.fr/185.194.82.230",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "-1 seconds from localtime"
+              "finding"      : "Got no HTTP time, maybe try different URL?"
           }
 ,         {
-              "id"           : "HTTP_headerTime",
+              "id"           : "HSTS",
               "ip"           : "www.agencedusport.fr/185.194.82.230",
               "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "1720940236"
-          }
-,         {
-              "id"           : "HSTS_time",
-              "ip"           : "www.agencedusport.fr/185.194.82.230",
-              "port"         : "443",
-              "severity"     : "OK",
-              "finding"      : "365 days (=31536000 seconds) > 15552000 seconds"
-          }
-,         {
-              "id"           : "HSTS_subdomains",
-              "ip"           : "www.agencedusport.fr/185.194.82.230",
-              "port"         : "443",
-              "severity"     : "OK",
-              "finding"      : "includes subdomains"
-          }
-,         {
-              "id"           : "HSTS_preload",
-              "ip"           : "www.agencedusport.fr/185.194.82.230",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "domain is NOT marked for preloading"
+              "severity"     : "LOW",
+              "finding"      : "not offered"
           }
 ,         {
               "id"           : "HPKP",
@@ -549,49 +528,21 @@
               "ip"           : "www.agencedusport.fr/185.194.82.230",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "1 at '/'"
-          }
-,         {
-              "id"           : "cookie_secure",
-              "ip"           : "www.agencedusport.fr/185.194.82.230",
-              "port"         : "443",
-              "severity"     : "OK",
-              "finding"      : "All (1) at '/' marked as secure"
-          }
-,         {
-              "id"           : "cookie_httponly",
-              "ip"           : "www.agencedusport.fr/185.194.82.230",
-              "port"         : "443",
-              "severity"     : "OK",
-              "finding"      : "All (1) at '/' marked as HttpOnly"
-          }
-,         {
-              "id"           : "X-Frame-Options",
-              "ip"           : "www.agencedusport.fr/185.194.82.230",
-              "port"         : "443",
-              "severity"     : "OK",
-              "finding"      : "sameorigin"
-          }
-,         {
-              "id"           : "X-Content-Type-Options",
-              "ip"           : "www.agencedusport.fr/185.194.82.230",
-              "port"         : "443",
-              "severity"     : "OK",
-              "finding"      : "nosniff"
-          }
-,         {
-              "id"           : "Content-Security-Policy",
-              "ip"           : "www.agencedusport.fr/185.194.82.230",
-              "port"         : "443",
-              "severity"     : "OK",
-              "finding"      : "frame-ancestors 'self';"
+              "finding"      : "0 at '/'"
           }
 ,         {
               "id"           : "Cache-Control",
               "ip"           : "www.agencedusport.fr/185.194.82.230",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "must-revalidate, no-cache, private"
+              "finding"      : "no-store, must-revalidate, no-cache"
+          }
+,         {
+              "id"           : "Pragma",
+              "ip"           : "www.agencedusport.fr/185.194.82.230",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "no-cache"
           }
 ,         {
               "id"           : "banner_reverseproxy",
@@ -667,10 +618,10 @@
               "id"           : "BREACH",
               "ip"           : "www.agencedusport.fr/185.194.82.230",
               "port"         : "443",
-              "severity"     : "MEDIUM",
+              "severity"     : "OK",
               "cve"          : "CVE-2013-3587",
               "cwe"          : "CWE-310",
-              "finding"      : "potentially VULNERABLE, gzip HTTP compression detected  - only supplied '/' tested"
+              "finding"      : "not vulnerable, no gzip/deflate/compress/br HTTP compression  - only supplied '/' tested"
           }
 ,         {
               "id"           : "POODLE_SSL",
@@ -1091,13 +1042,20 @@
               "ip"           : "www.agencedusport.fr/185.194.82.230",
               "port"         : "443",
               "severity"     : "OK",
-              "finding"      : "A+"
+              "finding"      : "A"
+          }
+,         {
+              "id"           : "grade_cap_reason_1",
+              "ip"           : "www.agencedusport.fr/185.194.82.230",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "Grade capped to A. HSTS is not offered"
           }
 ,         {
               "id"           : "scanTime",
               "ip"           : "www.agencedusport.fr/185.194.82.230",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "58"
+              "finding"      : "88"
           }
 ]
