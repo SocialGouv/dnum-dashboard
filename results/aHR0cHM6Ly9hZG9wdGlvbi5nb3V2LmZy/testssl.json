@@ -339,7 +339,7 @@
               "ip"           : "adoption.gouv.fr/185.194.82.206",
               "port"         : "443",
               "severity"     : "OK",
-              "finding"      : "225 >= 60 days"
+              "finding"      : "218 >= 60 days"
           }
 ,         {
               "id"           : "cert_notBefore",
@@ -486,28 +486,14 @@
               "ip"           : "adoption.gouv.fr/185.194.82.206",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "301 Moved Permanently ('/')"
+              "finding"      : "200 OK ('/')"
           }
 ,         {
               "id"           : "HTTP_clock_skew",
               "ip"           : "adoption.gouv.fr/185.194.82.206",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "0 seconds from localtime"
-          }
-,         {
-              "id"           : "HTTP_headerTime",
-              "ip"           : "adoption.gouv.fr/185.194.82.206",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "1720825105"
-          }
-,         {
-              "id"           : "HTTP_headerAge",
-              "ip"           : "adoption.gouv.fr/185.194.82.206",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "94780 seconds"
+              "finding"      : "Got no HTTP time, maybe try different URL?"
           }
 ,         {
               "id"           : "HSTS",
@@ -542,36 +528,21 @@
               "ip"           : "adoption.gouv.fr/185.194.82.206",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "1 at '/' (30x detected, better try target URL of 30x)"
+              "finding"      : "0 at '/'"
           }
 ,         {
-              "id"           : "cookie_secure",
+              "id"           : "Cache-Control",
               "ip"           : "adoption.gouv.fr/185.194.82.206",
               "port"         : "443",
-              "severity"     : "OK",
-              "finding"      : "All (1) at '/' marked as secure"
+              "severity"     : "INFO",
+              "finding"      : "no-store, must-revalidate, no-cache"
           }
 ,         {
-              "id"           : "cookie_httponly",
+              "id"           : "Pragma",
               "ip"           : "adoption.gouv.fr/185.194.82.206",
               "port"         : "443",
-              "severity"     : "OK",
-              "finding"      : "All (1) at '/' marked as HttpOnly (30x detected, better try target URL of 30x)"
-          }
-,         {
-              "id"           : "cookie_bigip_f5",
-              "ip"           : "adoption.gouv.fr/185.194.82.206",
-              "port"         : "443",
-              "severity"     : "MEDIUM",
-              "cwe"          : "CWE-212",
-              "finding"      : "Information leakage: F5 cookie BIGipServerpool-handicap-v2.cegedim.cloud-HTTP 3485751562.20480.0000 is default IPv4 pool member 10.89.196.207:80"
-          }
-,         {
-              "id"           : "security_headers",
-              "ip"           : "adoption.gouv.fr/185.194.82.206",
-              "port"         : "443",
-              "severity"     : "MEDIUM",
-              "finding"      : "--"
+              "severity"     : "INFO",
+              "finding"      : "no-cache"
           }
 ,         {
               "id"           : "banner_reverseproxy",
@@ -579,7 +550,7 @@
               "port"         : "443",
               "severity"     : "INFO",
               "cwe"          : "CWE-200",
-              "finding"      : "X-Cache: HITX-Cache-Hits: 25"
+              "finding"      : "--"
           }
 ,         {
               "id"           : "heartbleed",
