@@ -21,17 +21,28 @@
 ###########################################################</span>
 
  Using &quot;OpenSSL 1.0.2-bad (1.0.2k-dev)&quot; [~183 ciphers]
- on fv-az566-627:/home/testssl/bin/openssl.Linux.x86_64
+ on fv-az1196-20:/home/testssl/bin/openssl.Linux.x86_64
  (built: &quot;Sep  1 14:03:44 2022&quot;, platform: &quot;linux-x86_64&quot;)
 
 
-<span style="color:white;background-color:black;"> Start 2024-08-04 04:40:20                --&gt;&gt; 185.75.143.93:443 (jeunes.gouv.fr) &lt;&lt;--</span>
+<span style="color:white;background-color:black;"> Start 2024-08-11 04:41:34                --&gt;&gt; 185.75.143.93:443 (jeunes.gouv.fr) &lt;&lt;--</span>
 
- rDNS (185.75.143.93):   men-tandem-lb-vip.dedie.ate.info.<span style="color:#cd00cd;"> Oops: TCP connect problem</span>
+ rDNS (185.75.143.93):   men-tandem-lb-vip.dedie.ate.info.
+<span style="color:#cd00cd;"> Oops: TCP connect problem</span>
 
-<span style="color:#cd00cd;">Unable to open a socket to 185.75.143.93:443. </span>
-<span style="color:#be32d0;font-weight:bold;">Fatal error: Can&apos;t connect to &quot;185.75.143.93:443&quot;
-Make sure a firewall is not between you and your scanning target!</span>
+<span style="color:#cd00cd;">Unable to open a socket to 185.75.143.93:443. </span> Service detected:       HTTP
+
+
+<span style="text-decoration:underline;font-weight:bold;"> Testing protocols </span><u>via sockets except NPN+ALPN </u>
+
+<span style="font-weight:bold;"> SSLv2      </span><span style="color:#008817;font-weight:bold;">not offered (OK)</span>
+<span style="font-weight:bold;"> SSLv3      </span><span style="color:#008817;font-weight:bold;">not offered (OK)</span>
+<span style="font-weight:bold;"> TLS 1      </span>not offered
+<span style="font-weight:bold;"> TLS 1.1    </span>not offered
+<span style="font-weight:bold;"> TLS 1.2    </span><span style="color:#008817;font-weight:bold;">offered (OK)</span>
+<span style="font-weight:bold;"> TLS 1.3    </span>
+<span style="color:#be32d0;font-weight:bold;">Fatal error: repeated TCP connect problems, giving up</span>
+Consider increasing MAX_SOCKET_FAIL (currently: 2)
 
 </pre>
 </body>
