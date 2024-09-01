@@ -1,23 +1,20 @@
 [
   [
     {
-      "template": "dns/caa-fingerprint.yaml",
-      "template-url": "https://templates.nuclei.sh/public/caa-fingerprint",
-      "template-id": "caa-fingerprint",
-      "template-path": "/home/runner/nuclei-templates/dns/caa-fingerprint.yaml",
+      "template": "dns/nameserver-fingerprint.yaml",
+      "template-url": "https://templates.nuclei.sh/public/nameserver-fingerprint",
+      "template-id": "nameserver-fingerprint",
+      "template-path": "/home/runner/nuclei-templates/dns/nameserver-fingerprint.yaml",
       "info": {
-        "name": "CAA Record",
+        "name": "NS Record Detection",
         "author": [
           "pdteam"
         ],
         "tags": [
           "dns",
-          "caa"
+          "ns"
         ],
-        "description": "A CAA record was discovered. A CAA record is used to specify which certificate authorities (CAs) are allowed to issue certificates for a domain.",
-        "reference": [
-          "https://support.dnsimple.com/articles/caa-record/#whats-a-caa-record"
-        ],
+        "description": "An NS record was detected. An NS record delegates a subdomain to a set of name servers.",
         "severity": "info",
         "metadata": {
           "max-request": 1
@@ -32,9 +29,16 @@
       "type": "dns",
       "host": "onpes.gouv.fr.",
       "matched-at": "onpes.gouv.fr",
-      "request": ";; opcode: QUERY, status: NOERROR, id: 59918\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;onpes.gouv.fr.\tIN\t CAA\n",
-      "response": ";; opcode: QUERY, status: NOERROR, id: 59918\n;; flags: qr rd ra; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 512\n\n;; QUESTION SECTION:\n;onpes.gouv.fr.\tIN\t CAA\n\n;; AUTHORITY SECTION:\nonpes.gouv.fr.\t1800\tIN\tSOA\ta.ns.developpement-durable.gouv.fr. dnsmaster.sante.gouv.fr. 2022111700 21600 1200 3600000 86400\n",
-      "timestamp": "2024-08-25T05:05:06.463074273Z",
+      "extracted-results": [
+        "b.ns.developpement-durable.gouv.fr.",
+        "nsc.perf1.com.",
+        "a.ns.developpement-durable.gouv.fr.",
+        "nsa.perf1.fr.",
+        "nsb.perf1.com."
+      ],
+      "request": ";; opcode: QUERY, status: NOERROR, id: 61406\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;onpes.gouv.fr.\tIN\t NS\n",
+      "response": ";; opcode: QUERY, status: NOERROR, id: 61406\n;; flags: qr rd ra; QUERY: 1, ANSWER: 5, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 1232\n\n;; QUESTION SECTION:\n;onpes.gouv.fr.\tIN\t NS\n\n;; ANSWER SECTION:\nonpes.gouv.fr.\t3600\tIN\tNS\tb.ns.developpement-durable.gouv.fr.\nonpes.gouv.fr.\t3600\tIN\tNS\tnsc.perf1.com.\nonpes.gouv.fr.\t3600\tIN\tNS\ta.ns.developpement-durable.gouv.fr.\nonpes.gouv.fr.\t3600\tIN\tNS\tnsa.perf1.fr.\nonpes.gouv.fr.\t3600\tIN\tNS\tnsb.perf1.com.\n",
+      "timestamp": "2024-09-01T05:06:47.149867936Z",
       "matcher-status": true
     },
     {
@@ -71,31 +75,34 @@
       "host": "onpes.gouv.fr.",
       "matched-at": "onpes.gouv.fr",
       "extracted-results": [
-        "10 pro075001app410.social.gouv.fr.",
-        "10 pro093001app413.social.gouv.fr.",
         "10 pro075001app411.social.gouv.fr.",
+        "10 pro093001app413.social.gouv.fr.",
+        "10 pro075001app410.social.gouv.fr.",
         "10 pro093001app412.social.gouv.fr."
       ],
-      "request": ";; opcode: QUERY, status: NOERROR, id: 44614\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;onpes.gouv.fr.\tIN\t MX\n",
-      "response": ";; opcode: QUERY, status: NOERROR, id: 44614\n;; flags: qr rd ra; QUERY: 1, ANSWER: 4, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 512\n\n;; QUESTION SECTION:\n;onpes.gouv.fr.\tIN\t MX\n\n;; ANSWER SECTION:\nonpes.gouv.fr.\t1200\tIN\tMX\t10 pro075001app410.social.gouv.fr.\nonpes.gouv.fr.\t1200\tIN\tMX\t10 pro093001app413.social.gouv.fr.\nonpes.gouv.fr.\t1200\tIN\tMX\t10 pro075001app411.social.gouv.fr.\nonpes.gouv.fr.\t1200\tIN\tMX\t10 pro093001app412.social.gouv.fr.\n",
-      "timestamp": "2024-08-25T05:05:07.45836293Z",
+      "request": ";; opcode: QUERY, status: NOERROR, id: 3970\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;onpes.gouv.fr.\tIN\t MX\n",
+      "response": ";; opcode: QUERY, status: NOERROR, id: 3970\n;; flags: qr rd ra; QUERY: 1, ANSWER: 4, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 512\n\n;; QUESTION SECTION:\n;onpes.gouv.fr.\tIN\t MX\n\n;; ANSWER SECTION:\nonpes.gouv.fr.\t1200\tIN\tMX\t10 pro075001app411.social.gouv.fr.\nonpes.gouv.fr.\t1200\tIN\tMX\t10 pro093001app413.social.gouv.fr.\nonpes.gouv.fr.\t1200\tIN\tMX\t10 pro075001app410.social.gouv.fr.\nonpes.gouv.fr.\t1200\tIN\tMX\t10 pro093001app412.social.gouv.fr.\n",
+      "timestamp": "2024-09-01T05:06:47.191429718Z",
       "matcher-status": true
     },
     {
-      "template": "dns/nameserver-fingerprint.yaml",
-      "template-url": "https://templates.nuclei.sh/public/nameserver-fingerprint",
-      "template-id": "nameserver-fingerprint",
-      "template-path": "/home/runner/nuclei-templates/dns/nameserver-fingerprint.yaml",
+      "template": "dns/caa-fingerprint.yaml",
+      "template-url": "https://templates.nuclei.sh/public/caa-fingerprint",
+      "template-id": "caa-fingerprint",
+      "template-path": "/home/runner/nuclei-templates/dns/caa-fingerprint.yaml",
       "info": {
-        "name": "NS Record Detection",
+        "name": "CAA Record",
         "author": [
           "pdteam"
         ],
         "tags": [
           "dns",
-          "ns"
+          "caa"
         ],
-        "description": "An NS record was detected. An NS record delegates a subdomain to a set of name servers.",
+        "description": "A CAA record was discovered. A CAA record is used to specify which certificate authorities (CAs) are allowed to issue certificates for a domain.",
+        "reference": [
+          "https://support.dnsimple.com/articles/caa-record/#whats-a-caa-record"
+        ],
         "severity": "info",
         "metadata": {
           "max-request": 1
@@ -110,16 +117,9 @@
       "type": "dns",
       "host": "onpes.gouv.fr.",
       "matched-at": "onpes.gouv.fr",
-      "extracted-results": [
-        "b.ns.developpement-durable.gouv.fr.",
-        "a.ns.developpement-durable.gouv.fr.",
-        "nsb.perf1.com.",
-        "nsc.perf1.com.",
-        "nsa.perf1.fr."
-      ],
-      "request": ";; opcode: QUERY, status: NOERROR, id: 50087\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;onpes.gouv.fr.\tIN\t NS\n",
-      "response": ";; opcode: QUERY, status: NOERROR, id: 50087\n;; flags: qr rd ra; QUERY: 1, ANSWER: 5, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 1232\n\n;; QUESTION SECTION:\n;onpes.gouv.fr.\tIN\t NS\n\n;; ANSWER SECTION:\nonpes.gouv.fr.\t3600\tIN\tNS\tb.ns.developpement-durable.gouv.fr.\nonpes.gouv.fr.\t3600\tIN\tNS\ta.ns.developpement-durable.gouv.fr.\nonpes.gouv.fr.\t3600\tIN\tNS\tnsb.perf1.com.\nonpes.gouv.fr.\t3600\tIN\tNS\tnsc.perf1.com.\nonpes.gouv.fr.\t3600\tIN\tNS\tnsa.perf1.fr.\n",
-      "timestamp": "2024-08-25T05:05:07.714876619Z",
+      "request": ";; opcode: QUERY, status: NOERROR, id: 22173\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;onpes.gouv.fr.\tIN\t CAA\n",
+      "response": ";; opcode: QUERY, status: NOERROR, id: 22173\n;; flags: qr rd ra; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 512\n\n;; QUESTION SECTION:\n;onpes.gouv.fr.\tIN\t CAA\n\n;; AUTHORITY SECTION:\nonpes.gouv.fr.\t1800\tIN\tSOA\ta.ns.developpement-durable.gouv.fr. dnsmaster.sante.gouv.fr. 2022111700 21600 1200 3600000 86400\n",
+      "timestamp": "2024-09-01T05:06:48.025529197Z",
       "matcher-status": true
     },
     {
@@ -185,9 +185,9 @@
       "host": "https://onpes.gouv.fr",
       "matched-at": "https://onpes.gouv.fr//interact.sh",
       "request": "GET //interact.sh HTTP/1.1\r\nHost: onpes.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.1 301 Moved Permanently\r\nConnection: close\r\nContent-Length: 239\r\nContent-Type: text/html; charset=iso-8859-1\r\nDate: Sun, 25 Aug 2024 05:05:15 GMT\r\nLocation: https://cnle.gouv.frinteract.sh\r\nSet-Cookie: BIGipServerpool-dicom-onpes-preprod.cegedim.cloud-HTTP=!04g3Ne7DvdjDDM9WDPlD0yXzT0UGhp3mguwZfOMtcJ7qu4aFRh2RMZA1lUAk+shfWJiiyjLUrDE+DKVQJpnlu+U/zQA=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\n\r\n<!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML 2.0//EN\">\n<html><head>\n<title>301 Moved Permanently</title>\n</head><body>\n<h1>Moved Permanently</h1>\n<p>The document has moved <a href=\"https://cnle.gouv.frinteract.sh\">here</a>.</p>\n</body></html>\n",
+      "response": "HTTP/1.1 301 Moved Permanently\r\nConnection: close\r\nContent-Length: 239\r\nContent-Type: text/html; charset=iso-8859-1\r\nDate: Sun, 01 Sep 2024 05:06:55 GMT\r\nLocation: https://cnle.gouv.frinteract.sh\r\nSet-Cookie: BIGipServerpool-dicom-onpes-preprod.cegedim.cloud-HTTP=!3wzEn+iffdgzy61WDPlD0yXzT0UGhvkPleGRTit+afy7nT6gYRDBe2XxC6+Vf7ZGeuMpxjocgyJfjnJw2cn/hkHcZSE=; path=/; Httponly; Secure\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains\r\n\r\n<!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML 2.0//EN\">\n<html><head>\n<title>301 Moved Permanently</title>\n</head><body>\n<h1>Moved Permanently</h1>\n<p>The document has moved <a href=\"https://cnle.gouv.frinteract.sh\">here</a>.</p>\n</body></html>\n",
       "ip": "185.194.82.143",
-      "timestamp": "2024-08-25T05:05:15.2587774Z",
+      "timestamp": "2024-09-01T05:06:55.9365615Z",
       "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://onpes.gouv.fr//interact.sh'",
       "matcher-status": true
     }
