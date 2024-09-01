@@ -21,17 +21,24 @@
 ###########################################################</span>
 
  Using &quot;OpenSSL 1.0.2-bad (1.0.2k-dev)&quot; [~183 ciphers]
- on fv-az1980-342:/home/testssl/bin/openssl.Linux.x86_64
+ on fv-az802-201:/home/testssl/bin/openssl.Linux.x86_64
  (built: &quot;Sep  1 14:03:44 2022&quot;, platform: &quot;linux-x86_64&quot;)
 
 
-<span style="color:white;background-color:black;"> Start 2024-08-25 05:21:26                --&gt;&gt; 185.75.143.93:443 (preventionhiver.sports.gouv.fr) &lt;&lt;--</span>
+<span style="color:white;background-color:black;"> Start 2024-09-01 05:22:24                --&gt;&gt; 185.75.143.93:443 (preventionhiver.sports.gouv.fr) &lt;&lt;--</span>
 
- rDNS (185.75.143.93):   men-tandem-lb-vip.dedie.ate.info.<span style="color:#cd00cd;"> Oops: TCP connect problem</span>
+ rDNS (185.75.143.93):   men-tandem-lb-vip.dedie.ate.info.
+<span style="color:#cd00cd;"> Oops: TCP connect problem</span>
 
-<span style="color:#cd00cd;">Unable to open a socket to 185.75.143.93:443. </span>
-<span style="color:#be32d0;font-weight:bold;">Fatal error: Can&apos;t connect to &quot;185.75.143.93:443&quot;
-Make sure a firewall is not between you and your scanning target!</span>
+<span style="color:#cd00cd;">Unable to open a socket to 185.75.143.93:443. </span> Service detected:       Couldn&apos;t determine what&apos;s running on port 443, assuming no HTTP service =&gt; skipping all HTTP checks
+
+
+<span style="text-decoration:underline;font-weight:bold;"> Testing protocols </span><u>via sockets except NPN+ALPN </u>
+
+<span style="font-weight:bold;"> SSLv2      </span><span style="color:#008817;font-weight:bold;">not offered (OK)</span>
+<span style="font-weight:bold;"> SSLv3      </span>
+<span style="color:#be32d0;font-weight:bold;">Fatal error: repeated TCP connect problems, giving up</span>
+Consider increasing MAX_SOCKET_FAIL (currently: 2)
 
 </pre>
 </body>
