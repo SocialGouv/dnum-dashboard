@@ -1,43 +1,6 @@
 [
   [
     {
-      "template": "dns/caa-fingerprint.yaml",
-      "template-url": "https://templates.nuclei.sh/public/caa-fingerprint",
-      "template-id": "caa-fingerprint",
-      "template-path": "/home/runner/nuclei-templates/dns/caa-fingerprint.yaml",
-      "info": {
-        "name": "CAA Record",
-        "author": [
-          "pdteam"
-        ],
-        "tags": [
-          "dns",
-          "caa"
-        ],
-        "description": "A CAA record was discovered. A CAA record is used to specify which certificate authorities (CAs) are allowed to issue certificates for a domain.",
-        "reference": [
-          "https://support.dnsimple.com/articles/caa-record/#whats-a-caa-record"
-        ],
-        "severity": "info",
-        "metadata": {
-          "max-request": 1
-        },
-        "classification": {
-          "cve-id": null,
-          "cwe-id": [
-            "cwe-200"
-          ]
-        }
-      },
-      "type": "dns",
-      "host": "direccte.gouv.fr.",
-      "matched-at": "direccte.gouv.fr",
-      "request": ";; opcode: QUERY, status: NOERROR, id: 28366\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;direccte.gouv.fr.\tIN\t CAA\n",
-      "response": ";; opcode: QUERY, status: NOERROR, id: 28366\n;; flags: qr rd ra; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 1232\n\n;; QUESTION SECTION:\n;direccte.gouv.fr.\tIN\t CAA\n\n;; AUTHORITY SECTION:\ndireccte.gouv.fr.\t3600\tIN\tSOA\ta.ns.developpement-durable.gouv.fr. dnsmaster.sante.gouv.fr. 2024031952 14400 3600 3000000 3600\n",
-      "timestamp": "2024-10-06T02:49:16.458306002Z",
-      "matcher-status": true
-    },
-    {
       "template": "dns/spf-record-detect.yaml",
       "template-url": "https://templates.nuclei.sh/public/spf-record-detect",
       "template-id": "spf-record-detect",
@@ -66,9 +29,9 @@
       "extracted-results": [
         "v=spf1 include:_spf.sante.gouv.fr include:_spf.pfai.rie.gouv.fr include:_spf-njo.cegedim.fr ~all\""
       ],
-      "request": ";; opcode: QUERY, status: NOERROR, id: 23769\n;; flags: rd ad; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;direccte.gouv.fr.\tIN\t TXT\n",
-      "response": ";; opcode: QUERY, status: NOERROR, id: 23769\n;; flags: qr rd ra; QUERY: 1, ANSWER: 4, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 1232\n\n;; QUESTION SECTION:\n;direccte.gouv.fr.\tIN\t TXT\n\n;; ANSWER SECTION:\ndireccte.gouv.fr.\t600\tIN\tTXT\t\"v=spf1 include:_spf.sante.gouv.fr include:_spf.pfai.rie.gouv.fr include:_spf-njo.cegedim.fr ~all\"\ndireccte.gouv.fr.\t600\tIN\tTXT\t\"R+PuUwRUOuIkhtFtitRXWrMTFS6Au3xy7/TK7gHSDIMusO78eAv8a04QXuol8S0Nq4V7RMAvrbpSW29dddtPjg==\"\ndireccte.gouv.fr.\t600\tIN\tTXT\t\"cisco-ci-domain-verification=4f0dbd28841cdec33cfa3966c36911028ffbbcd90a6a9c4b34ecd75286ea17d2\"\ndireccte.gouv.fr.\t600\tIN\tTXT\t\"MS=ms10035681\"\n",
-      "timestamp": "2024-10-06T02:49:16.467158335Z",
+      "request": ";; opcode: QUERY, status: NOERROR, id: 51368\n;; flags: rd ad; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;direccte.gouv.fr.\tIN\t TXT\n",
+      "response": ";; opcode: QUERY, status: NOERROR, id: 51368\n;; flags: qr rd ra; QUERY: 1, ANSWER: 4, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 1232\n\n;; QUESTION SECTION:\n;direccte.gouv.fr.\tIN\t TXT\n\n;; ANSWER SECTION:\ndireccte.gouv.fr.\t600\tIN\tTXT\t\"MS=ms10035681\"\ndireccte.gouv.fr.\t600\tIN\tTXT\t\"cisco-ci-domain-verification=4f0dbd28841cdec33cfa3966c36911028ffbbcd90a6a9c4b34ecd75286ea17d2\"\ndireccte.gouv.fr.\t600\tIN\tTXT\t\"v=spf1 include:_spf.sante.gouv.fr include:_spf.pfai.rie.gouv.fr include:_spf-njo.cegedim.fr ~all\"\ndireccte.gouv.fr.\t600\tIN\tTXT\t\"R+PuUwRUOuIkhtFtitRXWrMTFS6Au3xy7/TK7gHSDIMusO78eAv8a04QXuol8S0Nq4V7RMAvrbpSW29dddtPjg==\"\n",
+      "timestamp": "2024-10-13T02:57:15.09044223Z",
       "matcher-status": true
     },
     {
@@ -106,97 +69,12 @@
       "extracted-results": [
         "\"v=spf1 include:_spf.sante.gouv.fr include:_spf.pfai.rie.gouv.fr include:_spf-njo.cegedim.fr ~all\"",
         "\"R+PuUwRUOuIkhtFtitRXWrMTFS6Au3xy7/TK7gHSDIMusO78eAv8a04QXuol8S0Nq4V7RMAvrbpSW29dddtPjg==\"",
-        "\"cisco-ci-domain-verification=4f0dbd28841cdec33cfa3966c36911028ffbbcd90a6a9c4b34ecd75286ea17d2\"",
-        "\"MS=ms10035681\""
+        "\"MS=ms10035681\"",
+        "\"cisco-ci-domain-verification=4f0dbd28841cdec33cfa3966c36911028ffbbcd90a6a9c4b34ecd75286ea17d2\""
       ],
-      "request": ";; opcode: QUERY, status: NOERROR, id: 23769\n;; flags: rd ad; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;direccte.gouv.fr.\tIN\t TXT\n",
-      "response": ";; opcode: QUERY, status: NOERROR, id: 23769\n;; flags: qr rd ra; QUERY: 1, ANSWER: 4, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 1232\n\n;; QUESTION SECTION:\n;direccte.gouv.fr.\tIN\t TXT\n\n;; ANSWER SECTION:\ndireccte.gouv.fr.\t600\tIN\tTXT\t\"v=spf1 include:_spf.sante.gouv.fr include:_spf.pfai.rie.gouv.fr include:_spf-njo.cegedim.fr ~all\"\ndireccte.gouv.fr.\t600\tIN\tTXT\t\"R+PuUwRUOuIkhtFtitRXWrMTFS6Au3xy7/TK7gHSDIMusO78eAv8a04QXuol8S0Nq4V7RMAvrbpSW29dddtPjg==\"\ndireccte.gouv.fr.\t600\tIN\tTXT\t\"cisco-ci-domain-verification=4f0dbd28841cdec33cfa3966c36911028ffbbcd90a6a9c4b34ecd75286ea17d2\"\ndireccte.gouv.fr.\t600\tIN\tTXT\t\"MS=ms10035681\"\n",
-      "timestamp": "2024-10-06T02:49:16.467278762Z",
-      "matcher-status": true
-    },
-    {
-      "template": "dns/mx-fingerprint.yaml",
-      "template-url": "https://templates.nuclei.sh/public/mx-fingerprint",
-      "template-id": "mx-fingerprint",
-      "template-path": "/home/runner/nuclei-templates/dns/mx-fingerprint.yaml",
-      "info": {
-        "name": "MX Record Detection",
-        "author": [
-          "pdteam"
-        ],
-        "tags": [
-          "dns",
-          "mx"
-        ],
-        "description": "An MX record was detected. MX records direct emails to a mail exchange server.",
-        "reference": [
-          "https://www.cloudflare.com/learning/dns/dns-records/dns-mx-record/",
-          "https://mxtoolbox.com/"
-        ],
-        "severity": "info",
-        "metadata": {
-          "max-request": 1
-        },
-        "classification": {
-          "cve-id": null,
-          "cwe-id": [
-            "cwe-200"
-          ]
-        }
-      },
-      "type": "dns",
-      "host": "direccte.gouv.fr.",
-      "matched-at": "direccte.gouv.fr",
-      "extracted-results": [
-        "10 PRO093001APP412.social.gouv.fr.",
-        "10 PRO075001APP410.social.gouv.fr.",
-        "10 PRO093001APP413.social.gouv.fr.",
-        "10 PRO075001APP411.social.gouv.fr."
-      ],
-      "request": ";; opcode: QUERY, status: NOERROR, id: 54627\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;direccte.gouv.fr.\tIN\t MX\n",
-      "response": ";; opcode: QUERY, status: NOERROR, id: 54627\n;; flags: qr rd ra; QUERY: 1, ANSWER: 4, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 512\n\n;; QUESTION SECTION:\n;direccte.gouv.fr.\tIN\t MX\n\n;; ANSWER SECTION:\ndireccte.gouv.fr.\t564\tIN\tMX\t10 PRO093001APP412.social.gouv.fr.\ndireccte.gouv.fr.\t564\tIN\tMX\t10 PRO075001APP410.social.gouv.fr.\ndireccte.gouv.fr.\t564\tIN\tMX\t10 PRO093001APP413.social.gouv.fr.\ndireccte.gouv.fr.\t564\tIN\tMX\t10 PRO075001APP411.social.gouv.fr.\n",
-      "timestamp": "2024-10-06T02:49:17.424442592Z",
-      "matcher-status": true
-    },
-    {
-      "template": "dns/nameserver-fingerprint.yaml",
-      "template-url": "https://templates.nuclei.sh/public/nameserver-fingerprint",
-      "template-id": "nameserver-fingerprint",
-      "template-path": "/home/runner/nuclei-templates/dns/nameserver-fingerprint.yaml",
-      "info": {
-        "name": "NS Record Detection",
-        "author": [
-          "pdteam"
-        ],
-        "tags": [
-          "dns",
-          "ns"
-        ],
-        "description": "An NS record was detected. An NS record delegates a subdomain to a set of name servers.",
-        "severity": "info",
-        "metadata": {
-          "max-request": 1
-        },
-        "classification": {
-          "cve-id": null,
-          "cwe-id": [
-            "cwe-200"
-          ]
-        }
-      },
-      "type": "dns",
-      "host": "direccte.gouv.fr.",
-      "matched-at": "direccte.gouv.fr",
-      "extracted-results": [
-        "nsa.perf1.fr.",
-        "nsc.perf1.com.",
-        "nsb.perf1.com.",
-        "b.ns.developpement-durable.gouv.fr.",
-        "a.ns.developpement-durable.gouv.fr."
-      ],
-      "request": ";; opcode: QUERY, status: NOERROR, id: 24632\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;direccte.gouv.fr.\tIN\t NS\n",
-      "response": ";; opcode: QUERY, status: NOERROR, id: 24632\n;; flags: qr rd ra; QUERY: 1, ANSWER: 5, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 512\n\n;; QUESTION SECTION:\n;direccte.gouv.fr.\tIN\t NS\n\n;; ANSWER SECTION:\ndireccte.gouv.fr.\t3600\tIN\tNS\tnsa.perf1.fr.\ndireccte.gouv.fr.\t3600\tIN\tNS\tnsc.perf1.com.\ndireccte.gouv.fr.\t3600\tIN\tNS\tnsb.perf1.com.\ndireccte.gouv.fr.\t3600\tIN\tNS\tb.ns.developpement-durable.gouv.fr.\ndireccte.gouv.fr.\t3600\tIN\tNS\ta.ns.developpement-durable.gouv.fr.\n",
-      "timestamp": "2024-10-06T02:49:17.436735055Z",
+      "request": ";; opcode: QUERY, status: NOERROR, id: 51368\n;; flags: rd ad; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;direccte.gouv.fr.\tIN\t TXT\n",
+      "response": ";; opcode: QUERY, status: NOERROR, id: 51368\n;; flags: qr rd ra; QUERY: 1, ANSWER: 4, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 1232\n\n;; QUESTION SECTION:\n;direccte.gouv.fr.\tIN\t TXT\n\n;; ANSWER SECTION:\ndireccte.gouv.fr.\t600\tIN\tTXT\t\"MS=ms10035681\"\ndireccte.gouv.fr.\t600\tIN\tTXT\t\"cisco-ci-domain-verification=4f0dbd28841cdec33cfa3966c36911028ffbbcd90a6a9c4b34ecd75286ea17d2\"\ndireccte.gouv.fr.\t600\tIN\tTXT\t\"v=spf1 include:_spf.sante.gouv.fr include:_spf.pfai.rie.gouv.fr include:_spf-njo.cegedim.fr ~all\"\ndireccte.gouv.fr.\t600\tIN\tTXT\t\"R+PuUwRUOuIkhtFtitRXWrMTFS6Au3xy7/TK7gHSDIMusO78eAv8a04QXuol8S0Nq4V7RMAvrbpSW29dddtPjg==\"\n",
+      "timestamp": "2024-10-13T02:57:15.090596719Z",
       "matcher-status": true
     },
     {
@@ -236,9 +114,131 @@
       "extracted-results": [
         "\"v=DMARC1; p=none; rua=mailto:qfvxymne@ag.eu.dmarcadvisor.com\""
       ],
-      "request": ";; opcode: QUERY, status: NOERROR, id: 15351\n;; flags: rd ad; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;_dmarc.direccte.gouv.fr.\tIN\t TXT\n",
-      "response": ";; opcode: QUERY, status: NOERROR, id: 15351\n;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 512\n\n;; QUESTION SECTION:\n;_dmarc.direccte.gouv.fr.\tIN\t TXT\n\n;; ANSWER SECTION:\n_dmarc.direccte.gouv.fr.\t600\tIN\tTXT\t\"v=DMARC1; p=none; rua=mailto:qfvxymne@ag.eu.dmarcadvisor.com\"\n",
-      "timestamp": "2024-10-06T02:49:17.439739498Z",
+      "request": ";; opcode: QUERY, status: NOERROR, id: 57372\n;; flags: rd ad; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;_dmarc.direccte.gouv.fr.\tIN\t TXT\n",
+      "response": ";; opcode: QUERY, status: NOERROR, id: 57372\n;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 512\n\n;; QUESTION SECTION:\n;_dmarc.direccte.gouv.fr.\tIN\t TXT\n\n;; ANSWER SECTION:\n_dmarc.direccte.gouv.fr.\t600\tIN\tTXT\t\"v=DMARC1; p=none; rua=mailto:qfvxymne@ag.eu.dmarcadvisor.com\"\n",
+      "timestamp": "2024-10-13T02:57:15.091319851Z",
+      "matcher-status": true
+    },
+    {
+      "template": "dns/caa-fingerprint.yaml",
+      "template-url": "https://templates.nuclei.sh/public/caa-fingerprint",
+      "template-id": "caa-fingerprint",
+      "template-path": "/home/runner/nuclei-templates/dns/caa-fingerprint.yaml",
+      "info": {
+        "name": "CAA Record",
+        "author": [
+          "pdteam"
+        ],
+        "tags": [
+          "dns",
+          "caa"
+        ],
+        "description": "A CAA record was discovered. A CAA record is used to specify which certificate authorities (CAs) are allowed to issue certificates for a domain.",
+        "reference": [
+          "https://support.dnsimple.com/articles/caa-record/#whats-a-caa-record"
+        ],
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        },
+        "classification": {
+          "cve-id": null,
+          "cwe-id": [
+            "cwe-200"
+          ]
+        }
+      },
+      "type": "dns",
+      "host": "direccte.gouv.fr.",
+      "matched-at": "direccte.gouv.fr",
+      "request": ";; opcode: QUERY, status: NOERROR, id: 1386\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;direccte.gouv.fr.\tIN\t CAA\n",
+      "response": ";; opcode: QUERY, status: NOERROR, id: 1386\n;; flags: qr rd ra; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 1232\n\n;; QUESTION SECTION:\n;direccte.gouv.fr.\tIN\t CAA\n\n;; AUTHORITY SECTION:\ndireccte.gouv.fr.\t3600\tIN\tSOA\ta.ns.developpement-durable.gouv.fr. dnsmaster.sante.gouv.fr. 2024031952 14400 3600 3000000 3600\n",
+      "timestamp": "2024-10-13T02:57:15.371241148Z",
+      "matcher-status": true
+    },
+    {
+      "template": "dns/mx-fingerprint.yaml",
+      "template-url": "https://templates.nuclei.sh/public/mx-fingerprint",
+      "template-id": "mx-fingerprint",
+      "template-path": "/home/runner/nuclei-templates/dns/mx-fingerprint.yaml",
+      "info": {
+        "name": "MX Record Detection",
+        "author": [
+          "pdteam"
+        ],
+        "tags": [
+          "dns",
+          "mx"
+        ],
+        "description": "An MX record was detected. MX records direct emails to a mail exchange server.",
+        "reference": [
+          "https://www.cloudflare.com/learning/dns/dns-records/dns-mx-record/",
+          "https://mxtoolbox.com/"
+        ],
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        },
+        "classification": {
+          "cve-id": null,
+          "cwe-id": [
+            "cwe-200"
+          ]
+        }
+      },
+      "type": "dns",
+      "host": "direccte.gouv.fr.",
+      "matched-at": "direccte.gouv.fr",
+      "extracted-results": [
+        "10 PRO093001APP413.social.gouv.fr.",
+        "10 PRO075001APP411.social.gouv.fr.",
+        "10 PRO075001APP410.social.gouv.fr.",
+        "10 PRO093001APP412.social.gouv.fr."
+      ],
+      "request": ";; opcode: QUERY, status: NOERROR, id: 27389\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;direccte.gouv.fr.\tIN\t MX\n",
+      "response": ";; opcode: QUERY, status: NOERROR, id: 27389\n;; flags: qr rd ra; QUERY: 1, ANSWER: 4, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 1232\n\n;; QUESTION SECTION:\n;direccte.gouv.fr.\tIN\t MX\n\n;; ANSWER SECTION:\ndireccte.gouv.fr.\t600\tIN\tMX\t10 PRO075001APP411.social.gouv.fr.\ndireccte.gouv.fr.\t600\tIN\tMX\t10 PRO075001APP410.social.gouv.fr.\ndireccte.gouv.fr.\t600\tIN\tMX\t10 PRO093001APP412.social.gouv.fr.\ndireccte.gouv.fr.\t600\tIN\tMX\t10 PRO093001APP413.social.gouv.fr.\n",
+      "timestamp": "2024-10-13T02:57:16.084162465Z",
+      "matcher-status": true
+    },
+    {
+      "template": "dns/nameserver-fingerprint.yaml",
+      "template-url": "https://templates.nuclei.sh/public/nameserver-fingerprint",
+      "template-id": "nameserver-fingerprint",
+      "template-path": "/home/runner/nuclei-templates/dns/nameserver-fingerprint.yaml",
+      "info": {
+        "name": "NS Record Detection",
+        "author": [
+          "pdteam"
+        ],
+        "tags": [
+          "dns",
+          "ns"
+        ],
+        "description": "An NS record was detected. An NS record delegates a subdomain to a set of name servers.",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        },
+        "classification": {
+          "cve-id": null,
+          "cwe-id": [
+            "cwe-200"
+          ]
+        }
+      },
+      "type": "dns",
+      "host": "direccte.gouv.fr.",
+      "matched-at": "direccte.gouv.fr",
+      "extracted-results": [
+        "nsa.perf1.fr.",
+        "a.ns.developpement-durable.gouv.fr.",
+        "nsb.perf1.com.",
+        "nsc.perf1.com.",
+        "b.ns.developpement-durable.gouv.fr."
+      ],
+      "request": ";; opcode: QUERY, status: NOERROR, id: 33759\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;direccte.gouv.fr.\tIN\t NS\n",
+      "response": ";; opcode: QUERY, status: NOERROR, id: 33759\n;; flags: qr rd ra; QUERY: 1, ANSWER: 5, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 512\n\n;; QUESTION SECTION:\n;direccte.gouv.fr.\tIN\t NS\n\n;; ANSWER SECTION:\ndireccte.gouv.fr.\t3600\tIN\tNS\tnsa.perf1.fr.\ndireccte.gouv.fr.\t3600\tIN\tNS\ta.ns.developpement-durable.gouv.fr.\ndireccte.gouv.fr.\t3600\tIN\tNS\tnsb.perf1.com.\ndireccte.gouv.fr.\t3600\tIN\tNS\tnsc.perf1.com.\ndireccte.gouv.fr.\t3600\tIN\tNS\tb.ns.developpement-durable.gouv.fr.\n",
+      "timestamp": "2024-10-13T02:57:16.086041854Z",
       "matcher-status": true
     }
   ]
