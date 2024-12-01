@@ -374,7 +374,7 @@
               "ip"           : "decouvrirlemonde.jeunes.gouv.fr/185.75.143.93",
               "port"         : "443",
               "severity"     : "OK",
-              "finding"      : "248 >= 60 days"
+              "finding"      : "241 >= 60 days"
           }
 ,         {
               "id"           : "cert_notBefore",
@@ -535,7 +535,7 @@
               "ip"           : "decouvrirlemonde.jeunes.gouv.fr/185.75.143.93",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "1732415976"
+              "finding"      : "1733021577"
           }
 ,         {
               "id"           : "HSTS_time",
@@ -641,9 +641,9 @@
               "id"           : "secure_renego",
               "ip"           : "decouvrirlemonde.jeunes.gouv.fr/185.75.143.93",
               "port"         : "443",
-              "severity"     : "OK",
+              "severity"     : "WARN",
               "cwe"          : "CWE-310",
-              "finding"      : "supported"
+              "finding"      : "OpenSSL handshake didn't succeed"
           }
 ,         {
               "id"           : "secure_client_renego",
@@ -652,16 +652,16 @@
               "severity"     : "OK",
               "cve"          : "CVE-2011-1473",
               "cwe"          : "CWE-310",
-              "finding"      : "not vulnerable"
+              "finding"      : "likely not vulnerable (timed out)"
           }
 ,         {
               "id"           : "CRIME_TLS",
               "ip"           : "decouvrirlemonde.jeunes.gouv.fr/185.75.143.93",
               "port"         : "443",
-              "severity"     : "OK",
+              "severity"     : "WARN",
               "cve"          : "CVE-2012-4929",
               "cwe"          : "CWE-310",
-              "finding"      : "not vulnerable"
+              "finding"      : "Check failed, couldn't connect"
           }
 ,         {
               "id"           : "BREACH",
@@ -689,176 +689,17 @@
               "finding"      : "no protocol below TLS 1.2 offered"
           }
 ,         {
-              "id"           : "SWEET32",
+              "id"           : "scanProblem",
               "ip"           : "decouvrirlemonde.jeunes.gouv.fr/185.75.143.93",
               "port"         : "443",
-              "severity"     : "OK",
-              "cve"          : "CVE-2016-2183 CVE-2016-6329",
-              "cwe"          : "CWE-327",
-              "finding"      : "not vulnerable"
+              "severity"     : "FATAL",
+              "finding"      : "repeated TCP connect problems, giving up"
           }
 ,         {
-              "id"           : "FREAK",
+              "id"           : "scanTime",
               "ip"           : "decouvrirlemonde.jeunes.gouv.fr/185.75.143.93",
               "port"         : "443",
-              "severity"     : "OK",
-              "cve"          : "CVE-2015-0204",
-              "cwe"          : "CWE-310",
-              "finding"      : "not vulnerable"
+              "severity"     : "WARN",
+              "finding"      : "Scan interrupted"
           }
-,         {
-              "id"           : "DROWN",
-              "ip"           : "decouvrirlemonde.jeunes.gouv.fr/185.75.143.93",
-              "port"         : "443",
-              "severity"     : "OK",
-              "cve"          : "CVE-2016-0800 CVE-2016-0703",
-              "cwe"          : "CWE-310",
-              "finding"      : "not vulnerable on this host and port"
-          }
-,         {
-              "id"           : "DROWN_hint",
-              "ip"           : "decouvrirlemonde.jeunes.gouv.fr/185.75.143.93",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "cve"          : "CVE-2016-0800 CVE-2016-0703",
-              "cwe"          : "CWE-310",
-              "finding"      : "Make sure you don't use this certificate elsewhere with SSLv2 enabled services, see https://search.censys.io/search?resource=hosts&virtual_hosts=INCLUDE&q=C73081AB3E980E8D694DC51A8371A0BB91837615474192047DA23E68DD260C94"
-          }
-,         {
-              "id"           : "LOGJAM",
-              "ip"           : "decouvrirlemonde.jeunes.gouv.fr/185.75.143.93",
-              "port"         : "443",
-              "severity"     : "OK",
-              "cve"          : "CVE-2015-4000",
-              "cwe"          : "CWE-310",
-              "finding"      : "not vulnerable, no DH EXPORT ciphers,"
-          }
-,         {
-              "id"           : "LOGJAM-common_primes",
-              "ip"           : "decouvrirlemonde.jeunes.gouv.fr/185.75.143.93",
-              "port"         : "443",
-              "severity"     : "OK",
-              "cve"          : "CVE-2015-4000",
-              "cwe"          : "CWE-310",
-              "finding"      : "--"
-          }
-,         {
-              "id"           : "BEAST",
-              "ip"           : "decouvrirlemonde.jeunes.gouv.fr/185.75.143.93",
-              "port"         : "443",
-              "severity"     : "OK",
-              "cve"          : "CVE-2011-3389",
-              "cwe"          : "CWE-20",
-              "finding"      : "not vulnerable, no SSL3 or TLS1"
-          }
-,         {
-              "id"           : "LUCKY13",
-              "ip"           : "decouvrirlemonde.jeunes.gouv.fr/185.75.143.93",
-              "port"         : "443",
-              "severity"     : "OK",
-              "cve"          : "CVE-2013-0169",
-              "cwe"          : "CWE-310",
-              "finding"      : "not vulnerable"
-          }
-,         {
-              "id"           : "winshock",
-              "ip"           : "decouvrirlemonde.jeunes.gouv.fr/185.75.143.93",
-              "port"         : "443",
-              "severity"     : "OK",
-              "cve"          : "CVE-2014-6321",
-              "cwe"          : "CWE-94",
-              "finding"      : "not vulnerable"
-          }
-,         {
-              "id"           : "RC4",
-              "ip"           : "decouvrirlemonde.jeunes.gouv.fr/185.75.143.93",
-              "port"         : "443",
-              "severity"     : "OK",
-              "cve"          : "CVE-2013-2566 CVE-2015-2808",
-              "cwe"          : "CWE-310",
-              "finding"      : "not vulnerable"
-          }
-,         {
-              "id"           : "clientsimulation-android_60",
-              "ip"           : "decouvrirlemonde.jeunes.gouv.fr/185.75.143.93",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "No connection"
-          }
-,         {
-              "id"           : "clientsimulation-android_70",
-              "ip"           : "decouvrirlemonde.jeunes.gouv.fr/185.75.143.93",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
-          }
-,         {
-              "id"           : "clientsimulation-android_81",
-              "ip"           : "decouvrirlemonde.jeunes.gouv.fr/185.75.143.93",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
-          }
-,         {
-              "id"           : "clientsimulation-android_90",
-              "ip"           : "decouvrirlemonde.jeunes.gouv.fr/185.75.143.93",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "TLSv1.3 TLS_AES_128_GCM_SHA256"
-          }
-,         {
-              "id"           : "clientsimulation-android_X",
-              "ip"           : "decouvrirlemonde.jeunes.gouv.fr/185.75.143.93",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "TLSv1.3 TLS_AES_128_GCM_SHA256"
-          }
-,         {
-              "id"           : "clientsimulation-android_11",
-              "ip"           : "decouvrirlemonde.jeunes.gouv.fr/185.75.143.93",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "TLSv1.3 TLS_AES_128_GCM_SHA256"
-          }
-,         {
-              "id"           : "clientsimulation-android_12",
-              "ip"           : "decouvrirlemonde.jeunes.gouv.fr/185.75.143.93",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "TLSv1.3 TLS_AES_128_GCM_SHA256"
-          }
-,         {
-              "id"           : "clientsimulation-chrome_79_win10",
-              "ip"           : "decouvrirlemonde.jeunes.gouv.fr/185.75.143.93",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "TLSv1.3 TLS_AES_128_GCM_SHA256"
-          }
-,         {
-              "id"           : "clientsimulation-chrome_101_win10",
-              "ip"           : "decouvrirlemonde.jeunes.gouv.fr/185.75.143.93",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "TLSv1.3 TLS_AES_128_GCM_SHA256"
-          }
-,         {
-              "id"           : "clientsimulation-firefox_66_win81",
-              "ip"           : "decouvrirlemonde.jeunes.gouv.fr/185.75.143.93",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "TLSv1.3 TLS_AES_128_GCM_SHA256"
-          }
-,         {
-              "id"           : "clientsimulation-firefox_100_win10",
-              "ip"           : "decouvrirlemonde.jeunes.gouv.fr/185.75.143.93",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "TLSv1.3 TLS_AES_128_GCM_SHA256"
-          }
-,         {
-              "id"           : "clientsimulation-ie_6_xp",
-              "ip"           : "decouvrirlemonde.jeunes.gouv.fr/185.75.143.93",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "No connection"
-          }
+]
