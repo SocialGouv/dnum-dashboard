@@ -339,7 +339,7 @@
               "ip"           : "eps.sante.gouv.fr/185.194.82.46",
               "port"         : "443",
               "severity"     : "OK",
-              "finding"      : "119 >= 60 days"
+              "finding"      : "112 >= 60 days"
           }
 ,         {
               "id"           : "cert_notBefore",
@@ -486,21 +486,21 @@
               "ip"           : "eps.sante.gouv.fr/185.194.82.46",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "200 OK ('/')"
+              "finding"      : "200  ('/')"
           }
 ,         {
               "id"           : "HTTP_clock_skew",
               "ip"           : "eps.sante.gouv.fr/185.194.82.46",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "0 seconds from localtime"
+              "finding"      : "-1 seconds from localtime"
           }
 ,         {
               "id"           : "HTTP_headerTime",
               "ip"           : "eps.sante.gouv.fr/185.194.82.46",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "1738465825"
+              "finding"      : "1739070865"
           }
 ,         {
               "id"           : "HSTS_time",
@@ -566,6 +566,13 @@
               "finding"      : "All (1) at '/' marked as HttpOnly"
           }
 ,         {
+              "id"           : "X-Frame-Options_multiple",
+              "ip"           : "eps.sante.gouv.fr/185.194.82.46",
+              "port"         : "443",
+              "severity"     : "MEDIUM",
+              "finding"      : "Multiple X-Frame-Options headers. Using first header: DENY"
+          }
+,         {
               "id"           : "X-Frame-Options",
               "ip"           : "eps.sante.gouv.fr/185.194.82.46",
               "port"         : "443",
@@ -587,11 +594,25 @@
               "finding"      : "default-src 'self'; frame-src 'self' data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://storage.googleapis.com; style-src 'self' 'unsafe-inline' https://static.piste.gouv.fr; img-src 'self' https://static.piste.gouv.fr data:; font-src 'self' data:"
           }
 ,         {
+              "id"           : "Permissions-Policy",
+              "ip"           : "eps.sante.gouv.fr/185.194.82.46",
+              "port"         : "443",
+              "severity"     : "OK",
+              "finding"      : "geolocation=(), midi=(), sync-xhr=(), microphone=(), camera=(), magnetometer=(), gyroscope=(), speaker=(), fullscreen=(self), payment=()"
+          }
+,         {
               "id"           : "X-XSS-Protection",
               "ip"           : "eps.sante.gouv.fr/185.194.82.46",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "1; mode=block"
+              "finding"      : "0"
+          }
+,         {
+              "id"           : "Permissions-Policy",
+              "ip"           : "eps.sante.gouv.fr/185.194.82.46",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "geolocation=(), midi=(), sync-xhr=(), microphone=(), camera=(), magnetometer=(), gyroscope=(), speaker=(), fullscreen=(self), payment=()"
           }
 ,         {
               "id"           : "Referrer-Policy",
@@ -1119,6 +1140,6 @@
               "ip"           : "eps.sante.gouv.fr/185.194.82.46",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "91"
+              "finding"      : "90"
           }
 ]
