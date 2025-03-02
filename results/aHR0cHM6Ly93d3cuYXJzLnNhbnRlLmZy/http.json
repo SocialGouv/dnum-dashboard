@@ -1,0 +1,159 @@
+{
+  "scan": {
+    "algorithmVersion": 4,
+    "grade": "D",
+    "error": null,
+    "score": 30,
+    "statusCode": 200,
+    "testsFailed": 4,
+    "testsPassed": 6,
+    "testsQuantity": 10,
+    "responseHeaders": {
+      "date": "Sun, 02 Mar 2025 06:25:05 GMT",
+      "cache-control": "max-age=86400, public",
+      "content-language": "fr",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "SAMEORIGIN",
+      "expires": "Sun, 19 Nov 1978 05:00:00 GMT",
+      "vary": "Cookie,Accept-Encoding",
+      "last-modified": "Sun, 02 Mar 2025 06:25:04 GMT",
+      "content-type": "text/html; charset=UTF-8",
+      "age": "0",
+      "etag": "W/\"1740896704-gzip\"",
+      "set-cookie": [
+        "fid=sante_ars_front3; path=/;  HttpOnly; secure; SameSite=Strict",
+        "BIGipServerpool-ars.cegedim.cloud-HTTP=851728650.49431.0000; path=/; Httponly; Secure",
+        "TS510afef7029=087dc22938ab280054bb032de936b89bb3827c2bd9b9f0a5e393bc34bc9ac1f5f2e37668c1d982f3a2473218ea2606c4; Max-Age=30; Path=/",
+        "TSdfa203d6027=087dc22938ab20009ae1c988438f953275c8db7e2839949ab286bf094b8f179ca5a5884a6b98b86408d99d180b113000841565b54b4dbfa23855b006759632a40cdced54bd14476772430da142b0c7ac6d210c831c4563bbfc511d20c8bb3788; Path=/"
+      ],
+      "x-cache": "MISS",
+      "x-cache-hits": "0",
+      "accept-ranges": "bytes",
+      "connection": "close",
+      "transfer-encoding": "chunked"
+    }
+  },
+  "tests": {
+    "content-security-policy": {
+      "expectation": "csp-implemented-with-no-unsafe",
+      "pass": false,
+      "result": "csp-not-implemented",
+      "scoreModifier": -25,
+      "data": null,
+      "http": false,
+      "meta": false,
+      "policy": null,
+      "numPolicies": 0
+    },
+    "cookies": {
+      "expectation": "cookies-secure-with-httponly-sessions",
+      "pass": false,
+      "result": "cookies-without-secure-flag",
+      "scoreModifier": -20,
+      "data": {
+        "fid": {
+          "domain": "www.ars.sante.fr",
+          "httponly": true,
+          "path": "/",
+          "port": null,
+          "samesite": "strict",
+          "secure": true
+        },
+        "BIGipServerpool-ars.cegedim.cloud-HTTP": {
+          "domain": "www.ars.sante.fr",
+          "httponly": true,
+          "path": "/",
+          "port": null,
+          "secure": true
+        },
+        "TS510afef7029": {
+          "domain": "www.ars.sante.fr",
+          "max-age": 30,
+          "path": "/",
+          "port": null
+        },
+        "TSdfa203d6027": {
+          "domain": "www.ars.sante.fr",
+          "path": "/",
+          "port": null
+        }
+      },
+      "sameSite": false
+    },
+    "cross-origin-resource-sharing": {
+      "expectation": "cross-origin-resource-sharing-not-implemented",
+      "pass": true,
+      "result": "cross-origin-resource-sharing-not-implemented",
+      "scoreModifier": 0,
+      "data": null
+    },
+    "redirection": {
+      "expectation": "redirection-to-https",
+      "pass": true,
+      "result": "redirection-to-https",
+      "scoreModifier": 0,
+      "destination": "https://www.ars.sante.fr/",
+      "redirects": true,
+      "route": [
+        "http://www.ars.sante.fr/",
+        "https://www.ars.sante.fr/"
+      ],
+      "statusCode": 200
+    },
+    "referrer-policy": {
+      "expectation": "referrer-policy-private",
+      "pass": true,
+      "result": "referrer-policy-not-implemented",
+      "scoreModifier": 0,
+      "data": null,
+      "http": false,
+      "meta": false
+    },
+    "strict-transport-security": {
+      "expectation": "hsts-implemented-max-age-at-least-six-months",
+      "pass": false,
+      "result": "hsts-not-implemented",
+      "scoreModifier": -20,
+      "data": null,
+      "includeSubDomains": false,
+      "maxAge": null,
+      "preload": false,
+      "preloaded": false
+    },
+    "subresource-integrity": {
+      "expectation": "sri-implemented-and-external-scripts-loaded-securely",
+      "pass": false,
+      "result": "sri-not-implemented-but-external-scripts-loaded-securely",
+      "scoreModifier": -5,
+      "data": {
+        "https://tag.aticdn.net/piano-analytics.js": {
+          "crossorigin": null,
+          "integrity": null
+        }
+      }
+    },
+    "x-content-type-options": {
+      "expectation": "x-content-type-options-nosniff",
+      "pass": true,
+      "result": "x-content-type-options-nosniff",
+      "scoreModifier": 0,
+      "data": "nosniff"
+    },
+    "x-frame-options": {
+      "expectation": "x-frame-options-sameorigin-or-deny",
+      "pass": true,
+      "result": "x-frame-options-sameorigin-or-deny",
+      "scoreModifier": 0,
+      "data": "SAMEORIGIN"
+    },
+    "cross-origin-resource-policy": {
+      "expectation": "corp-implemented-with-same-site",
+      "pass": true,
+      "result": "corp-not-implemented",
+      "scoreModifier": 0,
+      "data": null,
+      "http": false,
+      "meta": false
+    }
+  }
+}
