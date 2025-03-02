@@ -1,0 +1,141 @@
+{
+  "scan": {
+    "algorithmVersion": 4,
+    "grade": "C+",
+    "error": null,
+    "score": 60,
+    "statusCode": 200,
+    "testsFailed": 4,
+    "testsPassed": 6,
+    "testsQuantity": 10,
+    "responseHeaders": {
+      "date": "Sun, 02 Mar 2025 05:50:50 GMT",
+      "x-spip-cache": "21600",
+      "x-frame-options": "SAMEORIGIN",
+      "last-modified": "Sun, 02 Mar 2025 05:50:50 GMT",
+      "vary": "Accept-Encoding",
+      "x-content-type-options": "nosniff",
+      "transfer-encoding": "chunked",
+      "content-type": "text/html; charset=utf-8",
+      "connection": "close",
+      "set-cookie": [
+        "BIGipServerpool-dicom-portail-dares.cegedim.cloud-HTTP=!5VH88sk0hRNTFfpP5lCVyMDCoPSDl/T8hzfjzTm8wPFEvSQzmxKw+Axj+YTz60l3qa9PyAuJcN62vD7EpSj+beEh89PG; path=/; Httponly; Secure",
+        "TS1349abd5027=087dc22938ab2000bfbcb3f022296936f33d041cfe6e4a65bc243b03db1f0b1b70b8a803d2b49e5908e8fc30451130005026071a7c68e2aad9e43f5fedd225f18693664654b09c3fc2b33a6067b3818f8aefb200fa8a2aa6dc288aa3e21d48eb; Path=/"
+      ],
+      "strict-transport-security": "max-age=31536000"
+    }
+  },
+  "tests": {
+    "content-security-policy": {
+      "expectation": "csp-implemented-with-no-unsafe",
+      "pass": false,
+      "result": "csp-not-implemented",
+      "scoreModifier": -25,
+      "data": null,
+      "http": false,
+      "meta": false,
+      "policy": null,
+      "numPolicies": 0
+    },
+    "cookies": {
+      "expectation": "cookies-secure-with-httponly-sessions",
+      "pass": false,
+      "result": "cookies-without-secure-flag-but-protected-by-hsts",
+      "scoreModifier": -5,
+      "data": {
+        "BIGipServerpool-dicom-portail-dares.cegedim.cloud-HTTP": {
+          "domain": "sante.gouv.fr",
+          "httponly": true,
+          "path": "/",
+          "port": null,
+          "secure": true
+        },
+        "TS1349abd5027": {
+          "domain": "sante.gouv.fr",
+          "path": "/",
+          "port": null
+        }
+      },
+      "sameSite": false
+    },
+    "cross-origin-resource-sharing": {
+      "expectation": "cross-origin-resource-sharing-not-implemented",
+      "pass": true,
+      "result": "cross-origin-resource-sharing-not-implemented",
+      "scoreModifier": 0,
+      "data": null
+    },
+    "redirection": {
+      "expectation": "redirection-to-https",
+      "pass": false,
+      "result": "redirection-off-host-from-http",
+      "scoreModifier": -5,
+      "destination": "https://sante.gouv.fr/",
+      "redirects": true,
+      "route": [
+        "http://solidarites-sante.gouv.fr/",
+        "https://sante.gouv.fr/"
+      ],
+      "statusCode": 200
+    },
+    "referrer-policy": {
+      "expectation": "referrer-policy-private",
+      "pass": true,
+      "result": "referrer-policy-not-implemented",
+      "scoreModifier": 0,
+      "data": null,
+      "http": false,
+      "meta": false
+    },
+    "strict-transport-security": {
+      "expectation": "hsts-implemented-max-age-at-least-six-months",
+      "pass": true,
+      "result": "hsts-implemented-max-age-at-least-six-months",
+      "scoreModifier": 0,
+      "data": "max-age=31536000",
+      "includeSubDomains": false,
+      "maxAge": 31536000,
+      "preload": false,
+      "preloaded": false
+    },
+    "subresource-integrity": {
+      "expectation": "sri-implemented-and-external-scripts-loaded-securely",
+      "pass": false,
+      "result": "sri-not-implemented-but-external-scripts-loaded-securely",
+      "scoreModifier": -5,
+      "data": {
+        "https://sante.gouv.fr/plugins/contrib/ancresdouces/js/jquery.scrollto.js": {
+          "crossorigin": null,
+          "integrity": null
+        },
+        "https://sante.gouv.fr/plugins/contrib/ancresdouces/js/jquery.localscroll.js": {
+          "crossorigin": null,
+          "integrity": null
+        }
+      }
+    },
+    "x-content-type-options": {
+      "expectation": "x-content-type-options-nosniff",
+      "pass": true,
+      "result": "x-content-type-options-nosniff",
+      "scoreModifier": 0,
+      "data": "nosniff"
+    },
+    "x-frame-options": {
+      "expectation": "x-frame-options-sameorigin-or-deny",
+      "pass": true,
+      "result": "x-frame-options-sameorigin-or-deny",
+      "scoreModifier": 0,
+      "data": "SAMEORIGIN"
+    },
+    "cross-origin-resource-policy": {
+      "expectation": "corp-implemented-with-same-site",
+      "pass": true,
+      "result": "corp-not-implemented",
+      "scoreModifier": 0,
+      "data": null,
+      "http": false,
+      "meta": false
+    }
+  }
+}
