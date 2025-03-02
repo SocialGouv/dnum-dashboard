@@ -1,0 +1,665 @@
+[
+  [
+    {
+      "template": "dns/caa-fingerprint.yaml",
+      "template-url": "https://templates.nuclei.sh/public/caa-fingerprint",
+      "template-id": "caa-fingerprint",
+      "template-path": "/home/runner/nuclei-templates/dns/caa-fingerprint.yaml",
+      "info": {
+        "name": "CAA Record",
+        "author": [
+          "pdteam"
+        ],
+        "tags": [
+          "dns",
+          "caa"
+        ],
+        "description": "A CAA record was discovered. A CAA record is used to specify which certificate authorities (CAs) are allowed to issue certificates for a domain.",
+        "reference": [
+          "https://support.dnsimple.com/articles/caa-record/#whats-a-caa-record"
+        ],
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        },
+        "classification": {
+          "cve-id": null,
+          "cwe-id": [
+            "cwe-200"
+          ]
+        }
+      },
+      "type": "dns",
+      "host": "datacollecte.equipements.sports.gouv.fr.",
+      "matched-at": "datacollecte.equipements.sports.gouv.fr",
+      "request": ";; opcode: QUERY, status: NOERROR, id: 56015\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;datacollecte.equipements.sports.gouv.fr.\tIN\t CAA\n",
+      "response": ";; opcode: QUERY, status: NOERROR, id: 56015\n;; flags: qr rd ra; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 1232\n\n;; QUESTION SECTION:\n;datacollecte.equipements.sports.gouv.fr.\tIN\t CAA\n\n;; AUTHORITY SECTION:\nsports.gouv.fr.\t3600\tIN\tSOA\ta.ns.developpement-durable.gouv.fr. dnsmaster.sante.gouv.fr. 2025022500 14400 3600 3000000 3600\n",
+      "timestamp": "2025-03-02T02:15:37.479833785Z",
+      "matcher-status": true
+    },
+    {
+      "template": "http/technologies/tech-detect.yaml",
+      "template-url": "https://templates.nuclei.sh/public/tech-detect",
+      "template-id": "tech-detect",
+      "template-path": "/home/runner/nuclei-templates/http/technologies/tech-detect.yaml",
+      "info": {
+        "name": "Wappalyzer Technology Detection",
+        "author": [
+          "hakluke",
+          "righettod"
+        ],
+        "tags": [
+          "tech"
+        ],
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "express",
+      "type": "http",
+      "host": "https://datacollecte.equipements.sports.gouv.fr",
+      "matched-at": "https://datacollecte.equipements.sports.gouv.fr",
+      "request": "GET / HTTP/1.1\r\nHost: datacollecte.equipements.sports.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAccept-Ranges: bytes\r\nAccess-Control-Allow-Headers: X-Requested-With,content-type,x-access-token\r\nAccess-Control-Allow-Methods: PUT, GET, POST, DELETE, OPTIONS\r\nAccess-Control-Allow-Origin: *\r\nCache-Control: public, max-age=0\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 02 Mar 2025 02:16:28 GMT\r\nEtag: W/\"5e9-192719f5380\"\r\nLast-Modified: Wed, 09 Oct 2024 14:12:00 GMT\r\nServer: nginx\r\nStrict-Transport-Security: max-age=63072000; includeSubdomains\r\nVary: Accept-Encoding\r\nX-Powered-By: Express\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n  <head>\n    <meta charset=\"utf-8\"/>\n    <title>Data ES : Recensement des équipements sportifs</title>\n    <base href=\"/\"/>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\"/>\n    <meta http-equiv=\"Cache-control\" content=\"no-cache, no-store, must-revalidate\"/>\n    <meta http-equiv=\"Pragma\" content=\"no-cache\"/>\n    <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\"/>\n    <script type=\"text/javascript\">\n      document.write('<scr' + 'ipt src=\"config.js?' + Math.random() + '\" type=\"text/javascript\"></scr' + 'ipt>');\n    </script>\n  <link rel=\"stylesheet\" href=\"styles-YBIEQ2LG.css\"></head>\n  <body>\n    <app-root>\n      <div class=\"chargement\">\n        <img class=\"loader\" src=\"assets/Images/loader.gif\" alt=\"\" aria-hidden=\"true\"/>\n        <p>Chargement...</p>\n      </div>\n    </app-root>\n  <link rel=\"modulepreload\" href=\"chunk-UTOGRR4B.js\"><link rel=\"modulepreload\" href=\"chunk-DBCFTHPB.js\"><link rel=\"modulepreload\" href=\"chunk-STTYDEHQ.js\"><link rel=\"modulepreload\" href=\"chunk-BQROW5VB.js\"><link rel=\"modulepreload\" href=\"chunk-JYZGGZM2.js\"><link rel=\"modulepreload\" href=\"chunk-5762NML2.js\"><link rel=\"modulepreload\" href=\"chunk-B5ZUMPZN.js\"><link rel=\"modulepreload\" href=\"chunk-5ER2BW4B.js\"><link rel=\"modulepreload\" href=\"chunk-SQMWBXPG.js\"><link rel=\"modulepreload\" href=\"chunk-RGROVEL4.js\"><script src=\"polyfills-4R6E2C5Q.js\" type=\"module\"></script><script src=\"main-X4NKFALI.js\" type=\"module\"></script></body>\n</html>\n",
+      "ip": "37.235.93.65",
+      "timestamp": "2025-03-02T02:16:28.610696627Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://datacollecte.equipements.sports.gouv.fr'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/technologies/tech-detect.yaml",
+      "template-url": "https://templates.nuclei.sh/public/tech-detect",
+      "template-id": "tech-detect",
+      "template-path": "/home/runner/nuclei-templates/http/technologies/tech-detect.yaml",
+      "info": {
+        "name": "Wappalyzer Technology Detection",
+        "author": [
+          "hakluke",
+          "righettod"
+        ],
+        "tags": [
+          "tech"
+        ],
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "nginx",
+      "type": "http",
+      "host": "https://datacollecte.equipements.sports.gouv.fr",
+      "matched-at": "https://datacollecte.equipements.sports.gouv.fr",
+      "request": "GET / HTTP/1.1\r\nHost: datacollecte.equipements.sports.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAccept-Ranges: bytes\r\nAccess-Control-Allow-Headers: X-Requested-With,content-type,x-access-token\r\nAccess-Control-Allow-Methods: PUT, GET, POST, DELETE, OPTIONS\r\nAccess-Control-Allow-Origin: *\r\nCache-Control: public, max-age=0\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 02 Mar 2025 02:16:28 GMT\r\nEtag: W/\"5e9-192719f5380\"\r\nLast-Modified: Wed, 09 Oct 2024 14:12:00 GMT\r\nServer: nginx\r\nStrict-Transport-Security: max-age=63072000; includeSubdomains\r\nVary: Accept-Encoding\r\nX-Powered-By: Express\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n  <head>\n    <meta charset=\"utf-8\"/>\n    <title>Data ES : Recensement des équipements sportifs</title>\n    <base href=\"/\"/>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\"/>\n    <meta http-equiv=\"Cache-control\" content=\"no-cache, no-store, must-revalidate\"/>\n    <meta http-equiv=\"Pragma\" content=\"no-cache\"/>\n    <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\"/>\n    <script type=\"text/javascript\">\n      document.write('<scr' + 'ipt src=\"config.js?' + Math.random() + '\" type=\"text/javascript\"></scr' + 'ipt>');\n    </script>\n  <link rel=\"stylesheet\" href=\"styles-YBIEQ2LG.css\"></head>\n  <body>\n    <app-root>\n      <div class=\"chargement\">\n        <img class=\"loader\" src=\"assets/Images/loader.gif\" alt=\"\" aria-hidden=\"true\"/>\n        <p>Chargement...</p>\n      </div>\n    </app-root>\n  <link rel=\"modulepreload\" href=\"chunk-UTOGRR4B.js\"><link rel=\"modulepreload\" href=\"chunk-DBCFTHPB.js\"><link rel=\"modulepreload\" href=\"chunk-STTYDEHQ.js\"><link rel=\"modulepreload\" href=\"chunk-BQROW5VB.js\"><link rel=\"modulepreload\" href=\"chunk-JYZGGZM2.js\"><link rel=\"modulepreload\" href=\"chunk-5762NML2.js\"><link rel=\"modulepreload\" href=\"chunk-B5ZUMPZN.js\"><link rel=\"modulepreload\" href=\"chunk-5ER2BW4B.js\"><link rel=\"modulepreload\" href=\"chunk-SQMWBXPG.js\"><link rel=\"modulepreload\" href=\"chunk-RGROVEL4.js\"><script src=\"polyfills-4R6E2C5Q.js\" type=\"module\"></script><script src=\"main-X4NKFALI.js\" type=\"module\"></script></body>\n</html>\n",
+      "ip": "37.235.93.65",
+      "timestamp": "2025-03-02T02:16:28.61074142Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://datacollecte.equipements.sports.gouv.fr'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs",
+          "userdehghani"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "cross-origin-embedder-policy",
+      "type": "http",
+      "host": "https://datacollecte.equipements.sports.gouv.fr",
+      "matched-at": "https://datacollecte.equipements.sports.gouv.fr",
+      "request": "GET / HTTP/1.1\r\nHost: datacollecte.equipements.sports.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAccept-Ranges: bytes\r\nAccess-Control-Allow-Headers: X-Requested-With,content-type,x-access-token\r\nAccess-Control-Allow-Methods: PUT, GET, POST, DELETE, OPTIONS\r\nAccess-Control-Allow-Origin: *\r\nCache-Control: public, max-age=0\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 02 Mar 2025 02:16:42 GMT\r\nEtag: W/\"5e9-192719f5380\"\r\nLast-Modified: Wed, 09 Oct 2024 14:12:00 GMT\r\nServer: nginx\r\nStrict-Transport-Security: max-age=63072000; includeSubdomains\r\nVary: Accept-Encoding\r\nX-Powered-By: Express\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n  <head>\n    <meta charset=\"utf-8\"/>\n    <title>Data ES : Recensement des équipements sportifs</title>\n    <base href=\"/\"/>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\"/>\n    <meta http-equiv=\"Cache-control\" content=\"no-cache, no-store, must-revalidate\"/>\n    <meta http-equiv=\"Pragma\" content=\"no-cache\"/>\n    <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\"/>\n    <script type=\"text/javascript\">\n      document.write('<scr' + 'ipt src=\"config.js?' + Math.random() + '\" type=\"text/javascript\"></scr' + 'ipt>');\n    </script>\n  <link rel=\"stylesheet\" href=\"styles-YBIEQ2LG.css\"></head>\n  <body>\n    <app-root>\n      <div class=\"chargement\">\n        <img class=\"loader\" src=\"assets/Images/loader.gif\" alt=\"\" aria-hidden=\"true\"/>\n        <p>Chargement...</p>\n      </div>\n    </app-root>\n  <link rel=\"modulepreload\" href=\"chunk-UTOGRR4B.js\"><link rel=\"modulepreload\" href=\"chunk-DBCFTHPB.js\"><link rel=\"modulepreload\" href=\"chunk-STTYDEHQ.js\"><link rel=\"modulepreload\" href=\"chunk-BQROW5VB.js\"><link rel=\"modulepreload\" href=\"chunk-JYZGGZM2.js\"><link rel=\"modulepreload\" href=\"chunk-5762NML2.js\"><link rel=\"modulepreload\" href=\"chunk-B5ZUMPZN.js\"><link rel=\"modulepreload\" href=\"chunk-5ER2BW4B.js\"><link rel=\"modulepreload\" href=\"chunk-SQMWBXPG.js\"><link rel=\"modulepreload\" href=\"chunk-RGROVEL4.js\"><script src=\"polyfills-4R6E2C5Q.js\" type=\"module\"></script><script src=\"main-X4NKFALI.js\" type=\"module\"></script></body>\n</html>\n",
+      "ip": "37.235.93.65",
+      "timestamp": "2025-03-02T02:16:42.369639519Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://datacollecte.equipements.sports.gouv.fr'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs",
+          "userdehghani"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "cross-origin-resource-policy",
+      "type": "http",
+      "host": "https://datacollecte.equipements.sports.gouv.fr",
+      "matched-at": "https://datacollecte.equipements.sports.gouv.fr",
+      "request": "GET / HTTP/1.1\r\nHost: datacollecte.equipements.sports.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAccept-Ranges: bytes\r\nAccess-Control-Allow-Headers: X-Requested-With,content-type,x-access-token\r\nAccess-Control-Allow-Methods: PUT, GET, POST, DELETE, OPTIONS\r\nAccess-Control-Allow-Origin: *\r\nCache-Control: public, max-age=0\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 02 Mar 2025 02:16:42 GMT\r\nEtag: W/\"5e9-192719f5380\"\r\nLast-Modified: Wed, 09 Oct 2024 14:12:00 GMT\r\nServer: nginx\r\nStrict-Transport-Security: max-age=63072000; includeSubdomains\r\nVary: Accept-Encoding\r\nX-Powered-By: Express\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n  <head>\n    <meta charset=\"utf-8\"/>\n    <title>Data ES : Recensement des équipements sportifs</title>\n    <base href=\"/\"/>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\"/>\n    <meta http-equiv=\"Cache-control\" content=\"no-cache, no-store, must-revalidate\"/>\n    <meta http-equiv=\"Pragma\" content=\"no-cache\"/>\n    <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\"/>\n    <script type=\"text/javascript\">\n      document.write('<scr' + 'ipt src=\"config.js?' + Math.random() + '\" type=\"text/javascript\"></scr' + 'ipt>');\n    </script>\n  <link rel=\"stylesheet\" href=\"styles-YBIEQ2LG.css\"></head>\n  <body>\n    <app-root>\n      <div class=\"chargement\">\n        <img class=\"loader\" src=\"assets/Images/loader.gif\" alt=\"\" aria-hidden=\"true\"/>\n        <p>Chargement...</p>\n      </div>\n    </app-root>\n  <link rel=\"modulepreload\" href=\"chunk-UTOGRR4B.js\"><link rel=\"modulepreload\" href=\"chunk-DBCFTHPB.js\"><link rel=\"modulepreload\" href=\"chunk-STTYDEHQ.js\"><link rel=\"modulepreload\" href=\"chunk-BQROW5VB.js\"><link rel=\"modulepreload\" href=\"chunk-JYZGGZM2.js\"><link rel=\"modulepreload\" href=\"chunk-5762NML2.js\"><link rel=\"modulepreload\" href=\"chunk-B5ZUMPZN.js\"><link rel=\"modulepreload\" href=\"chunk-5ER2BW4B.js\"><link rel=\"modulepreload\" href=\"chunk-SQMWBXPG.js\"><link rel=\"modulepreload\" href=\"chunk-RGROVEL4.js\"><script src=\"polyfills-4R6E2C5Q.js\" type=\"module\"></script><script src=\"main-X4NKFALI.js\" type=\"module\"></script></body>\n</html>\n",
+      "ip": "37.235.93.65",
+      "timestamp": "2025-03-02T02:16:42.369682269Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://datacollecte.equipements.sports.gouv.fr'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs",
+          "userdehghani"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "x-frame-options",
+      "type": "http",
+      "host": "https://datacollecte.equipements.sports.gouv.fr",
+      "matched-at": "https://datacollecte.equipements.sports.gouv.fr",
+      "request": "GET / HTTP/1.1\r\nHost: datacollecte.equipements.sports.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAccept-Ranges: bytes\r\nAccess-Control-Allow-Headers: X-Requested-With,content-type,x-access-token\r\nAccess-Control-Allow-Methods: PUT, GET, POST, DELETE, OPTIONS\r\nAccess-Control-Allow-Origin: *\r\nCache-Control: public, max-age=0\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 02 Mar 2025 02:16:42 GMT\r\nEtag: W/\"5e9-192719f5380\"\r\nLast-Modified: Wed, 09 Oct 2024 14:12:00 GMT\r\nServer: nginx\r\nStrict-Transport-Security: max-age=63072000; includeSubdomains\r\nVary: Accept-Encoding\r\nX-Powered-By: Express\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n  <head>\n    <meta charset=\"utf-8\"/>\n    <title>Data ES : Recensement des équipements sportifs</title>\n    <base href=\"/\"/>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\"/>\n    <meta http-equiv=\"Cache-control\" content=\"no-cache, no-store, must-revalidate\"/>\n    <meta http-equiv=\"Pragma\" content=\"no-cache\"/>\n    <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\"/>\n    <script type=\"text/javascript\">\n      document.write('<scr' + 'ipt src=\"config.js?' + Math.random() + '\" type=\"text/javascript\"></scr' + 'ipt>');\n    </script>\n  <link rel=\"stylesheet\" href=\"styles-YBIEQ2LG.css\"></head>\n  <body>\n    <app-root>\n      <div class=\"chargement\">\n        <img class=\"loader\" src=\"assets/Images/loader.gif\" alt=\"\" aria-hidden=\"true\"/>\n        <p>Chargement...</p>\n      </div>\n    </app-root>\n  <link rel=\"modulepreload\" href=\"chunk-UTOGRR4B.js\"><link rel=\"modulepreload\" href=\"chunk-DBCFTHPB.js\"><link rel=\"modulepreload\" href=\"chunk-STTYDEHQ.js\"><link rel=\"modulepreload\" href=\"chunk-BQROW5VB.js\"><link rel=\"modulepreload\" href=\"chunk-JYZGGZM2.js\"><link rel=\"modulepreload\" href=\"chunk-5762NML2.js\"><link rel=\"modulepreload\" href=\"chunk-B5ZUMPZN.js\"><link rel=\"modulepreload\" href=\"chunk-5ER2BW4B.js\"><link rel=\"modulepreload\" href=\"chunk-SQMWBXPG.js\"><link rel=\"modulepreload\" href=\"chunk-RGROVEL4.js\"><script src=\"polyfills-4R6E2C5Q.js\" type=\"module\"></script><script src=\"main-X4NKFALI.js\" type=\"module\"></script></body>\n</html>\n",
+      "ip": "37.235.93.65",
+      "timestamp": "2025-03-02T02:16:42.369696455Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://datacollecte.equipements.sports.gouv.fr'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs",
+          "userdehghani"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "x-content-type-options",
+      "type": "http",
+      "host": "https://datacollecte.equipements.sports.gouv.fr",
+      "matched-at": "https://datacollecte.equipements.sports.gouv.fr",
+      "request": "GET / HTTP/1.1\r\nHost: datacollecte.equipements.sports.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAccept-Ranges: bytes\r\nAccess-Control-Allow-Headers: X-Requested-With,content-type,x-access-token\r\nAccess-Control-Allow-Methods: PUT, GET, POST, DELETE, OPTIONS\r\nAccess-Control-Allow-Origin: *\r\nCache-Control: public, max-age=0\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 02 Mar 2025 02:16:42 GMT\r\nEtag: W/\"5e9-192719f5380\"\r\nLast-Modified: Wed, 09 Oct 2024 14:12:00 GMT\r\nServer: nginx\r\nStrict-Transport-Security: max-age=63072000; includeSubdomains\r\nVary: Accept-Encoding\r\nX-Powered-By: Express\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n  <head>\n    <meta charset=\"utf-8\"/>\n    <title>Data ES : Recensement des équipements sportifs</title>\n    <base href=\"/\"/>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\"/>\n    <meta http-equiv=\"Cache-control\" content=\"no-cache, no-store, must-revalidate\"/>\n    <meta http-equiv=\"Pragma\" content=\"no-cache\"/>\n    <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\"/>\n    <script type=\"text/javascript\">\n      document.write('<scr' + 'ipt src=\"config.js?' + Math.random() + '\" type=\"text/javascript\"></scr' + 'ipt>');\n    </script>\n  <link rel=\"stylesheet\" href=\"styles-YBIEQ2LG.css\"></head>\n  <body>\n    <app-root>\n      <div class=\"chargement\">\n        <img class=\"loader\" src=\"assets/Images/loader.gif\" alt=\"\" aria-hidden=\"true\"/>\n        <p>Chargement...</p>\n      </div>\n    </app-root>\n  <link rel=\"modulepreload\" href=\"chunk-UTOGRR4B.js\"><link rel=\"modulepreload\" href=\"chunk-DBCFTHPB.js\"><link rel=\"modulepreload\" href=\"chunk-STTYDEHQ.js\"><link rel=\"modulepreload\" href=\"chunk-BQROW5VB.js\"><link rel=\"modulepreload\" href=\"chunk-JYZGGZM2.js\"><link rel=\"modulepreload\" href=\"chunk-5762NML2.js\"><link rel=\"modulepreload\" href=\"chunk-B5ZUMPZN.js\"><link rel=\"modulepreload\" href=\"chunk-5ER2BW4B.js\"><link rel=\"modulepreload\" href=\"chunk-SQMWBXPG.js\"><link rel=\"modulepreload\" href=\"chunk-RGROVEL4.js\"><script src=\"polyfills-4R6E2C5Q.js\" type=\"module\"></script><script src=\"main-X4NKFALI.js\" type=\"module\"></script></body>\n</html>\n",
+      "ip": "37.235.93.65",
+      "timestamp": "2025-03-02T02:16:42.369716813Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://datacollecte.equipements.sports.gouv.fr'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs",
+          "userdehghani"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "clear-site-data",
+      "type": "http",
+      "host": "https://datacollecte.equipements.sports.gouv.fr",
+      "matched-at": "https://datacollecte.equipements.sports.gouv.fr",
+      "request": "GET / HTTP/1.1\r\nHost: datacollecte.equipements.sports.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAccept-Ranges: bytes\r\nAccess-Control-Allow-Headers: X-Requested-With,content-type,x-access-token\r\nAccess-Control-Allow-Methods: PUT, GET, POST, DELETE, OPTIONS\r\nAccess-Control-Allow-Origin: *\r\nCache-Control: public, max-age=0\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 02 Mar 2025 02:16:42 GMT\r\nEtag: W/\"5e9-192719f5380\"\r\nLast-Modified: Wed, 09 Oct 2024 14:12:00 GMT\r\nServer: nginx\r\nStrict-Transport-Security: max-age=63072000; includeSubdomains\r\nVary: Accept-Encoding\r\nX-Powered-By: Express\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n  <head>\n    <meta charset=\"utf-8\"/>\n    <title>Data ES : Recensement des équipements sportifs</title>\n    <base href=\"/\"/>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\"/>\n    <meta http-equiv=\"Cache-control\" content=\"no-cache, no-store, must-revalidate\"/>\n    <meta http-equiv=\"Pragma\" content=\"no-cache\"/>\n    <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\"/>\n    <script type=\"text/javascript\">\n      document.write('<scr' + 'ipt src=\"config.js?' + Math.random() + '\" type=\"text/javascript\"></scr' + 'ipt>');\n    </script>\n  <link rel=\"stylesheet\" href=\"styles-YBIEQ2LG.css\"></head>\n  <body>\n    <app-root>\n      <div class=\"chargement\">\n        <img class=\"loader\" src=\"assets/Images/loader.gif\" alt=\"\" aria-hidden=\"true\"/>\n        <p>Chargement...</p>\n      </div>\n    </app-root>\n  <link rel=\"modulepreload\" href=\"chunk-UTOGRR4B.js\"><link rel=\"modulepreload\" href=\"chunk-DBCFTHPB.js\"><link rel=\"modulepreload\" href=\"chunk-STTYDEHQ.js\"><link rel=\"modulepreload\" href=\"chunk-BQROW5VB.js\"><link rel=\"modulepreload\" href=\"chunk-JYZGGZM2.js\"><link rel=\"modulepreload\" href=\"chunk-5762NML2.js\"><link rel=\"modulepreload\" href=\"chunk-B5ZUMPZN.js\"><link rel=\"modulepreload\" href=\"chunk-5ER2BW4B.js\"><link rel=\"modulepreload\" href=\"chunk-SQMWBXPG.js\"><link rel=\"modulepreload\" href=\"chunk-RGROVEL4.js\"><script src=\"polyfills-4R6E2C5Q.js\" type=\"module\"></script><script src=\"main-X4NKFALI.js\" type=\"module\"></script></body>\n</html>\n",
+      "ip": "37.235.93.65",
+      "timestamp": "2025-03-02T02:16:42.369736289Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://datacollecte.equipements.sports.gouv.fr'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs",
+          "userdehghani"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "referrer-policy",
+      "type": "http",
+      "host": "https://datacollecte.equipements.sports.gouv.fr",
+      "matched-at": "https://datacollecte.equipements.sports.gouv.fr",
+      "request": "GET / HTTP/1.1\r\nHost: datacollecte.equipements.sports.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAccept-Ranges: bytes\r\nAccess-Control-Allow-Headers: X-Requested-With,content-type,x-access-token\r\nAccess-Control-Allow-Methods: PUT, GET, POST, DELETE, OPTIONS\r\nAccess-Control-Allow-Origin: *\r\nCache-Control: public, max-age=0\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 02 Mar 2025 02:16:42 GMT\r\nEtag: W/\"5e9-192719f5380\"\r\nLast-Modified: Wed, 09 Oct 2024 14:12:00 GMT\r\nServer: nginx\r\nStrict-Transport-Security: max-age=63072000; includeSubdomains\r\nVary: Accept-Encoding\r\nX-Powered-By: Express\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n  <head>\n    <meta charset=\"utf-8\"/>\n    <title>Data ES : Recensement des équipements sportifs</title>\n    <base href=\"/\"/>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\"/>\n    <meta http-equiv=\"Cache-control\" content=\"no-cache, no-store, must-revalidate\"/>\n    <meta http-equiv=\"Pragma\" content=\"no-cache\"/>\n    <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\"/>\n    <script type=\"text/javascript\">\n      document.write('<scr' + 'ipt src=\"config.js?' + Math.random() + '\" type=\"text/javascript\"></scr' + 'ipt>');\n    </script>\n  <link rel=\"stylesheet\" href=\"styles-YBIEQ2LG.css\"></head>\n  <body>\n    <app-root>\n      <div class=\"chargement\">\n        <img class=\"loader\" src=\"assets/Images/loader.gif\" alt=\"\" aria-hidden=\"true\"/>\n        <p>Chargement...</p>\n      </div>\n    </app-root>\n  <link rel=\"modulepreload\" href=\"chunk-UTOGRR4B.js\"><link rel=\"modulepreload\" href=\"chunk-DBCFTHPB.js\"><link rel=\"modulepreload\" href=\"chunk-STTYDEHQ.js\"><link rel=\"modulepreload\" href=\"chunk-BQROW5VB.js\"><link rel=\"modulepreload\" href=\"chunk-JYZGGZM2.js\"><link rel=\"modulepreload\" href=\"chunk-5762NML2.js\"><link rel=\"modulepreload\" href=\"chunk-B5ZUMPZN.js\"><link rel=\"modulepreload\" href=\"chunk-5ER2BW4B.js\"><link rel=\"modulepreload\" href=\"chunk-SQMWBXPG.js\"><link rel=\"modulepreload\" href=\"chunk-RGROVEL4.js\"><script src=\"polyfills-4R6E2C5Q.js\" type=\"module\"></script><script src=\"main-X4NKFALI.js\" type=\"module\"></script></body>\n</html>\n",
+      "ip": "37.235.93.65",
+      "timestamp": "2025-03-02T02:16:42.369755154Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://datacollecte.equipements.sports.gouv.fr'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs",
+          "userdehghani"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "cross-origin-opener-policy",
+      "type": "http",
+      "host": "https://datacollecte.equipements.sports.gouv.fr",
+      "matched-at": "https://datacollecte.equipements.sports.gouv.fr",
+      "request": "GET / HTTP/1.1\r\nHost: datacollecte.equipements.sports.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAccept-Ranges: bytes\r\nAccess-Control-Allow-Headers: X-Requested-With,content-type,x-access-token\r\nAccess-Control-Allow-Methods: PUT, GET, POST, DELETE, OPTIONS\r\nAccess-Control-Allow-Origin: *\r\nCache-Control: public, max-age=0\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 02 Mar 2025 02:16:42 GMT\r\nEtag: W/\"5e9-192719f5380\"\r\nLast-Modified: Wed, 09 Oct 2024 14:12:00 GMT\r\nServer: nginx\r\nStrict-Transport-Security: max-age=63072000; includeSubdomains\r\nVary: Accept-Encoding\r\nX-Powered-By: Express\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n  <head>\n    <meta charset=\"utf-8\"/>\n    <title>Data ES : Recensement des équipements sportifs</title>\n    <base href=\"/\"/>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\"/>\n    <meta http-equiv=\"Cache-control\" content=\"no-cache, no-store, must-revalidate\"/>\n    <meta http-equiv=\"Pragma\" content=\"no-cache\"/>\n    <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\"/>\n    <script type=\"text/javascript\">\n      document.write('<scr' + 'ipt src=\"config.js?' + Math.random() + '\" type=\"text/javascript\"></scr' + 'ipt>');\n    </script>\n  <link rel=\"stylesheet\" href=\"styles-YBIEQ2LG.css\"></head>\n  <body>\n    <app-root>\n      <div class=\"chargement\">\n        <img class=\"loader\" src=\"assets/Images/loader.gif\" alt=\"\" aria-hidden=\"true\"/>\n        <p>Chargement...</p>\n      </div>\n    </app-root>\n  <link rel=\"modulepreload\" href=\"chunk-UTOGRR4B.js\"><link rel=\"modulepreload\" href=\"chunk-DBCFTHPB.js\"><link rel=\"modulepreload\" href=\"chunk-STTYDEHQ.js\"><link rel=\"modulepreload\" href=\"chunk-BQROW5VB.js\"><link rel=\"modulepreload\" href=\"chunk-JYZGGZM2.js\"><link rel=\"modulepreload\" href=\"chunk-5762NML2.js\"><link rel=\"modulepreload\" href=\"chunk-B5ZUMPZN.js\"><link rel=\"modulepreload\" href=\"chunk-5ER2BW4B.js\"><link rel=\"modulepreload\" href=\"chunk-SQMWBXPG.js\"><link rel=\"modulepreload\" href=\"chunk-RGROVEL4.js\"><script src=\"polyfills-4R6E2C5Q.js\" type=\"module\"></script><script src=\"main-X4NKFALI.js\" type=\"module\"></script></body>\n</html>\n",
+      "ip": "37.235.93.65",
+      "timestamp": "2025-03-02T02:16:42.36977401Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://datacollecte.equipements.sports.gouv.fr'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs",
+          "userdehghani"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "content-security-policy",
+      "type": "http",
+      "host": "https://datacollecte.equipements.sports.gouv.fr",
+      "matched-at": "https://datacollecte.equipements.sports.gouv.fr",
+      "request": "GET / HTTP/1.1\r\nHost: datacollecte.equipements.sports.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAccept-Ranges: bytes\r\nAccess-Control-Allow-Headers: X-Requested-With,content-type,x-access-token\r\nAccess-Control-Allow-Methods: PUT, GET, POST, DELETE, OPTIONS\r\nAccess-Control-Allow-Origin: *\r\nCache-Control: public, max-age=0\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 02 Mar 2025 02:16:42 GMT\r\nEtag: W/\"5e9-192719f5380\"\r\nLast-Modified: Wed, 09 Oct 2024 14:12:00 GMT\r\nServer: nginx\r\nStrict-Transport-Security: max-age=63072000; includeSubdomains\r\nVary: Accept-Encoding\r\nX-Powered-By: Express\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n  <head>\n    <meta charset=\"utf-8\"/>\n    <title>Data ES : Recensement des équipements sportifs</title>\n    <base href=\"/\"/>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\"/>\n    <meta http-equiv=\"Cache-control\" content=\"no-cache, no-store, must-revalidate\"/>\n    <meta http-equiv=\"Pragma\" content=\"no-cache\"/>\n    <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\"/>\n    <script type=\"text/javascript\">\n      document.write('<scr' + 'ipt src=\"config.js?' + Math.random() + '\" type=\"text/javascript\"></scr' + 'ipt>');\n    </script>\n  <link rel=\"stylesheet\" href=\"styles-YBIEQ2LG.css\"></head>\n  <body>\n    <app-root>\n      <div class=\"chargement\">\n        <img class=\"loader\" src=\"assets/Images/loader.gif\" alt=\"\" aria-hidden=\"true\"/>\n        <p>Chargement...</p>\n      </div>\n    </app-root>\n  <link rel=\"modulepreload\" href=\"chunk-UTOGRR4B.js\"><link rel=\"modulepreload\" href=\"chunk-DBCFTHPB.js\"><link rel=\"modulepreload\" href=\"chunk-STTYDEHQ.js\"><link rel=\"modulepreload\" href=\"chunk-BQROW5VB.js\"><link rel=\"modulepreload\" href=\"chunk-JYZGGZM2.js\"><link rel=\"modulepreload\" href=\"chunk-5762NML2.js\"><link rel=\"modulepreload\" href=\"chunk-B5ZUMPZN.js\"><link rel=\"modulepreload\" href=\"chunk-5ER2BW4B.js\"><link rel=\"modulepreload\" href=\"chunk-SQMWBXPG.js\"><link rel=\"modulepreload\" href=\"chunk-RGROVEL4.js\"><script src=\"polyfills-4R6E2C5Q.js\" type=\"module\"></script><script src=\"main-X4NKFALI.js\" type=\"module\"></script></body>\n</html>\n",
+      "ip": "37.235.93.65",
+      "timestamp": "2025-03-02T02:16:42.369793055Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://datacollecte.equipements.sports.gouv.fr'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs",
+          "userdehghani"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "permissions-policy",
+      "type": "http",
+      "host": "https://datacollecte.equipements.sports.gouv.fr",
+      "matched-at": "https://datacollecte.equipements.sports.gouv.fr",
+      "request": "GET / HTTP/1.1\r\nHost: datacollecte.equipements.sports.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAccept-Ranges: bytes\r\nAccess-Control-Allow-Headers: X-Requested-With,content-type,x-access-token\r\nAccess-Control-Allow-Methods: PUT, GET, POST, DELETE, OPTIONS\r\nAccess-Control-Allow-Origin: *\r\nCache-Control: public, max-age=0\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 02 Mar 2025 02:16:42 GMT\r\nEtag: W/\"5e9-192719f5380\"\r\nLast-Modified: Wed, 09 Oct 2024 14:12:00 GMT\r\nServer: nginx\r\nStrict-Transport-Security: max-age=63072000; includeSubdomains\r\nVary: Accept-Encoding\r\nX-Powered-By: Express\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n  <head>\n    <meta charset=\"utf-8\"/>\n    <title>Data ES : Recensement des équipements sportifs</title>\n    <base href=\"/\"/>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\"/>\n    <meta http-equiv=\"Cache-control\" content=\"no-cache, no-store, must-revalidate\"/>\n    <meta http-equiv=\"Pragma\" content=\"no-cache\"/>\n    <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\"/>\n    <script type=\"text/javascript\">\n      document.write('<scr' + 'ipt src=\"config.js?' + Math.random() + '\" type=\"text/javascript\"></scr' + 'ipt>');\n    </script>\n  <link rel=\"stylesheet\" href=\"styles-YBIEQ2LG.css\"></head>\n  <body>\n    <app-root>\n      <div class=\"chargement\">\n        <img class=\"loader\" src=\"assets/Images/loader.gif\" alt=\"\" aria-hidden=\"true\"/>\n        <p>Chargement...</p>\n      </div>\n    </app-root>\n  <link rel=\"modulepreload\" href=\"chunk-UTOGRR4B.js\"><link rel=\"modulepreload\" href=\"chunk-DBCFTHPB.js\"><link rel=\"modulepreload\" href=\"chunk-STTYDEHQ.js\"><link rel=\"modulepreload\" href=\"chunk-BQROW5VB.js\"><link rel=\"modulepreload\" href=\"chunk-JYZGGZM2.js\"><link rel=\"modulepreload\" href=\"chunk-5762NML2.js\"><link rel=\"modulepreload\" href=\"chunk-B5ZUMPZN.js\"><link rel=\"modulepreload\" href=\"chunk-5ER2BW4B.js\"><link rel=\"modulepreload\" href=\"chunk-SQMWBXPG.js\"><link rel=\"modulepreload\" href=\"chunk-RGROVEL4.js\"><script src=\"polyfills-4R6E2C5Q.js\" type=\"module\"></script><script src=\"main-X4NKFALI.js\" type=\"module\"></script></body>\n</html>\n",
+      "ip": "37.235.93.65",
+      "timestamp": "2025-03-02T02:16:42.369811199Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://datacollecte.equipements.sports.gouv.fr'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs",
+          "userdehghani"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "x-permitted-cross-domain-policies",
+      "type": "http",
+      "host": "https://datacollecte.equipements.sports.gouv.fr",
+      "matched-at": "https://datacollecte.equipements.sports.gouv.fr",
+      "request": "GET / HTTP/1.1\r\nHost: datacollecte.equipements.sports.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAccept-Ranges: bytes\r\nAccess-Control-Allow-Headers: X-Requested-With,content-type,x-access-token\r\nAccess-Control-Allow-Methods: PUT, GET, POST, DELETE, OPTIONS\r\nAccess-Control-Allow-Origin: *\r\nCache-Control: public, max-age=0\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 02 Mar 2025 02:16:42 GMT\r\nEtag: W/\"5e9-192719f5380\"\r\nLast-Modified: Wed, 09 Oct 2024 14:12:00 GMT\r\nServer: nginx\r\nStrict-Transport-Security: max-age=63072000; includeSubdomains\r\nVary: Accept-Encoding\r\nX-Powered-By: Express\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n  <head>\n    <meta charset=\"utf-8\"/>\n    <title>Data ES : Recensement des équipements sportifs</title>\n    <base href=\"/\"/>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\"/>\n    <meta http-equiv=\"Cache-control\" content=\"no-cache, no-store, must-revalidate\"/>\n    <meta http-equiv=\"Pragma\" content=\"no-cache\"/>\n    <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\"/>\n    <script type=\"text/javascript\">\n      document.write('<scr' + 'ipt src=\"config.js?' + Math.random() + '\" type=\"text/javascript\"></scr' + 'ipt>');\n    </script>\n  <link rel=\"stylesheet\" href=\"styles-YBIEQ2LG.css\"></head>\n  <body>\n    <app-root>\n      <div class=\"chargement\">\n        <img class=\"loader\" src=\"assets/Images/loader.gif\" alt=\"\" aria-hidden=\"true\"/>\n        <p>Chargement...</p>\n      </div>\n    </app-root>\n  <link rel=\"modulepreload\" href=\"chunk-UTOGRR4B.js\"><link rel=\"modulepreload\" href=\"chunk-DBCFTHPB.js\"><link rel=\"modulepreload\" href=\"chunk-STTYDEHQ.js\"><link rel=\"modulepreload\" href=\"chunk-BQROW5VB.js\"><link rel=\"modulepreload\" href=\"chunk-JYZGGZM2.js\"><link rel=\"modulepreload\" href=\"chunk-5762NML2.js\"><link rel=\"modulepreload\" href=\"chunk-B5ZUMPZN.js\"><link rel=\"modulepreload\" href=\"chunk-5ER2BW4B.js\"><link rel=\"modulepreload\" href=\"chunk-SQMWBXPG.js\"><link rel=\"modulepreload\" href=\"chunk-RGROVEL4.js\"><script src=\"polyfills-4R6E2C5Q.js\" type=\"module\"></script><script src=\"main-X4NKFALI.js\" type=\"module\"></script></body>\n</html>\n",
+      "ip": "37.235.93.65",
+      "timestamp": "2025-03-02T02:16:42.369829583Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://datacollecte.equipements.sports.gouv.fr'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/technologies/waf-detect.yaml",
+      "template-url": "https://templates.nuclei.sh/public/waf-detect",
+      "template-id": "waf-detect",
+      "template-path": "/home/runner/nuclei-templates/http/technologies/waf-detect.yaml",
+      "info": {
+        "name": "WAF Detection",
+        "author": [
+          "dwisiswant0",
+          "lu4nx"
+        ],
+        "tags": [
+          "waf",
+          "tech",
+          "misc"
+        ],
+        "description": "A web application firewall was detected.",
+        "reference": [
+          "https://github.com/ekultek/whatwaf"
+        ],
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        },
+        "classification": {
+          "cve-id": null,
+          "cwe-id": [
+            "cwe-200"
+          ]
+        }
+      },
+      "matcher-name": "nginxgeneric",
+      "type": "http",
+      "host": "https://datacollecte.equipements.sports.gouv.fr",
+      "matched-at": "https://datacollecte.equipements.sports.gouv.fr/",
+      "request": "POST / HTTP/1.1\r\nHost: datacollecte.equipements.sports.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nContent-Length: 27\r\nContent-Type: application/x-www-form-urlencoded\r\nAccept-Encoding: gzip\r\n\r\n_=<script>alert(1)</script>",
+      "response": "HTTP/1.1 200 OK\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAccept-Ranges: bytes\r\nAccess-Control-Allow-Headers: X-Requested-With,content-type,x-access-token\r\nAccess-Control-Allow-Methods: PUT, GET, POST, DELETE, OPTIONS\r\nAccess-Control-Allow-Origin: *\r\nCache-Control: public, max-age=0\r\nContent-Type: text/html; charset=UTF-8\r\nDate: Sun, 02 Mar 2025 02:17:15 GMT\r\nEtag: W/\"5e9-192719f5380\"\r\nLast-Modified: Wed, 09 Oct 2024 14:12:00 GMT\r\nServer: nginx\r\nStrict-Transport-Security: max-age=63072000; includeSubdomains\r\nVary: Accept-Encoding\r\nX-Powered-By: Express\r\n\r\n<!doctype html>\n<html lang=\"fr\">\n  <head>\n    <meta charset=\"utf-8\"/>\n    <title>Data ES : Recensement des équipements sportifs</title>\n    <base href=\"/\"/>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\"/>\n    <meta http-equiv=\"Cache-control\" content=\"no-cache, no-store, must-revalidate\"/>\n    <meta http-equiv=\"Pragma\" content=\"no-cache\"/>\n    <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\"/>\n    <script type=\"text/javascript\">\n      document.write('<scr' + 'ipt src=\"config.js?' + Math.random() + '\" type=\"text/javascript\"></scr' + 'ipt>');\n    </script>\n  <link rel=\"stylesheet\" href=\"styles-YBIEQ2LG.css\"></head>\n  <body>\n    <app-root>\n      <div class=\"chargement\">\n        <img class=\"loader\" src=\"assets/Images/loader.gif\" alt=\"\" aria-hidden=\"true\"/>\n        <p>Chargement...</p>\n      </div>\n    </app-root>\n  <link rel=\"modulepreload\" href=\"chunk-UTOGRR4B.js\"><link rel=\"modulepreload\" href=\"chunk-DBCFTHPB.js\"><link rel=\"modulepreload\" href=\"chunk-STTYDEHQ.js\"><link rel=\"modulepreload\" href=\"chunk-BQROW5VB.js\"><link rel=\"modulepreload\" href=\"chunk-JYZGGZM2.js\"><link rel=\"modulepreload\" href=\"chunk-5762NML2.js\"><link rel=\"modulepreload\" href=\"chunk-B5ZUMPZN.js\"><link rel=\"modulepreload\" href=\"chunk-5ER2BW4B.js\"><link rel=\"modulepreload\" href=\"chunk-SQMWBXPG.js\"><link rel=\"modulepreload\" href=\"chunk-RGROVEL4.js\"><script src=\"polyfills-4R6E2C5Q.js\" type=\"module\"></script><script src=\"main-X4NKFALI.js\" type=\"module\"></script></body>\n</html>\n",
+      "ip": "37.235.93.65",
+      "timestamp": "2025-03-02T02:17:15.219420169Z",
+      "curl-command": "curl -X 'POST' -d '_=<script>alert(1)</script>' -H 'Content-Type: application/x-www-form-urlencoded' -H 'Host: datacollecte.equipements.sports.gouv.fr' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://datacollecte.equipements.sports.gouv.fr/'",
+      "matcher-status": true
+    },
+    {
+      "template": "ssl/tls-version.yaml",
+      "template-url": "https://templates.nuclei.sh/public/tls-version",
+      "template-id": "tls-version",
+      "template-path": "/home/runner/nuclei-templates/ssl/tls-version.yaml",
+      "info": {
+        "name": "TLS Version - Detect",
+        "author": [
+          "pdteam",
+          "pussycat0x"
+        ],
+        "tags": [
+          "ssl",
+          "tls"
+        ],
+        "description": "TLS version detection is a security process used to determine the version of the Transport Layer Security (TLS) protocol used by a computer or server.\nIt is important to detect the TLS version in order to ensure secure communication between two computers or servers.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 4
+        }
+      },
+      "type": "ssl",
+      "host": "datacollecte.equipements.sports.gouv.fr",
+      "matched-at": "datacollecte.equipements.sports.gouv.fr:443",
+      "extracted-results": [
+        "tls12"
+      ],
+      "ip": "37.235.93.65",
+      "timestamp": "2025-03-02T02:19:07.38596848Z",
+      "matcher-status": true
+    },
+    {
+      "template": "ssl/detect-ssl-issuer.yaml",
+      "template-url": "https://templates.nuclei.sh/public/ssl-issuer",
+      "template-id": "ssl-issuer",
+      "template-path": "/home/runner/nuclei-templates/ssl/detect-ssl-issuer.yaml",
+      "info": {
+        "name": "Detect SSL Certificate Issuer",
+        "author": [
+          "lingtren"
+        ],
+        "tags": [
+          "ssl",
+          "tls"
+        ],
+        "description": "Extract the issuer's organization from the target's certificate. Issuers are entities which sign and distribute certificates.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "type": "ssl",
+      "host": "datacollecte.equipements.sports.gouv.fr",
+      "matched-at": "datacollecte.equipements.sports.gouv.fr:443",
+      "extracted-results": [
+        "DHIMYOTIS"
+      ],
+      "ip": "37.235.93.65",
+      "timestamp": "2025-03-02T02:19:07.664569578Z",
+      "matcher-status": true
+    },
+    {
+      "template": "ssl/ssl-dns-names.yaml",
+      "template-url": "https://templates.nuclei.sh/public/ssl-dns-names",
+      "template-id": "ssl-dns-names",
+      "template-path": "/home/runner/nuclei-templates/ssl/ssl-dns-names.yaml",
+      "info": {
+        "name": "SSL DNS Names",
+        "author": [
+          "pdteam"
+        ],
+        "tags": [
+          "ssl",
+          "tls"
+        ],
+        "description": "Extract the Subject Alternative Name (SAN) from the target's certificate. SAN facilitates the usage of additional hostnames with the same certificate.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "type": "ssl",
+      "host": "datacollecte.equipements.sports.gouv.fr",
+      "matched-at": "datacollecte.equipements.sports.gouv.fr:443",
+      "extracted-results": [
+        "datacollecte.equipements.sports.gouv.fr"
+      ],
+      "ip": "37.235.93.65",
+      "timestamp": "2025-03-02T02:19:07.664750436Z",
+      "matcher-status": true
+    },
+    {
+      "template": "ssl/tls-version.yaml",
+      "template-url": "https://templates.nuclei.sh/public/tls-version",
+      "template-id": "tls-version",
+      "template-path": "/home/runner/nuclei-templates/ssl/tls-version.yaml",
+      "info": {
+        "name": "TLS Version - Detect",
+        "author": [
+          "pdteam",
+          "pussycat0x"
+        ],
+        "tags": [
+          "ssl",
+          "tls"
+        ],
+        "description": "TLS version detection is a security process used to determine the version of the Transport Layer Security (TLS) protocol used by a computer or server.\nIt is important to detect the TLS version in order to ensure secure communication between two computers or servers.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 4
+        }
+      },
+      "type": "ssl",
+      "host": "datacollecte.equipements.sports.gouv.fr",
+      "matched-at": "datacollecte.equipements.sports.gouv.fr:443",
+      "extracted-results": [
+        "tls13"
+      ],
+      "ip": "37.235.93.65",
+      "timestamp": "2025-03-02T02:19:08.526471507Z",
+      "matcher-status": true
+    }
+  ]
+]
