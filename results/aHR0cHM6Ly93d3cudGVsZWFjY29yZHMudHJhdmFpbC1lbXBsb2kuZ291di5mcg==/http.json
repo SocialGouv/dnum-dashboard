@@ -1,0 +1,192 @@
+{
+  "scan": {
+    "algorithmVersion": 4,
+    "grade": "A",
+    "error": null,
+    "score": 95,
+    "statusCode": 200,
+    "testsFailed": 1,
+    "testsPassed": 9,
+    "testsQuantity": 10,
+    "responseHeaders": {
+      "vary": "origin,access-control-request-method,access-control-request-headers,accept-encoding",
+      "last-modified": "Mon, 25 Nov 2024 11:56:38 GMT",
+      "accept-ranges": "bytes",
+      "x-content-type-options": "nosniff",
+      "x-xss-protection": "0",
+      "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+      "pragma": "no-cache",
+      "expires": "0",
+      "strict-transport-security": "max-age=31536000; includeSubDomains",
+      "x-frame-options": "DENY",
+      "content-security-policy": "default-src 'self' 'nonce-dsfr-index' 'nonce-javascript-index' 'nonce-roboto-index' 'nonce-icons-index' 'nonce-fontsgstatic'; object-src 'none';img-src 'self' data:; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src 'self' data: fonts.gstatic.com; connect-src 'self' https://api-adresse.data.gouv.fr/ https://geo.api.gouv.fr/ https://agadir-app.rct01.kleegroup.com/ https://*.auth.integ-app.daccord-ssg.net https://*.auth.valid-app.daccord-ssg.net; script-src 'self' 'nonce-dsfr-index' 'nonce-javascript-index' 'nonce-roboto-index' 'nonce-icons-index' 'nonce-fontsgstatic'",
+      "content-type": "text/html;charset=UTF-8",
+      "content-language": "en-US",
+      "date": "Sun, 02 Mar 2025 06:52:39 GMT",
+      "connection": "close",
+      "set-cookie": [
+        "BIGipServerpool-accords-depot-prod.cegedim.cloud-TCP8080=!wBsurMbDKIKfJIdP5lCVyMDCoPSDl9L/PnPz7vHkzaYegtOgOw/Dslj59eUwxJNoHQIldl3+6J5QawQE9SjrsLLqi5jT; path=/; Httponly; Secure",
+        "TS01ac8ac8=01352d381182f88e9bb5bffff6868bacddf4c0783b52dbf933f4086d2f40cc1e3a4f21c9f493f43340c0c1a7bc446f91b437d2978a; Path=/;"
+      ],
+      "transfer-encoding": "chunked"
+    }
+  },
+  "tests": {
+    "content-security-policy": {
+      "expectation": "csp-implemented-with-no-unsafe",
+      "pass": true,
+      "result": "csp-implemented-with-unsafe-inline-in-style-src-only",
+      "scoreModifier": 0,
+      "data": {
+        "default-src": [
+          "'nonce-dsfr-index'",
+          "'nonce-fontsgstatic'",
+          "'nonce-icons-index'",
+          "'nonce-javascript-index'",
+          "'nonce-roboto-index'",
+          "'self'"
+        ],
+        "object-src": [
+          "'none'"
+        ],
+        "img-src": [
+          "'self'",
+          "data:"
+        ],
+        "style-src": [
+          "'self'",
+          "'unsafe-inline'",
+          "fonts.googleapis.com"
+        ],
+        "font-src": [
+          "'self'",
+          "data:",
+          "fonts.gstatic.com"
+        ],
+        "connect-src": [
+          "'self'",
+          "https://*.auth.integ-app.daccord-ssg.net",
+          "https://*.auth.valid-app.daccord-ssg.net",
+          "https://api-adresse.data.gouv.fr/",
+          "https://geo.api.gouv.fr/"
+        ],
+        "script-src": [
+          "'nonce-dsfr-index'",
+          "'nonce-fontsgstatic'",
+          "'nonce-icons-index'",
+          "'nonce-javascript-index'",
+          "'nonce-roboto-index'",
+          "'self'"
+        ]
+      },
+      "http": true,
+      "meta": true,
+      "policy": {
+        "antiClickjacking": false,
+        "defaultNone": false,
+        "insecureBaseUri": true,
+        "insecureFormAction": true,
+        "insecureSchemeActive": false,
+        "insecureSchemePassive": false,
+        "strictDynamic": false,
+        "unsafeEval": false,
+        "unsafeInline": false,
+        "unsafeInlineStyle": true,
+        "unsafeObjects": false
+      },
+      "numPolicies": 2
+    },
+    "cookies": {
+      "expectation": "cookies-secure-with-httponly-sessions",
+      "pass": false,
+      "result": "cookies-without-secure-flag-but-protected-by-hsts",
+      "scoreModifier": -5,
+      "data": {
+        "BIGipServerpool-accords-depot-prod.cegedim.cloud-TCP8080": {
+          "domain": "accords-depot.travail.gouv.fr",
+          "httponly": true,
+          "path": "/",
+          "port": null,
+          "secure": true
+        },
+        "TS01ac8ac8": {
+          "domain": "accords-depot.travail.gouv.fr",
+          "path": "/",
+          "port": null
+        }
+      },
+      "sameSite": false
+    },
+    "cross-origin-resource-sharing": {
+      "expectation": "cross-origin-resource-sharing-not-implemented",
+      "pass": true,
+      "result": "cross-origin-resource-sharing-not-implemented",
+      "scoreModifier": 0,
+      "data": null
+    },
+    "redirection": {
+      "expectation": "redirection-to-https",
+      "pass": true,
+      "result": "redirection-to-https",
+      "scoreModifier": 0,
+      "destination": "https://accords-depot.travail.gouv.fr/",
+      "redirects": true,
+      "route": [
+        "http://www.teleaccords.travail-emploi.gouv.fr/",
+        "https://www.teleaccords.travail-emploi.gouv.fr/",
+        "https://accords-depot.travail.gouv.fr/"
+      ],
+      "statusCode": 200
+    },
+    "referrer-policy": {
+      "expectation": "referrer-policy-private",
+      "pass": true,
+      "result": "referrer-policy-not-implemented",
+      "scoreModifier": 0,
+      "data": null,
+      "http": false,
+      "meta": false
+    },
+    "strict-transport-security": {
+      "expectation": "hsts-implemented-max-age-at-least-six-months",
+      "pass": true,
+      "result": "hsts-implemented-max-age-at-least-six-months",
+      "scoreModifier": 0,
+      "data": "max-age=31536000; includeSubDomains",
+      "includeSubDomains": true,
+      "maxAge": 31536000,
+      "preload": false,
+      "preloaded": false
+    },
+    "subresource-integrity": {
+      "expectation": "sri-implemented-and-external-scripts-loaded-securely",
+      "pass": true,
+      "result": "sri-not-implemented-but-all-scripts-loaded-from-secure-origin",
+      "scoreModifier": 0,
+      "data": {}
+    },
+    "x-content-type-options": {
+      "expectation": "x-content-type-options-nosniff",
+      "pass": true,
+      "result": "x-content-type-options-nosniff",
+      "scoreModifier": 0,
+      "data": "nosniff"
+    },
+    "x-frame-options": {
+      "expectation": "x-frame-options-sameorigin-or-deny",
+      "pass": true,
+      "result": "x-frame-options-sameorigin-or-deny",
+      "scoreModifier": 0,
+      "data": "DENY"
+    },
+    "cross-origin-resource-policy": {
+      "expectation": "corp-implemented-with-same-site",
+      "pass": true,
+      "result": "corp-not-implemented",
+      "scoreModifier": 0,
+      "data": null,
+      "http": false,
+      "meta": false
+    }
+  }
+}
