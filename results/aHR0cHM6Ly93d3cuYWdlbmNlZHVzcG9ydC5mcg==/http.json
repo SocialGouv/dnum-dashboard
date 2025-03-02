@@ -1,0 +1,153 @@
+{
+  "scan": {
+    "algorithmVersion": 4,
+    "grade": "C",
+    "error": null,
+    "score": 55,
+    "statusCode": 200,
+    "testsFailed": 3,
+    "testsPassed": 7,
+    "testsQuantity": 10,
+    "responseHeaders": {
+      "server": "nginx",
+      "date": "Sun, 02 Mar 2025 06:19:10 GMT",
+      "content-type": "text/html; charset=UTF-8",
+      "transfer-encoding": "chunked",
+      "connection": "close",
+      "strict-transport-security": "max-age=31536000; includeSubDomains; preload, max-age=63072000; includeSubdomains",
+      "x-content-type-options": "nosniff",
+      "cache-control": "must-revalidate, no-cache, private",
+      "content-language": "fr",
+      "x-frame-options": "sameorigin",
+      "expires": "-1",
+      "content-security-policy-report-only": "object-src 'none'; script-src 'self' 'report-sample' cdn.jsdelivr.net https://cdnjs.cloudflare.com https://static.addtoany.com https://unpkg.com https://use.fontawesome.com https://www.google.com mdbootstrap.com platform.instagram.com; style-src 'self' 'report-sample' cdn.jsdelivr.net cdnjs.cloudflare.com fonts.googleapis.com https://cdnjs.cloudflare.com mdbootstrap.com use.fontawesome.com; webrtc 'block'; worker-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'",
+      "content-security-policy": "frame-ancestors 'self';",
+      "pragma": "no-cache",
+      "vary": "Accept-Encoding"
+    }
+  },
+  "tests": {
+    "content-security-policy": {
+      "expectation": "csp-implemented-with-no-unsafe",
+      "pass": false,
+      "result": "csp-implemented-with-unsafe-inline",
+      "scoreModifier": -20,
+      "data": {
+        "frame-ancestors": [
+          "'self'"
+        ]
+      },
+      "http": true,
+      "meta": false,
+      "policy": {
+        "antiClickjacking": true,
+        "defaultNone": false,
+        "insecureBaseUri": true,
+        "insecureFormAction": true,
+        "insecureSchemeActive": false,
+        "insecureSchemePassive": false,
+        "strictDynamic": false,
+        "unsafeEval": false,
+        "unsafeInline": true,
+        "unsafeInlineStyle": true,
+        "unsafeObjects": true
+      },
+      "numPolicies": 1
+    },
+    "cookies": {
+      "expectation": "cookies-secure-with-httponly-sessions",
+      "pass": true,
+      "result": "cookies-not-found",
+      "scoreModifier": 0,
+      "data": null,
+      "sameSite": false
+    },
+    "cross-origin-resource-sharing": {
+      "expectation": "cross-origin-resource-sharing-not-implemented",
+      "pass": true,
+      "result": "cross-origin-resource-sharing-not-implemented",
+      "scoreModifier": 0,
+      "data": null
+    },
+    "redirection": {
+      "expectation": "redirection-to-https",
+      "pass": true,
+      "result": "redirection-to-https",
+      "scoreModifier": 0,
+      "destination": "https://www.agencedusport.fr/",
+      "redirects": true,
+      "route": [
+        "http://www.agencedusport.fr/",
+        "https://www.agencedusport.fr/"
+      ],
+      "statusCode": 200
+    },
+    "referrer-policy": {
+      "expectation": "referrer-policy-private",
+      "pass": true,
+      "result": "referrer-policy-not-implemented",
+      "scoreModifier": 0,
+      "data": null,
+      "http": false,
+      "meta": false
+    },
+    "strict-transport-security": {
+      "expectation": "hsts-implemented-max-age-at-least-six-months",
+      "pass": false,
+      "result": "hsts-header-invalid",
+      "scoreModifier": -20,
+      "data": "max-age=31536000; includeSubDomains; preload, max-age=63072000; includeSubdomains",
+      "includeSubDomains": false,
+      "maxAge": null,
+      "preload": false,
+      "preloaded": false
+    },
+    "subresource-integrity": {
+      "expectation": "sri-implemented-and-external-scripts-loaded-securely",
+      "pass": false,
+      "result": "sri-not-implemented-but-external-scripts-loaded-securely",
+      "scoreModifier": -5,
+      "data": {
+        "https://use.fontawesome.com/releases/v5.13.1/js/all.js": {
+          "crossorigin": "anonymous",
+          "integrity": null
+        },
+        "https://use.fontawesome.com/releases/v5.13.1/js/v4-shims.js": {
+          "crossorigin": "anonymous",
+          "integrity": null
+        },
+        "https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js": {
+          "crossorigin": null,
+          "integrity": null
+        },
+        "https://static.addtoany.com/menu/page.js": {
+          "crossorigin": null,
+          "integrity": null
+        }
+      }
+    },
+    "x-content-type-options": {
+      "expectation": "x-content-type-options-nosniff",
+      "pass": true,
+      "result": "x-content-type-options-nosniff",
+      "scoreModifier": 0,
+      "data": "nosniff"
+    },
+    "x-frame-options": {
+      "expectation": "x-frame-options-sameorigin-or-deny",
+      "pass": true,
+      "result": "x-frame-options-implemented-via-csp",
+      "scoreModifier": 5,
+      "data": "sameorigin"
+    },
+    "cross-origin-resource-policy": {
+      "expectation": "corp-implemented-with-same-site",
+      "pass": true,
+      "result": "corp-not-implemented",
+      "scoreModifier": 0,
+      "data": null,
+      "http": false,
+      "meta": false
+    }
+  }
+}
